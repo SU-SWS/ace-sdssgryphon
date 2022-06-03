@@ -1,6 +1,6 @@
-# ACE Gryphon
+# ACE SDSSGryphon
 
-A brief description of My Project.
+This stack is based on the [SU-SWS/ace-gryphon](https://github.com/SU-SWS/ace-gryphon) stack.
 
 ----
 # Provisioning a new site

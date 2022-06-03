@@ -1,5 +1,5 @@
 {
-    "name": "su-sws/ace-gryphon",
+    "name": "su-sws/ace-sdssgryphon",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/drupal",
@@ -112,7 +112,7 @@
         "drupal/mysql56": "^1.1",
         "drupal/paranoia": "^1.9",
         "drush/drush": "^10.3",
-        "su-hkku/cardinal_service_profile": "^8.3"
+        // "su-sws/sdss_profile": "^8.3"    // not setup yet
     },
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
@@ -223,7 +223,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Gryphon\\": "blt/src/"
+            "Sdssgryphon\\": "blt/src/"
         }
     }
 }

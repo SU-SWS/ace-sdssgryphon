@@ -1,4 +1,4 @@
 <?php
 
-$sites['cardinalservice.lndo.site'] = 'cardinalservice';
+$sites['sustainability.lndo.site'] = 'sustainability';
 

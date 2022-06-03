@@ -44,7 +44,7 @@ class GryphonHooksCommands extends BltTasks {
     $root = $this->getConfigValue('repo.root');
     $blt_config = Yaml::decode(file_get_contents("$root/blt/blt.yml"));
     asort($multisites);
-    $blt_config['multisites'] = array_unique($multisites);
+    $blt_config['multisites'] = array_values(array_unique($multisites));
     file_put_contents("$root/blt/blt.yml", Yaml::encode($blt_config));
 
     $this->say(sprintf('Remember to create the cron task. Run <info>gryphon:create-cron</info> to create the new cron job.'));
@@ -101,7 +101,7 @@ class GryphonHooksCommands extends BltTasks {
     // Databases should correlate directly to the site name. Except the default
     // directory which has a different database name. This allows the db scrub
     // drush command to operate on the correct database.
-    $site = $args_options['db_name'] == 'stanfordgryphon' ? 'default' : $args_options['db_name'];
+    $site = $args_options['db_name'] == 'sdssgryphon' ? 'default' : $args_options['db_name'];
     $this->switchSiteContext($site);
   }
 

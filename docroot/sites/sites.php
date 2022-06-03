@@ -57,20 +57,37 @@
  * @see https://www.drupal.org/documentation/install/multi-site
  */
 
+// Create an array of all the site directories in /sites with a settings.php
+// file.
 $sites_settings = glob(__DIR__ . '/*/settings.php');
-foreach ($sites_settings as $site_setting) {
-  $site_setting = str_replace(__DIR__ . '/', '', $site_setting);
-  $site_name = substr($site_setting, 0, strpos($site_setting, '/'));
-  if ($site_name == 'default') {
+
+// Loop through the site directories in the multi-site to point all possible
+// domains to the correct site directory. The domains to point are based on the
+// site directory naming conventions. If a domain and path are not correctly
+// named, they will have to be added to this file manually.
+foreach ($sites_settings as $settings_file) {
+  $site_dir = str_replace(__DIR__ . '/', '', $settings_file);
+  $site_dir = str_replace('/settings.php', '', $site_dir);
+
+  if ($site_dir == 'default') {
     continue;
   }
 
-  $sites["$site_name-dev.sites-pro.stanford.edu"] = $site_name;
-  $sites["$site_name-test.sites-pro.stanford.edu"] = $site_name;
-  $sites["$site_name.sites-pro.stanford.edu"] = $site_name;
-  $sites["$site_name.stanford.edu"] = $site_name;
-  $sites[$site_name] = $site_name;
+  // Get the site name to use for domains from the directory.
+  // Replace underscores "_" in the directory to dashes "-" in the site name.
+  $site_name = str_replace('_', '-', $site_dir);
+
+  // Use the sitename to point all possible domains to the site directory.
+  $sites["$site_name-dev.sites-pro.stanford.edu"] = $site_dir;
+  $sites["$site_name-test.sites-pro.stanford.edu"] = $site_dir;
+  $sites["$site_name.sites-pro.stanford.edu"] = $site_dir;
+  $sites["$site_name.stanford.edu"] = $site_dir;
+  $sites[$site_name] = $site_dir;
 }
+
+// Manually point domains that don't fit naming conventions here.
+// E.g., $sites[<domain>] = "<directory>";
+// E.g., $sites[mysite.stanford.edu] = "my_site";
 
 if (file_exists(__DIR__ . '/local.sites.php')) {
   require __DIR__ . '/local.sites.php';

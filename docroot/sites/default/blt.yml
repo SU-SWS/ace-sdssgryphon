@@ -1,6 +1,6 @@
 project:
-  machine_name: ace-gryphon
+  machine_name: ace-sdssgryphon
 drush:
   aliases:
     local: self
-    remote: ace-gryphon.test
+    remote: ace-sdssgryphon.test

@@ -7,7 +7,7 @@ config:
 proxy:
   appserver:
     - gryphon.lndo.site
-    - cardinalservice.lndo.site
+    - sustainability.lndo.site
 services:
   appserver:
     build_as_root:
@@ -32,12 +32,12 @@ services:
       user: drupal
       password: drupal
       database: drupal
-  cardinalservice:
+  sustainability:
     type: mysql:5.7
     creds:
       user: drupal
       password: drupal
-      database: cardinalservice
+      database: sustainability
   #  gryphon:
   #    creds:
   #      user: drupal

@@ -2,16 +2,16 @@
 project:
   local:
     protocol: https
-    hostname: cardinalservice.lndo.site
-    uri: https://cardinalservice.lndo.site
+    hostname: sustainability.lndo.site
+    uri: https://sustainability.lndo.site
   profile:
-    name: cardinal_service_profile
+    name: sdss_profile
 drupal:
   db:
     username: drupal
     password: drupal
-    host: cardinalservice
-    database: cardinalservice
+    host: sustainability
+    database: sustainability
     port: 3306
 tests:
   selenium:

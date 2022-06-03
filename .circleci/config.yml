@@ -57,7 +57,7 @@ defaults: &defaults
         MYSQL_ALLOW_EMPTY_PASSWORD: 1
   working_directory: /var/www/html
 
-cardinal_service_codeception_acceptance: &cardinal_service_codeception_acceptance
+sdssgryphon_codeception_acceptance: &sdssgryphon_codeception_acceptance
   <<: *defaults
   steps:
     - checkout
@@ -68,10 +68,10 @@ cardinal_service_codeception_acceptance: &cardinal_service_codeception_acceptanc
           composer install --no-interaction
           vendor/bin/blt blt:telemetry:disable --no-interaction
           mkdir -p artifacts/_data
-          vendor/bin/blt circleci:drupal:install --profile=cardinal_service_profile --no-interaction
+          vendor/bin/blt circleci:drupal:install --profile=sdss_profile --no-interaction
           vendor/bin/blt drupal:toggle:modules --no-interaction
           vendor/bin/drush xmlsitemap-regenerate
-          vendor/bin/blt tests:codeception --test=cardinal_service --no-interaction
+          vendor/bin/blt tests:codeception --test=sdss --no-interaction
     - *save_caches
     - store_test_results:
         path: artifacts
@@ -98,8 +98,8 @@ phpunit_coverage: &phpunit_coverage
 
 # Declare all of the jobs we should run.
 jobs:
-  run-cardinal-service-codeception-acceptance:
-    <<: *cardinal_service_codeception_acceptance
+  run-sdss-codeception-acceptance:
+    <<: *sdss_codeception_acceptance
   run-phpunit-coverage:
     <<: *phpunit_coverage
 
@@ -108,5 +108,5 @@ workflows:
   version: 2
   tests:
     jobs:
-      - run-cardinal-service-codeception-acceptance
+      - run-sdss-codeception-acceptance
       - run-phpunit-coverage
