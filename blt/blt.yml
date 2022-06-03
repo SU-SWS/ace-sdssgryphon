@@ -7,7 +7,7 @@ project:
 git:
   default_branch: 1.x
   remotes:
-    - 'sdssgryphon@svn-23450.prod.hosting.acquia.com:sdssgryphon.git'
+    - 'stanfordsos@svn-23450.prod.hosting.acquia.com:stanfordsos.git'
 deploy:
   tag_source: false
   exclude_file: '${repo.root}/blt/deploy/rsync-exclude.txt'
@@ -79,7 +79,7 @@ validate:
 cloud:
   appId: f7e9fc1b-062d-4ed8-baf7-ae33551f8934
 keys_rsync:
-  ssh: sdssgryphon@svn-23450.prod.hosting.acquia.com:sdssgryphon.git
+  ssh: stanfordsos.prod@ded-24959.prod.hosting.acquia.com
   files:
-    - /mnt/gfs/sdssgryphon.prod/nobackup/simplesamlphp/
-    - /mnt/gfs/sdssgryphon.prod/secrets.settings.php
+    - /mnt/gfs/stanfordsos.prod/nobackup/simplesamlphp/
+    - /mnt/gfs/stanfordsos.prod/secrets.settings.php

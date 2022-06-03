@@ -2,54 +2,54 @@ local:
   uri: default
   root: '${env.cwd}/docroot'
 dev:
-  root: /var/www/html/sdssgryphon.dev/docroot
-  ac-site: sdssgryphon
+  root: /var/www/html/stanfordsos.dev/docroot
+  ac-site: stanfordsos
   ac-env: dev
   ac-realm: prod
-  uri: sdssgryphondev.prod.acquia-sites.com
+  uri: stanfordsosdev.prod.acquia-sites.com
   dev.livedev:
-    parent: '@sdssgryphon.dev'
-    root: /mnt/gfs/sdssgryphon.dev/livedev/docroot
-  host: sdssgryphondev.ssh.prod.acquia-sites.com
-  user: sdssgryphon.dev
+    parent: '@stanfordsos.dev'
+    root: /mnt/gfs/stanfordsos.dev/livedev/docroot
+  host: stanfordsosdev.ssh.prod.acquia-sites.com
+  user: stanfordsos.dev
   paths:
     drush-script: drush9
 prod:
-  root: /var/www/html/sdssgryphon.prod/docroot
-  ac-site: sdssgryphon
+  root: /var/www/html/stanfordsos.prod/docroot
+  ac-site: stanfordsos
   ac-env: prod
   ac-realm: prod
-  uri: sdssgryphon.prod.acquia-sites.com
+  uri: stanfordsos.prod.acquia-sites.com
   prod.livedev:
-    parent: '@sdssgryphon.prod'
-    root: /mnt/gfs/sdssgryphon.prod/livedev/docroot
-  host: sdssgryphon.ssh.prod.acquia-sites.com
-  user: sdssgryphon.prod
+    parent: '@stanfordsos.prod'
+    root: /mnt/gfs/stanfordsos.prod/livedev/docroot
+  host: stanfordsos.ssh.prod.acquia-sites.com
+  user: stanfordsos.prod
   paths:
     drush-script: drush9
 ra:
-  root: /var/www/html/sdssgryphon.ra/docroot
-  ac-site: sdssgryphon
+  root: /var/www/html/stanfordsos.ra/docroot
+  ac-site: stanfordsos
   ac-env: ra
   ac-realm: prod
-  uri: sdssgryphonra.prod.acquia-sites.com
+  uri: stanfordsosra.prod.acquia-sites.com
   ra.livedev:
-    parent: '@sdssgryphon.ra'
-    root: /mnt/gfs/sdssgryphon.ra/livedev/docroot
-  host: sdssgryphonra.ssh.prod.acquia-sites.com
-  user: sdssgryphon.ra
+    parent: '@stanfordsos.ra'
+    root: /mnt/gfs/stanfordsos.ra/livedev/docroot
+  host: stanfordsosra.ssh.prod.acquia-sites.com
+  user: stanfordsos.ra
   paths:
     drush-script: drush9
 test:
-  root: /var/www/html/sdssgryphon.test/docroot
-  ac-site: sdssgryphon
+  root: /var/www/html/stanfordsos.test/docroot
+  ac-site: stanfordsos
   ac-env: test
   ac-realm: prod
-  uri: sdssgryphonstg.prod.acquia-sites.com
+  uri: stanfordsosstg.prod.acquia-sites.com
   test.livedev:
-    parent: '@sdssgryphon.test'
-    root: /mnt/gfs/sdssgryphon.test/livedev/docroot
-  host: sdssgryphonstg.ssh.prod.acquia-sites.com
-  user: sdssgryphon.test
+    parent: '@stanfordsos.test'
+    root: /mnt/gfs/stanfordsos.test/livedev/docroot
+  host: stanfordsosstg.ssh.prod.acquia-sites.com
+  user: stanfordsos.test
   paths:
     drush-script: drush9

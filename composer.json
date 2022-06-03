@@ -223,7 +223,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Sdssgryphon\\": "blt/src/"
+            "SdssGryphon\\": "blt/src/"
         }
     }
 }
