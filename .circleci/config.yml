@@ -98,8 +98,8 @@ phpunit_coverage: &phpunit_coverage
 
 # Declare all of the jobs we should run.
 jobs:
-  run-sdss-codeception-acceptance:
-    <<: *sdss_codeception_acceptance
+  run-sdssgryphon-codeception-acceptance:
+    <<: *sdssgryphon_codeception_acceptance
   run-phpunit-coverage:
     <<: *phpunit_coverage
 
@@ -108,5 +108,5 @@ workflows:
   version: 2
   tests:
     jobs:
-      - run-sdss-codeception-acceptance
+      - run-sdssgryphon-codeception-acceptance
       - run-phpunit-coverage
