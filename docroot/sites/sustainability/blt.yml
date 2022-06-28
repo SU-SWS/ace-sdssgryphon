@@ -1,0 +1,12 @@
+project:
+  machine_name: sustainability
+  human_name: sustainability
+  local:
+    protocol: http
+    hostname: local.sustainability.com
+drush:
+  aliases:
+    local: sustainability.local
+    remote: sustainability.prod
+drupal:
+  db: {  }

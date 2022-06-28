@@ -51,6 +51,7 @@ cm:
   allow-overrides: true
 multisites:
   - default
+  - sustainability
 tests:
   reports:
     localDir: '${repo.root}/artifacts'
