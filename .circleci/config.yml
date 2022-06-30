@@ -88,6 +88,7 @@ phpunit_coverage: &phpunit_coverage
           composer install --no-interaction
           vendor/bin/blt blt:telemetry:disable --no-interaction
           vendor/bin/blt circleci:drupal:setup --no-interaction
+          drush pmu simplesamlphp_auth -y
           vendor/bin/blt tests:phpunit:coverage --no-interaction
     - *save_caches
     - store_test_results:
