@@ -69,7 +69,6 @@ sdssgryphon_codeception_acceptance: &sdssgryphon_codeception_acceptance
           vendor/bin/blt blt:telemetry:disable --no-interaction
           mkdir -p artifacts/_data
           vendor/bin/blt circleci:drupal:install --profile=sdss_profile --no-interaction
-          vendor/bin/blt drupal:toggle:modules --no-interaction
           vendor/bin/drush xmlsitemap-regenerate
           vendor/bin/blt tests:codeception --test=sdss --no-interaction
     - *save_caches
