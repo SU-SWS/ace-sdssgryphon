@@ -69,6 +69,7 @@ sdssgryphon_codeception_acceptance: &sdssgryphon_codeception_acceptance
           vendor/bin/blt blt:telemetry:disable --no-interaction
           mkdir -p artifacts/_data
           vendor/bin/blt circleci:drupal:install --profile=sdss_profile --no-interaction
+          drush pmu simplesamlphp_auth -y
           vendor/bin/drush xmlsitemap-regenerate
           vendor/bin/blt tests:codeception --test=sdss --no-interaction
     - *save_caches
@@ -88,7 +89,6 @@ phpunit_coverage: &phpunit_coverage
           composer install --no-interaction
           vendor/bin/blt blt:telemetry:disable --no-interaction
           vendor/bin/blt circleci:drupal:setup --no-interaction
-          drush pmu simplesamlphp_auth -y
           vendor/bin/blt tests:phpunit:coverage --no-interaction
     - *save_caches
     - store_test_results:
