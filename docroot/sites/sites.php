@@ -96,3 +96,9 @@ foreach ($sites_settings as $settings_file) {
 if (file_exists(__DIR__ . '/local.sites.php')) {
   require __DIR__ . '/local.sites.php';
 }
+
+// Include fallback option for site specification.
+$file = '/mnt/files/' . getenv('AH_SITE_GROUP') . '.' . getenv('AH_SITE_ENVIRONMENT') . '/sdssgryphon-sites.php';
+if (file_exists($file)) {
+  require $file;
+}
