@@ -1,12 +1,12 @@
 local:
-  uri: sustainability.sites-pro.stanford.edu
+  uri: sustainability.stanford.edu
   root: '${env.cwd}/docroot'
 dev:
   root: /var/www/html/stanfordsos.dev/docroot
   ac-site: stanfordsos
   ac-env: dev
   ac-realm: prod
-  uri: sustainability.sites-pro.stanford.edu
+  uri: sustainability-dev.stanford.edu
   dev.livedev:
     parent: '@stanfordsos.dev'
     root: /mnt/gfs/stanfordsos.dev/livedev/docroot
@@ -17,7 +17,7 @@ prod:
   ac-site: stanfordsos
   ac-env: prod
   ac-realm: prod
-  uri: sustainability.sites-pro.stanford.edu
+  uri: sustainability.stanford.edu
   prod.livedev:
     parent: '@stanfordsos.prod'
     root: /mnt/gfs/stanfordsos.prod/livedev/docroot
@@ -28,7 +28,7 @@ ra:
   ac-site: stanfordsos
   ac-env: ra
   ac-realm: prod
-  uri: sustainability.sites-pro.stanford.edu
+  uri: sustainability.stanford.edu
   ra.livedev:
     parent: '@stanfordsos.ra'
     root: /mnt/gfs/stanfordsos.ra/livedev/docroot
@@ -39,7 +39,7 @@ test:
   ac-site: stanfordsos
   ac-env: test
   ac-realm: prod
-  uri: sustainability.sites-pro.stanford.edu
+  uri: sustainability-test.stanford.edu
   test.livedev:
     parent: '@stanfordsos.test'
     root: /mnt/gfs/stanfordsos.test/livedev/docroot
