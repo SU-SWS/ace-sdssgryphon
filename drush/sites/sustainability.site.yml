@@ -17,7 +17,7 @@ prod:
   ac-site: stanfordsos
   ac-env: prod
   ac-realm: prod
-  uri: sustainability.stanford.edu
+  uri: sustainability-prod.stanford.edu
   prod.livedev:
     parent: '@stanfordsos.prod'
     root: /mnt/gfs/stanfordsos.prod/livedev/docroot
