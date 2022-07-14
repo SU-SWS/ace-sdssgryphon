@@ -99,7 +99,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "acquia/blt": "^13.4",
+        "acquia/blt": "^13.5",
         "acquia/blt-simplesamlphp": "^1.0",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6",
@@ -112,7 +112,7 @@
         "drupal/menu_block": "dev-1.x#17bc5a2094dec85a921fdac6aff0030bfe004744",
         "drupal/mysql56": "^1.1",
         "drupal/paranoia": "^1.9",
-        "drush/drush": "^11.0.5",
+        "drush/drush": "^11.1",
         "simplesamlphp/simplesamlphp": "^1.19",
         "su-sws/sdss_profile": "1.x-dev"
     },
