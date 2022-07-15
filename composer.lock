@@ -15683,7 +15683,11 @@
             "support": {
                 "source": "https://github.com/SU-SWS/sdss_profile/tree/1.x"
             },
+<<<<<<< HEAD
             "time": "2022-07-18T21:54:20+00:00"
+=======
+            "time": "2022-07-15T17:17:50+00:00"
+>>>>>>> Updated sdss_profile
         },
         {
             "name": "su-sws/stanford_actions",
