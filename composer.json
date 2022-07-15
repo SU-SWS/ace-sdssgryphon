@@ -128,7 +128,7 @@
     },
     "conflict": {
         "drupal/drupal": "*",
-        "symfony/string": ">=6.0"
+        "php": ">=8.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
