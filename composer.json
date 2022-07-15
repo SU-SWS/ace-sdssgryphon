@@ -99,7 +99,7 @@
     ],
     "require": {
         "php": ">=8.0",
-        "acquia/blt": "13.4",
+        "acquia/blt": "^13.4",
         "acquia/blt-simplesamlphp": "^1.0",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6",
@@ -126,7 +126,8 @@
         "drupal/coder": "*"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "symfony/string": ">=6.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
