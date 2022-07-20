@@ -32,7 +32,7 @@ class GryphonHooksCommands extends BltTasks {
       $multisites[] = $site_name;
       if (count($alias) != count($default_alias)) {
         foreach ($default_alias as $environment => $env_alias) {
-          $env_alias['uri'] = "$site_name.stanford.edu";
+          $env_alias['uri'] = $this->getAliasUrl($site_name, $environment);
           $alias[$environment] = $env_alias;
         }
       }
@@ -136,6 +136,31 @@ class GryphonHooksCommands extends BltTasks {
       ->drush('sqlq')
       ->arg('truncate config_pages__su_site_url')
       ->run();
+  }
+
+  /**
+   * Get the url for the drush alias.
+   *
+   * @param string $site_name
+   *   Site machine name, same as the directory.
+   * @param string $environment
+   *   Acquia environment.
+   *
+   * @return string
+   *   Url that can be used in drush.
+   */
+  protected function getAliasUrl($site_name, $environment) {
+    $site_name = str_replace('_', '-', str_replace('__', '.', $site_name));
+    if ($environment == 'local') {
+      return $site_name;
+    }
+
+    $site_url = explode('.', $site_name, 2);
+    if (count($site_url) >= 2) {
+      [$site, $subdomain] = $site_url;
+      return "$site-$environment.$subdomain.stanford.edu";
+    }
+    return "$site_name-$environment.stanford.edu";
   }
 
 }
