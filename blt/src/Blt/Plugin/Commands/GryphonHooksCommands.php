@@ -32,7 +32,7 @@ class GryphonHooksCommands extends BltTasks {
       $multisites[] = $site_name;
       if (count($alias) != count($default_alias)) {
         foreach ($default_alias as $environment => $env_alias) {
-          $env_alias['uri'] = "$site_name.sites-pro.stanford.edu";
+          $env_alias['uri'] = "$site_name.stanford.edu";
           $alias[$environment] = $env_alias;
         }
       }
