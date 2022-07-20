@@ -149,7 +149,7 @@ class GryphonHooksCommands extends BltTasks {
    * @return string
    *   Url that can be used in drush.
    */
-  protected function getAliasUrl($site_name, $environment) {
+  protected function getAliasUrl($site_name, $environment): string {
     $site_name = str_replace('_', '-', str_replace('__', '.', $site_name));
     if ($environment == 'local') {
       return $site_name;
