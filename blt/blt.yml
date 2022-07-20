@@ -52,6 +52,7 @@ cm:
 multisites:
   - default
   - sustainability
+  - woods
 tests:
   reports:
     localDir: '${repo.root}/artifacts'
