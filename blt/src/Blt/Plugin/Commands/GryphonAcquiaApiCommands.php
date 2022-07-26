@@ -56,22 +56,21 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
   }
 
   /**
-   * Add a new domain to the site Acqioa emvorpm,emt.
+   * Add a domain to Acquia environment.
+   *
+   * @param string $environment
+   *   Environment: dev, test, or prod.
+   * @param string $domains
+   *   Comma separated new domain to add.
    *
    * @command gryphon:add-domain
    * @aliases grad
-   *
-   * @param string $environment
-   *   Acquia environment name: `dev`, `test`, or `prod`.
-   * @param string $new_domain
-   *   New stanford.edu domain.
    */
-  public function addDomain($environment, $new_domain = '') {
+  public function humsciAddDomain($environment, $domains) {
     $this->connectAcquiaApi();
-    if (empty($new_domain)) {
-      $new_domain = $this->getNewDomain('What is the new url (without the protocol)?');
+    foreach (explode(',', $domains) as $domain) {
+      $this->say($this->acquiaDomains->create($this->getEnvironmentUuid($environment), $domain)->message);
     }
-    $this->say($this->acquiaDomains->create($this->getEnvironmentUuid($environment), $new_domain)->message);
   }
 
   /**
