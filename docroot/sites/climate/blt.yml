@@ -1,0 +1,12 @@
+project:
+  machine_name: climate
+  human_name: climate
+  local:
+    protocol: http
+    hostname: local.climate.com
+drush:
+  aliases:
+    local: climate.local
+    remote: climate.prod
+drupal:
+  db: {  }

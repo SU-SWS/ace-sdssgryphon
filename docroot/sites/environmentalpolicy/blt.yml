@@ -1,0 +1,12 @@
+project:
+  machine_name: environmentalpolicy
+  human_name: environmentalpolicy
+  local:
+    protocol: http
+    hostname: local.environmentalpolicy.com
+drush:
+  aliases:
+    local: environmentalpolicy.local
+    remote: environmentalpolicy.prod
+drupal:
+  db: {  }

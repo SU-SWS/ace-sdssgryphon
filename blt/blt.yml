@@ -50,8 +50,20 @@ cm:
   strategy: config-split
   allow-overrides: true
 multisites:
+  - climate
   - default
+  - energy
+  - environment_ecosystems
+  - environmentalbehavior
+  - environmentalpolicy
+  - geophysics
+  - gs
+  - hopkinsmarinestation
+  - naturalcapitalproject
+  - oceans
+  - planetary
   - sustainability
+  - water
   - woods
 tests:
   reports:

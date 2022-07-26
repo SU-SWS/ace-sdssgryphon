@@ -1,0 +1,12 @@
+project:
+  machine_name: environmentalbehavior
+  human_name: environmentalbehavior
+  local:
+    protocol: http
+    hostname: local.environmentalbehavior.com
+drush:
+  aliases:
+    local: environmentalbehavior.local
+    remote: environmentalbehavior.prod
+drupal:
+  db: {  }

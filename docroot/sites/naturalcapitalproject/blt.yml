@@ -1,0 +1,12 @@
+project:
+  machine_name: naturalcapitalproject
+  human_name: naturalcapitalproject
+  local:
+    protocol: http
+    hostname: local.naturalcapitalproject.com
+drush:
+  aliases:
+    local: naturalcapitalproject.local
+    remote: naturalcapitalproject.prod
+drupal:
+  db: {  }

@@ -1,0 +1,12 @@
+project:
+  machine_name: water
+  human_name: water
+  local:
+    protocol: http
+    hostname: local.water.com
+drush:
+  aliases:
+    local: water.local
+    remote: water.prod
+drupal:
+  db: {  }
