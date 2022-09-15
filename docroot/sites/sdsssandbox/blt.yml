@@ -1,0 +1,12 @@
+project:
+  machine_name: sdsssandbox
+  human_name: sdsssandbox
+  local:
+    protocol: http
+    hostname: local.sdsssandbox.com
+drush:
+  aliases:
+    local: sdsssandbox.local
+    remote: sdsssandbox.prod
+drupal:
+  db: {  }
