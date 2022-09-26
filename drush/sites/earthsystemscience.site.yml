@@ -1,0 +1,47 @@
+local:
+  uri: earthsystemscience
+  root: '${env.cwd}/docroot'
+dev:
+  root: /var/www/html/stanfordsos.dev/docroot
+  ac-site: stanfordsos
+  ac-env: dev
+  ac-realm: prod
+  uri: earthsystemscience-dev.stanford.edu
+  dev.livedev:
+    parent: '@stanfordsos.dev'
+    root: /mnt/gfs/stanfordsos.dev/livedev/docroot
+  host: stanfordsosdev.ssh.prod.acquia-sites.com
+  user: stanfordsos.dev
+prod:
+  root: /var/www/html/stanfordsos.prod/docroot
+  ac-site: stanfordsos
+  ac-env: prod
+  ac-realm: prod
+  uri: earthsystemscience-prod.stanford.edu
+  prod.livedev:
+    parent: '@stanfordsos.prod'
+    root: /mnt/gfs/stanfordsos.prod/livedev/docroot
+  host: stanfordsos.ssh.prod.acquia-sites.com
+  user: stanfordsos.prod
+ra:
+  root: /var/www/html/stanfordsos.ra/docroot
+  ac-site: stanfordsos
+  ac-env: ra
+  ac-realm: prod
+  uri: earthsystemscience-ra.stanford.edu
+  ra.livedev:
+    parent: '@stanfordsos.ra'
+    root: /mnt/gfs/stanfordsos.ra/livedev/docroot
+  host: stanfordsosra.ssh.prod.acquia-sites.com
+  user: stanfordsos.ra
+test:
+  root: /var/www/html/stanfordsos.test/docroot
+  ac-site: stanfordsos
+  ac-env: test
+  ac-realm: prod
+  uri: earthsystemscience-test.stanford.edu
+  test.livedev:
+    parent: '@stanfordsos.test'
+    root: /mnt/gfs/stanfordsos.test/livedev/docroot
+  host: stanfordsosstg.ssh.prod.acquia-sites.com
+  user: stanfordsos.test
