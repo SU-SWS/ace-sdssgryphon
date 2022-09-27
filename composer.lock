@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b65edf6564e9d2891379f304988fc33",
+    "content-hash": "c0ab9975bfd19ca31137d53336279ab8",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1898,38 +1898,32 @@
         },
         {
             "name": "drupal/acquia_connector",
-            "version": "3.0.5",
+            "version": "dev-4.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/acquia_connector.git",
-                "reference": "3.0.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/acquia_connector-3.0.5.zip",
-                "reference": "3.0.5",
-                "shasum": "2fd289e2f42cc2760a3129e6442e68871ba6667f"
+                "reference": "09948132de0a903792edc2e78b66400af77f4da3"
             },
             "require": {
-                "drupal/core": ">=8.9 <11.0.0-stable",
+                "drupal/core": ">=9.1 <11.0.0-stable",
                 "ext-json": "*"
             },
             "type": "drupal-module",
             "extra": {
-                "drupal": {
-                    "version": "3.0.5",
-                    "datestamp": "1661275956",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
                 "branch-alias": {
-                    "dev-3.x": "3.x-dev"
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "4.0.0-beta4+2-dev",
+                    "datestamp": "1663018381",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
                 },
                 "drush": {
                     "services": {
-                        "drush.services.yml": "^9 || ^10"
+                        "drush.services.yml": ">=9"
                     }
                 }
             },
@@ -1941,10 +1935,6 @@
                 {
                     "name": "acquia",
                     "homepage": "https://www.drupal.org/user/1231722"
-                },
-                {
-                    "name": "blueminds",
-                    "homepage": "https://www.drupal.org/user/128652"
                 },
                 {
                     "name": "Dane Powell",
@@ -26917,6 +26907,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/acquia_connector": 20,
         "drupal/menu_block": 20,
         "su-sws/blt-sws": 20
     },
