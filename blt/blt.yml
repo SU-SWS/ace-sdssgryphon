@@ -50,18 +50,27 @@ cm:
   strategy: config-split
   allow-overrides: true
 multisites:
+  - changeleadership
   - climate
+  - climatechange
   - default
+  - eiper
   - energy
   - environment_ecosystems
   - environmentalbehavior
   - environmentalpolicy
+  - ese
+  - esys
+  - farm
   - geophysics
   - gs
+  - hawaii
   - hopkinsmarinestation
   - naturalcapitalproject
   - oceans
   - planetary
+  - sdsssandbox
+  - sdssuserguide
   - sustainability
   - water
   - woods

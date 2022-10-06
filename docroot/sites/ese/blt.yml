@@ -1,0 +1,12 @@
+project:
+  machine_name: ese
+  human_name: ese
+  local:
+    protocol: http
+    hostname: local.ese.com
+drush:
+  aliases:
+    local: ese.local
+    remote: ese.prod
+drupal:
+  db: {  }

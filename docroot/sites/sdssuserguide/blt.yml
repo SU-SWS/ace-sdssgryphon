@@ -1,0 +1,12 @@
+project:
+  machine_name: sdssuserguide
+  human_name: sdssuserguide
+  local:
+    protocol: http
+    hostname: local.sdssuserguide.com
+drush:
+  aliases:
+    local: sdssuserguide.local
+    remote: sdssuserguide.prod
+drupal:
+  db: {  }
