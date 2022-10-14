@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9858542b3ffaf1a6d30c68033bba8f7b",
+    "content-hash": "8d7ce90aec39fbe5be0037cdf3315dd0",
     "packages": [
         {
             "name": "acquia/blt",
@@ -1221,22 +1221,21 @@
         },
         {
             "name": "consolidation/site-alias",
-            "version": "3.1.6",
+            "version": "3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/site-alias.git",
-                "reference": "9161e4339eb091450b77ba9790eab0a2fd49a5bd"
+                "reference": "ef2eb7d37e59b3d837b4556d4d8070cb345b378c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/site-alias/zipball/9161e4339eb091450b77ba9790eab0a2fd49a5bd",
-                "reference": "9161e4339eb091450b77ba9790eab0a2fd49a5bd",
+                "url": "https://api.github.com/repos/consolidation/site-alias/zipball/ef2eb7d37e59b3d837b4556d4d8070cb345b378c",
+                "reference": "ef2eb7d37e59b3d837b4556d4d8070cb345b378c",
                 "shasum": ""
             },
             "require": {
                 "consolidation/config": "^1.2.1 || ^2",
                 "php": ">=5.5.0",
-                "symfony/filesystem": "^4.4 || ^5.4 || ^6",
                 "symfony/finder": "~2.3 || ^3 || ^4.4 || ^5 || ^6"
             },
             "require-dev": {
@@ -1274,9 +1273,9 @@
             "description": "Manage alias records for local and remote sites.",
             "support": {
                 "issues": "https://github.com/consolidation/site-alias/issues",
-                "source": "https://github.com/consolidation/site-alias/tree/3.1.6"
+                "source": "https://github.com/consolidation/site-alias/tree/3.1.5"
             },
-            "time": "2022-10-11T21:31:57+00:00"
+            "time": "2022-02-23T23:59:18+00:00"
         },
         {
             "name": "consolidation/site-process",
@@ -1898,17 +1897,11 @@
         },
         {
             "name": "drupal/acquia_connector",
-            "version": "3.0.5",
+            "version": "dev-4.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/acquia_connector.git",
-                "reference": "3.0.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/acquia_connector-3.0.5.zip",
-                "reference": "3.0.5",
-                "shasum": "2fd289e2f42cc2760a3129e6442e68871ba6667f"
+                "reference": "6c14eb36254ae59ee97999534904f4984cf5c1d9"
             },
             "require": {
                 "drupal/core": ">=8.9 <11.0.0-stable",
@@ -1916,20 +1909,20 @@
             },
             "type": "drupal-module",
             "extra": {
-                "drupal": {
-                    "version": "3.0.5",
-                    "datestamp": "1661275956",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
                 "branch-alias": {
-                    "dev-3.x": "3.x-dev"
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "4.0.0-beta4+12-dev",
+                    "datestamp": "1665784367",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
                 },
                 "drush": {
                     "services": {
-                        "drush.services.yml": "^9 || ^10"
+                        "drush.services.yml": ">=9"
                     }
                 }
             },
@@ -16777,16 +16770,16 @@
         },
         {
             "name": "su-sws/sdss_profile",
-            "version": "1.0.2",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/sdss_profile.git",
-                "reference": "58657eb968e3a8a023c888f6fbdb790c21999e00"
+                "reference": "90573f0b98117d0996f037ef39140befa27845bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/58657eb968e3a8a023c888f6fbdb790c21999e00",
-                "reference": "58657eb968e3a8a023c888f6fbdb790c21999e00",
+                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/90573f0b98117d0996f037ef39140befa27845bc",
+                "reference": "90573f0b98117d0996f037ef39140befa27845bc",
                 "shasum": ""
             },
             "require": {
@@ -16913,6 +16906,7 @@
                 "su-sws/stanford_migrate": "^8.2",
                 "su-sws/stanford_ssp": "^8.2"
             },
+            "default-branch": true,
             "type": "drupal-custom-profile",
             "extra": {
                 "drush": {
@@ -16961,9 +16955,9 @@
             ],
             "description": "Installation Profile for the Stanford Doerr School of Sustainability.",
             "support": {
-                "source": "https://github.com/SU-SWS/sdss_profile/tree/1.0.2"
+                "source": "https://github.com/SU-SWS/sdss_profile/tree/1.x"
             },
-            "time": "2022-09-21T22:10:48+00:00"
+            "time": "2022-10-14T20:39:50+00:00"
         },
         {
             "name": "su-sws/stanford_actions",
@@ -26953,7 +26947,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/acquia_connector": 20,
         "drupal/menu_block": 20,
+        "su-sws/sdss_profile": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,
