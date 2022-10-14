@@ -127,6 +127,7 @@
         "drupal/coder": "*"
     },
     "conflict": {
+        "drupal/core": ">=9.4.7",
         "drupal/drupal": "*",
         "symfony/string": ">=6.0"
     },
