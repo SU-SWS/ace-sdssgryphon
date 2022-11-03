@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86ce99415e33dfa159b14e51ed79bea0",
+    "content-hash": "8d7ce90aec39fbe5be0037cdf3315dd0",
     "packages": [
         {
             "name": "acquia/blt",
@@ -7818,8 +7818,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.8+2-dev",
-                    "datestamp": "1666322561",
+                    "version": "8.x-1.9+1-dev",
+                    "datestamp": "1667434044",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -17801,16 +17801,16 @@
         },
         {
             "name": "su-sws/sdss_profile",
-            "version": "dev-SDSS-362--update-stanford-profile-helper",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/sdss_profile.git",
-                "reference": "5da8e359c133c673c0cb9bfe4b8807da95789bb0"
+                "reference": "cea69ff7c0db3c652177cf6735d23da0223fc934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/5da8e359c133c673c0cb9bfe4b8807da95789bb0",
-                "reference": "5da8e359c133c673c0cb9bfe4b8807da95789bb0",
+                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/cea69ff7c0db3c652177cf6735d23da0223fc934",
+                "reference": "cea69ff7c0db3c652177cf6735d23da0223fc934",
                 "shasum": ""
             },
             "require": {
@@ -17944,6 +17944,7 @@
                 "su-sws/stanford_profile_helper": "^9.0",
                 "su-sws/stanford_ssp": "^8.2"
             },
+            "default-branch": true,
             "type": "drupal-custom-profile",
             "extra": {
                 "drush": {
@@ -17996,9 +17997,9 @@
             ],
             "description": "Installation Profile for the Stanford Doerr School of Sustainability.",
             "support": {
-                "source": "https://github.com/SU-SWS/sdss_profile/tree/SDSS-362--update-stanford-profile-helper"
+                "source": "https://github.com/SU-SWS/sdss_profile/tree/1.x"
             },
-            "time": "2022-11-02T21:59:04+00:00"
+            "time": "2022-11-03T22:56:33+00:00"
         },
         {
             "name": "su-sws/stanford_actions",
