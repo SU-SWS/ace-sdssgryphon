@@ -17805,12 +17805,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/sdss_profile.git",
-                "reference": "cea69ff7c0db3c652177cf6735d23da0223fc934"
+                "reference": "90f0baf70783e6e05cf2f55b110a1c744c1a6827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/cea69ff7c0db3c652177cf6735d23da0223fc934",
-                "reference": "cea69ff7c0db3c652177cf6735d23da0223fc934",
+                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/90f0baf70783e6e05cf2f55b110a1c744c1a6827",
+                "reference": "90f0baf70783e6e05cf2f55b110a1c744c1a6827",
                 "shasum": ""
             },
             "require": {
@@ -17976,19 +17976,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Drupal\\jumpstart_ui\\": "modules/jumpstart_ui/src",
-                    "Drupal\\sdss_profile\\": "src/",
-                    "Drupal\\stanford_news\\": "modules/stanford_news/src",
-                    "Drupal\\stanford_intranet\\": "modules/stanford_intranet/src",
-                    "Drupal\\stanford_publication\\": "modules/stanford_publication/src",
-                    "Drupal\\stanford_text_editor\\": "modules/stanford_text_editor/src",
-                    "Drupal\\stanford_notifications\\": "modules/stanford_notifications/src",
-                    "Drupal\\stanford_profile_admin\\": "modules/stanford_profile_admin/src",
-                    "Drupal\\stanford_profile_drush\\": "modules/stanford_profile_drush/src",
-                    "Drupal\\stanford_profile_helper\\": "modules/stanford_profile_helper/src",
-                    "Drupal\\stanford_events_importer\\": "modules/stanford_events/modules/stanford_events_importer/src",
-                    "Drupal\\stanford_person_importer\\": "modules/stanford_person/modules/stanford_person_importer/src",
-                    "Drupal\\stanford_image_styles_preview\\": "modules/stanford_image_styles/modules/stanford_image_styles_preview/src"
+                    "Drupal\\sdss_profile\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -17999,7 +17987,7 @@
             "support": {
                 "source": "https://github.com/SU-SWS/sdss_profile/tree/1.x"
             },
-            "time": "2022-11-03T22:56:33+00:00"
+            "time": "2022-11-04T18:16:05+00:00"
         },
         {
             "name": "su-sws/stanford_actions",
