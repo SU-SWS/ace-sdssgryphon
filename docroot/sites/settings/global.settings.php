@@ -35,6 +35,11 @@ if (EnvironmentDetector::isAhEnv()) {
     $settings['config_readonly_whitelist_patterns'] = [
       'system.menu.*',
       'core.menu.static_menu_link_overrides',
+      'system.theme',
+      'google_tag.container.*',
+      'user.role.*',
+      'system.action.user_add_role_action.*',
+      'system.action.user_remove_role_action.*',
     ];
   }
 }
