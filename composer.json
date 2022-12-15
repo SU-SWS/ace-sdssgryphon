@@ -127,7 +127,8 @@
         "drupal/coder": "*"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "drupal/real_aes": ">=2.5.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
