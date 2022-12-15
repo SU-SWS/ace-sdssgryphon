@@ -103,11 +103,11 @@
         "acquia/blt-simplesamlphp": "^1.0",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6",
-        "drupal/acquia_connector": "dev-4.x",
+        "drupal/acquia_connector": "^4.0",
         "drupal/acquia_purge": "^1.1",
-        "drupal/core": "^9.0",
-        "drupal/core-composer-scaffold": "^9",
-        "drupal/core-recommended": "^9.0",
+        "drupal/core": "~9.4.0",
+        "drupal/core-composer-scaffold": "~9.4.0",
+        "drupal/core-recommended": "~9.4.0",
         "drupal/editor_advanced_link": "^1.8",
         "drupal/menu_block": "dev-1.x#17bc5a2094dec85a921fdac6aff0030bfe004744",
         "drupal/mysql56": "^1.1",
@@ -127,10 +127,7 @@
         "drupal/coder": "*"
     },
     "conflict": {
-        "consolidation/site-alias": ">3.1.5",
-        "drupal/core": ">=9.4.7",
-        "drupal/drupal": "*",
-        "symfony/string": ">=6.0"
+        "drupal/drupal": "*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
