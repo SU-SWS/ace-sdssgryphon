@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "607f56715bdfe95c326c78e6522c5fb4",
+    "content-hash": "60ac723b6b185350ba74fbd181bbab88",
     "packages": [
         {
             "name": "acquia/blt",
@@ -17976,16 +17976,16 @@
         },
         {
             "name": "su-sws/sdss_profile",
-            "version": "dev-SDSS-435--fast_404-page-cache-query-ignore-profile",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/sdss_profile.git",
-                "reference": "e24e67f73007f324f5b7d944ab87d7d7020bf07e"
+                "reference": "b9df5ee76c417d6e6d2f243a3ce6c08ff2c46994"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/e24e67f73007f324f5b7d944ab87d7d7020bf07e",
-                "reference": "e24e67f73007f324f5b7d944ab87d7d7020bf07e",
+                "url": "https://api.github.com/repos/SU-SWS/sdss_profile/zipball/b9df5ee76c417d6e6d2f243a3ce6c08ff2c46994",
+                "reference": "b9df5ee76c417d6e6d2f243a3ce6c08ff2c46994",
                 "shasum": ""
             },
             "require": {
@@ -18121,6 +18121,7 @@
                 "su-sws/stanford_profile_helper": "^9.0",
                 "su-sws/stanford_ssp": "^8.2"
             },
+            "default-branch": true,
             "type": "drupal-custom-profile",
             "extra": {
                 "drush": {
@@ -18140,9 +18141,9 @@
             ],
             "description": "Installation Profile for the Stanford Doerr School of Sustainability.",
             "support": {
-                "source": "https://github.com/SU-SWS/sdss_profile/tree/SDSS-435--fast_404-page-cache-query-ignore-profile"
+                "source": "https://github.com/SU-SWS/sdss_profile/tree/1.x"
             },
-            "time": "2022-12-19T18:35:07+00:00"
+            "time": "2022-12-19T20:56:46+00:00"
         },
         {
             "name": "su-sws/stanford_actions",

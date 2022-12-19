@@ -114,7 +114,7 @@
         "drupal/paranoia": "^1.9",
         "drush/drush": "^11.1",
         "simplesamlphp/simplesamlphp": "^1.19",
-        "su-sws/sdss_profile": "dev-SDSS-435--fast_404-page-cache-query-ignore-profile"
+        "su-sws/sdss_profile": "1.x-dev"
     },
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
