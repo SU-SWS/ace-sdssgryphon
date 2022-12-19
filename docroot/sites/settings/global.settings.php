@@ -60,6 +60,7 @@ $settings['config_sync_directory'] = DRUPAL_ROOT . '/profiles/custom/sdss_profil
 $additionalSettingsFiles = [
   __DIR__ . '/config.settings.php',
   __DIR__ . '/environment_indicator.settings.php',
+  __DIR__ . '/fast404.settings.php',
   __DIR__ . '/google_analytics.settings.php',
   __DIR__ . '/simplesamlphp.settings.php',
   __DIR__ . '/xmlsitemap.settings.php',
