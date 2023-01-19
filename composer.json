@@ -254,7 +254,8 @@
     },
     "conflict": {
         "drupal/drupal": "*",
-        "drupal/real_aes": ">=2.5.0"
+        "drupal/real_aes": ">=2.5.0",
+        "drupal/ui_patterns": ">=1.5.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
