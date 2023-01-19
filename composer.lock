@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d600167b84627116f52876578850d7c",
+    "content-hash": "2a4009ddce9f12aa00ceb15d1b70bfce",
     "packages": [
         {
             "name": "acquia/blt",
@@ -17980,25 +17980,26 @@
         },
         {
             "name": "su-sws/stanford_actions",
-            "version": "8.2.6",
+            "version": "8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_actions.git",
-                "reference": "27cf6b331efdb6698a6040be66d23b37a5861986"
+                "reference": "83c25c0b0418f3871309a7abc1a323dadcfd2b4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_actions/zipball/27cf6b331efdb6698a6040be66d23b37a5861986",
-                "reference": "27cf6b331efdb6698a6040be66d23b37a5861986",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_actions/zipball/83c25c0b0418f3871309a7abc1a323dadcfd2b4e",
+                "reference": "83c25c0b0418f3871309a7abc1a323dadcfd2b4e",
                 "shasum": ""
             },
             "require": {
-                "drupal/core": "^8.8 || ^9.0",
-                "drupal/views_bulk_operations": "^4.1"
+                "drupal/core": "^9.0 || ^10",
+                "drupal/views_bulk_operations": "^4.2"
             },
             "require-dev": {
                 "drupal/smart_date": "^3.4"
             },
+            "default-branch": true,
             "type": "drupal-custom-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -18008,9 +18009,9 @@
             "homepage": "https://github.com/SU-SWS/stanford_actions",
             "support": {
                 "issues": "https://github.com/SU-SWS/stanford_actions/issues",
-                "source": "https://github.com/SU-SWS/stanford_actions/tree/8.2.6"
+                "source": "https://github.com/SU-SWS/stanford_actions/tree/8.x"
             },
-            "time": "2022-10-19T18:27:10+00:00"
+            "time": "2023-01-19T23:26:35+00:00"
         },
         {
             "name": "su-sws/stanford_fields",
@@ -27948,13 +27949,14 @@
         "drupal/views_rss": 5,
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
+        "su-sws/stanford_actions": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "ext-imagick": "*",
-        "php": ">=8.0"
+        "php": ">=8.0",
+        "ext-imagick": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
