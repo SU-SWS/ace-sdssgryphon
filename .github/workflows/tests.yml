@@ -32,11 +32,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            1.x-${{ hashFiles('composer.json') }}-
-            1.x-
+            2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            2.x-${{ hashFiles('composer.json') }}-
+            2.x-
       - name: Run Unit Tests
         # env:
         #   CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
@@ -81,11 +81,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            1.x-${{ hashFiles('composer.json') }}-
-            1.x-
+            2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            2.x-${{ hashFiles('composer.json') }}-
+            2.x-
       - name: Run tests
         run: |
           rm -rf /var/www/html
@@ -141,11 +141,11 @@ jobs:
             docroot/libraries
             docroot/modules/contrib
             docroot/modules/custom
-          key: 1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            1.x-${{ hashFiles('composer.json') }}-
-            1.x-
+            2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            2.x-${{ hashFiles('composer.json') }}-
+            2.x-
       - name: Install Site
         run: |
           rm -rf /var/www/html
@@ -188,11 +188,11 @@ jobs:
 #            docroot/core
 #            docroot/libraries
 #            docroot/modules/contrib
-#          key: 1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+#          key: 2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
 #          restore-keys: |
-#            1.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-#            1.x-${{ hashFiles('composer.json') }}-
-#            1.x-
+#            2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+#            2.x-${{ hashFiles('composer.json') }}-
+#            2.x-
 #      - name: Deploy Artifact
 #        env:
 #          SSH_KEY: ${{secrets.SSH_KEY}}
