@@ -82,11 +82,14 @@ function sdss_subtheme_preprocess_banner(&$variables) {
   // Add button color style class to card wrapper.
   //$variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_button_style', 'sdss-wrapper--button-green');
 
-  // Add banner type class to card wrapper. 3rd variable provides the default  type.
+  // Add banner type class to card wrapper. 3rd variable provides the default type.
   $variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_style', 'sdss-banner-wrapper--default');
 
-  // Center align the headline. 3rd variable provides the default  type.
+  // Center align the headline. 3rd variable provides the default type.
   $variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_headline', 'sdss-banner-wrapper--headline-default');
+
+  // Select height of banner. 3rd variable provides the default type.
+  $variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_height', 'sdss-banner-wrapper--height-default');
 }
 
 /**

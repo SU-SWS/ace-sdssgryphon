@@ -80,3 +80,34 @@
     }
   }
 }
+
+// Variants - banner heights
+.sdss-banner-wrapper--height-default {
+  .su-hero {
+    min-height: 250px;
+  }
+
+  .su-hero__media {
+    min-height: 250px;
+  }
+}
+
+.sdss-banner-wrapper--height-modest {
+  .su-hero {
+    min-height: 350px;
+  }
+
+  .su-hero__media {
+    min-height: 350px;
+  }
+}
+
+.sdss-banner-wrapper--height-tall {
+  .su-hero {
+    min-height: 520px;
+  }
+
+  .su-hero__media {
+    min-height: 520px;
+  }
+}
