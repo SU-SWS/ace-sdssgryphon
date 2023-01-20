@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-//SDSS other site header - Green
+// SDSS other site header - Green
+// Correcting display of main menu bar.
 .fixed-header {
   &.su-lockup.su-lockup--option-a {
     display: unset;
@@ -134,11 +135,46 @@
   }
 }
 
-// SDSS other sites header
+// SDSS Main site header.
+@include grid-media-max('md') {
+  .su-lockup.su-lockup--option-none {
+    .sdss-masthead {
+      background: $sdss-color-blue-light;
+    }
+
+    // Header color outside in the margins.
+    section {
+      position: relative; /* child absolute */
+    }
+
+    section {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        /* fill vertically */
+        top: 0;
+        bottom: 0;
+        width: 9600px;
+        right: calc(100% - 175px);
+        background: $su-color-white;
+      }
+    }
+
+    section {
+      &::after {
+        left: 100%;
+        background: $sdss-color-blue-light;
+      }
+    }
+
+  }
+}
+
+// SDSS other sites (depts/institutes) header in large and up screens
 @include grid-media-min('lg') {
   .fixed-header.su-lockup--option-a,
   .fixed-header.su-lockup--option-b {
-    margin: 0 auto;
     line-height: 2em;
     padding: 0;
 
@@ -247,15 +283,103 @@
   }
 }
 
-// SDSS other sites header responsive tweak.
-@include grid-media-max('lg') {
+// SDSS other sites (depts/institutes) header with a max of medium.
+@include grid-media-max('md') {
   .fixed-header.su-lockup--option-a,
   .fixed-header.su-lockup--option-b {
-    .su-masthead .su-lockup--option-a .su-lockup__cell2 {
-      border-left: none;
-      padding-bottom: 1em;
-      padding-left: 1em;
+    .su-multi-menu {
+      .su-multi-menu__nav-toggle {
+        color: $su-color-white;
+
+        &::after {
+          @include margin(0 auto);
+          display: inline-block;
+          width: 30px;
+          height: 26px;
+          background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
+          content: "";
+        }
+
+        &:focus,
+        &:hover {
+          &:before {
+            background-color: $su-color-white;
+          }
+        }
+
+        &[aria-expanded=true] {
+          &:before {
+            background-color: $su-color-white;
+          }
+
+          &:focus,
+          &:hover {
+            &:before {
+              background-color: $su-color-white;
+            }
+          }
+
+          &::after {
+            width: 22px;
+            background: url("#{$su-image-path}/close-white.svg") no-repeat 3px 0;
+            background-size: 16px 16px;
+          }
+        }
+      }
     }
+  }
+
+  .su-masthead>section:last-of-type {
+    padding-top: 2rem;
+  }
+
+  .fixed-header.su-lockup--option-a,
+  .fixed-header.su-lockup--option-b {
+    .su-lockup--option-a {
+      .su-lockup__cell2 {
+        border-left: none;
+        padding-bottom: 1em;
+        padding-left: 1em;
+      }
+    }
+
+    .su-lockup__cell1,
+    .su-lockup__cell2 {
+      border: none;
+    }
+
+    .su-lockup__line1,
+    .su-lockup__line2 {
+      color: $su-color-white;
+    }
+
+    // Header color outside in the margins.
+    section {
+      position: relative; /* child absolute */
+      background-color: $sdss-color-palo-alto-dark;
+    }
+
+    section {
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        /* fill vertically */
+        top: 0;
+        bottom: 0;
+        width: 9600px;
+        right: calc(100% - 160px);
+        background: $su-color-white;
+      }
+    }
+
+    section {
+      &::after {
+        left: 100%;
+        background: $sdss-color-palo-alto-dark;
+      }
+    }
+
   }
 
   .fixed-header.su-lockup--option-b {
@@ -265,11 +389,52 @@
   }
 }
 
+// SDSS other sites (depts/institutes) header  with a max of extra small.
+@include grid-media-max('xs') {
+  .fixed-header.su-lockup--option-a,
+  .fixed-header.su-lockup--option-b {
+    .su-masthead .su-lockup--option-a .su-lockup__cell2 {
+      padding-left: 0;
+    }
+  }
+
+  .fixed-header.su-lockup--option-a {
+    .su-lockup__line1 {
+      margin-left: 0;
+    }
+  }
+}
+
+// SDSS other sites (depts/institutes) header  with a max of small.
+@include grid-media-max('sm') {
+  .fixed-header.su-lockup--option-a,
+  .fixed-header.su-lockup--option-b {
+    .su-lockup {
+      a {
+        align-items: center;
+        display: inline-flex;
+        gap: 20px;
+        justify-content: flex-start;
+        vertical-align: bottom;
+      }
+    }
+  }
+}
+
 // Removed line 5 from all displays
 .fixed-header.su-lockup--option-a,
 .fixed-header.su-lockup--option-b {
   .su-lockup__line5 {
     display: none;
+  }
+}
+
+// Remove the brand-bar link to right for main site.
+.su-lockup.su-lockup--option-none {
+  .su-brand-bar__container {
+    > span {
+      display: none;
+    }
   }
 }
 

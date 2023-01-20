@@ -94,9 +94,18 @@
 
 // Local footer lockup
 .su-local-footer {
-  .su-lockup__line5,
-  .su-lockup__line1 {
+  .su-lockup__line1,
+  .su-lockup__line2,
+  .su-lockup__line3,
+  .su-lockup__line4,
+  .su-lockup__line5 {
     color: $sdss-color-white;
+  }
+
+  .su-lockup--option-a {
+    .su-lockup__cell1 {
+      border-right: 1px solid $sdss-color-white;
+    }
   }
 
   @include grid-media-max('md') {

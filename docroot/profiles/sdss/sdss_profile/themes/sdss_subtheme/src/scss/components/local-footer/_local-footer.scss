@@ -69,8 +69,25 @@ nav[aria-label^='footer'] {
     color: $sdss-color-white;
   }
 
+  .su-lockup__cell1 {
+    border-color: $sdss-color-white;
+  }
+
   .su-lockup__cell2 {
-    border-left: 2px solid $sdss-color-white;
+    border-color: $sdss-color-white;
+    max-width: unset;
+  }
+
+  .su-lockup--option-h,
+  .su-lockup--option-i,
+  .su-lockup--option-p,
+  .su-lockup--option-s,
+  .su-lockup--option-t {
+    .su-lockup__line4 {
+      &::after {
+        border-color: $sdss-color-white;
+      }
+    }
   }
 
   // Contact us

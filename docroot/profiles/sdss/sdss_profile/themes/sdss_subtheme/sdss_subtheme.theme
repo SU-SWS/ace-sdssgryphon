@@ -12,6 +12,31 @@ function sdss_subtheme_preprocess_html(&$variables) {
   $variables['public'] = (bool) \Drupal::state()->get('sdss_subtheme.public', false);
 }
 
+
+/**
+ * Implements hook_preprocess_page().
+ */
+
+ /**
+ * Prepares variables for the page.html.twig template.
+ * To apply the lockup options to header.
+ */
+
+function sdss_subtheme_preprocess_page(&$variables, $hook) {
+  $variables['hello'] = \Drupal::config('system.site')->get('lockup_settings');
+
+
+  $variables['lockup_option'] = \Drupal::config('config_pages')->get('lockup_settings.su_lockup_options');
+
+
+  $header_logo_option = theme_get_setting('lockup.option');
+
+  $variables['header_logo_option'] = $header_logo_option;
+
+  dpm($variables);
+}
+
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */

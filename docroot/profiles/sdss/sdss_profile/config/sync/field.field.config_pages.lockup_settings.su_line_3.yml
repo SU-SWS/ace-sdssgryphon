@@ -10,7 +10,7 @@ field_name: su_line_3
 entity_type: config_pages
 bundle: lockup_settings
 label: 'Line 3'
-description: 'Tertiary title line.'
+description: ''
 required: false
 translatable: false
 default_value: {  }

@@ -12,6 +12,7 @@ dependencies:
     - field.field.config_pages.lockup_settings.su_line_5
     - field.field.config_pages.lockup_settings.su_lockup_enabled
     - field.field.config_pages.lockup_settings.su_lockup_options
+    - field.field.config_pages.lockup_settings.su_sel_lockup_option
     - field.field.config_pages.lockup_settings.su_upload_logo_image
     - field.field.config_pages.lockup_settings.su_use_theme_logo
   module:
@@ -24,7 +25,6 @@ third_party_settings:
     group_logo_image:
       children:
         - su_use_theme_logo
-        - su_path_to_custom_logo
         - su_upload_logo_image
       label: 'Logo Image'
       parent_name: ''
@@ -44,7 +44,7 @@ third_party_settings:
         attributes: ''
     group_lockup_options:
       children:
-        - su_lockup_options
+        - su_sel_lockup_option
         - su_line_1
         - su_line_2
         - su_line_3
@@ -69,7 +69,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 9
+    weight: 3
     region: content
   su_line_1:
     type: string
@@ -77,7 +77,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 3
+    weight: 12
     region: content
   su_line_2:
     type: string
@@ -85,7 +85,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 4
+    weight: 13
     region: content
   su_line_3:
     type: string
@@ -93,7 +93,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 5
+    weight: 14
     region: content
   su_line_4:
     type: string
@@ -101,7 +101,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 6
+    weight: 15
     region: content
   su_line_5:
     type: string
@@ -109,7 +109,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 7
+    weight: 16
     region: content
   su_lockup_enabled:
     type: boolean
@@ -119,14 +119,14 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 8
+    weight: 2
     region: content
-  su_lockup_options:
+  su_sel_lockup_option:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 2
+    weight: 10
     region: content
   su_upload_logo_image:
     type: image
@@ -151,3 +151,4 @@ content:
     region: content
 hidden:
   search_api_excerpt: true
+  su_lockup_options: true
