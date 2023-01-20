@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a4009ddce9f12aa00ceb15d1b70bfce",
+    "content-hash": "ee4a126ad4827769734f5957dd28f84d",
     "packages": [
         {
             "name": "acquia/blt",
@@ -17980,16 +17980,16 @@
         },
         {
             "name": "su-sws/stanford_actions",
-            "version": "8.x-dev",
+            "version": "8.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_actions.git",
-                "reference": "83c25c0b0418f3871309a7abc1a323dadcfd2b4e"
+                "reference": "513e7c944d747d14da18221d4f2256d3dd1423b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_actions/zipball/83c25c0b0418f3871309a7abc1a323dadcfd2b4e",
-                "reference": "83c25c0b0418f3871309a7abc1a323dadcfd2b4e",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_actions/zipball/513e7c944d747d14da18221d4f2256d3dd1423b8",
+                "reference": "513e7c944d747d14da18221d4f2256d3dd1423b8",
                 "shasum": ""
             },
             "require": {
@@ -17999,7 +17999,6 @@
             "require-dev": {
                 "drupal/smart_date": "^3.4"
             },
-            "default-branch": true,
             "type": "drupal-custom-module",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -18009,9 +18008,9 @@
             "homepage": "https://github.com/SU-SWS/stanford_actions",
             "support": {
                 "issues": "https://github.com/SU-SWS/stanford_actions/issues",
-                "source": "https://github.com/SU-SWS/stanford_actions/tree/8.x"
+                "source": "https://github.com/SU-SWS/stanford_actions/tree/8.2.7"
             },
-            "time": "2023-01-19T23:26:35+00:00"
+            "time": "2023-01-20T18:17:35+00:00"
         },
         {
             "name": "su-sws/stanford_fields",
@@ -27949,7 +27948,6 @@
         "drupal/views_rss": 5,
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
-        "su-sws/stanford_actions": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,
