@@ -9,6 +9,7 @@
     <include>
       <directory>../modules/custom</directory>
       <directory>../profiles/custom</directory>
+      <directory>../profiles/sdss</directory>
     </include>
     <exclude>
       <directory suffix=".post_update.php">../modules/custom/*</directory>
@@ -17,6 +18,8 @@
       <directory>../modules/custom/*/modules/*/tests</directory>
       <directory>../profiles/custom/*/tests</directory>
       <directory>../profiles/custom/*/modules/*/tests</directory>
+      <directory>../profiles/sdss/*/tests</directory>
+      <directory>../profiles/sdss/*/modules/*/tests</directory>
     </exclude>
   </coverage>
   <!-- set printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter" once
@@ -62,6 +65,7 @@
     <testsuite name="stanford">
       <directory>../modules/custom</directory>
       <directory>../profiles/custom</directory>
+      <directory>../profiles/sdss</directory>
     </testsuite>
   </testsuites>
   <listeners>

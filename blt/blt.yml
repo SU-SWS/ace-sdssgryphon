@@ -91,7 +91,7 @@ tests:
       suites:
         - acceptance
         - functional
-      directory: '${docroot}/profiles/custom/sdss_profile/tests/codeception'
+      directory: '${docroot}/profiles/sdss/sdss_profile/tests/codeception'
 validate:
   twig:
     functions:

@@ -360,12 +360,12 @@
     "autoload": {
         "psr-4": {
             "Gryphon\\": "blt/src/",
-            "Drupal\\sdss_profile\\": "docroot/profiles/custom/sdss_profile/src/"
+            "Drupal\\sdss_profile\\": "docroot/profiles/sdss/sdss_profile/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Drupal\\Tests\\sdss_profile\\": "docroot/profiles/custom/sdss_profile/tests/src"
+            "Drupal\\Tests\\sdss_profile\\": "docroot/profiles/sdss/sdss_profile/tests/src"
         }
     }
 }
