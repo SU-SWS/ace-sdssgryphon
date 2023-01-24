@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-//SDSS other site header - Green
+// SDSS other site header - Green
+// Correcting display of main menu bar.
 .fixed-header {
   &.su-lockup.su-lockup--option-a {
     display: unset;
@@ -11,6 +12,7 @@
   }
 }
 
+// For all headers.
 .su-brand-bar__container {
   display: flex;
 
@@ -37,234 +39,6 @@
   }
 }
 
-// Main site heading
-.su-lockup--option-none {
-  .su-lockup__custom-logo {
-    max-width: 150px;
-  }
-
-  &.su-lockup {
-    display: block;
-  }
-}
-
-// SDSS Main site header.
-@include grid-media-min('lg') {
-  .su-lockup.su-lockup--option-none {
-    .su-masthead {
-      margin: 0 auto;
-
-      .sdss-masthead {
-        display: grid;
-        grid-template-columns: 200px 1fr 40px;
-        grid-template-areas: "lockup main-nav search";
-        align-items: flex-end;
-
-        background: $sdss-color-blue-light;
-
-        .su-lockup {
-          grid-area: lockup;
-
-          background: $su-color-white;
-          width: 175px;
-          max-width: unset;
-          padding: 1em 0; //spacing to get the background-color.
-          margin-right: -20px;
-          height: 100%; //to get white to fill when window resized.
-        }
-
-        #sdss-button--search-link {
-          grid-area: search;
-          width: 32px;
-          height: 32px;
-          position: relative;
-          top: 15px;
-          right: unset;
-          align-self: center;
-          background-color: $sdss-color-palo-alto-dark;
-          border-radius: 32px;
-          left: 8px;
-        }
-
-        .su-multi-menu {
-          grid-area: main-nav;
-
-          background-color: $sdss-color-blue-light;
-        }
-      }
-
-      nav+.su-site-search, ul li .su-site-search {
-        display: none; // need to hide extra search that we use for mobile.
-      }
-
-      // add color to the drop down nav bar.
-      .su-multi-menu__menu {
-        &.su-multi-menu__menu-lv1 {
-          background-color: $sdss-color-blue-light;
-        }
-      }
-    }
-
-    // Header color outside in the margins.
-    section {
-      position: relative; /* child absolute */
-    }
-
-    section {
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        /* fill vertically */
-        top: 0;
-        bottom: 0;
-        width: 9600px;
-        right: 100%;
-        background: $su-color-white;
-      }
-    }
-
-    section {
-      &::after {
-        left: 100%;
-        background: $sdss-color-blue-light;
-      }
-    }
-
-  }
-}
-
-// SDSS other sites header
-@include grid-media-min('lg') {
-  .fixed-header.su-lockup--option-a,
-  .fixed-header.su-lockup--option-b {
-    margin: 0 auto;
-    line-height: 2em;
-    padding: 0;
-
-    // logo and taglines
-    .su-lockup__cell1,
-    .su-lockup__cell2 {
-      border-right: 0;
-      border-left: 0;
-    }
-
-    .su-lockup__custom-logo {
-      max-width: 166px;
-    }
-
-    .su-lockup__cell1 {
-      align-self: center;
-      margin-right: 30px;
-      max-width: 192px;
-    }
-
-    .su-lockup__cell2 {
-      margin-right: 30px;
-    }
-
-    .su-lockup__line1,
-    .su-lockup__line2 {
-      color: $su-color-white;
-    }
-
-    .su-lockup__line5 {
-      display: none;
-    }
-
-    .su-lockup__cell2 {
-      border-left: 0;
-      background-color: $sdss-color-palo-alto-dark;
-      padding: 30px 30px 30px;
-      max-width: unset;
-  }
-
-    .sdss-masthead {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-      "lockup lockup lockup"
-      "main-nav main-nav search";
-      align-items: flex-end;
-      column-gap: 40px;
-
-      .su-lockup {
-        grid-area: lockup;
-
-        background: $su-color-white;
-        width: unset;
-        max-width: unset;
-        padding: 0; //spacing to get the background-color.
-        margin-right: -20px;
-      }
-
-      #sdss-button--search-link {
-        grid-area: search;
-        width: 32px;
-        height: 32px;
-        position: relative;
-        top: 0;
-        right: unset;
-        align-self: center;
-        background-color: $sdss-color-palo-alto-dark;
-        border-radius: 32px;
-        left: 8px;
-      }
-
-      .su-multi-menu {
-        grid-area: main-nav;
-      }
-    }
-
-    nav+.su-site-search, ul li .su-site-search {
-      display: none;
-    }
-
-    // Header color outside in the margins.
-    .su-lockup__cell2 {
-      position: relative; /* child absolute */
-    }
-
-    .su-lockup__cell2 {
-      &::after{
-        content: "";
-        position: absolute;
-        /* fill vertically */
-        top: 0;
-        bottom: 0;
-        width: 9600px;
-        right: 100%;
-        background: $sdss-color-palo-alto-dark;
-      }
-    }
-
-    .su-lockup__cell2 {
-      &::after {
-        left: 100%;
-        background: $sdss-color-palo-alto-dark;
-      }
-    }
-  }
-}
-
-// SDSS other sites header responsive tweak.
-@include grid-media-max('lg') {
-  .fixed-header.su-lockup--option-a,
-  .fixed-header.su-lockup--option-b {
-    .su-masthead .su-lockup--option-a .su-lockup__cell2 {
-      border-left: none;
-      padding-bottom: 1em;
-      padding-left: 1em;
-    }
-  }
-
-  .fixed-header.su-lockup--option-b {
-    .su-lockup__line2 {
-      line-height: 1em;
-    }
-  }
-}
-
 // Removed line 5 from all displays
 .fixed-header.su-lockup--option-a,
 .fixed-header.su-lockup--option-b {
@@ -272,6 +46,7 @@
     display: none;
   }
 }
+
 
 // SDSS login page
 @include grid-media-min('lg') {
