@@ -109,5 +109,21 @@
 
   .su-hero__media {
     min-height: 250px;
+
+    @include grid-media-max('sm') {
+      min-height: unset;
+    }
+  }
+}
+
+// Resetting min-height for small and xsmall devices.
+.sdss-banner-wrapper--height-default,
+.sdss-banner-wrapper--height-modest,
+.sdss-banner-wrapper--height-minimal {
+
+  .su-hero__media {
+    @include grid-media-max('sm') {
+      min-height: unset;
+    }
   }
 }
