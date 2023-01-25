@@ -97,42 +97,6 @@
   }
 }
 
-// SDSS Main site header.
-@include grid-media-max('md') {
-  .su-lockup.su-lockup--option-none {
-    .sdss-masthead {
-      background: $sdss-color-blue-light;
-    }
-
-    // Header color outside in the margins.
-    section {
-      position: relative; /* child absolute */
-    }
-
-    section {
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        /* fill vertically */
-        top: 0;
-        bottom: 0;
-        width: 9600px;
-        right: calc(100% - 175px);
-        background: $su-color-white;
-      }
-    }
-
-    section {
-      &::after {
-        left: 100%;
-        background: $sdss-color-blue-light;
-      }
-    }
-
-  }
-}
-
 // Remove the brand-bar link to right for main site.
 .su-lockup.su-lockup--option-none {
   .su-brand-bar__container {

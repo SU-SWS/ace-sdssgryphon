@@ -267,16 +267,34 @@
       background-color: $sdss-color-palo-alto-dark;
     }
 
+    $bottom-h: calc(100% - 70px);
+
     section {
-      &::before,
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 30px;
+      padding-right: 30px;
+      min-width: 100%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        /* fill vertically */
+        top: 0;
+        bottom: $bottom-h;
+        width: 9600px;
+        right: -20%;
+        background: $su-color-white;
+      }
+
       &::after {
         content: "";
         position: absolute;
         /* fill vertically */
         top: 0;
-        bottom: 0;
+        bottom: 190px;
         width: 9600px;
-        right: calc(100% - 160px);
+        right: -20%;
         background: $su-color-white;
       }
     }
