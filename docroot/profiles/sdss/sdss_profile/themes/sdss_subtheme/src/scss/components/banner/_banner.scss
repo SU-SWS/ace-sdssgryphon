@@ -84,11 +84,11 @@
 // Variants - banner heights
 .sdss-banner-wrapper--height-default {
   .su-hero {
-    min-height: 250px;
+    min-height: 520px;
   }
 
   .su-hero__media {
-    min-height: 250px;
+    min-height: 520px;
   }
 }
 
@@ -102,12 +102,12 @@
   }
 }
 
-.sdss-banner-wrapper--height-tall {
+.sdss-banner-wrapper--height-minimal {
   .su-hero {
-    min-height: 520px;
+    min-height: 250px;
   }
 
   .su-hero__media {
-    min-height: 520px;
+    min-height: 250px;
   }
 }

@@ -40,7 +40,7 @@ banner_variant_info:  # part of the key after the :
       options:
         sdss-banner-wrapper--height-default: Default
         sdss-banner-wrapper--height-modest: Modest
-        sdss-banner-wrapper--height-tall: Tall
+        sdss-banner-wrapper--height-minimal: Minimal
     banner_list_style:
       type: select
       title: 'Banner Style'
