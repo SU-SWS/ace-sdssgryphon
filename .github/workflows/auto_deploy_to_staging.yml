@@ -37,10 +37,10 @@ jobs:
             2.x-
       - name: Deploy Artifact
         env:
-          SSH_KEY: ${{secrets.SSH_KEY}}
+          ACQUIA_SSH_KEY: ${{secrets.ACQUIA_SSH_KEY}}
         run: |
           mkdir -p ~/.ssh
-          echo $SSH_KEY | base64 -d > ~/.ssh/id_rsa
+          echo $ACQUIA_SSH_KEY | base64 -d > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           eval `ssh-agent -s`
           ssh-add ~/.ssh/id_rsa
