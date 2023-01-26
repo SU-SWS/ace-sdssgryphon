@@ -32,11 +32,6 @@ services:
     #             }
     #           }
     #         }
-  database:
-    creds:
-      user: drupal
-      password: drupal
-      database: drupal
   sustainability:
     type: mysql:5.7
     creds:

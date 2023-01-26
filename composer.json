@@ -365,8 +365,8 @@
             "vendor/bin/blt recipes:aliases:init:acquia"
         ],
         "sync-sustainability": [
-            "vendor/bin/drush -y rsync @sustainability.prod:%files @sustainability.local:%files",
-            "vendor/bin/drush -y sql:sync @sustainability.prod @sustainability.local"
+            "vendor/bin/blt drupal:sync:files --site=sustainability",
+            "vendor/bin/blt drupal:sync --site=sustainability"
         ]
     },
     "autoload": {

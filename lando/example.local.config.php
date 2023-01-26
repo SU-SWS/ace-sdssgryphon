@@ -15,7 +15,7 @@ $config['authproc.sp'] = [
 
 $config['store.type'] = 'sql';
 $config['store.sql.prefix'] = 'simplesaml';
-$config['store.sql.dsn'] = 'mysql:host=database;dbname=drupal';
+$config['store.sql.dsn'] = 'mysql:host=sustainability;dbname=sustainability';
 $config['store.sql.username'] = 'drupal';
 $config['store.sql.password'] = 'drupal';
 
