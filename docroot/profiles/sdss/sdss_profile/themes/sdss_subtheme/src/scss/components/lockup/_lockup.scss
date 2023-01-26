@@ -58,18 +58,6 @@
       order: 2;
     }
   }
-
-  @include grid-media-max('sm') {
-
-    .su-lockup__cell1 {
-      margin-right: 10px;
-    }
-
-    .su-lockup__line1 {
-      margin-left: 10px;
-    }
-  }
-
 }
 
 @include grid-media-max('md') {

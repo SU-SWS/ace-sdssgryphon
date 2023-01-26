@@ -250,6 +250,17 @@
 @include grid-media-max('sm') {
   .fixed-header.su-lockup--option-a,
   .fixed-header.su-lockup--option-b {
+
+    .su-lockup--option-a {
+      .su-lockup__cell2 {
+        padding-left: 0;
+      }
+    }
+
+    .su-masthead>section:last-of-type {
+      padding-top: 1.5rem;
+    }
+
     .su-lockup {
       a {
         align-items: left;
@@ -267,7 +278,7 @@
       background-color: $sdss-color-palo-alto-dark;
     }
 
-    $bottom-h: calc(100% - 70px);
+    $bottom-h: calc(100% - 65px);
 
     section {
       margin-left: 0;
