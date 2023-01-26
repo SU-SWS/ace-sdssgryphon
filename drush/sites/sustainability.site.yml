@@ -1,5 +1,5 @@
 local:
-  uri: sustainability.lndo.site
+  uri: sustainability.stanford.edu
   root: '${env.cwd}/docroot'
 dev:
   root: /var/www/html/stanfordsos.dev/docroot
