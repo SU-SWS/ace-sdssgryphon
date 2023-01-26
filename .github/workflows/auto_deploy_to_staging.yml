@@ -5,7 +5,8 @@ name: Auto deploy development branch to staging
 
 on:
   push:
-    branches: [2.x] # run on pushes to 2.x
+    branches: [SDSS-474--auto-deploy-staging] # run on pushes to this branch for testing
+    # branches: [2.x] # run on pushes to 2.x
 
 jobs:
    deploy:
