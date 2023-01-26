@@ -40,7 +40,7 @@ jobs:
           ACQUIA_SSH_KEY: ${{secrets.ACQUIA_SSH_KEY}}
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
-          echo $ACQUIA_SSH_KEY > ~/.ssh/id_rsa
+          echo "$ACQUIA_SSH_KEY" > ~/.ssh/id_rsa
           ssh-keyscan -H svn-23450.prod.hosting.acquia.com > ~/.ssh/known_hosts
       - name: Deploy Artifact
         run: |
