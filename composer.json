@@ -262,7 +262,16 @@
     "config": {
         "sort-packages": true,
         "discard-changes": true,
-        "allow-plugins": true
+        "allow-plugins": {
+            "composer/installers": true,
+            "simplesamlphp/composer-module-installer": true,
+            "davidbarratt/custom-installer": true,
+            "drupal/console-extend-plugin": true,
+            "acquia/blt": true,
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true
+        }
     },
     "extra": {
         "drupal-scaffold": {
@@ -348,13 +357,16 @@
         "post-drupal-scaffold-cmd": [
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/htaccess.patch"
         ],
-        "init-lando": [
-            "cp lando/example.env .env",
-            "cp lando/example.lando.yml .lando.yml",
-            "cp lando/example.local.blt.yml blt/local.blt.yml",
-            "cp lando/example.php.ini lando/php.ini",
-            "blt blt:init:settings",
-            "blt source:build:simplesamlphp-config"
+        "init-stack": [
+            "vendor/bin/blt blt:telemetry:disable --no-interaction",
+            "vendor/bin/blt blt:init:settings",
+            "vendor/bin/blt sws:keys",
+            "vendor/bin/blt source:build:simplesamlphp-config",
+            "vendor/bin/blt recipes:aliases:init:acquia"
+        ],
+        "sync-sustainability": [
+            "vendor/bin/drush -y rsync @sustainability.prod:%files @sustainability.local:%files",
+            "vendor/bin/drush -y sql:sync @sustainability.prod @sustainability.local"
         ]
     },
     "autoload": {
