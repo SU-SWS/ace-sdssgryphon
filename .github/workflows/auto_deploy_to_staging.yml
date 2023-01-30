@@ -43,7 +43,6 @@ jobs:
           echo "$ACQUIA_SSH_KEY" > ../private.key
           chmod 600 ../private.key
           ssh-keyscan -H svn-23450.prod.hosting.acquia.com > ~/.ssh/known_hosts
-        shell: bash
       - name: Deploy Artifact
         run: |
           git config --global user.email "sws-developers@lists.stanford.edu"
