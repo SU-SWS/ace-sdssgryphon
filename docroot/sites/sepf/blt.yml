@@ -1,0 +1,12 @@
+project:
+  machine_name: sepf
+  human_name: sepf
+  local:
+    protocol: http
+    hostname: local.sepf.com
+drush:
+  aliases:
+    local: sepf.local
+    remote: sepf.prod
+drupal:
+  db: {  }
