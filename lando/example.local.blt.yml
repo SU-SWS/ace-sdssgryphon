@@ -1,9 +1,9 @@
 # Override any settings as necessary by copying to local.blt.yml
 project:
   local:
-    protocol: https
+    protocol: http
     hostname: sustainability.lndo.site
-    uri: https://sustainability.lndo.site
+    uri: http://sustainability.lndo.site
   profile:
     name: sdss_profile
 drupal:
