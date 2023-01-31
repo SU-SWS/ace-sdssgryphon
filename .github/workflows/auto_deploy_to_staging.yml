@@ -40,8 +40,9 @@ jobs:
           ACQUIA_SSH_KEY: ${{ secrets.ACQUIA_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh/
-          echo "$ACQUIA_SSH_KEY" > ../private.key
-          chmod 600 ../private.key
+          echo "$ACQUIA_SSH_KEY" > ~/.ssh/id_rsa
+          chmod 0600 ~/.ssh/id_rsa
+          ssh-add ~/.ssh/id_rsa
           ssh-keyscan -H svn-23450.prod.hosting.acquia.com > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
       - name: Deploy Artifact
