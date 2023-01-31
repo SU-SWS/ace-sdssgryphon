@@ -42,6 +42,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$ACQUIA_SSH_KEY" > ../private.key
           chmod 600 ../private.key
+          chmod 600 ~/.ssh/known_hosts
           ssh-keyscan -H svn-23450.prod.hosting.acquia.com > ~/.ssh/known_hosts
       - name: Deploy Artifact
         run: |
