@@ -37,7 +37,7 @@ jobs:
             2.x-
       - name: Create SSH Key
         env:
-          ACQUIA_SSH_KEY: ${{secrets.ACQUIA_SSH_KEY}}
+          ACQUIA_SSH_KEY: ${{ secrets.ACQUIA_SSH_KEY }}
         run: |
           mkdir -p ~/.ssh/
           echo "$ACQUIA_SSH_KEY" > ../private.key
