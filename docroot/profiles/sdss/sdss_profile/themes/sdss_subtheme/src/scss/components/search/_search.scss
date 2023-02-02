@@ -3,7 +3,7 @@
 
 // On desktop views, remove the search input field.
 @include grid-media-min('lg') {
-  #block-sdss-subtheme-search {
+  .su-site-search {
     form {
       display: none;
     }
@@ -22,8 +22,10 @@
 }
 
 @include grid-media-max('md') {
-  #sdss-button--search-link {
-    display: none;
+  a {
+    &.su-site-search__submit {
+      display: none;
+    }
   }
 }
 
