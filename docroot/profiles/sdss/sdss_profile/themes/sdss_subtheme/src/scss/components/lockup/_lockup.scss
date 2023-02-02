@@ -8,6 +8,10 @@
       margin-bottom: 0;
     }
 
+    a {
+      flex-wrap: initial;
+    }
+
     .su-lockup__custom-logo {
       max-height: 5rem;
 
@@ -58,18 +62,6 @@
       order: 2;
     }
   }
-
-  @include grid-media-max('sm') {
-
-    .su-lockup__cell1 {
-      margin-right: 10px;
-    }
-
-    .su-lockup__line1 {
-      margin-left: 10px;
-    }
-  }
-
 }
 
 @include grid-media-max('md') {
