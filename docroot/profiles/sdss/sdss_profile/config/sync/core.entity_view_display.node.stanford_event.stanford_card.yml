@@ -33,7 +33,6 @@ dependencies:
   module:
     - address
     - ds
-    - element_class_formatter
     - field_formatter_class
     - link
     - smart_date
@@ -51,7 +50,6 @@ third_party_settings:
     regions:
       start_month:
         - 'dynamic_token_field:node-event_start_month'
-        - su_event_telephone
       start_date:
         - 'dynamic_token_field:node-event_start_day'
       end_month:
@@ -159,15 +157,6 @@ content:
     third_party_settings: {  }
     weight: 6
     region: subheadline
-  su_event_telephone:
-    type: telephone_link_class
-    label: above
-    settings:
-      title: ''
-      class: ''
-    third_party_settings: {  }
-    weight: 26
-    region: start_month
   su_event_type:
     type: entity_reference_label
     label: hidden
@@ -198,6 +187,7 @@ hidden:
   su_event_schedule: true
   su_event_sponsor: true
   su_event_subject: true
+  su_event_telephone: true
   su_metatags: true
   su_sdss_event_topics: true
   su_shared_tags: true
