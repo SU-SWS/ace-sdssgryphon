@@ -30,6 +30,13 @@ nav[aria-label^='footer'] {
     font-weight: $su-font-regular;
   }
 
+  .su-lockup__line2,
+  .su-lockup__line3,
+  .su-lockup__line4,
+  .su-lockup__line5 {
+    color: $sdss-color-white;
+  }
+
   // link sizing.
   .su-local-footer__cell2 {
     font-size: 1.11em;
@@ -69,8 +76,36 @@ nav[aria-label^='footer'] {
     color: $sdss-color-white;
   }
 
+  .su-lockup--option-a {
+    .su-lockup__cell2 {
+      border-left: 1px solid $sdss-color-white;
+      padding-top: 20px;
+      align-self: auto;
+    }
+  }
+
+  .su-lockup--option-b {
+    .su-lockup__cell2 {
+      border-left: 1px solid $sdss-color-white;
+      align-self: auto;
+    }
+  }
+
+  .su-lockup--option-s,
+  .su-lockup--option-t {
+    .su-lockup__cell2 {
+      border-left: none;
+    }
+  }
+
+
   .su-lockup__cell2 {
-    border-left: 2px solid $sdss-color-white;
+    border-left: 1px solid $sdss-color-white;
+    align-self: auto;
+  }
+
+  .su-lockup__cell1 {
+    border: none;
   }
 
   // Contact us
