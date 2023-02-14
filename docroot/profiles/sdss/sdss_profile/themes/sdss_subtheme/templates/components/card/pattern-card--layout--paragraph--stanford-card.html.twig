@@ -72,7 +72,7 @@
 
   {# Card Headline #}
   {%- block block_card_headline  %}
-    {%- if card_headline is not empty %}
+    {%- if card_headline|render|striptags|trim is not empty %}
       <h2 class="su-card__headline">
         {%- if card_allow_headline_link and allow_links -%}
           <a href="{{ card_link }}" {{ card_cta_attributes }}>
