@@ -1,5 +1,32 @@
 # ACE SDSSGryphon
 
+2.0.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-03-08_
+
+- Cancel previous github actions test workflow (#63)
+- SDSS-409: Added earthsystems domain. (#64)
+- SDSS-421: Added Banner Height Variant (#45)
+- SDSS-434: Updated responsive styles for header and lock-up options (#55)
+- SDSS-453: Updated gradient percentage for banners with headlines (#56)
+- SDSS-475: Removed SDSS text from brand bar (#61)
+- SDSS-432: Use class instead of ID for search icon CSS (#53)
+- SDSS-441-444: Fix nav wrapping and drop down access (#47)
+- SDSS-415-446: Provisioned SEPF and sdss_config_capture sites (#60)
+- Added lando setup (#59)
+- SDSS-000: Moved sdss_profile to own sdss profile directory (#44)
+- Updated gitignore (#43)
+- 2023-01-19 updated dependencies (#38)
+- Updated test cache key names in composer.json to reflect branch name.
+- Added conflict for ui_patterns >= 1.5.
+- Updated db info in ci.settings.php.
+- Updated blt.yml
+- Dropped .circleci.
+- Updated test configurations.
+- Updated config_sync_directory to new profile location.
+- Consolidated sdss_profile into stack.
+
+
 1.0.7
 --------------------------------------------------------------------------------
 _Release Date: 2022-12-19_
