@@ -172,10 +172,3 @@ jobs:
         with:
           name: functional-tests-results
           path: artifacts
-  # Deploy branch after tests pass by calling deploy workflow.
-  deploy:
-    uses: ./.github/workflows/deploy.yml
-    # Allow secrets to be used in the called workflow.
-    secrets: inherit
-    needs: [phpunit, acceptance, functional]
-
