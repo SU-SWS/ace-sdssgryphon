@@ -1,0 +1,15 @@
+# .github/workflows/pull_request_actions.yml
+# Actions triggered on pull_request.
+# - Runs the tests workflow and deploys an artifact when tests pass.
+name: Pull request actions
+
+on:
+  pull_request:
+    types: [create, ready_for_review, converted_to_draft, synchronize]
+
+jobs:
+  # Run tests on current PR branch.
+  tests:
+    uses: ./.github/workflows/tests.yml
+    # Allow secrets to be used in the called workflow.
+    secrets: inherit
