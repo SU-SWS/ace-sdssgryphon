@@ -18,4 +18,4 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     # Allow secrets to be used in the called workflow.
     secrets: inherit
-    needs: [phpunit, acceptance, functional]
+    needs: [tests]
