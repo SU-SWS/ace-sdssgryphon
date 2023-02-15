@@ -174,5 +174,5 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     # Allow secrets to be used in the called workflow.
     secrets: inherit
-    needs: [test_trigger_auto_deploy]
+    needs: [phpunit, acceptance, functional]
 
