@@ -19,9 +19,3 @@ jobs:
     # Allow secrets to be used in the called workflow.
     secrets: inherit
     needs: [tests]
-
-# Cancel previous runs of this workflow in the same branch if they're still in
-# progress.
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true

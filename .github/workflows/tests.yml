@@ -172,3 +172,9 @@ jobs:
         with:
           name: functional-tests-results
           path: artifacts
+
+# Cancel previous runs of this workflow in the same branch if they're still in
+# progress.
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
