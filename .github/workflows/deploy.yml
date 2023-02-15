@@ -1,17 +1,16 @@
 # .github/workflows/auto_deploy_to_staging.yml
-# Auto deploys code merged into the development to the staging environment on
-# Acquia.
-name: Auto deploy development branch to staging
+# Auto deploys current branch to ACE application.
+name: Deploy current branch
 
-on:
-  push:
-    branches: [SDSS-474--auto-deploy-staging] # run on pushes to this branch for testing
-    # branches: [2.x] # run on pushes to 2.x
+on: [workflow_call]  # allow this workflow to be called from other workflows
+# on:
+#   push:
+#     branches: [SDSS-474--auto-deploy-staging] # run on pushes to this branch for testing
+#     # branches: [2.x] # run on pushes to 2.x
 
 jobs:
   deploy:
     name: Deploy Artifact
-    needs: [phpunit, acceptance, functional]
     runs-on: ubuntu-latest
     env:
       DRUPAL_DATABASE_NAME: drupal
