@@ -11,7 +11,7 @@ on:
 jobs:
   deploy:
     name: Deploy Artifact
-    # needs: [phpunit, acceptance, functional] # want this to require tests to pass eventually, but no important now
+    needs: [phpunit, acceptance, functional]
     runs-on: ubuntu-latest
     env:
       DRUPAL_DATABASE_NAME: drupal
