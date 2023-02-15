@@ -1,7 +1,10 @@
 # .github/workflows/tests.yml
 # Runs tests on current branch or tag.
 name: PHPUnit and Acceptance Tests
-on: [push]
+
+# Allow this workflow to be called from other workflows.
+on: [workflow_call]
+
 jobs:
   phpunit:
     name: PHPUnit Coverage Tests
