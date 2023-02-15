@@ -19,3 +19,4 @@ jobs:
     # Allow secrets to be used in the called workflow.
     secrets: inherit
     needs: [tests]
+
