@@ -1,12 +1,9 @@
-# .github/workflows/auto_deploy_to_staging.yml
-# Auto deploys current branch to ACE application.
+# .github/workflows/deploy.yml
+# Deploys current branch to ACE application.
 name: Deploy current branch
 
-on: [workflow_call]  # allow this workflow to be called from other workflows
-# on:
-#   push:
-#     branches: [SDSS-474--auto-deploy-staging] # run on pushes to this branch for testing
-#     # branches: [2.x] # run on pushes to 2.x
+# Allow this workflow to be called from other workflows.
+on: [workflow_call]
 
 jobs:
   deploy:
