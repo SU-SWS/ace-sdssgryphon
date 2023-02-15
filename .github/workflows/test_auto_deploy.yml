@@ -13,4 +13,5 @@ jobs:
   # call auto-deploy workflow after tests pass
   deploy:
     uses: ./.github/workflows/deploy.yml
+    secrets: inherit  # allow secrets to be used in this workflow
     needs: [test_trigger_auto_deploy]
