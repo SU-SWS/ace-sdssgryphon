@@ -102,6 +102,7 @@ nav[aria-label^='footer'] {
   .su-lockup__cell2 {
     border-left: 1px solid $sdss-color-white;
     align-self: auto;
+    max-width: unset;
   }
 
   .su-lockup__cell1 {
