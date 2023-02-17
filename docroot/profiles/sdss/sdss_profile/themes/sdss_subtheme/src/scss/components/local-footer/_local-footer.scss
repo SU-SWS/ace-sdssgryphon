@@ -72,6 +72,7 @@ nav[aria-label^='footer'] {
   }
 
   // Lockup
+  // If selected none in lockup options no logo should show.
   .su-lockup--option-.su-lockup {
     display: none;
   }
