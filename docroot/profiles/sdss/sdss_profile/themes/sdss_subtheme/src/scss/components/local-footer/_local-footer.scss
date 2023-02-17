@@ -72,6 +72,10 @@ nav[aria-label^='footer'] {
   }
 
   // Lockup
+  .su-lockup--option-.su-lockup {
+    display: none;
+  }
+
   span.su-lockup__wordmark {
     color: $sdss-color-white;
   }
@@ -88,6 +92,10 @@ nav[aria-label^='footer'] {
     .su-lockup__cell2 {
       border-left: 1px solid $sdss-color-white;
       align-self: auto;
+
+      @include grid-media-max('sm') {
+        border-left: none;
+      }
     }
   }
 

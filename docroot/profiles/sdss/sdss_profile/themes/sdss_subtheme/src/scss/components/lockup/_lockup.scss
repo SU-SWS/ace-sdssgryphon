@@ -69,6 +69,7 @@
     .su-lockup--option-a {
       .su-lockup__cell1 {
         border-right: none;
+        padding-right: 7px;
       }
 
       .su-lockup__cell2 {
@@ -79,6 +80,18 @@
         &:after {
           border-bottom: 0;
         }
+      }
+    }
+  }
+
+  .su-local-footer {
+    .su-lockup--option-a {
+      .su-lockup__cell1 {
+        padding-right: 7px;
+      }
+
+      .su-lockup__cell2 {
+        padding-left: 7px;
       }
     }
   }
