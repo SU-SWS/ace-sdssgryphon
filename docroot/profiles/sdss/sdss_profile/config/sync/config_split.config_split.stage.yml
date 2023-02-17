@@ -6,6 +6,7 @@ id: stage
 label: 'Staging Environment'
 description: ''
 weight: 0
+stackable: false
 storage: folder
 folder: ../config/envs/stage
 module:

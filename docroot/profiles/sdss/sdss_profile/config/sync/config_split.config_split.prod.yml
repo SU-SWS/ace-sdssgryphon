@@ -6,6 +6,7 @@ id: prod
 label: 'Production Environment'
 description: ''
 weight: 0
+stackable: false
 storage: folder
 folder: ../config/envs/prod
 module:
