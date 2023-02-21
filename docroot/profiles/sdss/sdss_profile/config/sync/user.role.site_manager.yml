@@ -19,10 +19,20 @@ dependencies:
     - node.type.stanford_publication
     - taxonomy.vocabulary.basic_page_types
     - taxonomy.vocabulary.event_audience
+    - taxonomy.vocabulary.media_tags
+    - taxonomy.vocabulary.sdss_event_topics
+    - taxonomy.vocabulary.sdss_focal_areas
+    - taxonomy.vocabulary.sdss_magazine_topics
+    - taxonomy.vocabulary.sdss_organization
+    - taxonomy.vocabulary.sdss_projects
+    - taxonomy.vocabulary.sdss_research_areas
+    - taxonomy.vocabulary.stanford_event_keywords
+    - taxonomy.vocabulary.stanford_event_subject
     - taxonomy.vocabulary.stanford_event_types
     - taxonomy.vocabulary.stanford_news_topics
     - taxonomy.vocabulary.stanford_person_types
     - taxonomy.vocabulary.stanford_publication_topics
+    - taxonomy.vocabulary.su_sdss_news_source
     - taxonomy.vocabulary.su_shared_tags
   module:
     - block_content_permissions
@@ -109,10 +119,20 @@ permissions:
   - 'create stanford_publication content'
   - 'create terms in basic_page_types'
   - 'create terms in event_audience'
+  - 'create terms in media_tags'
+  - 'create terms in sdss_event_topics'
+  - 'create terms in sdss_focal_areas'
+  - 'create terms in sdss_magazine_topics'
+  - 'create terms in sdss_organization'
+  - 'create terms in sdss_projects'
+  - 'create terms in sdss_research_areas'
+  - 'create terms in stanford_event_keywords'
+  - 'create terms in stanford_event_subject'
   - 'create terms in stanford_event_types'
   - 'create terms in stanford_news_topics'
   - 'create terms in stanford_person_types'
   - 'create terms in stanford_publication_topics'
+  - 'create terms in su_sdss_news_source'
   - 'create terms in su_shared_tags'
   - 'create url aliases'
   - 'create video media'
@@ -159,10 +179,20 @@ permissions:
   - 'delete stanford_publication revisions'
   - 'delete terms in basic_page_types'
   - 'delete terms in event_audience'
+  - 'delete terms in media_tags'
+  - 'delete terms in sdss_event_topics'
+  - 'delete terms in sdss_focal_areas'
+  - 'delete terms in sdss_magazine_topics'
+  - 'delete terms in sdss_organization'
+  - 'delete terms in sdss_projects'
+  - 'delete terms in sdss_research_areas'
+  - 'delete terms in stanford_event_keywords'
+  - 'delete terms in stanford_event_subject'
   - 'delete terms in stanford_event_types'
   - 'delete terms in stanford_news_topics'
   - 'delete terms in stanford_person_types'
   - 'delete terms in stanford_publication_topics'
+  - 'delete terms in su_sdss_news_source'
   - 'delete terms in su_shared_tags'
   - 'dropzone upload files'
   - 'edit any embeddable media'
@@ -210,10 +240,20 @@ permissions:
   - 'edit stanford_super_footer config page entity'
   - 'edit terms in basic_page_types'
   - 'edit terms in event_audience'
+  - 'edit terms in media_tags'
+  - 'edit terms in sdss_event_topics'
+  - 'edit terms in sdss_focal_areas'
+  - 'edit terms in sdss_magazine_topics'
+  - 'edit terms in sdss_organization'
+  - 'edit terms in sdss_projects'
+  - 'edit terms in sdss_research_areas'
+  - 'edit terms in stanford_event_keywords'
+  - 'edit terms in stanford_event_subject'
   - 'edit terms in stanford_event_types'
   - 'edit terms in stanford_news_topics'
   - 'edit terms in stanford_person_types'
   - 'edit terms in stanford_publication_topics'
+  - 'edit terms in su_sdss_news_source'
   - 'edit terms in su_shared_tags'
   - 'import stanford_events_importer migration'
   - 'import stanford_publications migration'
