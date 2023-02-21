@@ -85,8 +85,6 @@
 }
 
 @mixin sdss-button-secondary-neg--focus {
-  @include responsive-spacing('padding', -2 1);
-
   outline: 3px solid $sdss-color-white;
   background-color: transparent;
   box-shadow: none;
@@ -105,7 +103,6 @@
 @mixin sdss-button--primary {
   @include button-primary;
   @include sdss-button-primary--hover-and-focus;
-  @include responsive-spacing('padding', -2 1);
 
   background: $sdss-color-green-bright;
   border-radius: 3rem;
@@ -140,7 +137,6 @@
 
 @mixin sdss-button--secondary {
   @include sdss-button-secondary--hover-and-focus;
-  @include responsive-spacing('padding', -2 1);
 
   box-shadow: none;
   background: transparent;
@@ -159,7 +155,6 @@
 
 @mixin sdss-button--secondary-neg {
   @include sdss-button-secondary-neg--hover-and-focus;
-  @include responsive-spacing('padding', -2 1);
 
   box-shadow: none;
   background: transparent;
@@ -181,7 +176,6 @@
 
 @mixin sdss-button-su-red--primary {
   @include button-primary;
-  @include responsive-spacing('padding', -2 1);
 
   background: $su-color-bright-red;
   border-radius: 3rem;
