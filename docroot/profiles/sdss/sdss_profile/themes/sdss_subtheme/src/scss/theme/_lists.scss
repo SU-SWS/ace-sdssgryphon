@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.stanford-lists {
+  &.su-list-headline {
+    h2 {
+      @include sdss-h3;
+      // @include modular-spacing('margin', null null 3 null);
+
+      text-align: left;
+    }
+  }
+}
