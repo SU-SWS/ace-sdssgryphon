@@ -42,6 +42,7 @@
     // changing the order so the heading read first then the type.
     .event-list-item__type {
       order: -1;
+      display: inline-flex;
 
       a {
         @include sdss-link--primary;
