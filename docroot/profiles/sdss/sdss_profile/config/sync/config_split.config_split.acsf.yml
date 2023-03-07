@@ -6,6 +6,7 @@ id: acsf
 label: ACSF
 description: ''
 weight: 0
+stackable: false
 storage: folder
 folder: ../config/envs/acsf
 module:
