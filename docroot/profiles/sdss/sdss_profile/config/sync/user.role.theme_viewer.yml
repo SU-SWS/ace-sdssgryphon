@@ -5,5 +5,5 @@ dependencies: {  }
 id: theme_viewer
 label: 'Theme Viewer'
 weight: 2
-is_admin: null
+is_admin: false
 permissions: {  }
