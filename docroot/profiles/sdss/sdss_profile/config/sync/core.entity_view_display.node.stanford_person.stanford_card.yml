@@ -36,6 +36,7 @@ dependencies:
     - field.field.node.stanford_person.su_sdss_person_alt_bio
     - field.field.node.stanford_person.su_sdss_person_alt_title
     - field.field.node.stanford_person.su_sdss_person_focal_areas
+    - field.field.node.stanford_person.su_sdss_person_id
     - field.field.node.stanford_person.su_sdss_person_organization
     - field.field.node.stanford_person.su_sdss_person_research_area
     - field.field.node.stanford_person.su_sdss_person_research_state
@@ -133,6 +134,7 @@ hidden:
   su_sdss_person_alt_bio: true
   su_sdss_person_alt_title: true
   su_sdss_person_focal_areas: true
+  su_sdss_person_id: true
   su_sdss_person_organization: true
   su_sdss_person_research_area: true
   su_sdss_person_research_state: true

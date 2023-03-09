@@ -36,6 +36,7 @@ dependencies:
     - field.field.node.stanford_person.su_sdss_person_alt_bio
     - field.field.node.stanford_person.su_sdss_person_alt_title
     - field.field.node.stanford_person.su_sdss_person_focal_areas
+    - field.field.node.stanford_person.su_sdss_person_id
     - field.field.node.stanford_person.su_sdss_person_organization
     - field.field.node.stanford_person.su_sdss_person_research_area
     - field.field.node.stanford_person.su_sdss_person_research_state
@@ -233,6 +234,22 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 1
+            additional: {  }
+          c7a49d71-f062-40e2-b356-5417184c4a05:
+            uuid: c7a49d71-f062-40e2-b356-5417184c4a05
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_sdss_person_id'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 0
             additional: {  }
         third_party_settings: {  }
       -
@@ -924,6 +941,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 133
+    region: content
+  su_sdss_person_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 134
     region: content
   su_sdss_person_organization:
     type: entity_reference_label
