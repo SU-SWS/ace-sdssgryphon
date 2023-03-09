@@ -109,6 +109,7 @@ class BasicPageParagraphsCest {
     $I->click('Edit', '.inner-row-wrapper');
     $I->waitForText('Superhead');
     $I->fillField('Superhead', $this->faker->text(10));
+    $I->fillField('Headline', $this->faker->text(10));
     $I->click('Continue');
     $I->waitForElementNotVisible('.MuiDialog-scrollPaper');
     $I->click('Save');
