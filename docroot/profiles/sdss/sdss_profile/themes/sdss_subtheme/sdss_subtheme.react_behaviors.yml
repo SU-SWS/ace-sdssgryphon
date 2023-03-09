@@ -10,7 +10,7 @@ card_variant_info:  # part of the key after the :
       type: select
       title: 'Card Style'
       description: Select the card style.
-#      default_value: sdss-card-wrapper--regular
+      default_value: sdss-card-wrapper--topic
       options:
         sdss-card-wrapper--icon: Icon
         sdss-card-wrapper--stat: Stat
@@ -33,6 +33,14 @@ banner_variant_info:  # part of the key after the :
   bundles:
     - paragraphs_type|stanford_banner
   config:
+    banner_list_height:
+      type: select
+      title: 'Banner Height'
+      description: 'Select the height for the banner.'
+      options:
+        sdss-banner-wrapper--height-default: Default
+        sdss-banner-wrapper--height-modest: Modest
+        sdss-banner-wrapper--height-minimal: Minimal
     banner_list_style:
       type: select
       title: 'Banner Style'

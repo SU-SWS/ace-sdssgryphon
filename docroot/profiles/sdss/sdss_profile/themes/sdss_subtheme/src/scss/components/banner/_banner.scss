@@ -24,7 +24,7 @@
   position: relative;
 
   .su-hero__media {
-    background: linear-gradient(180deg, rgba(46, 45, 41, 0) 30%, $sdss-color-black-dark 90%);
+    background: linear-gradient(180deg, rgba(46, 45, 41, 0) 50%, $sdss-color-black-dark 90%);
   }
 
   picture {
@@ -77,6 +77,54 @@
           display: block;
         }
       }
+    }
+  }
+}
+
+// Variants - banner heights
+.sdss-banner-wrapper--height-default {
+  .su-hero {
+    min-height: 520px;
+  }
+
+  .su-hero__media {
+    min-height: 520px;
+  }
+}
+
+.sdss-banner-wrapper--height-modest {
+  .su-hero {
+    min-height: 350px;
+  }
+
+  .su-hero__media {
+    min-height: 350px;
+  }
+}
+
+.sdss-banner-wrapper--height-minimal {
+  .su-hero {
+    min-height: 250px;
+  }
+
+  .su-hero__media {
+    min-height: 250px;
+
+    @include grid-media-max('sm') {
+      min-height: unset;
+    }
+  }
+}
+
+// Resetting min-height for small and xsmall devices.
+.sdss-banner-wrapper--height-default,
+.sdss-banner-wrapper--height-modest,
+.sdss-banner-wrapper--height-minimal {
+
+  .su-hero__media,
+  .su-hero {
+    @include grid-media-max('sm') {
+      min-height: unset;
     }
   }
 }

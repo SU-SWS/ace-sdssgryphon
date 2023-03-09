@@ -37,6 +37,7 @@
   }
 }
 
+
 // Drop down menu
 @include grid-media-min('lg') {
   .su-multi-menu {
@@ -52,6 +53,17 @@
 }
 
 .su-multi-menu {
+
+  .su-multi-menu__menu-lv1 {
+    >li {
+      &:last-child {
+        >.su-multi-menu__menu-lv2 {
+          // For issues with wrapping navigations.
+          right: unset;
+        }
+      }
+    }
+  }
 
   // Font setup.
   .su-multi-menu__menu {

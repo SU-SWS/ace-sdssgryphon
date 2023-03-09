@@ -2,7 +2,7 @@ name: Stanford SDSS subtheme
 type: theme
 description: 'Stanford SDSS subtheme'
 package: Stanford
-version: 1.1.5-dev
+version: 2.0.1-dev
 core_version_requirement: ^9
 base theme: stanford_basic
 libraries:
@@ -11,6 +11,7 @@ libraries:
 components:
   namespaces:
     sdss_subtheme: templates/components
+    decanter: dist/templates/decanter
 
 regions:
   page_top: 'Page top'
