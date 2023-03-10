@@ -1,0 +1,29 @@
+uuid: 98acee4a-a223-40c4-a7b9-647998894042
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_events_focal_areas
+    - node.type.stanford_event
+    - taxonomy.vocabulary.sdss_focal_areas
+id: node.stanford_event.su_sdss_events_focal_areas
+field_name: su_sdss_events_focal_areas
+entity_type: node
+bundle: stanford_event
+label: 'Focal Areas'
+description: 'Tag events with Focal Area. Note that this will not show in the display and that the list content type does not yet support filtering by this term.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_focal_areas: sdss_focal_areas
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
