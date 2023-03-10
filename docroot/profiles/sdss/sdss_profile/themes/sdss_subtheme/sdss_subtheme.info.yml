@@ -11,6 +11,7 @@ libraries:
 components:
   namespaces:
     sdss_subtheme: templates/components
+    decanter: dist/templates/decanter
 
 regions:
   page_top: 'Page top'
