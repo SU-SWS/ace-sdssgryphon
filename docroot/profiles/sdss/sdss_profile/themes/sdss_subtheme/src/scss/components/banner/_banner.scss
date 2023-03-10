@@ -121,7 +121,8 @@
 .sdss-banner-wrapper--height-modest,
 .sdss-banner-wrapper--height-minimal {
 
-  .su-hero__media {
+  .su-hero__media,
+  .su-hero {
     @include grid-media-max('sm') {
       min-height: unset;
     }

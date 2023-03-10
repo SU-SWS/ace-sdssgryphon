@@ -1,0 +1,20 @@
+uuid: 8ffe8053-0154-4b2c-bf5f-e965049e3249
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.su_sdss_events_focal_areas
+field_name: su_sdss_events_focal_areas
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

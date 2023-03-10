@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.stanford_event.su_metatags
     - field.field.node.stanford_event.su_sdss_custm_event_feat_media
     - field.field.node.stanford_event.su_sdss_event_topics
+    - field.field.node.stanford_event.su_sdss_events_focal_areas
     - field.field.node.stanford_event.su_shared_tags
     - node.type.stanford_event
   module:
@@ -213,4 +214,5 @@ hidden:
   su_metatags: true
   su_sdss_custm_event_feat_media: true
   su_sdss_event_topics: true
+  su_sdss_events_focal_areas: true
   su_shared_tags: true
