@@ -11,7 +11,7 @@ entity_type: paragraph
 bundle: stanford_card
 label: Headline
 description: 'This is the main headline of the card type. '
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

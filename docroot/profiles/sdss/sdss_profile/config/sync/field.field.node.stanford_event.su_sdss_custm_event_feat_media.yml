@@ -1,0 +1,29 @@
+uuid: ae5043bc-5536-4df6-be21-f629e45b9652
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_custm_event_feat_media
+    - media.type.image
+    - node.type.stanford_event
+id: node.stanford_event.su_sdss_custm_event_feat_media
+field_name: su_sdss_custm_event_feat_media
+entity_type: node
+bundle: stanford_event
+label: 'Featured Media'
+description: 'Maximum one featured media. <em>The “featured media” will appear as a thumbnail on the list page, and as a thumbnail on the teaser card paragraph.</em>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
