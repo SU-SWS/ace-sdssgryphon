@@ -5,7 +5,7 @@ name: Pull request actions
 
 on:
   pull_request:
-    types: [create, ready_for_review, converted_to_draft, synchronize]
+    types: [opened, reopened, ready_for_review, converted_to_draft, synchronize]
 
 jobs:
   # Run tests on current PR branch.

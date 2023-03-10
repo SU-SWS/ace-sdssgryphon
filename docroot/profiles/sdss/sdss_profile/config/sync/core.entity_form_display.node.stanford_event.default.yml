@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.stanford_event.su_event_telephone
     - field.field.node.stanford_event.su_event_type
     - field.field.node.stanford_event.su_metatags
+    - field.field.node.stanford_event.su_sdss_custm_event_feat_media
     - field.field.node.stanford_event.su_sdss_event_topics
     - field.field.node.stanford_event.su_sdss_events_focal_areas
     - field.field.node.stanford_event.su_shared_tags
@@ -35,6 +36,7 @@ dependencies:
     - change_labels
     - field_group
     - link
+    - media_library
     - paragraphs
     - readonly_field_widget
     - scheduler
@@ -50,6 +52,7 @@ third_party_settings:
         - su_event_subheadline
         - su_event_dek
         - su_event_sponsor
+        - su_sdss_custm_event_feat_media
       label: 'Editorial Content'
       region: content
       parent_name: ''
@@ -120,7 +123,7 @@ third_party_settings:
       label: Taxonomy
       region: content
       parent_name: ''
-      weight: 11
+      weight: 10
       format_type: details
       format_settings:
         classes: ''
@@ -146,18 +149,18 @@ content:
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 52
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 50
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   stanford_intranet__access:
     type: entity_access
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -178,13 +181,13 @@ content:
     third_party_settings: {  }
   su_event_audience:
     type: options_buttons
-    weight: 29
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
   su_event_components:
     type: paragraphs
-    weight: 3
+    weight: 4
     region: content
     settings:
       title: Paragraph
@@ -203,7 +206,7 @@ content:
     third_party_settings: {  }
   su_event_contact_info:
     type: string_textfield
-    weight: 28
+    weight: 29
     region: content
     settings:
       size: 60
@@ -211,7 +214,7 @@ content:
     third_party_settings: {  }
   su_event_cta:
     type: link_default
-    weight: 30
+    weight: 31
     region: content
     settings:
       placeholder_url: ''
@@ -341,7 +344,7 @@ content:
     third_party_settings: {  }
   su_event_telephone:
     type: telephone_default
-    weight: 27
+    weight: 28
     region: content
     settings:
       placeholder: ''
@@ -355,6 +358,13 @@ content:
       create_new_items: false
       create_new_levels: false
       force_deepest: false
+    third_party_settings: {  }
+  su_sdss_custm_event_feat_media:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   su_sdss_event_topics:
     type: options_shs

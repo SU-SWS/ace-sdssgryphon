@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.stanford_event.su_event_telephone
     - field.field.node.stanford_event.su_event_type
     - field.field.node.stanford_event.su_metatags
+    - field.field.node.stanford_event.su_sdss_custm_event_feat_media
     - field.field.node.stanford_event.su_sdss_event_topics
     - field.field.node.stanford_event.su_sdss_events_focal_areas
     - field.field.node.stanford_event.su_shared_tags
@@ -176,6 +177,23 @@ third_party_settings:
                   field_formatter_class:
                     class: su-event-type
             weight: -9
+            additional: {  }
+          012a00c4-b6aa-4abf-bc2f-e3c350376637:
+            uuid: 012a00c4-b6aa-4abf-bc2f-e3c350376637
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_event:su_sdss_custm_event_feat_media'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: -4
             additional: {  }
           70c2271f-7e44-4beb-8014-30f150bda415:
             uuid: 70c2271f-7e44-4beb-8014-30f150bda415
@@ -827,6 +845,15 @@ content:
     third_party_settings: {  }
     weight: 102
     region: content
+  su_sdss_custm_event_feat_media:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 120
+    region: main
   su_sdss_event_topics:
     type: entity_reference_label
     label: above
