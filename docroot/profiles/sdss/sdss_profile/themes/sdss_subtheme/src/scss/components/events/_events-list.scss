@@ -125,3 +125,51 @@
       margin-bottom: inherit;
    }
 }
+
+// Event list with Green row variant.
+.su-row-bgcolor--green {
+  .su-event-list-item {
+    h2 {
+      color: $sdss-color-white;
+    }
+
+    .su-event-list-item__details {
+      color: $sdss-color-white;
+
+      h2 {
+        > a {
+          color: $sdss-color-green-bright;
+
+          &:focus,
+          &:hover,
+          &:active {
+            color: $sdss-color-white;
+          }
+
+          &:after {
+            background-color: $sdss-color-green-bright;
+          }
+        }
+      }
+
+      .event-list-item__type {
+        a {
+          color: $sdss-color-blue-bright;
+
+          &:focus,
+          &:hover,
+          &:active {
+            color: $sdss-color-white;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .views-field-su-event-location {
+        >.map-icon:before {
+          color: $sdss-color-white;
+        }
+      }
+    }
+  }
+}
