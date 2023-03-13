@@ -73,9 +73,9 @@ nav[aria-label^='footer'] {
 
   // Lockup
   // If selected none in lockup options no logo should show.
-  .su-lockup--option-.su-lockup {
-    display: none;
-  }
+  // .su-lockup--option-.su-lockup {
+  //   display: none;
+  // }
 
   span.su-lockup__wordmark {
     color: $sdss-color-white;
