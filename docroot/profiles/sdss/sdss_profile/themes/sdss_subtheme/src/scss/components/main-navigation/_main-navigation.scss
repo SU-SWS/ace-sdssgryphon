@@ -21,6 +21,10 @@
 
 // Makes the menu 'sticky' for LG sreens and up
 @include grid-media-min('lg') {
+  html {
+    scroll-padding-top: 21em;
+  }
+
   .fixed-header {
     position: sticky;
     top: 0;

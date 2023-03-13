@@ -7,24 +7,32 @@
   .tablesaw-cell-content {
     font-size: 2.1rem;
 
-    // Intro = Display
-    &.su-intro-text {
+    // Intro = Display, intro is the legacy name.
+    // Display-text is the updated name.
+    &.su-intro-text,
+    &.sdss-display-text {
       @include sdss-display;
     }
 
-    // Splash = Splash text
-    &.su-font-splash {
+    // Splash = Splash text is the legacy name.
+    // Block Quote is the updated name.
+    &.su-font-splash,
+    &.sdss-block-quote--big {
       @include sdss-block-quote--big;
     }
 
-    // Quote Text = Block Quote Medium
-    &.su-quote-text {
+    // Quote Text is the legacy name.
+    // Block Quote Medium is the updated name.
+    &.su-quote-text,
+    &.sdss-block-quote--med {
       @include serif;
       @include sdss-block-quote--med;
     }
 
-    // Callout text = Block Quote Small
-    &.su-callout-text {
+    // Callout text  is the legacy name.
+    // Block Quote Small is the updated name.
+    &.su-callout-text,
+    &.sdss-block-quote--sm {
       @include sdss-block-quote--sm;
     }
   }
