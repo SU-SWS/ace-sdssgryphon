@@ -128,6 +128,25 @@
 
 // Event list with Green row variant.
 .su-row-bgcolor--green {
+
+  .su-event-card {
+    &.su-card {
+      .su-event-list-item__details {
+        h2 {
+          >a {
+            &:hover,
+            &:focus {
+              &::after {
+                background-color: $sdss-color-white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
   .su-event-list-item {
     h2 {
       color: $sdss-color-white;
@@ -155,6 +174,7 @@
       .event-list-item__type {
         a {
           color: $sdss-color-blue-bright;
+          text-decoration: underline;
 
           &:focus,
           &:hover,
