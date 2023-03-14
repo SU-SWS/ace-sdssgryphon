@@ -173,14 +173,14 @@
 
       .event-list-item__type {
         a {
-          color: $sdss-color-blue-bright;
-          text-decoration: underline;
+          color: $sdss-color-blue-light;
+          text-decoration: none;
 
           &:focus,
           &:hover,
           &:active {
             color: $sdss-color-white;
-            text-decoration: none;
+            text-decoration: underline;
           }
         }
       }
