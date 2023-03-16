@@ -1,0 +1,14 @@
+uuid: 13229292-59e2-47dc-86a7-91144cd2091d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sdss_custm_opportunity_source
+id: taxonomy_vocabulary_sdss_custm_opportunity_source
+entity_type_id: taxonomy_vocabulary
+entity_id: sdss_custm_opportunity_source
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied
