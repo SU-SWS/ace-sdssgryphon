@@ -808,9 +808,9 @@ display:
           default_argument_skip_url: 0
           summary_options:
             base_path: ''
-            count: '1'
-            items_per_page: '25'
+            count: 1
             override: 0
+            items_per_page: '25'
           summary:
             sort_order: asc
             number_of_records: '0'
@@ -823,7 +823,9 @@ display:
           depth: '1'
           vocabularies:
             event_audience: event_audience
+            sdss_event_topics: sdss_event_topics
             stanford_event_types: stanford_event_types
+            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node
@@ -1916,9 +1918,9 @@ display:
           default_argument_skip_url: 0
           summary_options:
             base_path: ''
-            count: '1'
-            items_per_page: '25'
+            count: 1
             override: 0
+            items_per_page: '25'
           summary:
             sort_order: asc
             number_of_records: '0'
@@ -1931,7 +1933,9 @@ display:
           depth: '1'
           vocabularies:
             event_audience: event_audience
+            sdss_event_topics: sdss_event_topics
             stanford_event_types: stanford_event_types
+            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node
@@ -4875,9 +4879,9 @@ display:
           default_argument_skip_url: 0
           summary_options:
             base_path: ''
-            count: '1'
-            items_per_page: '25'
+            count: 1
             override: 0
+            items_per_page: '25'
           summary:
             sort_order: asc
             number_of_records: '0'
@@ -4889,7 +4893,9 @@ display:
           validate_options: {  }
           depth: '1'
           vocabularies:
+            sdss_event_topics: sdss_event_topics
             stanford_event_types: stanford_event_types
+            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node
