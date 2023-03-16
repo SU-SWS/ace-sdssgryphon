@@ -92,8 +92,9 @@ foreach ($sites_settings as $settings_file) {
 // Manually point domains that don't fit naming conventions here.
 // E.g., $sites['<domain>'] = '<directory>';
 // E.g., $sites['mysite.stanford.edu'] = 'my_site';
-$sites["sustainabilityleadership.stanford.edu"] = "changeleadership";
-$sites["earthsystems.stanford.edu"] = "esys";
+$sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
+$sites['earthsystems.stanford.edu'] = 'esys';
+$sites['epsci.stanford.edu'] = 'gs';
 
 // Include local sites.
 if (file_exists(__DIR__ . '/local.sites.php')) {
