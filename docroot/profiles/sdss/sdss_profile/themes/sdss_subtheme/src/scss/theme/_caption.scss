@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.su-news-banner-media-caption {
+  @include sdss-caption;
+}
+
+.paragraph {
+  &.su-wysiwyg-text {
+    .caption {
+      figcaption {
+        @include sdss-caption;
+      }
+    }
+  }
+}
+
+.su-media {
+  .su-media__caption {
+    @include sdss-caption;
+  }
+}
