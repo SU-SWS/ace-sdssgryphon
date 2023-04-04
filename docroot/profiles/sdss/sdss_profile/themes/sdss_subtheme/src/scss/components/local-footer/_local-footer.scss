@@ -135,4 +135,31 @@ nav[aria-label^='footer'] {
   a.su-link--external.su-button--secondary {
     @include sdss-button--secondary-neg;
   }
+
+
+  .su-wysiwyg-text {
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: $sdss-color-white;
+
+      a {
+        &.su-link--external {
+          &:hover,
+          &:active,
+          &:focus {
+            color: $sdss-color-white;
+
+            &::after {
+              background-color: $sdss-color-white;
+            }
+          }
+          &::after {
+            background-color: $sdss-color-blue-bright;
+          }
+        }
+      }
+    }
+  }
 }
