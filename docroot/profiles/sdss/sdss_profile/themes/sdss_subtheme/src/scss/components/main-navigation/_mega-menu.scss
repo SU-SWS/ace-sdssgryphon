@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+#block-mainnavigation {
+  // @extend .su-multi-menu;
+  grid-area: main-nav;
+
+  @include grid-media-max('md'){
+    .nav-collapse {
+      width: 300px;
+      right: 0;
+    }
+  }
+}
+
+// .we-mega-menu-ul>.we-mega-menu-li a,
+// .we-mega-menu-submenu li.we-mega-menu-li a {
+//   font-size: 1.1em;
+// }
+
+.overlay {
+  z-index: unset;
+}
