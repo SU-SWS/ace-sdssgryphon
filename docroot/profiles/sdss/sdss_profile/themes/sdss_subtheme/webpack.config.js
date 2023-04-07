@@ -48,8 +48,9 @@ var webpackConfig = {
   devtool: 'source-map',
   // What build?
   entry: {
+    "ckeditor":       path.resolve(srcSass, "ckeditor.scss"),
     "sdss_subtheme":  path.resolve(srcSass, "config/index.scss"),
-    "scripts":       path.resolve(srcJS,   "scripts.js"),
+    "scripts":        path.resolve(srcJS,   "scripts.js"),
   },
   // Where put build?
   output: {
