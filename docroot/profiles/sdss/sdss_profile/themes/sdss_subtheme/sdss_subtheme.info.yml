@@ -8,6 +8,10 @@ base theme: stanford_basic
 libraries:
   - sdss_subtheme/sdss
 
+# Custom ckeditor styles.
+ckeditor_stylesheets:
+  - dist/css/ckeditor.css
+
 components:
   namespaces:
     sdss_subtheme: templates/components
