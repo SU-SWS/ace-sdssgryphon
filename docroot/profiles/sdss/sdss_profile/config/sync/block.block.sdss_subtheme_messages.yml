@@ -1,0 +1,20 @@
+uuid: 4bee52a0-8272-4c59-83c9-4f3dfc4e80a3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_messages
+theme: sdss_subtheme
+region: content
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }
