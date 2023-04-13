@@ -38,7 +38,6 @@ dependencies:
     - book
     - content_lock
     - dropzonejs
-    - eck
     - editoria11y
     - field_permissions
     - media
@@ -47,6 +46,7 @@ dependencies:
     - paragraphs
     - path
     - scheduler
+    - stanford_policy
     - stanford_publication
     - system
     - taxonomy
@@ -81,9 +81,9 @@ permissions:
   - 'create file media'
   - 'create google_form media'
   - 'create image media'
-  - 'create log entities'
   - 'create media'
   - 'create new books'
+  - 'create policy log'
   - 'create stanford_course content'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
@@ -112,7 +112,6 @@ permissions:
   - 'create terms in su_shared_tags'
   - 'create url aliases'
   - 'create video media'
-  - 'delete any log entities'
   - 'delete any stanford_course content'
   - 'delete any stanford_event content'
   - 'delete any stanford_event_series content'
@@ -127,7 +126,6 @@ permissions:
   - 'delete own file media'
   - 'delete own google_form media'
   - 'delete own image media'
-  - 'delete own log entities'
   - 'delete own stanford_course content'
   - 'delete own stanford_event content'
   - 'delete own stanford_event_series content'
@@ -138,6 +136,7 @@ permissions:
   - 'delete own stanford_policy content'
   - 'delete own stanford_publication content'
   - 'delete own video media'
+  - 'delete policy log'
   - 'delete stanford_course revisions'
   - 'delete stanford_event revisions'
   - 'delete stanford_event_series revisions'
@@ -165,7 +164,6 @@ permissions:
   - 'delete terms in su_shared_tags'
   - 'dropzone upload files'
   - 'edit any image media'
-  - 'edit any log entities'
   - 'edit any stanford_course content'
   - 'edit any stanford_event content'
   - 'edit any stanford_event_series content'
@@ -183,7 +181,6 @@ permissions:
   - 'edit own file media'
   - 'edit own google_form media'
   - 'edit own image media'
-  - 'edit own log entities'
   - 'edit own stanford_course content'
   - 'edit own stanford_event content'
   - 'edit own stanford_event_series content'
@@ -194,6 +191,7 @@ permissions:
   - 'edit own stanford_policy content'
   - 'edit own stanford_publication content'
   - 'edit own video media'
+  - 'edit policy log'
   - 'edit terms in basic_page_types'
   - 'edit terms in event_audience'
   - 'edit terms in media_tags'
@@ -224,7 +222,6 @@ permissions:
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
-  - 'view any log entities'
   - 'view any unpublished content'
   - 'view any unpublished stanford_course content'
   - 'view any unpublished stanford_event content'
@@ -234,9 +231,9 @@ permissions:
   - 'view any unpublished stanford_person content'
   - 'view any unpublished stanford_publication content'
   - 'view editoria11y checker'
-  - 'view own log entities'
   - 'view own unpublished content'
   - 'view own unpublished media'
+  - 'view policy log'
   - 'view scheduled content'
   - 'view stanford_course revisions'
   - 'view stanford_event revisions'
