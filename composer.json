@@ -255,7 +255,8 @@
     },
     "conflict": {
         "drupal/drupal": "*",
-        "drupal/real_aes": ">=2.5.0"
+        "drupal/real_aes": ">=2.5.0",
+        "drupal/ui_patterns": ">=1.5.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -345,8 +346,7 @@
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"
             },
             "drupal/ui_patterns": {
-                "Ui Patterns Views Fixes": "patches/contrib/ui_patterns_views-preview.patch",
-                "https://www.drupal.org/node/3335833: Enabling UI patterns in subthemes": "https://git.drupalcode.org/project/ui_patterns/-/merge_requests/20.patch"
+                "Ui Patterns Views Fixes": "patches/contrib/ui_patterns_views-preview.patch"
             },
             "ckeditor-plugin/link": {
                 "http://github.com/ckeditor/ckeditor4/pull/3965": "patches/libraries/ckeditor-plugin-link-anchor-id.patch",
