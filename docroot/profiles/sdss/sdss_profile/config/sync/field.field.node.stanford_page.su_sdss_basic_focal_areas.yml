@@ -1,0 +1,29 @@
+uuid: 7e00d228-736c-4259-a5f0-ec74039c6874
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_basic_focal_areas
+    - node.type.stanford_page
+    - taxonomy.vocabulary.sdss_focal_areas
+id: node.stanford_page.su_sdss_basic_focal_areas
+field_name: su_sdss_basic_focal_areas
+entity_type: node
+bundle: stanford_page
+label: 'Focal Areas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_focal_areas: sdss_focal_areas
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
