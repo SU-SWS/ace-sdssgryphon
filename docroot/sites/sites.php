@@ -95,6 +95,7 @@ foreach ($sites_settings as $settings_file) {
 $sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
 $sites['earthsystems.stanford.edu'] = 'esys';
 $sites['epsci.stanford.edu'] = 'gs';
+$sites['energypostdoc.stanford.edu'] = 'sepf';
 
 // Include local sites.
 if (file_exists(__DIR__ . '/local.sites.php')) {
