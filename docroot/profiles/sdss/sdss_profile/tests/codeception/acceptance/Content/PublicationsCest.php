@@ -44,7 +44,7 @@ class PublicationsCest {
     $I->logInWithRole('site_manager');
     $I->amOnPage('/node/add/stanford_publication');
     $I->fillField('Title', $this->values['node_title']);
-    $I->selectOption('Publication Types', $term->label());
+    $I->fillField('Publication Types', $term->label());
     $I->selectOption('su_publication_citation[actions][bundle]', 'Book');
     $I->click('Add Citation');
     $I->fillField('First Name', $this->faker->firstName);
