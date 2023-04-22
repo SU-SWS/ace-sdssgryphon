@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.stanford_banner.su_banner_header
     - field.field.paragraph.stanford_banner.su_banner_image
     - field.field.paragraph.stanford_banner.su_banner_sup_header
+    - field.field.paragraph.stanford_banner.su_sdss_banner_caption
     - paragraphs.paragraphs_type.stanford_banner
   module:
     - field_formatter_class
@@ -41,3 +42,4 @@ hidden:
   su_banner_button: true
   su_banner_header: true
   su_banner_sup_header: true
+  su_sdss_banner_caption: true

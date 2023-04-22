@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.stanford_banner.su_banner_header
     - field.field.paragraph.stanford_banner.su_banner_image
     - field.field.paragraph.stanford_banner.su_banner_sup_header
+    - field.field.paragraph.stanford_banner.su_sdss_banner_caption
     - paragraphs.paragraphs_type.stanford_banner
   module:
     - link
@@ -28,7 +29,7 @@ content:
     third_party_settings: {  }
   su_banner_body:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -63,6 +64,14 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_sdss_banner_caption:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
 hidden:
