@@ -23,14 +23,15 @@
       @include sdss-display;
     }
 
-    // Splash = Splash text is the legacy name.
+    // Splash = Splash text is the legacy stanford_basic name.
     // Block Quote is the updated name.
     &.su-font-splash,
     &.sdss-block-quote--big {
+      @include serif;
       @include sdss-block-quote--big;
     }
 
-    // Quote Text is the legacy name.
+    // Quote Text is the legacy stanford_basic name.
     // Block Quote Medium is the updated name.
     &.su-quote-text,
     &.sdss-block-quote--med {
@@ -38,10 +39,11 @@
       @include sdss-block-quote--med;
     }
 
-    // Callout text  is the legacy name.
+    // Callout text  is the legacy stanford_basic name.
     // Block Quote Small is the updated name.
     &.su-callout-text,
     &.sdss-block-quote--sm {
+      @include serif;
       @include sdss-block-quote--sm;
     }
   }

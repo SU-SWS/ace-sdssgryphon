@@ -20,6 +20,10 @@
   @include grid-media-min('md') {
     font-size: 8.0rem;  //80px
   }
+
+  @include grid-media-min('2xl') {
+    font-size: 8.8rem;  //80px
+  }
 }
 
 // Intro text
@@ -29,10 +33,11 @@
   font-weight: $su-font-regular;
 }
 
-// Splash is the Drupal style = Block Quote Big is the design language.
+// Block Quote Big is the design language.
 @mixin sdss-block-quote--big {
   color: $sdss-color-palo-alto-dark;
   font-weight: $su-font-regular;
+  font-style: italic;
   letter-spacing: -0.01em;
 
   @include grid-media-max('sm') {
@@ -51,7 +56,7 @@
   }
 }
 
-// Quote Text is the Drupal style = Block Quote Medium is the design language.
+// Block Quote Medium is the design language.
 @mixin sdss-block-quote--med {
   @include type_b;
 
@@ -61,8 +66,9 @@
   letter-spacing: -0.01em;
 }
 
- // Callout text is the Drupal style = Block Quote Small is the design language.
+ // Block Quote Small is the design language.
 @mixin sdss-block-quote--sm {
+  color: $sdss-color-palo-alto-dark;
   font-weight: $su-font-regular;
   font-style: italic;
   letter-spacing: 0.01em;
