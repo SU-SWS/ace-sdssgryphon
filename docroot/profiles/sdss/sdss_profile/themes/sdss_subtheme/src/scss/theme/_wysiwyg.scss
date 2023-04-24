@@ -13,9 +13,12 @@
   .tablesaw-cell-content {
     font-size: 2.1rem;
 
-    // Intro = Display, intro is the legacy name.
-    // Display-text is the updated name.
-    &.su-intro-text,
+    // Intro text.
+    &.su-intro-text {
+      @include sdss-intro;
+    }
+
+    // Display text
     &.sdss-display-text {
       @include sdss-display;
     }

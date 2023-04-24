@@ -4,8 +4,26 @@
 // Example: All mixin names should be prefaced with your abbreviation (saa, soe, ood, etc)
 
 
-// Intro is the Drupal style = Display is the design language.
+// Display text
 @mixin sdss-display {
+  @include type_c;
+
+  color: $sdss-color-palo-alto-dark;
+  font-weight: $su-font-regular;
+  line-height: 120%;
+
+  @include grid-media-max('sm') {
+    font-size: 5.2rem; //52px
+    line-height: 40px;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 8.0rem;  //80px
+  }
+}
+
+// Intro text
+@mixin sdss-intro {
   @include type_c;
 
   font-weight: $su-font-regular;
