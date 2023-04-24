@@ -81,6 +81,16 @@
   }
 }
 
+.sdss-banner-wrapper--no-gradient {
+  //Gradiant on banner image.
+  z-index: unset;
+  position: relative;
+
+  .su-hero__media {
+    background: none;
+  }
+}
+
 // Variants - banner heights
 .sdss-banner-wrapper--height-default {
   .su-hero {

@@ -49,8 +49,6 @@ banner_variant_info:  # part of the key after the :
       options:
         sdss-banner-wrapper--default: Default
         sdss-banner-wrapper--no-gradient: No Gradient
-        #sdss-banner-wrapper--no-headline: No Headline
-        #sdss-banner-wrapper--style-four: Style Four -- add this later.
     banner_list_headline:
       type: select
       title: 'Banner Headline Alignment'
@@ -58,24 +56,5 @@ banner_variant_info:  # part of the key after the :
       options:
         sdss-banner-wrapper--headline-default: Default
         sdss-banner-wrapper--headline-center: Center
-    # horizontal_card_image_style:
-    #   type: select
-    #   title: 'Horizontal Card: Image Style'
-    #   description: If this is a horizontal card, Select the image style for this card.
-    #   options:
-    #     su-horizontal-card-wrapper--small-circle: Small Circle (220px)
-    #     su-horizontal-card-wrapper--large-rectangle: Large Rectangle (2:1 ratio)
-    # horizontal_card_image_position:
-    #   type: select
-    #   title: 'Horizontal Card: Image Position'
-    #   description: If this is a horizontal card, Select the image style for this card. (Currently only used for Large Rectangle Image Style.)
-    #   options:
-    #     su-horizontal-card-wrapper--image-left: Image on Left
-    #     su-horizontal-card-wrapper--image-right: Image on Right
-#card_style:
-#  id: card_style
-#  label: 'Card Paragraph Style'
-#  bundles:
-#    - paragraphs_type|stanford_card
-#  config:
+
 
