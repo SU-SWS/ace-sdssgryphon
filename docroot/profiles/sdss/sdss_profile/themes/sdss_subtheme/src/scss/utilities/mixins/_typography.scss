@@ -41,17 +41,22 @@
   letter-spacing: -0.01em;
 
   @include grid-media-max('sm') {
-    font-size: 3.2rem; //32px
+    font-size: 3.7rem; // ~37px
     line-height: 40px;
   }
 
   @include grid-media-min('md') {
-    font-size: 4.8rem;  //48px
+    font-size: 5.1rem;  // ~51px
     line-height: 60px;
   }
 
   @include grid-media-min('lg') {
-    font-size: 6.4rem;  //64px
+    font-size: 5.1rem;  // ~51px
+    line-height: 120%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 5.6rem;  // ~56px
     line-height: 120%;
   }
 }
@@ -64,6 +69,26 @@
   font-weight: $su-font-regular;
   font-style: italic;
   letter-spacing: -0.01em;
+
+  @include grid-media-max('sm') {
+    font-size: 3.1rem; // ~31px
+    line-height: 40px;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 4.1rem;  // ~41px
+    line-height: 60px;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 4.1rem;  // ~41px
+    line-height: 120%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 4.5rem;  // ~45px
+    line-height: 120%;
+  }
 }
 
  // Block Quote Small is the design language.
@@ -74,18 +99,23 @@
   letter-spacing: 0.01em;
 
   @include grid-media-max('sm') {
-    font-size: 1.8rem; // ~18px
+    font-size: 2.2rem; // ~22px
     line-height: 130%;
   }
 
   @include grid-media-min('md') {
-    font-size: 1.8rem; // ~18px
+    font-size: 2.6rem; // ~26px
     line-height: 130%;
   }
 
   @include grid-media-min('lg') {
-    font-size: 2.4rem; // ~24px
+    font-size: 2.6rem; // ~26px
     line-height: 140%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 2.8rem;  // ~28px
+    line-height: 120%;
   }
 }
 
