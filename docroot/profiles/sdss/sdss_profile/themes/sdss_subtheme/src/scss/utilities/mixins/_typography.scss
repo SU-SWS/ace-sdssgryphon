@@ -14,15 +14,17 @@
 
   @include grid-media-max('sm') {
     font-size: 5.2rem; //52px
-    line-height: 40px;
+    line-height: 169%;
   }
 
   @include grid-media-min('md') {
     font-size: 8.0rem;  //80px
+    line-height: 110%;
   }
 
   @include grid-media-min('2xl') {
-    font-size: 8.8rem;  //80px
+    font-size: 8.8rem;  //88px
+    line-height: 120%;
   }
 }
 
