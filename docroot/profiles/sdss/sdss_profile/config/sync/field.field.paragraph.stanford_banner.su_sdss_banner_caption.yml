@@ -10,7 +10,9 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    allowed_formats: {  }
+    stanford_minimal_html: stanford_minimal_html
+    stanford_html: '0'
+    plain_text: '0'
 id: paragraph.stanford_banner.su_sdss_banner_caption
 field_name: su_sdss_banner_caption
 entity_type: paragraph
