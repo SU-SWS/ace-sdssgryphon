@@ -133,6 +133,7 @@ themes:
     - stable9
     - classy
     - seven
+    - sdss_subtheme
     - stanford_basic
 default_content:
   block_content:
