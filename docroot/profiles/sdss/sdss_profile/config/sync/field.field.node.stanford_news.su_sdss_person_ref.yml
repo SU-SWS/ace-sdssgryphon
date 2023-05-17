@@ -1,0 +1,29 @@
+uuid: d641deb4-2a9f-4878-bc92-4b2224208323
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_person_ref
+    - node.type.stanford_news
+    - node.type.stanford_person
+id: node.stanford_news.su_sdss_person_ref
+field_name: su_sdss_person_ref
+entity_type: node
+bundle: stanford_news
+label: 'Related People'
+description: 'Add people related to this piece of content. This does not display on the content by default, but can be added using the List Paragraph'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      stanford_person: stanford_person
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
