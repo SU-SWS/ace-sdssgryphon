@@ -66,9 +66,10 @@ tests:
         - acceptance
         - functional
       directory: '${docroot}/profiles/sdss/sdss_profile/tests/codeception'
-  pa11y:
-    sdss_subtheme:
-      directory: '${repo.root}/docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme'
+command-hooks:
+  frontend-test:
+    dir: '${repo.root}/docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme'
+    command: 'npm run a11y-tests'
 validate:
   twig:
     functions:
