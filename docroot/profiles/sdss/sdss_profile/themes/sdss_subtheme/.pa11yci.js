@@ -21,7 +21,11 @@ module.exports = {
     ignore: ['notice', 'warning'],
     chromeLaunchConfig: {
       args: ['--no-sandbox']
-    }
+    },
+    reporters: [
+        'cli',
+        ['json', { "fileName": "./test-results/a11y-test-results.json" }]
+    ]
   },
   urls: urls.map(url => `${baseURL}${url}`)
 };

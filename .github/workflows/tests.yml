@@ -245,7 +245,7 @@ jobs:
         if: always()
         with:
           name: frontend-tests-results
-          path: artifacts
+          path: docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme/test-results
 
 # Cancel previous runs of this workflow in the same branch if they're still in
 # progress.

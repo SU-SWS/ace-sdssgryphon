@@ -115,3 +115,6 @@ npm-debug.log
 
 # Deprecation detector rules
 .rules
+
+# Test results
+themes/*/test-results
