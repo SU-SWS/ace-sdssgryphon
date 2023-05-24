@@ -231,7 +231,6 @@ jobs:
         with:
           node-version-file: docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme/.nvmrc
           check-latest: false
-        cache: 'npm'
       - name: Set up npm in sdss_subtheme
         working-directory: ./docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme
         run: |
