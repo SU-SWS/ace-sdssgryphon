@@ -164,11 +164,6 @@ jobs:
           drush role:perm:add anonymous 'access content'
           drush xmlsitemap:rebuild
           mkdir -p artifacts/_data/
-      - name: Set up npm in sdss_subtheme
-        working-directory: ./docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme
-        run: |
-          nvm use
-          npm install
       - name: Run tests
         run: blt codeception --suite=functional
       - name: Save Test Results
@@ -231,6 +226,11 @@ jobs:
           drush role:perm:add anonymous 'access content'
           drush xmlsitemap:rebuild
           mkdir -p artifacts/_data/
+      - name: Set up npm in sdss_subtheme
+        working-directory: ./docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme
+        run: |
+          nvm use
+          npm install
       - name: Run tests
         run: blt tests:frontend:run --no-interaction
       - name: Save Test Results
