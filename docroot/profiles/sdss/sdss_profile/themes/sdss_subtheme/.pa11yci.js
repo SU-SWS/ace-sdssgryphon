@@ -4,7 +4,7 @@
  */
 
 const isCI = process.env.CI;
-const baseURL = isCI ? 'http://127.0.0.1:8888' : 'http://ace-sdssgryphon.test';
+const baseURL = isCI ? 'http://localhost/' : 'http://ace-sdssgryphon.test';
 
 // Add urls for a11y testing here.
 const urls = [
