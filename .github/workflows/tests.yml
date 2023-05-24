@@ -233,9 +233,7 @@ jobs:
           check-latest: false
       - name: Set up npm in sdss_subtheme
         working-directory: ./docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme
-        run: |
-          nvm use
-          npm install
+        run: npm install
       - name: Run tests
         run: blt tests:frontend:run --no-interaction
       - name: Save Test Results
