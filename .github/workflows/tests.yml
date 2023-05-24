@@ -213,8 +213,10 @@ jobs:
             2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
             2.x-${{ hashFiles('composer.json') }}-
             2.x-
-      - name: Add required libraries for pa11y
-        run: sudo apt-get install -y chromium-browser libxkbcommon-x11-0 libxdamage1 libgtk-3-0 libgbm-dev
+      - name: Add sudo and required libraries for pa11y
+        run: |
+          apt update && apt install sudo
+          sudo apt-get install -y chromium-browser libxkbcommon-x11-0 libxdamage1 libgtk-3-0 libgbm-dev
       - name: Setup NodeJS for sdss_subtheme
         uses: actions/setup-node@v3
         with:
