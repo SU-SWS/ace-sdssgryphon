@@ -49,7 +49,9 @@
   "description": "= SDSS Subtheme =",
   "author": "",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "pa11y-ci": "^3.0.1"
+  },
   "keywords": [
     "css",
     "scss",
