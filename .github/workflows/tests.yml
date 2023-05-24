@@ -227,7 +227,7 @@ jobs:
           drush xmlsitemap:rebuild
           mkdir -p artifacts/_data/
       - name: Run tests
-        run: blt tests:frontend:run
+        run: blt tests:frontend:run --no-interaction
       - name: Save Test Results
         uses: actions/upload-artifact@v3
         if: always()
