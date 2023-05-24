@@ -165,10 +165,10 @@ jobs:
           drush xmlsitemap:rebuild
           mkdir -p artifacts/_data/
       - name: Set up npm in sdss_subtheme
+        working-directory: ./docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme
         run: |
           nvm use
           npm install
-        working-directory: docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme
       - name: Run tests
         run: blt codeception --suite=functional
       - name: Save Test Results
