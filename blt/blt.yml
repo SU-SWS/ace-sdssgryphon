@@ -66,6 +66,9 @@ tests:
         - acceptance
         - functional
       directory: '${docroot}/profiles/sdss/sdss_profile/tests/codeception'
+  pa11y:
+    sdss_subtheme:
+      directory: '${repo.root}/docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme'
 validate:
   twig:
     functions:
