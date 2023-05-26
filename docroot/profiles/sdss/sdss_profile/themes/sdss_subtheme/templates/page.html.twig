@@ -20,6 +20,13 @@
       </section>
     </header>
   {%- endif -%}
+
+{# This will be removed later. It is just for testing. #}
+  {% set url = url('<current>') %}
+  {% if 'news' in url|render|render %}
+  {%- include "@sdss_subtheme/newsroom/menus/newsroom_menu.html.twig" -%}
+  {% else %}
+  {% endif %}
 {%- endblock -%}
 
 {# Override the footer #}
