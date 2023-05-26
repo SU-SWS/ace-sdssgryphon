@@ -101,7 +101,7 @@
             "package": {
                 "name": "su-sws/earth_news_importer",
                 "version": "1.x-dev",
-                "type": "drupal-custom-module",
+                "type": "drupal-module",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/SU-SWS/earth_news_importer.git",
