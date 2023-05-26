@@ -3,12 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.su_news_dek
     - field.storage.node.su_news_publishing_date
+    - field.storage.node.su_sdss_news_dek_long
     - node.type.stanford_news
   module:
     - datetime
     - node
+    - text
     - user
 id: rss_feeds
 label: 'RSS Feeds'
@@ -286,10 +287,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        su_news_dek:
-          id: su_news_dek
-          table: node__su_news_dek
-          field: su_news_dek
+        su_sdss_news_dek_long:
+          id: su_sdss_news_dek_long
+          table: node__su_sdss_news_dek_long
+          field: su_sdss_news_dek_long
           relationship: none
           group_type: group
           admin_label: ''
@@ -319,7 +320,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -336,9 +337,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
+          type: text_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -594,8 +594,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.su_news_dek'
         - 'config:field.storage.node.su_news_publishing_date'
+        - 'config:field.storage.node.su_sdss_news_dek_long'
   feed_1:
     id: feed_1
     display_title: 'SDSS News This Week'
@@ -616,7 +616,7 @@ display:
         options:
           title_field: title
           link_field: nid
-          description_field: su_news_dek
+          description_field: su_sdss_news_dek_long
           creator_field: name
           date_field: su_news_publishing_date
           guid_field_options:
@@ -634,5 +634,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.su_news_dek'
         - 'config:field.storage.node.su_news_publishing_date'
+        - 'config:field.storage.node.su_sdss_news_dek_long'
