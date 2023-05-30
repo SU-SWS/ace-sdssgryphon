@@ -1,0 +1,24 @@
+uuid: e5801180-d999-4cdf-8df5-b3593703c7e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - config_pages
+    - views
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_search
+theme: sdss_subtheme
+region: search
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:search-results'
+settings:
+  id: 'views_exposed_filter_block:search-results'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility: {  }

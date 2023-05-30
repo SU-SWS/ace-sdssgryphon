@@ -1,0 +1,28 @@
+uuid: 0886026d-6181-4e0d-9b7f-f670b9e43a05
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search
+  module:
+    - system
+    - views
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_search_form
+theme: sdss_subtheme
+region: content
+weight: -2
+provider: null
+plugin: 'views_exposed_filter_block:search-results'
+settings:
+  id: 'views_exposed_filter_block:search-results'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search

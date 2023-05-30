@@ -1,0 +1,20 @@
+uuid: c46c11a8-084b-49b7-8e68-4ba2388102f3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_local_tasks
+theme: sdss_subtheme
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

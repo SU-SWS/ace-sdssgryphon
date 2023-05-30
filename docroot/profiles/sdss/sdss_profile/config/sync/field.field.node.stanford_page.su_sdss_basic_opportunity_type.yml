@@ -1,0 +1,29 @@
+uuid: d7e806d7-c394-43a2-b521-3b93db9b77ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_basic_opportunity_type
+    - node.type.stanford_page
+    - taxonomy.vocabulary.sdss_custm_opportunity_type
+id: node.stanford_page.su_sdss_basic_opportunity_type
+field_name: su_sdss_basic_opportunity_type
+entity_type: node
+bundle: stanford_page
+label: 'Opportunity Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_custm_opportunity_type: sdss_custm_opportunity_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

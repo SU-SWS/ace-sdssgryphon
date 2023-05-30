@@ -1,5 +1,27 @@
 # ACE SDSSGryphon
 
+2.0.2
+--------------------------------------------------------------------------------
+_Release Date: 2023-04-26_
+
+- SDSS-563: Updated path_redirect_import module and updated corresponding test (#116)
+- SDSS-418: Created 3 taxonomies and added them as Basic Page fields (#113)
+- SDSS-567: Pointed energypostdoc alias to sepf site (#112)
+- SDSS-563: Dependency and stanford_profile updates (#111)
+- SDSS-563: Updated dependencies.
+- SDSS-563: Removed ECK.
+- SDSS-563: Replaced log entity type.
+- SDSS-563: Updated profile core requirement.
+- SDSS-563: Added autoservices package so it can be uninstalled properly.
+- SDSS-563: Added default block configs for sdss_subtheme.
+- SDSS-563: Updated SHS widget field tests from selectOption to fillField.
+- SDSS-569: Added events RSS feed. (#114)
+- SDSS-565: Added ckeditor.scss to subtheme (#110)
+- SDSS-538: Updated caption styles to be consistent across paragraphs (#107)
+- SDSS-000: Updated pull request template (#108)
+- SDSS-276: Updated footer heading styles (#106)
+
+
 2.0.1
 --------------------------------------------------------------------------------
 _Release Date: 2023-03-28_

@@ -1,0 +1,12 @@
+project:
+  machine_name: carbon_removal
+  human_name: carbon_removal
+  local:
+    protocol: http
+    hostname: local.carbon_removal.com
+drush:
+  aliases:
+    local: carbon_removal.local
+    remote: carbon_removal.prod
+drupal:
+  db: {  }

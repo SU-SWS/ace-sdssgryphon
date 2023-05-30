@@ -17,39 +17,13 @@ drush:
   aliases:
     ci: self
   default_alias: '${drush.aliases.local}'
-modules:
-  local:
-    enable:
-      - stanford_ssp
-      - environment_indicator
-    uninstall:
-      - acquia_purge
-  ci:
-    enable:
-      - nobots
-    uninstall:
-      - simplesamlphp_auth
-  dev:
-    enable:
-      - nobots
-      - environment_indicator
-    uninstall: {  }
-  test:
-    enable:
-      - nobots
-      - environment_indicator
-    uninstall:
-      - views_ui
-  prod:
-    enable:
-      - environment_indicator
-    uninstall:
-      - views_ui
 simplesamlphp: true
 cm:
   strategy: config-split
   allow-overrides: true
 multisites:
+  - bitsandwatts
+  - carbon_removal
   - changeleadership
   - climate
   - climatechange
@@ -62,19 +36,35 @@ multisites:
   - environmentalpolicy
   - ese
   - esys
+  - explore_energy
+  - extreme_energy_efficiency
   - farm
   - geophysics
+  - gep
   - gs
+  - hackingfordefense
   - hawaii
   - hopkinsmarinestation
+  - hydrogen
+  - mce2050
   - naturalcapitalproject
+  - ngi
+  - nza
   - oceans
   - planetary
+  - scv
   - sdss_config_capture
   - sdsssandbox
   - sdssuserguide
+  - seca
+  - seepac
   - sepf
+  - sfi
+  - storagex
+  - strategic_energy_alliance
   - sustainability
+  - understand_energy_course
+  - understandenergy
   - water
   - woods
 tests:

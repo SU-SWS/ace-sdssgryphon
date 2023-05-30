@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.stanford_banner.su_banner_header
     - field.field.paragraph.stanford_banner.su_banner_image
     - field.field.paragraph.stanford_banner.su_banner_sup_header
+    - field.field.paragraph.stanford_banner.su_sdss_banner_caption
     - paragraphs.paragraphs_type.stanford_banner
   module:
     - ds
@@ -83,6 +84,7 @@ content:
       view_mode: default
       link: false
       image_style: stanford_hero_block_wide
+      remove_alt: false
     third_party_settings: {  }
     weight: 0
     region: hero_image
@@ -96,3 +98,4 @@ content:
     region: hero_super_headline
 hidden:
   search_api_excerpt: true
+  su_sdss_banner_caption: true
