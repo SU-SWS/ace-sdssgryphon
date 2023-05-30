@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.stanford_page.su_sdss_basic_focal_areas
     - field.field.node.stanford_page.su_sdss_basic_opportunity_type
     - field.field.node.stanford_page.su_sdss_basic_organization
+    - field.field.node.stanford_page.su_sdss_related_content
     - field.field.node.stanford_page.su_shared_tags
     - node.type.stanford_page
     - system.menu.main
@@ -105,6 +106,22 @@ third_party_settings:
                   link: true
                 third_party_settings: {  }
             weight: 3
+            additional: {  }
+          edf215d0-5931-40f4-80a6-4b6975d0270a:
+            uuid: edf215d0-5931-40f4-80a6-4b6975d0270a
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_page:su_sdss_related_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 4
             additional: {  }
         third_party_settings: {  }
       -
@@ -384,6 +401,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 9
+    region: main
+  su_sdss_related_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
     region: main
 hidden:
   layout_builder__layout: true

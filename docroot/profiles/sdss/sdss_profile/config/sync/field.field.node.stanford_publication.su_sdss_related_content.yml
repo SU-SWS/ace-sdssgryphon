@@ -1,0 +1,36 @@
+uuid: ab67c7ad-fc2c-4ec3-853d-847baff8ed83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_related_content
+    - node.type.stanford_event
+    - node.type.stanford_news
+    - node.type.stanford_page
+    - node.type.stanford_person
+    - node.type.stanford_publication
+id: node.stanford_publication.su_sdss_related_content
+field_name: su_sdss_related_content
+entity_type: node
+bundle: stanford_publication
+label: 'Related Content'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      stanford_page: stanford_page
+      stanford_event: stanford_event
+      stanford_news: stanford_news
+      stanford_person: stanford_person
+      stanford_publication: stanford_publication
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: stanford_page
+field_type: entity_reference
