@@ -351,10 +351,10 @@ class BasicPageCest {
     // A quick test to make sure it's only visible to administrators.
     $I->logInWithRole('contributor');
     $I->amOnPage('/node/add/stanford_page');
-    $I->cantSee('Related Content', 'h4');
+    $I->cantSee('Related Content');
     $I->logInWithRole('administrator');
     $I->amOnPage('/node/add/stanford_page');
-    $I->canSee('Related Content', 'h4');
+    $I->canSee('Related Content');
   }
 
   protected static function getTimezone() {
