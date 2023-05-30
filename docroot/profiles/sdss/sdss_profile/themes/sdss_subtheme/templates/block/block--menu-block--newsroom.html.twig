@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Secondary Navigation Template
+ *
+ * A sidebar style navigation.
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behaviour of the component.
+ * - toggle_modifier_class: Additional css classes to change look and behaviour of the toggle.
+ * - aria_label: Aria label for the <nav> element. Default is "main menu". If there are multiple instances of the component on the same page, use a different aria_label for each instance.
+ *
+ */
+#}
+
+{%
+  set classes = [
+    'block',
+    'block-menu',
+    'navigation',
+    'menu--' ~ derivative_plugin_id|clean_class,
+  ]
+%}
+
+{% set attributes = attributes.addClass(['sdss-newsroom-nav', 'sdss-newsroom-nav--buttons', 'no-js']) %}
+{% set attributes = attributes.setAttribute('aria-label', aria_label|default('newsroom menu')) %}
+
+<div class="sdss-newsroom--wrapper">
+  <div class="sdss-newsroom">
+
+    <div id="newsroom-menu-label" class="newsroom-menu-label">
+    {# Label. If not displayed, we still provide it for screen readers. #}
+      {% if not configuration.label_display %}
+        {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+      {% endif %}
+      {{ title_prefix }}
+      {{ configuration.label }}
+      {{ title_suffix }}
+    </div>
+
+{# Macros #}
+{%- import "@sdss_subtheme/menus/macros/nav-newsroom.twig" as newsroommenus -%}
+<nav{{ attributes }} aria-labelledby="newsroom-menu-label">
+
+  {# {{ content }} #}
+{% block multimenubutton %}
+  <button class="su-multi-menu__nav-toggle su-multi-menu__nav-toggle--right {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
+  {% endblock %}
+  {% spaceless %}
+  {% if content is iterable %}
+    {{ newsroommenus.nav_newsroom(item, 1, 'sdss-newsroom-nav') }}
+  {% else %}
+    {# If custom markup is provided, emit it as is #}
+    {{ item.items }}
+{% endif %}
+  {% endspaceless %}
+
+
+</nav>
+
+    {# search #}
+    <form>
+      <label class="su-site-search__sr-label" for="key">Search this site</label>
+      <input type="text" id="key" name="key" class="su-site-search__input" placeholder="Search this site" maxlength="128">
+      <button type="submit" name="search" class="su-site-search__submit su-sr-only-text">Submit Search</button></form>
+    </form>
+  </div>
+</div>

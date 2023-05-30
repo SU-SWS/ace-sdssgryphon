@@ -29,13 +29,11 @@
     gap: 2.9rem;
     margin-right: 2em;
 
-
-
     li {
       margin-bottom: 0;
 
-      &:first-child,
-      &:nth-child(2) {
+      >&:first-child,
+      >&:nth-child(2) {
           >a {
             color: $sdss-color-green-link;
             font-weight: $su-font-semi-bold;

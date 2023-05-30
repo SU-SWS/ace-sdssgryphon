@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.sdss-newsroom {
+
+  .sdss-newsroom-nav {
+    .menu {
+
+      .menu-item--expanded {
+
+        >.menu {
+          flex-direction: column;
+
+          background-color: bisque;
+          position: absolute;
+          top: 13rem;
+          z-index: 6;
+        }
+
+      }
+
+    }
+  }
+
+}
+
+
