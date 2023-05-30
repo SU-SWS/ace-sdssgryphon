@@ -12,7 +12,7 @@ field_name: su_sdss_import_source
 entity_type: node
 bundle: stanford_news
 label: 'Import Source'
-description: ''
+description: 'The source URL of imported content from the previous site. <b>This field is intended for capturing data from a migration, and is not used in displays.</b>'
 required: false
 translatable: false
 default_value: {  }
