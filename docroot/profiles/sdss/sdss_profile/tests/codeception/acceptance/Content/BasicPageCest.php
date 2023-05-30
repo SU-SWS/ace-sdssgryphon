@@ -352,6 +352,8 @@ class BasicPageCest {
     $I->logInWithRole('contributor');
     $I->amOnPage('/node/add/stanford_page');
     $I->cantSee('Related Content');
+    $I->amOnPage('/user/logout');
+    $I->runDrush('cr');
     $I->logInWithRole('administrator');
     $I->amOnPage('/node/add/stanford_page');
     $I->canSee('Related Content');
