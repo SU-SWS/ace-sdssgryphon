@@ -217,5 +217,16 @@ class NewsCest {
     $I->assertEquals($values['featured_image_alt'], $I->grabAttributeFrom('meta[name="twitter:image:alt"]', 'content'), 'Metadata "twitter:image:alt" should match.');
   }
 
+  public function testRelatedContent(AcceptanceTester $I){
+    // A quick test to make sure it's only visible to administrators.
+    $I->logInWithRole('contributor');
+    $I->amOnPage('/node/add/stanford_news');
+    $I->cantSee('Related Content');
+    $I->amOnPage('/user/logout');
+    $I->runDrush('cr');
+    $I->logInWithRole('administrator');
+    $I->amOnPage('/node/add/stanford_news');
+    $I->canSee('Related Content');
+  }
 
 }

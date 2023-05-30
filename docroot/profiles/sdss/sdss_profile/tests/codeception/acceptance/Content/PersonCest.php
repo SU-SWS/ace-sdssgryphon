@@ -341,4 +341,16 @@ class PersonCest {
     $I->assertEquals($values['profile_link'], $I->grabAttributeFrom('link[rel="canonical"]', 'href'), 'Metadata "canonical" should match.');
   }
 
+  public function testRelatedContent(AcceptanceTester $I){
+    // A quick test to make sure it's only visible to administrators.
+    $I->logInWithRole('contributor');
+    $I->amOnPage('/node/add/stanford_person');
+    $I->cantSee('Related Content');
+    $I->amOnPage('/user/logout');
+    $I->runDrush('cr');
+    $I->logInWithRole('administrator');
+    $I->amOnPage('/node/add/stanford_person');
+    $I->canSee('Related Content');
+  }
+
 }

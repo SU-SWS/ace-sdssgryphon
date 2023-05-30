@@ -340,10 +340,12 @@ class EventsCest {
     // A quick test to make sure it's only visible to administrators.
     $I->logInWithRole('contributor');
     $I->amOnPage('/node/add/stanford_event');
-    $I->cantSee('Related Content', 'h4');
+    $I->cantSee('Related Content');
+    $I->amOnPage('/user/logout');
+    $I->runDrush('cr');
     $I->logInWithRole('administrator');
     $I->amOnPage('/node/add/stanford_event');
-    $I->canSee('Related Content', 'h4');
+    $I->canSee('Related Content');
   }
 
   /**
