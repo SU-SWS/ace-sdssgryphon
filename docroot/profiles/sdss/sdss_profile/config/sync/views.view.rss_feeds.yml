@@ -712,7 +712,7 @@ display:
         options:
           title_field: title
           link_field: nid
-          description_field: su_news_dek
+          description_field: su_sdss_news_dek_long
           creator_field: name
           date_field: su_news_publishing_date
           guid_field_options:
@@ -735,6 +735,5 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.su_news_dek'
         - 'config:field.storage.node.su_news_publishing_date'
         - 'config:field.storage.node.su_sdss_news_dek_long'
