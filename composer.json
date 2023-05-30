@@ -95,6 +95,19 @@
                     "reference": "master"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "su-sws/earth_news_importer",
+                "version": "1.x-dev",
+                "type": "drupal-module",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/SU-SWS/earth_news_importer.git",
+                    "reference": "1.x"
+                }
+            }
         }
     ],
     "require": {
@@ -234,6 +247,7 @@
         "seboettg/citeproc-php": "2.4.1",
         "simplesamlphp/simplesamlphp": "^1.19",
         "su-sws/drupal-patches": "^8.1",
+        "su-sws/earth_news_importer": "1.x-dev",
         "su-sws/nobots": "^8.2",
         "su-sws/react_paragraphs": "^8.2",
         "su-sws/stanford_actions": "^8.2",
