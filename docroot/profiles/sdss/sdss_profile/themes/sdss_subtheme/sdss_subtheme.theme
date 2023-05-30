@@ -9,7 +9,6 @@
  */
 function sdss_subtheme_preprocess_html(&$variables) {
   $variables['stanford_basic_path'] = drupal_get_path('theme', 'stanford_basic');
-  $variables['public'] = (bool) \Drupal::state()->get('sdss_subtheme.public', false);
 }
 
 /**

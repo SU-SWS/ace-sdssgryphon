@@ -1,9 +1,0 @@
-uuid: 3d376193-f0cf-4869-b4fb-fd5a2929eb2b
-langcode: en
-status: true
-dependencies: {  }
-id: theme_viewer
-label: 'Theme Viewer'
-weight: 2
-is_admin: false
-permissions: {  }

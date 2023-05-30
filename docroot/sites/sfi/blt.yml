@@ -1,0 +1,12 @@
+project:
+  machine_name: sfi
+  human_name: sfi
+  local:
+    protocol: http
+    hostname: local.sfi.com
+drush:
+  aliases:
+    local: sfi.local
+    remote: sfi.prod
+drupal:
+  db: {  }

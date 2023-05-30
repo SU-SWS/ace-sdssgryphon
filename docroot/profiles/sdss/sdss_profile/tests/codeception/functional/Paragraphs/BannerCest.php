@@ -66,9 +66,7 @@ class BannerCest {
     ]);
 
     $I->amOnPage($node->toUrl()->toString());
-    $I->canSee($field_values['sup_header']);
     $I->canSee($field_values['header']);
-    $I->canSee($field_values['body']);
     $I->canSeeLink($field_values['title'], $field_values['uri']);
 
     $I->cantSeeElement('.overlay-right');

@@ -1,0 +1,12 @@
+project:
+  machine_name: ngi
+  human_name: ngi
+  local:
+    protocol: http
+    hostname: local.ngi.com
+drush:
+  aliases:
+    local: ngi.local
+    remote: ngi.prod
+drupal:
+  db: {  }
