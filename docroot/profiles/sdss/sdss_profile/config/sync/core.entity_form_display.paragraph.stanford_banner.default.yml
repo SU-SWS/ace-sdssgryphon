@@ -13,7 +13,6 @@ dependencies:
   module:
     - link
     - media_library
-    - text
 id: paragraph.stanford_banner.default
 targetEntityType: paragraph
 bundle: stanford_banner
@@ -27,17 +26,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  su_banner_body:
-    type: text_textarea
-    weight: 4
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   su_banner_button:
     type: link_default
-    weight: 5
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
@@ -45,7 +36,7 @@ content:
     third_party_settings: {  }
   su_banner_header:
     type: string_textfield
-    weight: 2
+    weight: 1
     region: content
     settings:
       size: 60
@@ -60,7 +51,7 @@ content:
     third_party_settings: {  }
   su_banner_sup_header:
     type: string_textfield
-    weight: 1
+    weight: 3
     region: content
     settings:
       size: 60
@@ -78,4 +69,5 @@ hidden:
   created: true
   publish_on: true
   status: true
+  su_banner_body: true
   unpublish_on: true

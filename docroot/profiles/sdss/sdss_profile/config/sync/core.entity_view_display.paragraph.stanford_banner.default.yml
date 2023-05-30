@@ -29,7 +29,6 @@ third_party_settings:
     regions:
       hero_image:
         - su_banner_image
-        - su_sdss_banner_caption
       hero_super_headline:
         - su_banner_sup_header
       hero_headline:
@@ -97,12 +96,6 @@ content:
     third_party_settings: {  }
     weight: 1
     region: hero_super_headline
-  su_sdss_banner_caption:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 5
-    region: hero_image
 hidden:
   search_api_excerpt: true
+  su_sdss_banner_caption: true

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2feed552e6edc481fbf14107cf283a32",
+    "content-hash": "fe6d8671d1c1cf2d9ea9e77fce736da9",
     "packages": [
         {
             "name": "acquia/blt",
@@ -17935,6 +17935,16 @@
             "time": "2023-04-12T17:15:27+00:00"
         },
         {
+            "name": "su-sws/earth_news_importer",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SU-SWS/earth_news_importer.git",
+                "reference": "1.x"
+            },
+            "type": "drupal-module"
+        },
+        {
             "name": "su-sws/nobots",
             "version": "8.2.2",
             "source": {
@@ -27430,6 +27440,7 @@
         "drupal/views_rss": 5,
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
+        "su-sws/earth_news_importer": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,
