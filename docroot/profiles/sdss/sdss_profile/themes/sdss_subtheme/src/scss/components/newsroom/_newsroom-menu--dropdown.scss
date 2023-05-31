@@ -21,15 +21,14 @@
     }
 
     // Open and close functionality.
-
-    .menu ul,
-    .menu input,
-    .menu .closer,
-    .menu input:checked ~ .opener{
+    .sdss-newsroom--menu ul,
+    .sdss-newsroom--menu input,
+    .sdss-newsroom--menu .closer,
+    .sdss-newsroom--menu input:checked ~ .opener{
         display:none;
     }
-    .menu input:checked ~ ul,
-    .menu input:checked ~ .closer{
+    .sdss-newsroom--menu input:checked ~ ul,
+    .sdss-newsroom--menu input:checked ~ .closer{
         display:block;
     }
 
