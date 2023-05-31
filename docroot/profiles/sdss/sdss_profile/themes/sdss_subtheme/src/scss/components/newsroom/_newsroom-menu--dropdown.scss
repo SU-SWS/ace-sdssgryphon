@@ -3,7 +3,7 @@
 .sdss-newsroom {
 
   .sdss-newsroom-nav {
-    .menu {
+    .sdss-newsroom--menu {
 
       .menu-item--expanded {
 
@@ -19,8 +19,21 @@
       }
 
     }
-  }
 
+    // Open and close functionality.
+
+    .menu ul,
+    .menu input,
+    .menu .closer,
+    .menu input:checked ~ .opener{
+        display:none;
+    }
+    .menu input:checked ~ ul,
+    .menu input:checked ~ .closer{
+        display:block;
+    }
+
+  }
 }
 
 

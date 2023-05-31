@@ -43,19 +43,19 @@
 {%- import "@sdss_subtheme/menus/macros/nav-newsroom.twig" as newsroommenus -%}
 <nav{{ attributes }} aria-labelledby="newsroom-menu-label">
 
-  {# {{ content }} #}
-{% block multimenubutton %}
-  <button class="su-multi-menu__nav-toggle su-multi-menu__nav-toggle--right {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
-  {% endblock %}
+  {# {% block multimenubutton %}
+    <button class="su-multi-menu__nav-toggle su-multi-menu__nav-toggle--right {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
+  {% endblock %} #}
+
   {% spaceless %}
   {% if content is iterable %}
     {{ newsroommenus.nav_newsroom(item, 1, 'sdss-newsroom-nav') }}
   {% else %}
     {# If custom markup is provided, emit it as is #}
-    {{ item.items }}
+    {{ content }}
 {% endif %}
   {% endspaceless %}
-
+      {{ content }}
 
 </nav>
 
