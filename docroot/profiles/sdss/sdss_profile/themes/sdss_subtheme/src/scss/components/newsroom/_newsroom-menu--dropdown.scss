@@ -5,6 +5,10 @@
   .sdss-newsroom-nav {
     .sdss-newsroom--menu {
 
+      label {
+        margin-top: 0;
+      }
+
       .menu-item--expanded {
 
         >.menu {
@@ -21,15 +25,8 @@
     }
 
     // Open and close functionality.
-    .sdss-newsroom--menu ul,
-    .sdss-newsroom--menu input,
-    .sdss-newsroom--menu .closer,
-    .sdss-newsroom--menu input:checked ~ .opener{
-        display:none;
-    }
-    .sdss-newsroom--menu input:checked ~ ul,
-    .sdss-newsroom--menu input:checked ~ .closer{
-        display:block;
+    .sdss-newsroom--menu {
+
     }
 
   }

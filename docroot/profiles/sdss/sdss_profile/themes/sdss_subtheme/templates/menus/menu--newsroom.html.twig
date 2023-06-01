@@ -45,16 +45,14 @@
       %}
       <li{{ item.attributes.addClass(classes) }}>
         {% if item.below %}
-        <input type="radio" name="menuopt" id="{{ item.title }}" />
-            <label class="opener" for="{{ item.title }}">{{ item.title }}</label>
-            <label class="closer" for="dropclose">{{ item.title }}</label>
+          {{ link(item.title, item.url) }}
+
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% else %}
           {{ link(item.title, item.url) }}
         {% endif %}
       </li>
     {% endfor %}
-    <input type="radio" name="menuopt" id="dropclose" />
     </ul>
   {% endif %}
 {% endmacro %}
