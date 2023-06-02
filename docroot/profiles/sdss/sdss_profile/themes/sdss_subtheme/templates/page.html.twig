@@ -24,8 +24,10 @@
 
   {# Newsroom Section. #}
     {%- if page.newsroom -%}
+      <div class="newsroom-wrapper">
       {{ page.newsroom }}
-      {# {%- include "@sdss_subtheme/newsroom/menus/newsroom_menu.html.twig" -%} #}
+      {%- include "@sdss_subtheme/menus/menu--newsroom-layout.html.twig" -%}
+      </div>
     {%- endif -%}
 
 {# This will be removed later. It is just for testing. #}

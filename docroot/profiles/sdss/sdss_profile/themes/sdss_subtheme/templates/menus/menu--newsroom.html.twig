@@ -46,10 +46,10 @@
       <li{{ item.attributes.addClass(classes) }}>
         {% if item.below %}
           {{ link(item.title, item.url) }}
-
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
         {% else %}
           {{ link(item.title, item.url) }}
+
         {% endif %}
       </li>
     {% endfor %}
