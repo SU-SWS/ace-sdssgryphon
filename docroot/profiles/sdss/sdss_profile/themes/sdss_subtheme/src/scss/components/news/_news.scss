@@ -55,6 +55,8 @@
 // News Node
 .su-news-topics {
   a {
+    @include sdss-newsroom-topics;
+
     color: $sdss-color-palo-alto-dark;
   }
 }
