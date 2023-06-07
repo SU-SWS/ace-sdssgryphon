@@ -1,5 +1,5 @@
 # Custom module library for general purposes.
-layout_paragraphs:
+sdss_layout_paragraphs:
   css:
     component:
       css/sdss_layout_paragraphs.node_form.css: { }

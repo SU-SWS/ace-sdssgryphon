@@ -1,9 +1,9 @@
-layout_paragraphs_1_column:
+sdss_layout_paragraphs_1_column:
   label: '1 Column'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\OneColumn'
   path: layouts/one_column
-  template: layout-paragraphs-one-column
+  template: sdss-layout-paragraphs-one-column
   library: sdss_layout_paragraphs/one_column
   regions:
     main:
@@ -12,12 +12,12 @@ layout_paragraphs_1_column:
   icon_map:
     - [main]
 
-layout_paragraphs_2_column:
+sdss_layout_paragraphs_2_column:
   label: '2 Column'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumn'
   path: layouts/two_column
-  template: layout-paragraphs-two-column
+  template: sdss-layout-paragraphs-two-column
   library: sdss_layout_paragraphs/two_column
   regions:
     left:
@@ -28,12 +28,12 @@ layout_paragraphs_2_column:
   icon_map:
     - [left, right]
 
-layout_paragraphs_3_column:
+sdss_layout_paragraphs_3_column:
   label: '3 Column'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\ThreeColumn'
   path: layouts/three_column
-  template: layout-paragraphs-three-column
+  template: sdss-layout-paragraphs-three-column
   library: sdss_layout_paragraphs/three_column
   regions:
     left:
