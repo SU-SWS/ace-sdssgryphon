@@ -1,0 +1,26 @@
+uuid: 49783752-3c23-4dff-a377-3fe7280dd24d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_callout_quote
+    - paragraphs.paragraphs_type.sdss_callout
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - stanford_html
+id: paragraph.sdss_callout.su_callout_quote
+field_name: su_callout_quote
+entity_type: paragraph
+bundle: sdss_callout
+label: Quote
+description: 'Please enter your quote text.  The quote marks will come from the styling.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

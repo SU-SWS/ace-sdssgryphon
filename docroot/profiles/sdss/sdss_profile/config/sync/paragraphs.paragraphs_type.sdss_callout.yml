@@ -1,0 +1,10 @@
+uuid: 616e4f80-45ef-4925-8a52-4f4666a301e1
+langcode: en
+status: true
+dependencies: {  }
+id: sdss_callout
+label: 'Callout - One column'
+icon_uuid: null
+icon_default: null
+description: 'This is a one column callout to be used on the news node page.'
+behavior_plugins: {  }

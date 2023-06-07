@@ -1,0 +1,5 @@
+services:
+  sdss_layout_paragraphs.event_subscriber:
+    class: Drupal\sdss_layout_paragraphs\EventSubscriber\StanfordLayoutParagraphsSubscriber
+    tags:
+      - { name: event_subscriber }

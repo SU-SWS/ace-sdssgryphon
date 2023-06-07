@@ -1,0 +1,26 @@
+uuid: 81cc7871-521a-4152-b6cf-b2972c6b79f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_callout_author
+    - paragraphs.paragraphs_type.sdss_callout
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - stanford_minimal_html
+id: paragraph.sdss_callout.su_callout_author
+field_name: su_callout_author
+entity_type: paragraph
+bundle: sdss_callout
+label: Author
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

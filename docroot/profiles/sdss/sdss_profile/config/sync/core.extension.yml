@@ -159,6 +159,8 @@ module:
   rh_taxonomy: 0
   role_delegation: 0
   scheduler: 0
+  sdss_layout_paragraphs: 0
+  sdss_profile_helper: 0
   search_api: 0
   search_api_db: 0
   seckit: 0
@@ -237,7 +239,6 @@ module:
   menu_link_content: 1
   pathauto: 1
   xmlsitemap: 1
-  sdss_profile_helper: 9
   config_pages_overrides: 10
   externalauth: 10
   menu_link_weight: 10

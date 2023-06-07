@@ -1,0 +1,81 @@
+uuid: f89b0300-0577-44ec-8791-2cede8852648
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sdss_callout.su_callout_author
+    - field.field.paragraph.sdss_callout.su_callout_author_title
+    - field.field.paragraph.sdss_callout.su_callout_quote
+    - paragraphs.paragraphs_type.sdss_callout
+  module:
+    - ds
+    - element_class_formatter
+    - empty_fields
+    - field_formatter_class
+third_party_settings:
+  ds:
+    layout:
+      id: pattern_newsroom-1col-callout
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        pattern:
+          field_templates: default
+    regions:
+      newsroom_1col_callout_quote:
+        - su_callout_quote
+      newsroom_1col_callout_author:
+        - su_callout_author
+      newsroom_1col_callout_author_title:
+        - su_callout_author_title
+id: paragraph.sdss_callout.default
+targetEntityType: paragraph
+bundle: sdss_callout
+mode: default
+content:
+  su_callout_author:
+    type: wrapper_class
+    label: visually_hidden
+    settings:
+      class: ''
+      tag: div
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
+    third_party_settings: {  }
+    weight: 1
+    region: newsroom_1col_callout_author
+  su_callout_author_title:
+    type: wrapper_class
+    label: visually_hidden
+    settings:
+      class: ''
+      tag: div
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
+    third_party_settings: {  }
+    weight: 2
+    region: newsroom_1col_callout_author_title
+  su_callout_quote:
+    type: wrapper_class
+    label: visually_hidden
+    settings:
+      class: ''
+      tag: div
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: newsroom_1col_callout_quote
+hidden:
+  search_api_excerpt: true

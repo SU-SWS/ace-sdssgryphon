@@ -236,8 +236,8 @@ third_party_settings:
           label: Components
           context_mapping: {  }
           extra_classes: section-components
-          centered: centered-container
-          columns: flex-8-of-12
+          centered: null
+          columns: default
         components:
           4f1a1e3a-caf2-4368-8271-35321c76d216:
             uuid: 4f1a1e3a-caf2-4368-8271-35321c76d216
