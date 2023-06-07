@@ -6,7 +6,6 @@ newsroom-1col-callout:
       type: text
       label: "Quote"
       description: "Quote text"
-      preview: "<img src='https://picsum.photos/900/900/' alt='Example Image' />"
     newsroom_1col_callout_author:
       type: text
       label: "Author"
@@ -18,7 +17,7 @@ newsroom-1col-callout:
       description: "Author's title"
       preview: "Author's title"
 
-  use: "@sdss_subtheme/callout/paragraph--newsroom--1col-callout.html.twig"
+  use: "@sdss_subtheme/newsroom-callout/paragraph--newsroom--1col-callout.html.twig"
   # libraries:
   #   - newslist:
   #       css:
