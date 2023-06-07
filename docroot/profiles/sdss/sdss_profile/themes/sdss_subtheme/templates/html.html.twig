@@ -1,9 +1,0 @@
-{% if public or 'site_manager' in user.roles or 'administrator' in user.roles or 'theme_viewer' in user.roles %}
-  {% include '@basic/html.html.twig' %}
-{% else %}
-  {% if user.isAnonymous %}
-    <a href="/saml_login">Log In</a>
-  {% else %}
-    <p>Sorry, you do not appear to have access to this site. Please <a href="/user/logout">Log out</a></p>
-  {% endif %}
-{% endif %}

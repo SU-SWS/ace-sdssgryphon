@@ -1,0 +1,12 @@
+project:
+  machine_name: understandenergy
+  human_name: understandenergy
+  local:
+    protocol: http
+    hostname: understandenergy.lndo.site
+drush:
+  aliases:
+    local: understandenergy.local
+    remote: understandenergy.remote
+drupal:
+  db: {  }

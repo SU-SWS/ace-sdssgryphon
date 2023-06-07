@@ -53,7 +53,7 @@ class EntityReferenceCest {
     $I->waitForElementNotVisible('.MuiDialog-scrollPaper');
     $I->click('Save');
     $I->canSee('has been updated');
-    $I->canSee('Foo Bar News', '.news.node--layout-stanford-card');
+    $I->canSee('Foo Bar News', '.su-card.su-news-vertical-teaser');
   }
 
   /**
