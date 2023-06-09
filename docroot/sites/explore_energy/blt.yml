@@ -1,0 +1,12 @@
+project:
+  machine_name: explore_energy
+  human_name: explore_energy
+  local:
+    protocol: http
+    hostname: local.explore_energy.com
+drush:
+  aliases:
+    local: explore_energy.local
+    remote: explore_energy.prod
+drupal:
+  db: {  }

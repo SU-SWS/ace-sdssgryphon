@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.stanford_news.su_news_publishing_date
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
+    - field.field.node.stanford_news.su_sdss_import_source
     - field.field.node.stanford_news.su_sdss_magazine_topics
     - field.field.node.stanford_news.su_sdss_news_dek_long
     - field.field.node.stanford_news.su_sdss_news_focal_areas
@@ -22,6 +23,7 @@ dependencies:
     - field.field.node.stanford_news.su_sdss_news_organization
     - field.field.node.stanford_news.su_sdss_news_research_area
     - field.field.node.stanford_news.su_sdss_related_content
+    - field.field.node.stanford_news.su_sdss_person_ref
     - field.field.node.stanford_news.su_shared_tags
     - node.type.stanford_news
   module:
@@ -82,6 +84,42 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: true
+    group_tags:
+      children:
+        - su_news_topics
+        - su_sdss_magazine_topics
+        - su_shared_tags
+        - su_sdss_news_organization
+        - su_sdss_news_research_area
+        - su_sdss_news_focal_areas
+      label: Taxonomy
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_related_content:
+      children:
+        - su_sdss_person_ref
+      label: 'Related Content'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        formatter: closed
 id: node.stanford_news.default
 targetEntityType: node
 bundle: stanford_news
@@ -89,31 +127,31 @@ mode: default
 content:
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 52
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 50
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   stanford_intranet__access:
     type: entity_access
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
-    weight: 32
+    weight: 9
     region: content
     settings:
       sidebar: true
@@ -144,7 +182,7 @@ content:
     third_party_settings: {  }
   su_news_components:
     type: entity_reference_paragraphs
-    weight: 5
+    weight: 3
     region: content
     settings:
       title: Paragraph
@@ -177,7 +215,7 @@ content:
     third_party_settings: {  }
   su_news_topics:
     type: options_shs
-    weight: 3
+    weight: 14
     region: content
     settings:
       display_node_count: false
@@ -187,7 +225,7 @@ content:
     third_party_settings: {  }
   su_sdss_magazine_topics:
     type: options_shs
-    weight: 4
+    weight: 15
     region: content
     settings:
       display_node_count: false
@@ -205,7 +243,7 @@ content:
     third_party_settings: {  }
   su_sdss_news_focal_areas:
     type: options_shs
-    weight: 28
+    weight: 19
     region: content
     settings:
       display_node_count: false
@@ -225,7 +263,7 @@ content:
     third_party_settings: {  }
   su_sdss_news_organization:
     type: options_shs
-    weight: 26
+    weight: 17
     region: content
     settings:
       display_node_count: false
@@ -235,7 +273,7 @@ content:
     third_party_settings: {  }
   su_sdss_news_research_area:
     type: options_shs
-    weight: 27
+    weight: 18
     region: content
     settings:
       display_node_count: false
@@ -253,9 +291,19 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  su_sdss_person_ref:
+    type: entity_reference_autocomplete
+    weight: 21
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   su_shared_tags:
     type: options_shs
-    weight: 10
+    weight: 16
     region: content
     settings:
       display_node_count: false
@@ -279,6 +327,7 @@ hidden:
   promote: true
   sticky: true
   su_news_dek: true
+  su_sdss_import_source: true
   uid: true
   unpublish_on: true
   url_redirects: true

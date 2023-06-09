@@ -1,0 +1,12 @@
+project:
+  machine_name: scv
+  human_name: scv
+  local:
+    protocol: http
+    hostname: local.scv.com
+drush:
+  aliases:
+    local: scv.local
+    remote: scv.prod
+drupal:
+  db: {  }

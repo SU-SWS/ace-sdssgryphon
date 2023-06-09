@@ -1,5 +1,36 @@
 # ACE SDSSGryphon
 
+2.0.4
+--------------------------------------------------------------------------------
+_Release Date: 2023-06-01_
+
+- SDSS-628: Replaced sdss-intro-text WYSIWYG style class with su-intro-text class (#141)
+
+
+2.0.3
+--------------------------------------------------------------------------------
+_Release Date: 2023-05-31_
+
+- SDSS-576-577-578: Updated WYSIWYG text styles (#122)
+- SDSS-576: Updated Intro Text and Display text WYSIWYG styles.
+- SDSS-577: Updated block quote lg, md, sm styles and font sizes.
+- SDSS-578: Updated the Display text style and font size.
+- SDSS-606: Added import source and related people fields to News content type. (#128)
+- SDSS-606: Cleaned up News node edit form.
+- SDSS-354: Added filter by taxonomy RSS view (#120)
+- SDSS-532: Hide body field in banner paragraph edit form, since it is not used/displayed. (#121)
+- SDSS-530: Hide banner caption field from default display (#137)
+- SDSS-601: Provisioned 17 sites (#136)
+- SDSS-626: Changed earth_news_importer module type to store in untested contrib directory.(#133)
+- SDSS-624: Replaced Dek field with Dek (Long) field in RSS feed (#131)
+- SDSS-621: Added dev version of earth_news_importer to the stack.
+- SDSS-464: Set the sdss_subtheme as the default theme and updated tests to reflect differences.. (#127)
+- Dropped and deprecated public protection and theme viewer roles.
+- SDSS-599: Provision understand-energy (#126)
+- SDSS-530: Added caption field to banner paragraph (#118)
+- SDSS-562: Disable configuration read-only on config capture staging site. (#117)
+
+
 2.0.2
 --------------------------------------------------------------------------------
 _Release Date: 2023-04-26_
