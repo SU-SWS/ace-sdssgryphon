@@ -22,8 +22,8 @@ dependencies:
     - field.field.node.stanford_news.su_sdss_news_news_source
     - field.field.node.stanford_news.su_sdss_news_organization
     - field.field.node.stanford_news.su_sdss_news_research_area
-    - field.field.node.stanford_news.su_sdss_related_content
     - field.field.node.stanford_news.su_sdss_person_ref
+    - field.field.node.stanford_news.su_sdss_related_content
     - field.field.node.stanford_news.su_shared_tags
     - node.type.stanford_news
   module:
@@ -107,7 +107,7 @@ third_party_settings:
     group_related_content:
       children:
         - su_sdss_person_ref
-      label: 'Related Content'
+      label: 'Related Fields'
       region: content
       parent_name: ''
       weight: 4
@@ -119,7 +119,6 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
-        formatter: closed
 id: node.stanford_news.default
 targetEntityType: node
 bundle: stanford_news
