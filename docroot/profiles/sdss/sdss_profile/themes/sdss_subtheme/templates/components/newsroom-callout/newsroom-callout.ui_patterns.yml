@@ -1,23 +1,23 @@
-newsroom-1col-callout:
+newsroom-callout:
   label: SDSS One Column Callout
   description: "One Column Callout for the Newsroom article page"
   fields:
-    newsroom_1col_callout_quote:
+    newsroom_callout_quote:
       type: text
       label: "Quote"
       description: "Quote text"
-    newsroom_1col_callout_author:
+    newsroom_callout_author:
       type: text
       label: "Author"
       description: "Quote author"
       preview: "Who said the quote."
-    newsroom_1col_callout_author_title:
+    newsroom_callout_author_title:
       type: text
       label: "Author title"
       description: "Author's title"
       preview: "Author's title"
 
-  use: "@sdss_subtheme/newsroom-callout/paragraph--newsroom--1col-callout.html.twig"
+  use: "@sdss_subtheme/newsroom-callout/paragraph--newsroom--callout.html.twig"
   # libraries:
   #   - newslist:
   #       css:
