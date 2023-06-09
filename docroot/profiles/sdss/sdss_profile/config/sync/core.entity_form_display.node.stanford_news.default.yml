@@ -281,9 +281,9 @@ content:
       create_new_levels: false
       force_deepest: false
     third_party_settings: {  }
-  su_sdss_related_content:
+  su_sdss_person_ref:
     type: entity_reference_autocomplete
-    weight: 53
+    weight: 21
     region: content
     settings:
       match_operator: CONTAINS
@@ -291,9 +291,9 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  su_sdss_person_ref:
+  su_sdss_related_content:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 53
     region: content
     settings:
       match_operator: CONTAINS

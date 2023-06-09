@@ -614,14 +614,6 @@ content:
     third_party_settings: {  }
     weight: 12
     region: main
-  su_sdss_related_content:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 15
-    region: main
   su_sdss_person_ref:
     type: entity_reference_label
     label: above
@@ -629,6 +621,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 16
+    region: main
+  su_sdss_related_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 15
     region: main
 hidden:
   layout_builder__layout: true
