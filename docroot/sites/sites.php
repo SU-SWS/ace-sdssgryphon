@@ -97,7 +97,6 @@ $sites['earthsystems.stanford.edu'] = 'esys';
 $sites['epsci.stanford.edu'] = 'gs';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
 $sites['understand-energy.stanford.edu'] = 'understandenergy';
-$sites['understandenergy.stanford.edu'] = 'understandenergy';
 
 // Include local sites.
 if (file_exists(__DIR__ . '/local.sites.php')) {
