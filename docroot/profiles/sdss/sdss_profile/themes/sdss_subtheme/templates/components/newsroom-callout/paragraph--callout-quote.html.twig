@@ -1,9 +1,14 @@
+{%- set background_color = content.su_callout_blue_bg|render|striptags("<drupal-render-placeholder>")|trim -%}
+{% set selectedFontSize = content.su_select_font_sizing['#items'].getString() %}
 
-{%-  set modifier_class = su_callout_blue_bg -%}
-{%- set attributes = attributes.addClass(['callout', modifier_class]) -%}
+{%- set attributes = attributes.addClass(['callout', background_color, selectedFontSize]) -%}
+
 
 <div {{ attributes }}>
-blah blash
-  {{content}}
-
+  <span class="decoration">&#8220;</span>
+  <div>
+    {{ content.su_callout_quote }}
+    {{ content.su_callout_author }}
+    {{ content.su_callout_author_title }}
+  </div>
 </div>

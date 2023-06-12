@@ -219,3 +219,18 @@
   }
 }
 
+// Newsroom callout quote mixin
+@mixin sdss-newsroom-callout-quote {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md','xl') {
+    font-size: 4.1rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}

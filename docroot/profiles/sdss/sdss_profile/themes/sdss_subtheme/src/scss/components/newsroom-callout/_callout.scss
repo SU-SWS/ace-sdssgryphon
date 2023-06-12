@@ -1,2 +1,82 @@
 @charset "UTF-8";
 
+//padding set up based on layout.
+.layout--layout-paragraphs-one-colum {
+  .callout {
+
+    &.blue_bg,
+    &.white_bg {
+      padding: 4.5rem 11.3rem 4.5rem 11.1rem;
+    }
+  }
+}
+
+.layout--layout-paragraphs-two-column {
+  .callout {
+
+    &.blue_bg,
+    &.white_bg {
+      padding: 4.5rem 5.8rem;
+    }
+  }
+}
+
+
+.callout {
+  display: flex;
+
+  // Hiding the text from display.
+  .su-callout-blue-bg,
+  .su-callout-white-bg,
+  .su-select-font-sizing {
+    display: none;
+  }
+
+  // Setting up appearance
+  .decoration {
+    font-size: 9.3rem;
+    line-height: 14rem;
+    position: relative;
+    top: -40px;
+    margin-right: 1rem;
+  }
+
+  &.blue_bg {
+    @include sdss-light-blue--background;
+
+    padding: 4.5rem 11.3rem 4.5rem 11.1rem;
+
+    .decoration {
+      color: $sdss-color-blue-hover;
+    }
+  }
+
+  &.white_bg { // should be default color
+    border-left: $sdss-color-blue-bright 3px solid;
+    padding: 4.5rem 11.3rem 4.5rem 11.1rem;
+
+    .decoration {
+      color: $sdss-color-blue-hover;
+    }
+  }
+
+  &.large_block_quote {
+    .su-callout-quote {
+      @include sdss-block-quote--big;
+    }
+  }
+
+  &.medium_block_quote {
+    .su-callout-quote {
+      @include sdss-block-quote--med;
+    }
+  }
+
+  &.small_block_quote {
+    .su-callout-quote {
+      @include sdss-block-quote--sm;
+    }
+  }
+
+}
+
