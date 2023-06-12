@@ -13,6 +13,7 @@ dependencies:
   module:
     - link
     - media_library
+    - text
 id: paragraph.stanford_banner.default
 targetEntityType: paragraph
 bundle: stanford_banner
@@ -49,14 +50,6 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  su_banner_sup_header:
-    type: string_textfield
-    weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   su_sdss_banner_caption:
     type: text_textarea
     weight: 3
@@ -70,4 +63,5 @@ hidden:
   publish_on: true
   status: true
   su_banner_body: true
+  su_banner_sup_header: true
   unpublish_on: true
