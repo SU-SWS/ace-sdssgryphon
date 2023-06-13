@@ -288,31 +288,23 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          label: 'More Topics'
+          label: ''
           context_mapping: {  }
-          extra_classes: section-more-topics
+          extra_classes: ''
           centered: centered-container
-          columns: flex-10-of-12
+          columns: flex-12-of-12
         components:
-          32d871db-85f0-4445-afb8-4d19c97ac98f:
-            uuid: 32d871db-85f0-4445-afb8-4d19c97ac98f
+          0dce8d5f-7572-4394-9cbc-9230ac3047a8:
+            uuid: 0dce8d5f-7572-4394-9cbc-9230ac3047a8
             region: main
             configuration:
-              id: 'field_block:node:stanford_news:su_news_topics'
-              label: 'Related Topics'
+              id: 'views_block:stanford_news-vertical_cards'
+              label: 'Explore More'
               label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: su-new-more-topics
+              provider: views
+              context_mapping: {  }
+              views_label: 'Explore More'
+              items_per_page: none
             weight: 0
             additional: {  }
         third_party_settings: {  }

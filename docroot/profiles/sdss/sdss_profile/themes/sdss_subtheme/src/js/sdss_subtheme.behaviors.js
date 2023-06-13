@@ -25,21 +25,16 @@
        * Open and close on the Newsroom menu
        */
 
-      const newsMenus = $('.sdss-newsroom--menu .menu-item--expanded a');
+      const newsMenus = $('.sdss-newsroom--menu .menu-item--expanded > a');
       newsMenus.removeAttr('href');
 
-      $(newsMenus, context).click(function(e) {
+      $('.menu-item--expanded', context).click(function(e) {
+        $(this).parents().removeClass('active');
+        $(this).toggleClass('active');
+        $('.newsroom-menu--bg').toggleClass('active');
 
-        $(newsMenus).toggleClass('active');
-        $('#newsroom-menu--bg').toggleClass('active');
-
-        if ($(this).siblings('.menu-item--expanded').css('display') != 'none') {
-          $(this).attr('aria-expanded', 'true');
-        }
-        else {
-          $(this).attr('aria-expanded', 'false');
-        }
       });
+
     })(jQuery);
   },
 

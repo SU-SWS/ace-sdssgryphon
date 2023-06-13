@@ -33,9 +33,14 @@
       margin-bottom: 0;
       padding-top: 0;
 
+      &.menu-item--expanded {
+        a {
+          font-weight: $su-font-semi-bold;
+        }
+      }
+
       >a {
         color: $sdss-color-green-link;
-        font-weight: $su-font-semi-bold;
         display: block;
         cursor: pointer;
 

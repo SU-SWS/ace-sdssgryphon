@@ -64,21 +64,59 @@
     }
   }
 
+  .su-callout-quote {
+    > p {
+      display: inline;
+
+      &::after {
+        content: "\201D";
+        display: inline;
+      }
+    }
+  }
+
   &.large_block_quote {
     .su-callout-quote {
-      @include sdss-block-quote--big;
+      > p {
+        @include sdss-block-quote--big;
+
+        display: inline;
+
+        &::after {
+          content: "\201D";
+          display: inline;
+        }
+      }
     }
   }
 
   &.medium_block_quote {
     .su-callout-quote {
-      @include sdss-block-quote--med;
+      > p {
+        @include sdss-block-quote--med;
+
+        display: inline;
+
+        &::after {
+          content: "\201D";
+          display: inline;
+        }
+      }
     }
   }
 
   &.small_block_quote {
     .su-callout-quote {
-      @include sdss-block-quote--sm;
+      > p {
+        @include sdss-block-quote--sm;
+
+        display: inline;
+
+        &::after {
+          content: "\201D";
+          display: inline;
+        }
+      }
     }
   }
 

@@ -39,17 +39,19 @@
       //End buttons
 
       .menu-item--expanded {
-        >.menu {
+        .menu {
           display: none;
         }
 
-        a.active {
-          ~.menu {
+        &.active {
+          >.menu {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-evenly;
             align-content: space-around;
+            row-gap: 4rem;
+            column-gap: 7.5rem;
 
             color: $sdss-color-white;
             position: absolute;
@@ -58,6 +60,7 @@
 
             a {
               color: $su-color-white;
+              font-size: 2.2rem;
             }
           }
         }
@@ -66,15 +69,18 @@
   }
 }
 
-#newsroom-menu--bg {
-  display: none;
-
+.newsroom-menu--bg {
   &.active {
     display: block;
-
-    background-color: $sdss-color-green-link;
-    height: 330px;
-    width: 100vw;
   }
+
+  display: none;
+  height: 330px;
+  position: absolute;
+  width: 100vw;
+  background: $sdss-color-green-link;
+  margin-top: 76px;
+  left: -16vw;
+  z-index: 3;
 }
 
