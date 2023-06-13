@@ -30,6 +30,7 @@
 
       $('.menu-item--expanded', context).click(function(e) {
         $(this).parents().removeClass('active');
+
         $(this).toggleClass('active');
         $('.newsroom-menu--bg').toggleClass('active');
 
