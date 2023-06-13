@@ -41,6 +41,10 @@
     margin-right: 1rem;
   }
 
+  .su-callout-author-title {
+    color: $su-color-black-70;
+  }
+
   &.blue_bg {
     @include sdss-light-blue--background;
 
