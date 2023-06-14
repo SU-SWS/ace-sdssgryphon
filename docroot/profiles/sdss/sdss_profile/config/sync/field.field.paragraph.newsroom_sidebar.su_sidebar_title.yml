@@ -1,0 +1,26 @@
+uuid: a0de3a05-5b2f-43e2-844d-17adeaf7728c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_sidebar_title
+    - paragraphs.paragraphs_type.newsroom_sidebar
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - stanford_minimal_html
+id: paragraph.newsroom_sidebar.su_sidebar_title
+field_name: su_sidebar_title
+entity_type: paragraph
+bundle: newsroom_sidebar
+label: 'Sidebar title'
+description: 'Please add a title for the sidebar.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

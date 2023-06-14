@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+//padding set up based on layout.
+.layout--layout-paragraphs-one-column {
+  .sidebar {
+
+    &.blue_bg,
+    &.white_bg  {
+      @include modular-spacing('padding', 4);
+    }
+  }
+}
+
+.layout--layout-paragraphs-two-column {
+  .sidebar {
+
+    &.blue_bg,
+    &.white_bg {
+      @include modular-spacing('padding', 2);
+
+    }
+  }
+}
+
+.sidebar {
+  .su-sidebar-blue-bg,
+  .su-sidebar-white-bg {
+    display: none;
+  }
+
+  .su-sidebar-title {
+    @include modular-spacing('padding-bottom', 1);
+
+    color: $su-color-black;
+
+  }
+
+  &.blue_bg {
+    @include sdss-light-blue--background;
+  }
+
+  // should be default color
+  &.white_bg {
+    border: $su-color-black-20 1px solid;
+  }
+}
+

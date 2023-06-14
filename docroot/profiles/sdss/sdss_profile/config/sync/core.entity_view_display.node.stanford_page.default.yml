@@ -218,11 +218,14 @@ third_party_settings:
       - 'News Lists (Views)'
       - 'PDB React'
       - 'People Lists (Views)'
+      - 'Policy (Views)'
       - Printable
       - 'Publication (Views)'
       - React
+      - 'SimpleSAMLphp Authentication'
       - 'Stanford News'
       - 'Stanford Profile Helper'
+      - 'Stanford SimpleSAML PHP'
       - System
       - 'Taxonomy Terms (Views)'
       - Views
@@ -303,9 +306,12 @@ third_party_settings:
         - Forms
         - Help
         - 'Lists (Views)'
+        - 'Policy (Views)'
         - Printable
         - React
+        - 'SimpleSAMLphp Authentication'
         - 'Stanford Profile Helper'
+        - 'Stanford SimpleSAML PHP'
         - 'Taxonomy Terms (Views)'
         - Views
 id: node.stanford_page.default
