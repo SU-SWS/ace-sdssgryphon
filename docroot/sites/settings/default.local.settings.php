@@ -7,6 +7,11 @@
  * The settings in this file will be applied to every multisites.
  */
 
+// SAML login doesn't work on gitpod. Disable it.
+if (getenv('GITPOD_WORKSPACE_URL')) {
+  $config['simplesamlphp_auth.settings']['activate'] = FALSE;
+}
+
 /**
  * SimpleSaml Workgroup configuration
  */
