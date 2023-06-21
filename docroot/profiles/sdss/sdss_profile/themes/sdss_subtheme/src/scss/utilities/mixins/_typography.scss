@@ -225,3 +225,52 @@
     font-size: 1.5rem;
   }
 }
+
+// Newsroom Topics A mixin
+@mixin sdss-newsroom-topics {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+
+// Newsroom long dek mixin
+@mixin sdss-newsroom-topics {
+
+  @include grid-media-min('2xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 2.5rem;
+  }
+}
+
+// Newsroom long dek mixin
+@mixin sdss-newsroom-byline {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2.1rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
