@@ -1,0 +1,8 @@
+uuid: 19d118e4-99e6-4f8c-ba61-f3cdc83e0105
+langcode: en
+status: true
+dependencies: {  }
+id: newsroom
+label: 'News & Research'
+description: 'Newsroom menu'
+locked: false
