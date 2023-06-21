@@ -18,13 +18,14 @@ dependencies:
     - field.field.node.stanford_news.su_news_topics
     - field.field.node.stanford_news.su_sdss_import_source
     - field.field.node.stanford_news.su_sdss_magazine_topics
+    - field.field.node.stanford_news.su_sdss_news_banner_caption
     - field.field.node.stanford_news.su_sdss_news_dek_long
     - field.field.node.stanford_news.su_sdss_news_focal_areas
     - field.field.node.stanford_news.su_sdss_news_news_source
     - field.field.node.stanford_news.su_sdss_news_organization
     - field.field.node.stanford_news.su_sdss_news_research_area
-    - field.field.node.stanford_news.su_sdss_related_content
     - field.field.node.stanford_news.su_sdss_person_ref
+    - field.field.node.stanford_news.su_sdss_related_content
     - field.field.node.stanford_news.su_shared_tags
     - node.type.stanford_news
     - views.view.stanford_news
@@ -171,6 +172,21 @@ third_party_settings:
                   link: true
                 third_party_settings: {  }
             weight: 9
+            additional: {  }
+          a4425f31-655d-4aa2-923c-e175a113d87b:
+            uuid: a4425f31-655d-4aa2-923c-e175a113d87b
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_news:su_sdss_news_banner_caption'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 10
             additional: {  }
         third_party_settings: {  }
       -
@@ -574,6 +590,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 9
+    region: main
+  su_sdss_news_banner_caption:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
     region: main
   su_sdss_news_dek_long:
     type: text_default
