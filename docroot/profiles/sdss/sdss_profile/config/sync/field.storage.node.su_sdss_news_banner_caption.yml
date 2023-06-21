@@ -1,0 +1,19 @@
+uuid: 6dd6e229-330b-40d6-b84c-15968472df98
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.su_sdss_news_banner_caption
+field_name: su_sdss_news_banner_caption
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
