@@ -1,0 +1,18 @@
+uuid: c63df045-4251-4cda-9e42-0e1af0901f6d
+langcode: en
+status: true
+dependencies:
+  module:
+    - layout_paragraphs
+id: stanford_layout
+label: Layout
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins:
+  layout_paragraphs:
+    enabled: true
+    available_layouts:
+      layout_paragraphs_1_column: '1 Column'
+      layout_paragraphs_2_column: '2 Column'
+      layout_paragraphs_3_column: '3 Column'
