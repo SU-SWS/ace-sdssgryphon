@@ -20,6 +20,22 @@
       </section>
     </header>
   {%- endif -%}
+
+
+  {# Newsroom Section. #}
+    {%- if page.newsroom -%}
+      <div class="newsroom-wrapper">
+      {{ page.newsroom }}
+      </div>
+    {%- endif -%}
+
+{# This will be removed later. It is just for testing. #}
+  {# {% set url = url('<current>') %}
+  {% if 'news' in url|render|render %}
+  {{ page.newsroom }}
+  {%- include "@sdss_subtheme/newsroom/menus/newsroom_menu.html.twig" -%}
+  {% else %}
+  {% endif %} #}
 {%- endblock -%}
 
 {# Override the footer #}
