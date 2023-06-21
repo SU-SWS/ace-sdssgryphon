@@ -16,12 +16,15 @@ dependencies:
     - field.field.node.stanford_news.su_news_publishing_date
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
+    - field.field.node.stanford_news.su_sdss_import_source
     - field.field.node.stanford_news.su_sdss_magazine_topics
     - field.field.node.stanford_news.su_sdss_news_dek_long
     - field.field.node.stanford_news.su_sdss_news_focal_areas
     - field.field.node.stanford_news.su_sdss_news_news_source
     - field.field.node.stanford_news.su_sdss_news_organization
     - field.field.node.stanford_news.su_sdss_news_research_area
+    - field.field.node.stanford_news.su_sdss_related_content
+    - field.field.node.stanford_news.su_sdss_person_ref
     - field.field.node.stanford_news.su_shared_tags
     - node.type.stanford_news
     - views.view.stanford_news
@@ -33,6 +36,7 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_library
+    - link
     - stanford_news
     - text
     - user
@@ -115,6 +119,58 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 6
+            additional: {  }
+          127425e3-f58d-40db-ac0a-f7b88128973b:
+            uuid: 127425e3-f58d-40db-ac0a-f7b88128973b
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_news:su_sdss_related_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          5ac2f723-c95b-4e9d-a40d-e4c99386da88:
+            uuid: 5ac2f723-c95b-4e9d-a40d-e4c99386da88
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_news:su_sdss_import_source'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          4df41d12-f026-4f77-9d83-e59f53762703:
+            uuid: 4df41d12-f026-4f77-9d83-e59f53762703
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_news:su_sdss_person_ref'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 9
             additional: {  }
         third_party_settings: {  }
       -
@@ -260,6 +316,8 @@ third_party_settings:
                     handler: ''
                   field_formatter_class:
                     class: su-news-components
+                  ds:
+                    ds_limit: ''
             weight: 0
             additional: {  }
         third_party_settings: {  }
@@ -288,31 +346,37 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          label: ''
+          label: 'More Topics'
           context_mapping: {  }
-          extra_classes: ''
+          extra_classes: section-more-topics
           centered: centered-container
-          columns: flex-12-of-12
+          columns: flex-10-of-12
         components:
-          0dce8d5f-7572-4394-9cbc-9230ac3047a8:
-            uuid: 0dce8d5f-7572-4394-9cbc-9230ac3047a8
+          32d871db-85f0-4445-afb8-4d19c97ac98f:
+            uuid: 32d871db-85f0-4445-afb8-4d19c97ac98f
             region: main
             configuration:
-              id: 'views_block:stanford_news-vertical_cards'
-              label: 'Explore More'
+              id: 'field_block:node:stanford_news:su_news_topics'
+              label: 'Related Topics'
               label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: 'Explore More'
-              items_per_page: none
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: true
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-new-more-topics
             weight: 0
             additional: {  }
         third_party_settings: {  }
   layout_builder_restrictions:
     allowed_block_categories:
       - 'Basic Page Type Lists (Views)'
-      - Book
-      - 'Changelog (Views)'
       - 'Chaos Tools'
       - 'Config Pages'
       - 'Content fields'
@@ -330,8 +394,6 @@ third_party_settings:
       - 'News Lists (Views)'
       - 'PDB React'
       - 'People Lists (Views)'
-      - 'Policy (Views)'
-      - Printable
       - 'Publication (Views)'
       - React
       - 'SimpleSAMLphp Authentication'
@@ -339,7 +401,6 @@ third_party_settings:
       - 'Stanford Profile Helper'
       - 'Stanford SimpleSAML PHP'
       - System
-      - 'Taxonomy Terms (Views)'
       - Views
       - core
     entity_view_mode_restriction:
@@ -348,7 +409,6 @@ third_party_settings:
         - jumpstart_ui_two_column
         - jumpstart_ui_three_column
         - stanford_news_byline
-        - pattern_newsroom-1col-callout
       denylisted_blocks:
         'Content fields':
           - 'field_block:node:stanford_news:uid'
@@ -387,8 +447,8 @@ third_party_settings:
           - 'field_block:user:user:name'
           - 'field_block:user:user:preferred_admin_langcode'
           - 'field_block:user:user:preferred_langcode'
-          - 'field_block:user:user:roles'
           - 'field_block:user:user:role_change'
+          - 'field_block:user:user:roles'
           - 'extra_field_block:user:user:search_api_excerpt'
           - 'field_block:user:user:timezone'
           - 'field_block:user:user:uid'
@@ -397,33 +457,28 @@ third_party_settings:
         Menus:
           - 'menu_block:stanford-event-types'
           - 'system_menu_block:stanford-event-types'
-          - 'menu_block:main'
           - 'system_menu_block:main'
-          - 'menu_block:stanford-person-type'
+          - 'menu_block:main'
           - 'system_menu_block:stanford-person-type'
-          - 'menu_block:stanford-publication-topics'
+          - 'menu_block:stanford-person-type'
           - 'system_menu_block:stanford-publication-topics'
-          - 'menu_block:news-topics'
+          - 'menu_block:stanford-publication-topics'
           - 'system_menu_block:news-topics'
+          - 'menu_block:news-topics'
         System:
           - system_breadcrumb_block
         core:
           - page_title_block
       restricted_categories:
-        - Book
-        - 'Changelog (Views)'
         - 'Chaos Tools'
         - 'Config Pages'
         - Forms
         - Help
         - 'Lists (Views)'
-        - 'Policy (Views)'
-        - Printable
         - React
         - 'SimpleSAMLphp Authentication'
         - 'Stanford Profile Helper'
         - 'Stanford SimpleSAML PHP'
-        - 'Taxonomy Terms (Views)'
         - Views
   layout_library:
     enable: false
@@ -502,6 +557,18 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  su_sdss_import_source:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 15
+    region: main
   su_sdss_magazine_topics:
     type: entity_reference_label
     label: above
@@ -549,8 +616,25 @@ content:
     third_party_settings: {  }
     weight: 12
     region: main
+  su_sdss_person_ref:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 16
+    region: main
+  su_sdss_related_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 15
+    region: main
 hidden:
   layout_builder__layout: true
+  layout_selection: true
   links: true
   search_api_excerpt: true
   stanford_intranet__access: true
