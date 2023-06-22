@@ -250,9 +250,9 @@ module:
   sdss_profile: 1000
 theme:
   stable: 0
-  seven: 0
   stanford_basic: 0
   stable9: 0
   minimally_branded_subtheme: 0
   sdss_subtheme: 0
+  claro: 0
 profile: sdss_profile
