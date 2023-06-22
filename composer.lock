@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64adc64670ca08caf6dda77b089259c3",
+    "content-hash": "7e8011943e9afb565d8aafc9204b92d9",
     "packages": [
         {
             "name": "acquia/blt",
@@ -389,54 +389,6 @@
                 "reference": "master"
             },
             "type": "library"
-        },
-        {
-            "name": "ckeditor-plugin/a11ychecker",
-            "version": "1.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/a11ychecker/releases/a11ychecker_1.1.1.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library"
-        },
-        {
-            "name": "ckeditor-plugin/balloonpanel",
-            "version": "4.14.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/balloonpanel/releases/balloonpanel_4.14.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library"
-        },
-        {
-            "name": "ckeditor-plugin/fakeobjects",
-            "version": "4.14.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.14.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library"
-        },
-        {
-            "name": "ckeditor-plugin/link",
-            "version": "4.14.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://download.ckeditor.com/link/releases/link_4.14.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "drupal-library"
         },
         {
             "name": "commerceguys/addressing",
