@@ -51,6 +51,11 @@ if (EnvironmentDetector::isAhEnv()) {
  */
 $settings['config_sync_directory'] = DRUPAL_ROOT . '/profiles/sdss/sdss_profile/config/sync';
 
+// Block the bots when not on production.
+if (!EnvironmentDetector::isAhProdEnv()) {
+  $settings['nobots'] = TRUE;
+}
+
 /**
  * Include settings files in docroot/sites/settings.
  *
