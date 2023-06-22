@@ -151,7 +151,7 @@
         "drupal/config_update": "^1.7",
         "drupal/confirm_leave": "^1.0@beta",
         "drupal/content_lock": "^2.2",
-        "drupal/core": "~9.4.0",
+        "drupal/core": "~9.5.0",
         "drupal/core-composer-scaffold": "^9.0",
         "drupal/core-recommended": "^9.0",
         "drupal/cshs": "^4.0",
