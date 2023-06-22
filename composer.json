@@ -312,10 +312,6 @@
             },
             "drupal/ui_patterns": {
                 "Ui Patterns Views Fixes": "patches/contrib/ui_patterns_views-preview.patch"
-            },
-            "ckeditor-plugin/link": {
-                "http://github.com/ckeditor/ckeditor4/pull/3965": "patches/libraries/ckeditor-plugin-link-anchor-id.patch",
-                "Disable double click double modal": "patches/libraries/ckeditor-plugin-link-disable-double.patch"
             }
         }
     },
