@@ -15,24 +15,17 @@ module:
   change_labels: 0
   chosen: 0
   chosen_lib: 0
-  ckeditor: 0
   ckeditor5: 0
   ckeditor5_plugins: 0
-  ckeditor_a11ychecker: 0
-  ckeditor_balloonpanel: 0
-  ckeditor_blockimagepaste: 0
-  color: 0
   colorbox: 0
   components: 0
   conditional_fields: 0
   config: 0
   config_filter: 0
   config_ignore: 0
-  config_merge: 0
   config_pages: 0
   config_readonly: 0
   config_split: 0
-  config_update: 0
   confirm_leave: 0
   consumers: 0
   content_lock: 0
@@ -80,7 +73,6 @@ module:
   fontawesome: 0
   google_analytics: 0
   google_tag: 0
-  hal: 0
   help: 0
   hook_event_dispatcher: 0
   image: 0
@@ -177,7 +169,6 @@ module:
   stanford_basic_page_types: 0
   stanford_courses: 0
   stanford_courses_importer: 0
-  stanford_date_formats: 0
   stanford_events: 0
   stanford_events_importer: 0
   stanford_events_series: 0
@@ -198,7 +189,6 @@ module:
   stanford_profile_styles: 0
   stanford_publication: 0
   stanford_ssp: 0
-  stanford_text_editor: 0
   subrequests: 0
   syslog: 0
   system: 0
