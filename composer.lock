@@ -18024,7 +18024,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/earth_news_importer.git",
-                "reference": "1.x"
+                "reference": "5a4216809e76137d60c81ad465051c9be5b8e6b2"
             },
             "type": "drupal-module"
         },
