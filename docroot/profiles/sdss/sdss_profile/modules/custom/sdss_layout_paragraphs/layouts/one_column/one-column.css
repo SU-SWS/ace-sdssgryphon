@@ -23,4 +23,9 @@
     max-width: 980px;
     margin: 0 auto;
   }
+
+  .sdss-layout-paragraphs-one-column--offset-100 .paragraph.paragraph--type--stanford-wysiwyg {
+    max-width: 100%;
+    background-color: orange;
+  }
 }
