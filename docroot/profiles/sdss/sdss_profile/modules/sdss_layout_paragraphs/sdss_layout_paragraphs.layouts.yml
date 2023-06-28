@@ -3,7 +3,7 @@ layout_paragraphs_sdss_1_column:
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\OneColumn'
   path: layouts/one_column
-  template: sdss-layout-paragraphs-one-column
+  template: layout-paragraphs-sdss-one-column
   library: sdss_layout_paragraphs/one_column
   regions:
     main:
@@ -17,7 +17,7 @@ layout_paragraphs_sdss_2_column:
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumn'
   path: layouts/two_column
-  template: sdss-layout-paragraphs-two-column
+  template: layout-paragraphs-sdss-two-column
   library: sdss_layout_paragraphs/two_column
   regions:
     left:
@@ -33,7 +33,7 @@ layout_paragraphs_sdss_3_column:
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\ThreeColumn'
   path: layouts/three_column
-  template: sdss-layout-paragraphs-three-column
+  template: layout-paragraphs-sdss-three-column
   library: sdss_layout_paragraphs/three_column
   regions:
     left:
