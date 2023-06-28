@@ -1,10 +1,4 @@
 # Custom module library for general purposes.
-sdss_layout_paragraphs:
-  css:
-    component:
-      css/sdss_layout_paragraphs.node_form.css: { }
-  js:
-    js/sdss_layout_paragraphs.layout_paragraphs.js: {}
 
 one_column:
   css:

@@ -1,4 +1,4 @@
-sdss_layout_paragraphs_1_column:
+layout_paragraphs_sdss_1_column:
   label: '1 Column'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\OneColumn'
@@ -12,7 +12,7 @@ sdss_layout_paragraphs_1_column:
   icon_map:
     - [main]
 
-sdss_layout_paragraphs_2_column:
+layout_paragraphs_sdss_2_column:
   label: '2 Column'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumn'
@@ -28,7 +28,7 @@ sdss_layout_paragraphs_2_column:
   icon_map:
     - [left, right]
 
-sdss_layout_paragraphs_3_column:
+layout_paragraphs_sdss_3_column:
   label: '3 Column'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\ThreeColumn'
