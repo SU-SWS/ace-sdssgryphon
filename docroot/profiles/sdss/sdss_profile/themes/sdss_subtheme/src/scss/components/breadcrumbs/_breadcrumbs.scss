@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+
+.system-breadcrumb-block {
+  // background: $cs-color-grey;
+
+  .breadcrumb {
+    @include centered-column;
+    padding: 0;
+
+    ol {
+      @include responsive-spacing('padding-top', -1);
+      @include responsive-spacing('padding-bottom', -2);
+
+      li {
+        font-size: 16px;
+        font-weight: 400;
+
+        a {
+          font-weight: 400;
+        }
+
+        &:not(:first-child)::before {
+          content: "/";
+          @include responsive-spacing('margin-right', -2);
+          @include responsive-spacing('margin-left', -2);
+        }
+      }
+    }
+  }
+}
