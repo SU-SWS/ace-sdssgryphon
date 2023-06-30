@@ -23,8 +23,8 @@ dependencies:
     - field.field.node.stanford_news.su_sdss_news_news_source
     - field.field.node.stanford_news.su_sdss_news_organization
     - field.field.node.stanford_news.su_sdss_news_research_area
-    - field.field.node.stanford_news.su_sdss_related_content
     - field.field.node.stanford_news.su_sdss_person_ref
+    - field.field.node.stanford_news.su_sdss_related_content
     - field.field.node.stanford_news.su_shared_tags
     - node.type.stanford_news
     - views.view.stanford_news
@@ -377,6 +377,8 @@ third_party_settings:
   layout_builder_restrictions:
     allowed_block_categories:
       - 'Basic Page Type Lists (Views)'
+      - Book
+      - 'Changelog (Views)'
       - 'Chaos Tools'
       - 'Config Pages'
       - 'Content fields'
@@ -394,6 +396,8 @@ third_party_settings:
       - 'News Lists (Views)'
       - 'PDB React'
       - 'People Lists (Views)'
+      - 'Policy (Views)'
+      - Printable
       - 'Publication (Views)'
       - React
       - 'SimpleSAMLphp Authentication'
@@ -401,14 +405,11 @@ third_party_settings:
       - 'Stanford Profile Helper'
       - 'Stanford SimpleSAML PHP'
       - System
+      - 'Taxonomy Terms (Views)'
       - Views
       - core
     entity_view_mode_restriction:
-      allowed_layouts:
-        - jumpstart_ui_one_column
-        - jumpstart_ui_two_column
-        - jumpstart_ui_three_column
-        - stanford_news_byline
+      allowed_layouts: {  }
       denylisted_blocks:
         'Content fields':
           - 'field_block:node:stanford_news:uid'
@@ -447,8 +448,8 @@ third_party_settings:
           - 'field_block:user:user:name'
           - 'field_block:user:user:preferred_admin_langcode'
           - 'field_block:user:user:preferred_langcode'
-          - 'field_block:user:user:role_change'
           - 'field_block:user:user:roles'
+          - 'field_block:user:user:role_change'
           - 'extra_field_block:user:user:search_api_excerpt'
           - 'field_block:user:user:timezone'
           - 'field_block:user:user:uid'
@@ -457,28 +458,33 @@ third_party_settings:
         Menus:
           - 'menu_block:stanford-event-types'
           - 'system_menu_block:stanford-event-types'
-          - 'system_menu_block:main'
           - 'menu_block:main'
-          - 'system_menu_block:stanford-person-type'
+          - 'system_menu_block:main'
           - 'menu_block:stanford-person-type'
-          - 'system_menu_block:stanford-publication-topics'
+          - 'system_menu_block:stanford-person-type'
           - 'menu_block:stanford-publication-topics'
-          - 'system_menu_block:news-topics'
+          - 'system_menu_block:stanford-publication-topics'
           - 'menu_block:news-topics'
+          - 'system_menu_block:news-topics'
         System:
           - system_breadcrumb_block
         core:
           - page_title_block
       restricted_categories:
+        - Book
+        - 'Changelog (Views)'
         - 'Chaos Tools'
         - 'Config Pages'
         - Forms
         - Help
         - 'Lists (Views)'
+        - 'Policy (Views)'
+        - Printable
         - React
         - 'SimpleSAMLphp Authentication'
         - 'Stanford Profile Helper'
         - 'Stanford SimpleSAML PHP'
+        - 'Taxonomy Terms (Views)'
         - Views
   layout_library:
     enable: false
