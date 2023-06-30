@@ -1,0 +1,13 @@
+uuid: af2ffe00-bbc9-4959-8443-298b1c07898d
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.layout
+id: paragraph.layout.default
+targetEntityType: paragraph
+bundle: layout
+mode: default
+content: {  }
+hidden:
+  search_api_excerpt: true
