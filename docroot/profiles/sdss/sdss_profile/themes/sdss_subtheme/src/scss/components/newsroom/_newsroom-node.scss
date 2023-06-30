@@ -13,11 +13,14 @@
 
 
 .su-sdss-news-dek-long {
-  p {
-    @include sdss-newsroom-topics;
+  &.su-wysiwyg-text {
+    p {
+      @include sdss-newsroom-dek-long;
+    }
   }
 }
 
+.su-news-topics,
 .su-news-title,
 .su-sdss-news-dek-long,
 .su_news_publishing_date-region {
@@ -26,6 +29,11 @@
 }
 
 .byline-social-media-wrapper {
+
+  &.centered-container {
+    @include modular-spacing('margin-top', 4);
+    @include modular-spacing('margin-bottom', 4);
+  }
 
   .sdss-byline--wrapper {
     @include flex-column(12 of 12);
