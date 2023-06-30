@@ -11,8 +11,22 @@
   }
 }
 
-.layout--layout-paragraphs-two-column {
+.layout-paragraphs-sdss-two-column {
+
+  @include grid-media-min('lg') {
+    &.layout-paragraphs-sdss-two-column--offset-50-50 {
+      .layout__region.layout__region--sidebar {
+        > div {
+          float: right; // may change this later.
+        }
+      }
+    }
+  }
+
   .callout {
+    @include grid-media-min('lg') {
+      max-width: 511px;
+    }
 
     &.blue_bg,
     &.white_bg {
