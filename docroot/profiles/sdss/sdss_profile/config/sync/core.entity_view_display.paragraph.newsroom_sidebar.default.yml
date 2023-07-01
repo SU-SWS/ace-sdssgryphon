@@ -1,0 +1,68 @@
+uuid: 03833532-649f-480d-a7e2-ffeb5577ed88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.newsroom_sidebar.su_sidebar_blue_bg
+    - field.field.paragraph.newsroom_sidebar.su_sidebar_body
+    - field.field.paragraph.newsroom_sidebar.su_sidebar_title
+    - paragraphs.paragraphs_type.newsroom_sidebar
+  module:
+    - element_class_formatter
+    - empty_fields
+    - field_formatter_class
+id: paragraph.newsroom_sidebar.default
+targetEntityType: paragraph
+bundle: newsroom_sidebar
+mode: default
+content:
+  su_sidebar_blue_bg:
+    type: boolean
+    label: hidden
+    settings:
+      format: custom
+      format_custom_false: white_bg
+      format_custom_true: blue_bg
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: content
+  su_sidebar_body:
+    type: wrapper_class
+    label: hidden
+    settings:
+      class: ''
+      tag: div
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 3
+    region: content
+  su_sidebar_title:
+    type: wrapper_class
+    label: hidden
+    settings:
+      class: ''
+      tag: h4
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true
