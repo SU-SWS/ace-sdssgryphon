@@ -1,0 +1,26 @@
+uuid: 36e4c246-ca11-4d96-8f4c-afe614a4ba33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_sidebar_body
+    - paragraphs.paragraphs_type.newsroom_sidebar
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - stanford_html
+id: paragraph.newsroom_sidebar.su_sidebar_body
+field_name: su_sidebar_body
+entity_type: paragraph
+bundle: newsroom_sidebar
+label: 'Sidebar body'
+description: 'Please enter the body content and any images for the sidebar. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

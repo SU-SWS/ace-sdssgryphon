@@ -1,0 +1,9 @@
+{%- set background_color = content.su_sidebar_blue_bg|render|striptags("<drupal-render-placeholder>")|trim -%}
+{% set selectedFontSize = content.su_select_font_sizing['#items'].getString() %}
+
+{%- set attributes = attributes.addClass(['sidebar', background_color, selectedFontSize]) -%}
+
+<div {{ attributes }}>
+
+{{ content }}
+</div>
