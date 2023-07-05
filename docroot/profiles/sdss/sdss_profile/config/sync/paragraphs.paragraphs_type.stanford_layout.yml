@@ -14,5 +14,3 @@ behavior_plugins:
     enabled: true
     available_layouts:
       layout_paragraphs_sdss_1_column: '1 Column'
-      layout_paragraphs_sdss_2_column: '2 Column'
-      layout_paragraphs_sdss_3_column: '3 Column'
