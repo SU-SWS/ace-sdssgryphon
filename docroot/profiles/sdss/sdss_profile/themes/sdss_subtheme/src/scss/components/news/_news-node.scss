@@ -16,6 +16,8 @@
   &.su-wysiwyg-text {
     p {
       @include sdss-newsroom-dek-long;
+
+      line-height: 1.5;
     }
   }
 }
@@ -26,6 +28,12 @@
 .su_news_publishing_date-region {
   max-width: 850px;
   margin: auto;
+}
+
+.su-news-title {
+  h1 {
+    color: $su-color-black;
+  }
 }
 
 .byline-social-media-wrapper {
@@ -62,6 +70,7 @@
     @include responsive-spacing('margin-right', 2);
 
     div {
+      color: $su-color-black-70;
       display: inline;
       line-height: 1.75;
     }
