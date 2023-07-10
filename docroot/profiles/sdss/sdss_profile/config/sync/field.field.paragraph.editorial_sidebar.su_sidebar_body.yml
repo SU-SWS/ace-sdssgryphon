@@ -1,10 +1,10 @@
-uuid: 36e4c246-ca11-4d96-8f4c-afe614a4ba33
+uuid: a9296b29-c2a5-448e-9352-dab7f99fbb9f
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.su_sidebar_body
-    - paragraphs.paragraphs_type.newsroom_sidebar
+    - paragraphs.paragraphs_type.editorial_sidebar
   module:
     - allowed_formats
     - text
@@ -12,14 +12,14 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - stanford_html
-id: paragraph.newsroom_sidebar.su_sidebar_body
+id: paragraph.editorial_sidebar.su_sidebar_body
 field_name: su_sidebar_body
 entity_type: paragraph
-bundle: newsroom_sidebar
-label: 'Sidebar body'
+bundle: editorial_sidebar
+label: 'Editorial sidebar body'
 description: 'Please enter the body content and any images for the sidebar. '
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -1,20 +1,20 @@
-uuid: dab0c695-a918-48d3-adc0-32d8c145ee89
+uuid: bfbbcc4a-0cdb-4cb7-8d84-2f4d7c889bae
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.su_sidebar_bgcolor_alt
-    - paragraphs.paragraphs_type.newsroom_sidebar
+    - paragraphs.paragraphs_type.editorial_sidebar
   module:
     - options
-id: paragraph.newsroom_sidebar.su_sidebar_bgcolor_alt
+id: paragraph.editorial_sidebar.su_sidebar_bgcolor_alt
 field_name: su_sidebar_bgcolor_alt
 entity_type: paragraph
-bundle: newsroom_sidebar
+bundle: editorial_sidebar
 label: 'Select a background color'
-description: 'Please select the background color for the sidebar. '
+description: ''
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: bg_color_default

@@ -1,10 +1,10 @@
-uuid: a0de3a05-5b2f-43e2-844d-17adeaf7728c
+uuid: 2cfc2960-c6fc-4de0-a204-9e938e6d03b1
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.paragraph.su_sidebar_title
-    - paragraphs.paragraphs_type.newsroom_sidebar
+    - paragraphs.paragraphs_type.editorial_sidebar
   module:
     - allowed_formats
     - text
@@ -12,14 +12,14 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - stanford_minimal_html
-id: paragraph.newsroom_sidebar.su_sidebar_title
+id: paragraph.editorial_sidebar.su_sidebar_title
 field_name: su_sidebar_title
 entity_type: paragraph
-bundle: newsroom_sidebar
-label: 'Sidebar title'
-description: 'Please add a title for the sidebar.'
+bundle: editorial_sidebar
+label: 'Editorial sidebar title'
+description: 'Please add a title for the Editorial sidebar.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

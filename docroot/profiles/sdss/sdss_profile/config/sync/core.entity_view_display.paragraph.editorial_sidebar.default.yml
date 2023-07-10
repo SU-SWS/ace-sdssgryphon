@@ -1,20 +1,20 @@
-uuid: 03833532-649f-480d-a7e2-ffeb5577ed88
+uuid: 09bf4dd0-55e7-42cd-8ccf-294f8e7f1947
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_bgcolor_alt
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_body
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_title
-    - paragraphs.paragraphs_type.newsroom_sidebar
+    - field.field.paragraph.editorial_sidebar.su_sidebar_bgcolor_alt
+    - field.field.paragraph.editorial_sidebar.su_sidebar_body
+    - field.field.paragraph.editorial_sidebar.su_sidebar_title
+    - paragraphs.paragraphs_type.editorial_sidebar
   module:
     - element_class_formatter
     - empty_fields
     - field_formatter_class
     - options
-id: paragraph.newsroom_sidebar.default
+id: paragraph.editorial_sidebar.default
 targetEntityType: paragraph
-bundle: newsroom_sidebar
+bundle: editorial_sidebar
 mode: default
 content:
   su_sidebar_bgcolor_alt:
@@ -34,11 +34,7 @@ content:
       link_class: ''
       summary: false
       trim: 200
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      field_formatter_class:
-        class: ''
+    third_party_settings: {  }
     weight: 2
     region: content
   su_sidebar_title:

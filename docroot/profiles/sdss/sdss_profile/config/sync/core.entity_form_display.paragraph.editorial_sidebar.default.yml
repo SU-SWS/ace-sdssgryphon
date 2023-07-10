@@ -1,17 +1,17 @@
-uuid: 7379ba2b-64c6-4167-985f-7c2c89bc6a2f
+uuid: 4021176a-bc82-407d-afd3-7bd9499c0a46
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_bgcolor_alt
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_body
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_title
-    - paragraphs.paragraphs_type.newsroom_sidebar
+    - field.field.paragraph.editorial_sidebar.su_sidebar_bgcolor_alt
+    - field.field.paragraph.editorial_sidebar.su_sidebar_body
+    - field.field.paragraph.editorial_sidebar.su_sidebar_title
+    - paragraphs.paragraphs_type.editorial_sidebar
   module:
     - text
-id: paragraph.newsroom_sidebar.default
+id: paragraph.editorial_sidebar.default
 targetEntityType: paragraph
-bundle: newsroom_sidebar
+bundle: editorial_sidebar
 mode: default
 content:
   su_sidebar_bgcolor_alt:
