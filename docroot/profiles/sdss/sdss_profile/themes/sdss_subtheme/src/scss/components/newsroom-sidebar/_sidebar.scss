@@ -4,8 +4,8 @@
 .layout--layout-paragraphs-one-column {
   .sidebar {
 
-    &.blue_bg,
-    &.white_bg  {
+    &.bg_color_option_1,
+    &.bg_color_default  {
       @include modular-spacing('padding', 4);
     }
   }
@@ -14,8 +14,8 @@
 .layout--layout-paragraphs-two-column {
   .sidebar {
 
-    &.blue_bg,
-    &.white_bg {
+    &.bg_color_option_1,
+    &.bg_color_default {
       @include modular-spacing('padding', 2);
 
     }
@@ -23,8 +23,7 @@
 }
 
 .sidebar {
-  .su-sidebar-blue-bg,
-  .su-sidebar-white-bg {
+  .su-sidebar-bgcolor-alt {
     display: none;
   }
 
@@ -39,13 +38,13 @@
 
   }
 
-  &.blue_bg {
-      @include sdss-light-blue--background;
-      // background-color: orange;
+  // This option is blue
+  &.bg_color_option_1 {
+    @include sdss-light-blue--background;
   }
 
-  // should be default color
-  &.white_bg {
+  // Default color is white
+  &.bg_color_default {
     border: $su-color-black-20 1px solid;
   }
 }
