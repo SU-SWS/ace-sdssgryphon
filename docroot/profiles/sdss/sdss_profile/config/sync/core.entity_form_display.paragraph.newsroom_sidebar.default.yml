@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_blue_bg
+    - field.field.paragraph.newsroom_sidebar.su_sidebar_bgcolor_alt
     - field.field.paragraph.newsroom_sidebar.su_sidebar_body
     - field.field.paragraph.newsroom_sidebar.su_sidebar_title
     - paragraphs.paragraphs_type.newsroom_sidebar
@@ -14,12 +14,11 @@ targetEntityType: paragraph
 bundle: newsroom_sidebar
 mode: default
 content:
-  su_sidebar_blue_bg:
-    type: boolean_checkbox
+  su_sidebar_bgcolor_alt:
+    type: options_select
     weight: 0
     region: content
-    settings:
-      display_label: true
+    settings: {  }
     third_party_settings: {  }
   su_sidebar_body:
     type: text_textarea

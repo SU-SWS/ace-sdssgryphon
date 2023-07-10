@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.callout_quote.su_callout_author
     - field.field.paragraph.callout_quote.su_callout_author_title
-    - field.field.paragraph.callout_quote.su_callout_blue_bg
+    - field.field.paragraph.callout_quote.su_callout_bgcolor_alt
     - field.field.paragraph.callout_quote.su_callout_quote
     - field.field.paragraph.callout_quote.su_select_font_sizing
     - paragraphs.paragraphs_type.callout_quote
@@ -22,24 +22,7 @@ mode: default
 content:
   su_callout_author:
     type: wrapper_class
-    label: hidden
-    settings:
-      class: ''
-      tag: p
-      link: false
-      link_class: ''
-      summary: false
-      trim: 200
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      field_formatter_class:
-        class: ''
-    weight: 3
-    region: content
-  su_callout_author_title:
-    type: wrapper_class
-    label: hidden
+    label: visually_hidden
     settings:
       class: ''
       tag: p
@@ -54,24 +37,25 @@ content:
         class: ''
     weight: 4
     region: content
-  su_callout_blue_bg:
-    type: boolean
-    label: hidden
+  su_callout_author_title:
+    type: wrapper_class
+    label: visually_hidden
     settings:
-      format: custom
-      format_custom_false: white_bg
-      format_custom_true: blue_bg
+      class: ''
+      tag: p
+      link: false
+      link_class: ''
+      summary: false
+      trim: 200
     third_party_settings:
       empty_fields:
-        handler: text
-        settings:
-          empty_text: ''
+        handler: ''
       field_formatter_class:
         class: ''
-    weight: 0
+    weight: 5
     region: content
-  su_callout_quote:
-    type: text_default
+  su_callout_bgcolor_alt:
+    type: list_key
     label: hidden
     settings: {  }
     third_party_settings:
@@ -79,7 +63,18 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-    weight: 2
+    weight: 0
+    region: content
+  su_callout_quote:
+    type: text_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 3
     region: content
   su_select_font_sizing:
     type: list_key
@@ -90,7 +85,7 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-    weight: 1
+    weight: 2
     region: content
 hidden:
   search_api_excerpt: true

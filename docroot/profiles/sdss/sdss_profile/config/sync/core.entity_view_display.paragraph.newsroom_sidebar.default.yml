@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.newsroom_sidebar.su_sidebar_blue_bg
+    - field.field.paragraph.newsroom_sidebar.su_sidebar_bgcolor_alt
     - field.field.paragraph.newsroom_sidebar.su_sidebar_body
     - field.field.paragraph.newsroom_sidebar.su_sidebar_title
     - paragraphs.paragraphs_type.newsroom_sidebar
@@ -11,24 +11,18 @@ dependencies:
     - element_class_formatter
     - empty_fields
     - field_formatter_class
+    - options
 id: paragraph.newsroom_sidebar.default
 targetEntityType: paragraph
 bundle: newsroom_sidebar
 mode: default
 content:
-  su_sidebar_blue_bg:
-    type: boolean
+  su_sidebar_bgcolor_alt:
+    type: list_key
     label: hidden
-    settings:
-      format: custom
-      format_custom_false: white_bg
-      format_custom_true: blue_bg
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      field_formatter_class:
-        class: ''
-    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   su_sidebar_body:
     type: wrapper_class
@@ -45,7 +39,7 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-    weight: 3
+    weight: 2
     region: content
   su_sidebar_title:
     type: wrapper_class
@@ -62,7 +56,7 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-    weight: 2
+    weight: 1
     region: content
 hidden:
   search_api_excerpt: true
