@@ -26,14 +26,12 @@
        */
 
       const newsMenus = $('.sdss-newsroom--menu .menu-item--expanded > a');
-      newsMenus.removeAttr('href');
 
-      $('.menu-item--expanded', context).click(function(e) {
-        $(this).parents().removeClass('active');
+      $('.menu-item--expanded > a').click(function(e) {
+        e.preventDefault();
+        $(newsMenus).removeClass('active');
 
-        $(this).toggleClass('active');
-        $('.newsroom-menu--bg').toggleClass('active');
-
+        $(this).addClass('active');
       });
 
     })(jQuery);
