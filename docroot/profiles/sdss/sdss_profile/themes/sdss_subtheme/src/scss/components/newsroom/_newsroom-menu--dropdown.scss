@@ -30,8 +30,8 @@
       }
 
       .menu-item--expanded {
-        &.active {
-          > a {
+        > a {
+          &.active {
             &::after {
               background: url("../../assets/svg/caret-opened-green.svg") no-repeat;
             }
@@ -47,8 +47,8 @@
           display: none;
         }
 
-        &.active {
-          >.menu {
+        >.active {
+        ~.menu {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -73,10 +73,22 @@
   }
 }
 
+// .sdss-newsroom--menu:has(.menu-item--expanded > .active) ~ span {
+//   display: block;
+// }
+
+.sdss-newsroom--menu:has(.menu-item--expanded > a:not([class])) ~ span {
+  display: none;
+}
+
+.sdss-newsroom--menu:has(.menu-item--expanded > a[class="active"]) ~ span {
+  display: block;
+}
+
 .newsroom-menu--bg {
-  &.active {
-    display: block;
-  }
+  // &.active {
+  //   display: block;
+  // }
 
   display: none;
   height: 330px;
