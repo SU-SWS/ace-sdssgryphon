@@ -61,6 +61,11 @@
             position: absolute;
             top: 13rem;
             z-index: 12;
+            top: 30rem;
+            z-index: 12;
+            margin: 0 12rem;
+            left: 50rem;
+            max-width: 81rem;
 
             a {
               color: $su-color-white;
@@ -73,9 +78,6 @@
   }
 }
 
-// .sdss-newsroom--menu:has(.menu-item--expanded > .active) ~ span {
-//   display: block;
-// }
 
 .sdss-newsroom--menu:has(.menu-item--expanded > a:not([class])) ~ span {
   display: none;
@@ -83,20 +85,40 @@
 
 .sdss-newsroom--menu:has(.menu-item--expanded > a[class="active"]) ~ span {
   display: block;
+  background: $sdss-color-green-link;
 }
 
 .newsroom-menu--bg {
-  // &.active {
-  //   display: block;
-  // }
-
   display: none;
   height: 330px;
   position: absolute;
   width: 100vw;
-  background: $sdss-color-green-link;
-  margin-top: 76px;
-  left: -16vw;
+  margin-top: 7rem;
+  left: 0;
   z-index: 3;
+}
+
+// If user is logged in.
+.role--authenticated {
+  .newsroom-menu--bg {
+    margin-top: 76px;
+    left: -16vw;
+  }
+
+
+  .sdss-newsroom {
+    .sdss-newsroom-nav {
+      .sdss-newsroom--menu {
+        .menu-item--expanded {
+          >.active {
+            ~.menu {
+              left: 0;
+              top: 13rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 

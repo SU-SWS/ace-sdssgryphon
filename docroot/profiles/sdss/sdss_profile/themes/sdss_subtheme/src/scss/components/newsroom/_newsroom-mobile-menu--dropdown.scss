@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+// Mobile menu for the newsroom
+
+.newsroom-mobile--btn {
+  display: none;
+}
+
+@include grid-media-max('md') {
+
+  body.mobile-menu {
+    background-color: $sdss-color-green-link;
+
+  }
+
+  .newsroom-mobile--btn {
+    display: block;
+    border: 1px solid $su-color-black-20;
+    padding: 15px 20px 17px 20px;
+    max-width: 21rem;
+
+    a {
+      color: $sdss-color-green-link;
+      font-weight: $su-font-semi-bold;
+      line-height: 109%; /* 18.53px */
+    }
+  }
+
+  // Menu display
+  .sdss-newsroom .sdss-newsroom--menu {
+    flex-direction: column;
+  }
+
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .sdss-newsroom--wrapper #block-newsresearch .sdss-newsroom--menu {
+    display: none;
+  }
+
+  /* Style navigation menu links */
+
+
+  /* Style the hamburger menu */
+
+
+  /* Add a grey background color on mouse-over */
+  .sdss-newsroom--wrapper a:hover {
+
+  }
+
+  /* Style the active link */
+  .sdss-newsroom--wrapper .active {
+
+  }
+}
