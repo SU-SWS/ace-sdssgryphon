@@ -14,11 +14,37 @@
   margin-top: 4.3rem;
   margin-bottom: 3.8rem;
 
+  @include grid-media-max('md') {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  @include grid-media-max('sm') {
+    justify-items: left;
+  }
+
   .newsroom-menu-label {
     @include type_a;
 
     line-height: 108%;
+    order: 1;
 
+    @include grid-media('md') {
+      padding-bottom: 0.3em;
+      text-align: center;
+    }
+
+    @include grid-media-max('sm') {
+      padding-bottom: 0.3em;
+    }
+  }
+
+  .sdss-newsroom-nav {
+    order: 2;
+  }
+
+  .newsroom-search {
+    order: 3;
   }
 
   .sdss-newsroom--menu {
@@ -65,16 +91,5 @@
       }
     }
   }
-
-  // .newsroom-menu__nav-toggle {
-  //   &.newsroom-menu__nav-toggle--right {
-
-
-  //     @include grid-media-min('lg') {
-  //       display: none;
-  //     }
-  //   }
-  // }
-
 
 }
