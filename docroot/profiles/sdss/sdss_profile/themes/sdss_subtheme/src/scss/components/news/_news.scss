@@ -55,6 +55,8 @@
 // News Node
 .su-news-topics {
   a {
+    @include sdss-newsroom-topics;
+
     color: $sdss-color-palo-alto-dark;
   }
 }
@@ -77,7 +79,7 @@
 }
 
 .su-sdss-news-dek-long {
-  @include responsive-spacing('margin-bottom', 1);
+  @include responsive-spacing('margin-bottom', 5);
 
 }
 
