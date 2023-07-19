@@ -8,8 +8,18 @@
 
 @include grid-media-max('md') {
 
+  // Setting up the green background.
   body.mobile-menu {
     background-color: $sdss-color-green-link;
+
+    .su-brand-bar--dark,
+    .su-masthead {
+      background-color: $sdss-color-green-link;
+    }
+
+    .newsroom-mobile--btn {
+      display: none;
+    }
 
   }
 
@@ -24,31 +34,5 @@
       font-weight: $su-font-semi-bold;
       line-height: 109%; /* 18.53px */
     }
-  }
-
-  // Menu display
-  .sdss-newsroom .sdss-newsroom--menu {
-    flex-direction: column;
-  }
-
-  /* Hide the links inside the navigation menu (except for logo/home) */
-  .sdss-newsroom--wrapper #block-newsresearch .sdss-newsroom--menu {
-    display: none;
-  }
-
-  /* Style navigation menu links */
-
-
-  /* Style the hamburger menu */
-
-
-  /* Add a grey background color on mouse-over */
-  .sdss-newsroom--wrapper a:hover {
-
-  }
-
-  /* Style the active link */
-  .sdss-newsroom--wrapper .active {
-
   }
 }
