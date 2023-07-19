@@ -21,47 +21,6 @@
       var sdss_logo_classes = $('#block-sdss-subtheme-branding').attr('class');
       $('.fixed-header').addClass(sdss_logo_classes);
 
-      /**
-       * Open and close on the Newsroom menu
-       */
-
-      const newsMenus = $('.sdss-newsroom--menu .menu-item--expanded > a');
-
-      $('.menu-item--expanded > a').on('click', function(e) {
-        e.preventDefault();
-
-        if (newsMenus.hasClass('active')) {
-          newsMenus.removeClass('active');
-        }
-        else {
-          $(this).toggleClass('active');
-        }
-
-
-        // $(newsMenus).removeClass('active');
-
-      });
-
-// Mobile menu setup.
-var overlayMenu =
-    '<div class="menu-overlay" role="dialog" aria-labelledby="d-title" aria-describedby="description">' +
-
-    '<p id="dislaimer-intro">Please read the Disclaimer below and indicate your acceptance before.</p>' +
-
-    '<h2 id="d-title"><strong>Menu</strong></h2>' +
-    '</div>'
-
-      $('.newsroom-mobile--btn').on('click', function(e) {
-        e.preventDefault();
-
-        var mobileMenu = $("#block-newsresearch .sdss-newsroom--menu");
-
-        // $(overlayMenu).insertBefore('#page-content').attr( 'tabindex', '-1');
-
-        $('body').toggleClass('mobile-menu');
-
-      });
-
     })(jQuery);
   },
 

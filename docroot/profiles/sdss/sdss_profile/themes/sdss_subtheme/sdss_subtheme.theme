@@ -101,5 +101,13 @@ function sdss_subtheme_preprocess_field(&$variables) {
   }
 }
 
-
+/**
+ * Implements hook_preprocess_block().
+ */
+function sdss_subtheme_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'menu_block:newsroom') {
+    $variables['attributes']['data-island'] = 'newsroom-menu-island';
+    $variables['#attached']['library'][] = 'sdss_subtheme/decoupled_menu';
+  }
+}
 
