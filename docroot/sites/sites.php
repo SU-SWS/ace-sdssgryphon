@@ -97,6 +97,12 @@ $sites['earthsystems.stanford.edu'] = 'esys';
 $sites['epsci.stanford.edu'] = 'gs';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
 $sites['understand-energy.stanford.edu'] = 'understandenergy';
+// Hopkins Marine Station dev, test, and prod URL's currently exist on another
+// ACE stack. We need to point custom aliases to build the site.
+$sites['hms-sdss-dev.stanford.edu'] = 'hopkinsmarinestation';
+$sites['hms-sdss-test.stanford.edu'] = 'hopkinsmarinestation';
+$sites['hms-sdss-prod.stanford.edu'] = 'hopkinsmarinestation';
+
 
 // Include local sites.
 if (file_exists(__DIR__ . '/local.sites.php')) {
