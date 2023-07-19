@@ -15,6 +15,7 @@ const islandName = 'newsroom-menu-island'
 
 const TopList = styled.ul<{ open?: boolean }>`
   display: ${props => props.open ? "block" : "none"};
+  background: #155F65;
   position: absolute;
   top: 0;
   left: 0;
@@ -25,7 +26,6 @@ const TopList = styled.ul<{ open?: boolean }>`
   margin: 0;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  background: #2e2d29;
   padding: 24px;
   font-size: 18px;
   z-index: 1;
@@ -278,8 +278,9 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid #53565a;
+  border-top: 1px solid transparent;
   min-width: 300px;
+  background: #017E7C;
 
   @media (min-width: 992px) {
     display: ${props => props.open ? "flex" : "none"};
@@ -305,7 +306,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
 
 const ListItem = styled.li<{ level?: number }>`
   position: relative;
-  border-bottom: 1px solid #53565a;
+  border-bottom: ${props => props.level > 0 ? "1px solid transparent" : "1px solid #6BB6BC"};
   padding: ${props => props.level > 0 ? "0 0 0 10px" : "0"};
   margin: 0;
 
