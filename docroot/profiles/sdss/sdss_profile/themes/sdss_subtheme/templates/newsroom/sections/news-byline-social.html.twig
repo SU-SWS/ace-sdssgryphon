@@ -16,7 +16,7 @@
 
         {%- if content.su_news_byline|render|striptags("<drupal-render-placeholder>")|trim is not empty %}
         <div {{ region_attributes.su_news_byline.addClass('news-date-pipe-byline') }}>
-          <div class="su-news-byline-region"><span>by </span>{{ content.su_news_byline }}</div>
+          <div class="su-news-byline-region"><span>By </span>{{ content.su_news_byline }}</div>
       </div>
         {% endif %}
 
