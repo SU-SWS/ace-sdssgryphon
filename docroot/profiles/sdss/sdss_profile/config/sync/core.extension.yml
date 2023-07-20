@@ -33,6 +33,7 @@ module:
   contextual: 0
   core_event_dispatcher: 0
   crop: 0
+  cshs: 0
   ctools: 0
   ctools_views: 0
   datetime: 0
@@ -90,6 +91,7 @@ module:
   jsonapi_menu_items: 0
   jsonapi_menu_items_hypermedia: 0
   jsonapi_resources: 0
+  jsonapi_search_api: 0
   jsonapi_views: 0
   jumpstart_ui: 0
   key: 0
@@ -244,4 +246,5 @@ theme:
   minimally_branded_subtheme: 0
   sdss_subtheme: 0
   claro: 0
+  stanford_profile_admin: 0
 profile: sdss_profile
