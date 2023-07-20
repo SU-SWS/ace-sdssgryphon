@@ -19,22 +19,22 @@ const TopList = styled.ul<{ open?: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
   flex-wrap: wrap;
   justify-content: flex-end;
   list-style: none;
   margin: 0;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 24px;
+  padding: 24px 0;
   font-size: 18px;
   z-index: 1;
+  width: 100%;
 
   @media (min-width: 992px) {
     display: flex;
     background: transparent;
     padding: 0;
-    position: relative;
+    position: unset;
     font-size: 18px;
     width: 100%;
     margin: 0 auto;
@@ -85,25 +85,27 @@ const SearchContainer = styled.li`
   }
 
   input {
-    margin: 0;
-    width: 100%;
+    color: #ffffff;
+    margin: 0 auto;
+    width: 50%;
     border-radius: 999px;
     height: 40px;
     padding: 0 20px;
     max-width: 100%;
+    background: transparent;
   }
 
   button {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 25%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: none;
-    color: #b1040e;
-    border: 1px solid transparent;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid D5D5D4;
     border-radius: 999px;
     aspect-ratio: 1;
     padding: 0;
@@ -156,7 +158,7 @@ export const NewsroomMenu = ({}) => {
   }
 
   return (
-    <nav style={{position: "relative"}}>
+    <Nav>
       <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
         {menuOpen ? <Close/> : <Hamburger/>}
         {menuOpen ? "Close" : ""}
@@ -170,7 +172,7 @@ export const NewsroomMenu = ({}) => {
               <input
                 id="mobile-search-input"
                 type="text"
-                placeholder="Search this site"
+                placeholder="Search news & research"
                 name="key"
               />
               <button type="submit">
@@ -183,9 +185,18 @@ export const NewsroomMenu = ({}) => {
         </SearchContainer>
         {menuTree.items.map(item => <MenuItem key={item.id} {...item}/>)}
       </TopList>
-    </nav>
+    </Nav>
   )
 }
+
+const Nav = styled.nav`
+  position: relative;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    position: unset;
+  }
+`
 
 const Button = styled.button`
   color: #ffffff;
@@ -239,7 +250,7 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   color: #ffffff;
   font-weight: 400;
   text-decoration: none;
-  padding: 16px 0 16px 16px;
+  padding: 16px 0 16px 20px;
   transition: all 0.2s ease-in-out;
   width: 100%;
 
@@ -286,10 +297,9 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     display: ${props => props.open ? "flex" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     position: ${props => props.level === 0 ? "absolute" : "relative"};
-    top: 100%;
     background: #155F65;
     border-top: 1px solid #d9d9d9;
-    width: 50vw;
+    width: 100%;
     left: 0;
     flex-wrap: wrap;
     align-items: center;
@@ -299,15 +309,32 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     column-gap: 7.5rem;
     margin-top: 4.4rem;
     color: $sdss-color-white;
-    margin-top: 4.4rem;
     padding: 4.4rem;
   }
 `
 
+const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
+
+  background-color: lime;
+
+  @media (min-width: 992px) {
+    display: flex;
+    opacity: 1;
+    position: absolute;
+    visibility: visible;
+    background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
+    background-color: #fff;
+    left: 0;
+    width: 100%;
+    z-index: 220;
+    background-color: orange;
+  }
+`
+
 const ListItem = styled.li<{ level?: number }>`
-  position: relative;
+  position: unset;
   border-bottom: ${props => props.level > 0 ? "1px solid transparent" : "1px solid #6BB6BC"};
-  padding: ${props => props.level > 0 ? "0 0 0 10px" : "0"};
+  padding: ${props => props.level > 0 ? "0 0 0 16px" : "0"};
   margin: 0;
 
   &:last-child {
@@ -355,6 +382,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
       component={ListItem}
       level={level}
     >
+
       <MenuItemContainer level={level}>
         {!isNoLink &&
           <MenuLink
@@ -391,12 +419,16 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
       </MenuItemContainer>
 
       {items &&
-        <MenuList open={submenuOpen} level={level}>
 
-          {items.map(item =>
-            <MenuItem key={item.id} {...item} level={level + 1}/>
-          )}
-        </MenuList>
+        <MenuListWrapper>
+          <MenuList open={submenuOpen} level={level}>
+
+            {items.map(item =>
+              <MenuItem key={item.id} {...item} level={level + 1}/>
+            )}
+
+          </MenuList>
+        </MenuListWrapper>
       }
     </OutsideClickHandler>
 
