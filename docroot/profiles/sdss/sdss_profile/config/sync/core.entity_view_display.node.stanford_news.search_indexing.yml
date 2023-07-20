@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.stanford_news.su_news_components
     - field.field.node.stanford_news.su_news_dek
     - field.field.node.stanford_news.su_news_featured_media
+    - field.field.node.stanford_news.su_news_hide_social
     - field.field.node.stanford_news.su_news_publishing_date
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
@@ -30,8 +31,8 @@ dependencies:
     - node.type.stanford_news
   module:
     - datetime
-    - entity_reference_revisions
     - field_formatter_class
+    - layout_paragraphs
     - link
     - stanford_media
     - text
@@ -71,7 +72,7 @@ content:
     weight: 3
     region: content
   su_news_components:
-    type: entity_reference_revisions_entity_view
+    type: layout_paragraphs
     label: hidden
     settings:
       view_mode: default
