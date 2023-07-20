@@ -33,9 +33,12 @@ settings:
       - superscript
       - subscript
       - sourceEditing
+      - removeFormat
       - '|'
       - codeBlock
       - code
+      - undo
+      - redo
   plugins:
     ckeditor5_heading:
       enabled_headings:
@@ -67,6 +70,12 @@ settings:
           label: 'Intro Text'
           element: '<p class="su-intro-text">'
         -
+          label: 'Splash Font'
+          element: '<p class="su-font-splash">'
+        -
+          label: 'Quote Text'
+          element: '<p class="su-quote-text">'
+        -
           label: 'Block Quote Lg'
           element: '<p class="sdss-block-quote--big">'
         -
@@ -76,8 +85,14 @@ settings:
           label: 'Block Quote Sm'
           element: '<p class="sdss-block-quote--sm">'
         -
+          label: 'Drop Cap First Letter'
+          element: '<p class="su-drop-cap">'
+        -
           label: 'Card Text'
           element: '<p class="su-related-text">'
+        -
+          label: 'Callout Text'
+          element: '<p class="su-callout-text">'
         -
           label: 'Sub Title'
           element: '<p class="su-subheading">'
@@ -97,8 +112,8 @@ settings:
         - '<abbr id title>'
         - '<span id class>'
         - '<blockquote cite>'
-        - '<ul type id class>'
-        - '<ol type id class>'
+        - '<ul id type class>'
+        - '<ol id type class>'
         - '<li id class>'
         - '<h2 id class>'
         - '<h3 id class>'
@@ -110,7 +125,7 @@ settings:
         - '<td id class>'
         - '<tr id>'
         - '<drupal-media data-* title>'
-        - '<a aria-label hreflang title name class>'
+        - '<a aria-label hreflang data-entity-substitution data-entity-type data-entity-uuid title name class>'
         - '<p id class>'
     ckeditor5_list:
       reversed: false
