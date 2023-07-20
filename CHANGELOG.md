@@ -1,5 +1,33 @@
 # ACE SDSSGryphon
 
+2.0.5
+--------------------------------------------------------------------------------
+_Release Date: 2023-06-28_
+
+- SDSS-732: Updated earth_news_importer. (#162)
+  - SDSS-732: Updated earth_news_importer to latest version with new Banner Caption field.
+- SDSS-732: Added new Banner Caption field to News content type (#156)
+- SDSS-730: Maintenance and adding layout paragraphs (#152)
+  - Updated dependencies and configuration.
+  - Upgraded components module to ^3.0.
+  - Updated CI Cache string with current date.
+  - Added and enabled layout_paragraphs.
+  - Added path_alias service to SiteSettingsTest.
+- SDSS-639: Set up gitpod. (#154)
+- SDSS-585: Create generic related content field. (#135)
+  - SDSS-585: Create generic related content field and added to 5 main content types.
+- SDSS-000: Updated earth_news_importer to latest version. (#151)
+- SDSS-632: Allow site editors to use contextual links. (#149)
+- SDSS-599: Added aliases for understandenergy site (#147)
+- SDSS-532: Hid superhead field from editing interface on banner paragraph. (#148)
+- SDSS-638: Added additional fields to the Events XML feed. (#146)
+- SDSS-000: Added safe.directory git config step to github actions. (#145)
+- SDSS-634: Updated events this week RSS feed (#144)
+  - SDSS-634: Swapped description with alt_location field in events this week RSS feed view.
+- SDSS-625: Resolved menu scroll jump bug (#138)
+  - SDSS-625: Swapped scroll-padding-top on the html for scroll-margin-top on the :target to resolve menu scroll jump bug.
+
+
 2.0.4
 --------------------------------------------------------------------------------
 _Release Date: 2023-06-01_
