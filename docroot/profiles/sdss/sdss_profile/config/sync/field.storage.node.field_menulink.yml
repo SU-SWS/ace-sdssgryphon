@@ -1,18 +1,17 @@
-uuid: 848e727b-37ec-4d96-9c48-713a618205bf
+uuid: 963caf4a-7a55-4ed6-961d-765ea7594192
 langcode: en
 status: true
 dependencies:
   module:
+    - menu_link
     - node
-id: node.su_policy_authority
-field_name: su_policy_authority
+id: node.field_menulink
+field_name: field_menulink
 entity_type: node
-type: string
+type: menu_link
 settings:
-  max_length: 500
-  case_sensitive: false
-  is_ascii: false
-module: core
+  menu_link_per_translation: false
+module: menu_link
 locked: false
 cardinality: 1
 translatable: true
