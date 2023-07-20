@@ -10,7 +10,7 @@ use Drupal\Core\Installer\InstallerKernel;
 use Drupal\Core\State\StateInterface;
 
 /**
- * Config overrides for stanford profile.
+ * Config overrides for SDSS profile.
  *
  * @package Drupal\sdss_profile\Config
  */
@@ -31,6 +31,13 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
   protected $configFactory;
 
   /**
+   * Current multisite directory path.
+   *
+   * @var string
+   */
+  protected $sitePath;
+
+  /**
    * ConfigOverrides constructor.
    *
    * @param \Drupal\Core\State\StateInterface $state
@@ -38,11 +45,12 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   Config factory service.
    */
-  public function __construct(StateInterface $state, ConfigFactoryInterface $config_factory = NULL) {
+  public function __construct(StateInterface $state, ConfigFactoryInterface $config_factory = NULL, $site_path = NULL) {
     $this->state = $state;
     if ($config_factory) {
       $this->configFactory = $config_factory;
     }
+    $this->sitePath = $site_path;
   }
 
   /**
@@ -99,6 +107,27 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     foreach ($names as $name) {
       if (strpos($name, 'google_tag.container.') === 0) {
         $overrides[$name]['status'] = FALSE;
+      }
+    }
+  }
+
+  /**
+   * Set up the stage file proxy settings based on the urls in state.
+   *
+   * @param array $names
+   *   Array of config names.
+   * @param array $overrides
+   *   Keyed array of config overrides.
+   */
+  protected function setStageFileProxy(array $names, array &$overrides) {
+    if (in_array('stage_file_proxy.settings', $names) && $this->state) {
+      $site_dir = str_replace('sites/', '', $this->sitePath);
+
+      if ($base_url = $this->state->get('xmlsitemap_base_url')) {
+        $overrides['stage_file_proxy.settings'] = [
+          'origin' => $base_url,
+          'origin_dir' => "sites/$site_dir/files",
+        ];
       }
     }
   }
