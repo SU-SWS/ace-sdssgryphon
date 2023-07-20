@@ -1,30 +1,25 @@
-uuid: 899b1e78-9c8c-4319-adb1-5cd9667d6d56
+uuid: f066856e-a4c2-438c-9ded-71949f7588df
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.stanford_event_series
+    - taxonomy.vocabulary.su_course_subjects
   module:
     - jsonapi_defaults
 third_party_settings:
   jsonapi_defaults:
     default_include:
-      - su_event_series_components
-      - su_event_series_event
-      - su_event_series_type
-      - su_shared_tags
-    default_filter:
-      'filter:status': '1'
+      - parent
     page_limit: 50
-id: node--stanford_event_series
+id: taxonomy_term--su_course_subjects
 disabled: false
-path: node/stanford_event_series
-resourceType: node--stanford_event_series
+path: taxonomy_term/su_course_subjects
+resourceType: taxonomy_term--su_course_subjects
 resourceFields:
-  nid:
+  tid:
     disabled: true
-    fieldName: nid
-    publicName: nid
+    fieldName: tid
+    publicName: tid
     enhancer:
       id: ''
   uuid:
@@ -33,10 +28,10 @@ resourceFields:
     publicName: uuid
     enhancer:
       id: ''
-  vid:
+  revision_id:
     disabled: true
-    fieldName: vid
-    publicName: vid
+    fieldName: revision_id
+    publicName: revision_id
     enhancer:
       id: ''
   langcode:
@@ -45,28 +40,28 @@ resourceFields:
     publicName: langcode
     enhancer:
       id: ''
-  type:
+  vid:
     disabled: false
-    fieldName: type
-    publicName: type
+    fieldName: vid
+    publicName: vid
     enhancer:
       id: ''
-  revision_timestamp:
+  revision_created:
     disabled: true
-    fieldName: revision_timestamp
-    publicName: revision_timestamp
+    fieldName: revision_created
+    publicName: revision_created
     enhancer:
       id: ''
-  revision_uid:
+  revision_user:
     disabled: true
-    fieldName: revision_uid
-    publicName: revision_uid
+    fieldName: revision_user
+    publicName: revision_user
     enhancer:
       id: ''
-  revision_log:
+  revision_log_message:
     disabled: true
-    fieldName: revision_log
-    publicName: revision_log
+    fieldName: revision_log_message
+    publicName: revision_log_message
     enhancer:
       id: ''
   status:
@@ -75,40 +70,36 @@ resourceFields:
     publicName: status
     enhancer:
       id: ''
-  uid:
-    disabled: true
-    fieldName: uid
-    publicName: uid
+  name:
+    disabled: false
+    fieldName: name
+    publicName: name
     enhancer:
       id: ''
-  title:
+  description:
     disabled: false
-    fieldName: title
-    publicName: title
+    fieldName: description
+    publicName: description
+    enhancer:
+      id: nested
+      settings:
+        path: processed
+  weight:
+    disabled: false
+    fieldName: weight
+    publicName: weight
     enhancer:
       id: ''
-  created:
+  parent:
     disabled: false
-    fieldName: created
-    publicName: created
+    fieldName: parent
+    publicName: parent
     enhancer:
       id: ''
   changed:
-    disabled: false
+    disabled: true
     fieldName: changed
     publicName: changed
-    enhancer:
-      id: ''
-  promote:
-    disabled: true
-    fieldName: promote
-    publicName: promote
-    enhancer:
-      id: ''
-  sticky:
-    disabled: true
-    fieldName: sticky
-    publicName: sticky
     enhancer:
       id: ''
   default_langcode:
@@ -177,69 +168,15 @@ resourceFields:
     publicName: unpublish_on
     enhancer:
       id: ''
-  menu_link:
-    disabled: true
-    fieldName: menu_link
-    publicName: menu_link
-    enhancer:
-      id: ''
   layout_builder__layout:
     disabled: true
     fieldName: layout_builder__layout
     publicName: layout_builder__layout
     enhancer:
       id: ''
-  stanford_intranet__access:
-    disabled: true
-    fieldName: stanford_intranet__access
-    publicName: stanford_intranet__access
-    enhancer:
-      id: ''
-  su_event_series_components:
+  su_courses_dept_long:
     disabled: false
-    fieldName: su_event_series_components
-    publicName: su_event_series_components
-    enhancer:
-      id: ''
-  su_event_series_dek:
-    disabled: false
-    fieldName: su_event_series_dek
-    publicName: su_event_series_dek
-    enhancer:
-      id: ''
-  su_event_series_event:
-    disabled: false
-    fieldName: su_event_series_event
-    publicName: su_event_series_event
-    enhancer:
-      id: ''
-  su_event_series_subheadline:
-    disabled: false
-    fieldName: su_event_series_subheadline
-    publicName: su_event_series_subheadline
-    enhancer:
-      id: ''
-  su_event_series_type:
-    disabled: false
-    fieldName: su_event_series_type
-    publicName: su_event_series_type
-    enhancer:
-      id: ''
-  su_event_series_weight:
-    disabled: false
-    fieldName: su_event_series_weight
-    publicName: su_event_series_weight
-    enhancer:
-      id: ''
-  su_metatags:
-    disabled: true
-    fieldName: su_metatags
-    publicName: su_metatags
-    enhancer:
-      id: ''
-  su_shared_tags:
-    disabled: false
-    fieldName: su_shared_tags
-    publicName: su_shared_tags
+    fieldName: su_courses_dept_long
+    publicName: su_courses_dept_long
     enhancer:
       id: ''
