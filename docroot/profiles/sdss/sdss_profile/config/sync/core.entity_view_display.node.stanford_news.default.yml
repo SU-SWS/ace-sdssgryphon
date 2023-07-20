@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.stanford_news.su_news_topics
     - field.field.node.stanford_news.su_sdss_import_source
     - field.field.node.stanford_news.su_sdss_magazine_topics
+    - field.field.node.stanford_news.su_sdss_news_banner_caption
     - field.field.node.stanford_news.su_sdss_news_dek_long
     - field.field.node.stanford_news.su_sdss_news_focal_areas
     - field.field.node.stanford_news.su_sdss_news_news_source
@@ -36,7 +37,6 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_library
-    - link
     - stanford_news
     - text
     - user
@@ -119,58 +119,6 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 6
-            additional: {  }
-          127425e3-f58d-40db-ac0a-f7b88128973b:
-            uuid: 127425e3-f58d-40db-ac0a-f7b88128973b
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_news:su_sdss_related_content'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 7
-            additional: {  }
-          5ac2f723-c95b-4e9d-a40d-e4c99386da88:
-            uuid: 5ac2f723-c95b-4e9d-a40d-e4c99386da88
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_news:su_sdss_import_source'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: link
-                label: above
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: ''
-                  target: ''
-                third_party_settings: {  }
-            weight: 8
-            additional: {  }
-          4df41d12-f026-4f77-9d83-e59f53762703:
-            uuid: 4df41d12-f026-4f77-9d83-e59f53762703
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_news:su_sdss_person_ref'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 9
             additional: {  }
         third_party_settings: {  }
       -
@@ -316,8 +264,6 @@ third_party_settings:
                     handler: ''
                   field_formatter_class:
                     class: su-news-components
-                  ds:
-                    ds_limit: ''
             weight: 0
             additional: {  }
         third_party_settings: {  }
@@ -346,31 +292,23 @@ third_party_settings:
       -
         layout_id: jumpstart_ui_one_column
         layout_settings:
-          label: 'More Topics'
+          label: ''
           context_mapping: {  }
-          extra_classes: section-more-topics
+          extra_classes: ''
           centered: centered-container
-          columns: flex-10-of-12
+          columns: flex-12-of-12
         components:
-          32d871db-85f0-4445-afb8-4d19c97ac98f:
-            uuid: 32d871db-85f0-4445-afb8-4d19c97ac98f
+          0dce8d5f-7572-4394-9cbc-9230ac3047a8:
+            uuid: 0dce8d5f-7572-4394-9cbc-9230ac3047a8
             region: main
             configuration:
-              id: 'field_block:node:stanford_news:su_news_topics'
-              label: 'Related Topics'
+              id: 'views_block:stanford_news-vertical_cards'
+              label: 'Explore More'
               label_display: visible
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: entity_reference_label
-                label: hidden
-                settings:
-                  link: true
-                third_party_settings:
-                  field_formatter_class:
-                    class: su-new-more-topics
+              provider: views
+              context_mapping: {  }
+              views_label: 'Explore More'
+              items_per_page: none
             weight: 0
             additional: {  }
         third_party_settings: {  }
@@ -583,6 +521,13 @@ content:
     third_party_settings: {  }
     weight: 9
     region: main
+  su_sdss_news_banner_caption:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: main
   su_sdss_news_dek_long:
     type: text_default
     label: above
@@ -640,7 +585,6 @@ content:
     region: main
 hidden:
   layout_builder__layout: true
-  layout_selection: true
   links: true
   search_api_excerpt: true
   stanford_intranet__access: true

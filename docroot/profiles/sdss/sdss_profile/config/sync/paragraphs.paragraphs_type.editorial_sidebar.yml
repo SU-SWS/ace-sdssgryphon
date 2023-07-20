@@ -1,0 +1,10 @@
+uuid: fd98ce93-f22f-440a-bc53-8f49c5450144
+langcode: en
+status: true
+dependencies: {  }
+id: editorial_sidebar
+label: 'Editorial Sidebar'
+icon_uuid: null
+icon_default: null
+description: 'This is an editorial sidebar for news articles.'
+behavior_plugins: {  }

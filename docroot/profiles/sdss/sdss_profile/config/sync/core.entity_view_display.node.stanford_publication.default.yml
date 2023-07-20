@@ -76,22 +76,6 @@ third_party_settings:
                     class: ''
             weight: 3
             additional: {  }
-          9d78928c-f7dc-46a9-9914-a9b2a4a4bde3:
-            uuid: 9d78928c-f7dc-46a9-9914-a9b2a4a4bde3
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_publication:su_sdss_related_content'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: jumpstart_ui_two_column

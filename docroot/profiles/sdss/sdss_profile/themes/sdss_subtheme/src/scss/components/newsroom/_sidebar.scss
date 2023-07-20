@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+//padding set up based on layout.
+.layout--layout-paragraphs-one-column {
+  .sidebar {
+
+    &.bg_color_option_1,
+    &.bg_color_default  {
+      @include modular-spacing('padding', 4);
+    }
+  }
+}
+
+.layout--layout-paragraphs-two-column {
+  .sidebar {
+
+    &.bg_color_option_1,
+    &.bg_color_default {
+      @include modular-spacing('padding', 2);
+
+    }
+  }
+}
+
+.sidebar {
+  .su-sidebar-bgcolor-alt {
+    display: none;
+  }
+
+  .su-sidebar-title {
+    @include modular-spacing('padding-bottom', 1);
+
+    h2 {
+      @include sdss-h4;
+
+      color: $su-color-black;
+    }
+
+  }
+
+  // This option is blue
+  &.bg_color_option_1 {
+    @include sdss-light-blue--background;
+  }
+
+  // Default color is white
+  &.bg_color_default {
+    border: $su-color-black-20 1px solid;
+  }
+}
