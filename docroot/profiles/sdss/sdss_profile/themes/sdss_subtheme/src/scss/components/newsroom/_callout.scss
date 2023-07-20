@@ -8,14 +8,6 @@
     color: $sdss-color-blue-hover;
   }
 
-
-  // Hiding the text from display.
-  .bg_color_option_1,
-  .bg_color_default,
-  .su-select-font-sizing {
-    display: none;
-  }
-
   // Setting up appearance
   .decoration {
     font-size: 9.3rem;
@@ -36,13 +28,7 @@
 
   &.bg_color_option_1 {
     @include sdss-light-blue--background;
-
-    .decoration {
-      color: $sdss-color-blue-hover;
-    }
   }
-
-
 
   .su-callout-quote {
     p {
