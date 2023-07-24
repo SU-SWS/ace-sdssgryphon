@@ -1,8 +1,8 @@
 _meta:
   version: '1.0'
-  entity_type: paragraph
-  uuid: 38f2427e-6762-4663-92ad-369d0dbe83ca
-  bundle: stanford_layout
+  entity_type: node
+  uuid: 4b8018dc-49a6-4018-9c54-e8c3e462beee
+  bundle: stanford_page
   default_langcode: en
 default:
   revision_uid:
@@ -19,7 +19,7 @@ default:
       value: 'Access Denied'
   created:
     -
-      value: 1671144889
+      value: 1566505438
   promote:
     -
       value: false
@@ -39,9 +39,9 @@ default:
       entity:
         _meta:
           version: '1.0'
-          entity_type: paragraph_row
-          uuid: b9027856-bb49-4c3b-9367-87a4e3731421
-          bundle: node_stanford_page_row
+          entity_type: paragraph
+          uuid: 38f2427e-6762-4663-92ad-369d0dbe83ca
+          bundle: stanford_layout
           default_langcode: en
         default:
           status:
@@ -49,7 +49,7 @@ default:
               value: true
           created:
             -
-              value: 1598294778
+              value: 1671144889
           behavior_settings:
             -
               value:
@@ -62,7 +62,7 @@ default:
           revision_translation_affected:
             -
               value: true
-          -
+    -
       entity:
         _meta:
           version: '1.0'
