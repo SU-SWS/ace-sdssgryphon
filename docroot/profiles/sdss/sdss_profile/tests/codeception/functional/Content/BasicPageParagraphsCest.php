@@ -93,6 +93,8 @@ class BasicPageParagraphsCest {
     $I->click('Edit', '.lpb-controls');
     $I->waitForText('Superhead');
     $I->fillField('Superhead', $this->faker->text(10));
+    // Headline field is required on SDSS but not on Stanford Sites.
+    $I->fillField('Headline', $this->faker->text(10));
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
