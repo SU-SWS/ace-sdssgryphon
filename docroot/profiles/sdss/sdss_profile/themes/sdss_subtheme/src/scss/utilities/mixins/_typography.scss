@@ -39,7 +39,6 @@
 @mixin sdss-block-quote--big {
   color: $sdss-color-palo-alto-dark;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: -0.01em;
 
   @include grid-media-max('sm') {
@@ -69,7 +68,6 @@
 
   color: $sdss-color-palo-alto-dark;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: -0.01em;
 
   @include grid-media-max('sm') {
@@ -97,7 +95,6 @@
 @mixin sdss-block-quote--sm {
   color: $sdss-color-palo-alto-dark;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: 0.01em;
 
   @include grid-media-max('sm') {
