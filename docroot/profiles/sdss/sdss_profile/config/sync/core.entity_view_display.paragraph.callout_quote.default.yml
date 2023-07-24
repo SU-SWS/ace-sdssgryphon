@@ -10,7 +10,6 @@ dependencies:
     - field.field.paragraph.callout_quote.su_select_font_sizing
     - paragraphs.paragraphs_type.callout_quote
   module:
-    - element_class_formatter
     - empty_fields
     - field_formatter_class
     - options
@@ -21,15 +20,9 @@ bundle: callout_quote
 mode: default
 content:
   su_callout_author:
-    type: wrapper_class
-    label: visually_hidden
-    settings:
-      class: ''
-      tag: p
-      link: false
-      link_class: ''
-      summary: false
-      trim: 200
+    type: text_default
+    label: hidden
+    settings: {  }
     third_party_settings:
       empty_fields:
         handler: ''
@@ -38,15 +31,9 @@ content:
     weight: 4
     region: content
   su_callout_author_title:
-    type: wrapper_class
-    label: visually_hidden
-    settings:
-      class: ''
-      tag: p
-      link: false
-      link_class: ''
-      summary: false
-      trim: 200
+    type: text_default
+    label: hidden
+    settings: {  }
     third_party_settings:
       empty_fields:
         handler: ''
@@ -67,7 +54,7 @@ content:
     region: content
   su_callout_quote:
     type: text_default
-    label: visually_hidden
+    label: hidden
     settings: {  }
     third_party_settings:
       empty_fields:
