@@ -53,7 +53,7 @@
     "require": {
         "php": ">=8.0",
         "ext-imagick": "*",
-        "acquia/blt": "^13.5",
+        "acquia/blt": "^13.7",
         "acquia/blt-simplesamlphp": "^1.0",
         "acquia/drupal-environment-detector": "^1.0",
         "citation-style-language/locales": "1.0.0",
@@ -67,7 +67,6 @@
         "drupal/allowed_formats": "^2.0",
         "drupal/anchor_link": "^2.5",
         "drupal/auto_entitylabel": "^3.0@beta",
-        "drupal/autoservices": "^1.0",
         "drupal/block_content_permissions": "^1.8",
         "drupal/change_labels": "^1.0",
         "drupal/chosen": "^4.0",
@@ -297,11 +296,11 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/core": {
-                "https://www.drupal.org/project/ckeditor/issues/3065095": "https://www.drupal.org/files/issues/2022-08-23/3065095-64-9.5.x.patch"
-            },
             "drupal/hook_event_dispatcher": {
                 "https://www.drupal.org/project/hook_event_dispatcher/issues/3354751": "https://www.drupal.org/files/issues/2023-04-17/hook_event_dispatcher-4.x-3354751.patch"
+            },
+            "drupal/google_tag": {
+                "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"
             },
             "drupal/menu_block": {
                 "https://www.drupal.org/project/menu_block/issues/3271218": "https://www.drupal.org/files/issues/2022-04-29/menu_block_rendered_empty-3271218-17.patch"
@@ -314,6 +313,9 @@
             },
             "drupal/paranoia": {
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"
+            },
+            "drupal/taxonomy_entity_index": {
+                "Fix PHP 8 strict error with arrays": "patches/contrib/taxonomy_entity_index.patch"
             },
             "drupal/ui_patterns": {
                 "Ui Patterns Views Fixes": "patches/contrib/ui_patterns_views-preview.patch"
