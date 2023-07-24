@@ -61,9 +61,6 @@ default:
   su_news_featured_media:
     -
       entity: 81a60c63-7638-46d2-8fd9-b4de2cbc3554
-  su_news_hide_social:
-    -
-      value: false
   su_news_publishing_date:
     -
       value: '2025-09-30'
