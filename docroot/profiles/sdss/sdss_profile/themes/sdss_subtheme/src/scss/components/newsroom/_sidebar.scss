@@ -23,7 +23,7 @@
 
   &.large_sidebar_title {
     h2 {
-      @include type_b;
+      @include type_c;
 
       color: $su-color-black;
     }
@@ -31,9 +31,10 @@
 
   &.small_sidebar_title {
     h2 {
-      @include type_c;
+      @include type_d;
 
       color: $su-color-black;
+      font-weight: $su-font-semi-bold;
     }
   }
 
