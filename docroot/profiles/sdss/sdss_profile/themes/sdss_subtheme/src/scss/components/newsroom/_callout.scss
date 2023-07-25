@@ -4,6 +4,10 @@
   display: flex;
   padding: 4.5rem 11.3rem 4.5rem 11.1rem;
 
+  blockquote {
+    margin: 0;
+  }
+
   .decoration {
     color: $sdss-color-blue-hover;
   }
