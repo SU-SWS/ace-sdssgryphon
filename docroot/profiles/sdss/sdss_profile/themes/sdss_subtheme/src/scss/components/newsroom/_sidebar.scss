@@ -3,9 +3,12 @@
 //padding set up based on layout.
 .layout--layout-paragraphs-one-column {
   .sidebar {
-    max-width: 70%;
+    @include grid-media-max('lg') {
+      max-width: 100%;
+    }
 
     @include grid-media-min('xl') {
+      max-width: 70%;
       margin-left: 10%;
     }
 
