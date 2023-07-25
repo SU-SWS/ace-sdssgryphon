@@ -3,21 +3,11 @@
 //padding set up based on layout.
 .layout--layout-paragraphs-one-column {
   .sidebar {
+    max-width: 80%;
 
     &.bg_color_option_1,
     &.bg_color_default  {
       @include modular-spacing('padding', 4);
-    }
-  }
-}
-
-.layout--layout-paragraphs-two-column {
-  .sidebar {
-
-    &.bg_color_option_1,
-    &.bg_color_default {
-      @include modular-spacing('padding', 2);
-
     }
   }
 }

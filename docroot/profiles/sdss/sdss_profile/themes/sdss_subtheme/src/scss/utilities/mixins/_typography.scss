@@ -207,8 +207,8 @@
 // Captions mixin
 @mixin sdss-caption {
   color: $sdss-color-black;
-  font-style: italic;
-  text-align: right;
+  text-align: left;
+  width: 100%;
 
   @include grid-media-min('2xl') {
     font-size: 1.9rem;
