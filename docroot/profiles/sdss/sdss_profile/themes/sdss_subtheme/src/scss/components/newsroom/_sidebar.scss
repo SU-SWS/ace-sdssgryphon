@@ -3,7 +3,11 @@
 //padding set up based on layout.
 .layout--layout-paragraphs-one-column {
   .sidebar {
-    max-width: 80%;
+    max-width: 70%;
+
+    @include grid-media-min('xl') {
+      margin-left: 10%;
+    }
 
     &.bg_color_option_1,
     &.bg_color_default  {
@@ -17,15 +21,24 @@
     display: none;
   }
 
-  .su-sidebar-title {
-    @include modular-spacing('padding-bottom', 1);
-
+  &.large_sidebar_title {
     h2 {
-      @include sdss-h4;
+      @include type_b;
 
       color: $su-color-black;
     }
+  }
 
+  &.small_sidebar_title {
+    h2 {
+      @include type_c;
+
+      color: $su-color-black;
+    }
+  }
+
+  .su-sidebar-title {
+    @include modular-spacing('padding-bottom', 1);
   }
 
   // This option is blue

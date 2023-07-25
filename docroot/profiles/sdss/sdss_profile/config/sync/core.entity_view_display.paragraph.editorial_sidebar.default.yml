@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.editorial_sidebar.su_sidebar_bgcolor_alt
     - field.field.paragraph.editorial_sidebar.su_sidebar_body
     - field.field.paragraph.editorial_sidebar.su_sidebar_title
+    - field.field.paragraph.editorial_sidebar.su_sidebar_title_size
     - paragraphs.paragraphs_type.editorial_sidebar
   module:
     - element_class_formatter
@@ -35,7 +36,7 @@ content:
       summary: false
       trim: 200
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   su_sidebar_title:
     type: wrapper_class
@@ -52,6 +53,13 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
+    weight: 2
+    region: content
+  su_sidebar_title_size:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 1
     region: content
 hidden:
