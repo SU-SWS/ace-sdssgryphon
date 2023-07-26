@@ -315,8 +315,6 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
 
 const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 
-  background-color: lime;
-
   @media (min-width: 992px) {
     display: flex;
     opacity: 1;
@@ -327,7 +325,6 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     left: 0;
     width: 100%;
     z-index: 220;
-    background-color: orange;
   }
 `
 
