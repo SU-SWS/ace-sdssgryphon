@@ -4,16 +4,12 @@
   display: flex;
   padding: 4.5rem 11.3rem 4.5rem 11.1rem;
 
-  .decoration {
-    color: $sdss-color-blue-hover;
+  blockquote {
+    margin: 0;
   }
 
-
-  // Hiding the text from display.
-  .bg_color_option_1,
-  .bg_color_default,
-  .su-select-font-sizing {
-    display: none;
+  .decoration {
+    color: $sdss-color-blue-hover;
   }
 
   // Setting up appearance
@@ -25,7 +21,14 @@
     margin-right: 1rem;
   }
 
+  .su-callout-author {
+    @include responsive-spacing("padding-top", 0);
+
+    font-size: 1.11em;
+  }
+
   .su-callout-author-title {
+    font-size: 1.11em;
     color: $su-color-black-70;
   }
 
@@ -36,13 +39,7 @@
 
   &.bg_color_option_1 {
     @include sdss-light-blue--background;
-
-    .decoration {
-      color: $sdss-color-blue-hover;
-    }
   }
-
-
 
   .su-callout-quote {
     p {

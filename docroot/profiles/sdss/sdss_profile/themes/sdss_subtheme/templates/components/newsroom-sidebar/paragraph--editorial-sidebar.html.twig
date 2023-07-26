@@ -1,9 +1,9 @@
 {%- set background_color = content.su_sidebar_bgcolor_alt['#items'].getString() %}
-{% set selectedFontSize = content.su_select_font_sizing['#items'].getString() %}
+{% set selectedFontSize = content.su_sidebar_title_size['#items'].getString() %}
 
-{%- set attributes = attributes.addClass(['sidebar', background_color, selectedFontSize]) -%}
+{%- set attributes = attributes.addClass(['sidebar', 'flex-lg-8-of-12', background_color, selectedFontSize]) -%}
 
-<div {{ attributes }}>
-
-{{ content }}
-</div>
+<aside {{ attributes }}>
+    {{ content.su_sidebar_title }}
+    {{ content.su_sidebar_body }}
+</aside>
