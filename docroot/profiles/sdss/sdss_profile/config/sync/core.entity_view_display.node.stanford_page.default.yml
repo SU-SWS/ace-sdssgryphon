@@ -107,6 +107,22 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 3
             additional: {  }
+          edf215d0-5931-40f4-80a6-4b6975d0270a:
+            uuid: edf215d0-5931-40f4-80a6-4b6975d0270a
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_page:su_sdss_related_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: jumpstart_ui_one_column

@@ -17,6 +17,10 @@
   @include grid-media-max('md') {
     grid-template-columns: 1fr;
     justify-items: center;
+
+    // Unsetting for mobile.
+    max-width: unset;
+    width: unset;
   }
 
   h2 {
@@ -35,50 +39,4 @@
   .newsroom-search {
     order: 3;
   }
-
-  // .sdss-newsroom--menu {
-  //   list-style: none;
-  //   display: flex;
-  //   justify-content: flex-end;
-  //   margin: 0;
-  //   gap: 2.9rem;
-  //   margin-right: 2em;
-
-  //   li {
-  //     margin-bottom: 0;
-  //     padding-top: 0;
-
-  //     &.menu-item--expanded {
-  //       a {
-  //         font-weight: $su-font-semi-bold;
-  //       }
-  //     }
-
-  //     >a {
-  //       color: $sdss-color-green-link;
-  //       display: block;
-  //       cursor: pointer;
-
-  //       &:hover,
-  //       &:focus,
-  //       &:active {
-  //         border-bottom: 1px solid $sdss-color-blue-hover;
-  //         color: $sdss-color-grey-dark;
-  //       }
-  //     }
-
-
-  //     a  {
-  //       text-decoration: none;
-
-  //       &:hover,
-  //       &:focus,
-  //       &:active {
-  //         border-bottom: 1px solid $sdss-color-blue-hover;
-  //         color: $sdss-color-green-link;
-  //       }
-  //     }
-  //   }
-  // }
-
 }

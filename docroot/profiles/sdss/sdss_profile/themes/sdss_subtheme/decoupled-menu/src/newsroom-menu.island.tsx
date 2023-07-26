@@ -44,7 +44,7 @@ const TopList = styled.ul<{ open?: boolean }>`
 const MobileMenuButton = styled.button`
   position: absolute;
   top: -60px;
-  right: -130px;
+  right: 33%;
   box-shadow: none;
   background: transparent;
   border: 0;

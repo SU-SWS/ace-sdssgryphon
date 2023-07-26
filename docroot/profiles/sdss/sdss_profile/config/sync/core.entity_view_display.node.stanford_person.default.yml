@@ -235,6 +235,22 @@ third_party_settings:
                     class: ''
             weight: 1
             additional: {  }
+          7270bcda-c913-45dd-9893-aea89cffbd98:
+            uuid: 7270bcda-c913-45dd-9893-aea89cffbd98
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_sdss_related_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: stanford_person_body
