@@ -35,4 +35,17 @@
       line-height: 109%; /* 18.53px */
     }
   }
+
+  .newsroom-wrapper:has(nav > button[aria-expanded="true"]) {
+    background: #155f65;
+
+    .menu--newsroom {
+      justify-items: left;
+
+      h2 {
+        color: $su-color-white;
+        padding: 20px 20px 30px 20px;
+      }
+    }
+  }
 }
