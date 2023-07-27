@@ -9,6 +9,6 @@ services:
       - { name: 'event_subscriber' }
   sdss_profile.config_overrider:
     class: Drupal\sdss_profile\Config\ConfigOverrides
-    arguments: ['@state', '@config.factory', '@site.path']
+    arguments: ['@state', '@config.factory']
     tags:
       - {name: config.factory.override, priority: -5}
