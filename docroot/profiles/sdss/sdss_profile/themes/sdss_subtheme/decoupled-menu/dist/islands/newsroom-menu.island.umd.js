@@ -215,8 +215,6 @@
   }
 `,on=Or.div`
 
-  background-color: lime;
-
   @media (min-width: 992px) {
     display: flex;
     opacity: 1;
@@ -227,7 +225,6 @@
     left: 0;
     width: 100%;
     z-index: 220;
-    background-color: orange;
   }
 `,an=Or.li`
   position: unset;
