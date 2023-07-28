@@ -1,0 +1,12 @@
+project:
+  machine_name: gfi
+  human_name: gfi
+  local:
+    protocol: http
+    hostname: local.gfi.com
+drush:
+  aliases:
+    local: gfi.local
+    remote: gfi.prod
+drupal:
+  db: {  }
