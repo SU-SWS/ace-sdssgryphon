@@ -12,6 +12,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: default_sidebar_title
+      label: Default
+    -
       value: small_sidebar_title
       label: Small
     -

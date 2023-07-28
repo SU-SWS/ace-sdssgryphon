@@ -32,7 +32,8 @@
     }
   }
 
-  &.small_sidebar_title {
+  &.small_sidebar_title,
+  &.default_sidebar_title {
     h2 {
       @include type_d;
 
