@@ -43,6 +43,12 @@
     @include modular-spacing('margin-bottom', 4);
   }
 
+  &.su-news-byline--no-author {
+    .su_news_publishing_date-region {
+      @include modular-spacing('margin-bottom', -3);
+    }
+  }
+
   .sdss-byline--wrapper {
     @include flex-column(12 of 12);
 
