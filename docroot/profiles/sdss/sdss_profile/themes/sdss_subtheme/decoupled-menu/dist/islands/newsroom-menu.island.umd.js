@@ -14,7 +14,7 @@
   padding: 24px 0;
   font-size: 18px;
   z-index: 1;
-  width: 100%;
+  width: 100vw;
 
   @media (min-width: 992px) {
     display: flex;
@@ -28,7 +28,7 @@
 `,Yr=Or.button`
   position: absolute;
   top: -60px;
-  right: -130px;
+  right: 33px;
   box-shadow: none;
   background: transparent;
   border: 0;
