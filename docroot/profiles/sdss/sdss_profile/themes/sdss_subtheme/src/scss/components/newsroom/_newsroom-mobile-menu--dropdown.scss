@@ -9,19 +9,19 @@
 @include grid-media-max('md') {
 
   // Setting up the green background.
-  body.mobile-menu {
-    background-color: $sdss-color-green-link;
+  // body.mobile-menu {
+  //   background-color: $sdss-color-green-link;
 
-    .su-brand-bar--dark,
-    .su-masthead {
-      background-color: $sdss-color-green-link;
-    }
+  //   .su-brand-bar--dark,
+  //   .su-masthead {
+  //     background-color: $sdss-color-green-link;
+  //   }
 
-    .newsroom-mobile--btn {
-      display: none;
-    }
+  //   .newsroom-mobile--btn {
+  //     display: none;
+  //   }
 
-  }
+  // }
 
   .newsroom-mobile--btn {
     display: block;
@@ -46,6 +46,26 @@
         color: $su-color-white;
         padding: 20px 20px 30px 20px;
       }
+    }
+  }
+
+  nav > button[aria-expanded="false"] {
+    color: $su-color-black;
+    position: unset;
+    margin: 0 auto;
+  }
+
+  nav > button[aria-expanded="true"] {
+    color: $su-color-white;
+    top: -170px;
+    right: 0;
+
+    &:focus,
+    &:active,
+    &:hover {
+      outline: none;
+      color: white;
+      text-decoration: underline;
     }
   }
 }

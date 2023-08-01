@@ -55,7 +55,7 @@ const MobileMenuButton = styled.button`
   flex-direction: column;
   align-items: center;
   font-size: 1.7rem;
-  width: 25rem;
+  width: auto;
 
   &:hover, &:focus {
     background: transparent;
