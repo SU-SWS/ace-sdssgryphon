@@ -8,21 +8,6 @@
 
 @include grid-media-max('md') {
 
-  // Setting up the green background.
-  // body.mobile-menu {
-  //   background-color: $sdss-color-green-link;
-
-  //   .su-brand-bar--dark,
-  //   .su-masthead {
-  //     background-color: $sdss-color-green-link;
-  //   }
-
-  //   .newsroom-mobile--btn {
-  //     display: none;
-  //   }
-
-  // }
-
   .newsroom-mobile--btn {
     display: block;
     border: 1px solid $su-color-black-20;

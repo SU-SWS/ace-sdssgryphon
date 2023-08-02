@@ -57,10 +57,11 @@ const MobileMenuButton = styled.button`
   font-size: 1.7rem;
   width: auto;
 
-  &:hover, &:focus {
+  &:hover, &:focus, &:active {
     background: transparent;
     color: #2e2d29;
     box-shadow: none;
+    outline: none;
   }
 
   @media (min-width: 992px) {
@@ -88,11 +89,16 @@ const SearchContainer = styled.li`
     color: #ffffff;
     margin: 0 auto;
     width: 50%;
+    border-color: #6BB6BC;
     border-radius: 999px;
     height: 40px;
     padding: 0 20px;
     max-width: 100%;
     background: transparent;
+  }
+
+  input::placeholder {
+    color: #ffffff;
   }
 
   button {
@@ -150,6 +156,9 @@ export const NewsroomMenu = ({}) => {
 
   const menuTree = buildMenuTree(menuItems);
   if (!menuTree.items || menuTree.items?.length === 0) return <div/>;
+
+  // Get the main menu
+  const mainMenu = document.getElementsByClassName('fixed-header');
 
   // Remove the default menu.
   const existingMenu = document.getElementsByClassName('menu');
@@ -214,7 +223,6 @@ const Button = styled.button`
 
   &:hover, &:focus, &:active {
     box-shadow: none;
-    border-bottom: 1px solid #ffffff;
     background: none;
     color: white;
     outline: none;
@@ -226,9 +234,9 @@ const Button = styled.button`
     background: transparent;
     border-radius: 0;
 
-    &:hover, &:focus {
+    &:hover, &:focus, &:active {
       border-bottom: 1px solid #2e2d29;
-      color: ##2E2D29;
+      color: #2E2D29;
       background: transparent;
     }
   }
@@ -259,6 +267,12 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   &:hover, &:focus {
     text-decoration: underline;
     color: #ffffff;
+  }
+
+  &:active {
+    text-decoration: underline;
+    color: #ffffff;
+    background-color: #155F65;
   }
 
   @media (min-width: 992px) {
