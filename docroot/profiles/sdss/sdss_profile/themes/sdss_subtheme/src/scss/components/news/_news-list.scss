@@ -34,7 +34,7 @@
   .su-news-list__topics {
     a {
       font-size: 2rem;
-      color: $sdss-color-grey-60;
+      color: $su-color-black-70;
       font-weight: $su-font-regular;
       text-transform: uppercase;
     }
@@ -55,7 +55,7 @@
   .su-news-list__source {
     @include type-f;
 
-    color: $sdss-color-grey-60;
+    color: $su-color-black-70;
     padding: 1em 0 1.5em;
   }
 
