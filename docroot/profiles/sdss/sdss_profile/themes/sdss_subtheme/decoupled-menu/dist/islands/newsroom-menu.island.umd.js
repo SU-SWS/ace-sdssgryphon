@@ -124,9 +124,11 @@
 
   &:hover, &:focus {
     box-shadow: none;
-    border-bottom: 1px solid #b1040e;
-    background: #f4f4f4;
-    color: #2E2D29;
+    border-bottom: 1px solid #ffffff;
+    background: none;
+    color: white;
+    outline: none;
+    border-radius: unset;
   }
 
   @media (min-width: 992px) {
@@ -196,22 +198,20 @@
   background: #017E7C;
 
   @media (min-width: 992px) {
-    display: ${e=>e.open?"flex":"none"};
+    display: ${e=>e.open?"grid":"none"};
     box-shadow: ${e=>0===e.level?"0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)":""};
     position: ${e=>0===e.level?"absolute":"relative"};
     background: #155F65;
     border-top: 1px solid #d9d9d9;
     width: 100%;
     left: 0;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    align-content: space-around;
-    row-gap: 4rem;
-    column-gap: 7.5rem;
+    grid-template-columns: repeat(4, 200px [col-start]);
+    justify-content: center;
+    row-gap: 3.6rem;
+    column-gap: 6.6rem;
     margin-top: 4.4rem;
     color: $sdss-color-white;
-    padding: 4.4rem;
+    padding: 3.6rem 100px 5.8rem 100px;
   }
 `,on=Or.div`
 
@@ -238,6 +238,6 @@
 
   @media (min-width: 992px) {
     border-bottom: ${e=>(e.level,"none")};
-    padding: ${e=>e.level>0?"0 10px":"0"};
+    padding: ${e=>(e.level,"0")};
   }
 `,sn=({title:e,url:t,items:r,level:n=0})=>{const o=ie(null),[i,a]=te(!1),s=window.location.protocol+"//"+window.location.host;let l,c=new URL(s),u=!0,p=!1;t&&(u=!1,c=new URL(t.startsWith("/")?`${s}${t}`:t),l=c.pathname===window.location.pathname,p="/"!=t&&window.location.pathname.startsWith(c.pathname)&&!l);const f=se((e=>{"Escape"===e.key&&i&&(a(!1),o.current.focus())}),[i]);return ne((()=>{i&&document.addEventListener("keydown",f),i||document.removeEventListener("keydown",f)}),[i]),Hr(Br,{onOutsideFocus:()=>a(!1),component:an,level:n,children:[Hr(en,{level:n,children:[!u&&Hr(tn,{href:t,"aria-current":l?"page":void 0,level:n,isCurrent:l,inTrail:p,children:e}),u&&Hr(rn,{children:e}),r&&Hr(m,{children:Hr(Qr,{ref:o,onClick:()=>a(!i),"aria-expanded":i,"aria-label":(i?"Close":"Open")+` ${e} Submenu`,children:Hr(Ur,{style:{transform:i?"rotate(180deg)":"",transition:"transform 0.2s ease-in-out",width:"16px"}})})})]}),r&&Hr(on,{children:Hr(nn,{open:i,level:n,children:r.map((e=>Hr(sn,{...e,level:n+1},e.id)))})})]})},ln=((e,t)=>{if(null==customElements.get(e)){class t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}}customElements.define(e,t)}const r=(e=>{const t={_rootsToObservers:new WeakMap,_roots:[],_executedScript:document.currentScript,props:{},render:({selector:r,clean:n=!1,replace:o=!1,inline:i=!1,initialProps:a={},propsSelector:s,elementName:l})=>{let c=!1;const u=()=>{if(!0===c)return;const u=(({selector:e,inline:t,elementName:r})=>{const n=document.currentScript;if(t&&null!=n&&n.parentNode)return[n.parentNode];const o=null==n?void 0:n.dataset.mountIn;return o?Array.from(document.querySelectorAll(o)).map((e=>{if(null!=r){const t=document.createElement(r),n=e.appendChild(t);return null!=n.shadowRoot?n.shadowRoot:n}return e})):e?Array.from(document.querySelectorAll(e)).map((e=>null!=e.shadowRoot?e.shadowRoot:e)):[]})({selector:r,inline:i,elementName:l});if(0===u.length)return;const{rootFragments:p}=(({island:e,widget:t,hostElements:r,clean:n,replace:o,initialProps:i,propsSelector:a})=>{const s=[];return r.forEach((r=>{const l=Tr(e,r,i,a);let c;if(n&&r.replaceChildren(),o)c=Nr(r.parentElement||document.body,r);else{const e=document.createElement("div");r.appendChild(e),c=Nr(r,e)}s.push(c),Dr({island:e,widget:t,rootFragment:c,props:l});const u=(({island:e,hostElement:t,initialProps:r,onNewProps:n,propsSelector:o})=>{const i=new MutationObserver((function(i){i.forEach((function(){n(Tr(e,t,r,o))}))})),a={attributes:!0,childList:!0,characterData:!0};return e._executedScript&&i.observe(e._executedScript,a),Rr(t).forEach((e=>{i.observe(e,Pr({},a,{subtree:!0}))})),o&&jr(o).forEach((e=>{i.observe(e,Pr({},a,{subtree:!0}))})),i.observe(Ar(t)?t.host:t,a),i})({island:e,hostElement:r,initialProps:i,onNewProps:r=>{Dr({island:e,widget:t,rootFragment:c,props:r})},propsSelector:a});e._rootsToObservers.set(c,u)})),{rootFragments:s}})({island:t,widget:e,clean:n,hostElements:u,replace:o,initialProps:a,propsSelector:s});t._roots=t._roots.concat(p),c=!0};u(),document.addEventListener("DOMContentLoaded",u),document.addEventListener("load",u)},rerender:r=>{t._roots.forEach((n=>{Dr({island:t,widget:e,rootFragment:n,props:Pr({},t.props,r)})}))},destroy:()=>{t._roots.forEach((e=>{var r;null==(r=t._rootsToObservers.get(e))||r.disconnect(),F(null,e)}))}};return t})(t);return Pr({},r,{render:t=>r.render(Pr({elementName:e},t)),injectStyles:e=>{r._roots.forEach((t=>{const r=document.createElement("style");r.innerHTML=e,t.parentNode.prepend(r)}))}})})(Jr,Kr);ln.render({selector:`[data-island="${Jr}"]`})})(),n})()));

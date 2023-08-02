@@ -50,14 +50,15 @@
   }
 
   nav > button[aria-expanded="false"] {
-    color: $su-color-black;
+    color: $sdss-color-green-link;
+    font-weight: $su-font-semi-bold;
     position: unset;
     margin: 0 auto;
   }
 
   nav > button[aria-expanded="true"] {
     color: $su-color-white;
-    top: -170px;
+    top: -120px;
     right: 0;
 
     &:focus,

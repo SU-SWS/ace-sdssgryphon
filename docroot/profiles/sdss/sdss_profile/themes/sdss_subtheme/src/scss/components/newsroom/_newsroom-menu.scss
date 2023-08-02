@@ -28,7 +28,7 @@
     margin-bottom: 0;
 
     @include grid-media-max('md') {
-      margin-bottom: 7rem;
+      @include responsive-spacing('margin-bottom', 0);
     }
   }
 

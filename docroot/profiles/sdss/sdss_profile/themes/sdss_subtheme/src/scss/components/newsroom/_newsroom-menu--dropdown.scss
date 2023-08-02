@@ -2,8 +2,21 @@
 
   // If user is logged in. The menus will not go to full width
   // because of the positioning.
-  .contextual-region {
-    position: unset;
-  }
+.contextual-region {
+  position: unset;
+}
 
+@include grid-media-min('lg') {
+  .menu--newsroom {
+    nav {
+      li {
+        ul[open=true] {
+          li:nth-child(-n+4) {
+            padding-top: 33px;
+          }
+        }
+      }
+    }
+  }
+}
 

@@ -212,11 +212,13 @@ const Button = styled.button`
   width: 38px;
   height: 38px;
 
-  &:hover, &:focus {
+  &:hover, &:focus, &:active {
     box-shadow: none;
-    border-bottom: 1px solid #b1040e;
-    background: #f4f4f4;
-    color: #2E2D29;
+    border-bottom: 1px solid #ffffff;
+    background: none;
+    color: white;
+    outline: none;
+    border-radius: unset;
   }
 
   @media (min-width: 992px) {
@@ -294,22 +296,20 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   background: #017E7C;
 
   @media (min-width: 992px) {
-    display: ${props => props.open ? "flex" : "none"};
+    display: ${props => props.open ? "grid" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     position: ${props => props.level === 0 ? "absolute" : "relative"};
     background: #155F65;
     border-top: 1px solid #d9d9d9;
     width: 100%;
     left: 0;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    align-content: space-around;
-    row-gap: 4rem;
-    column-gap: 7.5rem;
+    grid-template-columns: repeat(4, 200px [col-start]);
+    justify-content: center;
+    row-gap: 3.6rem;
+    column-gap: 6.6rem;
     margin-top: 4.4rem;
     color: $sdss-color-white;
-    padding: 4.4rem;
+    padding: 3.6rem 100px 5.8rem 100px;
   }
 `
 
@@ -340,7 +340,7 @@ const ListItem = styled.li<{ level?: number }>`
 
   @media (min-width: 992px) {
     border-bottom: ${props => props.level === 0 ? "none" : "none"};
-    padding: ${props => props.level > 0 ? "0 10px" : "0"};
+    padding: ${props => props.level > 0 ? "0" : "0"};
   }
 `
 
