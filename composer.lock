@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90c2bddac1bd666920070fd5a029f139",
+    "content-hash": "93a33064614224ac058897087120e606",
     "packages": [
         {
             "name": "acquia/blt",
@@ -18379,62 +18379,66 @@
         },
         {
             "name": "su-sws/stanford_profile_helper",
-            "version": "9.2.7",
+            "version": "9.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_profile_helper.git",
-                "reference": "5cb3020860dec3bfccc8d7e58f073c71c69e48d3"
+                "reference": "69c50738da7e78cd20544c03d9c7928df0d9204c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/5cb3020860dec3bfccc8d7e58f073c71c69e48d3",
-                "reference": "5cb3020860dec3bfccc8d7e58f073c71c69e48d3",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/69c50738da7e78cd20544c03d9c7928df0d9204c",
+                "reference": "69c50738da7e78cd20544c03d9c7928df0d9204c",
                 "shasum": ""
             },
+            "require": {
+                "drupal/layout_paragraphs": "^2.0"
+            },
             "require-dev": {
-                "citation-style-language/locales": "1.0.0",
-                "citation-style-language/styles-distribution": "1.0.0",
-                "drupal/admin_toolbar": "^3.2",
-                "drupal/allowed_formats": "^1.5",
-                "drupal/auto_entitylabel": "^3.0@beta",
+                "citation-style-language/locales": "^1.0",
+                "citation-style-language/styles-distribution": "^1.0",
+                "drupal/admin_toolbar": "^3.4",
+                "drupal/allowed_formats": "^2.0",
+                "drupal/auto_entitylabel": "^3.0",
                 "drupal/components": "^3.0",
-                "drupal/config_pages": "^2.10",
+                "drupal/config_pages": "^2.15",
                 "drupal/config_pages_overrides": "^2.0",
                 "drupal/default_content": "^2.0@alpha",
                 "drupal/element_class_formatter": "^1.5",
-                "drupal/externalauth": "^1.0 || ^2.0",
-                "drupal/field_formatter_class": "^1.5",
-                "drupal/field_group": "^3.3",
-                "drupal/flat_taxonomy": "^1.2",
-                "drupal/hook_event_dispatcher": "^3.2",
-                "drupal/layout_builder_restrictions": "^2.16",
+                "drupal/externalauth": "^2.0",
+                "drupal/field_formatter_class": "^1.6",
+                "drupal/field_group": "^3.4",
+                "drupal/flat_taxonomy": "^2.0",
+                "drupal/hook_event_dispatcher": "^3.3",
+                "drupal/layout_builder_restrictions": "^2.19",
                 "drupal/layout_library": "^1.0@beta",
                 "drupal/mathjax": "^4.0",
-                "drupal/menu_block": "^1.8",
+                "drupal/menu_block": "^1.10",
                 "drupal/name": "^1.0@RC",
                 "drupal/paragraphs": "^1.15",
                 "drupal/pathauto": "^1.11",
-                "drupal/pdb": "^1.0@alpha",
+                "drupal/pdb": "^1.0",
                 "drupal/rabbit_hole": "^1.0@beta",
                 "drupal/redirect": "^1.8",
                 "drupal/scheduler": "^2.0",
                 "drupal/shs": "^2.0@RC",
-                "drupal/smart_date": "^3.6",
-                "drupal/smart_trim": "^1.3",
-                "drupal/taxonomy_menu": "^3.5",
-                "drupal/ui_patterns": "^1.3",
+                "drupal/smart_date": "^4.0",
+                "drupal/smart_trim": "^2.1",
+                "drupal/taxonomy_menu": "^3.6",
+                "drupal/ui_patterns": "^1.7",
                 "drupal/ultimate_cron": "^2.0@alpha",
-                "drupal/views_block_filter_block": "^1.2",
-                "drupal/views_custom_cache_tag": "^1.2",
+                "drupal/views_block_filter_block": "^2.0",
+                "drupal/views_custom_cache_tag": "^1.3",
                 "drupal/views_infinite_scroll": "^2.0",
-                "drupal/views_taxonomy_term_name_depth": "^7.1",
+                "drupal/views_taxonomy_term_name_depth": "^7.2",
                 "drupal/xmlsitemap": "^1.4",
-                "seboettg/citeproc-php": "2.4.1",
+                "seboettg/citeproc-php": "^2.4",
                 "su-sws/react_paragraphs": "^8.2",
                 "su-sws/stanford_fields": "^8.2",
-                "su-sws/stanford_media": "^8.3",
-                "su-sws/stanford_migrate": "^8.3"
+                "su-sws/stanford_media": "^9.0",
+                "su-sws/stanford_migrate": "^8.4"
             },
+            "default-branch": true,
             "type": "drupal-custom-module",
             "extra": {
                 "drush": {
@@ -18464,9 +18468,9 @@
             ],
             "description": "Helper Module For Stanford Profile",
             "support": {
-                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/9.2.7"
+                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/9.x"
             },
-            "time": "2023-06-12T22:05:56+00:00"
+            "time": "2023-08-02T22:28:20+00:00"
         },
         {
             "name": "su-sws/stanford_ssp",
@@ -21349,16 +21353,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.3.0",
+            "version": "v6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "f2e190ee75ff0f5eced645ec0be5c66fac81f51f"
+                "reference": "53d1a83225002635bca3482fcbf963001313fb68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/f2e190ee75ff0f5eced645ec0be5c66fac81f51f",
-                "reference": "f2e190ee75ff0f5eced645ec0be5c66fac81f51f",
+                "url": "https://api.github.com/repos/symfony/string/zipball/53d1a83225002635bca3482fcbf963001313fb68",
+                "reference": "53d1a83225002635bca3482fcbf963001313fb68",
                 "shasum": ""
             },
             "require": {
@@ -21415,7 +21419,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.3.0"
+                "source": "https://github.com/symfony/string/tree/v6.3.2"
             },
             "funding": [
                 {
@@ -21431,7 +21435,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-21T21:06:29+00:00"
+            "time": "2023-07-05T08:41:27+00:00"
         },
         {
             "name": "symfony/translation",
@@ -21825,16 +21829,16 @@
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.25",
+            "version": "v5.4.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "82269f73c0f0f9859ab9b6900eebacbe54954ede"
+                "reference": "e706c99b4a6f4d9383b52b80dd8c74880501e314"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/82269f73c0f0f9859ab9b6900eebacbe54954ede",
-                "reference": "82269f73c0f0f9859ab9b6900eebacbe54954ede",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/e706c99b4a6f4d9383b52b80dd8c74880501e314",
+                "reference": "e706c99b4a6f4d9383b52b80dd8c74880501e314",
                 "shasum": ""
             },
             "require": {
@@ -21848,6 +21852,7 @@
             "require-dev": {
                 "ext-iconv": "*",
                 "symfony/console": "^4.4|^5.0|^6.0",
+                "symfony/http-kernel": "^4.4|^5.0|^6.0",
                 "symfony/process": "^4.4|^5.0|^6.0",
                 "symfony/uid": "^5.1|^6.0",
                 "twig/twig": "^2.13|^3.0.4"
@@ -21893,7 +21898,7 @@
                 "dump"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.25"
+                "source": "https://github.com/symfony/var-dumper/tree/v5.4.26"
             },
             "funding": [
                 {
@@ -21909,7 +21914,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-20T20:56:26+00:00"
+            "time": "2023-07-13T07:32:46+00:00"
         },
         {
             "name": "symfony/var-exporter",
@@ -27552,6 +27557,7 @@
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
         "su-sws/earth_news_importer": 20,
+        "su-sws/stanford_profile_helper": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,
