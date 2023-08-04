@@ -8,6 +8,22 @@
 
 @include grid-media-max('md') {
 
+  // Setting up the green background.
+  // body.mobile-menu {
+  //   background-color: $sdss-color-green-link;
+
+  //   .su-brand-bar--dark,
+  //   .su-masthead {
+  //     background-color: $sdss-color-green-link;
+  //   }
+
+  //   .newsroom-mobile--btn {
+  //     display: none;
+  //   }
+
+  // }
+
+
   .newsroom-mobile--btn {
     display: block;
     border: 1px solid $su-color-black-20;
@@ -23,6 +39,11 @@
 
   .newsroom-wrapper:has(nav > button[aria-expanded="true"]) {
     background: #155f65;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    width: 100%;
 
     .menu--newsroom {
       justify-items: left;

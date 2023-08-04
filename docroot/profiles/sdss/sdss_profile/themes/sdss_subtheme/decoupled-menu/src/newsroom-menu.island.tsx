@@ -166,6 +166,7 @@ export const NewsroomMenu = ({}) => {
     existingMenu[0].remove();
   }
 
+
   return (
     <Nav>
       <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
@@ -173,21 +174,23 @@ export const NewsroomMenu = ({}) => {
         {menuOpen ? "Close" : ""}
       </MobileMenuButton>
 
+
       <TopList open={menuOpen}>
         <SearchContainer>
           <form action="/search" method="get">
             <label htmlFor="mobile-search-input">Keyword Search</label>
             <div style={{position: "relative"}}>
+            <button type="submit">
+                <MagnifyingGlass style={{width: "25px", height: "25px"}}/>
+                <span className="visually-hidden">Submit Search</span>
+              </button>
               <input
                 id="mobile-search-input"
                 type="text"
                 placeholder="Search news & research"
                 name="key"
               />
-              <button type="submit">
-                <MagnifyingGlass style={{width: "25px", height: "25px"}}/>
-                <span className="visually-hidden">Submit Search</span>
-              </button>
+
             </div>
           </form>
 
