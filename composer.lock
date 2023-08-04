@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd1b4126dd51bc50a9c3206b3e7faff7",
+    "content-hash": "ce344f6241058ee35cc45ee09b798325",
     "packages": [
         {
             "name": "acquia/blt",
@@ -18431,16 +18431,16 @@
         },
         {
             "name": "su-sws/stanford_profile_helper",
-            "version": "9.x-dev",
+            "version": "9.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_profile_helper.git",
-                "reference": "69c50738da7e78cd20544c03d9c7928df0d9204c"
+                "reference": "7b78083f483e2fe84d4780f341f879abf8deb470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/69c50738da7e78cd20544c03d9c7928df0d9204c",
-                "reference": "69c50738da7e78cd20544c03d9c7928df0d9204c",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/7b78083f483e2fe84d4780f341f879abf8deb470",
+                "reference": "7b78083f483e2fe84d4780f341f879abf8deb470",
                 "shasum": ""
             },
             "require": {
@@ -18490,7 +18490,6 @@
                 "su-sws/stanford_media": "^9.0",
                 "su-sws/stanford_migrate": "^8.4"
             },
-            "default-branch": true,
             "type": "drupal-custom-module",
             "extra": {
                 "drush": {
@@ -18520,9 +18519,9 @@
             ],
             "description": "Helper Module For Stanford Profile",
             "support": {
-                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/9.x"
+                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/9.2.15"
             },
-            "time": "2023-08-02T22:28:20+00:00"
+            "time": "2023-08-04T17:19:30+00:00"
         },
         {
             "name": "su-sws/stanford_ssp",
@@ -27609,7 +27608,6 @@
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
         "su-sws/earth_news_importer": 20,
-        "su-sws/stanford_profile_helper": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,

@@ -257,7 +257,7 @@
         "su-sws/stanford_fields": "^8.2",
         "su-sws/stanford_media": "^8.3",
         "su-sws/stanford_migrate": "^8.3",
-        "su-sws/stanford_profile_helper": "9.x-dev#69c50738da7e78cd20544c03d9c7928df0d9204c",
+        "su-sws/stanford_profile_helper": "^9.1",
         "su-sws/stanford_ssp": "^8.2"
     },
     "require-dev": {
