@@ -73,8 +73,9 @@ foreach ($sites_settings as $settings_file) {
     continue;
   }
 
-  // Get the site name to use for domains from the directory.
-  // Replace underscores "_" in the directory to dashes "-" in the site name.
+  // Get the site name to use for domains from the directory and replace:
+  // - Underscores "_" with dashes "-".
+  // - Double underscores "__" with dots ".".
   $sitename = str_replace('_', '-', str_replace('__', '.', $site_dir));
   $sites[$sitename] = $site_dir;
   $sites["$sitename.stanford.edu"] = $site_dir;

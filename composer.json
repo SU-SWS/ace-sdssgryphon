@@ -165,6 +165,7 @@
         "drupal/shs": "^2.0@RC",
         "drupal/smart_date": "^3.5",
         "drupal/smart_trim": "^2.0",
+        "drupal/stage_file_proxy": "^2.0",
         "drupal/taxonomy_entity_index": "^1.8",
         "drupal/taxonomy_menu": "^3.5",
         "drupal/token_or": "^2.0",
@@ -314,6 +315,9 @@
             },
             "drupal/paranoia": {
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"
+            },
+            "drupal/path_redirect_import": {
+                "https://www.drupal.org/project/path_redirect_import/issues/3373025": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
             },
             "drupal/taxonomy_entity_index": {
                 "Fix PHP 8 strict error with arrays": "patches/contrib/taxonomy_entity_index.patch"

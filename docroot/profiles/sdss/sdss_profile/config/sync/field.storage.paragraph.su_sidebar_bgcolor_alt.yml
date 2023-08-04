@@ -1,0 +1,27 @@
+uuid: 249dee17-9487-4f9a-956c-09863c610612
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.su_sidebar_bgcolor_alt
+field_name: su_sidebar_bgcolor_alt
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: bg_color_default
+      label: Default
+    -
+      value: bg_color_option_1
+      label: Blue
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -10,7 +10,7 @@ use Drupal\Core\Installer\InstallerKernel;
 use Drupal\Core\State\StateInterface;
 
 /**
- * Config overrides for stanford profile.
+ * Config overrides for SDSS profile.
  *
  * @package Drupal\sdss_profile\Config
  */

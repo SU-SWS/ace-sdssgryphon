@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for sdss_layout_paragraphs module.
+ */
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function sdss_layout_paragraphs_library_info_alter(&$libraries, $extension) {
+  if ($extension == 'layout_paragraphs') {
+    $libraries['builder']['dependencies'][] = 'sdss_layout_paragraphs/layout_paragraphs';
+  }
+}

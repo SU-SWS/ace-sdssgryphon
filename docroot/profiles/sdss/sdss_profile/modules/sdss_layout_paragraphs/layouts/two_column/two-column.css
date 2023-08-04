@@ -1,0 +1,59 @@
+.layout--layout-paragraphs-two-column {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 3rem;
+  margin: 0 3rem;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+  .layout--layout-paragraphs-two-column {
+    margin: 0 4.0rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .layout--layout-paragraphs-two-column {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+  .layout--layout-paragraphs-two-column {
+    margin: 0 5rem;
+  }
+
+  .flex-lg-9-of-12 .layout--layout-paragraphs-two-column {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .layout--layout-paragraphs-two-column {
+    margin: 0 7.5rem;
+  }
+
+  .flex-lg-9-of-12 .layout--layout-paragraphs-two-column {
+    margin: 0;
+  }
+}
+
+.layout--layout-paragraphs-two-column > * {
+  min-width: 0;
+}
+
+.layout--layout-paragraphs-two-column.sdss-layout-paragraphs-two-column--33-67 {
+  grid-template-columns: 1fr 2fr;
+}
+
+.layout--layout-paragraphs-two-column.sdss-layout-paragraphs-two-column--67-33 {
+  grid-template-columns: 2fr 1fr;
+}
+
+.layout--layout-paragraphs-two-column.sdss-layout-paragraphs-two-column--offset-50-50 {
+  margin: 0;
+  max-width: 1200px;
+}
+
+.layout-paragraphs-sdss-two-column.layout-paragraphs-sdss-two-column--offset-50-50 {
+  margin: 0;
+}

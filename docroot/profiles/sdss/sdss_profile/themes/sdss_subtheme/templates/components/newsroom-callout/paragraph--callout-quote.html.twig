@@ -1,0 +1,16 @@
+{%- set background_color = content.su_callout_bgcolor_alt['#items'].getString() -%}
+{% set selectedFontSize = content.su_select_font_sizing['#items'].getString() %}
+
+{%- set attributes = attributes.addClass(['callout', background_color, selectedFontSize]) -%}
+
+
+<div {{ attributes }}>
+  <span class="decoration">&#8220;</span>
+  <blockquote>
+    {{ content.su_callout_quote }}
+    <cite>
+    {{ content.su_callout_author }}
+    {{ content.su_callout_author_title }}
+    </cite>
+  </blockquote>
+</div>

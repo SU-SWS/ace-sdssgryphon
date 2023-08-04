@@ -1,0 +1,31 @@
+{#
+/**
+ * News Node - Byline Social Media.
+ * Layout builder section.
+ */
+#}
+{%- set attributes = attributes.addClass('byline-social-media-wrapper centered-container') -%}
+
+{% if content.su_news_byline|render|striptags("<drupal-render-placeholder>")|trim is empty %}
+  {%- set attributes = attributes.addClass('su-news-byline--no-author') -%}
+{% endif %}
+
+<div{{ attributes }}>
+  {%- if content.su_news_publishing_date|render|striptags("<drupal-render-placeholder>")|trim is not empty %}
+    <div class="su_news_publishing_date-region">{{ content.su_news_publishing_date }}</div>
+  {% endif %}
+
+
+  <div class="sdss-byline--wrapper">
+    {% if content.su_news_publishing_date or content.su_news_byline %}
+
+      {%- if content.su_news_byline|render|striptags("<drupal-render-placeholder>")|trim is not empty %}
+        <div {{ region_attributes.su_news_byline.addClass('news-date-pipe-byline') }}>
+          <div class="su-news-byline-region"><span>By </span>{{ content.su_news_byline }}</div>
+        </div>
+      {% endif %}
+
+    {% endif %}
+    <div class="news-social-media"></div>
+  </div>
+</div>

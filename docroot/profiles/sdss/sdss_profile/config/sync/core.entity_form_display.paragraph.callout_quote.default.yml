@@ -1,0 +1,57 @@
+uuid: 9f0bf4e8-a27d-405e-9ada-11de3310affc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.callout_quote.su_callout_author
+    - field.field.paragraph.callout_quote.su_callout_author_title
+    - field.field.paragraph.callout_quote.su_callout_bgcolor_alt
+    - field.field.paragraph.callout_quote.su_callout_quote
+    - field.field.paragraph.callout_quote.su_select_font_sizing
+    - paragraphs.paragraphs_type.callout_quote
+  module:
+    - text
+id: paragraph.callout_quote.default
+targetEntityType: paragraph
+bundle: callout_quote
+mode: default
+content:
+  su_callout_author:
+    type: text_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_callout_author_title:
+    type: text_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_callout_bgcolor_alt:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  su_callout_quote:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  su_select_font_sizing:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

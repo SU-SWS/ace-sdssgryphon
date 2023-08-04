@@ -41,6 +41,7 @@ multisites:
   - farm
   - geophysics
   - gep
+  - gfi
   - gs
   - hackingfordefense
   - hawaii
@@ -66,6 +67,7 @@ multisites:
   - understand_energy_course
   - understandenergy
   - water
+  - witw
   - woods
 tests:
   reports:

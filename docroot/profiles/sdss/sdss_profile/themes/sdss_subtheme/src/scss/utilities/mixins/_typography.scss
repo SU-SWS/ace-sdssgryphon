@@ -38,8 +38,8 @@
 // Block Quote Big is the design language.
 @mixin sdss-block-quote--big {
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: -0.01em;
 
   @include grid-media-max('sm') {
@@ -68,8 +68,8 @@
   @include type_b;
 
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: -0.01em;
 
   @include grid-media-max('sm') {
@@ -96,8 +96,8 @@
  // Block Quote Small is the design language.
 @mixin sdss-block-quote--sm {
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: 0.01em;
 
   @include grid-media-max('sm') {
@@ -210,8 +210,9 @@
 // Captions mixin
 @mixin sdss-caption {
   color: $sdss-color-black;
-  font-style: italic;
-  text-align: right;
+  text-align: left;
+  float: unset;
+  width: auto;
 
   @include grid-media-min('2xl') {
     font-size: 1.9rem;
@@ -225,3 +226,68 @@
     font-size: 1.5rem;
   }
 }
+
+// Newsroom Topics A mixin
+@mixin sdss-newsroom-topics {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+
+// Newsroom dek long mixin
+@mixin sdss-newsroom-dek-long {
+
+  @include grid-media-min('2xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 2.5rem;
+  }
+}
+
+// Newsroom byline mixin
+@mixin sdss-newsroom-byline {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2.1rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+// Newsroom callout quote mixin
+@mixin sdss-newsroom-callout-quote {
+
+  @include grid-media-min('2xl') {
+      font-size: 2.3rem;
+    }
+
+    @include grid-media-between('md', 'xl') {
+      font-size: 4.1rem;
+    }
+
+    @include grid-media-max('sm') {
+      font-size: 1.8rem;
+    }
+  }

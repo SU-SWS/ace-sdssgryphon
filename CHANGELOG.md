@@ -1,5 +1,32 @@
 # ACE SDSSGryphon
 
+2.1.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-08-03_
+
+- aba953c SDSS-763: Updated stanford_profile_helper (#201)
+- ed94648 SDSS-793: Added icons for new Sidebar and Callout paragraph types (#198)
+- 305180a SDSS-823: Added bottom margin to News nodes to add space before footer (#199)
+- bbfa616 SDSS-824: Fixed Firefox wrapping bug with caption text (#197)
+- 84269c7 SDSS-613: Adjusted Event and News taxonomy text to accessible colors (#196)
+- e5a5490 SDSS-822: Adjusted spacing for news article top component without byline (#195)
+- 14548e4 SDSS-816: Use serif font for block quote styles, updated decanter. (#194)
+- 8490284 SDSS-780: Ignore the earth_news_importer module and migration configuration. (#192)
+- 7b92799 SDSS-787: Provisioned witw and gfi. (#191)
+- fafbae1 Added path_redirect_import patch fix for migratetools. (#190)
+- 823af82 SDSS-788: Added and configured stage file proxy (#183)
+- 98b6184 SDSS-786: Article page tweaks (#184)
+- d69e84c SDSS-592: Add sidebar component (#172)
+- e2d38de SDSS-591: Add Newsroom Callout component (#170)
+- 7cddff6 SDSS-589: News node top component (#168)
+- cfd1cfc SDSS-784: Point custom hopkinsmarinestation aliases. (#179)
+- eeadfdd SDSS-778: Set article body width for newsroom only (#177)
+- b03600c SDSS-731: Added custom sdss_layout_paragraphs module (#163)
+- 85046a4 Hide all data capture fields in default displays.
+- 305b27c SDSS-731: Layout paragraphs updates (#155)
+- 173aee5 SDSS-600: Changed News components field to layout_paragraphs (#125)
+
+
 2.0.5
 --------------------------------------------------------------------------------
 _Release Date: 2023-06-28_
