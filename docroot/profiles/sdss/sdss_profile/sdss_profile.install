@@ -4,3 +4,93 @@
  * @file
  * sdss_profile.install
  */
+
+/**
+ * Move unsectioned paragraphs on stanford_news nodes into one column
+ * layout_paragraph sections.
+ */
+function sdss_profile_update_9000(&$sandbox) {
+  // Get all stanford_news nodes.
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+  drupal_static_reset();
+  $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+
+  // Support batching updates.
+  $node_ids = array_splice($sandbox['nids'], 0, 25);
+
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    // Pull all paragraphs off the news nodes.
+    $components = $node->get('su_news_components');
+    // Create empty array to store paragraphs that are not in a layout section.
+    $unsectioned_paragraphs = [];
+
+    // Only continue if the node has components.
+    if(count($components) > 0 ) {
+
+      // Loop through the components.
+      foreach($components as $component) {
+        $paragraph = $paragraph_storage->loadRevision($component->getValue()['target_revision_id']);
+        $parent_uuid = $paragraph->getBehaviorSetting('layout_paragraphs', 'parent_uuid');
+
+        // If the paragraph is already in a layout or the paragraph type IS a
+        // layout section, do nothing.
+        if(
+          !is_null($parent_uuid)
+          || $paragraph->getParagraphType()->id() == 'stanford_layout'
+        ) continue;
+
+        // Add paragraph to the unsectioned_paragraphs array.
+        $unsectioned_paragraphs[] = $paragraph;
+      }
+
+      // Check if there are unsectioned paragraphs.
+      if(count($unsectioned_paragraphs) > 0) {
+
+        // Create a stanford_layout paragraph to move un-sectioned components into.
+        $new_paragraph_section = $paragraph_storage->create([
+          'type' => 'stanford_layout', // Enter your paragraph bundle type here.
+        ]);
+        $new_paragraph_section->setBehaviorSettings('layout_paragraphs',
+          [
+            'layout' => 'layout_paragraphs_sdss_1_column',
+            'parent_uuid' => NULL,
+            'region' => NULL,
+          ]);
+        $new_paragraph_section->save();
+
+        // Loop through unsectioned paragraphs.
+        foreach($unsectioned_paragraphs as $unsectioned_paragraph) {
+          // Assign the paragraph to the newly created section paragraph.
+          $unsectioned_paragraph->setBehaviorSettings('layout_paragraphs',
+            [
+              'region' => 'main',
+              'parent_uuid' => $new_paragraph_section->uuid(),
+            ]);
+          $unsectioned_paragraph->save();
+        }
+
+        // Add the layout section paragraph to the node and save.
+        $node->su_news_components[] = [
+          'target_id' => $new_paragraph_section->id(),
+          'target_revision_id' => $new_paragraph_section->getRevisionId(),
+        ];
+        $node->save();
+      }
+    }
+  }
+
+  // Support batching updates.
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}

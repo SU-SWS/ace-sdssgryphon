@@ -20,7 +20,7 @@ foreach($stanford_news_nodes as $stanford_news_node) {
 
       // Loop through the components.
       foreach($components as $component) {
-        $paragraph = $entity_type_manager->getStorage('paragraph')->load($component->getValue()['target_id']);
+        $paragraph = $entity_type_manager->getStorage('paragraph')->loadRevision($component->getValue()['target_revision_id']);
         $parent_uuid = $paragraph->getBehaviorSetting('layout_paragraphs', 'parent_uuid');
         $paragraph_type = $paragraph->getParagraphType()->id();
 
