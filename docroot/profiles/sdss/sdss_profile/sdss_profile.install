@@ -32,6 +32,7 @@ function sdss_profile_update_9000(&$sandbox) {
   $nodes = $node_storage->loadMultiple($node_ids);
   foreach ($nodes as $node) {
     // Pull all paragraphs off the news nodes.
+    /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $components */
     $components = $node->get('su_news_components');
     // Create empty array to store paragraphs that are not in a layout section.
     $unsectioned_paragraphs = [];
@@ -40,7 +41,9 @@ function sdss_profile_update_9000(&$sandbox) {
     if(count($components) > 0 ) {
 
       // Loop through the components.
+      /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $component */
       foreach($components as $component) {
+        /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
         $paragraph = $paragraph_storage->loadRevision($component->getValue()['target_revision_id']);
         $parent_uuid = $paragraph->getBehaviorSetting('layout_paragraphs', 'parent_uuid');
 
@@ -58,9 +61,10 @@ function sdss_profile_update_9000(&$sandbox) {
       // Check if there are unsectioned paragraphs.
       if(count($unsectioned_paragraphs) > 0) {
 
-        // Create a stanford_layout paragraph to move un-sectioned components into.
+        // Create a stanford_layout paragraph to move un-sectioned components
+        // into.
         $new_paragraph_section = $paragraph_storage->create([
-          'type' => 'stanford_layout', // Enter your paragraph bundle type here.
+          'type' => 'stanford_layout',
         ]);
         $new_paragraph_section->setBehaviorSettings('layout_paragraphs',
           [
@@ -72,7 +76,8 @@ function sdss_profile_update_9000(&$sandbox) {
 
         // Loop through unsectioned paragraphs.
         foreach($unsectioned_paragraphs as $unsectioned_paragraph) {
-          // Assign the paragraph to the newly created section paragraph.
+          // Assign the paragraph to the newly created section paragraph and
+          // save the paragraph.
           $unsectioned_paragraph->setBehaviorSettings('layout_paragraphs',
             [
               'region' => 'main',
@@ -81,7 +86,7 @@ function sdss_profile_update_9000(&$sandbox) {
           $unsectioned_paragraph->save();
         }
 
-        // Add the layout section paragraph to the node and save.
+        // Add the layout section paragraph to the node and save the node.
         $node->su_news_components[] = [
           'target_id' => $new_paragraph_section->id(),
           'target_revision_id' => $new_paragraph_section->getRevisionId(),
