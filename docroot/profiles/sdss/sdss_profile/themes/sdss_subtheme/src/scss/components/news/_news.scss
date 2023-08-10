@@ -35,7 +35,7 @@
       a {
         @include sdss-link--primary;
 
-        color: $sdss-color-grey-60;
+        color: $su-color-black-70;
         font-size: 2rem;
         font-weight: $su-font-regular;
         text-decoration: none;
@@ -69,7 +69,7 @@
 .news-vertical-teaser__source {
   @include type-f;
 
-  color: $sdss-color-grey-60;
+  color: $su-color-black-70;
   padding: 1em 0 1.5em;
 }
 

@@ -8,27 +8,11 @@
 
 @include grid-media-max('md') {
 
-  // Setting up the green background.
-  // body.mobile-menu {
-  //   background-color: $sdss-color-green-link;
-
-  //   .su-brand-bar--dark,
-  //   .su-masthead {
-  //     background-color: $sdss-color-green-link;
-  //   }
-
-  //   .newsroom-mobile--btn {
-  //     display: none;
-  //   }
-
-  // }
-
-
   .newsroom-mobile--btn {
     display: block;
     border: 1px solid $su-color-black-20;
     padding: 15px 20px 17px 20px;
-    max-width: 21rem;
+    max-width: 25rem;
 
     a {
       color: $sdss-color-green-link;
@@ -49,8 +33,7 @@
       justify-items: left;
 
       h2 {
-        color: $su-color-white;
-        padding: 20px 20px 30px 20px;
+        display: none;
       }
     }
   }

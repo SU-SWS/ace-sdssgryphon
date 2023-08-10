@@ -8,7 +8,6 @@ dependencies:
     - paragraphs.paragraphs_type.stanford_accordion
     - paragraphs.paragraphs_type.stanford_person_cta
     - paragraphs.paragraphs_type.stanford_schedule
-    - paragraphs.paragraphs_type.stanford_spacer
   module:
     - entity_reference_revisions
 id: node.stanford_news.su_news_components
@@ -28,9 +27,14 @@ settings:
       stanford_person_cta: stanford_person_cta
       stanford_accordion: stanford_accordion
       stanford_schedule: stanford_schedule
-      stanford_spacer: stanford_spacer
     negate: 1
     target_bundles_drag_drop:
+      callout_quote:
+        weight: 15
+        enabled: false
+      editorial_sidebar:
+        weight: 16
+        enabled: false
       stanford_accordion:
         weight: 12
         enabled: true
@@ -46,6 +50,9 @@ settings:
       stanford_gallery:
         weight: 14
         enabled: false
+      stanford_layout:
+        weight: 22
+        enabled: false
       stanford_lists:
         weight: 15
         enabled: false
@@ -60,7 +67,7 @@ settings:
         enabled: true
       stanford_spacer:
         weight: 13
-        enabled: true
+        enabled: false
       stanford_wysiwyg:
         weight: -7
         enabled: false

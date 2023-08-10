@@ -9,8 +9,12 @@
       }
     }
   }
-}
 
+  &.node {
+    @include modular-spacing('margin-bottom', 4);
+  }
+
+}
 
 .su-sdss-news-dek-long {
   &.su-wysiwyg-text {
@@ -41,6 +45,12 @@
   &.centered-container {
     @include modular-spacing('margin-top', 4);
     @include modular-spacing('margin-bottom', 4);
+  }
+
+  &.su-news-byline--no-author {
+    .su_news_publishing_date-region {
+      @include modular-spacing('margin-bottom', -3);
+    }
   }
 
   .sdss-byline--wrapper {

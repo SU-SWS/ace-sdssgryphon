@@ -38,6 +38,7 @@
 // Block Quote Big is the design language.
 @mixin sdss-block-quote--big {
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
   letter-spacing: -0.01em;
 
@@ -67,6 +68,7 @@
   @include type_b;
 
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
   letter-spacing: -0.01em;
 
@@ -94,6 +96,7 @@
  // Block Quote Small is the design language.
 @mixin sdss-block-quote--sm {
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
   letter-spacing: 0.01em;
 
@@ -208,7 +211,8 @@
 @mixin sdss-caption {
   color: $sdss-color-black;
   text-align: left;
-  width: 100%;
+  float: unset;
+  width: auto;
 
   @include grid-media-min('2xl') {
     font-size: 1.9rem;
