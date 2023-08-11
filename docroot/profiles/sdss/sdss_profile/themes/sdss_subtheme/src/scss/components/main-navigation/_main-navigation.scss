@@ -19,6 +19,15 @@
   }
 }
 
+.su-masthead {
+  .su-site-search__submit {
+    @include grid-media-max('md') {
+      right: 4.1rem;
+      top: 3.7rem;
+    }
+  }
+}
+
 // Makes the menu 'sticky' for LG sreens and up
 @include grid-media-min('lg') {
   // Add a scroll offset equivalent to the sticky header to account for any

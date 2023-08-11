@@ -1,61 +1,62 @@
 @charset "UTF-8";
 
 // Mobile menu for the newsroom
-
-.newsroom-mobile--btn {
-  display: none;
-}
-
-@include grid-media-max('md') {
-
+.newsroom-wrapper {
   .newsroom-mobile--btn {
-    display: block;
-    border: 1px solid $su-color-black-20;
-    padding: 15px 20px 17px 20px;
-    max-width: 25rem;
-
-    a {
-      color: $sdss-color-green-link;
-      font-weight: $su-font-semi-bold;
-      line-height: 109%; /* 18.53px */
-    }
+    display: none;
   }
 
-  .newsroom-wrapper:has(nav > button[aria-expanded="true"]) {
-    background: #155f65;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    right: 0;
-    width: 100%;
+  @include grid-media-max('md') {
+    h2 {
+      display: none;
+    }
 
-    .menu--newsroom {
-      justify-items: left;
+    .newsroom-mobile--btn {
+      display: block;
+      border: 1px solid $su-color-black-20;
+      padding: 15px 20px 17px 20px;
+      max-width: 25rem;
 
-      h2 {
-        display: none;
+      a {
+        color: $sdss-color-green-link;
+        font-weight: $su-font-semi-bold;
+        line-height: 109%; /* 18.53px */
+      }
+    }
+
+    &:has(nav > button[aria-expanded="true"]) {
+      background: #155f65;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      width: 100%;
+
+      .menu--newsroom {
+        justify-items: left;
+      }
+    }
+
+    nav > button[aria-expanded="false"] {
+      color: $sdss-color-green-link;
+      font-weight: $su-font-semi-bold;
+      position: unset;
+      margin: 0 auto;
+    }
+
+    nav > button[aria-expanded="true"] {
+      color: $su-color-white;
+      top: -43px;
+      right: 0;
+
+      &:focus,
+      &:active,
+      &:hover {
+        outline: none;
+        color: white;
+        text-decoration: underline;
       }
     }
   }
 
-  nav > button[aria-expanded="false"] {
-    color: $sdss-color-green-link;
-    font-weight: $su-font-semi-bold;
-    position: unset;
-    margin: 0 auto;
-  }
-
-  nav > button[aria-expanded="true"] {
-    color: $su-color-white;
-    top: -120px;
-    right: 0;
-
-    &:focus,
-    &:active,
-    &:hover {
-      outline: none;
-      color: white;
-      text-decoration: underline;
-    }
-  }
 }
