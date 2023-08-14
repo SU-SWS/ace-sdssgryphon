@@ -81,7 +81,7 @@ function sdss_profile_update_9000(&$sandbox) {
           'target_revision_id' => $section_paragraph->getRevisionId(),
         ];
         array_splice($components_list, $section_delta, 0, ['entity' => $section_paragraph_entity_reference]);
-        $node->get('su_news_components')->setValue($components_list);
+        $node->set('su_page_components', $components_list)->save();
         $node->save();
       }
     }
