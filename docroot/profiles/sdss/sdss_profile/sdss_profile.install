@@ -10,7 +10,6 @@
  * layout_paragraph sections.
  */
 function sdss_profile_update_9000(&$sandbox) {
-  // Get all stanford_news nodes.
   $node_storage = \Drupal::entityTypeManager()
     ->getStorage('node');
   if (!isset($sandbox['count'])) {
@@ -25,7 +24,6 @@ function sdss_profile_update_9000(&$sandbox) {
   drupal_static_reset();
   $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
 
-  // Support batching updates.
   $node_ids = array_splice($sandbox['nids'], 0, 25);
 
   /** @var \Drupal\node\NodeInterface[] $nodes */
@@ -35,21 +33,26 @@ function sdss_profile_update_9000(&$sandbox) {
     $components = $node->get('su_news_components');
     $unsectioned_paragraphs = [];
 
-    if (!isEmpty($components)) {
+    if (!empty($components)) {
+      $section_delta = '';
+
       /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $component */
-      foreach ($components as $component) {
+      foreach ($components as $delta => $component) {
         /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
         $paragraph = $paragraph_storage->loadRevision($component->getValue()['target_revision_id']);
-        $parent_layout = $paragraph->getBehaviorSetting('layout_paragraphs', 'parent_uuid');
+        $parent_uuid = $paragraph->getBehaviorSetting('layout_paragraphs', 'parent_uuid');
 
         if (
-          $parent_layout ||
+          $parent_uuid ||
           $paragraph->getParagraphType()->id() == 'stanford_layout'
         ) {
           continue;
         }
 
         $unsectioned_paragraphs[] = $paragraph;
+        if(empty($section_delta)) {
+          $section_delta = $delta;
+        }
       }
 
       if ($unsectioned_paragraphs) {
@@ -72,10 +75,13 @@ function sdss_profile_update_9000(&$sandbox) {
           $unsectioned_paragraph->save();
         }
 
-        $node->su_news_components[] = [
+        $components_list = $components->getValue();
+        $section_paragraph_entity_reference = [
           'target_id' => $section_paragraph->id(),
           'target_revision_id' => $section_paragraph->getRevisionId(),
         ];
+        array_splice($components_list, $section_delta, 0, ['entity' => $section_paragraph_entity_reference]);
+        $node->get('su_news_components')->setValue($components_list);
         $node->save();
       }
     }
