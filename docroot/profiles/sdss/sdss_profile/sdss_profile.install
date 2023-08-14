@@ -36,7 +36,7 @@ function sdss_profile_update_9000(&$sandbox) {
     if (!empty($components)) {
       $section_delta = '';
 
-      /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $component */
+      /** @var Drupal\entity_reference_revisions\Plugin\Field\FieldType\EntityReferenceRevisionsItem $component */
       foreach ($components as $delta => $component) {
         /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
         $paragraph = $paragraph_storage->loadRevision($component->get('target_revision_id')
@@ -83,7 +83,6 @@ function sdss_profile_update_9000(&$sandbox) {
         ];
         array_splice($components_list, $section_delta, 0, ['entity' => $section_paragraph_entity_reference]);
         $node->set('su_news_components', $components_list)->save();
-        $node->save();
       }
     }
   }
