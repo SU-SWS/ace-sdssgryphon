@@ -6,6 +6,13 @@
 
   blockquote {
     margin: 0;
+    display: inline-block;
+  }
+
+ .blockquote-wrapper {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   .decoration {
@@ -19,6 +26,7 @@
     position: relative;
     top: -40px;
     margin-right: 1rem;
+    display: inline-block;
   }
 
   .su-callout-author {
