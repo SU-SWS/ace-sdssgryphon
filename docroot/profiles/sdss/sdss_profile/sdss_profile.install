@@ -53,9 +53,7 @@ function sdss_profile_update_9000(&$sandbox) {
       }
 
       if ($unsectioned_paragraphs) {
-        $section_paragraph = $paragraph_storage->create([
-          'type' => 'stanford_layout',
-        ]);
+        $section_paragraph = $paragraph_storage->create(['type' => 'stanford_layout']);
         $section_paragraph_layout_settings = [
             'layout' => 'layout_paragraphs_sdss_1_column',
             'parent_uuid' => NULL,
