@@ -39,7 +39,8 @@ function sdss_profile_update_9000(&$sandbox) {
       /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $component */
       foreach ($components as $delta => $component) {
         /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
-        $paragraph = $paragraph_storage->loadRevision($component->get('target_revision_id'));
+        $paragraph = $paragraph_storage->loadRevision($component->get('target_revision_id')
+          ->getString());
         $parent_uuid = $paragraph->getBehaviorSetting('layout_paragraphs', 'parent_uuid');
 
         if (
