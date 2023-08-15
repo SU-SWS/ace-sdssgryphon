@@ -10,9 +10,15 @@
   }
 
  .blockquote-wrapper {
+  @include responsive-spacing('margin-left', 4);
+  @include responsive-spacing('margin-right', 4);
+
     display: flex;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1200px;
+
+    @include grid-media-max('sm') {
+      margin: 0;
+    }
   }
 
   .decoration {
