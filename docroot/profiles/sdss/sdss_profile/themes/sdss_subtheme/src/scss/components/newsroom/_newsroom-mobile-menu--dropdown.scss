@@ -7,8 +7,8 @@
   }
 
   @include grid-media-max('md') {
-    h2 {
-      display: none;
+    .menu-blocknewsroom-menu {
+      @include sr-only;
     }
 
     .newsroom-mobile--btn {
