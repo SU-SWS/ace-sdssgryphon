@@ -33,7 +33,7 @@ function sdss_profile_update_9000(&$sandbox) {
     $components = $node->get('su_news_components');
     $unsectioned_paragraphs = [];
 
-    if (!empty($components)) {
+    if (!$components->isEmpty()) {
       $section_delta = '';
 
       /** @var Drupal\entity_reference_revisions\Plugin\Field\FieldType\EntityReferenceRevisionsItem $component */
