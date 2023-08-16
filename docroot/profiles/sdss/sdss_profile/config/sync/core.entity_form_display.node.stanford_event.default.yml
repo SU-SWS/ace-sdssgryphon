@@ -423,6 +423,7 @@ hidden:
   promote: true
   sticky: true
   su_metatags: true
+  syndication: true
   uid: true
   unpublish_on: true
   url_redirects: true

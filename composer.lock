@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce344f6241058ee35cc45ee09b798325",
+    "content-hash": "7a6581097787628e9c0ba6b597581b8c",
     "packages": [
         {
             "name": "acquia/blt",
@@ -18735,6 +18735,38 @@
             "time": "2023-07-17T20:18:17+00:00"
         },
         {
+            "name": "su-sws/stanford_syndication",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SU-SWS/stanford_syndication.git",
+                "reference": "9508dec065143c1daa1e91273dcc4cdb374d80cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_syndication/zipball/9508dec065143c1daa1e91273dcc4cdb374d80cf",
+                "reference": "9508dec065143c1daa1e91273dcc4cdb374d80cf",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "drupal-custom-module",
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\stanford_syndication\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Drupal module for connection to Syndication CMS systems",
+            "support": {
+                "issues": "https://github.com/SU-SWS/stanford_syndication/issues",
+                "source": "https://github.com/SU-SWS/stanford_syndication/tree/1.x"
+            },
+            "time": "2023-08-16T20:54:45+00:00"
+        },
+        {
             "name": "symfony-cmf/routing",
             "version": "2.3.4",
             "source": {
@@ -27586,6 +27618,7 @@
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
         "su-sws/earth_news_importer": 20,
+        "su-sws/stanford_syndication": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,

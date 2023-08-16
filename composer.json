@@ -258,7 +258,8 @@
         "su-sws/stanford_media": "^8.3",
         "su-sws/stanford_migrate": "^8.3",
         "su-sws/stanford_profile_helper": "^9.1",
-        "su-sws/stanford_ssp": "^8.2"
+        "su-sws/stanford_ssp": "^8.2",
+        "su-sws/stanford_syndication": "1.x-dev"
     },
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
