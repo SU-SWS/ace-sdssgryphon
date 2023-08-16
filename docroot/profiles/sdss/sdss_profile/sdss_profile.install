@@ -34,7 +34,8 @@ function sdss_profile_update_9000(&$sandbox) {
     $unsectioned_paragraphs = [];
 
     if (!$components->isEmpty()) {
-      $section_delta = '';
+      $section_delta_counter = 0;
+      $components_list = $components->getValue();
 
       /** @var Drupal\entity_reference_revisions\Plugin\Field\FieldType\EntityReferenceRevisionsItem $component */
       foreach ($components as $delta => $component) {
@@ -50,13 +51,6 @@ function sdss_profile_update_9000(&$sandbox) {
           continue;
         }
 
-        $unsectioned_paragraphs[] = $paragraph;
-        if(empty($section_delta)) {
-          $section_delta = $delta;
-        }
-      }
-
-      if ($unsectioned_paragraphs) {
         $section_paragraph = $paragraph_storage->create(['type' => 'stanford_layout']);
         $section_paragraph_layout_settings = [
             'layout' => 'layout_paragraphs_sdss_1_column',
@@ -67,23 +61,22 @@ function sdss_profile_update_9000(&$sandbox) {
         $section_paragraph->save();
         $parent_uuid = $section_paragraph->uuid();
 
-        foreach ($unsectioned_paragraphs as $unsectioned_paragraph) {
-          $unsectioned_paragraph_settings = [
-              'region' => 'main',
-              'parent_uuid' => $parent_uuid,
-          ];
-          $unsectioned_paragraph->setBehaviorSettings('layout_paragraphs', $unsectioned_paragraph_settings);
-          $unsectioned_paragraph->save();
-        }
+        $paragraph_layout_settings = [
+            'region' => 'main',
+            'parent_uuid' => $parent_uuid,
+        ];
+        $paragraph->setBehaviorSettings('layout_paragraphs', $paragraph_layout_settings);
+        $paragraph->save();
 
-        $components_list = $components->getValue();
         $section_paragraph_entity_reference = [
           'target_id' => $section_paragraph->id(),
           'target_revision_id' => $section_paragraph->getRevisionId(),
         ];
-        array_splice($components_list, $section_delta, 0, ['entity' => $section_paragraph_entity_reference]);
-        $node->set('su_news_components', $components_list)->save();
+        array_splice($components_list, $delta + $section_delta_counter, 0, ['entity' => $section_paragraph_entity_reference]);
+
+        $section_delta_counter++;
       }
+      $node->set('su_news_components', $components_list)->save();
     }
   }
 
