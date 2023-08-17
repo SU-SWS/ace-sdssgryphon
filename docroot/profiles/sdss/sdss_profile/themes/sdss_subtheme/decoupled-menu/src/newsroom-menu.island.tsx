@@ -10,14 +10,16 @@ import Caret from "./components/caret";
 import Hamburger from "./components/hamburger";
 import Close from "./components/close";
 import MagnifyingGlass from "./components/magnifying-glass";
+import Logo from "./components/logo";
 
 const islandName = 'newsroom-menu-island'
 
 const TopList = styled.ul<{ open?: boolean }>`
   display: ${props => props.open ? "block" : "none"};
+  padding: ${props => props.open ? "225px 0 0 0" : "0"};
+  top: ${props => props.open ? "-225px" : "0"};
   background: #155F65;
   position: absolute;
-  top: 0;
   left: 0;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -25,10 +27,10 @@ const TopList = styled.ul<{ open?: boolean }>`
   margin: 0;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 24px 0;
   font-size: 18px;
-  z-index: 1;
+  z-index: 1000;
   width: 100vw;
+  height: 100vh;
 
   @media (min-width: 992px) {
     display: flex;
@@ -38,6 +40,21 @@ const TopList = styled.ul<{ open?: boolean }>`
     font-size: 18px;
     width: 100%;
     margin: 0 auto;
+    height: unset;
+  }
+`
+
+const MobileMenuHeading = styled.div<{ open?: boolean }>`
+  color: ${props => props.open ? "#ffffff" : "#000000"};
+  top: ${props => props.open ? "-50px" : "0"};
+  font-size: 32px;
+  margin-bottom: 18px;
+  z-index: ${props => props.open ? "1001" : "unset"};
+  position: relative;
+  text-align: center;
+
+  @media (min-width: 992px) {
+    display: none;
   }
 `
 
@@ -49,17 +66,18 @@ const MobileMenuButton = styled.button`
   background: transparent;
   border: 0;
   border-bottom: 2px solid transparent;
-  color: #2e2d29;
+  color: #ffffff;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.7rem;
   width: auto;
+  z-index: 1001;
 
   &:hover, &:focus, &:active {
     background: transparent;
-    color: #2e2d29;
+    color: #ffffff;
     box-shadow: none;
     outline: none;
   }
@@ -157,49 +175,60 @@ export const NewsroomMenu = ({}) => {
   const menuTree = buildMenuTree(menuItems);
   if (!menuTree.items || menuTree.items?.length === 0) return <div/>;
 
-  // Get the main menu
-  const mainMenu = document.getElementsByClassName('fixed-header');
-
   // Remove the default menu.
   const existingMenu = document.getElementsByClassName('menu');
   if (existingMenu.length > 0) {
     existingMenu[0].remove();
   }
 
-
   return (
     <Nav>
+      <Logo open={menuOpen}
+      />
+
+      <MobileMenuHeading open={menuOpen}>
+        News & Research
+      </MobileMenuHeading>
+
       <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
-        {menuOpen ? <Close/> : <Hamburger/>}
+        {menuOpen ? <Close /> : <Hamburger />}
         {menuOpen ? "Close" : ""}
+
       </MobileMenuButton>
 
 
       <TopList open={menuOpen}>
         <SearchContainer>
           <form action="/search" method="get">
-            <label htmlFor="mobile-search-input">Keyword Search</label>
-            <div style={{position: "relative"}}>
-            <button type="submit">
-                <MagnifyingGlass style={{width: "25px", height: "25px"}}/>
+            <label htmlFor="mobile-search-input" class="sr-only">Keyword Search</label>
+            <div style={{ position: "relative" }}>
+              <button type="submit">
+                <MagnifyingGlass style={{ width: "25px", height: "25px" }} />
                 <span className="visually-hidden">Submit Search</span>
               </button>
               <input
                 id="mobile-search-input"
                 type="text"
                 placeholder="Search news & research"
-                name="key"
-              />
+                name="key" />
 
             </div>
           </form>
 
         </SearchContainer>
-        {menuTree.items.map(item => <MenuItem key={item.id} {...item}/>)}
+        {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
       </TopList>
     </Nav>
   )
 }
+
+const Mobile = styled.span`
+  background-color: orange;
+
+  @media (min-width: 992px) {
+    position: unset;
+  }
+`
 
 const Nav = styled.nav`
   position: relative;
@@ -263,13 +292,15 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   color: #ffffff;
   font-weight: 400;
   text-decoration: none;
-  padding: 16px 0 16px 20px;
+  padding: ${({level}) => level != 0 ? "16px 0 16px 36px" : "16px 20px"};
+
   transition: all 0.2s ease-in-out;
   width: 100%;
 
   &:hover, &:focus {
     text-decoration: underline;
     color: #ffffff;
+    background-color: #155F65;
   }
 
   &:active {
@@ -348,7 +379,6 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 const ListItem = styled.li<{ level?: number }>`
   position: unset;
   border-bottom: ${props => props.level > 0 ? "1px solid transparent" : "1px solid #6BB6BC"};
-  padding: ${props => props.level > 0 ? "0 0 0 16px" : "0"};
   margin: 0;
 
   &:last-child {
@@ -382,7 +412,6 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
       buttonRef.current.focus();
     }
   }, [submenuOpen]);
-
 
   useEffect(() => {
     // Add keydown listener for escape button if the submenu is open.

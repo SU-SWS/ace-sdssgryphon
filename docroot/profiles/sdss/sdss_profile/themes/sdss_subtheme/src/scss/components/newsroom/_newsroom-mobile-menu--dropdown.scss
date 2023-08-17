@@ -6,11 +6,27 @@
     display: none;
   }
 
-  @include grid-media-max('md') {
-    .menu-blocknewsroom-menu {
-      @include sr-only;
+  @include grid-media-min('lg') {
+    nav {
+      .mobile-menu-logo {
+        display: none;
+      }
     }
+  }
 
+  @include grid-media-max('md') {
+    nav {
+      .mobile-menu-logo {
+        svg[open="true"] {
+          z-index: 10001;
+          position: absolute;
+          top: -99px;
+        }
+      }
+    }
+  }
+
+  @include grid-media-max('md') {
     .newsroom-mobile--btn {
       display: block;
       border: 1px solid $su-color-black-20;
@@ -24,39 +40,11 @@
       }
     }
 
-    &:has(nav > button[aria-expanded="true"]) {
-      background: #155f65;
-      position: fixed;
-      z-index: 999;
-      top: 0;
-      right: 0;
-      width: 100%;
-
-      .menu--newsroom {
-        justify-items: left;
-      }
-    }
-
     nav > button[aria-expanded="false"] {
       color: $sdss-color-green-link;
       font-weight: $su-font-semi-bold;
       position: unset;
       margin: 0 auto;
     }
-
-    nav > button[aria-expanded="true"] {
-      color: $su-color-white;
-      top: -43px;
-      right: 0;
-
-      &:focus,
-      &:active,
-      &:hover {
-        outline: none;
-        color: white;
-        text-decoration: underline;
-      }
-    }
   }
-
 }
