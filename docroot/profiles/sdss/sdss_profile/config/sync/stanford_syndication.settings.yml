@@ -6,4 +6,4 @@ syndicators:
     id: stanford_enterprise
     node_types:
       - stanford_news
-    webhook: 'https://in.connect.unity.cloud/hook/64b918de78e4cf0012eca0ea'
+    webhook: 'https://in.connect.squiz.cloud/hook/64b918de78e4cf0012eca0ea'
