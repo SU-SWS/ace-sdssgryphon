@@ -262,18 +262,7 @@
 
 // Newsroom byline mixin
 @mixin sdss-newsroom-byline {
-
-  @include grid-media-min('2xl') {
-    font-size: 2.3rem;
-  }
-
-  @include grid-media-between('md', 'xl') {
-    font-size: 2.1rem;
-  }
-
-  @include grid-media-max('sm') {
-    font-size: 1.8rem;
-  }
+  @include small-paragraph;
 }
 
 // Newsroom callout quote mixin
