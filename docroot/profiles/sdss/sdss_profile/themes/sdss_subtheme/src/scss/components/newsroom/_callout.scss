@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
 .callout {
+  @include responsive-spacing('padding', 3 4 3 4);
+
   display: flex;
-  padding: 4.5rem 11.3rem 4.5rem 11.1rem;
 
   blockquote {
     margin: 0;
@@ -10,11 +11,9 @@
   }
 
  .blockquote-wrapper {
-  @include responsive-spacing('margin-left', 4);
-  @include responsive-spacing('margin-right', 4);
-
     display: flex;
     max-width: 1200px;
+    margin: 0 auto;
 
     @include grid-media-max('sm') {
       margin: 0;
