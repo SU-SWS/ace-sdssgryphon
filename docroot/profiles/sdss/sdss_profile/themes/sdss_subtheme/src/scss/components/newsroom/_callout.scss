@@ -24,10 +24,12 @@
   .su-callout-author {
     @include responsive-spacing("padding-top", 0);
 
+    display: block;
     font-size: 1.11em;
   }
 
   .su-callout-author-title {
+    display: block;
     font-size: 1.11em;
     color: $su-color-black-70;
   }
