@@ -317,6 +317,7 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
 
     &:hover, &:focus {
       color: ${({level}) => level != 0 ? "#92D7DD" : "#155F65"};
+      background-color: transparent;
     }
   }
 `
@@ -351,7 +352,8 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     border-top: 1px solid #d9d9d9;
     width: 100%;
     left: 0;
-    grid-template-columns: repeat(4, 200px [col-start]);
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-flow: column;
     justify-content: center;
     row-gap: 3.6rem;
     column-gap: 6.6rem;
