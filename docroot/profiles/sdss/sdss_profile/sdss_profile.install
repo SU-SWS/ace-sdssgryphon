@@ -4,3 +4,82 @@
  * @file
  * sdss_profile.install
  */
+
+/**
+ * Move unsectioned paragraphs on stanford_news nodes into one column
+ * layout_paragraph sections.
+ */
+function sdss_profile_update_9000(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+  drupal_static_reset();
+  $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+
+  $node_ids = array_splice($sandbox['nids'], 0, 25);
+
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $components */
+    $components = $node->get('su_news_components');
+    $unsectioned_paragraphs = [];
+
+    if (!$components->isEmpty()) {
+      $section_delta_counter = 0;
+      $components_list = $components->getValue();
+
+      /** @var Drupal\entity_reference_revisions\Plugin\Field\FieldType\EntityReferenceRevisionsItem $component */
+      foreach ($components as $delta => $component) {
+        /** @var \Drupal\paragraphs\ParagraphInterface $paragraph */
+        $paragraph = $paragraph_storage->loadRevision($component->get('target_revision_id')
+          ->getString());
+        $parent_uuid = $paragraph->getBehaviorSetting('layout_paragraphs', 'parent_uuid');
+
+        if (
+          $parent_uuid ||
+          $paragraph->getParagraphType()->id() == 'stanford_layout'
+        ) {
+          continue;
+        }
+
+        $section_paragraph = $paragraph_storage->create(['type' => 'stanford_layout']);
+        $section_paragraph_layout_settings = [
+            'layout' => 'layout_paragraphs_sdss_1_column',
+            'parent_uuid' => NULL,
+            'region' => NULL,
+        ];
+        $section_paragraph->setBehaviorSettings('layout_paragraphs', $section_paragraph_layout_settings);
+        $section_paragraph->save();
+        $parent_uuid = $section_paragraph->uuid();
+
+        $paragraph_layout_settings = [
+            'region' => 'main',
+            'parent_uuid' => $parent_uuid,
+        ];
+        $paragraph->setBehaviorSettings('layout_paragraphs', $paragraph_layout_settings);
+        $paragraph->save();
+
+        $section_paragraph_entity_reference = [
+          'target_id' => $section_paragraph->id(),
+          'target_revision_id' => $section_paragraph->getRevisionId(),
+        ];
+        array_splice($components_list, $delta + $section_delta_counter, 0, ['entity' => $section_paragraph_entity_reference]);
+
+        $section_delta_counter++;
+      }
+      $node->set('su_news_components', $components_list)->save();
+    }
+  }
+
+  // Support batching updates.
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}

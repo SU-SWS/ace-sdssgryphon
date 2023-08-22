@@ -1,5 +1,18 @@
 # ACE SDSSGryphon
 
+2.1.1
+--------------------------------------------------------------------------------
+_Release Date: 2023-08-17_
+
+- 96b95cc SDSS-862: Adjusted component paragraph reference fields include/exclude settings (#210)
+- 6bfe6a9 SDSS-860: Updated news node metadata. (#212)
+- 7a59cd5 SDSS-840: BUG | dbupdate | Move unsectioned News paragraphs into layout_paragraph sections (#205)
+- 02a3493 SDSS-844: A11y | Accessibility improvements for Callout Quote (#208)
+- ded9332 SDSS-854: Provisioned sesur (#211)
+- 5399220 SDSS-839: Allow spacer paragraph in News component section. (#206)
+- 34665c7 SDSS-000: Added missing chosen library and updated dependencies. (#204)
+
+
 2.1.0
 --------------------------------------------------------------------------------
 _Release Date: 2023-08-03_
