@@ -213,6 +213,7 @@
   text-align: left;
   float: unset;
   width: auto;
+  max-width: 750px;
 
   @include grid-media-min('2xl') {
     font-size: 1.9rem;
