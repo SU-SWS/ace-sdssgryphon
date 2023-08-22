@@ -15,7 +15,7 @@
   font-size: 18px;
   z-index: 1000;
   width: 100vw;
-  height: 100vh;
+  height: 115vh;
 
   @media (min-width: 992px) {
     display: flex;
