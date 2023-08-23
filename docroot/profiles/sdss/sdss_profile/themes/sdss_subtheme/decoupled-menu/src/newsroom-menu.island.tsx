@@ -223,8 +223,6 @@ export const NewsroomMenu = ({}) => {
 }
 
 const Mobile = styled.span`
-  background-color: orange;
-
   @media (min-width: 992px) {
     position: unset;
   }
@@ -253,12 +251,12 @@ const Button = styled.button`
   width: 38px;
   height: 38px;
 
-  &:hover, &:focus, &:active {
+  &:focus, &:hover, &:active {
     box-shadow: none;
-    background: none;
-    color: white;
+    color: #155F65;
+    background-color: #92D7DD;
     outline: none;
-    border-radius: unset;
+    border-radius: 999px;
   }
 
   @media (min-width: 992px) {
