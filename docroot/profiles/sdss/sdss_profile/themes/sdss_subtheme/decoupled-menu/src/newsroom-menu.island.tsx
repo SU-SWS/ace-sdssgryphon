@@ -90,6 +90,7 @@ const MobileMenuButton = styled.button`
 const SearchContainer = styled.li`
   padding: 0;
   margin: 0 0 20px;
+  order: 6;
 
   form {
     display: flex;
@@ -136,16 +137,63 @@ const SearchContainer = styled.li`
     margin: 0;
 
     &:focus, &:hover, &:active {
+    box-shadow: none;
+    color: #155F65;
+    background-color: #92D7DD;
+    outline: none;
+    border-radius: 999px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    label {
+      padding: 0 10px;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    input {
+      color: #ffffff;
+      margin: 0 auto;
+      width: fit-content;
+      border-color: #6BB6BC;
+      border-radius: 999px;
+      height: 40px;
+      padding: 0px 10px 0 35px;
+      max-width: 100%;
+      background: #E9F7F8;
+      font-size: 1.5rem;
+    }
+
+    input::placeholder {
+      color: #155F65;
+    }
+
+    button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: #155F65;
+      border: 1px solid D5D5D4;
+      border-radius: 999px;
+      aspect-ratio: 1;
+      padding: 0;
+      margin: 0;
+
+      &:focus, &:hover, &:active {
       box-shadow: none;
       color: #155F65;
       background-color: #92D7DD;
       outline: none;
       border-radius: 999px;
+      }
     }
-  }
 
-  @media (min-width: 992px) {
-    display: none;
   }
 `
 
