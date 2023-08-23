@@ -61,7 +61,7 @@ const MobileMenuHeading = styled.div<{ open?: boolean }>`
 const MobileMenuButton = styled.button`
   position: absolute;
   top: -60px;
-  right: 33px;
+  right: -8px;
   box-shadow: none;
   background: transparent;
   border: 0;
@@ -135,8 +135,12 @@ const SearchContainer = styled.li`
     padding: 0;
     margin: 0;
 
-    &:hover, &:focus {
-      border: 1px solid #2e2d29;
+    &:focus, &:hover, &:active {
+      box-shadow: none;
+      color: #155F65;
+      background-color: #92D7DD;
+      outline: none;
+      border-radius: 999px;
     }
   }
 
@@ -243,7 +247,7 @@ const Button = styled.button`
   border: none;
   border-bottom: 1px solid transparent;
   padding: 0;
-  margin: 0 0 -4px;
+  margin: 0 10px 0 -4px;
   box-shadow: none;
   flex-shrink: 0;
   border-radius: 999px;
