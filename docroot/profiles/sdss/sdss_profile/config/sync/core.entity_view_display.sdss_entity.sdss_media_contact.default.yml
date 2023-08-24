@@ -1,0 +1,56 @@
+uuid: ef48ed97-a142-4f1f-9593-65aa65a3bb53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.sdss_entity.sdss_media_contact.su_sdss_contact_email
+    - field.field.sdss_entity.sdss_media_contact.su_sdss_contact_name
+    - field.field.sdss_entity.sdss_media_contact.su_sdss_contact_org
+    - field.field.sdss_entity.sdss_media_contact.su_sdss_contact_phone
+    - sdss_entities.sdss_entity_type.sdss_media_contact
+  module:
+    - element_class_formatter
+id: sdss_entity.sdss_media_contact.default
+targetEntityType: sdss_entity
+bundle: sdss_media_contact
+mode: default
+content:
+  su_sdss_contact_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  su_sdss_contact_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  su_sdss_contact_org:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  su_sdss_contact_phone:
+    type: telephone_link_class
+    label: above
+    settings:
+      title: ''
+      class: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  created: true
+  description: true
+  label: true
+  search_api_excerpt: true
+  status: true
+  uid: true
