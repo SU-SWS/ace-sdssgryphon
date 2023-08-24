@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * News Banner.
+ *
+ * Basic Page Banner for news.
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - media_contact_name: The media contact name.
+ * - media_contact_email: The media contact email address.
+ * - media_contact_phone: The media contact phone number.
+ * - media_contact_org: The media contact organization or school.
+ */
+#}
+
+{%- set attributes = attributes.addClass(['su-sdss-media-contact', modifier_class]) -%}
+
+
+<div {{ attributes }}>
+
+  {# Media Contact Name #}
+  {% if media_contact_name|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    <div class="su-sdss-media-contact-name">
+      {{ media_contact_name|render_clean }}
+    </div>
+  {% endif %}
+
+  {# Media Contact Email #}
+  {% if media_contact_email|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    <div class="su-sdss-media-contact-email">
+      {{ media_contact_email|render_clean }}
+    </div>
+  {% endif %}
+
+  {# Media Contact Org #}
+  {% if media_contact_org|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    <div class="su-sdss-media-contact-org">
+      {{ media_contact_org|render_clean }}
+    </div>
+  {% endif %}
+
+  {# Media Contact Phone #}
+  {% if media_contact_phone|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    <div class="su-sdss-media-contact-phone">
+      {{ media_contact_phone|render_clean }}
+    </div>
+  {% endif %}
+
+
+
+
+
+
+
+</div>
