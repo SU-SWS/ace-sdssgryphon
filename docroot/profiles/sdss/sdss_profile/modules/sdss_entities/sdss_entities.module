@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Provides a sdss entity entity type.
+ * Provides an sdss_entity entity type.
  */
 
 use Drupal\Core\Render\Element;
@@ -21,7 +21,7 @@ function sdss_entities_theme() {
 }
 
 /**
- * Prepares variables for sdss entity templates.
+ * Prepares variables for SDSS entity templates.
  *
  * Default template: sdss-entity.html.twig.
  *
@@ -57,7 +57,7 @@ function sdss_entities_user_cancel($edit, UserInterface $account, $method) {
       break;
 
     case 'user_cancel_reassign':
-      // Anonymize sdss entities.
+      // Anonymize SDSS entities.
       $storage = \Drupal::entityTypeManager()->getStorage('sdss_entity');
       $sdss_entity_ids = $storage->getQuery()
         ->condition('uid', $account->id())
@@ -74,7 +74,7 @@ function sdss_entities_user_cancel($edit, UserInterface $account, $method) {
  * Implements hook_ENTITY_TYPE_predelete() for user entities.
  */
 function sdss_entities_user_predelete(UserInterface $account) {
-  // Delete sdss entities.
+  // Delete SDSS entities.
   $storage = \Drupal::entityTypeManager()->getStorage('sdss_entity');
   $sdss_entity_ids = $storage->getQuery()
     ->condition('uid', $account->id())

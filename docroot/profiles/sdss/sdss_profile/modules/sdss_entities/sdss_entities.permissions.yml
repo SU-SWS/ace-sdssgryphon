@@ -1,12 +1,12 @@
 administer sdss entity types:
-  title: 'Administer sdss entity types'
-  description: 'Maintain the types of sdss entity entity.'
+  title: 'Administer SDSS entity types'
+  description: 'Maintain the types of sdss_entity entity.'
   restrict access: true
 delete sdss entity:
-  title: Delete sdss entity
+  title: Delete SDSS entity
 create sdss entity:
-  title: Create sdss entity
+  title: Create SDSS entity
 view sdss entity:
-  title: View sdss entity
+  title: View SDSS entity
 edit sdss entity:
-  title: Edit sdss entity
+  title: Edit SDSS entity

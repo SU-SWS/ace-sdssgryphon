@@ -59,7 +59,7 @@ class SdssEntityListBuilder extends EntityListBuilder {
       ->count()
       ->execute();
 
-    $build['summary']['#markup'] = $this->t('Total sdss entities: @total', ['@total' => $total]);
+    $build['summary']['#markup'] = $this->t('Total SDSS entities: @total', ['@total' => $total]);
     return $build;
   }
 
