@@ -1,0 +1,10 @@
+entity.sdss_entity.edit_form:
+  route_name: entity.sdss_entity.edit_form
+  group: sdss_entity
+  title: Edit
+
+entity.sdss_entity.delete_form:
+  route_name: entity.sdss_entity.delete_form
+  group: sdss_entity
+  title: Delete
+  weight: 10

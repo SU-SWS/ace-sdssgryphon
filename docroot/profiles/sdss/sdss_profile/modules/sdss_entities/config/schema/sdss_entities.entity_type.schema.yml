@@ -1,0 +1,12 @@
+sdss_entities.sdss_entity_type.*:
+  type: config_entity
+  label: 'SDSS Entity type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
