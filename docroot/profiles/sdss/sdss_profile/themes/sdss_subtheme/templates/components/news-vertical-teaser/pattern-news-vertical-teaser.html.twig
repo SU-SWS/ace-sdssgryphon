@@ -40,7 +40,7 @@
 
 <article{{ attributes.addClass(classes) }}>
   {%- if news_url is not empty -%}
-    <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}">
+    <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}" tabindex="-1" aria-hidden="true">
   {%- endif -%}
   <figure class="su-media su-media--image su-card__media">
     <div class="su-media__wrapper">
