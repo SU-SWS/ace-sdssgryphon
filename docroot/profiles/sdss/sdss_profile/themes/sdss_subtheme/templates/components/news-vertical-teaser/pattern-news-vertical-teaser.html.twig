@@ -47,14 +47,8 @@
       {{- news_vertical_teaser_image -}}
     </div>
   </figure>
-  {%- if news_url is not empty -%}
-    </a>
-  {%- endif -%}
   <div class="news-vertical-teaser__pub-date">{{ news_list_publishing_date }}</div>
   <div class="su-news-header">
-    {%- if news_url is not empty -%}
-      <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}">
-    {%- endif -%}
     <h2 class="su-link su-card__link">
       {{- news_vertical_teaser_headline -}}
     </h2>
