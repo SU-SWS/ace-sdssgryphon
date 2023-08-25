@@ -210,12 +210,13 @@
   @media (min-width: 992px) {
     color: #155F65;
     background: transparent;
-    border-radius: 0;
+    border-radius: unset;
 
     &:hover, &:focus, &:active {
       border-bottom: 1px solid #2e2d29;
       color: #2E2D29;
       background: transparent;
+      border-radius: unset;
     }
   }
 `,rn=Mr.div`
