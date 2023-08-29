@@ -10,6 +10,11 @@
       margin-right: 0;
     }
 
+    .su-news-header {
+      display: flex;
+      flex-direction: column;
+    }
+
     .su-news-vertical-teaser__link,
     .su-link {
       @include sdss-link--primary;
@@ -64,6 +69,8 @@
 .news-vertical-teaser__pub-date {
   @include responsive-spacing('padding-bottom', 0);
   @include responsive-spacing('padding-top', 0);
+
+  order: -1;
 }
 
 .news-vertical-teaser__source {
