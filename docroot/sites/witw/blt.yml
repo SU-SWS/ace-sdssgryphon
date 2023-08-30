@@ -1,0 +1,12 @@
+project:
+  machine_name: witw
+  human_name: witw
+  local:
+    protocol: http
+    hostname: local.witw.com
+drush:
+  aliases:
+    local: witw.local
+    remote: witw.prod
+drupal:
+  db: {  }

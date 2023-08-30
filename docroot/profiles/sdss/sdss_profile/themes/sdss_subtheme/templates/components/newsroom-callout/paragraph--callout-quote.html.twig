@@ -5,12 +5,14 @@
 
 
 <div {{ attributes }}>
-  <span class="decoration">&#8220;</span>
-  <blockquote>
-    {{ content.su_callout_quote }}
-    <cite>
-    {{ content.su_callout_author }}
-    {{ content.su_callout_author_title }}
-    </cite>
-  </blockquote>
+  <div class="blockquote-wrapper">
+    <span class="decoration">&#8220;</span>
+    <blockquote class="callout-quote su-callout-quote">
+      <p>{{ content.su_callout_quote|render|striptags("<drupal-render-placeholder>")|trim }}</p>
+      <cite>
+      <span class="su-callout-author">{{ content.su_callout_author|render|striptags("<drupal-render-placeholder>")|trim }}</span>
+      <span class="su-callout-author-title">{{ content.su_callout_author_title|render|striptags("<drupal-render-placeholder>")|trim }}</span>
+      </cite>
+    </blockquote>
+  </div>
 </div>
