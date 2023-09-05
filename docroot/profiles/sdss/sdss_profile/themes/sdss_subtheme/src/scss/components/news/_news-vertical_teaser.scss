@@ -6,6 +6,8 @@
     border: none;
 
     h2 {
+      @include sdss-news-link--primary;
+
       color: $su-color-black;
       margin-left: 0;
       margin-right: 0;
@@ -17,8 +19,10 @@
     }
 
     .su-news-vertical-teaser__link,
-    .su-link {
-      @include sdss-link--primary;
+    .su-link,
+    .su-card__link,
+    .su-link--external {
+      @include sdss-news-link--primary;
 
       display: inline;
       font-size: 1.25em;

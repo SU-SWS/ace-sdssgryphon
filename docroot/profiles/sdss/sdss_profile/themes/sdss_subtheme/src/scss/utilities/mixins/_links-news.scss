@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+// Primary link details
+@mixin sdss-news-link--primary {
+  @include sdss-news-link-primary--hover-and-focus;
+
+  color: $sdss-color-black;
+  outline-color: $sdss-color-black;
+
+  &::after {
+    background-color: $sdss-color-black;
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-black;
+    }
+  }
+}
+//End
+
+// Primary link hover states
+@mixin sdss-news-link-primary--hover-and-focus {
+  &:hover {
+    @include sdss-news-link-primary--hover;
+
+    &::after {
+      background-color: $sdss-color-green-link;
+    }
+  }
+
+  &:focus {
+    @include sdss-news-link-primary--focus;
+
+    &::after {
+      background-color: $sdss-color-green-link;
+    }
+  }
+
+  &:active {
+    @include sdss-news-link-primary--active;
+
+    &::after {
+      background-color: $sdss-color-green-link;
+    }
+  }
+}
+//End
+
+@mixin sdss-news-link-primary--hover {
+  color: $sdss-color-green-link;
+  cursor: pointer;
+  text-decoration: underline;
+
+  & svg.mailto {
+    fill: $sdss-color-green-link;
+  }
+}
+
+@mixin sdss-news-link-primary--focus {
+  color: $sdss-color-green-link;
+  outline: 1px solid $sdss-color-palo-alto-dark;
+  background-color: transparent;
+}
+
+@mixin sdss-news-link-primary--active {
+  color: $sdss-color-green-link;
+}
+// End
+
