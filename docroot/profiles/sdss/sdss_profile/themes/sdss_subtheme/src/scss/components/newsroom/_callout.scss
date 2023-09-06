@@ -22,6 +22,8 @@
 
   .decoration {
     color: $sdss-color-blue-hover;
+    font-family: $su-font-serif;
+
   }
 
   // Setting up appearance
@@ -61,8 +63,9 @@
       display: inline;
 
       &::after {
-        content: "\201D";
+        content: "\301E";
         display: inline;
+        font-family: $su-font-serif;
       }
     }
   }
