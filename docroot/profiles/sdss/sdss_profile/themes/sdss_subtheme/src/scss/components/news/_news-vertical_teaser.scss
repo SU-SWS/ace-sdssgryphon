@@ -14,11 +14,11 @@
     .su-link,
     .su-card__link,
     .su-link--external {
+      @include sdss-news-link--primary;
+      @include type-b;
 
       h2 {
-        @include type-b;
-        @include sdss-news-link--primary;
-
+        font-size: 1em;
         display: inline;
         font-weight: $su-font-regular;
         text-decoration: none;
@@ -96,8 +96,8 @@
   a {
     &.su-link--external {
       &::after {
-        height: 1em;
-        width: 1em;
+        height: 0.5em;
+        width: 0.5em;
       }
     }
   }
