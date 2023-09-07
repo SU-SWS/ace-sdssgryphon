@@ -16,10 +16,15 @@
 }
 
 @media screen and (min-width: 992px) {
-  .layout--layout-paragraphs-one-column .paragraph.paragraph--type--stanford-wysiwyg,
   .layout--layout-paragraphs-one-column .ds-entity--paragraph.ds-entity--stanford-card {
     width: 100%;
     max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .layout--layout-paragraphs-one-column .paragraph.paragraph--type--stanford-wysiwyg {
+    width: 100%;
+    max-width: 850px;
     margin: 0 auto;
   }
 
