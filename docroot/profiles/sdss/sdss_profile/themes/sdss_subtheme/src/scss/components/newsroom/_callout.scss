@@ -1,15 +1,29 @@
 @charset "UTF-8";
 
 .callout {
+  @include responsive-spacing('padding', 3 4 3 4);
+
   display: flex;
-  padding: 4.5rem 11.3rem 4.5rem 11.1rem;
 
   blockquote {
     margin: 0;
+    display: inline-block;
+  }
+
+ .blockquote-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @include grid-media-max('sm') {
+      margin: 0;
+    }
   }
 
   .decoration {
     color: $sdss-color-blue-hover;
+    font-family: $su-font-serif;
+
   }
 
   // Setting up appearance
@@ -19,6 +33,7 @@
     position: relative;
     top: -40px;
     margin-right: 1rem;
+    display: inline-block;
   }
 
   .su-callout-author {
@@ -48,8 +63,9 @@
       display: inline;
 
       &::after {
-        content: "\201D";
+        content: "\301E";
         display: inline;
+        font-family: $su-font-serif;
       }
     }
   }
