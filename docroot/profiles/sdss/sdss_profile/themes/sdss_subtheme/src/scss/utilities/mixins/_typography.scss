@@ -263,7 +263,7 @@
 
 // Newsroom byline mixin
 @mixin sdss-newsroom-byline {
-  @include small-paragraph;
+  @include big-paragraph;
 }
 
 // Newsroom callout quote mixin
