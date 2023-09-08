@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Primary link details
+// Primary link details.
 @mixin sdss-news-link--primary {
   @include sdss-news-link-primary--hover-and-focus;
 
@@ -17,7 +17,7 @@
     }
   }
 }
-//End
+//End primary link details.
 
 // Primary link hover states
 @mixin sdss-news-link-primary--hover-and-focus {
@@ -45,16 +45,12 @@
     }
   }
 }
-//End
+//End primary link hover states
 
 @mixin sdss-news-link-primary--hover {
   color: $sdss-color-green-link;
   cursor: pointer;
   text-decoration: underline;
-
-  & svg.mailto {
-    fill: $sdss-color-green-link;
-  }
 }
 
 @mixin sdss-news-link-primary--focus {
@@ -66,5 +62,4 @@
 @mixin sdss-news-link-primary--active {
   color: $sdss-color-green-link;
 }
-// End
 

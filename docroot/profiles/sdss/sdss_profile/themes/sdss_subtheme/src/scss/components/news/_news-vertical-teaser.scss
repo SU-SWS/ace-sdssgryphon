@@ -14,14 +14,14 @@
     .su-link,
     .su-card__link,
     .su-link--external {
-      @include sdss-news-link--primary;
-      @include type-b;
+      h2 {
+        @include sdss-news-link--primary;
+        @include type-b;
+        color: $su-color-black;
+      }
 
       h2 {
-        font-size: 1em;
         display: inline;
-        font-weight: $su-font-regular;
-        text-decoration: none;
       }
 
       &:focus {
@@ -96,8 +96,8 @@
   a {
     &.su-link--external {
       &::after {
-        height: 0.5em;
-        width: 0.5em;
+        height: 1em;
+        width: 1em;
       }
     }
   }
