@@ -88,53 +88,17 @@ const MobileMenuButton = styled.button`
 `
 
 const SearchContainer = styled.li`
-  padding: 0;
-  margin: 0 0 20px;
   order: 6;
 
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  label {
-    padding: 0 10px;
-    margin: 0;
-    color: #ffffff;
-  }
-
-  input {
-    color: #ffffff;
-    margin: 0 auto;
-    width: 50%;
-    border-color: #6BB6BC;
-    border-radius: 999px;
-    height: 40px;
-    padding: 0 20px;
-    max-width: 100%;
-    background: transparent;
-  }
-
-  input::placeholder {
-    color: #ffffff;
-  }
-
-  button {
-    position: absolute;
-    top: 0;
-    right: 25%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    color: #ffffff;
-    border: 1px solid D5D5D4;
-    border-radius: 999px;
-    aspect-ratio: 1;
-    padding: 0;
-    margin: 0;
+  a {
+    display: block;
+    position: relative;
+    height: auto;
+    background-color: #E9F7F8;
+    color: #155F65;
+    border: 1px solid #6BB6BC;
+    border-radius: 32px;
+    padding: 8px 18px 10px;
 
     &:focus, &:hover, &:active {
     box-shadow: none;
@@ -145,45 +109,22 @@ const SearchContainer = styled.li`
     }
   }
 
+
   @media (min-width: 992px) {
-    label {
-      padding: 0 10px;
-      margin: 0;
-      color: #ffffff;
+    svg {
+      margin-right: 10px;
+      margin-top: 3px;
     }
 
-    input {
-      color: #ffffff;
-      margin: 0 auto;
-      width: fit-content;
-      border-color: #6BB6BC;
-      border-radius: 999px;
-      height: 40px;
-      padding: 0px 10px 0 35px;
-      max-width: 100%;
-      background: #E9F7F8;
-      font-size: 1.5rem;
-    }
-
-    input::placeholder {
+    a {
+      display: block;
+      position: relative;
+      height: auto;
+      background-color: #E9F7F8;
       color: #155F65;
-    }
-
-    button {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      color: #155F65;
-      border: 1px solid D5D5D4;
-      border-radius: 999px;
-      aspect-ratio: 1;
-      padding: 0;
-      margin: 0;
+      border: 1px solid #6BB6BC;
+      border-radius: 32px;
+      padding: 8px 18px 10px;
 
       &:focus, &:hover, &:active {
       box-shadow: none;
@@ -251,22 +192,10 @@ export const NewsroomMenu = ({}) => {
 
       <TopList open={menuOpen}>
         <SearchContainer>
-          <form action="/search" method="get">
-            <label htmlFor="mobile-search-input" class="sr-only">Keyword Search</label>
-            <div style={{ position: "relative" }}>
-              <button type="submit">
-                <MagnifyingGlass style={{ width: "25px", height: "25px" }} />
-                <span className="visually-hidden">Submit Search</span>
-              </button>
-              <input
-                id="mobile-search-input"
-                type="text"
-                placeholder="Search news & research"
-                name="key" />
-
-            </div>
-          </form>
-
+          <a href="/search">
+            <MagnifyingGlass style={{ width: "18px", height: "18px" }} />
+            Search news & research
+          </a>
         </SearchContainer>
         {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
       </TopList>
@@ -289,7 +218,7 @@ const Nav = styled.nav`
   }
 `
 
-const Button = styled.button`
+const Button = styled.button<{ open?: boolean }>`
   color: #ffffff;
   background: #155F65;
   border: none;
@@ -312,30 +241,31 @@ const Button = styled.button`
   }
 
   @media (min-width: 992px) {
-    color: #155F65;
+    color: ${props => props.open ? "#ffffff;" : "#155F65;"};
     background: transparent;
     border-radius: unset;
 
     &:hover, &:focus, &:active {
-      border-bottom: 1px solid #2e2d29;
-      color: #2E2D29;
+      border-bottom: 1px solid;
+      border-color: ${props => props.open ? "#ffffff;" : "#2e2d29;"};
       background: transparent;
       border-radius: unset;
     }
   }
 `
 
-const MenuItemContainer = styled.div<{ level?: number }>`
+const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: ${props => props.level === 0 ? "32px" : "0"};
-
   width: 100%;
 
   @media (min-width: 992px) {
+    color: ${props => props.open ? "#ffffff" : "#155f65"};
+    background-color: ${props => props.open ? "#155f65" : "transparent"};
+    padding-bottom: ${props => props.level === 0 ? "46px" : "0"};
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
-    margin-bottom: ${props => props.level === 0 ? "6px" : ""};
   }
 `
 
@@ -373,14 +303,14 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 `
 
-const NoLink = styled.span<{ level?: number }>`
-  color: #ffffff;
+const NoLink = styled.span<{  open?: boolean, level?: number }>`
+  color: white;
   font-weight: 600;
   text-decoration: none;
   padding: 16px 0 16px 16px;
 
   @media (min-width: 992px) {
-    color: #155F65;
+    color: ${props => props.open ? "#ffffff" : "#155F65"};
     padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
   }
 `
@@ -391,7 +321,6 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid transparent;
   min-width: 300px;
   background: #017E7C;
 
@@ -400,7 +329,6 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     position: ${props => props.level === 0 ? "absolute" : "relative"};
     background: #155F65;
-    border-top: 1px solid #d9d9d9;
     width: 100%;
     left: 0;
     grid-template-rows: 1fr 1fr 1fr;
@@ -408,7 +336,6 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     justify-content: center;
     row-gap: 3.6rem;
     column-gap: 6.6rem;
-    margin-top: 4.4rem;
     color: $sdss-color-white;
     padding: 3.6rem 100px 5.8rem 100px;
   }
@@ -479,7 +406,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
       level={level}
     >
 
-      <MenuItemContainer level={level}>
+      <MenuItemContainer open={submenuOpen} level={level}>
         {!isNoLink &&
           <MenuLink
             href={url}
@@ -492,7 +419,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           </MenuLink>
         }
         {isNoLink &&
-          <NoLink>{title}</NoLink>
+          <NoLink open={submenuOpen}>{title}</NoLink>
         }
 
         {items &&
