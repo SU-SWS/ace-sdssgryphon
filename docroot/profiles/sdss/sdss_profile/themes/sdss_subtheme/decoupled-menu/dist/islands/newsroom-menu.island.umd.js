@@ -78,13 +78,15 @@
     border: 1px solid #6BB6BC;
     border-radius: 32px;
     padding: 8px 18px 10px;
+    width: fit-content;
+    margin: 0 auto;
 
     &:focus, &:hover, &:active {
-    box-shadow: none;
-    color: #155F65;
-    background-color: #92D7DD;
-    outline: none;
-    border-radius: 999px;
+      box-shadow: none;
+      color: #155F65;
+      background-color: #92D7DD;
+      outline: none;
+      border-radius: 999px;
     }
   }
 
@@ -106,11 +108,11 @@
       padding: 8px 18px 10px;
 
       &:focus, &:hover, &:active {
-      box-shadow: none;
-      color: #155F65;
-      background-color: #6BB6BC;
-      outline: none;
-      border-radius: 999px;
+        box-shadow: none;
+        color: #155F65;
+        background-color: #6BB6BC;
+        outline: none;
+        border-radius: 999px;
       }
     }
 
