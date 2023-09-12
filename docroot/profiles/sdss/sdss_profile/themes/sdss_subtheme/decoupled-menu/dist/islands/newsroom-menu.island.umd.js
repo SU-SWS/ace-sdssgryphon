@@ -108,7 +108,7 @@
       &:focus, &:hover, &:active {
       box-shadow: none;
       color: #155F65;
-      background-color: #92D7DD;
+      background-color: #6BB6BC;
       outline: none;
       border-radius: 999px;
       }
@@ -154,8 +154,8 @@
     border-radius: unset;
 
     &:hover, &:focus, &:active {
-      border-bottom: 1px solid #2e2d29;
-      border-color: ${e=>e.open?"#ffffff;":"#155F65;"};
+      border-bottom: 1px solid;
+      border-color: ${e=>e.open?"#ffffff;":"#2e2d29;"};
       background: transparent;
       border-radius: unset;
     }

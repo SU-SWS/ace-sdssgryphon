@@ -129,7 +129,7 @@ const SearchContainer = styled.li`
       &:focus, &:hover, &:active {
       box-shadow: none;
       color: #155F65;
-      background-color: #92D7DD;
+      background-color: #6BB6BC;
       outline: none;
       border-radius: 999px;
       }
