@@ -21,16 +21,9 @@
 
   {# Media Contact Name #}
   {% if media_contact_name|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-    <div class="su-sdss-media-contact-name">
+    <h3 class="su-sdss-media-contact-name">
       {{ media_contact_name|render_clean }}
-    </div>
-  {% endif %}
-
-  {# Media Contact Email #}
-  {% if media_contact_email|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
-    <div class="su-sdss-media-contact-email">
-      {{ media_contact_email|render_clean }}
-    </div>
+    </h3>
   {% endif %}
 
   {# Media Contact Org #}
@@ -44,6 +37,13 @@
   {% if media_contact_phone|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
     <div class="su-sdss-media-contact-phone">
       {{ media_contact_phone|render_clean }}
+    </div>
+  {% endif %}
+
+  {# Media Contact Email #}
+  {% if media_contact_email|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    <div class="su-sdss-media-contact-email">
+      <a href="mailto:{{ media_contact_email|render_clean }}">{{ media_contact_email|render_clean }}</a>
     </div>
   {% endif %}
 
