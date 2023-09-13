@@ -3,12 +3,9 @@
 namespace Drupal\sdss_entities\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
-use Drupal\Core\Entity\EntityChangedTrait;
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\sdss_entities\SdssEntityInterface;
-use Drupal\user\EntityOwnerTrait;
 
 /**
  * Defines the sdss entity entity class.
@@ -34,7 +31,7 @@ use Drupal\user\EntityOwnerTrait;
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
+ *       "html" = "Drupal\sdss_entities\Routing\SdssEntityHtmlRouteProvider",
  *     }
  *   },
  *   base_table = "sdss_entity",
@@ -44,14 +41,13 @@ use Drupal\user\EntityOwnerTrait;
  *     "bundle" = "bundle",
  *     "label" = "label",
  *     "uuid" = "uuid",
- *     "owner" = "uid",
  *   },
  *   links = {
  *     "collection" = "/admin/content/sdss-entity",
  *     "add-form" = "/sdss-entity/add/{sdss_entity_type}",
  *     "add-page" = "/sdss-entity/add",
  *     "canonical" = "/sdss-entity/{sdss_entity}",
- *     "edit-form" = "/sdss-entity/{sdss_entity}/edit",
+ *     "edit-form" = "/sdss-entity/{sdss_entity}",
  *     "delete-form" = "/sdss-entity/{sdss_entity}/delete",
  *   },
  *   bundle_entity_type = "sdss_entity_type",
@@ -59,20 +55,6 @@ use Drupal\user\EntityOwnerTrait;
  * )
  */
 class SdssEntity extends ContentEntityBase implements SdssEntityInterface {
-
-  use EntityChangedTrait;
-  use EntityOwnerTrait;
-
-  /**
-   * {@inheritdoc}
-   */
-  public function preSave(EntityStorageInterface $storage) {
-    parent::preSave($storage);
-    if (!$this->getOwnerId()) {
-      // If no owner has been set explicitly, make the anonymous user the owner.
-      $this->setOwnerId(0);
-    }
-  }
 
   /**
    * {@inheritdoc}
@@ -96,82 +78,6 @@ class SdssEntity extends ContentEntityBase implements SdssEntityInterface {
         'weight' => -5,
       ])
       ->setDisplayConfigurable('view', TRUE);
-
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Status'))
-      ->setDefaultValue(TRUE)
-      ->setSetting('on_label', 'Enabled')
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'settings' => [
-          'display_label' => FALSE,
-        ],
-        'weight' => 0,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'type' => 'boolean',
-        'label' => 'above',
-        'weight' => 0,
-        'settings' => [
-          'format' => 'enabled-disabled',
-        ],
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['description'] = BaseFieldDefinition::create('text_long')
-      ->setLabel(t('Description'))
-      ->setDisplayOptions('form', [
-        'type' => 'text_textarea',
-        'weight' => 10,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'type' => 'text_default',
-        'label' => 'above',
-        'weight' => 10,
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['uid'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Author'))
-      ->setSetting('target_type', 'user')
-      ->setDefaultValueCallback(static::class . '::getDefaultEntityOwner')
-      ->setDisplayOptions('form', [
-        'type' => 'entity_reference_autocomplete',
-        'settings' => [
-          'match_operator' => 'CONTAINS',
-          'size' => 60,
-          'placeholder' => '',
-        ],
-        'weight' => 15,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'author',
-        'weight' => 15,
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['created'] = BaseFieldDefinition::create('created')
-      ->setLabel(t('Authored on'))
-      ->setDescription(t('The time that the sdss entity was created.'))
-      ->setDisplayOptions('view', [
-        'label' => 'above',
-        'type' => 'timestamp',
-        'weight' => 20,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('form', [
-        'type' => 'datetime_timestamp',
-        'weight' => 20,
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
-    $fields['changed'] = BaseFieldDefinition::create('changed')
-      ->setLabel(t('Changed'))
-      ->setDescription(t('The time that the sdss entity was last edited.'));
 
     return $fields;
   }

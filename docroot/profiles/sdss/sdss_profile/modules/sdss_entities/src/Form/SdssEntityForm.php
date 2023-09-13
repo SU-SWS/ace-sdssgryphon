@@ -36,7 +36,7 @@ class SdssEntityForm extends ContentEntityForm {
         break;
     }
 
-    $form_state->setRedirect('entity.sdss_entity.canonical', ['sdss_entity' => $entity->id()]);
+    $form_state->setRedirect('entity.sdss_entity.collection');
 
     return $result;
   }

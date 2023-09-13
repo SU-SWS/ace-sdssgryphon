@@ -2,6 +2,9 @@
 
 .su-news-banner-media-caption {
   @include sdss-caption;
+  @include responsive-spacing('margin-top', -1);
+
+  padding-left: 0;
 }
 
 .paragraph {
