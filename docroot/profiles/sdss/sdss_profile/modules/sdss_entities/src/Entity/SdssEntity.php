@@ -48,11 +48,6 @@ use Drupal\user\EntityOwnerTrait;
  *   },
  *   links = {
  *     "collection" = "/admin/content/sdss-entity",
- *     "add-form" = "/sdss-entity/add/{sdss_entity_type}",
- *     "add-page" = "/sdss-entity/add",
- *     "canonical" = "/sdss-entity/{sdss_entity}",
- *     "edit-form" = "/sdss-entity/{sdss_entity}/edit",
- *     "delete-form" = "/sdss-entity/{sdss_entity}/delete",
  *   },
  *   bundle_entity_type = "sdss_entity_type",
  *   field_ui_base_route = "entity.sdss_entity_type.edit_form",
