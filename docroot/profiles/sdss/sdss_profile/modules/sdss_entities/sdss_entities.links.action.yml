@@ -1,11 +1,11 @@
 sdss_entity.type_add:
-  title: 'Add SDSS entity type'
+  title: 'Add sdss entity type'
   route_name: entity.sdss_entity_type.add_form
   appears_on:
     - entity.sdss_entity_type.collection
 
 sdss_entity.add_page:
-  title: 'Add SDSS entity'
+  title: 'Add sdss entity'
   route_name: entity.sdss_entity.add_page
   appears_on:
     - entity.sdss_entity.collection

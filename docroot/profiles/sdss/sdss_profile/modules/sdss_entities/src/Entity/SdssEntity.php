@@ -3,9 +3,6 @@
 namespace Drupal\sdss_entities\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
-use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\sdss_entities\SdssEntityInterface;
 
 /**
@@ -32,7 +29,7 @@ use Drupal\sdss_entities\SdssEntityInterface;
  *       "delete" = "Drupal\Core\Entity\ContentEntityDeleteForm",
  *     },
  *     "route_provider" = {
- *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
+ *       "html" = "Drupal\sdss_entities\Routing\SdssEntityHtmlRouteProvider",
  *     }
  *   },
  *   base_table = "sdss_entity",
@@ -40,56 +37,21 @@ use Drupal\sdss_entities\SdssEntityInterface;
  *   entity_keys = {
  *     "id" = "id",
  *     "bundle" = "bundle",
- *     "label" = "label",
+ *     "label" = "id",
  *     "uuid" = "uuid",
- *     "owner" = "uid",
  *   },
  *   links = {
  *     "collection" = "/admin/content/sdss-entity",
+ *     "add-form" = "/sdss-entity/add/{sdss_entity_type}",
+ *     "add-page" = "/sdss-entity/add",
+ *     "canonical" = "/sdss-entity/{sdss_entity}",
+ *     "edit-form" = "/sdss-entity/{sdss_entity}",
+ *     "delete-form" = "/sdss-entity/{sdss_entity}/delete",
  *   },
  *   bundle_entity_type = "sdss_entity_type",
  *   field_ui_base_route = "entity.sdss_entity_type.edit_form",
  * )
  */
 class SdssEntity extends ContentEntityBase implements SdssEntityInterface {
-
-  /**
-   * {@inheritdoc}
-   */
-  public function preSave(EntityStorageInterface $storage) {
-    parent::preSave($storage);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
-
-    $fields = parent::baseFieldDefinitions($entity_type);
-
-    $fields['status'] = BaseFieldDefinition::create('boolean')
-      ->setLabel(t('Status'))
-      ->setDefaultValue(TRUE)
-      ->setSetting('on_label', 'Enabled')
-      ->setDisplayOptions('form', [
-        'type' => 'boolean_checkbox',
-        'settings' => [
-          'display_label' => FALSE,
-        ],
-        'weight' => 0,
-      ])
-      ->setDisplayConfigurable('form', TRUE)
-      ->setDisplayOptions('view', [
-        'type' => 'boolean',
-        'label' => 'above',
-        'weight' => 0,
-        'settings' => [
-          'format' => 'enabled-disabled',
-        ],
-      ])
-      ->setDisplayConfigurable('view', TRUE);
-
-    return $fields;
-  }
 
 }

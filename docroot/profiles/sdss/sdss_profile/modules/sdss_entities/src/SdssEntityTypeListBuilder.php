@@ -7,7 +7,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Url;
 
 /**
- * Defines a class to build a listing of SDSS entity type entities.
+ * Defines a class to build a listing of sdss entity type entities.
  *
  * @see \Drupal\sdss_entities\Entity\SdssEntityType
  */
@@ -41,7 +41,7 @@ class SdssEntityTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No sdss entity types available. <a href=":link">Add SDSS entity type</a>.',
+      'No sdss entity types available. <a href=":link">Add sdss entity type</a>.',
       [':link' => Url::fromRoute('entity.sdss_entity_type.add_form')->toString()]
     );
 

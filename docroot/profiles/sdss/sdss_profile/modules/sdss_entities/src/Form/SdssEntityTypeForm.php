@@ -19,14 +19,14 @@ class SdssEntityTypeForm extends BundleEntityFormBase {
 
     $entity_type = $this->entity;
     if ($this->operation == 'edit') {
-      $form['#title'] = $this->t('Edit %label SDSS entity type', ['%label' => $entity_type->label()]);
+      $form['#title'] = $this->t('Edit %label sdss entity type', ['%label' => $entity_type->label()]);
     }
 
     $form['label'] = [
       '#title' => $this->t('Label'),
       '#type' => 'textfield',
       '#default_value' => $entity_type->label(),
-      '#description' => $this->t('The human-readable name of this SDSS entity type.'),
+      '#description' => $this->t('The human-readable name of this sdss entity type.'),
       '#required' => TRUE,
       '#size' => 30,
     ];
@@ -39,7 +39,7 @@ class SdssEntityTypeForm extends BundleEntityFormBase {
         'exists' => ['Drupal\sdss_entities\Entity\SdssEntityType', 'load'],
         'source' => ['label'],
       ],
-      '#description' => $this->t('A unique machine-readable name for this SDSS entity type. It must only contain lowercase letters, numbers, and underscores.'),
+      '#description' => $this->t('A unique machine-readable name for this sdss entity type. It must only contain lowercase letters, numbers, and underscores.'),
     ];
 
     return $this->protectBundleIdElement($form);
@@ -50,8 +50,8 @@ class SdssEntityTypeForm extends BundleEntityFormBase {
    */
   protected function actions(array $form, FormStateInterface $form_state) {
     $actions = parent::actions($form, $form_state);
-    $actions['submit']['#value'] = $this->t('Save SDSS entity type');
-    $actions['delete']['#value'] = $this->t('Delete SDSS entity type');
+    $actions['submit']['#value'] = $this->t('Save sdss entity type');
+    $actions['delete']['#value'] = $this->t('Delete sdss entity type');
     return $actions;
   }
 
@@ -68,10 +68,10 @@ class SdssEntityTypeForm extends BundleEntityFormBase {
 
     $t_args = ['%name' => $entity_type->label()];
     if ($status == SAVED_UPDATED) {
-      $message = $this->t('The SDSS entity type %name has been updated.', $t_args);
+      $message = $this->t('The sdss entity type %name has been updated.', $t_args);
     }
     elseif ($status == SAVED_NEW) {
-      $message = $this->t('The SDSS entity type %name has been added.', $t_args);
+      $message = $this->t('The sdss entity type %name has been added.', $t_args);
     }
     $this->messenger()->addStatus($message);
 
