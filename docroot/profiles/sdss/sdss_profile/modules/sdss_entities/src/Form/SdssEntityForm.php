@@ -26,12 +26,12 @@ class SdssEntityForm extends ContentEntityForm {
 
     switch ($result) {
       case SAVED_NEW:
-        $this->messenger()->addStatus($this->t('New sdss entity %label has been created.', $message_arguments));
+        $this->messenger()->addStatus($this->t('New SDSS entity %label has been created.', $message_arguments));
         $this->logger('sdss_entities')->notice('Created new sdss entity %label', $logger_arguments);
         break;
 
       case SAVED_UPDATED:
-        $this->messenger()->addStatus($this->t('The sdss entity %label has been updated.', $message_arguments));
+        $this->messenger()->addStatus($this->t('The SDSS entity %label has been updated.', $message_arguments));
         $this->logger('sdss_entities')->notice('Updated sdss entity %label.', $logger_arguments);
         break;
     }
