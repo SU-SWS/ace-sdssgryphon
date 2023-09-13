@@ -3,5 +3,4 @@ type: module
 description: Provides Custom Entity Types for SDSS
 package: SDSS Stanford
 core_version_requirement: ^9 || ^10
-dependencies:
-  - drupal:text
+dependencies: { }
