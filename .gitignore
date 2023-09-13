@@ -163,4 +163,4 @@ drush/sites/.checksums
 
 #Ddev
 docroot/sites/*/settings/settings.ddev.php
-
+docroot/sites/*/settings/ddev.settings.php
