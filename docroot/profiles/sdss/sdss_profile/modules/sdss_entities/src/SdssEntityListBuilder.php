@@ -31,6 +31,7 @@ class SdssEntityListBuilder extends EntityListBuilder {
    */
   public function buildHeader() {
     $header['id'] = $this->t('ID');
+    $header['label'] = $this->t('Label');
     return $header + parent::buildHeader();
   }
 
@@ -40,6 +41,7 @@ class SdssEntityListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     /** @var \Drupal\sdss_entities\SdssEntityInterface $entity */
     $row['id'] = $entity->id();
+    $row['label'] = $entity->label();
     return $row + parent::buildRow($entity);
   }
 

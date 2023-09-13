@@ -41,7 +41,7 @@ class SdssEntityTypeListBuilder extends ConfigEntityListBuilder {
     $build = parent::render();
 
     $build['table']['#empty'] = $this->t(
-      'No sdss entity types available. <a href=":link">Add SDSS entity type</a>.',
+      'No SDSS entity types available. <a href=":link">Add SDSS entity type</a>.',
       [':link' => Url::fromRoute('entity.sdss_entity_type.add_form')->toString()]
     );
 

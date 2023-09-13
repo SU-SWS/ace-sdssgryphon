@@ -3,6 +3,8 @@
 namespace Drupal\sdss_entities\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\sdss_entities\SdssEntityInterface;
 
 /**
@@ -37,7 +39,7 @@ use Drupal\sdss_entities\SdssEntityInterface;
  *   entity_keys = {
  *     "id" = "id",
  *     "bundle" = "bundle",
- *     "label" = "id",
+ *     "label" = "label",
  *     "uuid" = "uuid",
  *   },
  *   links = {
@@ -53,5 +55,31 @@ use Drupal\sdss_entities\SdssEntityInterface;
  * )
  */
 class SdssEntity extends ContentEntityBase implements SdssEntityInterface {
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
+
+    $fields = parent::baseFieldDefinitions($entity_type);
+
+    $fields['label'] = BaseFieldDefinition::create('string')
+      ->setLabel(t('Label'))
+      ->setRequired(TRUE)
+      ->setSetting('max_length', 255)
+      ->setDisplayOptions('form', [
+        'type' => 'string_textfield',
+        'weight' => -5,
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'hidden',
+        'type' => 'string',
+        'weight' => -5,
+      ])
+      ->setDisplayConfigurable('view', TRUE);
+
+    return $fields;
+  }
 
 }
