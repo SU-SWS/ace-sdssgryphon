@@ -3,11 +3,12 @@
 // Override bottom margin on all components.
 .content {
   .paragraph-item {
-    @include responsive-spacing('margin-bottom', 4);
+    @include responsive-spacing('margin-bottom', 1);
+
   }
 }
 
-// Utility class to add to layout sections to drop the bottom margin on the 
+// Utility class to add to layout sections to drop the bottom margin on the
 // WYSIWYG block (for the home page banner animated gif workaround).
 .content {
   .sdss-drop-paragraph-margin {
