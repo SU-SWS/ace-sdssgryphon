@@ -13,7 +13,7 @@
 .su-row-bgcolor--green,
 .su-row-bgcolor--blue,
 .su-row-bgcolor--grey {
-  @include responsive-spacing('padding-top', 4);
+  @include responsive-spacing('padding-top', 1);
 
   @include grid-media-max('md') {
     @include responsive-spacing('padding-bottom', 2);

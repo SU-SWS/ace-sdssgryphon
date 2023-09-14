@@ -42,8 +42,27 @@
 
 // Event page
 .stanford-events {
-  .more-link a {
-    @include sdss-button--primary;
+  .more-link {
+    a {
+      @include sdss-button--primary;
+    }
+  }
+}
+
+// CTA button on the events detail page.
+.su-events-details {
+  .su-event-cta {
+    padding: 0;
+
+    a {
+      @include sdss-button--primary;
+
+      &.su-link--external {
+        &::after {
+          background-color: $sdss-color-black;
+        }
+      }
+    }
   }
 }
 
