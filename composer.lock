@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce344f6241058ee35cc45ee09b798325",
+    "content-hash": "54df4d6b5859d514786026914d230b2e",
     "packages": [
         {
             "name": "acquia/blt",
@@ -18126,6 +18126,16 @@
                 "source": "https://github.com/stackphp/builder/tree/v1.0.6"
             },
             "time": "2020-01-30T12:17:27+00:00"
+        },
+        {
+            "name": "stanford-earth/stanford_earth_r25",
+            "version": "8.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stanford-earth/stanford_earth_r25",
+                "reference": "8.1.6"
+            },
+            "type": "drupal-module"
         },
         {
             "name": "steverhoades/oauth2-openid-connect-server",
