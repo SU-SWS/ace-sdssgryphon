@@ -101,7 +101,7 @@
             "package": {
                 "name": "su-sws/earth_news_importer",
                 "version": "1.x-dev",
-                "type": "drupal-module",
+                "type": "drupal-custom-module",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/SU-SWS/earth_news_importer.git",
@@ -114,7 +114,7 @@
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
                 "version": "8.1.6",
-                "type": "drupal-module",
+                "type": "drupal-custom-module",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
