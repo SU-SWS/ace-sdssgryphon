@@ -101,11 +101,24 @@
             "package": {
                 "name": "su-sws/earth_news_importer",
                 "version": "1.x-dev",
-                "type": "drupal-module",
+                "type": "drupal-custom-module",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/SU-SWS/earth_news_importer.git",
                     "reference": "1.x"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "stanford-earth/stanford_earth_r25",
+                "version": "8.1.6",
+                "type": "drupal-custom-module-rooms-site",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/stanford-earth/stanford_earth_r25",
+                    "reference": "8.1.6"
                 }
             }
         }
@@ -249,6 +262,7 @@
         "sainsburys/guzzle-oauth2-plugin": "^3.0",
         "seboettg/citeproc-php": "2.4.1",
         "simplesamlphp/simplesamlphp": "^1.19",
+        "stanford-earth/stanford_earth_r25": "^8.1",
         "su-sws/drupal-patches": "^8.1",
         "su-sws/earth_news_importer": "1.x-dev",
         "su-sws/nobots": "^8.2",
@@ -329,6 +343,9 @@
             ],
             "docroot/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
+            ],
+            "docroot/sites/sdssrooms/modules/{$name}": [
+                "type:drupal-custom-module-rooms-site"
             ]
         },
         "custom-installer": {

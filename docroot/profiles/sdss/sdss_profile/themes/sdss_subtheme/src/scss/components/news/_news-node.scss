@@ -12,6 +12,13 @@
 
   &.node {
     @include modular-spacing('margin-bottom', 4);
+
+    .stanford-news-vertical-cards {
+      &.block-views {
+        @include modular-spacing('margin-top', 6);
+
+      }
+    }
   }
 
 }
@@ -98,3 +105,4 @@
   }
 
 }
+
