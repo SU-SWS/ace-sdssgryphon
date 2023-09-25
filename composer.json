@@ -114,7 +114,7 @@
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
                 "version": "8.1.6",
-                "type": "drupal-custom-module",
+                "type": "drupal-custom-module-rooms-site",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
@@ -343,6 +343,9 @@
             ],
             "docroot/themes/custom/{$name}": [
                 "type:drupal-custom-theme"
+            ],
+            "docroot/sites/sdssrooms/modules/{$name}": [
+                "type:drupal-custom-module-rooms-site"
             ]
         },
         "custom-installer": {
