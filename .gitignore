@@ -164,3 +164,5 @@ drush/sites/.checksums
 #Ddev
 docroot/sites/*/settings/settings.ddev.php
 
+# Ignore sdssrooms site specific modules
+docroot/sites/sdssrooms/modules/*
