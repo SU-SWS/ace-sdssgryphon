@@ -22,7 +22,7 @@ cm:
   strategy: config-split
   allow-overrides: true
 multisites:
-  - abc-hub
+  - abc_hub
   - bitsandwatts
   - carbon_removal
   - changeleadership
