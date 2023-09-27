@@ -12,10 +12,7 @@
 
   @include grid-media-min('md') {
     .su-sdss-media-contacts {
-      > div:nth-child(even) {
         @include responsive-spacing('margin-top', 0);
-      }
-
     }
   }
 
