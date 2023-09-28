@@ -70,6 +70,7 @@ dependencies:
     - responsive_image
     - role_delegation
     - scheduler
+    - sdss_entities
     - sdss_profile
     - shortcut
     - stanford_media
@@ -181,6 +182,7 @@ permissions:
   - 'create media'
   - 'create new books'
   - 'create policy log'
+  - 'create sdss entity'
   - 'create stanford_course content'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
@@ -304,6 +306,7 @@ permissions:
   - 'edit own stanford_publication content'
   - 'edit own video media'
   - 'edit policy log'
+  - 'edit sdss entity'
   - 'edit stanford_basic_site_settings config page entity'
   - 'edit stanford_courses_importer config page entity'
   - 'edit stanford_events_importer config page entity'

@@ -47,6 +47,7 @@ dependencies:
     - paragraphs
     - path
     - scheduler
+    - sdss_entities
     - stanford_policy
     - stanford_publication
     - system
@@ -86,6 +87,7 @@ permissions:
   - 'create media'
   - 'create new books'
   - 'create policy log'
+  - 'create sdss entity'
   - 'create stanford_course content'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
@@ -194,6 +196,7 @@ permissions:
   - 'edit own stanford_publication content'
   - 'edit own video media'
   - 'edit policy log'
+  - 'edit sdss entity'
   - 'edit terms in basic_page_types'
   - 'edit terms in event_audience'
   - 'edit terms in media_tags'

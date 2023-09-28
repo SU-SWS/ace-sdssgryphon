@@ -9,6 +9,7 @@ dependencies:
     - field_permissions
     - filter
     - media
+    - sdss_entities
     - shortcut
     - stanford_policy
     - system
@@ -38,6 +39,7 @@ permissions:
   - 'view own su_site_home'
   - 'view own su_site_url'
   - 'view policy log'
+  - 'view sdss entity'
   - 'view su_metatags'
   - 'view su_policy_auto_prefix'
   - 'view su_policy_chapter'
