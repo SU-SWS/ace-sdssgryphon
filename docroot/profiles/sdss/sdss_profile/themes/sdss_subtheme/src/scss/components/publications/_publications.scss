@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.stanford-publications-related {
+    .su-card {
+        &.sdss-card--publication {
+            @include responsive-spacing('padding', 4);
+
+
+            .su-card__contents {
+                padding: 0;
+
+                a {
+                    border-radius: 0; // for the edit publication button.
+                }
+
+            }
+        }
+    }
+}
+
+// Overrides
+.stanford-publications.view {
+    a {
+        @include sdss-news-link--primary;
+
+        font-weight: unset;
+    }
+
+    .more-link {
+        a {
+            @include sdss-button--secondary;
+        }
+    }
+}
+
+.stanford-publications-related {
+    .block__title {
+        text-align: unset;
+    }
+}
+
