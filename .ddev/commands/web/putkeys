@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Script to add acquia keys to for blt.
+
+echo "{\"key\": \"$1\", \"secret\": \"$2\"}" > "$HOME/.acquia/cloud_api.conf"

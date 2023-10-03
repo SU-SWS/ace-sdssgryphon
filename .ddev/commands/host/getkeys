@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Script to add acquia keys to for blt.
+source "$HOME/.notrack/secrets"
+
+ddev putkeys "$ACE_KEY" "$ACE_SECRET"
