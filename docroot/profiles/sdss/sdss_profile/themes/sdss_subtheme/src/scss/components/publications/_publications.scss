@@ -10,6 +10,8 @@
                 padding: 0;
 
                 a {
+                    @include sdss-news-link--primary;
+
                     border-radius: 0; // for the edit publication button.
                 }
 
@@ -39,3 +41,17 @@
     }
 }
 
+.publication {
+    .jumpstart-ui--one-column {
+        .node-stanford-publication-su-publication-topics {
+            .su-publication-topics {
+                li {
+                    a {
+                        @include sdss-news-link--primary;
+                    }
+
+                }
+            }
+        }
+    }
+}
