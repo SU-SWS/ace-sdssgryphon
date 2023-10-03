@@ -1,0 +1,20 @@
+uuid: 7b72bd87-631a-4176-937d-9a2786aed677
+langcode: en
+status: true
+dependencies:
+  module:
+    - view_unpublished
+id: custm_reviewer
+label: 'Site Reviewer'
+weight: 3
+is_admin: false
+permissions:
+  - 'view any unpublished content'
+  - 'view any unpublished stanford_course content'
+  - 'view any unpublished stanford_event content'
+  - 'view any unpublished stanford_event_series content'
+  - 'view any unpublished stanford_news content'
+  - 'view any unpublished stanford_page content'
+  - 'view any unpublished stanford_person content'
+  - 'view any unpublished stanford_policy content'
+  - 'view any unpublished stanford_publication content'
