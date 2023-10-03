@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script to add acquia keys to for blt.
-# This script calls another.
+# This script grabs the api creds and passes to another.
 source "$HOME/.notrack/secrets"
 
 ddev putkeys "$ACE_KEY" "$ACE_SECRET"
