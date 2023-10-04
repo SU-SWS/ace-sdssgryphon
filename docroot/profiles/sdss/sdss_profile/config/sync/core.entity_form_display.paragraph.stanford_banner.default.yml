@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.stanford_banner.su_banner_header
     - field.field.paragraph.stanford_banner.su_banner_image
     - field.field.paragraph.stanford_banner.su_banner_sup_header
+    - field.field.paragraph.stanford_banner.su_sdss_banner_caption
     - paragraphs.paragraphs_type.stanford_banner
   module:
     - link
@@ -33,17 +34,9 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  su_banner_body:
-    type: text_textarea
-    weight: 3
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   su_banner_button:
     type: link_default
-    weight: 4
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
@@ -51,7 +44,7 @@ content:
     third_party_settings: {  }
   su_banner_header:
     type: string_textfield
-    weight: 2
+    weight: 1
     region: content
     settings:
       size: 60
@@ -64,15 +57,17 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  su_banner_sup_header:
-    type: string_textfield
-    weight: 1
+  su_sdss_banner_caption:
+    type: text_textarea
+    weight: 3
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true
   publish_on: true
+  su_banner_body: true
+  su_banner_sup_header: true
   unpublish_on: true

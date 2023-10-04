@@ -1,4 +1,4 @@
-uuid: d3170354-6529-4f6f-8490-fc9926452dbd
+uuid: 436b3a76-8ece-441e-9fb6-2acbf36f5795
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ mode: default
 content:
   name:
     type: string_textfield
-    weight: 0
+    weight: -5
     region: content
     settings:
       size: 60

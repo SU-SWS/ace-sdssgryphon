@@ -16,20 +16,33 @@ dependencies:
     - field.field.node.stanford_news.su_news_publishing_date
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
+    - field.field.node.stanford_news.su_sdss_import_source
+    - field.field.node.stanford_news.su_sdss_magazine_topics
+    - field.field.node.stanford_news.su_sdss_media_contacts
+    - field.field.node.stanford_news.su_sdss_news_banner_caption
+    - field.field.node.stanford_news.su_sdss_news_dek_long
+    - field.field.node.stanford_news.su_sdss_news_focal_areas
+    - field.field.node.stanford_news.su_sdss_news_news_source
+    - field.field.node.stanford_news.su_sdss_news_organization
+    - field.field.node.stanford_news.su_sdss_news_research_area
+    - field.field.node.stanford_news.su_sdss_person_ref
+    - field.field.node.stanford_news.su_sdss_related_content
     - field.field.node.stanford_news.su_shared_tags
     - node.type.stanford_news
   module:
     - change_labels
     - datetime
     - field_group
+    - inline_entity_form
     - layout_paragraphs
     - link
     - media_library
     - metatag
-    - path
     - scheduler
     - shs
     - stanford_intranet
+    - path
+    - text
 third_party_settings:
   field_group:
     group_media:
@@ -48,10 +61,11 @@ third_party_settings:
         required_fields: true
     group_editorial_content:
       children:
-        - su_news_dek
+        - su_sdss_news_dek_long
         - su_news_publishing_date
         - su_news_byline
         - su_news_source
+        - su_sdss_news_news_source
       label: 'Editorial Content'
       region: content
       parent_name: ''
@@ -66,6 +80,7 @@ third_party_settings:
       children:
         - su_news_banner
         - su_news_banner_media_caption
+        - su_sdss_news_banner_caption
       label: Banner
       region: content
       parent_name: group_media
@@ -74,6 +89,41 @@ third_party_settings:
       format_settings:
         classes: ''
         id: ''
+        description: ''
+        required_fields: true
+    group_tags:
+      children:
+        - su_news_topics
+        - su_sdss_magazine_topics
+        - su_shared_tags
+        - su_sdss_news_organization
+        - su_sdss_news_research_area
+        - su_sdss_news_focal_areas
+      label: Taxonomy
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_related_content:
+      children:
+        - su_sdss_person_ref
+      label: 'Related Fields'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
         description: ''
         required_fields: true
 id: node.stanford_news.default
@@ -89,31 +139,31 @@ content:
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 52
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 50
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   stanford_intranet__access:
     type: entity_access
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
-    weight: 10
+    weight: 8
     region: content
     settings:
       sidebar: true
@@ -128,7 +178,7 @@ content:
     third_party_settings: {  }
   su_news_banner_media_caption:
     type: string_textfield
-    weight: 12
+    weight: 11
     region: content
     settings:
       size: 60
@@ -136,7 +186,7 @@ content:
     third_party_settings: {  }
   su_news_byline:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
@@ -154,14 +204,6 @@ content:
     third_party_settings:
       change_labels:
         add_another: ''
-  su_news_dek:
-    type: string_textfield
-    weight: 2
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   su_news_featured_media:
     type: media_library_widget
     weight: 8
@@ -178,13 +220,13 @@ content:
     third_party_settings: {  }
   su_news_publishing_date:
     type: datetime_default
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   su_news_source:
     type: link_default
-    weight: 5
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
@@ -192,7 +234,7 @@ content:
     third_party_settings: {  }
   su_news_topics:
     type: options_shs
-    weight: 3
+    weight: 14
     region: content
     settings:
       display_node_count: false
@@ -200,9 +242,118 @@ content:
       create_new_levels: false
       force_deepest: false
     third_party_settings: {  }
+  su_sdss_magazine_topics:
+    type: options_shs
+    weight: 15
+    region: content
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings: {  }
+  su_sdss_media_contacts:
+    type: inline_entity_form_complex
+    weight: 11
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: 'Media Contact'
+      label_plural: 'Media Contacts'
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+      removed_reference: keep
+    third_party_settings:
+      change_labels:
+        add_another: 'Add another Media Contact'
+        field_label_overwrite: ''
+        hide_add_another: 0
+        force_single_cardinality: 0
+  su_sdss_news_banner_caption:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  su_sdss_news_dek_long:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  su_sdss_news_focal_areas:
+    type: options_shs
+    weight: 19
+    region: content
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings: {  }
+  su_sdss_news_news_source:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_sdss_news_organization:
+    type: options_shs
+    weight: 17
+    region: content
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings: {  }
+  su_sdss_news_research_area:
+    type: options_shs
+    weight: 18
+    region: content
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings: {  }
+  su_sdss_person_ref:
+    type: entity_reference_autocomplete
+    weight: 21
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_sdss_related_content:
+    type: entity_reference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   su_shared_tags:
     type: options_shs
-    weight: 9
+    weight: 16
     region: content
     settings:
       display_node_count: false
@@ -224,6 +375,8 @@ hidden:
   layout_selection: true
   promote: true
   sticky: true
+  su_news_dek: true
+  su_sdss_import_source: true
   uid: true
   unpublish_on: true
   url_redirects: true
