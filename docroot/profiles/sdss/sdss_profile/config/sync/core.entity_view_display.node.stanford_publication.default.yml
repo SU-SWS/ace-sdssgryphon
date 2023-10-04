@@ -38,7 +38,7 @@ third_party_settings:
           context_mapping: {  }
           extra_classes: ''
           centered: centered-container
-          columns: default
+          columns: flex-10-of-12
         components:
           4df7625d-a934-4076-a6ff-d70bf5aa9f2e:
             uuid: 4df7625d-a934-4076-a6ff-d70bf5aa9f2e
@@ -160,23 +160,10 @@ third_party_settings:
         layout_settings:
           label: ''
           context_mapping: {  }
-          extra_classes: ''
+          extra_classes: sdss-publication--types
           centered: centered-container
-          columns: flex-12-of-12
+          columns: flex-10-of-12
         components:
-          797a272b-885d-4772-a161-853409dca684:
-            uuid: 797a272b-885d-4772-a161-853409dca684
-            region: main
-            configuration:
-              id: 'views_block:stanford_publications-related'
-              label: 'More Publications'
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: 'More Publications'
-              items_per_page: none
-            weight: 1
-            additional: {  }
           7bc27225-3b16-491d-b443-c266687f6db8:
             uuid: 7bc27225-3b16-491d-b443-c266687f6db8
             region: main
@@ -199,6 +186,29 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: jumpstart_ui_one_column
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          extra_classes: ''
+          centered: centered-container
+          columns: flex-12-of-12
+        components:
+          797a272b-885d-4772-a161-853409dca684:
+            uuid: 797a272b-885d-4772-a161-853409dca684
+            region: main
+            configuration:
+              id: 'views_block:stanford_publications-related'
+              label: 'More Publications'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'More Publications'
+              items_per_page: none
+            weight: 1
             additional: {  }
         third_party_settings: {  }
   layout_library:

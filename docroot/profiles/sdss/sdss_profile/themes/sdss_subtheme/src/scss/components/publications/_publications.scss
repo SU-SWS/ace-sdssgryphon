@@ -1,12 +1,58 @@
 @charset "UTF-8";
 
+// Publications Node
+.publication .content {
+    .jumpstart-ui--one-column.centered-content > div:first-child {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    > div:nth-of-type(-n+2) {
+        @include responsive-flex-column(9);
+        background-color: pink;
+
+        @include grid-media-min(lg) {
+            @include responsive-flex-column(9);
+            background-color: orange;
+        }
+
+        margin: 0 auto;
+    }
+
+    .sdss-publication--types {
+        @include responsive-flex-column(9);
+        background-color: pink;
+
+        @include grid-media-min(lg) {
+            @include responsive-flex-column(9);
+            background-color: orange;
+        }
+    }
+
+    .node-stanford-publication-citation-type {
+        color: $su-color-black-70;
+    }
+
+    .node-stanford-publication-su-publication-topics {
+        h2 {
+            @include responsive-spacing('margin-top', 7);
+
+        }
+    }
+}
+
+// Related publications cards
 .stanford-publications-related {
     .su-card {
         &.sdss-card--publication {
-            @include responsive-spacing('padding', 4);
+            padding: 0;
+            border: 0;
+            box-shadow: none;
 
             .su-card__headline {
                 @include type-c;
+
+                color: $su-color-black;
             }
 
             .su-card__contents {
@@ -14,14 +60,14 @@
 
                 a {
                     @include sdss-link--primary;
+                    @include type-e;
 
                     border-radius: 0; // for the edit publication button.
-                    text-decoration: underline;
 
                     &:hover,
                     &:active,
                     &:focus {
-                        text-decoration: none;
+                        text-decoration: underline;
                     }
 
                     &.su-button--secondary {
@@ -41,25 +87,26 @@
     }
 
     .su-card__superheadline {
+        @include type-e;
+
         padding-bottom: 1em;
         display: inline-block;
-        font-size: .8em;
         text-transform: uppercase;
-        color: $sdss-color-decorative-blue;
+        color: $su-color-black-70;
     }
 }
 
 // Overrides
 .stanford-publications.view {
     a {
-        @include sdss-link--primary;
-
+        color: $su-color-black;
         font-weight: unset;
         text-decoration: none;
 
         &:hover,
         &:active,
         &:focus {
+            color: $sdss-color-green-link;
             text-decoration: underline;
         }
     }
