@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\sdss_profile\Kernel\EventSubscriber;
+namespace Drupal\Tests\stanford_profile\Kernel\EventSubscriber;
 
 use Drupal\consumers\Entity\Consumer;
 use Drupal\Core\File\FileSystemInterface;
@@ -13,13 +13,13 @@ use Drupal\file\Entity\File;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\media\Entity\Media;
 use Drupal\media\Entity\MediaType;
-use Drupal\sdss_profile\EventSubscriber\EventSubscriber as StanfordEventSubscriber;
+use Drupal\stanford_profile\EventSubscriber\EventSubscriber as StanfordEventSubscriber;
 
 /**
  * Class EventSubscriberTest.
  *
- * @group sdss_profile
- * @coversDefaultClass \Drupal\sdss_profile\EventSubscriber\EventSubscriber
+ * @group stanford_profile
+ * @coversDefaultClass \Drupal\stanford_profile\EventSubscriber\EventSubscriber
  */
 class EventSubscriberTest extends KernelTestBase {
 
@@ -43,7 +43,7 @@ class EventSubscriberTest extends KernelTestBase {
   /**
    * Event subscriber object.
    *
-   * @var \Drupal\sdss_profile\EventSubscriber\EventSubscriber
+   * @var \Drupal\stanford_profile\EventSubscriber\EventSubscriber
    */
   protected $eventSubscriber;
 
@@ -87,10 +87,7 @@ class EventSubscriberTest extends KernelTestBase {
    * Test the consumer secret is randomized.
    */
   public function testConsumerSecretRandomized() {
-    $expected = [
-      'default_content.import' => 'onContentImport',
-    ];
-    $this->assertEquals($expected, StanfordEventSubscriber::getSubscribedEvents());
+    $this->assertContains('onContentImport', StanfordEventSubscriber::getSubscribedEvents());
     $consumer = Consumer::create([
       'client_id' => 'foobar',
       'label' => 'foobar',

@@ -1,2 +1,2 @@
 permission_callbacks:
-  - Drupal\sdss_profile\StanfordProfilePermissions::permissions
+  - Drupal\stanford_profile\StanfordProfilePermissions::permissions

@@ -48,7 +48,6 @@ class StanfordNewsCest {
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
     $I->canSeeInField('Headline', $node->label());
-    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.field--name-su-news-topics [data-shs-delta="0"] select');
     $I->selectOption('.field--name-su-news-topics [data-shs-delta="0"] select', $first_term->label());
     $I->click('Add another item', '.field--name-su-news-topics');
@@ -63,7 +62,6 @@ class StanfordNewsCest {
     $I->canSee($first_term->label() . ', ' . $second_term->label() . ', '. $third_term->label());
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
-    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.field--name-su-news-topics [data-shs-delta="2"] select');
     $I->selectOption('.field--name-su-news-topics [data-shs-delta="0"] select', $second_term->label());
     $I->selectOption('.field--name-su-news-topics [data-shs-delta="1"] select', $first_term->label());
@@ -74,7 +72,6 @@ class StanfordNewsCest {
     $I->canSee($second_term->label() . ', ' . $first_term->label() . ', '. $third_term->label());
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
-    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.field--name-su-news-topics [data-shs-delta="2"] select');
     $I->selectOption('.field--name-su-news-topics [data-shs-delta="0"] select', $third_term->label());
     $I->selectOption('.field--name-su-news-topics [data-shs-delta="1"] select', $second_term->label());
@@ -85,7 +82,6 @@ class StanfordNewsCest {
     $I->canSee($third_term->label() . ', ' . $second_term->label() . ', '. $first_term->label());
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
-    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.field--name-su-news-topics [data-shs-delta="2"] select');
     $I->selectOption('.field--name-su-news-topics [data-shs-delta="0"] select', $third_term->label());
     $I->selectOption('.field--name-su-news-topics [data-shs-delta="1"] select', $first_term->label());

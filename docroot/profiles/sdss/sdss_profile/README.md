@@ -1,8 +1,10 @@
-# [SDSS Profile](https://github.com/SU-SWS/sdss_profile)
-##### 1.x
-[![CircleCI](https://circleci.com/gh/SU-SWS/sdss_profile.svg?style=svg)](https://circleci.com/gh/SU-SWS/sdss_profile)
+# [Stanford Profile](https://github.com/SU-SWS/stanford_profile)
+##### 8.x
+[![CircleCI](https://circleci.com/gh/SU-SWS/stanford_profile.svg?style=svg)](https://circleci.com/gh/SU-SWS/stanford_profile)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9e16872314a79186f4fe/test_coverage)](https://codeclimate.com/github/SU-SWS/stanford_profile/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9e16872314a79186f4fe/maintainability)](https://codeclimate.com/github/SU-SWS/stanford_profile/maintainability)
 
-Maintainers: [Mike Decker](https://github.com/pookmish), [sherakama](https://github.com/sherakama), [joegl](https://github.com/joegl)
+Maintainers: [Mike Decker](https://github.com/pookmish), [sherakama](https://github.com/sherakama)
 
 Changelog: [Changelog.md](CHANGELOG.md)
 
@@ -40,6 +42,12 @@ Steps to build a new release:
 - Give the PR a semver-compliant label, e.g., (`patch`, `minor`, `major`).  This may happen automatically via Github actions (if a labeler action is configured).
 - When the PR is merged to `main`, a new tag will be created automatically, bumping the version by the semver label.
 - The github action is built from: [semver-release-action](https://github.com/K-Phoen/semver-release-action), and further documentation is available there.
+
+
+Troubleshooting
+---
+
+If you are experiencing issues with this try posting an issue on the [GitHub issues page](https://github.com/SU-SWS/stanford_profile/issues).
 
 Contribution / Collaboration
 ---

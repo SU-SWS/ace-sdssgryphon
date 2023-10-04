@@ -64,9 +64,6 @@ settings:
           label: Normal
           element: '<p class="plain-text">'
         -
-          label: 'Display Text'
-          element: '<p class="sdss-display-text">'
-        -
           label: 'Intro Text'
           element: '<p class="su-intro-text">'
         -
@@ -75,15 +72,6 @@ settings:
         -
           label: 'Quote Text'
           element: '<p class="su-quote-text">'
-        -
-          label: 'Block Quote Lg'
-          element: '<p class="sdss-block-quote--big">'
-        -
-          label: 'Block Quote Med'
-          element: '<p class="sdss-block-quote--med">'
-        -
-          label: 'Block Quote Sm'
-          element: '<p class="sdss-block-quote--sm">'
         -
           label: 'Drop Cap First Letter'
           element: '<p class="su-drop-cap">'

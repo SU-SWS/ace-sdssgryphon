@@ -85,7 +85,6 @@ class DefaultContentCest {
 
       $I->click('Edit', '#menu-overview tr:contains("' . $title . '")');
       $I->canSee('The path cannot be edited');
-
       $I->amOnPage('/admin/structure/menu/manage/main');
     }
   }

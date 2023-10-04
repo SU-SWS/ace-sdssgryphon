@@ -7,7 +7,6 @@ dependencies:
     - field_permissions
     - media
     - printable
-    - sdss_entities
     - stanford_policy
     - subrequests
     - system
@@ -38,7 +37,6 @@ permissions:
   - 'view policy log'
   - 'view policy_settings config page entity'
   - 'view printer friendly versions'
-  - 'view sdss entity'
   - 'view stanford_basic_site_settings config page entity'
   - 'view stanford_global_message config page entity'
   - 'view stanford_local_footer config page entity'

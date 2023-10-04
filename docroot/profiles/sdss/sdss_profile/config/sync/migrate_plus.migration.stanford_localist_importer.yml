@@ -18,7 +18,7 @@ source:
   request_options:
     timeout: 60
   urls: {  }
-  data_parser_plugin: json
+  data_parser_plugin: localist_json
   item_selector: events
   orphan_action: forget
   fields:
@@ -292,7 +292,7 @@ source:
     stanford_minimal_html: stanford_minimal_html
     map_title: 'Open in map'
     map_link_base: 'https://www.google.com/maps/place/'
-    image_path: 'public://media/event_importer/'
+    image_path: 'public://events/'
     cta_text: 'View this event on Localist'
     plus: +
     timezone: America/Los_Angeles
@@ -494,33 +494,6 @@ process:
           entity_type: taxonomy_term
           ignore_case: true
           source: name
-  image_file:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: photo_url
-    -
-      plugin: file_import
-      destination: constants/image_path
-      id_only: true
-      reuse: true
-  su_sdss_custm_event_feat_media/target_id:
-    -
-      plugin: skip_on_empty
-      method: process
-      source: '@image_file'
-    -
-      plugin: entity_generate
-      source: title
-      value_key: name
-      bundle_key: bundle
-      bundle: image
-      entity_type: media
-      ignore_case: true
-      values:
-        name: '@title'
-        field_media_image/target_id: '@image_file'
-        field_media_image/alt: '@title'
 destination:
   plugin: 'entity:node'
   overwrite_properties:

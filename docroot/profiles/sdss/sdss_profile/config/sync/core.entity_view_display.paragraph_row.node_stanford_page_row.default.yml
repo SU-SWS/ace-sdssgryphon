@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.paragraph_row.node_stanford_page_row.su_page_components
-    - field.field.paragraph_row.node_stanford_page_row.su_para_row_bgcolor
     - react_paragraphs.paragraphs_row_type.node_stanford_page_row
   module:
     - entity_reference_revisions
-    - options
 id: paragraph_row.node_stanford_page_row.default
 targetEntityType: paragraph_row
 bundle: node_stanford_page_row
@@ -22,13 +20,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 0
-    region: content
-  su_para_row_bgcolor:
-    type: list_key
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
     region: content
 hidden:
   search_api_excerpt: true

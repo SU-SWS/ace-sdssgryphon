@@ -44,6 +44,7 @@ class BasicPageParagraphsCest {
     ]);
     $I->logInWithRole('contributor');
     $I->amOnPage($node->toUrl('edit-form')->toString());
+    $I->scrollTo('.js-lpb-component', 0, -100);
     $I->moveMouseOver('.js-lpb-component', 10, 10);
     $I->click('Edit', '.lpb-controls');
     $I->waitForText('Superhead');
@@ -89,12 +90,11 @@ class BasicPageParagraphsCest {
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 2);
 
     $I->amOnPage("/node/{$node->id()}/edit");
+    $I->scrollTo('.js-lpb-component', 0, -100);
     $I->moveMouseOver('.js-lpb-component', 10, 10);
     $I->click('Edit', '.lpb-controls');
     $I->waitForText('Superhead');
     $I->fillField('Superhead', $this->faker->text(10));
-    // Headline field is required on SDSS but not on Stanford Sites.
-    $I->fillField('Headline', $this->faker->text(10));
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sdss_profile;
+namespace Drupal\stanford_profile;
 
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Class StanfordProfilePermissions.
  *
- * @package Drupal\sdss_profile
+ * @package Drupal\stanford_profile
  */
 class StanfordProfilePermissions implements ContainerInjectionInterface {
 

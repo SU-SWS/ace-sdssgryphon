@@ -1,4 +1,4 @@
-uuid: 4dc03c25-d1ba-4dbf-826a-96a81b7a7d70
+uuid: 97dd4d2d-9b81-4285-a846-fe1c5fb44d54
 langcode: en
 status: true
 dependencies:
@@ -12,13 +12,10 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: sdss_spacer_default
-      label: '-default-'
-    -
-      value: sdss_spacer_reduced
+      value: su-spacer-reduced
       label: Reduced
     -
-      value: sdss_spacer_minimal
+      value: su-spacer-minimal
       label: Minimal
   allowed_values_function: ''
 module: options

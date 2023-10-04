@@ -808,9 +808,9 @@ display:
           default_argument_skip_url: 0
           summary_options:
             base_path: ''
-            count: 1
-            override: 0
+            count: '1'
             items_per_page: '25'
+            override: 0
           summary:
             sort_order: asc
             number_of_records: '0'
@@ -823,9 +823,7 @@ display:
           depth: '1'
           vocabularies:
             event_audience: event_audience
-            sdss_event_topics: sdss_event_topics
             stanford_event_types: stanford_event_types
-            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node
@@ -1887,14 +1885,24 @@ display:
               weight: 7
               plugin: views_row
               source: su_event_type
+            'views_row:su_event_subheadline':
+              destination: subheadline
+              weight: 8
+              plugin: views_row
+              source: su_event_subheadline
+            'views_row:su_event_dek':
+              destination: dek
+              weight: 9
+              plugin: views_row
+              source: su_event_dek
             'views_row:su_event_location':
               destination: address
-              weight: 8
+              weight: 10
               plugin: views_row
               source: su_event_location
             'views_row:edit_node':
               destination: edit
-              weight: 9
+              weight: 11
               plugin: views_row
               source: edit_node
       arguments:
@@ -1918,9 +1926,9 @@ display:
           default_argument_skip_url: 0
           summary_options:
             base_path: ''
-            count: 1
-            override: 0
+            count: '1'
             items_per_page: '25'
+            override: 0
           summary:
             sort_order: asc
             number_of_records: '0'
@@ -1933,9 +1941,7 @@ display:
           depth: '1'
           vocabularies:
             event_audience: event_audience
-            sdss_event_topics: sdss_event_topics
             stanford_event_types: stanford_event_types
-            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node
@@ -3031,14 +3037,24 @@ display:
               weight: 7
               plugin: views_row
               source: su_event_type
+            'views_row:su_event_subheadline':
+              destination: subheadline
+              weight: 8
+              plugin: views_row
+              source: su_event_subheadline
+            'views_row:su_event_dek':
+              destination: dek
+              weight: 9
+              plugin: views_row
+              source: su_event_dek
             'views_row:su_event_location':
               destination: address
-              weight: 8
+              weight: 10
               plugin: views_row
               source: su_event_location
             'views_row:edit_node':
               destination: edit
-              weight: 9
+              weight: 11
               plugin: views_row
               source: edit_node
       defaults:
@@ -4588,7 +4604,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="su-event--past-events-text">*This event has passed.</div>'
+            text: '<div class="su-event--past-events-text">*This event has already occurred.</div>'
             make_link: false
             path: ''
             absolute: false
@@ -4843,19 +4859,29 @@ display:
               weight: 8
               plugin: views_row
               source: su_event_type
+            'views_row:su_event_subheadline':
+              destination: subheadline
+              weight: 9
+              plugin: views_row
+              source: su_event_subheadline
+            'views_row:su_event_dek':
+              destination: dek
+              weight: 10
+              plugin: views_row
+              source: su_event_dek
             'views_row:su_event_location':
               destination: address
-              weight: 9
+              weight: 11
               plugin: views_row
               source: su_event_location
             'views_row:edit_node':
               destination: edit
-              weight: 10
+              weight: 12
               plugin: views_row
               source: edit_node
             'views_row:past_event_label':
               destination: date_time
-              weight: 11
+              weight: 13
               plugin: views_row
               source: past_event_label
       arguments:
@@ -4879,9 +4905,9 @@ display:
           default_argument_skip_url: 0
           summary_options:
             base_path: ''
-            count: 1
-            override: 0
+            count: '1'
             items_per_page: '25'
+            override: 0
           summary:
             sort_order: asc
             number_of_records: '0'
@@ -4893,9 +4919,7 @@ display:
           validate_options: {  }
           depth: '1'
           vocabularies:
-            sdss_event_topics: sdss_event_topics
             stanford_event_types: stanford_event_types
-            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node

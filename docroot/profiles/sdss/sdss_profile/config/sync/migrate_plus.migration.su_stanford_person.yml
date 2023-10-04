@@ -314,6 +314,7 @@ destination:
     - su_person_last_name
     - su_person_links
     - su_person_mail_code
+    - su_person_mobile_phone
     - su_person_photo/target_id
     - su_person_profile_link/title
     - su_person_profile_link/uri

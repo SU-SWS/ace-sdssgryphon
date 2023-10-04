@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sdss_profile\Config;
+namespace Drupal\stanford_profile\Config;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -10,9 +10,9 @@ use Drupal\Core\Installer\InstallerKernel;
 use Drupal\Core\State\StateInterface;
 
 /**
- * Config overrides for SDSS profile.
+ * Config overrides for stanford profile.
  *
- * @package Drupal\sdss_profile\Config
+ * @package Drupal\stanford_profile\Config
  */
 class ConfigOverrides implements ConfigFactoryOverrideInterface {
 
@@ -38,11 +38,9 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   Config factory service.
    */
-  public function __construct(StateInterface $state, ConfigFactoryInterface $config_factory = NULL) {
+  public function __construct(StateInterface $state, ConfigFactoryInterface $config_factory) {
     $this->state = $state;
-    if ($config_factory) {
-      $this->configFactory = $config_factory;
-    }
+    $this->configFactory = $config_factory;
   }
 
   /**
@@ -52,9 +50,9 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     $overrides = [];
     if (in_array('system.site', $names)) {
       $overrides['system.site']['page'] = [
-        403 => $this->state->get('sdss_profile.403_page'),
-        404 => $this->state->get('sdss_profile.404_page'),
-        'front' => $this->state->get('sdss_profile.front_page'),
+        403 => $this->state->get('stanford_profile.403_page'),
+        404 => $this->state->get('stanford_profile.404_page'),
+        'front' => $this->state->get('stanford_profile.front_page'),
       ];
     }
 
@@ -78,9 +76,58 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
         }
       }
     }
-    $this->setOverridesGoogleTag($names, $overrides);
 
+    $this->setOverridesGoogleTag($names, $overrides);
+    if (in_array('stanford_samlauth.settings', $names)) {
+      $this->setSamlOverrides($overrides);
+    }
     return $overrides;
+  }
+
+  /**
+   * Set the saml config overrides.
+   *
+   * @param array $overrides
+   *   Keyed array of config overrides.
+   */
+  protected function setSamlOverrides(array &$overrides) {
+    $original_mapping = $this->configFactory->getEditable('stanford_samlauth.settings')
+      ->getOriginal('role_mapping.mapping');
+
+    $config_page_mapping = self::getConfigPageValue('stanford_saml', 'su_simplesaml_roles', 0, 'value', '');
+    foreach (array_filter(explode('|', $config_page_mapping)) as $mapping) {
+      [$role, $conditions] = explode(':', $mapping, 2);
+      [$attribute, , $value] = explode(',', $conditions, 3);
+      $original_mapping[] = [
+        'role' => $role,
+        'attribute' => $attribute,
+        'value' => $value,
+      ];
+    }
+    $overrides['stanford_samlauth.settings']['role_mapping']['mapping'] = $original_mapping;
+  }
+
+  /**
+   * Get the field value from a config page.
+   *
+   * @param string $config_id
+   *   Config page name.
+   * @param string $field_name
+   *   Field on the config page.
+   * @param array|int $deltas
+   *   Delta to fetch the field value.
+   * @param string|null $key
+   *   Column key on the field.
+   * @param mixed|null $default
+   *   Optional default value if the config page value is empty.
+   *
+   * @return array|mixed|null
+   *   Config page field value.
+   */
+  protected static function getConfigPageValue($config_id, $field_name, $deltas = [], $key = NULL, $default = NULL) {
+    /** @var \Drupal\config_pages\ConfigPagesLoaderServiceInterface $cp_loader */
+    $cp_loader = \Drupal::service('config_pages.loader');
+    return $cp_loader->getValue($config_id, $field_name, $deltas, $key) ?: $default;
   }
 
   /**

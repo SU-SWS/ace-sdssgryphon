@@ -96,6 +96,30 @@ class NewsCest {
   }
 
   /**
+   * Test that only two of three new news nodes show up in the more news view
+   * on the node page.
+   */
+  public function testMoreNewsView(AcceptanceTester $I) {
+    $I->logInWithRole('administrator');
+
+    $first_news = $I->createEntity([
+      'type' => 'stanford_news',
+      'title' => $this->faker->words(3, TRUE),
+    ]);
+    $second_news = $I->createEntity([
+      'type' => 'stanford_news',
+      'title' => $this->faker->words(3, TRUE),
+    ]);
+    $third_news = $I->createEntity([
+      'type' => 'stanford_news',
+      'title' => $this->faker->words(3, TRUE),
+    ]);
+
+    $I->amOnPage($second_news->toUrl()->toString());
+    $I->canSeeNumberOfElements(".stanford-news--cards .su-card", [2, 3]);
+  }
+
+  /**
    * Test that the XML sitemap and metatag configuration is set.
    */
   public function testXMLMetaDataRevisions(AcceptanceTester $I) {
@@ -177,13 +201,13 @@ class NewsCest {
       'type' => 'stanford_news',
       'su_news_publishing_date' => $date_string,
     ]);
+
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee($node->label(), 'h1');
 
     $I->assertEquals($node->label(), $I->grabAttributeFrom('meta[property="og:title"]', 'content'), 'Metadata "og:title" should match.');
     $I->assertEquals($node->label(), $I->grabAttributeFrom('meta[name="twitter:title"]', 'content'), 'Metadata "twitter:title" should match.');
     $I->assertEquals('article', $I->grabAttributeFrom('meta[property="og:type"]', 'content'), 'Metadata "og:type" should match.');
-    $I->assertEquals(date('D, m/d/Y - 12:00', time()), $I->grabAttributeFrom('meta[property="article:published_time"]', 'content'), 'Metadata "article:published_time" should match.');
     $I->assertEquals($metadata_date, $I->grabAttributeFrom('meta[property="article:published_time"]', 'content'), 'Metadata "article:published_time" should match.');
 
     $I->cantSeeElement('meta', ['name' => 'description']);
@@ -227,16 +251,5 @@ class NewsCest {
     $I->assertEquals($values['featured_image_alt'], $I->grabAttributeFrom('meta[name="twitter:image:alt"]', 'content'), 'Metadata "twitter:image:alt" should match.');
   }
 
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_news');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_news');
-    $I->canSee('Related Content');
-  }
 
 }

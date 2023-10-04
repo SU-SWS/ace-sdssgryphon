@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.stanford_person.body
     - field.field.node.stanford_person.layout_builder__layout
     - field.field.node.stanford_person.stanford_intranet__access
-    - field.field.node.stanford_person.su_metatags
     - field.field.node.stanford_person.su_person_academic_appt
     - field.field.node.stanford_person.su_person_admin_appts
     - field.field.node.stanford_person.su_person_affiliations
@@ -26,20 +25,12 @@ dependencies:
     - field.field.node.stanford_person.su_person_mobile_phone
     - field.field.node.stanford_person.su_person_photo
     - field.field.node.stanford_person.su_person_profile_link
-    - field.field.node.stanford_person.su_person_pronouns
     - field.field.node.stanford_person.su_person_research
     - field.field.node.stanford_person.su_person_research_interests
     - field.field.node.stanford_person.su_person_scholarly_interests
     - field.field.node.stanford_person.su_person_short_title
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
-    - field.field.node.stanford_person.su_sdss_person_alt_bio
-    - field.field.node.stanford_person.su_sdss_person_alt_title
-    - field.field.node.stanford_person.su_sdss_person_focal_areas
-    - field.field.node.stanford_person.su_sdss_person_organization
-    - field.field.node.stanford_person.su_sdss_person_research_area
-    - field.field.node.stanford_person.su_sdss_person_research_state
-    - field.field.node.stanford_person.su_sdss_related_content
     - field.field.node.stanford_person.su_shared_tags
     - node.type.stanford_person
   module:
@@ -73,8 +64,7 @@ third_party_settings:
         formatter: default
         settings:
           link: true
-          'link class': ''
-          wrapper: span
+          wrapper: ''
           class: ''
 id: node.stanford_person.stanford_card
 targetEntityType: node
@@ -132,11 +122,4 @@ hidden:
   su_person_scholarly_interests: true
   su_person_telephone: true
   su_person_type_group: true
-  su_sdss_person_alt_bio: true
-  su_sdss_person_alt_title: true
-  su_sdss_person_focal_areas: true
-  su_sdss_person_organization: true
-  su_sdss_person_research_area: true
-  su_sdss_person_research_state: true
-  su_sdss_related_content: true
   su_shared_tags: true

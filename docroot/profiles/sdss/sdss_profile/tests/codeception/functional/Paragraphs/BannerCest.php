@@ -58,7 +58,9 @@ class BannerCest {
     ]);
 
     $I->amOnPage($node->toUrl()->toString());
+    $I->canSee($field_values['sup_header']);
     $I->canSee($field_values['header']);
+    $I->canSee($field_values['body']);
     $I->canSeeLink($field_values['title'], $field_values['uri']);
 
     $I->cantSeeElement('.overlay-right');
@@ -66,6 +68,7 @@ class BannerCest {
     $I->logInWithRole('site_manager');
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
+    $I->scrollTo('.js-lpb-component', 0, -100);
     $I->moveMouseOver('.js-lpb-component', 10, 10);
     $I->click('Edit', '.lpb-controls');
     $I->waitForText('Behaviors');

@@ -10,7 +10,6 @@ stackable: false
 storage: folder
 folder: ../config/envs/stage
 module:
-  stage_file_proxy: 0
   acquia_purge: 0
   paranoia: 0
   purge: 0

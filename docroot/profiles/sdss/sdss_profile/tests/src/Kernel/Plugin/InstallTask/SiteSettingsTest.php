@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\sdss_profile\Kernel\Plugin\InstallTask;
+namespace Drupal\Tests\stanford_profile\Kernel\Plugin\InstallTask;
 
 use Drupal\config_pages\Entity\ConfigPagesType;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
@@ -15,12 +15,12 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Drupal\sdss_profile\Plugin\InstallTask\SiteSettings;
+use Drupal\stanford_profile\Plugin\InstallTask\SiteSettings;
 
 /**
  * Class SiteSettingsTest.
  *
- * @coversDefaultClass \Drupal\sdss_profile\Plugin\InstallTask\SiteSettings
+ * @coversDefaultClass \Drupal\stanford_profile\Plugin\InstallTask\SiteSettings
  */
 class SiteSettingsTest extends KernelTestBase {
 
@@ -32,8 +32,6 @@ class SiteSettingsTest extends KernelTestBase {
     'config_pages',
     'config_pages_overrides',
     'externalauth',
-    'simplesamlphp_auth',
-    'stanford_ssp',
     'path_alias',
     'user',
     'field',
@@ -52,7 +50,7 @@ class SiteSettingsTest extends KernelTestBase {
    */
   protected function setUp(): void {
     parent::setUp();
-    $this->setInstallProfile('sdss_profile');
+    $this->setInstallProfile('stanford_profile');
 
     $this->installEntitySchema('user');
     $this->installEntitySchema('user_role');

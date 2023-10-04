@@ -170,8 +170,6 @@ class PersonCest {
     $I->click('Save');
     $I->canSee('Updated term');
 
-    $I->runDrush('cache-rebuild');
-
     $I->amOnPage($term3->toUrl()->toString());
     $I->canSeeLink($term1->label());
     $I->canSeeLink($term2->label());
@@ -341,18 +339,6 @@ class PersonCest {
     $I->assertEquals($values['image_alt'], $I->grabAttributeFrom('meta[name="twitter:image:alt"]', 'content'), 'Metadata "twitter:image:alt" should match.');
     $I->assertEquals($values['body'], $I->grabAttributeFrom('meta[name="twitter:description"]', 'content'), 'Metadata "twitter:description" should match.');
     $I->assertEquals($values['profile_link'], $I->grabAttributeFrom('link[rel="canonical"]', 'href'), 'Metadata "canonical" should match.');
-  }
-
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_person');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_person');
-    $I->canSee('Related Content');
   }
 
 }

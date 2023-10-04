@@ -10,7 +10,6 @@ dependencies:
     - paragraphs.paragraphs_type.stanford_lists
   module:
     - element_class_formatter
-    - empty_fields
     - field_formatter_class
     - stanford_fields
     - text
@@ -51,10 +50,8 @@ content:
       tag: h2
       linked: false
     third_party_settings:
-      empty_fields:
-        handler: ''
       field_formatter_class:
-        class: su-margin-bottom-3
+        class: su-margin-bottom
     weight: 0
     region: content
   su_list_view:

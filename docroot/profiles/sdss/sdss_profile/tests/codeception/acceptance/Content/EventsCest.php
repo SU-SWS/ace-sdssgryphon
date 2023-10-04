@@ -87,12 +87,8 @@ class EventsCest {
     $I->amOnPage($event->toUrl('delete-form')->toString());
     $I->click('Delete');
 
-    $I->amOnPage('/events');
-    $I->cantSee($event->label());
-    $I->cantSee('No events at this time');
-    $I->canSee($message);
-
     $I->amOnPage($term->toUrl()->toString());
+    $I->canSee($term->label(), 'h1');
     $I->cantSee($event->label());
     $I->cantSee('No events at this time');
     $I->canSee($message);
@@ -343,18 +339,6 @@ class EventsCest {
     $I->assertNotEquals($cloned_date_time, $original_date_time);
     $diff = $cloned_date_time - $original_date_time;
     $I->assertEquals(6, round($diff / (60 * 60 * 24 * 30.5)));
-  }
-
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_event');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_event');
-    $I->canSee('Related Content');
   }
 
   /**

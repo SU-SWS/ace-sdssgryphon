@@ -43,7 +43,6 @@ class NodeRevisionDeleteCest {
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 11);
 
     $I->runDrush('cron:run node_revision_delete_cron --force');
-
     $I->amOnPage("/node/{$node->id()}/revisions");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 5);
   }

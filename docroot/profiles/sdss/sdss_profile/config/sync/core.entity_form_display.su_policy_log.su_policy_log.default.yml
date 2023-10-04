@@ -17,7 +17,7 @@ mode: default
 content:
   su_policy_date:
     type: datetime_default
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -38,7 +38,7 @@ content:
     third_party_settings: {  }
   su_policy_title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60

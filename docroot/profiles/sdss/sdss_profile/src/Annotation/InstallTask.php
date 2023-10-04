@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sdss_profile\Annotation;
+namespace Drupal\stanford_profile\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
 

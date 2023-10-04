@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.storage.node.su_news_components
     - node.type.stanford_news
-    - paragraphs.paragraphs_type.callout_quote
-    - paragraphs.paragraphs_type.editorial_sidebar
     - paragraphs.paragraphs_type.stanford_banner
     - paragraphs.paragraphs_type.stanford_card
     - paragraphs.paragraphs_type.stanford_entity
@@ -39,18 +37,10 @@ settings:
       stanford_entity: stanford_entity
       stanford_spacer: stanford_spacer
       stanford_gallery: stanford_gallery
-      callout_quote: callout_quote
       stanford_lists: stanford_lists
-      editorial_sidebar: editorial_sidebar
       stanford_layout: stanford_layout
     negate: 0
     target_bundles_drag_drop:
-      callout_quote:
-        weight: 15
-        enabled: true
-      editorial_sidebar:
-        weight: 16
-        enabled: true
       stanford_accordion:
         weight: 12
         enabled: false
@@ -67,7 +57,7 @@ settings:
         weight: 14
         enabled: true
       stanford_layout:
-        weight: 22
+        weight: 18
         enabled: true
       stanford_lists:
         weight: 15

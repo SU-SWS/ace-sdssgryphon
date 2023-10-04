@@ -33,13 +33,6 @@ dependencies:
     - field.field.node.stanford_person.su_person_short_title
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
-    - field.field.node.stanford_person.su_sdss_person_alt_bio
-    - field.field.node.stanford_person.su_sdss_person_alt_title
-    - field.field.node.stanford_person.su_sdss_person_focal_areas
-    - field.field.node.stanford_person.su_sdss_person_organization
-    - field.field.node.stanford_person.su_sdss_person_research_area
-    - field.field.node.stanford_person.su_sdss_person_research_state
-    - field.field.node.stanford_person.su_sdss_related_content
     - field.field.node.stanford_person.su_shared_tags
     - node.type.stanford_person
     - views.view.stanford_publications
@@ -137,6 +130,27 @@ third_party_settings:
                   field_formatter_class:
                     class: su-short-title
             weight: 0
+            additional: {  }
+          e0167f4a-2c96-49d4-a0c0-0d316058897c:
+            uuid: e0167f4a-2c96-49d4-a0c0-0d316058897c
+            region: quote_title
+            configuration:
+              id: 'field_block:node:stanford_person:su_person_short_title'
+              label: 'Short Title'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-person-title
+            weight: -9
             additional: {  }
           0d5ce623-cc57-4e84-947f-4c1dcd8c3354:
             uuid: 0d5ce623-cc57-4e84-947f-4c1dcd8c3354
@@ -901,59 +915,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 126
-    region: content
-  su_sdss_person_alt_bio:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 132
-    region: content
-  su_sdss_person_alt_title:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 131
-    region: content
-  su_sdss_person_focal_areas:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 133
-    region: content
-  su_sdss_person_organization:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 128
-    region: content
-  su_sdss_person_research_area:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 129
-    region: content
-  su_sdss_person_research_state:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 130
-    region: content
-  su_sdss_related_content:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 134
     region: content
 hidden:
   field_menulink: true

@@ -1,18 +1,18 @@
 <?php
 
-namespace Drupal\Tests\sdss_profile\Unit\Plugin\HelpSection;
+namespace Drupal\Tests\stanford_profile\Unit\Plugin\HelpSection;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Utility\LinkGeneratorInterface;
-use Drupal\sdss_profile\Plugin\HelpSection\ProfileConnectSection;
-use Drupal\sdss_profile\Plugin\HelpSection\ProfileResourceSection;
+use Drupal\stanford_profile\Plugin\HelpSection\ProfileConnectSection;
+use Drupal\stanford_profile\Plugin\HelpSection\ProfileResourceSection;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * Class ProfileConnectSectionTest
  *
- * @group sdss_profile
- * @coversDefaultClass \Drupal\sdss_profile\Plugin\HelpSection\ProfileResourceSection
+ * @group stanford_profile
+ * @coversDefaultClass \Drupal\stanford_profile\Plugin\HelpSection\ProfileResourceSection
  */
 class ProfileResourceSectionTest extends UnitTestCase {
 

@@ -12,10 +12,6 @@ dependencies:
     - field.field.node.stanford_page.su_page_components
     - field.field.node.stanford_page.su_page_description
     - field.field.node.stanford_page.su_page_image
-    - field.field.node.stanford_page.su_sdss_basic_focal_areas
-    - field.field.node.stanford_page.su_sdss_basic_opportunity_type
-    - field.field.node.stanford_page.su_sdss_basic_organization
-    - field.field.node.stanford_page.su_sdss_related_content
     - field.field.node.stanford_page.su_shared_tags
     - node.type.stanford_page
     - system.menu.main
@@ -58,54 +54,6 @@ third_party_settings:
                   view_mode: default
                 third_party_settings: {  }
             weight: 0
-            additional: {  }
-          86eb8bed-61b6-4163-81a5-cb8ab4cd70d3:
-            uuid: 86eb8bed-61b6-4163-81a5-cb8ab4cd70d3
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_page:su_sdss_basic_focal_areas'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-          33053f02-c36f-4c4a-b323-167ec3ac825b:
-            uuid: 33053f02-c36f-4c4a-b323-167ec3ac825b
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_page:su_sdss_basic_organization'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 2
-            additional: {  }
-          ef47bdc5-5372-483d-b747-287f665cfbed:
-            uuid: ef47bdc5-5372-483d-b747-287f665cfbed
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_page:su_sdss_basic_opportunity_type'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 3
             additional: {  }
         third_party_settings: {  }
       -
@@ -361,38 +309,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 5
-    region: main
-  su_sdss_basic_focal_areas:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 8
-    region: main
-  su_sdss_basic_opportunity_type:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 10
-    region: main
-  su_sdss_basic_organization:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 9
-    region: main
-  su_sdss_related_content:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 11
     region: main
 hidden:
   field_menulink: true

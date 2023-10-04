@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sdss_profile\Plugin\HelpSection;
+namespace Drupal\stanford_profile\Plugin\HelpSection;
 
 use Drupal\help\Plugin\HelpSection\HelpSectionPluginBase;
 

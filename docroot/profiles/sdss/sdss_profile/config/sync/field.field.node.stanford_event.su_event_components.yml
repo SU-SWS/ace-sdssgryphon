@@ -41,12 +41,6 @@ settings:
       stanford_layout: stanford_layout
     negate: 0
     target_bundles_drag_drop:
-      callout_quote:
-        weight: 15
-        enabled: false
-      editorial_sidebar:
-        weight: 16
-        enabled: false
       stanford_accordion:
         weight: 12
         enabled: false
@@ -79,7 +73,7 @@ settings:
         enabled: false
       stanford_spacer:
         weight: 9
-        enabled: false
+        enabled: true
       stanford_wysiwyg:
         weight: 10
         enabled: true
