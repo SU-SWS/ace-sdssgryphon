@@ -2,4 +2,17 @@
 
 # Script to add acquia keys to for blt.
 # Echos out json string into api config.
-echo "{\"key\": \"$1\", \"secret\": \"$2\"}" > "$HOME/.acquia/cloud_api.conf"
+
+# Creates folder and file if necessary.
+# File paths
+FOLDER_PATH="$HOME/.acquia"
+CONFIG_FILE="cloud_api.conf"
+
+# Check if the folder exists
+if [ ! -d "$CONFIG_FILE" ]; then
+  echo 'works'
+    mkdir -p "$FOLDER_PATH"
+    touch "$FOLDER_PATH"/"$CONFIG_FILE"
+fi
+
+echo "{\"key\": \"$1\", \"secret\": \"$2\"}" > "$FOLDER_PATH/$CONFIG_FILE"
