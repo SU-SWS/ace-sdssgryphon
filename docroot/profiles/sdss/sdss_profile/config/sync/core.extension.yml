@@ -7,6 +7,7 @@ module:
   admin_toolbar_tools: 0
   allowed_formats: 0
   auto_entitylabel: 0
+  autologout: 0
   block: 0
   block_content: 0
   block_content_permissions: 0
@@ -118,6 +119,7 @@ module:
   nobots: 0
   node: 0
   node_revision_delete: 0
+  oembed_lazyload: 0
   oembed_providers: 0
   options: 0
   page_cache: 0
@@ -132,6 +134,7 @@ module:
   pdb_react: 0
   preprocess_event_dispatcher: 0
   printable: 0
+  r4032login: 0
   rabbit_hole: 0
   react_paragraphs: 0
   react_paragraphs_behaviors: 0
@@ -145,6 +148,8 @@ module:
   rh_node: 0
   rh_taxonomy: 0
   role_delegation: 0
+  samlauth: 0
+  samlauth_user_fields: 0
   scheduler: 0
   sdss_entities: 0
   sdss_layout_paragraphs: 0
@@ -155,7 +160,6 @@ module:
   shortcut: 0
   shs: 0
   simple_oauth: 0
-  simplesamlphp_auth: 0
   smart_date: 0
   smart_trim: 0
   sophron: 0
@@ -182,7 +186,7 @@ module:
   stanford_profile_drush: 0
   stanford_profile_styles: 0
   stanford_publication: 0
-  stanford_ssp: 0
+  stanford_samlauth: 0
   subrequests: 0
   syslog: 0
   system: 0

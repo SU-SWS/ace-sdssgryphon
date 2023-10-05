@@ -13,7 +13,8 @@ ignored_config_entities:
   - 'system.action.user_add_role_action.custm_*'
   - 'system.action.user_remove_role_action.custm_*'
   - 'next.next_site.*'
-  - migrate_plus.migration_group.earth_news_importer
+  - 'migrate_plus.migration_group.earth_news_importer'
   - 'migrate_plus.migration.earth_news_importer*'
   - 'core.extension:module.earth_news_importer'
+  - 'samlauth.authentication:map_users_roles'
 enable_export_filtering: false

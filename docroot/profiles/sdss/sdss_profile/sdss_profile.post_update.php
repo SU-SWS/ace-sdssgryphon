@@ -46,3 +46,32 @@ function sdss_profile_post_update_8202() {
     ])->save();
   }
 }
+
+/**
+ * Update field storage definitions.
+ */
+function sdss_profile_post_update_update_field_defs() {
+  $um = \Drupal::entityDefinitionUpdateManager();
+  foreach ($um->getChangeList() as $entity_type => $changes) {
+    if (isset($changes['field_storage_definitions'])) {
+      foreach ($changes['field_storage_definitions'] as $field_name => $status) {
+        $um->updateFieldStorageDefinition($um->getFieldStorageDefinition($field_name, $entity_type));
+      }
+    }
+  }
+}
+
+/**
+ * Enable samlauth.
+ */
+function sdss_profile_post_update_samlauth() {
+  if (\Drupal::moduleHandler()->moduleExists('stanford_samlauth')) {
+    return;
+  }
+  $ignore_settings = \Drupal::configFactory()
+    ->getEditable('config_ignore.settings');
+  $ignored = $ignore_settings->get('ignored_config_entities');
+  $ignored[] = 'samlauth.authentication:map_users_roles';
+  $ignore_settings->set('ignored_config_entities', $ignored)->save();
+  \Drupal::service('module_installer')->install(['stanford_samlauth']);
+}
