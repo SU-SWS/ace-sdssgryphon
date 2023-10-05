@@ -102,7 +102,6 @@ jobs:
           composer install -n
           blt blt:telemetry:disable --no-interaction
           blt drupal:install -n
-          drush pm:uninstall simplesamlphp_auth -y
           drush role:perm:add anonymous 'access content'
           drush xmlsitemap:rebuild
           blt codeception --suite=acceptance
@@ -163,7 +162,6 @@ jobs:
           composer install -n
           blt blt:telemetry:disable --no-interaction
           blt drupal:install -n
-          drush pm:uninstall simplesamlphp_auth -y
           drush role:perm:add anonymous 'access content'
           drush xmlsitemap:rebuild
           mkdir -p artifacts/_data/

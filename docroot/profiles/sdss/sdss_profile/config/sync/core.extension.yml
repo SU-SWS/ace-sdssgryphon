@@ -84,6 +84,16 @@ module:
   inline_form_errors: 0
   jquery_ui: 0
   jquery_ui_draggable: 0
+  jsonapi: 0
+  jsonapi_defaults: 0
+  jsonapi_extras: 0
+  jsonapi_hypermedia: 0
+  jsonapi_image_styles: 0
+  jsonapi_menu_items: 0
+  jsonapi_menu_items_hypermedia: 0
+  jsonapi_resources: 0
+  jsonapi_search_api: 0
+  jsonapi_views: 0
   jumpstart_ui: 0
   key: 0
   layout_builder: 0
