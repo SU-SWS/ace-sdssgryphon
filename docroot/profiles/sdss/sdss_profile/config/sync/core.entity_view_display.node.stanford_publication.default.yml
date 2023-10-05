@@ -78,17 +78,17 @@ third_party_settings:
             additional: {  }
         third_party_settings: {  }
       -
-        layout_id: jumpstart_ui_two_column
+        layout_id: jumpstart_ui_one_column
         layout_settings:
           label: ''
           context_mapping: {  }
-          extra_classes: ''
+          extra_classes: sdss-publication-content
           centered: centered-container
-          orientation: left
+          columns: flex-10-of-12
         components:
           42ec0a5c-ba15-4be4-9d66-9fecee9a3912:
             uuid: 42ec0a5c-ba15-4be4-9d66-9fecee9a3912
-            region: left
+            region: main
             configuration:
               id: 'field_block:node:stanford_publication:su_publication_components'
               label: Components
@@ -105,7 +105,7 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-            weight: 3
+            weight: 0
             additional: {  }
           10a9b9f7-3532-480f-9500-a73f98dc906a:
             uuid: 10a9b9f7-3532-480f-9500-a73f98dc906a
@@ -126,7 +126,7 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-            weight: 0
+            weight: 1
             additional: {  }
           8e0b99d1-3634-419b-b3f7-0660aa3a7537:
             uuid: 8e0b99d1-3634-419b-b3f7-0660aa3a7537
@@ -152,7 +152,7 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-            weight: 1
+            weight: 2
             additional: {  }
         third_party_settings: {  }
       -
