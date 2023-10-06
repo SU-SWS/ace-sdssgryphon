@@ -102,5 +102,5 @@ cloud:
 keys_rsync:
   ssh: stanfordsos.prod@ded-24959.prod.hosting.acquia.com
   files:
-    - /mnt/gfs/stanfordsos.prod/nobackup/simplesamlphp/
+    - /mnt/gfs/stanfordsos.prod/nobackup/apikeys/
     - /mnt/gfs/stanfordsos.prod/secrets.settings.php
