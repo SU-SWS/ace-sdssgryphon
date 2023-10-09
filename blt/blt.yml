@@ -100,7 +100,7 @@ validate:
 cloud:
   appId: f7e9fc1b-062d-4ed8-baf7-ae33551f8934
 keys_rsync:
-  ssh: stanfordsos.prod@ded-24959.prod.hosting.acquia.com
+  ssh: stanfordsos.test@stanfordsosstg.ssh.prod.acquia-sites.com
   files:
-    - /mnt/gfs/stanfordsos.prod/nobackup/apikeys/
-    - /mnt/gfs/stanfordsos.prod/secrets.settings.php
+    - /mnt/gfs/stanfordsos.test/nobackup/apikeys/
+    - /mnt/gfs/stanfordsos.test/secrets.settings.php
