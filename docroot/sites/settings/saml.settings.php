@@ -58,14 +58,24 @@ $config['simplesamlphp_auth.settings'] = [
 
 // Don't enable SAML configs if we're on CI systems.
 if (!EnvironmentDetector::isCiEnv()) {
-  $idp = 'https://idp.stanford.edu/';
-  $login = 'https://login.stanford.edu/idp/profile/SAML2/Redirect/SSO';
+  $env = EnvironmentDetector::getAhEnv() ?: '';
+  $normalized_env = "01dev";
+  $idp = 'https://idp-uat.stanford.edu/';
+  $login = 'https://login-uat.stanford.edu/idp/profile/SAML2/Redirect/SSO';
+
+  if (EnvironmentDetector::isAhStageEnv()) {
+    $normalized_env = "01test";
+  } elseif (EnvironmentDetector::isAhProdEnv()) {
+    $normalized_env = "01live";
+    $idp = 'https://idp.stanford.edu/';
+    $login = 'https://login.stanford.edu/idp/profile/SAML2/Redirect/SSO';
+  }
 
   $config['samlauth.authentication'] = [
     'user_name_attribute' => 'uid',
-    'idp_entity_id' => 'https://idp.stanford.edu/',
-    'sp_entity_id' => 'https://swshumsci.stanford.edu',
-    'idp_single_sign_on_service' => 'https://login.stanford.edu/idp/profile/SAML2/Redirect/SSO',
+    'idp_entity_id' => $idp,
+    'sp_entity_id' => "https://acquiacloudsitefactory.stanford.edu/$normalized_env",
+    'idp_single_sign_on_service' => $login,
     'sp_x509_certificate' => 'file:' . EnvironmentDetector::getAhFilesRoot() . '/nobackup/apikeys/saml/cert/saml.crt',
     'sp_private_key' => 'file:' . EnvironmentDetector::getAhFilesRoot() . '/nobackup/apikeys/saml/cert/saml.pem',
     'idp_certs' => [
