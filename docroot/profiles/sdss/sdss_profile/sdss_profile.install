@@ -701,3 +701,16 @@ function _sdss_profile_reset_node_changed_time(NodeInterface $node, int $changed
     ->condition('vid', $node->getRevisionId())
     ->execute();
 }
+
+/**
+ * Install SamlAuth
+ */
+function sdss_profile_update_9501()
+{
+  $config_ignore = \Drupal::configFactory()
+    ->getEditable('config_ignore.settings');
+  $ignored = $config_ignore->get('ignored_config_entities');
+  $ignored[] = 'stanford_samlauth.settings';
+  $config_ignore->set('ignored_config_entities', $ignored)->save();
+  \Drupal::service('module_installer')->install(['stanford_samlauth']);
+}
