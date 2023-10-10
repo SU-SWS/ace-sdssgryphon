@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 // Row Background Colors
-// su-row-bgcolor--green|Green
-// su-row-bgcolor--blue|Blue
-// su-row-bgcolor--white|White
+// sdss-layout-bgcolor--green|Green
+// sdss-layout-bgcolor--blue|Blue
+// sdss-layout-bgcolor--white|White
 
 // Row colors set up.
 // Make the cards transparent on the background colors.
 // Do we need other elements set this way as well? - investigate.
 // Padding above the colored rows
-//.su-row-bgcolor--green-stat = do not include this one to create the stat card combo.
-.su-row-bgcolor--green,
-.su-row-bgcolor--blue,
-.su-row-bgcolor--grey {
+//.sdss-layout-bgcolor--green-stat = do not include this one to create the stat card combo.
+.sdss-layout-bgcolor--green,
+.sdss-layout-bgcolor--blue,
+.sdss-layout-bgcolor--grey {
   @include responsive-spacing('padding-top', 1);
 
   @include grid-media-max('md') {
@@ -21,7 +21,7 @@
   }
 }
 
-.su-row-bgcolor--white {
+.sdss-layout-bgcolor--white {
   background-color: $sdss-color-white;
   color: $sdss-color-grey-dark;
 
@@ -30,7 +30,7 @@
   }
 }
 
-.su-row-bgcolor--green {
+.sdss-layout-bgcolor--green {
   background-color: $sdss-color-palo-alto-dark;
   color: $su-color-white;
 
@@ -104,7 +104,7 @@
   }
 }
 
-.su-row-bgcolor--blue {
+.sdss-layout-bgcolor--blue {
   background-color: $sdss-color-blue-light;
 
   article.su-card {
@@ -112,7 +112,7 @@
   }
 }
 
-.su-row-bgcolor--grey {
+.sdss-layout-bgcolor--grey {
   background-color: $sdss-color-grey-light;
 
   article.su-card {
@@ -120,7 +120,7 @@
   }
 }
 
-.su-row-bgcolor--grey {
+.sdss-layout-bgcolor--grey {
   background-color: $sdss-color-grey-light;
 
   article.su-card {

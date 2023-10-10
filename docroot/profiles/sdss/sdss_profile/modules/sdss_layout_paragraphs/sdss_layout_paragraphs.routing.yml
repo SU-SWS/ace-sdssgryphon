@@ -1,0 +1,7 @@
+sdss_layout_paragraphs.sdss_options:
+  path: '/admin/config/content/layout_paragraphs/sdss'
+  defaults:
+    _form: '\Drupal\sdss_layout_paragraphs\Form\SdssLayoutParagraphsSettingsForm'
+    _title: 'SDSS Layout Paragraphs Settings'
+  requirements:
+    _permission: 'administer site configuration'

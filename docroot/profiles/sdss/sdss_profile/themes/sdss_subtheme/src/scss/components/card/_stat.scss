@@ -2,14 +2,14 @@
 
 // Stat cards need to be in a green row and 3 items.
 // this is to get even height white left border lines.
-.su-row-bgcolor--green {
+.sdss-layout-bgcolor--green {
   > div {
     color: $su-color-white;
     background-color: $sdss-color-palo-alto-dark;
   }
 }
 
-.su-row-bgcolor--green-stat {
+.sdss-layout-bgcolor--green-stat {
   > div {
     color: $su-color-white;
     background-color: $sdss-color-palo-alto-dark;

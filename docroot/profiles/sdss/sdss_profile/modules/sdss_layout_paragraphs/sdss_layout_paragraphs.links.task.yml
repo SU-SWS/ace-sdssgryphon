@@ -1,0 +1,5 @@
+sdss_layout_paragraphs.sdss_options:
+  route_name: sdss_layout_paragraphs.sdss_options
+  title: 'SDSS Settings'
+  base_route: layout_paragraphs.label_settings
+  weight: 300
