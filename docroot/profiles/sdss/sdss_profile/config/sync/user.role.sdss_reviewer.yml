@@ -4,11 +4,12 @@ status: true
 dependencies:
   module:
     - view_unpublished
-id: custm_reviewer
+id: sdss_reviewer
 label: 'Site Reviewer'
 weight: 3
 is_admin: false
 permissions:
+  - 'access toolbar'
   - 'view any unpublished content'
   - 'view any unpublished stanford_course content'
   - 'view any unpublished stanford_event content'
