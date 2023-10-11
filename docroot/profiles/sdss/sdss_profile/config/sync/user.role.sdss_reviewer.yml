@@ -1,10 +1,11 @@
-uuid: 7b72bd87-631a-4176-937d-9a2786aed677
+uuid: f629e121-e385-470e-be9d-a2862c4d36c0
 langcode: en
 status: true
 dependencies:
   module:
+    - toolbar
     - view_unpublished
-id: sdss_reviewer
+id: custm_sdss_reviewer
 label: 'Site Reviewer'
 weight: 3
 is_admin: false

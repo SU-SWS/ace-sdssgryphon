@@ -1,14 +1,14 @@
-uuid: 6da8ad2c-deb5-43bd-8294-b554d9b9c33e
+uuid: acb079a2-ef62-4d58-9a9e-648fbd27d99a
 langcode: en
 status: true
 dependencies:
   config:
-    - user.role.custm_reviewer
+    - user.role.custm_sdss_reviewer
   module:
     - user
-id: user_add_role_action.custm_reviewer
-label: 'Add the Reviewer role to the selected user(s)'
+id: user_add_role_action.custm_sdss_reviewer
+label: 'Add the Site Reviewer role to the selected user(s)'
 type: user
 plugin: user_add_role_action
 configuration:
-  rid: custm_reviewer
+  rid: custm_sdss_reviewer
