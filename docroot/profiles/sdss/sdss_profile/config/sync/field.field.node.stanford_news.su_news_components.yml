@@ -22,7 +22,7 @@ id: node.stanford_news.su_news_components
 field_name: su_news_components
 entity_type: node
 bundle: stanford_news
-label: Components
+label: Paragraphs
 description: ''
 required: false
 translatable: false
@@ -40,8 +40,8 @@ settings:
       stanford_spacer: stanford_spacer
       stanford_gallery: stanford_gallery
       callout_quote: callout_quote
-      stanford_lists: stanford_lists
       editorial_sidebar: editorial_sidebar
+      stanford_lists: stanford_lists
       stanford_layout: stanford_layout
     negate: 0
     target_bundles_drag_drop:
@@ -67,7 +67,7 @@ settings:
         weight: 14
         enabled: true
       stanford_layout:
-        weight: 22
+        weight: 18
         enabled: true
       stanford_lists:
         weight: 15
