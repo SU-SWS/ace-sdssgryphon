@@ -1,0 +1,25 @@
+uuid: 232990ee-fccb-4a7e-a62d-7bd463a4e92a
+langcode: en
+status: true
+dependencies:
+  module:
+    - jumpstart_ui
+    - system
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_main_anchor
+theme: sdss_subtheme
+region: content
+weight: -3
+provider: null
+plugin: jumpstart_ui_skipnav_main_anchor
+settings:
+  id: jumpstart_ui_skipnav_main_anchor
+  label: 'Main content anchor target'
+  label_display: '0'
+  provider: jumpstart_ui
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /search

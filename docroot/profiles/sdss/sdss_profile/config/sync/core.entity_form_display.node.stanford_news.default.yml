@@ -196,7 +196,6 @@ content:
     third_party_settings:
       change_labels:
         add_another: ''
-        field_label_overwrite: ''
   su_news_featured_media:
     type: media_library_widget
     weight: 8
