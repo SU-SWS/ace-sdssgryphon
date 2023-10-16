@@ -15,11 +15,6 @@ $theme_name = \Drupal::theme()->getActiveTheme()->getName();
 function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state)
 {
 
-  // $form['options_settings'] = [
-  //   '#type' => 'fieldset',
-  //   '#title' => t('Theme Specific Settings'),
-  // ];
-
   // Header options.
   $form['options_settings']['sdss_subtheme_header_options'] = [
     '#type' => 'fieldset',
@@ -30,8 +25,8 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
     '#type' => 'select',
     '#title' => t('Header Layout Variant'),
     '#options' => [
-      'default' => t('Green Header, Right Navigation'),
-      'option_a' => t('Blue Header, Bottom Navigation'),
+      'default' => t('Green Header, Bottom Navigation'),
+      'option_a' => t('Blue Header, Right Navigation'),
     ],
     '#default_value' => theme_get_setting('header_layout_variant'),
   ];

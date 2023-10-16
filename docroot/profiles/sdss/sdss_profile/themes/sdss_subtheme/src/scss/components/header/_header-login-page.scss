@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+// Login page header.
+
+// Styles up to Large screens.
+@include grid-media-min('lg') {
+  .page-user-login {
+
+    // option a and b
+    .su-masthead>section:last-of-type {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "lockup lockup lockup"
+        "main-nav main-nav search";
+      align-items: flex-end;
+    }
+
+    .su-masthead {
+      padding-bottom: 0;
+    }
+
+    // Logo only option
+    .su-lockup--option-none {
+      section:after {
+        background: transparent;
+      }
+
+      .su-masthead {
+        padding-top: 1em;
+      }
+    }
+
+  }
+}

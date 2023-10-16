@@ -1,0 +1,9 @@
+// Lockup Option B.
+
+@include grid-media-max('md') {
+  .su-lockup--option-b {
+    .su-lockup__line2 {
+      line-height: 1em;
+    }
+  }
+}
