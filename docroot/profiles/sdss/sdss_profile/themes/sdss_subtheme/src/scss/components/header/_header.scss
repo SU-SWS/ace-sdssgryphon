@@ -162,16 +162,18 @@ header.su-masthead {
       // column-gap: 40px;
 
       #sdss-button--search-link {
-        grid-area: search;
+        align-self: center;
+        position: relative;
+        display: inline-block;
+        top: unset;
+        right: unset;
+        left: unset;
+        bottom: unset;
+        margin: 0;
         width: 32px;
         height: 32px;
-        position: relative;
-        top: 0;
-        right: unset;
-        align-self: center;
-        background-color: $sdss-color-palo-alto-dark;
         border-radius: 32px;
-        left: 8px;
+        background-color: $sdss-color-palo-alto-dark;
       }
 
       .system-menu-block {

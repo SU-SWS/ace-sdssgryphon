@@ -13,9 +13,10 @@
   attach (context, settings) {
     // console.log("Attached.");
 
-
     (function ($) {
 
+      // Add search link button to navigation.
+      $('.system-menu-block .su-multi-menu__menu-lv1').append('<a href="/search" id="sdss-button--search-link" class="su-site-search__submit"><span class="visually-hidden">Search</span></a>');
 
     })(jQuery);
   },
