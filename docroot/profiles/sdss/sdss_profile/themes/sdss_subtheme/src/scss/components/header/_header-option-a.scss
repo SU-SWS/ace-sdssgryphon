@@ -2,111 +2,157 @@
 
 // Header Option A variant styles (currently Blue Header, Right Navigation).
 
+
 // Main site heading
-.sdss-header-variant--option_a {
+body.sdss-header-variant--option_a {
+  header.su-masthead {
+    section.su-masthead--inner {
+      .su-multi-menu {
+        .su-multi-menu__nav-toggle {
+          background-color: unset;
+          color: $su-color-black;
+
+          &:after {
+            background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
+          }
+        }
+      }
+    }
+
+    .su-lockup {
+      .su-lockup__cell2 {
+        display: none;
+      }
+    }
+  }
+
   .su-lockup__custom-logo {
-    max-width: 150px;
+    // max-width: 150px;
   }
 
-  &.su-lockup {
-    display: block;
-  }
-}
-
-// SDSS Main site header.
-@include grid-media-min('lg') {
-  .sdss-header-variant--option_a {
-    .su-masthead {
-      margin: 0 auto;
-
-      .su-masthead--inner {
-        display: grid;
-        grid-template-columns: 200px 1fr 40px;
-        grid-template-areas: "lockup main-nav search";
-        align-items: flex-end;
-
-        background: $sdss-color-blue-light;
-
-        .su-lockup {
-          grid-area: lockup;
-
-          background: $su-color-white;
-          width: 175px;
-          max-width: unset;
-          padding: 1em 0; //spacing to get the background-color.
-          margin-right: -20px;
-          height: 100%; //to get white to fill when window resized.
-        }
-
-        #sdss-button--search-link {
-          grid-area: search;
-          width: 32px;
-          height: 32px;
-          position: relative;
-          top: 15px;
-          right: unset;
-          align-self: center;
-          background-color: $sdss-color-palo-alto-dark;
-          border-radius: 32px;
-          left: 8px;
-        }
-
-        .su-multi-menu {
-          grid-area: main-nav;
-
-          background-color: $sdss-color-blue-light;
-        }
-      }
-
-      nav+.su-site-search,
-      ul li .su-site-search {
-        display: none; // need to hide extra search that we use for mobile.
-      }
-
-      // add color to the drop down nav bar.
-      .su-multi-menu__menu {
-        &.su-multi-menu__menu-lv1 {
-          background-color: $sdss-color-blue-light;
-        }
-      }
-    }
-
-    // Header color outside in the margins.
-    section {
-      position: relative;
-      /* child absolute */
-    }
-
-    section {
-
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        /* fill vertically */
-        top: 0;
-        bottom: 0;
-        width: 9600px;
-        right: 100%;
-        background: $su-color-white;
-      }
-    }
-
-    section {
-      &::after {
-        left: 100%;
-        background: $sdss-color-blue-light;
-      }
-    }
-
+  .su-lockup {
+    // display: block;
   }
 }
 
 // Remove the brand-bar link to right for main site.
-.su-lockup.sdss-header-variant--option_a {
-  .su-brand-bar__container {
-    >span {
-      display: none;
+// body.sdss-header-variant--option_a {
+//   .su-lockup {
+//     .su-brand-bar__container {
+//       > span {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+//
+// Mobile first min-width queries.
+// Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
+//
+
+// Styles for Large or bigger Screens.
+@include grid-media-min('lg') {
+  body.sdss-header-variant--option_a {
+    header.su-masthead {
+      // margin: 0 auto;
+
+      section.su-masthead--inner {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        background: $sdss-color-blue-light;
+        // display: grid;
+        // grid-template-columns: 200px 1fr 40px;
+        // grid-template-areas: "lockup main-nav search";
+        // align-items: flex-end;
+
+        &::before,
+        &::after {
+          // content: "";
+          // position: absolute;
+          // /* fill vertically */
+          // top: 0;
+          // bottom: 0;
+          // width: 9600px;
+          // right: 100%;
+          // background: $su-color-white;
+        }
+
+        &::after {
+          // left: 100%;
+          // background: $sdss-color-blue-light;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 9600px;
+          left: 0;
+          z-index: -1;
+          background: $sdss-color-blue-light;
+        }
+
+        #sdss-button--search-link {
+          // grid-area: search;
+          // width: 32px;
+          // height: 32px;
+          // position: relative;
+          // top: 15px;
+          // right: unset;
+          // align-self: center;
+          // background-color: $sdss-color-palo-alto-dark;
+          // border-radius: 32px;
+          // left: 8px;
+        }
+
+        .system-menu-block {
+          align-self: flex-end;
+          width: auto;
+          padding: 0 0 0 3rem;
+        }
+
+        .su-multi-menu {
+          // grid-area: main-nav;
+          padding: 0;
+          background-color: $sdss-color-blue-light;
+
+          .su-multi-menu__menu {
+            &.su-multi-menu__menu-lv1 {
+              background-color: $sdss-color-blue-light;
+            }
+          }
+        }
+      }
+
+      .su-lockup {
+        background: $su-color-white;
+        // grid-area: lockup;
+        // width: 175px;
+        // max-width: unset;
+        // padding: 1em 0; //spacing to get the background-color.
+        // margin-right: -20px;
+        // height: 100%; //to get white to fill when window resized.
+
+        .su-lockup__cell1 {
+          padding: 2rem 3rem 2rem 8rem;
+        }
+      }
+    }
+  }
+}
+
+// Styles for Extra Large or bigger Screens.
+@include grid-media-min('xl') {
+  body.sdss-header-variant--option_a {
+    header.su-masthead {
+      .su-lockup {
+        .su-lockup__cell1 {
+          padding: 2rem 3rem 2rem 0;
+        }
+      }
     }
   }
 }

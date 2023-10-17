@@ -2,12 +2,17 @@
 
 // Login page header.
 
-// Styles up to Large screens.
+//
+// Mobile first min-width queries.
+// Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
+//
+
+// Styles for Large or bigger Screens.
 @include grid-media-min('lg') {
   .page-user-login {
 
     // option a and b
-    .su-masthead>section:last-of-type {
+    header.su-masthead > section:last-of-type {
       display: grid;
       grid-template-columns: 1fr;
       grid-template-areas:
@@ -16,7 +21,7 @@
       align-items: flex-end;
     }
 
-    .su-masthead {
+    header.su-masthead {
       padding-bottom: 0;
     }
 
@@ -26,7 +31,7 @@
         background: transparent;
       }
 
-      .su-masthead {
+      header.su-masthead {
         padding-top: 1em;
       }
     }
