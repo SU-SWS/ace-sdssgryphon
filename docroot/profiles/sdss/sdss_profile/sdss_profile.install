@@ -524,7 +524,7 @@ return;
  * Set header layout variant based on current lock-up setting.
  */
 function sdss_profile_update_9105() {
-  $header_layout_variant = 'default';
+  $header_layout_variant = 'none';
   $config_pages_loader = \Drupal::service('config_pages.loader');
   $lockup_option = $config_pages_loader->getValue('lockup_settings', 'su_lockup_options', 0, 'value');
   if (

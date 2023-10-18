@@ -22,9 +22,9 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
     '#type' => 'select',
     '#title' => t('Header Layout Variant'),
     '#options' => [
-      'default' => t('Green header, Bottom navigation'),
       'option_a' => t('Blue header, Right navigation, Logo only'),
     ],
+    '#empty_option' => t('Green header, Bottom navigation'),
     '#default_value' => theme_get_setting('header_layout_variant'),
   ];
 }
