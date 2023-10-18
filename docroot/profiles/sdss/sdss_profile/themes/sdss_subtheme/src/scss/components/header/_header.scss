@@ -4,14 +4,6 @@
 // Includes the default header variant (currently Green Header, Bottom
 // Navigation).
 
-.su-brand-bar__container {
-  // display: flex;
-
-  .su-brand-bar__logo {
-    // width: 10%;
-  }
-}
-
 header.su-masthead {
   section.su-masthead--inner {
     display: block;
@@ -113,7 +105,6 @@ header.su-masthead {
 // Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
 //
 
-
 // Styles for Medium or bigger Screens.
 @include grid-media-min('md') {
   header.su-masthead {
@@ -153,14 +144,6 @@ header.su-masthead {
 @include grid-media-min('lg') {
   header.su-masthead {
     section.su-masthead--inner {
-      // display: grid;
-      // grid-template-columns: 1fr;
-      // grid-template-areas:
-      //   "lockup lockup lockup"
-      //   "main-nav main-nav search";
-      // align-items: flex-end;
-      // column-gap: 40px;
-
       #sdss-button--search-link {
         align-self: center;
         position: relative;
@@ -183,7 +166,6 @@ header.su-masthead {
 
       .su-multi-menu {
         padding: 0 8rem;
-        // grid-area: main-nav;
       }
     }
 
@@ -194,68 +176,24 @@ header.su-masthead {
     }
 
     .su-lockup {
-      // grid-area: lockup;
-      // background: $su-color-white;
-      // width: unset;
-      // max-width: unset;
-      // padding: 0; //spacing to get the background-color.
-      // margin-right: -20px;
-
       .su-lockup__cell1 {
-          padding: 3rem 4rem 3rem 8rem;
-        }
-
-        .su-lockup__cell2 {
-          position: relative;
-          padding: 3rem 8rem 3rem 3rem;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 9600px;
-            left: 0;
-            z-index: -1;
-            background: $sdss-color-palo-alto-dark;
-          }
-        }
-
-      .su-lockup__cell1,
-      .su-lockup__cell2 {
-        // border-right: 0;
-        // border-left: 0;
-      }
-
-      .su-lockup__cell1 {
-        // align-self: center;
-        // margin-right: 30px;
-        // max-width: 192px;
+        padding: 3rem 4rem 3rem 8rem;
       }
 
       .su-lockup__cell2 {
-        // position: relative;
-        // border-left: 0;
-        // margin-right: 30px;
-        // background-color: $sdss-color-palo-alto-dark;
-        // padding: 30px 30px 30px;
-        // max-width: unset;
+        position: relative;
+        padding: 3rem 8rem 3rem 3rem;
 
         &::after {
-          // content: "";
-          // position: absolute;
-          // /* fill vertically */
-          // top: 0;
-          // bottom: 0;
-          // width: 9600px;
-          // left: 100%;
-          // background: $sdss-color-palo-alto-dark;
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 9600px;
+          left: 0;
+          z-index: -1;
+          background: $sdss-color-palo-alto-dark;
         }
-      }
-
-      .su-lockup__line1,
-      .su-lockup__line2 {
-        // color: $su-color-white;
       }
     }
   }
@@ -282,122 +220,6 @@ header.su-masthead {
       .su-lockup__cell2 {
         position: relative;
         padding: 3rem 0 3rem 3rem;
-      }
-    }
-  }
-}
-
-
-//
-// Desktop first max-width queries.
-// Queries should go in order of large screen to smallest (e.g., lg, md, sm
-//
-
-// Styles up to Medium Screens.
-@include grid-media-max('md') {
-  header.su-masthead {
-    section.su-masthead--inner {
-      // position: relative;
-      // padding-top: 2rem;
-      // background-color: $sdss-color-palo-alto-dark;
-
-      &::before,
-      &::after {
-        // content: "";
-        // position: absolute;
-        // /* fill vertically */
-        // top: 0;
-        // bottom: 0;
-        // width: 9600px;
-        // right: calc(100% - 160px);
-        // background: $su-color-white;
-      }
-
-      &::after {
-        // left: 100%;
-        // background: $sdss-color-palo-alto-dark;
-      }
-    }
-
-    .su-lockup {
-      > a {
-        // flex-direction: unset;
-        // flex-wrap: wrap;
-      }
-
-      .su-lockup__cell1 {
-        // border-right: none;
-      }
-
-      .su-lockup__cell2 {
-        // border-left: 1px solid $sdss-color-black;
-        // padding-left: 0;
-        // order: 2;
-        // border-left: none;
-        // padding-bottom: 1em;
-        // padding-left: 1em;
-      }
-    }
-  }
-}
-
-// Styles up to Small Screens.
-@include grid-media-max('sm') {
-  header.su-masthead {
-    section.su-masthead--inner {
-      // padding-top: 1.5rem;
-      // margin-left: 0;
-      // margin-right: 0;
-      // padding-left: 30px;
-      // padding-right: 30px;
-      // min-width: 100%;
-
-      &::before {
-        // content: "";
-        // position: absolute;
-        // /* fill vertically */
-        // top: 0;
-        // bottom: calc(100% - 65px);
-        // width: 9600px;
-        // right: -20%;
-        // background: $su-color-white;
-      }
-
-      &::after {
-        // content: "";
-        // position: absolute;
-        // /* fill vertically */
-        // top: 0;
-        // bottom: 190px;
-        // width: 9600px;
-        // left: 100%;
-        // background: $sdss-color-palo-alto-dark;
-      }
-    }
-
-    .su-lockup {
-      a {
-        // align-items: left;
-        // display: inline-flex;
-        // gap: 20px;
-        // justify-content: flex-start;
-        // vertical-align: bottom;
-        // flex-direction: column;
-      }
-    }
-  }
-}
-
-// Styles up to Extra Small Screens.
-@include grid-media-max('xs') {
-  header.su-masthead {
-    .su-lockup {
-      // .su-lockup__cell2 {
-      //   padding-left: 0;
-      // }
-
-      .su-lockup__line1 {
-        // margin-left: 0;
       }
     }
   }

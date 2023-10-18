@@ -2,8 +2,6 @@
 
 // Header Option A variant styles (currently Blue Header, Right Navigation).
 
-
-// Main site heading
 body.sdss-header-variant--option_a {
   header.su-masthead {
     section.su-masthead--inner {
@@ -25,26 +23,8 @@ body.sdss-header-variant--option_a {
       }
     }
   }
-
-  .su-lockup__custom-logo {
-    // max-width: 150px;
-  }
-
-  .su-lockup {
-    // display: block;
-  }
 }
 
-// Remove the brand-bar link to right for main site.
-// body.sdss-header-variant--option_a {
-//   .su-lockup {
-//     .su-brand-bar__container {
-//       > span {
-//         display: none;
-//       }
-//     }
-//   }
-// }
 
 //
 // Mobile first min-width queries.
@@ -62,27 +42,6 @@ body.sdss-header-variant--option_a {
         display: flex;
         justify-content: flex-start;
         background: $sdss-color-blue-light;
-        // display: grid;
-        // grid-template-columns: 200px 1fr 40px;
-        // grid-template-areas: "lockup main-nav search";
-        // align-items: flex-end;
-
-        &::before,
-        &::after {
-          // content: "";
-          // position: absolute;
-          // /* fill vertically */
-          // top: 0;
-          // bottom: 0;
-          // width: 9600px;
-          // right: 100%;
-          // background: $su-color-white;
-        }
-
-        &::after {
-          // left: 100%;
-          // background: $sdss-color-blue-light;
-        }
 
         &::after {
           content: "";
@@ -95,19 +54,6 @@ body.sdss-header-variant--option_a {
           background: $sdss-color-blue-light;
         }
 
-        #sdss-button--search-link {
-          // grid-area: search;
-          // width: 32px;
-          // height: 32px;
-          // position: relative;
-          // top: 15px;
-          // right: unset;
-          // align-self: center;
-          // background-color: $sdss-color-palo-alto-dark;
-          // border-radius: 32px;
-          // left: 8px;
-        }
-
         .system-menu-block {
           align-self: flex-end;
           width: auto;
@@ -115,7 +61,6 @@ body.sdss-header-variant--option_a {
         }
 
         .su-multi-menu {
-          // grid-area: main-nav;
           padding: 0;
           background-color: $sdss-color-blue-light;
 
@@ -129,12 +74,6 @@ body.sdss-header-variant--option_a {
 
       .su-lockup {
         background: $su-color-white;
-        // grid-area: lockup;
-        // width: 175px;
-        // max-width: unset;
-        // padding: 1em 0; //spacing to get the background-color.
-        // margin-right: -20px;
-        // height: 100%; //to get white to fill when window resized.
 
         .su-lockup__cell1 {
           padding: 2rem 3rem 2rem 8rem;
