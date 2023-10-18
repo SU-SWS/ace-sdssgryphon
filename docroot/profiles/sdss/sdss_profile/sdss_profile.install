@@ -521,6 +521,24 @@ return;
 }
 
 /**
+ * Set header layout variant based on current lock-up setting.
+ */
+function sdss_profile_update_9105() {
+  $header_layout_variant = 'default';
+  $config_pages_loader = \Drupal::service('config_pages.loader');
+  $lockup_option = $config_pages_loader->getValue('lockup_settings', 'su_lockup_options', 0, 'value');
+  if (
+    $lockup_option
+    && $lockup_option == 'none'
+  ) {
+    $header_layout_variant = 'option_a';
+  }
+  $theme_config = \Drupal::getContainer()->get('config.factory')->getEditable('sdss_subtheme.settings');
+  $theme_config->set('header_layout_variant', $header_layout_variant);
+  $theme_config->save();
+}
+
+/**
  * Update menu links on nodes for the updated version of menu_link_weight.
  *
  * @param array $menu_items

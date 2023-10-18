@@ -6,9 +6,6 @@ use Drupal\Core\Link;
 
 // @codeCoverageIgnoreStart
 
-// Set theme name to use in the key values.
-$theme_name = \Drupal::theme()->getActiveTheme()->getName();
-
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
