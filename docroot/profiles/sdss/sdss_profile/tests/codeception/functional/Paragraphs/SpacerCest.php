@@ -54,7 +54,7 @@ class SpacerCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
-    $I->seeElementInDOM('.su-spacer-reduced');
+    $I->seeElementInDOM('.sdss-spacer-reduced');
 
     $I->amOnPage($page->toUrl('edit-form')->toString());
     $I->scrollTo('.js-lpb-component', 0, -100);
@@ -65,7 +65,7 @@ class SpacerCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
-    $I->seeElementInDOM('.su-spacer-minimal');
+    $I->seeElementInDOM('.sdss-spacer-minimal');
 
   }
 
