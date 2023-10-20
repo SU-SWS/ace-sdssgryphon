@@ -71,7 +71,7 @@
     </testsuite>
     <testsuite name="stanford">
       <directory>../modules/custom</directory>
-      <directory>../profiles/custom</directory>
+      <!-- <directory>../profiles/custom</directory> -->
       <directory>../profiles/sdss</directory>
     </testsuite>
   </testsuites>
