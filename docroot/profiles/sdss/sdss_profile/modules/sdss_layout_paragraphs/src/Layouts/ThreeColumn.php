@@ -2,11 +2,11 @@
 
 namespace Drupal\sdss_layout_paragraphs\Layouts;
 
-use Drupal\Core\Layout\LayoutDefault;
+use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBase;
 
 /**
  * Three column layout class.
  */
-class ThreeColumn extends LayoutDefault {
+class ThreeColumn  extends SdssLayoutParagraphBase {
 
 }

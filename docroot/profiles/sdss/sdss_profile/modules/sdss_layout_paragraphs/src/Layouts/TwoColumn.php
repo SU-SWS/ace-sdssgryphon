@@ -2,12 +2,12 @@
 
 namespace Drupal\sdss_layout_paragraphs\Layouts;
 
-use Drupal\layout_builder\Plugin\Layout\MultiWidthLayoutBase;
+use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBase;
 
 /**
  * Two column layout class.
  */
-class TwoColumn extends MultiWidthLayoutBase {
+class TwoColumn extends SdssLayoutParagraphBase {
 
   /**
    * {@inheritDoc}
