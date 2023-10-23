@@ -9,4 +9,10 @@ use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBase;
  */
 class ThreeColumn  extends SdssLayoutParagraphBase {
 
+  protected function getWidthOptions() {
+    return [
+      '100' => '100%',
+      'offset-100' => 'Offset: 100%',
+    ];
+  }
 }
