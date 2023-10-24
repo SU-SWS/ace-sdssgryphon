@@ -1,0 +1,16 @@
+uuid: e570d8ce-9b41-4165-b9c5-d05f6f900747
+langcode: en
+status: false
+dependencies: {  }
+id: room_reservations
+label: 'Room Reservations'
+description: ''
+weight: 0
+stackable: false
+storage: folder
+folder: profiles/sdss/sdss_profile/config/sdssrooms
+module:
+  stanford_earth_r25: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }

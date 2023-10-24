@@ -17,4 +17,7 @@ ignored_config_entities:
   - 'migrate_plus.migration.earth_news_importer*'
   - 'core.extension:module.earth_news_importer'
   - 'samlauth.authentication:map_users_roles'
+  - 'stanford_earth_r25.adminsettings'
+  - 'stanford_earth_r25.credentialsettings'
+  - 'stanford_earth_r25.stanford_earth_r25.*'
 enable_export_filtering: false
