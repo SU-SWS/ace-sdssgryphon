@@ -280,10 +280,6 @@ function sdss_profile_update_9006(&$sandbox) {
     foreach ($node->get('su_publication_components') as $row) {
       $row_entity = $row_storage->load($row->get('target_id')->getString());
 
-      $bg_color = $row_entity->get('su_para_row_bgcolor')->getString();
-      $bg_color = array_pop(explode('--', $bg_color));
-      if (!$bg_color) $bg_color = 'none';
-
       $delete_entities[] = $row_entity;
       $number_of_items = $row_entity->get('su_pubs_components')->count();
       $layout_id = "layout_paragraphs_sdss_{$number_of_items}_column";
@@ -291,10 +287,7 @@ function sdss_profile_update_9006(&$sandbox) {
       $new_row_entity = $paragraph_storage->create(['type' => 'stanford_layout']);
       $new_row_entity->setBehaviorSettings('layout_paragraphs', [
         'layout' => $layout_id,
-        'config' => [
-          'label' => '',
-          'bg_color' => $bg_color,
-        ],
+        'config' => ['label' => ''],
         'parent_uuid' => NULL,
         'region' => NULL,
       ]);
