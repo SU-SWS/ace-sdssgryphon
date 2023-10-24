@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93a439d8fdc9f30f07836f0b351f93db",
+    "content-hash": "4e5c9b84334022abd9ef15920e9ad9da",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5142,17 +5142,17 @@
         },
         {
             "name": "drupal/editoria11y",
-            "version": "2.1.2",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/editoria11y.git",
-                "reference": "2.1.2"
+                "reference": "2.0.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.1.2.zip",
-                "reference": "2.1.2",
-                "shasum": "ebd77063566def30be1c7c2fa684c5b05aaa7112"
+                "url": "https://ftp.drupal.org/files/projects/editoria11y-2.0.14.zip",
+                "reference": "2.0.14",
+                "shasum": "ac0e3d232f3c36e0d7759f1991e08ef767d11acd"
             },
             "require": {
                 "drupal/core": "^9 || ^10"
@@ -5160,8 +5160,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.2",
-                    "datestamp": "1696531334",
+                    "version": "2.0.14",
+                    "datestamp": "1692130094",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
