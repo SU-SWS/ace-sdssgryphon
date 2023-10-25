@@ -5,9 +5,21 @@
   margin: 0 3rem;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px){
+.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+  margin: 0;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .layout--layout-paragraphs-two-column {
     margin: 0 4.0rem;
+  }
+
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+    margin: 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 
@@ -17,9 +29,15 @@
   }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px){
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   .layout--layout-paragraphs-two-column {
     margin: 0 5rem;
+  }
+
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+    margin: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 
   .flex-lg-9-of-12 .layout--layout-paragraphs-two-column {
@@ -30,6 +48,12 @@
 @media only screen and (min-width: 1200px) {
   .layout--layout-paragraphs-two-column {
     margin: 0 7.5rem;
+  }
+
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+    margin: 0;
+    padding-left: 7.5rem;
+    padding-right: 7.5rem;
   }
 
   .flex-lg-9-of-12 .layout--layout-paragraphs-two-column {
