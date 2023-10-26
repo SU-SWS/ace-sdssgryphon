@@ -90,7 +90,7 @@
   margin: 0;
 }
 
-/* Override for SBT. */
+/* Override Stanford Basic theme */
 @media screen and (min-width: 1700px) {
   .su-page-components .layout--layout-paragraphs-three-column,
   .su-page-components .layout--layout-paragraphs-two-column {
