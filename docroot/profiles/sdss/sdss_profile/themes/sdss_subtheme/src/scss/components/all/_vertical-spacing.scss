@@ -3,7 +3,7 @@
 // Override bottom margin on all components.
 .content {
   .paragraph-item {
-    @include responsive-spacing('margin-bottom', 1);
+    @include responsive-spacing('padding-bottom', 1);
 
   }
 }

@@ -5,7 +5,9 @@
   margin: 0 3rem;
 }
 
-.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--green,
+.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--blue,
+.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--grey {
   margin: 0;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -16,7 +18,9 @@
     margin: 0 4.0rem;
   }
 
-  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--green,
+.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--blue,
+.layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--grey {
     margin: 0;
     padding-left: 4rem;
     padding-right: 4rem;
@@ -34,7 +38,9 @@
     margin: 0 5rem;
   }
 
-  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--green,
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--blue,
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--grey {
     margin: 0;
     padding-left: 5rem;
     padding-right: 5rem;
@@ -50,7 +56,9 @@
     margin: 0 7.5rem;
   }
 
-  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor {
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--green,
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--blue,
+  .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--grey {
     margin: 0;
     padding-left: 7.5rem;
     padding-right: 7.5rem;
@@ -80,4 +88,18 @@
 
 .layout-paragraphs-sdss-two-column.layout-paragraphs-sdss-two-column--offset-50-50 {
   margin: 0;
+}
+
+/* Override for SBT. */
+@media screen and (min-width: 1700px) {
+  .su-page-components .layout--layout-paragraphs-three-column,
+  .su-page-components .layout--layout-paragraphs-two-column {
+      max-width: inherit;
+  }
+}
+
+.su-page-components .layout--layout-paragraphs-one-column,
+.su-page-components .layout--layout-paragraphs-three-column,
+.su-page-components .layout--layout-paragraphs-two-column {
+  padding-bottom: 2.7rem;
 }
