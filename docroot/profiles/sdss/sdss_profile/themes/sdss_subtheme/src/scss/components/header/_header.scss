@@ -146,13 +146,14 @@ header.su-masthead {
     section.su-masthead--inner {
       #sdss-button--search-link {
         align-self: center;
-        position: relative;
+        position: absolute;
         display: inline-block;
         top: unset;
-        right: unset;
+        right: 0;
         left: unset;
         bottom: unset;
         margin: 0;
+        margin-right: 3rem;
         width: 32px;
         height: 32px;
         border-radius: 32px;
