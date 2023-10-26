@@ -160,6 +160,13 @@ header.su-masthead {
         background-color: $sdss-color-palo-alto-dark;
       }
 
+      .su-lockup--option-a,
+      .su-lockup--option-b {
+        ~ #sdss-button--search-link {
+          margin-top: -4.5rem;
+        }
+      }
+
       .system-menu-block {
         position: relative;
         bottom: unset;
