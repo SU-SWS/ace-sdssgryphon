@@ -11,8 +11,7 @@
 // Moving the margin further down the html to keep the bgcolors.
 .su-page-components {
   .layout--layout-paragraphs-one-column,
-  .layout--layout-paragraphs-three-column,
-  .layout--layout-paragraphs-two-column {
+  .layout--layout-paragraphs-three-column {
     > div {
       @include responsive-spacing('margin-bottom', 1);
     }
