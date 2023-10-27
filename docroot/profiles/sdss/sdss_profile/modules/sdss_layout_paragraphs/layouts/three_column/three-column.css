@@ -52,8 +52,8 @@
 
   .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
     margin: 0;
-    padding-left: 100px;
-    padding-right: 100px;
+    /* padding-left: 100px;
+    padding-right: 100px; */
   }
 
   .flex-lg-9-of-12 .layout--layout-paragraphs-three-column {
