@@ -41,6 +41,7 @@ body.sdss-header-variant--option_a {
         position: relative;
         display: flex;
         justify-content: flex-start;
+        flex-wrap:  nowrap;
         background: $sdss-color-blue-light;
 
         &::after {
@@ -67,6 +68,7 @@ body.sdss-header-variant--option_a {
           .su-multi-menu__menu {
             &.su-multi-menu__menu-lv1 {
               background-color: $sdss-color-blue-light;
+              padding-right: 3rem;
             }
           }
         }

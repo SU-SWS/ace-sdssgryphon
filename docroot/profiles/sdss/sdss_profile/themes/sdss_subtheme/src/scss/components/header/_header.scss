@@ -146,16 +146,15 @@ header.su-masthead {
     section.su-masthead--inner {
       #sdss-button--search-link {
         align-self: center;
-        position: absolute;
+        position: relative;
         display: inline-block;
         top: unset;
         right: 0;
         left: unset;
         bottom: unset;
-        margin: 0;
-        margin-right: 3rem;
-        width: 32px;
-        height: 32px;
+        margin: 0 0 0 3rem;
+        min-width: 32px;
+        min-height: 32px;
         border-radius: 32px;
         background-color: $sdss-color-palo-alto-dark;
       }
@@ -164,6 +163,8 @@ header.su-masthead {
       .su-lockup--option-b {
         ~ #sdss-button--search-link {
           margin-top: -4.5rem;
+          position: absolute;
+          margin-right: 3rem;
         }
       }
 
