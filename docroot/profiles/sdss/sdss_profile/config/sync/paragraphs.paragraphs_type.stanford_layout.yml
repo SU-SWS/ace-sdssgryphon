@@ -1,4 +1,4 @@
-uuid: c935e784-07eb-4fbf-afab-f687901abe5a
+uuid: c63df045-4251-4cda-9e42-0e1af0901f6d
 langcode: en
 status: true
 dependencies:
@@ -16,3 +16,5 @@ behavior_plugins:
     enabled: true
     available_layouts:
       layout_paragraphs_sdss_1_column: '1 Column'
+      layout_paragraphs_sdss_2_column: '2 Column'
+      layout_paragraphs_sdss_3_column: '3 Column'

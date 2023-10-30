@@ -47,4 +47,4 @@ sdss-news-vertical-teaser:
       label: "Footer"
       description: "The footer area."
       preview: ""
-  use: "@sdss_subtheme/news-vertical-teaser/pattern-news-vertical-teaser.html.twig"
+  use: "@sdss_profile_helper/news-vertical-teaser/pattern-news-vertical-teaser.html.twig"

@@ -22,4 +22,4 @@ sdss-media-contact:
       label: "Media Contact Organization or School"
       description: "The media contact organization or school."
       preview: "The Sierra Club"
-  use: "@sdss_subtheme/media-contact/media-contact.html.twig"
+  use: "@sdss_profile_helper/media-contact/media-contact.html.twig"

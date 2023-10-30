@@ -89,33 +89,20 @@ function sdss_profile_update_9000(&$sandbox) {
 }
 
 /**
- * Create the new layout paragraph type.
+ * Enable 2 and 3 column layouts on the stanford_layout paragraph type.
  */
 function sdss_profile_update_9001(&$sandbox) {
-  \Drupal::service('module_installer')->install([
-    'layout_paragraphs',
-    'stanford_layout_paragraphs',
-  ]);
-  $plugins = [
-    'layout_paragraphs' => [
-      'enabled' => TRUE,
-      'available_layouts' => [
-        'layout_paragraphs_1_column' => '1 Column',
-        'layout_paragraphs_2_column' => '2 Column',
-        'layout_paragraphs_3_column' => '3 Column',
-      ],
-    ],
+  $paragraph_type = \Drupal::entityTypeManager()->getStorage('paragraphs_type')->load('stanford_layout');
+  $behavior_plugin = $paragraph_type->getBehaviorPlugin('layout_paragraphs');
+  $configuration = [
+    "enabled" => TRUE,
+    "available_layouts" => [
+      "layout_paragraphs_sdss_1_column" => "1 Column",
+      "layout_paragraphs_sdss_2_column" => "2 Column",
+      "layout_paragraphs_sdss_3_column" => "3 Column",
+    ]
   ];
-
-  /** @var \Drupal\paragraphs\ParagraphsTypeInterface $paragraph_type */
-  $paragraph_type = \Drupal::entityTypeManager()
-    ->getStorage('paragraphs_type')
-    ->create([
-      'uuid' => 'c935e784-07eb-4fbf-afab-f687901abe5a',
-      'id' => 'stanford_layout',
-      'label' => 'Layout',
-    ]);
-  $paragraph_type->set('behavior_plugins', $plugins);
+  $behavior_plugin->setConfiguration($configuration);
   $paragraph_type->save();
 }
 
@@ -205,14 +192,22 @@ function sdss_profile_update_9005(&$sandbox) {
       $row_entity = $row_storage->loadRevision($row->get('target_revision_id')
         ->getString());
 
+      $bg_color = $row_entity->get('su_para_row_bgcolor')->getString();
+      $bg_color = explode('--', $bg_color);
+      $bg_color = array_pop($bg_color);
+      if (!$bg_color) $bg_color = 'none';
+
       $delete_entities[] = $row_entity;
       $number_of_items = min($row_entity->get('su_page_components')->count(), 3);
-      $layout_id = "layout_paragraphs_{$number_of_items}_column";
+      $layout_id = "layout_paragraphs_sdss_{$number_of_items}_column";
 
       $new_row_entity = $paragraph_storage->create(['type' => 'stanford_layout']);
       $new_row_entity->setBehaviorSettings('layout_paragraphs', [
         'layout' => $layout_id,
-        'config' => ['label' => ''],
+        'config' => [
+          'label' => '',
+          'bg_color' => $bg_color,
+        ],
         'parent_uuid' => NULL,
         'region' => NULL,
       ]);
@@ -285,9 +280,10 @@ function sdss_profile_update_9006(&$sandbox) {
     /** @var \Drupal\Core\Field\EntityReferenceFieldItemListInterface $row */
     foreach ($node->get('su_publication_components') as $row) {
       $row_entity = $row_storage->load($row->get('target_id')->getString());
+
       $delete_entities[] = $row_entity;
       $number_of_items = $row_entity->get('su_pubs_components')->count();
-      $layout_id = "layout_paragraphs_{$number_of_items}_column";
+      $layout_id = "layout_paragraphs_sdss_{$number_of_items}_column";
 
       $new_row_entity = $paragraph_storage->create(['type' => 'stanford_layout']);
       $new_row_entity->setBehaviorSettings('layout_paragraphs', [
@@ -351,10 +347,10 @@ function sdss_profile_update_9006(&$sandbox) {
  */
 function _sdss_profile_update_9005_get_item_region(int $delta, string $layout_id): string {
   switch ($layout_id) {
-    case 'layout_paragraphs_2_column':
+    case 'layout_paragraphs_sdss_2_column':
       return $delta ? 'right' : 'left';
 
-    case 'layout_paragraphs_3_column':
+    case 'layout_paragraphs_sdss_3_column':
       $delta_regions = ['left', 'main', 'right', 'right', 'right'];
       return $delta_regions[$delta];
   }
@@ -518,6 +514,24 @@ return;
       }
     }
   }
+}
+
+/**
+ * Set header layout variant based on current lock-up setting.
+ */
+function sdss_profile_update_9105() {
+  $header_layout_variant = 'none';
+  $config_pages_loader = \Drupal::service('config_pages.loader');
+  $lockup_option = $config_pages_loader->getValue('lockup_settings', 'su_lockup_options', 0, 'value');
+  if (
+    $lockup_option
+    && $lockup_option == 'none'
+  ) {
+    $header_layout_variant = 'option_a';
+  }
+  $theme_config = \Drupal::getContainer()->get('config.factory')->getEditable('sdss_subtheme.settings');
+  $theme_config->set('header_layout_variant', $header_layout_variant);
+  $theme_config->save();
 }
 
 /**
@@ -705,8 +719,7 @@ function _sdss_profile_reset_node_changed_time(NodeInterface $node, int $changed
 /**
  * Install SamlAuth
  */
-function sdss_profile_update_9501()
-{
+function sdss_profile_update_9501() {
   $config_ignore = \Drupal::configFactory()
     ->getEditable('config_ignore.settings');
   $ignored = $config_ignore->get('ignored_config_entities');
