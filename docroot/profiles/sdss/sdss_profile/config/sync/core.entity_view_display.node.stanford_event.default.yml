@@ -184,16 +184,22 @@ third_party_settings:
             region: main
             configuration:
               id: 'field_block:node:stanford_event:su_sdss_custm_event_feat_media'
+              label: 'Featured Media'
               label_display: '0'
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: entity_reference_entity_view
-                label: above
+                label: hidden
                 settings:
                   view_mode: default
-                  link: false
-                third_party_settings: {  }
+                third_party_settings:
+                  empty_fields:
+                    handler: ''
+                  field_formatter_class:
+                    class: ''
             weight: -4
             additional: {  }
           70c2271f-7e44-4beb-8014-30f150bda415:
