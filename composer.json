@@ -53,12 +53,12 @@
             "type": "package",
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
-                "version": "8.1.6",
+                "version": "8.1.7",
                 "type": "drupal-custom-module-rooms-site",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
-                    "reference": "8.1.6"
+                    "reference": "8.1.7"
                 }
             }
         }
@@ -91,10 +91,12 @@
         "drupal/conditional_fields": "^4.0",
         "drupal/config_filter": "^2.0",
         "drupal/config_ignore": "^3.0",
+        "drupal/config_merge": "^1.0-rc",
         "drupal/config_pages": "^2.6",
         "drupal/config_pages_overrides": "^2.0",
         "drupal/config_readonly": "^1.0@beta",
         "drupal/config_split": "^2.0",
+        "drupal/config_update": "^1.7",
         "drupal/confirm_leave": "^1.0@beta",
         "drupal/content_lock": "^2.2",
         "drupal/core": "~9.5.0",
@@ -108,7 +110,7 @@
         "drupal/ds": "^3.3",
         "drupal/eck": "^1.0@beta",
         "drupal/editor_advanced_link": "^1.8",
-        "drupal/editoria11y": "^2.0",
+        "drupal/editoria11y": "~2.0.0",
         "drupal/element_class_formatter": "^2.0@beta",
         "drupal/encrypt": "^3.0",
         "drupal/environment_indicator": "^4.0",
@@ -314,11 +316,11 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/hook_event_dispatcher": {
-                "https://www.drupal.org/project/hook_event_dispatcher/issues/3354751": "https://www.drupal.org/files/issues/2023-04-17/hook_event_dispatcher-4.x-3354751.patch"
-            },
             "drupal/google_tag": {
                 "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"
+            },
+            "drupal/hook_event_dispatcher": {
+                "https://www.drupal.org/project/hook_event_dispatcher/issues/3354751": "https://www.drupal.org/files/issues/2023-04-17/hook_event_dispatcher-4.x-3354751.patch"
             },
             "drupal/menu_block": {
                 "https://www.drupal.org/project/menu_block/issues/3271218": "https://www.drupal.org/files/issues/2022-04-29/menu_block_rendered_empty-3271218-17.patch"
