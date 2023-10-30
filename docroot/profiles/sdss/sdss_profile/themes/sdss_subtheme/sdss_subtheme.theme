@@ -9,6 +9,10 @@
  */
 function sdss_subtheme_preprocess_html(&$variables) {
   $variables['stanford_basic_path'] = drupal_get_path('theme', 'stanford_basic');
+  // Variant setting for the header layout.
+  if ($header_layout_variant = theme_get_setting('header_layout_variant')) {
+    $variables['attributes']['class'][] = 'sdss-header-variant--' . $header_layout_variant;
+  }
 }
 
 /**
@@ -109,5 +113,15 @@ function sdss_subtheme_preprocess_block(&$variables) {
     $variables['attributes']['data-island'] = 'newsroom-menu-island';
     $variables['#attached']['library'][] = 'sdss_subtheme/decoupled_menu';
   }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function sdss_subtheme_preprocess_page(&$vars) {
+  // Override the variant settings for the brand bar and global footer.
+  // These need to allows be the "dark" variants for the SDSS subtheme.
+  $vars['brand_bar_variant'] = 'su-brand-bar--dark';
+  $vars['global_footer_variant'] = 'su-global-footer--dark';
 }
 

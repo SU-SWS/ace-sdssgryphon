@@ -37,9 +37,15 @@ if (EnvironmentDetector::isAhEnv()) {
       'core.menu.static_menu_link_overrides',
       'system.theme',
       'google_tag.container.*',
+      'google_tag.settings',
       'user.role.*',
       'system.action.user_add_role_action.*',
       'system.action.user_remove_role_action.*',
+      'samlauth.authentication',
+    ];
+    $settings['config_readonly_content_link_providers'] = [
+      'menu_link_content',
+      'menu_link',
     ];
   }
 }
@@ -50,6 +56,11 @@ if (EnvironmentDetector::isAhEnv()) {
  * site. See related information below.
  */
 $settings['config_sync_directory'] = DRUPAL_ROOT . '/profiles/sdss/sdss_profile/config/sync';
+
+// Block the bots when not on production.
+if (!EnvironmentDetector::isAhProdEnv()) {
+  $settings['nobots'] = TRUE;
+}
 
 /**
  * Include settings files in docroot/sites/settings.
@@ -62,7 +73,7 @@ $additionalSettingsFiles = [
   __DIR__ . '/environment_indicator.settings.php',
   __DIR__ . '/fast404.settings.php',
   __DIR__ . '/google_analytics.settings.php',
-  __DIR__ . '/simplesamlphp.settings.php',
+  __DIR__ . '/saml.settings.php',
   __DIR__ . '/xmlsitemap.settings.php',
 ];
 

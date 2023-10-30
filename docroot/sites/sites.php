@@ -98,6 +98,8 @@ $sites['earthsystems.stanford.edu'] = 'esys';
 $sites['epsci.stanford.edu'] = 'gs';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
 $sites['understand-energy.stanford.edu'] = 'understandenergy';
+$sites['techtransferfordefense.stanford.edu'] = 'hackingfordefense';
+
 // Hopkins Marine Station dev, test, and prod URL's currently exist on another
 // ACE stack. We need to point custom aliases to build the site.
 $sites['hms-sdss-dev.stanford.edu'] = 'hopkinsmarinestation';

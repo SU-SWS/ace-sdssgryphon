@@ -1,0 +1,19 @@
+uuid: 8b185d3d-ec7b-47b4-9d46-de1daad2676b
+langcode: en
+status: true
+dependencies:
+  module:
+    - sdss_entities
+    - telephone
+id: sdss_entity.su_sdss_contact_phone
+field_name: su_sdss_contact_phone
+entity_type: sdss_entity
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

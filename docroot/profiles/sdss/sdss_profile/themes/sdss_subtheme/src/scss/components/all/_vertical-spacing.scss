@@ -3,11 +3,31 @@
 // Override bottom margin on all components.
 .content {
   .paragraph-item {
-    @include responsive-spacing('margin-bottom', 4);
+    // @include responsive-spacing('margin-bottom', 1);
+    margin-bottom: 0;
   }
 }
 
-// Utility class to add to layout sections to drop the bottom margin on the 
+// Moving the margin further down the html to keep the bgcolors.
+.su-page-components {
+  .layout--layout-paragraphs-one-column,
+  .layout--layout-paragraphs-three-column {
+    > div {
+      @include responsive-spacing('margin-bottom', 1);
+    }
+  }
+}
+
+.su-page-components {
+  .layout--layout-paragraphs-one-column,
+  .layout--layout-paragraphs-three-column,
+  .layout--layout-paragraphs-two-column {
+    @include responsive-spacing('padding-bottom', 1);
+
+  }
+}
+
+// Utility class to add to layout sections to drop the bottom margin on the
 // WYSIWYG block (for the home page banner animated gif workaround).
 .content {
   .sdss-drop-paragraph-margin {

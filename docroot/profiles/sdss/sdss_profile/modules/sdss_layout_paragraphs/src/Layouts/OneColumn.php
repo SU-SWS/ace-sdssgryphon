@@ -2,13 +2,12 @@
 
 namespace Drupal\sdss_layout_paragraphs\Layouts;
 
-use Drupal\layout_builder\Plugin\Layout\MultiWidthLayoutBase;
-
+use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBase;
 
 /**
  * One column layout class.
  */
-class OneColumn extends MultiWidthLayoutBase {
+class OneColumn extends SdssLayoutParagraphBase {
 
   protected function getWidthOptions() {
     return [

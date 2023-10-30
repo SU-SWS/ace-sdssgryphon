@@ -1,0 +1,21 @@
+uuid: 12093d56-a564-4e5b-8a57-c7dcc0131305
+langcode: en
+status: true
+dependencies:
+  module:
+    - sdss_entities
+id: sdss_entity.su_sdss_contact_org
+field_name: su_sdss_contact_org
+entity_type: sdss_entity
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

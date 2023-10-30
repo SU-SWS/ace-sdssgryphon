@@ -21,9 +21,8 @@
   }
 
   .decoration {
-    color: $sdss-color-blue-hover;
+    color: $sdss-color-decorative-blue;
     font-family: $su-font-serif;
-
   }
 
   // Setting up appearance
@@ -62,8 +61,7 @@
     p {
       display: inline;
 
-      &::after {
-        content: "\301E";
+      .close-quote {
         display: inline;
         font-family: $su-font-serif;
       }

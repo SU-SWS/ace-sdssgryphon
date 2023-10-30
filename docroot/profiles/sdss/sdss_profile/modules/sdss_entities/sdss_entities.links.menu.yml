@@ -1,0 +1,5 @@
+entity.sdss_entity_type.collection:
+  title: 'SDSS Entity types'
+  description: 'Manage and CRUD actions on SDSS Entity type.'
+  parent: system.admin_structure
+  route_name: entity.sdss_entity_type.collection

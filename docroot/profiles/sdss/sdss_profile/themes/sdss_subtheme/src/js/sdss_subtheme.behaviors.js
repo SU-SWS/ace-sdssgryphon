@@ -15,11 +15,8 @@
 
     (function ($) {
 
-      $('.su-brand-bar,.su-masthead').wrapAll('<div class="fixed-header">');
-
-      // Moving around classes for header display
-      var sdss_logo_classes = $('#block-sdss-subtheme-branding').attr('class');
-      $('.fixed-header').addClass(sdss_logo_classes);
+      // Add search link button to navigation.
+      $('#block-sdss-subtheme-main-navigation').after('<a href="/search" id="sdss-button--search-link" class="su-site-search__submit"><span class="visually-hidden">Search</span></a>');
 
     })(jQuery);
   },

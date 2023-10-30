@@ -9,8 +9,10 @@ dependencies:
     - paragraphs.paragraphs_type.stanford_card
     - paragraphs.paragraphs_type.stanford_entity
     - paragraphs.paragraphs_type.stanford_gallery
+    - paragraphs.paragraphs_type.stanford_layout
     - paragraphs.paragraphs_type.stanford_lists
     - paragraphs.paragraphs_type.stanford_media_caption
+    - paragraphs.paragraphs_type.stanford_spacer
     - paragraphs.paragraphs_type.stanford_wysiwyg
   module:
     - entity_reference_revisions
@@ -18,7 +20,7 @@ id: node.stanford_person.su_person_components
 field_name: su_person_components
 entity_type: node
 bundle: stanford_person
-label: Components
+label: Paragraphs
 description: 'Free form content components.'
 required: false
 translatable: false
@@ -33,8 +35,10 @@ settings:
       stanford_media_caption: stanford_media_caption
       stanford_wysiwyg: stanford_wysiwyg
       stanford_entity: stanford_entity
+      stanford_spacer: stanford_spacer
       stanford_gallery: stanford_gallery
       stanford_lists: stanford_lists
+      stanford_layout: stanford_layout
     negate: 0
     target_bundles_drag_drop:
       callout_quote:
@@ -59,8 +63,8 @@ settings:
         weight: 14
         enabled: true
       stanford_layout:
-        weight: 22
-        enabled: false
+        weight: 18
+        enabled: true
       stanford_lists:
         weight: 15
         enabled: true

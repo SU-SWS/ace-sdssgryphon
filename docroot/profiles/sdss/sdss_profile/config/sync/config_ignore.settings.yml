@@ -1,9 +1,9 @@
 _core:
   default_config_hash: v7E8C8wJWeAW2BGohMNY1tZSBc4bexM6O62tGxecTfE
 ignored_config_entities:
-  - 'core.extension:theme'
   - 'system.theme:default'
-  - '~block.block.seven_*'
+  - '~block.block.claro_*'
+  - '~block.block.stanford_profile_admin_*'
   - '~block.block.stanford_basic_*'
   - '~block.block.minimally_branded_subtheme_*'
   - '~block.block.sdss_subtheme_*'
@@ -16,4 +16,5 @@ ignored_config_entities:
   - migrate_plus.migration_group.earth_news_importer
   - 'migrate_plus.migration.earth_news_importer*'
   - 'core.extension:module.earth_news_importer'
+  - 'samlauth.authentication:map_users_roles'
 enable_export_filtering: false

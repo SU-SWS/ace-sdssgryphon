@@ -1,5 +1,38 @@
 # ACE SDSSGryphon
 
+2.2.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-09-27_
+
+- 493dd2a SDSS-973: Change dash to underscore in blt.yml for abc_hub (#244)
+- e08da09 SDSS-969: Disabled JSON API module (#242)
+- 2466773 SDSS-888: Swapping abchub with abc-hub (#239)
+- f06dade SDSS-943: Pointed techtransferfordefense to hackingfordefense site (#240)
+- d0dc2c2 SDSS-594-885: Added media contacts entity, field, styles and displays (#217) (#219)
+- 06d6b78 SDSS-843: Added the stanford_earth_r25 module to sdssroom site only. (#237)
+- bee9507 SDSS-937: NEWS | Added top margin to related news section (#235)
+- b8d1b0b SDSS-851: A11y | Added decorative blue text color for improved accessibility (#234)
+- 8a4c240 SDSS-842: Provision SDSS Rooms (#236)
+- f061137 SDSS-477: A11Y | Fixed button text color on Event pages (#233)
+- 3091c40 SDSS-451, SDSS-452: Adjust margin and padding for color variant paragraph rows (#232)
+- 3bacc1e SDSS-175: Reduce font-size on default list filter by menu (#231)
+- d4f8729 SDSS-900: Fix callout quote symbols for Windows (#230)
+- 88953c6 SDSS-888: Provisioned abchub (#229)
+- f89bf12 SDSS-000: DEV | Add ddev configuration for local environments (#228)
+- fb0303d SDSS-520: Updated Localist migration to import images (#227)
+- 916ea46 SDSS-814: News Article Design QA Updates (#193)
+- 849dddd SDSS-901: News | Vertical Teaser Card QA Updates (#222)
+- 5f99b4c SDSS-902: NEWS | Update byline and date font size on News node displays (#224)
+- e2d4b03 SDSS-906: Lock seleinium chrome-driver version (#226)
+- 45416f9 SDSS-886: Added nid data to RSS feed as unique identifier (#225)
+- 80ac02f SDSS-900: Callout Quote | Use serif font and smart quotes (#221)
+- efecbfe SDSS-846: A11y | Updates to News Vertical Card component (#220)
+- e498542 SDSS-877: Fix News article top text alignment issue (#218)
+- 857eec2 SDSS-827: Adjusted Callout Quote component alignment (#209)
+- ed710e2 SDSS-875: News article node display updates. (#216)
+- 91ee2b3 SDSS-821: Adjusted dek line height on News nodes (#213)
+
+
 2.1.1
 --------------------------------------------------------------------------------
 _Release Date: 2023-08-17_

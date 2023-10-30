@@ -1,0 +1,19 @@
+uuid: 3b7862cd-2e10-481b-b9ec-770512ace712
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sdss_entity.su_sdss_contact_name
+    - sdss_entities.sdss_entity_type.sdss_media_contact
+id: sdss_entity.sdss_media_contact.su_sdss_contact_name
+field_name: su_sdss_contact_name
+entity_type: sdss_entity
+bundle: sdss_media_contact
+label: 'Contact Name'
+description: 'The name of the media contact.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

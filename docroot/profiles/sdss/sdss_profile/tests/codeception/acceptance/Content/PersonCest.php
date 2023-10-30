@@ -4,6 +4,8 @@ use Faker\Factory;
 
 /**
  * Test the news functionality.
+ *
+ * @group content
  */
 class PersonCest {
 
@@ -168,6 +170,8 @@ class PersonCest {
     $I->click('Save');
     $I->canSee('Updated term');
 
+    $I->runDrush('cache-rebuild');
+
     $I->amOnPage($term3->toUrl()->toString());
     $I->canSeeLink($term1->label());
     $I->canSeeLink($term2->label());
@@ -254,8 +258,6 @@ class PersonCest {
 
   /**
    * Unpublished profiles should not display in the list.
-   *
-   * @group tester
    */
   public function testPublishedStatus(AcceptanceTester $I) {
     $term = $I->createEntity([

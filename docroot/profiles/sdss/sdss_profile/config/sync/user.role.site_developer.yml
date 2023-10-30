@@ -8,7 +8,10 @@ dependencies:
     - core.entity_view_display.node.stanford_news.default
     - core.entity_view_display.node.stanford_page.default
     - core.entity_view_display.node.stanford_person.default
+    - core.entity_view_display.node.stanford_policy.default
     - core.entity_view_display.node.stanford_publication.default
+    - filter.format.stanford_html
+    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -80,6 +83,7 @@ dependencies:
     - responsive_image
     - role_delegation
     - scheduler
+    - sdss_entities
     - sdss_profile
     - seckit
     - shortcut
@@ -108,7 +112,6 @@ permissions:
   - 'access files overview'
   - 'access media overview'
   - 'access patterns page'
-  - 'access site in maintenance mode'
   - 'access site reports'
   - 'access taxonomy overview'
   - 'access toolbar'
@@ -134,7 +137,6 @@ permissions:
   - 'administer config_pages form display'
   - 'administer config_pages types'
   - 'administer content types'
-  - 'administer course importer settings'
   - 'administer crop'
   - 'administer crop types'
   - 'administer devel menu items'
@@ -202,7 +204,6 @@ permissions:
   - 'bypass embed field validation'
   - 'bypass node access'
   - 'cancel account'
-  - 'change own username'
   - 'choose layout for node stanford_page'
   - 'configure all stanford_page node layout overrides'
   - 'configure any layout'
@@ -211,6 +212,7 @@ permissions:
   - 'configure editable stanford_news node layout overrides'
   - 'configure editable stanford_page node layout overrides'
   - 'configure editable stanford_person node layout overrides'
+  - 'configure editable stanford_policy node layout overrides'
   - 'configure editable stanford_publication node layout overrides'
   - 'configure layout builder restrictions'
   - 'create and edit custom blocks'
@@ -222,6 +224,7 @@ permissions:
   - 'create media'
   - 'create new books'
   - 'create policy log'
+  - 'create sdss entity'
   - 'create stanford_course content'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
@@ -348,6 +351,7 @@ permissions:
   - 'edit own stanford_publication content'
   - 'edit own video media'
   - 'edit policy log'
+  - 'edit sdss entity'
   - 'edit stanford_basic_site_settings config page entity'
   - 'edit stanford_courses_importer config page entity'
   - 'edit stanford_events_importer config page entity'
@@ -374,6 +378,9 @@ permissions:
   - 'edit terms in su_sdss_news_source'
   - 'edit terms in su_shared_tags'
   - 'link to any page'
+  - 'mark as hidden in editoria11y'
+  - 'mark as ok in editoria11y'
+  - 'notify of path changes'
   - 'rabbit hole administer taxonomy_term'
   - 'rabbit hole bypass node'
   - 'rabbit hole bypass taxonomy_term'
@@ -392,6 +399,8 @@ permissions:
   - 'update any media'
   - 'update any stanford_component_block block content'
   - 'update media'
+  - 'use text format stanford_html'
+  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
@@ -402,6 +411,7 @@ permissions:
   - 'view any unpublished stanford_news content'
   - 'view any unpublished stanford_page content'
   - 'view any unpublished stanford_person content'
+  - 'view any unpublished stanford_policy content'
   - 'view any unpublished stanford_publication content'
   - 'view config_pages entity'
   - 'view editoria11y checker'
