@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+// Local footer lockup
+.su-local-footer {
+
+  .su-lockup__line5,
+  .su-lockup__line1 {
+    color: $sdss-color-white;
+  }
+
+  @include grid-media-max('md') {
+    .su-lockup--option-a {
+      .su-lockup__cell1 {
+        border-right: none;
+      }
+
+      .su-lockup__line5 {
+        &:after {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

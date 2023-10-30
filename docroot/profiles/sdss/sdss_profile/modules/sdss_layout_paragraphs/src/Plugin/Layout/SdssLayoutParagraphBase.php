@@ -52,7 +52,10 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
    */
   public function build(array $regions) {
     $build = parent::build($regions);
-    $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor--' . $this->configuration['bg_color'];
+    if($this->configuration['bg_color'] !== 'none') {
+      $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor';
+      $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor--' . $this->configuration['bg_color'];
+    }
     return $build;
   }
 

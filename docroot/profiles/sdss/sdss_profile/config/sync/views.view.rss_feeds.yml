@@ -474,7 +474,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '-7 day'
+            value: '-8 day'
             type: offset
           group: 1
           exposed: false
@@ -640,6 +640,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.su_news_publishing_date'
+        - 'config:field.storage.node.su_sdss_news_dek_long'
   feed_2:
     id: feed_2
     display_title: 'News Filtered by Taxonomy'
@@ -737,3 +738,4 @@ display:
       tags:
         - 'config:field.storage.node.su_news_publishing_date'
         - 'config:field.storage.node.su_sdss_news_dek_long'
+
