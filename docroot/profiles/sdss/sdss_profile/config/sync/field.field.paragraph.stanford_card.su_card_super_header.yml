@@ -10,7 +10,7 @@ field_name: su_card_super_header
 entity_type: paragraph
 bundle: stanford_card
 label: Superhead
-description: 'This headline appears smaller and above the main headline. See: /patterns/card'
+description: 'This superheader appears below the headline.'
 required: false
 translatable: false
 default_value: {  }
