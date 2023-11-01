@@ -1,0 +1,29 @@
+uuid: 42985a0c-52e3-430d-9d18-a5f0e576c954
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_newsroom_article
+    - node.type.stanford_news
+    - paragraphs.paragraphs_type.sdss_spotlight
+id: paragraph.sdss_spotlight.su_newsroom_article
+field_name: su_newsroom_article
+entity_type: paragraph
+bundle: sdss_spotlight
+label: 'Newsroom article'
+description: 'Select a news article to spotlight'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      stanford_news: stanford_news
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,10 @@
+uuid: 2d77c404-9da9-4add-bdd5-45f4f0d609d3
+langcode: en
+status: true
+dependencies: {  }
+id: sdss_spotlight
+label: 'News Spotlight'
+icon_uuid: null
+icon_default: null
+description: 'A news spotlight for the Newsroom landing page. '
+behavior_plugins: {  }

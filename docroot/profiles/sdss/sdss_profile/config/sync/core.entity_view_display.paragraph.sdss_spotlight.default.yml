@@ -1,0 +1,30 @@
+uuid: bfae321e-3dd5-4708-8057-041bb13c6366
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sdss_spotlight.su_newsroom_article
+    - paragraphs.paragraphs_type.sdss_spotlight
+  module:
+    - empty_fields
+    - field_formatter_class
+id: paragraph.sdss_spotlight.default
+targetEntityType: paragraph
+bundle: sdss_spotlight
+mode: default
+content:
+  su_newsroom_article:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: stanford_card
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: su-margin-bottom-5
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true
