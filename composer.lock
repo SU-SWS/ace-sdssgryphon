@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f264ad25d478083ea1e1b00a042f04d3",
+    "content-hash": "c892cac5b32b4e3b96cfd68192f02f31",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16315,33 +16315,6 @@
                 "reference": "1.x"
             },
             "type": "drupal-custom-module"
-        },
-        {
-            "name": "su-sws/nobots",
-            "version": "8.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SU-SWS/nobots.git",
-                "reference": "78db92375df1b7e89ef68e34fb6f338822c5b86e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/nobots/zipball/78db92375df1b7e89ef68e34fb6f338822c5b86e",
-                "reference": "78db92375df1b7e89ef68e34fb6f338822c5b86e",
-                "shasum": ""
-            },
-            "type": "drupal-module",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "This module blocks (well-behaved) search engine robots from crawling, indexing, or archiving your site by setting a \"X-Robots-Tag: noindex,nofollow,noarchive\" HTTP header.",
-            "support": {
-                "issues": "https://github.com/SU-SWS/nobots/issues",
-                "source": "https://github.com/SU-SWS/nobots/tree/8.2.2"
-            },
-            "abandoned": true,
-            "time": "2023-04-18T16:12:26+00:00"
         },
         {
             "name": "su-sws/react_paragraphs",
