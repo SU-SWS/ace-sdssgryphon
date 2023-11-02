@@ -67,7 +67,6 @@
         "php": ">=8.0",
         "ext-imagick": "*",
         "acquia/blt": "^13.7",
-        "acquia/blt-simplesamlphp": "^1.0",
         "acquia/drupal-environment-detector": "^1.0",
         "citation-style-language/locales": "1.0.0",
         "citation-style-language/styles-distribution": "1.0.0",
@@ -83,20 +82,15 @@
         "drupal/block_content_permissions": "^1.8",
         "drupal/change_labels": "^1.0",
         "drupal/chosen": "^4.0",
-        "drupal/ckeditor_a11ychecker": "^1.0",
-        "drupal/ckeditor_balloonpanel": "^1.1",
-        "drupal/ckeditor_blockimagepaste": "^1.4",
         "drupal/colorbox": "^2.0",
         "drupal/components": "^3.0",
         "drupal/conditional_fields": "^4.0",
         "drupal/config_filter": "^2.0",
         "drupal/config_ignore": "^3.0",
-        "drupal/config_merge": "^1.0-rc",
         "drupal/config_pages": "^2.6",
         "drupal/config_pages_overrides": "^2.0",
         "drupal/config_readonly": "^1.0@beta",
         "drupal/config_split": "^2.0",
-        "drupal/config_update": "^1.7",
         "drupal/confirm_leave": "^1.0@beta",
         "drupal/content_lock": "^2.2",
         "drupal/core": "^10",
@@ -108,8 +102,6 @@
         "drupal/display_field_copy": "^2.0",
         "drupal/domain_301_redirect": "^2.0",
         "drupal/ds": "^3.3",
-        "drupal/eck": "^1.0@beta",
-        "drupal/editor_advanced_link": "^1.8",
         "drupal/editoria11y": "~2.0.0",
         "drupal/element_class_formatter": "^2.0@beta",
         "drupal/encrypt": "^3.0",
@@ -200,7 +192,6 @@
         "onlyextart/colorbox": "dev-master#e58476becbc89dc671093d1bcd9f99b2167fa8f7",
         "sainsburys/guzzle-oauth2-plugin": "^3.0",
         "seboettg/citeproc-php": "2.4.1",
-        "simplesamlphp/simplesamlphp": "^1.19",
         "stanford-earth/stanford_earth_r25": "^8.1",
         "su-sws/ckeditor5_plugins": "^1.0",
         "su-sws/drupal-patches": "^10.0",
@@ -212,8 +203,7 @@
         "su-sws/stanford_media": "^10.0",
         "su-sws/stanford_migrate": "^8.3",
         "su-sws/stanford_profile_helper": "^9.3",
-        "su-sws/stanford_samlauth": "^1.0",
-        "su-sws/stanford_ssp": "^8.3"
+        "su-sws/stanford_samlauth": "^1.0"
     },
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
@@ -235,16 +225,7 @@
     "config": {
         "sort-packages": true,
         "discard-changes": true,
-        "allow-plugins": {
-            "composer/installers": true,
-            "simplesamlphp/composer-module-installer": true,
-            "davidbarratt/custom-installer": true,
-            "drupal/console-extend-plugin": true,
-            "acquia/blt": true,
-            "cweagans/composer-patches": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
-        }
+        "allow-plugins": true
     },
     "extra": {
         "drupal-scaffold": {
