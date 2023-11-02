@@ -77,7 +77,7 @@
         "drupal/acquia_purge": "^1.1",
         "drupal/address": "^1.2",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/allowed_formats": "^2.0",
+        "drupal/allowed_formats": "^3.0",
         "drupal/anchor_link": "^2.5",
         "drupal/auto_entitylabel": "^3.0@beta",
         "drupal/block_content_permissions": "^1.8",
@@ -203,13 +203,13 @@
         "simplesamlphp/simplesamlphp": "^1.19",
         "stanford-earth/stanford_earth_r25": "^8.1",
         "su-sws/ckeditor5_plugins": "^1.0",
-        "su-sws/drupal-patches": "^8.1",
+        "su-sws/drupal-patches": "^10.0",
         "su-sws/earth_news_importer": "1.x-dev",
         "su-sws/nobots": "^8.2",
         "su-sws/react_paragraphs": "^8.2",
         "su-sws/stanford_actions": "^8.2",
         "su-sws/stanford_fields": "^8.2",
-        "su-sws/stanford_media": "^9.0",
+        "su-sws/stanford_media": "^10.0",
         "su-sws/stanford_migrate": "^8.3",
         "su-sws/stanford_profile_helper": "^9.3",
         "su-sws/stanford_samlauth": "^1.0",
@@ -317,6 +317,9 @@
         },
         "enable-patching": true,
         "patches": {
+            "drupal/google_analytics": {
+                "https://www.drupal.org/project/google_analytics/issues/3373921": "https://www.drupal.org/files/issues/2023-08-07/google-analytics-issues-3373921-cannot-install-from-existing-config-11.patch"
+            },
             "drupal/google_tag": {
                 "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"
             },

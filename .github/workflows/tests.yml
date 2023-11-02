@@ -37,11 +37,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 3.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            3.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            3.x-20231101-${{ hashFiles('composer.json') }}-
-            3.x-20231101-
+            4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-20231101-${{ hashFiles('composer.json') }}-
+            4.x-20231101-
       - run: git config --system --add safe.directory '*'
       - name: Run Unit Tests
         # env:
@@ -87,11 +87,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 3.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            3.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            3.x-20231101-${{ hashFiles('composer.json') }}-
-            3.x-20231101-
+            4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-20231101-${{ hashFiles('composer.json') }}-
+            4.x-20231101-
       - run: git config --system --add safe.directory '*'
       - name: Run tests
         run: |
@@ -147,11 +147,11 @@ jobs:
             docroot/libraries
             docroot/modules/contrib
             docroot/modules/custom
-          key: 3.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            3.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            3.x-20231101-${{ hashFiles('composer.json') }}-
-            3.x-20231101-
+            4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-20231101-${{ hashFiles('composer.json') }}-
+            4.x-20231101-
       - run: git config --system --add safe.directory '*'
       - name: Install Site
         run: |
