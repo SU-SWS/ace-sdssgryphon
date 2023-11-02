@@ -30,6 +30,7 @@ dependencies:
     - node.type.stanford_news
   module:
     - change_labels
+    - cshs
     - datetime
     - field_group
     - inline_entity_form
@@ -38,7 +39,6 @@ dependencies:
     - media_library
     - metatag
     - scheduler
-    - shs
     - stanford_intranet
     - text
 third_party_settings:
@@ -218,14 +218,17 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
   su_news_topics:
-    type: options_shs
+    type: cshs
     weight: 14
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_magazine_topics:
     type: options_shs
@@ -337,14 +340,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_shared_tags:
-    type: options_shs
-    weight: 16
+    type: cshs
+    weight: 9
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   title:
     type: string_textfield
