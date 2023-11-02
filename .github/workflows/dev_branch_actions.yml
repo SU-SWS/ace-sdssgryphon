@@ -5,7 +5,7 @@ name: Dev branch actions
 
 on:
   push:
-    branches: [3.x]
+    branches: [4.x]
 
 jobs:
   # Run tests on current PR branch.
