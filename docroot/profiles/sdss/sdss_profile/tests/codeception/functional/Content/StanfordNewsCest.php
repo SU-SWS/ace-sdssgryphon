@@ -49,6 +49,9 @@ class StanfordNewsCest {
     $I->amOnPage($node->toUrl('edit-form')->toString());
     $I->canSeeInField('Headline', $node->label());
 
+    // SDSS has taxonomy fields in a hidden/expandable <summary> pane. Need to
+    // expand the pane to fill the fields every time.
+    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.form-item--su-news-topics-0-target-id select.simpler-select');
     $I->selectOption('.form-item--su-news-topics-0-target-id select.simpler-select', $first_term->id());
     $I->click('Add another item', '.field--name-su-news-topics');
@@ -63,6 +66,8 @@ class StanfordNewsCest {
     $I->canSee($first_term->label() . ', ' . $second_term->label() . ', ' . $third_term->label());
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
+    // SDSS: Expand taxonomy pane.
+    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.form-item--su-news-topics-2-target-id select.simpler-select');
     $I->selectOption('.form-item--su-news-topics-0-target-id select.simpler-select', $second_term->id());
     $I->selectOption('.form-item--su-news-topics-1-target-id select.simpler-select', $first_term->id());
@@ -73,6 +78,8 @@ class StanfordNewsCest {
     $I->canSee($second_term->label() . ', ' . $first_term->label() . ', ' . $third_term->label());
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
+    // SDSS: Expand taxonomy pane.
+    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.form-item--su-news-topics-2-target-id select.simpler-select');
     $I->selectOption('.form-item--su-news-topics-0-target-id select.simpler-select', $third_term->id());
     $I->selectOption('.form-item--su-news-topics-1-target-id select.simpler-select', $second_term->id());
@@ -83,6 +90,8 @@ class StanfordNewsCest {
     $I->canSee($third_term->label() . ', ' . $second_term->label() . ', ' . $first_term->label());
 
     $I->amOnPage($node->toUrl('edit-form')->toString());
+    // SDSS: Expand taxonomy pane.
+    $I->click('#edit-group-tags summary');
     $I->waitForElementVisible('.form-item--su-news-topics-2-target-id select.simpler-select');
     $I->selectOption('.form-item--su-news-topics-0-target-id select.simpler-select', $third_term->id());
     $I->selectOption('.form-item--su-news-topics-1-target-id select.simpler-select', $first_term->id());
