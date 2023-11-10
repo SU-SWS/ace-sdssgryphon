@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "watch": "NODE_ENV=production webpack --watch",
-    "build": "NODE_ENV=production webpack"
+    "build": "NODE_ENV=production webpack",
+    "a11y-tests": "pa11y-ci"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "mini-css-extract-plugin": "^2.7.6",
     "node-sass": "^9.0.0",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "pa11y-ci": "^3.0.1",
     "postcss-loader": "^7.3.2",
     "postcss-preset-env": "^9.1.4",
     "sass-loader": "^13.3.1",

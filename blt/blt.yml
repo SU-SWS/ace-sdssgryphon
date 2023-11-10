@@ -88,6 +88,10 @@ tests:
         - acceptance
         - functional
       directory: '${docroot}/profiles/sdss/sdss_profile/tests/codeception'
+command-hooks:
+  frontend-test:
+    dir: '${repo.root}/docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme'
+    command: 'yarn a11y-tests'
 validate:
   twig:
     functions:

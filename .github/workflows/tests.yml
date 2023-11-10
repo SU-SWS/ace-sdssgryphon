@@ -173,6 +173,80 @@ jobs:
         with:
           name: functional-tests-results
           path: artifacts
+  frontend:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+    env:
+      DRUPAL_DATABASE_NAME: drupal
+      DRUPAL_DATABASE_USERNAME: drupal
+      DRUPAL_DATABASE_PASSWORD: drupal
+      DRUPAL_DATABASE_HOST: mysql
+    container:
+      image: pookmish/drupal8ci:latest
+      options: '--network-alias drupal8ci'
+    services:
+      # selenium:
+      #   image: selenium/standalone-chrome
+      #   options: '--shm-size="2g"'
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_DATABASE: drupal
+          MYSQL_USER: drupal
+          MYSQL_PASSWORD: drupal
+          MYSQL_ROOT_PASSWORD: drupal
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v3
+      - name: Restore Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            vendor
+            docroot/core
+            docroot/libraries
+            docroot/modules/contrib
+            docroot/modules/custom
+          key: 2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            2.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            2.x-${{ hashFiles('composer.json') }}-
+            2.x-
+      - name: Add sudo and required libraries for pa11y
+        run: |
+          apt update && apt install sudo
+          sudo apt-get install -y chromium libxkbcommon-x11-0 libxdamage1 libgtk-3-0 libgbm-dev
+      - name: Setup NodeJS for sdss_subtheme
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme/.nvmrc
+          check-latest: false
+      - name: Set up npm in sdss_subtheme
+        working-directory: ./docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme
+        run: npm install
+      - name: Install Site
+        run: |
+          rm -rf /var/www/html
+          ln -snf $GITHUB_WORKSPACE /var/www/html
+          apachectl stop
+          apachectl start
+          composer install -n
+          blt blt:telemetry:disable --no-interaction
+          blt drupal:install -n
+          drush pm:uninstall simplesamlphp_auth -y
+          drush role:perm:add anonymous 'access content'
+          drush xmlsitemap:rebuild
+          mkdir -p artifacts/_data/
+      - name: Run tests
+        run: blt tests:frontend:run --no-interaction
+      - name: Save Test Results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: frontend-tests-results
+          path: docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme/test-results
 
 # Cancel previous runs of this workflow in the same branch if they're still in
 # progress.
