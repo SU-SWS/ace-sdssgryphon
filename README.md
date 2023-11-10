@@ -3,6 +3,26 @@
 This stack is based on the [SU-SWS/ace-gryphon](https://github.com/SU-SWS/ace-gryphon) stack.
 
 ----
+# GitPod Setup
+1. Add your ssh key to [GitPod](https://gitpod.io/variables)
+   1. It is recommended to have a password-less ssh key for simplicity.
+      1. `ssh-keygen -b 4096`, press enter when asked for the password
+      2. Add this ssh public key to the necessary services: Acquia, Github, etc.
+   2. Get the base64 string of your ssh key files
+      1. `cat id_rsa | base64` for the private key
+      2. `cat id_rsa.pub | base64` for the public key.
+      - NOTE: Use `-w0` with base64 to remote any white space/line breaks.
+   1. Get the base64 string of your gitconfig
+      1. `cat ~/.gitconfig | base64`
+   3. In GitPod, add a variable named `SSH_PRIVATE_KEY` with the base64 encoded private key
+   4. In GitPod, add a variable named `SSH_PUBLIC_KEY` with the base64 encoded public key
+   5. In Gitpod, add a variable named `GITCONFIG` with your base64 encoded git config
+2. Recommended, but not required:
+   1. Install the GitPod browser plugin
+   2. Configure your browser settings for an easier experience: https://www.gitpod.io/docs/configure/browser-settings
+3. Open a gitpod workspace with [these instructions](https://www.gitpod.io/docs/getting-started#start-your-first-workspace)
+
+----
 # Provisioning a new site
 There are several commands within BLT that make creating a new site much easier.
 - `blt recipes:multisite:init` will create a new site directory with all the framework
@@ -24,11 +44,11 @@ use the cloud API to upload and activate the cert on the acquia environment.
 # Config Management
 Each site has the ability to determine its own configuration management strategy.
 The default site in this repo will be using a configuration management that uses
-the configuration from the `stanford_profile`. By default this is the behavior
+the configuration from the `sdss_profile`. By default this is the behavior
 of all other sites unless defined within their own settings.php.
 
 There are three options a site can choose from:
-1. Do nothing and the configuration sync directory will use what is in `stanford_profile`.
+1. Do nothing and the configuration sync directory will use what is in `sdss_profile`.
 2. Modify the configuration sync directory to a desired directory such as another profile.
 3. Modify the configuration sync directory to point to an empty directory. This
 will bypass any configuration management strategy and the site's configuration will be updated via update hooks.

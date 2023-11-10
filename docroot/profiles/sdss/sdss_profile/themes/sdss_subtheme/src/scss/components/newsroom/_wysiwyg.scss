@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+// Customizations to the WYSIWYG for only the Newsroom.
+
+.stanford-news {
+  .su-wysiwyg-text {
+    p {
+      max-width: 750px;
+    }
+  }
+}
+

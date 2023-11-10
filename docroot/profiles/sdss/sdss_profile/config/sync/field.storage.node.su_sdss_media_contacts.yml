@@ -1,0 +1,20 @@
+uuid: 95143a1b-7dd1-401a-a0f0-6689aa269e7a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - sdss_entities
+id: node.su_sdss_media_contacts
+field_name: su_sdss_media_contacts
+entity_type: node
+type: entity_reference
+settings:
+  target_type: sdss_entity
+module: core
+locked: false
+cardinality: 10
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

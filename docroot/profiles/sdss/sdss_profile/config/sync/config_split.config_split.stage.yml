@@ -7,9 +7,11 @@ label: 'Staging Environment'
 description: ''
 weight: 0
 stackable: false
+no_patching: false
 storage: folder
 folder: ../config/envs/stage
 module:
+  stage_file_proxy: 0
   acquia_purge: 0
   paranoia: 0
   purge: 0

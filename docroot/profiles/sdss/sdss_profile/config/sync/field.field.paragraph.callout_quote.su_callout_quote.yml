@@ -1,0 +1,24 @@
+uuid: dd2190fd-9b02-4c21-a74f-c927908769e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_callout_quote
+    - paragraphs.paragraphs_type.callout_quote
+  module:
+    - allowed_formats
+    - text
+id: paragraph.callout_quote.su_callout_quote
+field_name: su_callout_quote
+entity_type: paragraph
+bundle: callout_quote
+label: Quote
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - stanford_minimal_html
+field_type: text_long

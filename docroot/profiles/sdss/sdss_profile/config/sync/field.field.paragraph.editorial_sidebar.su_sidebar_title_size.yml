@@ -1,0 +1,23 @@
+uuid: c81a6b6d-56fd-4441-9f84-0faf24f2c476
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_sidebar_title_size
+    - paragraphs.paragraphs_type.editorial_sidebar
+  module:
+    - options
+id: paragraph.editorial_sidebar.su_sidebar_title_size
+field_name: su_sidebar_title_size
+entity_type: paragraph
+bundle: editorial_sidebar
+label: 'Select title size'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: default_sidebar_title
+default_value_callback: ''
+settings: {  }
+field_type: list_string

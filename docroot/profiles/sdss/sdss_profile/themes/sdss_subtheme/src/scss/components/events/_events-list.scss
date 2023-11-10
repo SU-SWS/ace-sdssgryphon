@@ -49,7 +49,7 @@
         @include responsive-spacing('padding-bottom', 0);
 
         display: inline-block;
-        color: $sdss-color-grey-60;
+        color: $su-color-black-70;
         font-weight: $su-font-regular;
         text-transform: uppercase;
         text-decoration: none;
@@ -94,7 +94,7 @@
       a {
         @include sdss-link--primary;
 
-        color: $sdss-color-grey-60;
+        color: $su-color-black-70;
         font-size: 2rem;
         font-weight: $su-font-regular;
         text-transform: uppercase;
@@ -127,7 +127,7 @@
 }
 
 // Event list with Green row variant.
-.su-row-bgcolor--green {
+.layout-paragraphs-sdss-bgcolor--green {
 
   .su-event-card {
     &.su-card {

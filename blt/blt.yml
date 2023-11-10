@@ -5,7 +5,7 @@ project:
     name: sdss_profile
   local: {  }
 git:
-  default_branch: 2.x
+  default_branch: 4.x
   remotes:
     - 'stanfordsos@svn-23450.prod.hosting.acquia.com:stanfordsos.git'
 deploy:
@@ -17,11 +17,13 @@ drush:
   aliases:
     ci: self
   default_alias: '${drush.aliases.local}'
-simplesamlphp: true
 cm:
   strategy: config-split
   allow-overrides: true
 multisites:
+  - abc_hub
+  - bitsandwatts
+  - carbon_removal
   - changeleadership
   - climate
   - climatechange
@@ -34,20 +36,40 @@ multisites:
   - environmentalpolicy
   - ese
   - esys
+  - explore_energy
+  - extreme_energy_efficiency
   - farm
   - geophysics
+  - gep
+  - gfi
   - gs
+  - hackingfordefense
   - hawaii
   - hopkinsmarinestation
+  - hydrogen
+  - mce2050
   - naturalcapitalproject
+  - ngi
+  - nza
   - oceans
   - planetary
+  - scv
   - sdss_config_capture
+  - sdssrooms
   - sdsssandbox
   - sdssuserguide
+  - seca
+  - seepac
   - sepf
+  - sesur
+  - sfi
+  - storagex
+  - strategic_energy_alliance
   - sustainability
+  - understand_energy_course
+  - understandenergy
   - water
+  - witw
   - woods
 tests:
   reports:
@@ -81,7 +103,7 @@ validate:
 cloud:
   appId: f7e9fc1b-062d-4ed8-baf7-ae33551f8934
 keys_rsync:
-  ssh: stanfordsos.prod@ded-24959.prod.hosting.acquia.com
+  ssh: stanfordsos.test@stanfordsosstg.ssh.prod.acquia-sites.com
   files:
-    - /mnt/gfs/stanfordsos.prod/nobackup/simplesamlphp/
-    - /mnt/gfs/stanfordsos.prod/secrets.settings.php
+    - /mnt/gfs/stanfordsos.test/nobackup/apikeys/
+    - /mnt/gfs/stanfordsos.test/secrets.settings.php

@@ -1,0 +1,12 @@
+project:
+  machine_name: gep
+  human_name: gep
+  local:
+    protocol: http
+    hostname: local.gep.com
+drush:
+  aliases:
+    local: gep.local
+    remote: gep.prod
+drupal:
+  db: {  }

@@ -1,0 +1,12 @@
+project:
+  machine_name: hackingfordefense
+  human_name: hackingfordefense
+  local:
+    protocol: http
+    hostname: local.hackingfordefense.com
+drush:
+  aliases:
+    local: hackingfordefense.local
+    remote: hackingfordefense.prod
+drupal:
+  db: {  }

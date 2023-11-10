@@ -13,21 +13,25 @@
   .tablesaw-cell-content {
     font-size: 2.1rem;
 
-    // Intro = Display, intro is the legacy name.
-    // Display-text is the updated name.
-    &.su-intro-text,
+    // Intro text.
+    &.su-intro-text {
+      @include sdss-intro;
+    }
+
+    // Display text
     &.sdss-display-text {
       @include sdss-display;
     }
 
-    // Splash = Splash text is the legacy name.
+    // Splash = Splash text is the legacy stanford_basic name.
     // Block Quote is the updated name.
     &.su-font-splash,
     &.sdss-block-quote--big {
+      @include serif;
       @include sdss-block-quote--big;
     }
 
-    // Quote Text is the legacy name.
+    // Quote Text is the legacy stanford_basic name.
     // Block Quote Medium is the updated name.
     &.su-quote-text,
     &.sdss-block-quote--med {
@@ -35,10 +39,11 @@
       @include sdss-block-quote--med;
     }
 
-    // Callout text  is the legacy name.
+    // Callout text  is the legacy stanford_basic name.
     // Block Quote Small is the updated name.
     &.su-callout-text,
     &.sdss-block-quote--sm {
+      @include serif;
       @include sdss-block-quote--sm;
     }
   }
@@ -48,7 +53,7 @@
       color: $su-color-cool-grey;
       font-size: 1.8rem;
       font-style: normal;
-      line-height: 1.4;
+      line-height: 1.3;
       text-align: right;
       margin-bottom: 1em;
     }

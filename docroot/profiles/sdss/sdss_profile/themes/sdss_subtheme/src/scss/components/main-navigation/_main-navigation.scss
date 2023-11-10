@@ -21,8 +21,10 @@
 
 // Makes the menu 'sticky' for LG sreens and up
 @include grid-media-min('lg') {
-  html {
-    scroll-padding-top: 21em;
+  // Add a scroll offset equivalent to the sticky header to account for any
+  // anchor or jump links.
+  :target {
+    scroll-margin-top: 10rem;
   }
 
   .fixed-header {
@@ -33,7 +35,7 @@
     z-index: 100;
   }
 
-  // if logged in
+  // If user is logged in.
   .role--authenticated {
     .fixed-header {
       top: 79px;

@@ -1,0 +1,18 @@
+uuid: 215c91db-092a-41f6-9244-2e10a8ae43ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - sdss_entities
+id: sdss_entity.su_sdss_contact_email
+field_name: su_sdss_contact_email
+entity_type: sdss_entity
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

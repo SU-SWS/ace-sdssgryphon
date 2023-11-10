@@ -1,0 +1,19 @@
+uuid: a972841e-7700-4446-980a-5029a4bdb4ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sdss_entity.su_sdss_contact_email
+    - sdss_entities.sdss_entity_type.sdss_media_contact
+id: sdss_entity.sdss_media_contact.su_sdss_contact_email
+field_name: su_sdss_contact_email
+entity_type: sdss_entity
+bundle: sdss_media_contact
+label: 'Contact Email'
+description: 'The email address for the media contact.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

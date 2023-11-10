@@ -1,0 +1,23 @@
+uuid: bfbbcc4a-0cdb-4cb7-8d84-2f4d7c889bae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_sidebar_bgcolor_alt
+    - paragraphs.paragraphs_type.editorial_sidebar
+  module:
+    - options
+id: paragraph.editorial_sidebar.su_sidebar_bgcolor_alt
+field_name: su_sidebar_bgcolor_alt
+entity_type: paragraph
+bundle: editorial_sidebar
+label: 'Select a background color'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: bg_color_default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

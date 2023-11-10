@@ -4,64 +4,120 @@
 // Example: All mixin names should be prefaced with your abbreviation (saa, soe, ood, etc)
 
 
-// Intro is the Drupal style = Display is the design language.
+// Display text
 @mixin sdss-display {
+  @include type_c;
+
+  color: $sdss-color-palo-alto-dark;
+  font-weight: $su-font-regular;
+  line-height: 120%;
+
+  @include grid-media-max('sm') {
+    font-size: 5.2rem; //52px
+    line-height: 169%;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 8.0rem;  //80px
+    line-height: 110%;
+  }
+
+  @include grid-media-min('2xl') {
+    font-size: 8.8rem;  //88px
+    line-height: 120%;
+  }
+}
+
+// Intro text
+@mixin sdss-intro {
   @include type_c;
 
   font-weight: $su-font-regular;
 }
 
-// Splash is the Drupal style = Block Quote Big is the design language.
+// Block Quote Big is the design language.
 @mixin sdss-block-quote--big {
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
   letter-spacing: -0.01em;
 
   @include grid-media-max('sm') {
-    font-size: 3.2rem; //32px
+    font-size: 3.7rem; // ~37px
     line-height: 40px;
   }
 
   @include grid-media-min('md') {
-    font-size: 4.8rem;  //48px
+    font-size: 5.1rem;  // ~51px
     line-height: 60px;
   }
 
   @include grid-media-min('lg') {
-    font-size: 6.4rem;  //64px
+    font-size: 5.1rem;  // ~51px
+    line-height: 120%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 5.6rem;  // ~56px
     line-height: 120%;
   }
 }
 
-// Quote Text is the Drupal style = Block Quote Medium is the design language.
+// Block Quote Medium is the design language.
 @mixin sdss-block-quote--med {
   @include type_b;
 
   color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: -0.01em;
+
+  @include grid-media-max('sm') {
+    font-size: 3.1rem; // ~31px
+    line-height: 40px;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 4.1rem;  // ~41px
+    line-height: 60px;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 4.1rem;  // ~41px
+    line-height: 120%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 4.5rem;  // ~45px
+    line-height: 120%;
+  }
 }
 
- // Callout text is the Drupal style = Block Quote Small is the design language.
+ // Block Quote Small is the design language.
 @mixin sdss-block-quote--sm {
+  color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
   font-weight: $su-font-regular;
-  font-style: italic;
   letter-spacing: 0.01em;
 
   @include grid-media-max('sm') {
-    font-size: 1.8rem; // ~18px
+    font-size: 2.2rem; // ~22px
     line-height: 130%;
   }
 
   @include grid-media-min('md') {
-    font-size: 1.8rem; // ~18px
+    font-size: 2.6rem; // ~26px
     line-height: 130%;
   }
 
   @include grid-media-min('lg') {
-    font-size: 2.4rem; // ~24px
+    font-size: 2.6rem; // ~26px
     line-height: 140%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 2.8rem;  // ~28px
+    line-height: 120%;
   }
 }
 
@@ -153,9 +209,11 @@
 
 // Captions mixin
 @mixin sdss-caption {
-  color: $sdss-color-black;
-  font-style: italic;
-  text-align: right;
+  color: $su-color-black-70;
+  text-align: left;
+  float: unset;
+  width: auto;
+  max-width: 750px;
 
   @include grid-media-min('2xl') {
     font-size: 1.9rem;
@@ -169,3 +227,57 @@
     font-size: 1.5rem;
   }
 }
+
+// Newsroom Topics A mixin
+@mixin sdss-newsroom-topics {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+
+// Newsroom dek long mixin
+@mixin sdss-newsroom-dek-long {
+
+  @include grid-media-min('2xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 2.5rem;
+  }
+}
+
+// Newsroom byline mixin
+@mixin sdss-newsroom-byline {
+  @include big-paragraph;
+}
+
+// Newsroom callout quote mixin
+@mixin sdss-newsroom-callout-quote {
+
+  @include grid-media-min('2xl') {
+      font-size: 2.3rem;
+    }
+
+    @include grid-media-between('md', 'xl') {
+      font-size: 4.1rem;
+    }
+
+    @include grid-media-max('sm') {
+      font-size: 1.8rem;
+    }
+  }

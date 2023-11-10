@@ -1,5 +1,186 @@
 # ACE SDSSGryphon
 
+4.0.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-08_
+
+- 6f23a79 SDSS-000: Point understand-energy dev and test domains (#300)
+- 1242c3d SDSS-994: D10 | Gitpod support for 4.x (#299)
+- 1e14218 Merge pull request #298 from SU-SWS/SDSS-994--d10-upgrade
+- 582474b SDSS-995: D10 updates (#297)
+- 454ddb6 SDSS-1073: D10 | Automated test updates (#296)
+- 788049e CKEditor CSS fix.
+- beffa65 SDSS-1069: UPSTREAM | Pull stanford_profile 11.0.8 (#295)
+- 777fc28 Merge pull request #293 from SU-SWS/backtodev-3.0.1
+- 630042e backtodev-3.0.1
+
+
+3.0.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-01_
+
+- fe1f6e0 SDSS-000: Added robots.txt patch (#291)
+- 65af33d SDSS-1065: Github automation updates for 3.x (#290)
+- 298d3e9 SDSS-1046: D9.5 | Fixed navigation wrapping and search icon styles (#282)
+- 15646b5 SDSS-1046: D9.5 | Adjusted layout paragraph spacing (#283)
+- e1e0980 SDSS-1053: Updated stanford_earth_r25 to 8.1.7 (#284)
+- 14743d6 Merge pull request #280 from SU-SWS/SDSS-551--D9.5--upgrade
+- b871d70 SDSS-1017: D9.5 |  Layout background colors style adjustments (#281)
+- a4f43f2 Fixes to update hooks.
+- 3287f03 SDSS-559: Upgrade path for react to layout paragraphs. (#278)
+- 4158e23 SDSS-1005: D9.5 | 3.x | Automated test updates (#275)
+- e865781 SDSS-000: Increase rss_feeds view date range from 7 to 8 days (#276)
+- 4e06d1a SDSS-1007: Support stanford_basic page.html.twig updates in sdss_subtheme (#270)
+- 276378a SDSS-889: Added bg_color Layout Option for SDSS layout paragraphs (#263)
+- fe69d5a SDSS-996: Switch to saml_auth from simplesamlphp (#261)
+- b2b8346 Upstream | Updates from stanford_profile 10.1.2 (#259)
+- f4a6650 Merge pull request #257 from SU-SWS/NOJIRA-20231004-merge-2.x
+- 5612edd Updated subtheme version.
+- d2f7c6f Merge branch '2.x' into NOJIRA-20231004-merge-2.x
+- ae71e6b SDSS-849: A11Y | FE | Updated decanter and moved Skip to Main link into a landmark (#254)
+- 8abaf45 SDSS-936: Updated line height for all image captions globally (#247)
+- bf6cac5 SDSS-983: BUG | Fix role permissions for SDSS entities (#246)
+- f9f3429 SDSS-968: Implement Media Contacts QA feedback (#241)
+- 219db3a Merge pull request #245 from SU-SWS/backtodev-2.2.1
+- aedf6ba backtodev-2.2.1
+- bb968a1 Merge branch '2.x' into 3.x
+- c5d83e5 SDSS-551: Drupal 9.5; Claro Admin theme; CKEditor 5; Layout paragraphs (#160)
+- 5a0b8de Merge branch '2.x' into 3.x
+- e6fd297 Merge branch 'feature/newsroom-layout-paragraphs' into 3.x
+
+
+2.2.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-09-27_
+
+- 493dd2a SDSS-973: Change dash to underscore in blt.yml for abc_hub (#244)
+- e08da09 SDSS-969: Disabled JSON API module (#242)
+- 2466773 SDSS-888: Swapping abchub with abc-hub (#239)
+- f06dade SDSS-943: Pointed techtransferfordefense to hackingfordefense site (#240)
+- d0dc2c2 SDSS-594-885: Added media contacts entity, field, styles and displays (#217) (#219)
+- 06d6b78 SDSS-843: Added the stanford_earth_r25 module to sdssroom site only. (#237)
+- bee9507 SDSS-937: NEWS | Added top margin to related news section (#235)
+- b8d1b0b SDSS-851: A11y | Added decorative blue text color for improved accessibility (#234)
+- 8a4c240 SDSS-842: Provision SDSS Rooms (#236)
+- f061137 SDSS-477: A11Y | Fixed button text color on Event pages (#233)
+- 3091c40 SDSS-451, SDSS-452: Adjust margin and padding for color variant paragraph rows (#232)
+- 3bacc1e SDSS-175: Reduce font-size on default list filter by menu (#231)
+- d4f8729 SDSS-900: Fix callout quote symbols for Windows (#230)
+- 88953c6 SDSS-888: Provisioned abchub (#229)
+- f89bf12 SDSS-000: DEV | Add ddev configuration for local environments (#228)
+- fb0303d SDSS-520: Updated Localist migration to import images (#227)
+- 916ea46 SDSS-814: News Article Design QA Updates (#193)
+- 849dddd SDSS-901: News | Vertical Teaser Card QA Updates (#222)
+- 5f99b4c SDSS-902: NEWS | Update byline and date font size on News node displays (#224)
+- e2d4b03 SDSS-906: Lock seleinium chrome-driver version (#226)
+- 45416f9 SDSS-886: Added nid data to RSS feed as unique identifier (#225)
+- 80ac02f SDSS-900: Callout Quote | Use serif font and smart quotes (#221)
+- efecbfe SDSS-846: A11y | Updates to News Vertical Card component (#220)
+- e498542 SDSS-877: Fix News article top text alignment issue (#218)
+- 857eec2 SDSS-827: Adjusted Callout Quote component alignment (#209)
+- ed710e2 SDSS-875: News article node display updates. (#216)
+- 91ee2b3 SDSS-821: Adjusted dek line height on News nodes (#213)
+
+
+2.1.1
+--------------------------------------------------------------------------------
+_Release Date: 2023-08-17_
+
+- 96b95cc SDSS-862: Adjusted component paragraph reference fields include/exclude settings (#210)
+- 6bfe6a9 SDSS-860: Updated news node metadata. (#212)
+- 7a59cd5 SDSS-840: BUG | dbupdate | Move unsectioned News paragraphs into layout_paragraph sections (#205)
+- 02a3493 SDSS-844: A11y | Accessibility improvements for Callout Quote (#208)
+- ded9332 SDSS-854: Provisioned sesur (#211)
+- 5399220 SDSS-839: Allow spacer paragraph in News component section. (#206)
+- 34665c7 SDSS-000: Added missing chosen library and updated dependencies. (#204)
+
+
+2.1.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-08-03_
+
+- aba953c SDSS-763: Updated stanford_profile_helper (#201)
+- ed94648 SDSS-793: Added icons for new Sidebar and Callout paragraph types (#198)
+- 305180a SDSS-823: Added bottom margin to News nodes to add space before footer (#199)
+- bbfa616 SDSS-824: Fixed Firefox wrapping bug with caption text (#197)
+- 84269c7 SDSS-613: Adjusted Event and News taxonomy text to accessible colors (#196)
+- e5a5490 SDSS-822: Adjusted spacing for news article top component without byline (#195)
+- 14548e4 SDSS-816: Use serif font for block quote styles, updated decanter. (#194)
+- 8490284 SDSS-780: Ignore the earth_news_importer module and migration configuration. (#192)
+- 7b92799 SDSS-787: Provisioned witw and gfi. (#191)
+- fafbae1 Added path_redirect_import patch fix for migratetools. (#190)
+- 823af82 SDSS-788: Added and configured stage file proxy (#183)
+- 98b6184 SDSS-786: Article page tweaks (#184)
+- d69e84c SDSS-592: Add sidebar component (#172)
+- e2d38de SDSS-591: Add Newsroom Callout component (#170)
+- 7cddff6 SDSS-589: News node top component (#168)
+- cfd1cfc SDSS-784: Point custom hopkinsmarinestation aliases. (#179)
+- eeadfdd SDSS-778: Set article body width for newsroom only (#177)
+- b03600c SDSS-731: Added custom sdss_layout_paragraphs module (#163)
+- 85046a4 Hide all data capture fields in default displays.
+- 305b27c SDSS-731: Layout paragraphs updates (#155)
+- 173aee5 SDSS-600: Changed News components field to layout_paragraphs (#125)
+
+
+2.0.5
+--------------------------------------------------------------------------------
+_Release Date: 2023-06-28_
+
+- SDSS-732: Updated earth_news_importer. (#162)
+  - SDSS-732: Updated earth_news_importer to latest version with new Banner Caption field.
+- SDSS-732: Added new Banner Caption field to News content type (#156)
+- SDSS-730: Maintenance and adding layout paragraphs (#152)
+  - Updated dependencies and configuration.
+  - Upgraded components module to ^3.0.
+  - Updated CI Cache string with current date.
+  - Added and enabled layout_paragraphs.
+  - Added path_alias service to SiteSettingsTest.
+- SDSS-639: Set up gitpod. (#154)
+- SDSS-585: Create generic related content field. (#135)
+  - SDSS-585: Create generic related content field and added to 5 main content types.
+- SDSS-000: Updated earth_news_importer to latest version. (#151)
+- SDSS-632: Allow site editors to use contextual links. (#149)
+- SDSS-599: Added aliases for understandenergy site (#147)
+- SDSS-532: Hid superhead field from editing interface on banner paragraph. (#148)
+- SDSS-638: Added additional fields to the Events XML feed. (#146)
+- SDSS-000: Added safe.directory git config step to github actions. (#145)
+- SDSS-634: Updated events this week RSS feed (#144)
+  - SDSS-634: Swapped description with alt_location field in events this week RSS feed view.
+- SDSS-625: Resolved menu scroll jump bug (#138)
+  - SDSS-625: Swapped scroll-padding-top on the html for scroll-margin-top on the :target to resolve menu scroll jump bug.
+
+
+2.0.4
+--------------------------------------------------------------------------------
+_Release Date: 2023-06-01_
+
+- SDSS-628: Replaced sdss-intro-text WYSIWYG style class with su-intro-text class (#141)
+
+
+2.0.3
+--------------------------------------------------------------------------------
+_Release Date: 2023-05-31_
+
+- SDSS-576-577-578: Updated WYSIWYG text styles (#122)
+- SDSS-576: Updated Intro Text and Display text WYSIWYG styles.
+- SDSS-577: Updated block quote lg, md, sm styles and font sizes.
+- SDSS-578: Updated the Display text style and font size.
+- SDSS-606: Added import source and related people fields to News content type. (#128)
+- SDSS-606: Cleaned up News node edit form.
+- SDSS-354: Added filter by taxonomy RSS view (#120)
+- SDSS-532: Hide body field in banner paragraph edit form, since it is not used/displayed. (#121)
+- SDSS-530: Hide banner caption field from default display (#137)
+- SDSS-601: Provisioned 17 sites (#136)
+- SDSS-626: Changed earth_news_importer module type to store in untested contrib directory.(#133)
+- SDSS-624: Replaced Dek field with Dek (Long) field in RSS feed (#131)
+- SDSS-621: Added dev version of earth_news_importer to the stack.
+- SDSS-464: Set the sdss_subtheme as the default theme and updated tests to reflect differences.. (#127)
+- Dropped and deprecated public protection and theme viewer roles.
+- SDSS-599: Provision understand-energy (#126)
+- SDSS-530: Added caption field to banner paragraph (#118)
+- SDSS-562: Disable configuration read-only on config capture staging site. (#117)
+
+
 2.0.2
 --------------------------------------------------------------------------------
 _Release Date: 2023-04-26_

@@ -1,0 +1,12 @@
+project:
+  machine_name: sdssrooms
+  human_name: sdssrooms
+  local:
+    protocol: http
+    hostname: local.sdssrooms.com
+drush:
+  aliases:
+    local: sdssrooms.local
+    remote: sdssrooms.prod
+drupal:
+  db: {  }

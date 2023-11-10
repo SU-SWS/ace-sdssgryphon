@@ -73,8 +73,9 @@ foreach ($sites_settings as $settings_file) {
     continue;
   }
 
-  // Get the site name to use for domains from the directory.
-  // Replace underscores "_" in the directory to dashes "-" in the site name.
+  // Get the site name to use for domains from the directory and replace:
+  // - Underscores "_" with dashes "-".
+  // - Double underscores "__" with dots ".".
   $sitename = str_replace('_', '-', str_replace('__', '.', $site_dir));
   $sites[$sitename] = $site_dir;
   $sites["$sitename.stanford.edu"] = $site_dir;
@@ -89,13 +90,26 @@ foreach ($sites_settings as $settings_file) {
   }
 }
 
-// Manually point domains that don't fit naming conventions here.
+// Manually point LIVE domains that don't fit naming conventions here.
 // E.g., $sites['<domain>'] = '<directory>';
 // E.g., $sites['mysite.stanford.edu'] = 'my_site';
 $sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
 $sites['earthsystems.stanford.edu'] = 'esys';
 $sites['epsci.stanford.edu'] = 'gs';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
+$sites['understand-energy.stanford.edu'] = 'understandenergy';
+$sites['techtransferfordefense.stanford.edu'] = 'hackingfordefense';
+
+// Manually point dev/test domains here.
+$sites['understand-energy-dev.stanford.edu'] = 'understandenergy';
+$sites['understand-energy-test.stanford.edu'] = 'understandenergy';
+
+// Hopkins Marine Station dev, test, and prod URL's currently exist on another
+// ACE stack. We need to point custom aliases to build the site.
+$sites['hms-sdss-dev.stanford.edu'] = 'hopkinsmarinestation';
+$sites['hms-sdss-test.stanford.edu'] = 'hopkinsmarinestation';
+$sites['hms-sdss-prod.stanford.edu'] = 'hopkinsmarinestation';
+
 
 // Include local sites.
 if (file_exists(__DIR__ . '/local.sites.php')) {

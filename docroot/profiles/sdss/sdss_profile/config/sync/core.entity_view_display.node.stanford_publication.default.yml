@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.node.stanford_publication.layout_builder__layout
     - field.field.node.stanford_publication.stanford_intranet__access
+    - field.field.node.stanford_publication.su_metatags
+    - field.field.node.stanford_publication.su_publication_author_ref
     - field.field.node.stanford_publication.su_publication_author_ref
     - field.field.node.stanford_publication.su_publication_citation
     - field.field.node.stanford_publication.su_publication_components
@@ -14,6 +16,7 @@ dependencies:
     - field.field.node.stanford_publication.su_sdss_pub_focal_areas
     - field.field.node.stanford_publication.su_sdss_pub_organization
     - field.field.node.stanford_publication.su_sdss_pub_research_area
+    - field.field.node.stanford_publication.su_sdss_related_content
     - field.field.node.stanford_publication.su_shared_tags
     - node.type.stanford_publication
     - views.view.stanford_publications
@@ -96,7 +99,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: entity_reference_revisions_entity_view
+                type: layout_paragraphs
                 label: hidden
                 settings:
                   view_mode: default
@@ -209,8 +212,6 @@ third_party_settings:
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
-      - Devel
-      - 'Devel PHP'
       - 'Events Lists (Views)'
       - Forms
       - Help
@@ -334,6 +335,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 2
+    region: main
+  su_sdss_related_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
     region: main
 hidden:
   citation_type: true
