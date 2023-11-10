@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 // Override bottom margin on all components.
+// This was done for the color to bump up to eachother
 .content {
   .paragraph-item {
-    // @include responsive-spacing('margin-bottom', 1);
     margin-bottom: 0;
-  }
 }
 
 // Moving the margin further down the html to keep the bgcolors.
-.su-page-components {
+.su-page-components,
+.su-news-components {
   .layout--layout-paragraphs-one-column,
   .layout--layout-paragraphs-three-column {
     > div {
@@ -18,7 +18,8 @@
   }
 }
 
-.su-page-components {
+.su-page-components,
+.su-news-components {
   .layout--layout-paragraphs-one-column,
   .layout--layout-paragraphs-three-column,
   .layout--layout-paragraphs-two-column {
