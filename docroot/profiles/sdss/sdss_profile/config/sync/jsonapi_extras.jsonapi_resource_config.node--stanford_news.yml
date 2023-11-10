@@ -238,12 +238,6 @@ resourceFields:
     publicName: su_news_featured_media
     enhancer:
       id: ''
-  su_news_hide_social:
-    disabled: false
-    fieldName: su_news_hide_social
-    publicName: su_news_hide_social
-    enhancer:
-      id: ''
   su_news_publishing_date:
     disabled: false
     fieldName: su_news_publishing_date

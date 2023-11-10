@@ -33,8 +33,7 @@ tasks:
       composer install --no-interaction &&
       blt blt:telemetry:disable --no-interaction &&
       blt settings &&
-      blt drupal:install -n &&
-      blt sbsc
+      blt drupal:install -n
     command: |
       cd $GITPOD_REPO_ROOT &&
       echo 'Restarting Apache' &&
