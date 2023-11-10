@@ -9,24 +9,18 @@
 }
 
 // Moving the margin further down the html to keep the bgcolors.
-.su-page-components,
-.su-news-components {
-  .layout--layout-paragraphs-one-column,
-  .layout--layout-paragraphs-three-column {
-    > div {
-      @include responsive-spacing('margin-bottom', 1);
-    }
+.layout--layout-paragraphs-one-column,
+.layout--layout-paragraphs-three-column {
+  > div {
+    @include responsive-spacing('margin-bottom', 1);
   }
 }
 
-.su-page-components,
-.su-news-components {
-  .layout--layout-paragraphs-one-column,
-  .layout--layout-paragraphs-three-column,
-  .layout--layout-paragraphs-two-column {
-    @include responsive-spacing('padding-bottom', 1);
+.layout--layout-paragraphs-one-column,
+.layout--layout-paragraphs-three-column,
+.layout--layout-paragraphs-two-column {
+  @include responsive-spacing('padding-bottom', 1);
 
-  }
 }
 
 // Utility class to add to layout sections to drop the bottom margin on the
