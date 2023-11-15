@@ -18,7 +18,6 @@ var webpackConfig = {
   entry: {
     "ckeditor": path.resolve("src/scss/ckeditor.scss"),
     "sdss_subtheme": path.resolve("src/scss/config/index.scss"),
-    "../js/scripts": path.resolve("src/js/sdss_subtheme.behaviors.js"),
   },
   output: {
     path: config.distFolder,
@@ -36,24 +35,6 @@ var webpackConfig = {
   },
   module: {
     rules: [
-      {
-        test: /\.behavior.js$/,
-        exclude: /node_modules/,
-        options: {
-          enableHmr: false
-        },
-        loader: 'drupal-behaviors-loader'
-      },
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        },
-      },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
