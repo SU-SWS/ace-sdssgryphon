@@ -11,7 +11,6 @@
   }
 
   &.node {
-    @include modular-spacing('margin-top', 5);
     @include modular-spacing('margin-bottom', 4);
 
     .stanford-news-vertical-cards {
@@ -20,6 +19,10 @@
 
       }
     }
+  }
+
+  div.section-header--newsroom {
+    @include modular-spacing('margin-top', 5);
   }
 
 }
