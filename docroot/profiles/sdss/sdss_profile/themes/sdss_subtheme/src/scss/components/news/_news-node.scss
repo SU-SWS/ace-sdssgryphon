@@ -21,6 +21,10 @@
     }
   }
 
+  div.section-header--newsroom {
+    @include modular-spacing('margin-top', 5);
+  }
+
 }
 
 .su-sdss-news-dek-long {
@@ -67,7 +71,6 @@
     grid-template-columns: 1fr 210px;
     align-items: center;
 
-    line-height: 1.75;
     max-width: 850px;
     margin: auto;
 
@@ -86,10 +89,12 @@
     @include sdss-newsroom-byline;
     @include responsive-spacing('margin-right', 2);
 
+    margin-bottom: 7px;
+
     div {
       color: $su-color-black-70;
       display: inline;
-      line-height: 1.75;
+      line-height: 1.2;
     }
 
     >span {
@@ -98,6 +103,10 @@
   }
 
   .news-social-media {
+
+    div {
+      top: unset;
+    }
 
     >div:first-of-type {
       padding-left: 0;
