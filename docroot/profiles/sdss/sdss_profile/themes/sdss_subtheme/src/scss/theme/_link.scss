@@ -10,6 +10,44 @@ a {
   }
 }
 
+// Card links on a background color.
+.layout-paragraphs-sdss-bgcolor--green {
+  a {
+    color: $su-color-white;
+
+    &:hover {
+      color: $sdss-color-blue-bright-dark;
+      text-decoration: none;
+    }
+  }
+
+  .su-news-edit-article {
+    a {
+      color: $sdss-color-palo-alto-dark;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  article.su-card a {
+    @include sdss-link--negative-card;
+
+  }
+}
+
+// CTA Links on a background color.
+.layout-paragraphs-sdss-bgcolor--green {
+  article.su-card a.su-link--action {
+    @include sdss-link--negative-footer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 // Moving the focus out to keep out of main navigation
 .block-sdss-subtheme-content,
 footer {

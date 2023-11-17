@@ -109,6 +109,53 @@
 }
 //End
 
+// Negative link details
+@mixin sdss-link--negative-card {
+  color: $sdss-color-white;
+  outline-color: $sdss-color-white;
+  text-decoration: underline;
+
+  &::after {
+    background-color: $sdss-color-white
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-white;
+    }
+  }
+
+  &:hover {
+    color: $sdss-color-blue-hover;
+    text-decoration: none;
+
+    &::after {
+      background-color: $sdss-color-blue-hover;
+    }
+  }
+
+  &:focus {
+    color: $sdss-color-blue-hover;
+    text-decoration: none;
+
+    &::after {
+      background-color: $sdss-color-blue-hover;
+    }
+  }
+
+  &:active {
+    color: $sdss-color-blue-hover;
+    text-decoration: none;
+
+    &::after {
+      background-color: $sdss-color-blue-hover;
+    }
+  }
+
+
+}
+//End
+
 // Negative FOOTER link details
 @mixin sdss-link--negative-footer {
   @include sdss-link-negative-footer--hover-and-focus;
