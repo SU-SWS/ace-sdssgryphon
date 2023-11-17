@@ -1,5 +1,20 @@
 # ACE SDSSGryphon
 
+4.0.1
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-16_
+
+92aeec3 SDSS-000: Removed memache packages from composer.json (#309)
+264d452 SDSS-919: A11y | Added background-color behind banner images (#303)
+63aee37 SDSS-998: Added space between masthead and article on News nodes (#304)
+a74c1bb SDSS-1082: Adjusted News node byline spacing (#307)
+4da285f SDSS-1101: Moved SDSS theme JavaScript (#308)
+caea03d SDSS-1087: Added bottom margin to all layout paragraph sections (#305)
+a304ea9 SDSS-1092: Removed JS compiling in sdss_subtheme (#306)
+43533f7 Merge pull request #302 from SU-SWS/backtodev-4.0.1
+413b171 backtodev-4.0.1
+
+
 4.0.0
 --------------------------------------------------------------------------------
 _Release Date: 2023-11-08_
