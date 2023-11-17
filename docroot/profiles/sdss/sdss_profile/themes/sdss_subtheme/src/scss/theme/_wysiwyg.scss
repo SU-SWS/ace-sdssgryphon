@@ -59,6 +59,25 @@
     }
   }
 
+  // Image without a caption.
+  .media.image {
+    @include responsive-spacing('margin-bottom', 2);
+
+    padding-bottom: 0;
+  }
+
+  // Image with a caption.
+  .caption{
+    .media.image {
+      margin-bottom: 0;
+    }
+
+    figcaption {
+      @include responsive-spacing('margin-bottom', 2);
+      padding-bottom: 0;
+    }
+  }
+
   .localist-widget {
     h2 {
       a {
