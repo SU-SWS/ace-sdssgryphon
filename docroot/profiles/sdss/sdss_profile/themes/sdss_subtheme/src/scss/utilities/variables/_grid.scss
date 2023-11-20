@@ -13,7 +13,7 @@ $su-grid-columns: 12 !default;
 /// @name $su-grid-screens
 ///
 /// @group variable
-$su-grid-screens: (
+$sdss-grid-screens: (
   'xs': $su-screen-xs,
   'sm': $su-screen-sm,
   'md': $su-screen-md,
@@ -25,10 +25,10 @@ $su-grid-screens: (
 ///
 /// A sass map of breakpoints sized keyed with the breakpoint shortcode.
 ///
-/// @name $su-grid-media
+/// @name $sdss-grid-media
 ///
 /// @group variable
-$su-grid-media: (
+$sdss-grid-media: (
   'xs': $su-breakpoint-xs,
   'sm': $su-breakpoint-sm,
   'md': $su-breakpoint-md,
