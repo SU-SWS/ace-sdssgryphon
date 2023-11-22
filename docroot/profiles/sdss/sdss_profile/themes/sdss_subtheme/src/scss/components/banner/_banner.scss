@@ -23,6 +23,8 @@
   //Gradiant on banner image.
   z-index: 1;
   position: relative;
+  // A background color when images are turned off.
+  background: $su-color-black;
 
   .su-hero__media {
     background: linear-gradient(180deg, rgba(46, 45, 41, 0) 50%, $sdss-color-black-dark 90%);
