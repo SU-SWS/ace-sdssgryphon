@@ -10,10 +10,10 @@ dependencies:
     - taxonomy
     - user
     - views_bulk_operations
-id: manage_people
+id: sdss_manage_people
 label: 'Manage People'
 module: node
-description: 'Find and manage content.'
+description: 'Find and manage Peoplecontent.'
 tag: default
 base_table: node_field_data
 base_field: nid
