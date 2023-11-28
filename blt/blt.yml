@@ -5,7 +5,7 @@ project:
     name: sdss_profile
   local: {  }
 git:
-  default_branch: 2.x
+  default_branch: 4.x
   remotes:
     - 'stanfordsos@svn-23450.prod.hosting.acquia.com:stanfordsos.git'
 deploy:
@@ -17,7 +17,6 @@ drush:
   aliases:
     ci: self
   default_alias: '${drush.aliases.local}'
-simplesamlphp: true
 cm:
   strategy: config-split
   allow-overrides: true

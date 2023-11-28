@@ -1,6 +1,8 @@
 # ACE SDSSGryphon
 
-This stack is based on the [SU-SWS/ace-gryphon](https://github.com/SU-SWS/ace-gryphon) stack.
+The ACE SDSSGryphon stack serves the Doerr School of Sustainability. This stack is based on the [SU-SWS/ace-gryphon](https://github.com/SU-SWS/ace-gryphon) stack.
+
+The primary theme for SDSS is the `sdss_subtheme` located in the `sdss_profile`.
 
 ----
 # GitPod Setup
@@ -22,23 +24,6 @@ This stack is based on the [SU-SWS/ace-gryphon](https://github.com/SU-SWS/ace-gr
    2. Configure your browser settings for an easier experience: https://www.gitpod.io/docs/configure/browser-settings
 3. Open a gitpod workspace with [these instructions](https://www.gitpod.io/docs/getting-started#start-your-first-workspace)
 
-----
-# Provisioning a new site
-There are several commands within BLT that make creating a new site much easier.
-- `blt recipes:multisite:init` will create a new site directory with all the framework
-necessary for a new multisite instance. This command will also ask to create a
-new database on Acquia. This can also ran manually by `blt gryphon:create-database`.
-The machine name of the site and the database should match. BLT automatically
-connects to the database if it has the same name. see https://github.com/acquia/blt/blob/12.x/settings/blt.settings.php#L125
-- `blt gryphon:add-domain` can be used to add custom domains to any environment except RA.
-- `blt gryphon:add-cert-domain` will add the domain to the LetsEncrypt certificate.
-This will only work if the url points to the desired environment.
-- `blt gryphon:issue-cert` will request the lets encrypt certificate be renewed.
-Note: the letsencrypt_challenge module must be enabled. during this command the
-module is enabled for all site aliases for the given environment.
-- `blt gryphon:renew-cert` will run a command on Acquia's server to renew the LE certificate.
-- `blt gryphon:update-certs` downloads the certificate files from acquia and will
-use the cloud API to upload and activate the cert on the acquia environment.
 
 ----
 # Config Management
@@ -172,4 +157,3 @@ BLT uses a number of configuration (`.yml` or `.json`) files to define and custo
 ## Resources
 
 * GitHub - https://github.com/SU-SWS/ace-gryphon
-* Acquia Cloud subscription - https://cloud.acquia.com/app/develop/applications/8449683b-500e-4728-b70a-5f69d9e8a61a

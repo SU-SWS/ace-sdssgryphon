@@ -19,34 +19,34 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: card_3_2_1920x1280_
-    breakpoint_id: stanford_image_styles.lg
-    multiplier: 2x
-  -
-    image_mapping_type: image_style
     image_mapping: card_3_2_960x640_
     breakpoint_id: stanford_image_styles.md
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: card_3_2_1920x1280_
-    breakpoint_id: stanford_image_styles.md
-    multiplier: 2x
-  -
-    image_mapping_type: image_style
     image_mapping: card_3_2_960x640_
     breakpoint_id: stanford_image_styles.sm
     multiplier: 1x
-  -
-    image_mapping_type: image_style
-    image_mapping: card_3_2_1200x800_
-    breakpoint_id: stanford_image_styles.sm
-    multiplier: 2x
   -
     image_mapping_type: image_style
     image_mapping: card_3_2_480x320_
     breakpoint_id: stanford_image_styles.xs
     multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_3_2_1920x1280_
+    breakpoint_id: stanford_image_styles.lg
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_3_2_1920x1280_
+    breakpoint_id: stanford_image_styles.md
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_3_2_1200x800_
+    breakpoint_id: stanford_image_styles.sm
+    multiplier: 2x
   -
     image_mapping_type: image_style
     image_mapping: card_3_2_960x640_

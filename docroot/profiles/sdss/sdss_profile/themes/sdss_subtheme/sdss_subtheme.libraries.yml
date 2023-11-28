@@ -98,4 +98,4 @@ sdss:
    theme:
      dist/css/sdss_subtheme.css: {minified: true }
   js:
-    dist/js/scripts.js: { scope: footer }
+    js/scripts.js: { scope: footer }

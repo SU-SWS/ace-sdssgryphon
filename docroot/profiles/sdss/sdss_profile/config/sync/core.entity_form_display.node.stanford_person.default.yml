@@ -45,6 +45,7 @@ dependencies:
   module:
     - allowed_formats
     - change_labels
+    - cshs
     - field_group
     - layout_paragraphs
     - link
@@ -52,7 +53,6 @@ dependencies:
     - menu_link
     - metatag
     - scheduler
-    - shs
     - stanford_intranet
     - text
 third_party_settings:
@@ -360,14 +360,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_person_type_group:
-    type: options_shs
+    type: cshs
     weight: 17
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_person_alt_bio:
     type: text_textarea
@@ -386,34 +389,43 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_sdss_person_focal_areas:
-    type: options_shs
+    type: cshs
     weight: 18
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_person_organization:
-    type: options_shs
+    type: cshs
     weight: 32
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_person_research_area:
-    type: options_shs
+    type: cshs
     weight: 33
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_person_research_state:
     type: text_textarea
@@ -434,14 +446,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_shared_tags:
-    type: options_shs
+    type: cshs
     weight: 31
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   title:
     type: string_textfield

@@ -146,25 +146,19 @@ header.su-masthead {
     section.su-masthead--inner {
       #sdss-button--search-link {
         align-self: center;
-        position: absolute;
+        background-color: $sdss-color-palo-alto-dark;
+        border-radius: 32px;
+        bottom: unset;
         display: inline-block;
         top: unset;
         right: 0;
         left: unset;
-        bottom: unset;
-        margin: 0;
-        margin-right: 3rem;
-        width: 32px;
-        height: 32px;
-        border-radius: 32px;
-        background-color: $sdss-color-palo-alto-dark;
-      }
-
-      .su-lockup--option-a,
-      .su-lockup--option-b {
-        ~ #sdss-button--search-link {
-          margin-top: -4.5rem;
-        }
+        margin: -4.5rem 1.5rem 0 3rem;
+        position: relative;
+        min-width: 32px;
+        min-height: 32px;
+        z-index: 100;
+        float: right;
       }
 
       .system-menu-block {
