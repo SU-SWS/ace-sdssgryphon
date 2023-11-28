@@ -27,11 +27,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-20230622-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-20231128-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-20230622-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-20230622-${{ hashFiles('composer.json') }}-
-            4.x-20230622-
+            4.x-20231128-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-20231128-${{ hashFiles('composer.json') }}-
+            4.x-20231128-
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
