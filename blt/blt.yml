@@ -66,11 +66,13 @@ multisites:
   - storagex
   - strategic_energy_alliance
   - sustainability
+  - sustainability_accelerator
   - understand_energy_course
   - understandenergy
   - water
   - witw
   - woods
+  - woods_water
 tests:
   reports:
     localDir: '${repo.root}/artifacts'
