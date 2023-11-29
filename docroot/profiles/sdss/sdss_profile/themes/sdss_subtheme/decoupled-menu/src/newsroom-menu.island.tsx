@@ -221,7 +221,7 @@ const Nav = styled.nav`
 `
 
 const Button = styled.button<{ open?: boolean }>`
-  color: #ffffff;
+  color: #155F65;
   background: #155F65;
   border: none;
   border-bottom: 1px solid transparent;
@@ -248,9 +248,10 @@ const Button = styled.button<{ open?: boolean }>`
 
     &:hover, &:focus, &:active {
       border-bottom: 1px solid;
-      border-color: ${props => props.open ? "#ffffff;" : "#2e2d29;"};
+      border-color: ${props => props.open ? "#155f65" : "#155f65"};
       background: transparent;
       border-radius: unset;
+      color: ${props => props.open ? "#155f65" : "#155f65"};
     }
   }
 `

@@ -129,7 +129,7 @@
     position: unset;
   }
 `),tn=Mr.button`
-  color: #ffffff;
+  color: #155F65;
   background: #155F65;
   border: none;
   border-bottom: 1px solid transparent;
@@ -156,9 +156,10 @@
 
     &:hover, &:focus, &:active {
       border-bottom: 1px solid;
-      border-color: ${e=>e.open?"#ffffff;":"#2e2d29;"};
+      border-color: ${e=>(e.open,"#155f65")};
       background: transparent;
       border-radius: unset;
+      color: ${e=>(e.open,"#155f65")};
     }
   }
 `,rn=Mr.div`
