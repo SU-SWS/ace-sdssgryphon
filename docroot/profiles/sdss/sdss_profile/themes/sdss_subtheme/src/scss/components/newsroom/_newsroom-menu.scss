@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
 .newsroom-wrapper {
-  border-bottom: 1px solid $su-color-black-20;
+
+  @include grid-media-min('lg') {
+    border-bottom: 1px solid $su-color-black-20;
+  }
 }
 
 .menu--newsroom {
@@ -13,6 +16,16 @@
 
   margin-top: 4.3rem;
   margin-bottom: 0;
+
+  // Changing the caret for desktop on the top level menu.
+  @include grid-media-min('lg') {
+    div[open=true] {
+      button[aria-expanded=true] {
+        color: #ffffff;
+        border-bottom: 1px solid;
+      }
+    }
+  }
 
   @include grid-media-max('md') {
     grid-template-columns: 1fr;
