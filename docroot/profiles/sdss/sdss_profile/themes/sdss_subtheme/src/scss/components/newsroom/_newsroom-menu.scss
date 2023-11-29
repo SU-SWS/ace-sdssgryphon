@@ -2,18 +2,17 @@
 
 .newsroom-wrapper {
   border-bottom: 1px solid $su-color-black-20;
-  margin-bottom: 5.8rem;
 }
 
 .menu--newsroom {
   @include centered-column;
 
   display: grid;
-  grid-template-columns: 160px 1fr 260px;
+  grid-template-columns: 160px 1fr;
   align-items: center;
 
   margin-top: 4.3rem;
-  margin-bottom: 3.8rem;
+  margin-bottom: 0;
 
   @include grid-media-max('md') {
     grid-template-columns: 1fr;

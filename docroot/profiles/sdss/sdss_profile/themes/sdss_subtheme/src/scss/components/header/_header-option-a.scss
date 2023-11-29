@@ -32,6 +32,17 @@ body.sdss-header-variant--option_a {
 //
 
 // Styles for Large or bigger Screens.
+@include grid-media-min('xl') {
+  body.sdss-header-variant--option_a {
+    header.su-masthead {
+
+      #sdss-button--search-link {
+       right: -80px;
+      }
+    }
+  }
+}
+
 @include grid-media-min('lg') {
   body.sdss-header-variant--option_a {
     header.su-masthead {
