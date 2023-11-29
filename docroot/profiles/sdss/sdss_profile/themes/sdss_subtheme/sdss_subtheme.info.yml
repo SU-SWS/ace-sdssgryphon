@@ -2,20 +2,11 @@ name: Stanford SDSS subtheme
 type: theme
 description: 'Stanford SDSS subtheme'
 package: Stanford
-version: 3.0.0-dev
-core_version_requirement: ^9
+version: 4.0.2-dev
+core_version_requirement: ^9 || ^10
 base theme: stanford_basic
 libraries:
   - sdss_subtheme/sdss
-
-# Custom ckeditor styles.
-ckeditor5-stylesheets:
-  - dist/css/ckeditor.css
-
-components:
-  namespaces:
-    sdss_subtheme: templates/components
-    decanter: dist/templates/decanter
 
 regions:
   page_top: 'Page top'
@@ -26,3 +17,12 @@ regions:
   content: Content
   footer: Footer
   page_bottom: 'Page bottom'
+
+components:
+  namespaces:
+    sdss_subtheme: templates/components
+    # decanter: dist/templates/decanter
+
+# Custom ckeditor styles.
+ckeditor5-stylesheets:
+  - dist/css/ckeditor.css
