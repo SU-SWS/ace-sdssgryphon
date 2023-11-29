@@ -151,7 +151,6 @@
   }
 
   @media (min-width: 992px) {
-    color: ${e=>e.open?"#ffffff;":"#155F65;"};
     background: transparent;
     border-radius: unset;
 
@@ -199,7 +198,6 @@
   @media (min-width: 992px) {
     color: ${({level:e})=>0!=e?"#ffffff":"#2E2D29"};
     padding: ${({level:e})=>0!=e?"16px 0 16px 16px":"16px 0"};
-    border-bottom: ${({level:e,inTrail:t,isCurrent:r})=>0===e?r?"6px solid #2e2d29":t?"6px solid #b6b1a9":"6px solid transparent":""};
     margin-bottom: ${({level:e,inTrail:t,isCurrent:r})=>0===e?"-6px":""};
 
     &:hover, &:focus {

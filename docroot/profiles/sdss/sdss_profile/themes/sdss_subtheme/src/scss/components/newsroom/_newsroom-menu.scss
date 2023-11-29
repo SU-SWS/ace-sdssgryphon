@@ -25,7 +25,8 @@
   width: unset;
 
   .menu-blocknewsroom-menu {
-    font-size: 32px;
+    font-size: 1.7em;
+    line-height: 108%;
     margin-bottom: 0;
 
     @include grid-media-max('md') {
