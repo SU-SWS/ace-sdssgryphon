@@ -46,5 +46,5 @@ jobs:
           git config --global user.name "Github Actions"
           ssh-keyscan -t rsa svn-23450.prod.hosting.acquia.com >> /root/.ssh/known_hosts
           composer install -n
-          vendor/bin/blt blt:telemetry:disable --no-interaction
-          vendor/bin/blt deploy -v -n
+          blt blt:telemetry:disable --no-interaction
+          blt deploy -v -n
