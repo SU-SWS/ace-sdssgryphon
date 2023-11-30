@@ -1,7 +1,29 @@
 @charset "UTF-8";
 
-.sdss-spotlight {
+// Needs to be on afull width page.
+.layout--layout-paragraphs-one-column  {
+    .ptype-sdss-spotlight {
+        margin-left: unset;
+        max-width: unset;
+        padding-top: 11rem;
 
+        // Background images
+        &.bg_image_option_1 {
+            background: url("../../assets/svg/spotlight-circles-bg-grey.svg") no-repeat;
+            background-position: left 45% top 10px;
+            background-repeat: no-repeat;
+        }
+
+        &.bg_image_default {
+            background: url("../../assets/svg/spotlight-circles-bg-white.svg") no-repeat;
+            background-position: left 45% top 10px;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+
+.sdss-spotlight {
     // Responsive first
     .su-card {
 
