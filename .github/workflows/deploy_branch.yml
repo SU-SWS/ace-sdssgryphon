@@ -16,7 +16,7 @@ jobs:
       DRUPAL_DATABASE_PASSWORD: drupal
       DRUPAL_DATABASE_HOST: mysql
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:8.1
     steps:
       - uses: actions/checkout@v3
       - name: Restore Cache
