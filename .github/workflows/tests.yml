@@ -48,8 +48,8 @@ jobs:
         #   CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         run: |
           composer install -n
-          blt blt:telemetry:disable --no-interaction
-          blt tests:phpunit:coverage --no-interaction
+          vendor/bin/blt blt:telemetry:disable --no-interaction
+          vendor/bin/blt tests:phpunit:coverage --no-interaction
       - name: Save Test Results
         uses: actions/upload-artifact@v3
         if: failure()
@@ -100,11 +100,11 @@ jobs:
           apachectl stop
           apachectl start
           composer install -n
-          blt blt:telemetry:disable --no-interaction
-          blt drupal:install -n
+          vendor/bin/blt blt:telemetry:disable --no-interaction
+          vendor/bin/blt drupal:install -n
           drush role:perm:add anonymous 'access content'
           drush xmlsitemap:rebuild
-          blt codeception --suite=acceptance
+          vendor/bin/blt codeception --suite=acceptance
       - name: Save Test Results
         uses: actions/upload-artifact@v3
         if: always()
@@ -160,13 +160,13 @@ jobs:
           apachectl stop
           apachectl start
           composer install -n
-          blt blt:telemetry:disable --no-interaction
-          blt drupal:install -n
+          vendor/bin/blt blt:telemetry:disable --no-interaction
+          vendor/bin/blt drupal:install -n
           drush role:perm:add anonymous 'access content'
           drush xmlsitemap:rebuild
           mkdir -p artifacts/_data/
       - name: Run tests
-        run: blt codeception --suite=functional
+        run: vendor/bin/blt codeception --suite=functional
       - name: Save Test Results
         uses: actions/upload-artifact@v3
         if: always()
