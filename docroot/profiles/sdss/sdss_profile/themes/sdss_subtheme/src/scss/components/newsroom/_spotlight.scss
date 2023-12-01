@@ -5,43 +5,6 @@
     .ptype-sdss-spotlight {
         margin-left: unset;
         max-width: unset;
-        padding-top: 11rem;
-    }
-}
-
-
-// Background images are only on XL and larger.
-@include grid-media-min('xl') {
-    .layout--layout-paragraphs-one-column  {
-        .ptype-sdss-spotlight {
-            // No bg image
-            &.bg_image_default {
-                background: none;
-            }
-
-            // Circles
-            &.bg_image_option_1 {
-                background: url("../../assets/svg/spotlight-circles-bg-grey.svg") no-repeat;
-                background-position: left 45% top 190%;
-                background-repeat: no-repeat;
-            }
-
-            // Change the color of the background circles based on section color.
-
-
-        }
-
-        &.layout-paragraphs-sdss-bgcolor--green,
-        &.layout-paragraphs-sdss-bgcolor--blue,
-        &.layout-paragraphs-sdss-bgcolor--grey {
-
-            .bg_image_option_1 {
-                background: url("../../assets/svg/spotlight-circles-bg-blue.svg") no-repeat;
-                background-position: left 45% top 190%;
-                background-repeat: no-repeat;
-            }
-
-        }
     }
 }
 
@@ -53,7 +16,7 @@
 
         @include grid-media-min('xl') {
             display: grid;
-            grid-template-columns: minmax(330px, 1fr) 941px;
+            grid-template-columns: minmax(500px,1fr) minmax(500px, 941px);
             grid-template-rows: auto;
             grid-template-areas:
                 "news-header image"

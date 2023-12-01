@@ -4,10 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.sdss_spotlight.su_newsroom_article
-    - field.field.paragraph.sdss_spotlight.su_sdss_spotlight_bg
     - paragraphs.paragraphs_type.sdss_spotlight
-  module:
-    - change_labels
 id: paragraph.sdss_spotlight.default
 targetEntityType: paragraph
 bundle: sdss_spotlight
@@ -28,14 +25,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  su_sdss_spotlight_bg:
-    type: options_select
-    weight: -198
-    region: content
-    settings: {  }
-    third_party_settings:
-      change_labels:
-        field_label_overwrite: ''
 hidden:
   created: true
   status: true
