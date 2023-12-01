@@ -195,7 +195,7 @@ export const NewsroomMenu = ({}) => {
       <TopList open={menuOpen}>
         <SearchContainer>
           <a href="/search">
-            <MagnifyingGlass style={{ width: "18px", height: "18px" }} />
+            <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
             Search news & research
           </a>
         </SearchContainer>
@@ -247,6 +247,7 @@ const Button = styled.button<{ open?: boolean }>`
     border-radius: unset;
     border-bottom: 1px solid transparent;
     color: #155f65;
+    margin: 4px 10px 0 -4px;
 
     &:hover, &:focus, &:active {
       border-bottom: 1px solid #155f65;

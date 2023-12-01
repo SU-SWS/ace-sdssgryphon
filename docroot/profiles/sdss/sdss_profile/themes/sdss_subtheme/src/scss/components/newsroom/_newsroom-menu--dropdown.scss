@@ -14,6 +14,7 @@
 
         ul[open=true] {
           li:nth-last-child(-n+2) {
+            align-self: center;
             border: 1px solid $sdss-color-blue-bright;
             border-radius: 40px;
             padding: 0 56px;
