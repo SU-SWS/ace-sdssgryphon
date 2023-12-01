@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.stanford_html
+    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -43,15 +45,19 @@ dependencies:
     - dropzonejs
     - editoria11y
     - field_permissions
+    - file
+    - filter
     - media
     - menu_admin_per_menu
     - node
     - paragraphs
     - path
+    - pathauto
     - rabbit_hole
     - redirect
     - role_delegation
     - scheduler
+    - sdss_entities
     - sdss_profile
     - stanford_migrate
     - stanford_policy
@@ -72,7 +78,6 @@ permissions:
   - 'access contextual links'
   - 'access media overview'
   - 'access patterns page'
-  - 'access site in maintenance mode'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
@@ -80,7 +85,6 @@ permissions:
   - 'add content to books'
   - 'administer book outlines'
   - 'administer citation entities'
-  - 'administer course importer settings'
   - 'administer main menu items'
   - 'administer news-topics menu items'
   - 'administer nodes'
@@ -98,7 +102,6 @@ permissions:
   - 'assign stanford_student role'
   - 'break content lock'
   - 'cancel account'
-  - 'change own username'
   - 'choose layout for node stanford_page'
   - 'create embeddable media'
   - 'create field_media_embeddable_code'
@@ -108,6 +111,7 @@ permissions:
   - 'create media'
   - 'create new books'
   - 'create policy log'
+  - 'create sdss entity'
   - 'create stanford_course content'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
@@ -155,6 +159,7 @@ permissions:
   - 'delete media'
   - 'delete own embeddable media'
   - 'delete own file media'
+  - 'delete own files'
   - 'delete own google_form media'
   - 'delete own image media'
   - 'delete own stanford_course content'
@@ -168,6 +173,7 @@ permissions:
   - 'delete own stanford_publication content'
   - 'delete own video media'
   - 'delete policy log'
+  - 'delete sdss entity'
   - 'delete stanford_course revisions'
   - 'delete stanford_event revisions'
   - 'delete stanford_event_series revisions'
@@ -228,6 +234,7 @@ permissions:
   - 'edit own stanford_publication content'
   - 'edit own video media'
   - 'edit policy log'
+  - 'edit sdss entity'
   - 'edit stanford_basic_site_settings config page entity'
   - 'edit stanford_courses_importer config page entity'
   - 'edit stanford_events_importer config page entity'
@@ -253,9 +260,13 @@ permissions:
   - 'edit terms in stanford_publication_topics'
   - 'edit terms in su_sdss_news_source'
   - 'edit terms in su_shared_tags'
-  - 'import stanford_events_importer migration'
+  - 'import stanford_courses migration'
+  - 'import stanford_localist_importer migration'
   - 'import stanford_publications migration'
   - 'import su_stanford_person migration'
+  - 'mark as hidden in editoria11y'
+  - 'mark as ok in editoria11y'
+  - 'notify of path changes'
   - 'rabbit hole bypass node'
   - 'revert stanford_course revisions'
   - 'revert stanford_event revisions'
@@ -269,6 +280,8 @@ permissions:
   - 'update any media'
   - 'update any stanford_component_block block content'
   - 'update media'
+  - 'use text format stanford_html'
+  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
@@ -279,18 +292,10 @@ permissions:
   - 'view any unpublished stanford_news content'
   - 'view any unpublished stanford_page content'
   - 'view any unpublished stanford_person content'
+  - 'view any unpublished stanford_policy content'
   - 'view any unpublished stanford_publication content'
   - 'view editoria11y checker'
-  - 'view own unpublished content'
-  - 'view own unpublished media'
-  - 'view policy log'
   - 'view scheduled content'
-  - 'view stanford_course revisions'
-  - 'view stanford_event revisions'
-  - 'view stanford_event_series revisions'
-  - 'view stanford_news revisions'
-  - 'view stanford_page revisions'
-  - 'view stanford_person revisions'
   - 'view stanford_policy revisions'
   - 'view stanford_publication revisions'
   - 'view the administration theme'

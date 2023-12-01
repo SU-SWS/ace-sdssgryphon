@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - filter.format.stanford_html
+    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -41,12 +43,16 @@ dependencies:
     - dropzonejs
     - editoria11y
     - field_permissions
+    - file
+    - filter
     - media
     - menu_admin_per_menu
     - node
     - paragraphs
     - path
+    - pathauto
     - scheduler
+    - sdss_entities
     - stanford_policy
     - stanford_publication
     - system
@@ -65,7 +71,6 @@ permissions:
   - 'access contextual links'
   - 'access media overview'
   - 'access patterns page'
-  - 'access site in maintenance mode'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'access user profiles'
@@ -86,6 +91,7 @@ permissions:
   - 'create media'
   - 'create new books'
   - 'create policy log'
+  - 'create sdss entity'
   - 'create stanford_course content'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
@@ -126,6 +132,7 @@ permissions:
   - 'delete media'
   - 'delete own embeddable media'
   - 'delete own file media'
+  - 'delete own files'
   - 'delete own google_form media'
   - 'delete own image media'
   - 'delete own stanford_course content'
@@ -165,6 +172,9 @@ permissions:
   - 'delete terms in su_sdss_news_source'
   - 'delete terms in su_shared_tags'
   - 'dropzone upload files'
+  - 'edit any embeddable media'
+  - 'edit any file media'
+  - 'edit any google_form media'
   - 'edit any image media'
   - 'edit any stanford_course content'
   - 'edit any stanford_event content'
@@ -175,6 +185,7 @@ permissions:
   - 'edit any stanford_person content'
   - 'edit any stanford_policy content'
   - 'edit any stanford_publication content'
+  - 'edit any video media'
   - 'edit behavior plugin settings'
   - 'edit citation entities'
   - 'edit field_media_embeddable_code'
@@ -194,6 +205,7 @@ permissions:
   - 'edit own stanford_publication content'
   - 'edit own video media'
   - 'edit policy log'
+  - 'edit sdss entity'
   - 'edit terms in basic_page_types'
   - 'edit terms in event_audience'
   - 'edit terms in media_tags'
@@ -211,6 +223,9 @@ permissions:
   - 'edit terms in stanford_publication_topics'
   - 'edit terms in su_sdss_news_source'
   - 'edit terms in su_shared_tags'
+  - 'mark as hidden in editoria11y'
+  - 'mark as ok in editoria11y'
+  - 'notify of path changes'
   - 'revert stanford_course revisions'
   - 'revert stanford_event revisions'
   - 'revert stanford_event_series revisions'
@@ -220,7 +235,10 @@ permissions:
   - 'revert stanford_policy revisions'
   - 'revert stanford_publication revisions'
   - 'schedule publishing of nodes'
+  - 'update any media'
   - 'update media'
+  - 'use text format stanford_html'
+  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
@@ -231,6 +249,7 @@ permissions:
   - 'view any unpublished stanford_news content'
   - 'view any unpublished stanford_page content'
   - 'view any unpublished stanford_person content'
+  - 'view any unpublished stanford_policy content'
   - 'view any unpublished stanford_publication content'
   - 'view editoria11y checker'
   - 'view own unpublished content'

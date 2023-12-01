@@ -6,7 +6,6 @@ use Faker\Factory;
  * Test for the lockup settings.
  *
  * @group navigation
- * @group testme
  */
 class NavigationDropDownsCest {
 
@@ -37,8 +36,15 @@ class NavigationDropDownsCest {
 
   /**
    * Create some content and test the dropdown menu.
+   *
+   * @group menu_link_weight
    */
   public function testDropdownMenus(FunctionalTester $I) {
+    $org_term = $I->createEntity([
+      'vid' => 'site_owner_orgs',
+      'name' => $this->faker->words(2, TRUE),
+    ], 'taxonomy_term');
+
     $parent_menu_title = $this->faker->word;
     $I->createEntity([
       'title' => $parent_menu_title,
@@ -47,16 +53,26 @@ class NavigationDropDownsCest {
     ], 'menu_link_content');
 
     $I->logInWithRole('site_manager');
-    $I->resizeWindow(1400, 700);
+    $I->resizeWindow(1400, 2000);
     $I->amOnPage('/admin/config/system/basic-site-settings');
-    $I->uncheckOption('Use drop down menus');
+    $I->uncheckOption('Use Drop Down Menus');
+
+    $I->click('Site Contacts');
+    $I->waitForText('Site Owner Contact Email');
+    $I->fillField('Site Owner Contact Email (value 1)', $this->faker->email);
+    $I->fillField('Primary Site Manager Email (value 1)', $this->faker->email);
+    $I->fillField('Accessibility Contact Email (value 1)', $this->faker->email);
+    $I->selectOption('.js-form-item-su-site-org-0-target-id select.simpler-select', $org_term->id());
     $I->click('Save');
+    $I->canSee('Site Settings has been', '.messages-list');
+
     $I->amOnPage('/');
     $I->cantSeeElement('button', ['class' => 'su-nav-toggle']);
 
     $I->amOnPage('/admin/config/system/basic-site-settings');
-    $I->checkOption('Use drop down menus');
+    $I->checkOption('Use Drop Down Menus');
     $I->click('Save');
+    $I->canSee('Site Settings has been', '.messages-list');
 
     $node_title = Factory::create()->text(20);
 
@@ -66,8 +82,10 @@ class NavigationDropDownsCest {
     $I->checkOption('Provide a menu link');
     $I->fillField('Menu link title', $node_title);
     // The label on the menu parent changes in D9 vs D8
-    $I->selectOption('Parent link', "-- $parent_menu_title");
+    $I->selectOption('.menu-link-form .select-wrapper--level-0 select', '<main>');
+    $I->selectOption('.menu-link-form .select-wrapper--level-1 select', $parent_menu_title);
     $I->waitForText("Change the weight of the links within the $parent_menu_title menu");
+
     $I->click('Save');
     $I->canSeeLink($node_title);
 

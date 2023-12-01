@@ -1,5 +1,119 @@
 # ACE SDSSGryphon
 
+4.0.2
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-30_
+
+3e73be0 SDSS-1089: Added JS to redirect to current page when clicking saml_login links (#325)
+409459e SDSS-1106: Ignore SDSS Subtheme settings (#324)
+483e153 SDSS-1127: Use php8.1 docker images for automation (#323)
+fc77bcf SDSS-1084 | SDSS-1085: Increase bottom margin on Callout and Editorial Sidebar (#316)
+7bd3a53 SDSS-1079: Updated stanford_earth_r25 module to 8.1.10 (#321)
+abbc14a SDSS-1103 | SDSS-1063: Provision waters-wood and sustainability-accelerator (#320)
+dc354c9 SDSS-987: Updated publications styles (#248)
+dda4335 SDSS-1086: Updated margins on images in wysiwyg (#314)
+b9eb51a Update .gitpod.yml (#319)
+e17defe Merge pull request #311 from SU-SWS/backtodev-4.0.2
+387ea1c backtodev-4.0.2
+
+
+4.0.1
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-16_
+
+92aeec3 SDSS-000: Removed memache packages from composer.json (#309)
+264d452 SDSS-919: A11y | Added background-color behind banner images (#303)
+63aee37 SDSS-998: Added space between masthead and article on News nodes (#304)
+a74c1bb SDSS-1082: Adjusted News node byline spacing (#307)
+4da285f SDSS-1101: Moved SDSS theme JavaScript (#308)
+caea03d SDSS-1087: Added bottom margin to all layout paragraph sections (#305)
+a304ea9 SDSS-1092: Removed JS compiling in sdss_subtheme (#306)
+43533f7 Merge pull request #302 from SU-SWS/backtodev-4.0.1
+413b171 backtodev-4.0.1
+
+
+4.0.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-08_
+
+- 6f23a79 SDSS-000: Point understand-energy dev and test domains (#300)
+- 1242c3d SDSS-994: D10 | Gitpod support for 4.x (#299)
+- 1e14218 Merge pull request #298 from SU-SWS/SDSS-994--d10-upgrade
+- 582474b SDSS-995: D10 updates (#297)
+- 454ddb6 SDSS-1073: D10 | Automated test updates (#296)
+- 788049e CKEditor CSS fix.
+- beffa65 SDSS-1069: UPSTREAM | Pull stanford_profile 11.0.8 (#295)
+- 777fc28 Merge pull request #293 from SU-SWS/backtodev-3.0.1
+- 630042e backtodev-3.0.1
+
+
+3.0.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-01_
+
+- fe1f6e0 SDSS-000: Added robots.txt patch (#291)
+- 65af33d SDSS-1065: Github automation updates for 3.x (#290)
+- 298d3e9 SDSS-1046: D9.5 | Fixed navigation wrapping and search icon styles (#282)
+- 15646b5 SDSS-1046: D9.5 | Adjusted layout paragraph spacing (#283)
+- e1e0980 SDSS-1053: Updated stanford_earth_r25 to 8.1.7 (#284)
+- 14743d6 Merge pull request #280 from SU-SWS/SDSS-551--D9.5--upgrade
+- b871d70 SDSS-1017: D9.5 |  Layout background colors style adjustments (#281)
+- a4f43f2 Fixes to update hooks.
+- 3287f03 SDSS-559: Upgrade path for react to layout paragraphs. (#278)
+- 4158e23 SDSS-1005: D9.5 | 3.x | Automated test updates (#275)
+- e865781 SDSS-000: Increase rss_feeds view date range from 7 to 8 days (#276)
+- 4e06d1a SDSS-1007: Support stanford_basic page.html.twig updates in sdss_subtheme (#270)
+- 276378a SDSS-889: Added bg_color Layout Option for SDSS layout paragraphs (#263)
+- fe69d5a SDSS-996: Switch to saml_auth from simplesamlphp (#261)
+- b2b8346 Upstream | Updates from stanford_profile 10.1.2 (#259)
+- f4a6650 Merge pull request #257 from SU-SWS/NOJIRA-20231004-merge-2.x
+- 5612edd Updated subtheme version.
+- d2f7c6f Merge branch '2.x' into NOJIRA-20231004-merge-2.x
+- ae71e6b SDSS-849: A11Y | FE | Updated decanter and moved Skip to Main link into a landmark (#254)
+- 8abaf45 SDSS-936: Updated line height for all image captions globally (#247)
+- bf6cac5 SDSS-983: BUG | Fix role permissions for SDSS entities (#246)
+- f9f3429 SDSS-968: Implement Media Contacts QA feedback (#241)
+- 219db3a Merge pull request #245 from SU-SWS/backtodev-2.2.1
+- aedf6ba backtodev-2.2.1
+- bb968a1 Merge branch '2.x' into 3.x
+- c5d83e5 SDSS-551: Drupal 9.5; Claro Admin theme; CKEditor 5; Layout paragraphs (#160)
+- 5a0b8de Merge branch '2.x' into 3.x
+- e6fd297 Merge branch 'feature/newsroom-layout-paragraphs' into 3.x
+
+
+2.2.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-09-27_
+
+- 493dd2a SDSS-973: Change dash to underscore in blt.yml for abc_hub (#244)
+- e08da09 SDSS-969: Disabled JSON API module (#242)
+- 2466773 SDSS-888: Swapping abchub with abc-hub (#239)
+- f06dade SDSS-943: Pointed techtransferfordefense to hackingfordefense site (#240)
+- d0dc2c2 SDSS-594-885: Added media contacts entity, field, styles and displays (#217) (#219)
+- 06d6b78 SDSS-843: Added the stanford_earth_r25 module to sdssroom site only. (#237)
+- bee9507 SDSS-937: NEWS | Added top margin to related news section (#235)
+- b8d1b0b SDSS-851: A11y | Added decorative blue text color for improved accessibility (#234)
+- 8a4c240 SDSS-842: Provision SDSS Rooms (#236)
+- f061137 SDSS-477: A11Y | Fixed button text color on Event pages (#233)
+- 3091c40 SDSS-451, SDSS-452: Adjust margin and padding for color variant paragraph rows (#232)
+- 3bacc1e SDSS-175: Reduce font-size on default list filter by menu (#231)
+- d4f8729 SDSS-900: Fix callout quote symbols for Windows (#230)
+- 88953c6 SDSS-888: Provisioned abchub (#229)
+- f89bf12 SDSS-000: DEV | Add ddev configuration for local environments (#228)
+- fb0303d SDSS-520: Updated Localist migration to import images (#227)
+- 916ea46 SDSS-814: News Article Design QA Updates (#193)
+- 849dddd SDSS-901: News | Vertical Teaser Card QA Updates (#222)
+- 5f99b4c SDSS-902: NEWS | Update byline and date font size on News node displays (#224)
+- e2d4b03 SDSS-906: Lock seleinium chrome-driver version (#226)
+- 45416f9 SDSS-886: Added nid data to RSS feed as unique identifier (#225)
+- 80ac02f SDSS-900: Callout Quote | Use serif font and smart quotes (#221)
+- efecbfe SDSS-846: A11y | Updates to News Vertical Card component (#220)
+- e498542 SDSS-877: Fix News article top text alignment issue (#218)
+- 857eec2 SDSS-827: Adjusted Callout Quote component alignment (#209)
+- ed710e2 SDSS-875: News article node display updates. (#216)
+- 91ee2b3 SDSS-821: Adjusted dek line height on News nodes (#213)
+
+
 2.1.1
 --------------------------------------------------------------------------------
 _Release Date: 2023-08-17_

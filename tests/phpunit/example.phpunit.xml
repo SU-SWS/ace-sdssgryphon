@@ -14,12 +14,19 @@
     <exclude>
       <directory suffix=".post_update.php">../modules/custom/*</directory>
       <directory suffix=".post_update.php">../profiles/custom/*</directory>
+      <directory suffix=".post_update.php">../profiles/sdss/*</directory>
       <directory>../modules/custom/*/tests</directory>
       <directory>../modules/custom/*/modules/*/tests</directory>
-      <!-- <directory>../profiles/custom/*/tests</directory>
-      <directory>../profiles/custom/*/modules/*/tests</directory> -->
+      <directory>../profiles/custom/*/tests</directory>
+      <directory>../profiles/custom/*/modules/*/tests</directory>
       <directory>../profiles/sdss/*/tests</directory>
-      <directory>../profiles/sdss/*/modules/*/tests</directory>
+      <!-- <directory>../profiles/sdss/*/modules/*/tests</directory> -->
+      <!-- Exclude custom sdss_profile modules for now. Tests need to be written
+       ASAP. -->
+      <directory>../profiles/sdss/*/modules</directory>
+      <!-- Exclude the earth_news_importer custom module. This module will be
+       removed. -->
+      <directory>../modules/custom/earth_news_importer</directory>
     </exclude>
   </coverage>
   <!-- set printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter" once

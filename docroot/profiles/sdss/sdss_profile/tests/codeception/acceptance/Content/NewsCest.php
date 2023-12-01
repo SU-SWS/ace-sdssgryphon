@@ -4,6 +4,8 @@ use Faker\Factory;
 
 /**
  * Test the news functionality.
+ *
+ * @group content
  */
 class NewsCest {
 
@@ -76,7 +78,6 @@ class NewsCest {
    * Validate external content redirect.
    */
   public function testExternalSourceArticle(AcceptanceTester $I) {
-
     $node = $I->createEntity([
       'type' => 'stanford_news',
       'title' => $this->faker->words(3, TRUE),
@@ -109,7 +110,7 @@ class NewsCest {
     $I->amOnPage("/admin/config/search/xmlsitemap/settings");
     $I->see("News");
     $I->amOnPage("/admin/config/search/xmlsitemap/settings/node/stanford_news");
-    $I->selectOption("#edit-xmlsitemap-status", 1);
+    $I->selectOption("#edit-xmlsitemap-status", '1');
 
     // Metatags.
     $I->amOnPage("/admin/config/search/metatag/node__stanford_news");
@@ -163,11 +164,17 @@ class NewsCest {
       ],
     ], 'media');
 
+    $time = \Drupal::time()->getCurrentTime();
+    $date_string = \Drupal::service('date.formatter')
+      ->format($time, 'custom', 'Y-m-d');
+    $metadata_date = \Drupal::service('date.formatter')
+      ->format($time, 'custom', 'D, m/d/Y - 12:00');
+
     /** @var \Drupal\node\NodeInterface $node */
     $node = $I->createEntity([
       'title' => $this->faker->words(3, TRUE),
       'type' => 'stanford_news',
-      'su_news_publishing_date' => date('Y-m-d', time()),
+      'su_news_publishing_date' => $date_string,
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee($node->label(), 'h1');
@@ -176,6 +183,8 @@ class NewsCest {
     $I->assertEquals($node->label(), $I->grabAttributeFrom('meta[name="twitter:title"]', 'content'), 'Metadata "twitter:title" should match.');
     $I->assertEquals('article', $I->grabAttributeFrom('meta[property="og:type"]', 'content'), 'Metadata "og:type" should match.');
     $I->assertEquals(date('D, m/d/Y - 12:00', time()), $I->grabAttributeFrom('meta[property="article:published_time"]', 'content'), 'Metadata "article:published_time" should match.');
+    $I->assertEquals($metadata_date, $I->grabAttributeFrom('meta[property="article:published_time"]', 'content'), 'Metadata "article:published_time" should match.');
+
     $I->cantSeeElement('meta', ['name' => 'description']);
     $I->cantSeeElement('meta', ['property' => 'og:image']);
     $I->cantSeeElement('meta', ['property' => 'og:image:url']);
@@ -187,7 +196,7 @@ class NewsCest {
       'title' => $this->faker->words(3, TRUE),
       'type' => 'stanford_news',
       'su_news_banner' => $banner_media->id(),
-      'su_news_publishing_date' => date('Y-m-d', time()),
+      'su_news_publishing_date' => $date_string,
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee($node->label(), 'h1');
@@ -204,7 +213,7 @@ class NewsCest {
       'type' => 'stanford_news',
       'su_news_banner' => $banner_media->id(),
       'su_news_featured_media' => $featured_media,
-      'su_news_publishing_date' => date('Y-m-d', time()),
+      'su_news_publishing_date' => $date_string,
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->canSee($node->label(), 'h1');
@@ -215,18 +224,6 @@ class NewsCest {
     $I->assertStringContainsString(basename($featured_image_path), $I->grabAttributeFrom('meta[name="twitter:image"]', 'content'), 'Metadata "twitter:image" should match.');
     $I->assertEquals($values['featured_image_alt'], $I->grabAttributeFrom('meta[property="og:image:alt"]', 'content'), 'Metadata "og:image:alt" should match.');
     $I->assertEquals($values['featured_image_alt'], $I->grabAttributeFrom('meta[name="twitter:image:alt"]', 'content'), 'Metadata "twitter:image:alt" should match.');
-  }
-
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_news');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_news');
-    $I->canSee('Related Content');
   }
 
 }

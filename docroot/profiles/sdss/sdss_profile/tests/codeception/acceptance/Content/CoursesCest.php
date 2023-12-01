@@ -4,6 +4,8 @@ use Faker\Factory;
 
 /**
  * Test the Course functionality.
+ *
+ * @group content
  */
 class CoursesCest {
 
@@ -76,7 +78,6 @@ class CoursesCest {
     $I->amOnPage($path);
     $I->canSee('This page will redirect');
   }
-
 
   /**
    * Create a Course Node.

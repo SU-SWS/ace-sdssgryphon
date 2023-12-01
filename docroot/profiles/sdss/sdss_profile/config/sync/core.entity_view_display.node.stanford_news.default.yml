@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.stanford_news.su_news_topics
     - field.field.node.stanford_news.su_sdss_import_source
     - field.field.node.stanford_news.su_sdss_magazine_topics
+    - field.field.node.stanford_news.su_sdss_media_contacts
     - field.field.node.stanford_news.su_sdss_news_banner_caption
     - field.field.node.stanford_news.su_sdss_news_dek_long
     - field.field.node.stanford_news.su_sdss_news_focal_areas
@@ -37,6 +38,7 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - layout_library
+    - link
     - stanford_news
     - text
     - user
@@ -266,6 +268,29 @@ third_party_settings:
                     class: su-news-components
             weight: 0
             additional: {  }
+          6f0a70d8-cf06-4d64-a18a-260afad1f54e:
+            uuid: 6f0a70d8-cf06-4d64-a18a-260afad1f54e
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_news:su_sdss_media_contacts'
+              label: 'Media Contacts'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                third_party_settings:
+                  empty_fields:
+                    handler: ''
+                  field_formatter_class:
+                    class: ''
+            weight: 1
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: jumpstart_ui_one_column
@@ -322,8 +347,6 @@ third_party_settings:
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
-      - Devel
-      - 'Devel PHP'
       - 'Events Lists (Views)'
       - Forms
       - Help
@@ -520,6 +543,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 9
+    region: main
+  su_sdss_media_contacts:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 18
     region: main
   su_sdss_news_banner_caption:
     type: text_default

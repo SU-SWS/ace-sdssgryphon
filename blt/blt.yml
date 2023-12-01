@@ -5,7 +5,7 @@ project:
     name: sdss_profile
   local: {  }
 git:
-  default_branch: 2.x
+  default_branch: 4.x
   remotes:
     - 'stanfordsos@svn-23450.prod.hosting.acquia.com:stanfordsos.git'
 deploy:
@@ -17,11 +17,11 @@ drush:
   aliases:
     ci: self
   default_alias: '${drush.aliases.local}'
-simplesamlphp: true
 cm:
   strategy: config-split
   allow-overrides: true
 multisites:
+  - abc_hub
   - bitsandwatts
   - carbon_removal
   - changeleadership
@@ -55,6 +55,7 @@ multisites:
   - planetary
   - scv
   - sdss_config_capture
+  - sdssrooms
   - sdsssandbox
   - sdssuserguide
   - seca
@@ -65,11 +66,13 @@ multisites:
   - storagex
   - strategic_energy_alliance
   - sustainability
+  - sustainability_accelerator
   - understand_energy_course
   - understandenergy
   - water
   - witw
   - woods
+  - woods_water
 tests:
   reports:
     localDir: '${repo.root}/artifacts'
@@ -98,7 +101,7 @@ validate:
 cloud:
   appId: f7e9fc1b-062d-4ed8-baf7-ae33551f8934
 keys_rsync:
-  ssh: stanfordsos.prod@ded-24959.prod.hosting.acquia.com
+  ssh: stanfordsos.test@stanfordsosstg.ssh.prod.acquia-sites.com
   files:
-    - /mnt/gfs/stanfordsos.prod/nobackup/simplesamlphp/
-    - /mnt/gfs/stanfordsos.prod/secrets.settings.php
+    - /mnt/gfs/stanfordsos.test/nobackup/apikeys/
+    - /mnt/gfs/stanfordsos.test/secrets.settings.php

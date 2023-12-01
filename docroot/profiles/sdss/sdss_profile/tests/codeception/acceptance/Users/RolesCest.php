@@ -19,12 +19,13 @@ class RolesCest {
     $I->canSee('Site Builder');
     $I->canSee('Site Developer');
     $I->canSee('Administrator');
+    $I->canSee('Site Embedder');
   }
 
   /**
    * Stanford Staff role should be very limited.
    */
-  public function testStaffRole(AcceptanceTester $I){
+  public function testStaffRole(AcceptanceTester $I) {
     $I->logInWithRole('stanford_staff');
     // D8CORE-2538 Staff and students without additional roles shouldn't see
     // the admin toolbar.
@@ -35,7 +36,7 @@ class RolesCest {
   /**
    * Stanford Staff role should be very limited.
    */
-  public function testStudentRole(AcceptanceTester $I){
+  public function testStudentRole(AcceptanceTester $I) {
     $I->logInWithRole('stanford_student');
     // D8CORE-2538 Staff and students without additional roles shouldn't see
     // the admin toolbar.
@@ -46,7 +47,7 @@ class RolesCest {
   /**
    * Stanford Staff role should be very limited.
    */
-  public function testFacultyRole(AcceptanceTester $I){
+  public function testFacultyRole(AcceptanceTester $I) {
     $I->logInWithRole('stanford_faculty');
     // D8CORE-2538 Staff and students without additional roles shouldn't see
     // the admin toolbar.
@@ -222,7 +223,6 @@ class RolesCest {
    */
   protected function runLinkExistCheck(AcceptanceTester $I, array $links, $can_see = TRUE) {
     foreach ($links as $path => $link_text) {
-
       $path = is_int($path) ? NULL : $path;
       if ($can_see) {
         $I->canSeeLink($link_text, $path);
