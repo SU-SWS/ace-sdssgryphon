@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Needs to be on afull width page.
+// Needs to be on a full width page.
 .layout--layout-paragraphs-one-column  {
     .ptype-sdss-spotlight {
         margin-left: unset;
@@ -8,17 +8,33 @@
         padding-top: 11rem;
 
         // Background images
+        // No bg image
+        &.bg_image_default {
+            background: none;
+        }
+
+        // Circles
         &.bg_image_option_1 {
             background: url("../../assets/svg/spotlight-circles-bg-grey.svg") no-repeat;
-            background-position: left 45% top 10px;
+            background-position: left 45% top 190%;
             background-repeat: no-repeat;
         }
 
-        &.bg_image_default {
-            background: url("../../assets/svg/spotlight-circles-bg-white.svg") no-repeat;
-            background-position: left 45% top 10px;
+        // Change the color of the background circles based on section color.
+
+
+    }
+
+    &.layout-paragraphs-sdss-bgcolor--green,
+    &.layout-paragraphs-sdss-bgcolor--blue,
+    &.layout-paragraphs-sdss-bgcolor--grey {
+
+        .bg_image_option_1 {
+            background: url("../../assets/svg/spotlight-circles-bg-blue.svg") no-repeat;
+            background-position: left 45% top 190%;
             background-repeat: no-repeat;
         }
+
     }
 }
 
@@ -76,8 +92,9 @@
             }
 
             @include grid-media-min('xl') {
-                max-width: 460px;
-                margin-left: 100px;
+                max-width: 80%;
+                margin-left: 200px;
+                padding-left: 0;
             }
         }
 

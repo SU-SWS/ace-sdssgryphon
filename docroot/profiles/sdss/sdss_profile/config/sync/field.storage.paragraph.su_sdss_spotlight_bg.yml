@@ -13,10 +13,10 @@ settings:
   allowed_values:
     -
       value: bg_image_default
-      label: Default
+      label: None
     -
       value: bg_image_option_1
-      label: Blue
+      label: Circles
   allowed_values_function: ''
 module: options
 locked: false
