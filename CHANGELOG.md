@@ -1,5 +1,22 @@
 # ACE SDSSGryphon
 
+4.0.2
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-30_
+
+3e73be0 SDSS-1089: Added JS to redirect to current page when clicking saml_login links (#325)
+409459e SDSS-1106: Ignore SDSS Subtheme settings (#324)
+483e153 SDSS-1127: Use php8.1 docker images for automation (#323)
+fc77bcf SDSS-1084 | SDSS-1085: Increase bottom margin on Callout and Editorial Sidebar (#316)
+7bd3a53 SDSS-1079: Updated stanford_earth_r25 module to 8.1.10 (#321)
+abbc14a SDSS-1103 | SDSS-1063: Provision waters-wood and sustainability-accelerator (#320)
+dc354c9 SDSS-987: Updated publications styles (#248)
+dda4335 SDSS-1086: Updated margins on images in wysiwyg (#314)
+b9eb51a Update .gitpod.yml (#319)
+e17defe Merge pull request #311 from SU-SWS/backtodev-4.0.2
+387ea1c backtodev-4.0.2
+
+
 4.0.1
 --------------------------------------------------------------------------------
 _Release Date: 2023-11-16_
