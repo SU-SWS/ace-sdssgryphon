@@ -2,93 +2,90 @@
 
 // Needs to be on a full width page.
 .layout--layout-paragraphs-one-column  {
-    .ptype-sdss-spotlight {
-        margin-left: unset;
-        max-width: unset;
-    }
+  .ptype-sdss-spotlight {
+    margin-left: unset;
+    max-width: unset;
+  }
 }
 
-.sdss-spotlight {
+.layout--layout-paragraphs-one-column  {
+  .sdss-spotlight {
     // Responsive first
     .su-card {
-
-        display: block;
-
-        @include grid-media-min('xl') {
-            display: grid;
-            grid-template-columns: minmax(500px,1fr) minmax(500px, 941px);
-            grid-template-rows: auto;
-            grid-template-areas:
-                "news-header image"
-                "contents image"
-                "source image"
-                "topics image";
-
-
-            > a {
-                grid-area: image;
-            }
-
-            .su-news-header {
-                grid-area: news-header;
-                justify-self: left;
-            }
-
-            .su-card__contents {
-                grid-area: contents;
-                justify-self: left;
-            }
-
-            .news-vertical-teaser__source {
-                grid-area: source;
-                justify-self: left;
-            }
-
-            .news-vertical-teaser__topics {
-                grid-area: topics;
-                justify-self: left;
-            }
+  
+      display: block;
+  
+      @include grid-media-min('xl') {
+        display: grid;
+        grid-template-columns: minmax(500px,1fr) minmax(500px, 941px);
+        grid-template-rows: auto;
+        grid-template-areas:
+          "news-header image"
+          "contents image"
+          "source image"
+          "topics image";
+  
+        > a {
+          grid-area: image;
         }
-
-
-        // Padding
-        .su-news-header,
-        .su-card__contents,
-        .news-vertical-teaser__source,
-        .news-vertical-teaser__topics {
-            padding: 3rem 2rem 0 2rem;
-
-            @include grid-media-min('md') {
-                @include responsive-spacing('padding', 2 2 0 4);
-            }
-
-            @include grid-media-min('xl') {
-                max-width: 80%;
-                margin-left: 200px;
-                padding-left: 0;
-            }
+  
+        .su-news-header {
+          grid-area: news-header;
+          justify-self: left;
         }
-
+  
         .su-card__contents {
-            p {
-                @include sdss-newsroom-med-paragraph;
-            }
+          grid-area: contents;
+          justify-self: left;
         }
-
+  
+        .news-vertical-teaser__source {
+          grid-area: source;
+          justify-self: left;
+        }
+  
+        .news-vertical-teaser__topics {
+          grid-area: topics;
+          justify-self: left;
+        }
+      }
+  
+      // Padding
+      .su-news-header,
+      .su-card__contents,
+      .news-vertical-teaser__source,
+      .news-vertical-teaser__topics {
+        padding: 3rem 2rem 0 2rem;
+  
+        @include grid-media-min('md') {
+          @include responsive-spacing('padding', 2 2 0 4);
+        }
+  
+        @include grid-media-min('xl') {
+          max-width: 80%;
+          // margin-left: 200px;
+          padding-left: 0;
+        }
+      }
+  
+      .su-card__contents {
+        p {
+          @include sdss-newsroom-med-paragraph;
+        }
+      }
+  
+      // Image aspect ratios
+      img,
+      picture {
+        aspect-ratio: 2/2;
+  
         // Image aspect ratios
-        img,
-        picture {
-            aspect-ratio: 2/2;
-
-            // Image aspect ratios
-            @include grid-media-min('sm') {
-                aspect-ratio: unset;
-                width: 100%;
-            }
+        @include grid-media-min('sm') {
+          aspect-ratio: unset;
+          width: 100%;
         }
+      }
     }
-
+  
+  }
 }
-
-
-
