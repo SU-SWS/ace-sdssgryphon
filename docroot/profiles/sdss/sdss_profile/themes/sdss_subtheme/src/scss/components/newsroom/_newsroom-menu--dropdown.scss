@@ -6,6 +6,12 @@
   position: unset;
 }
 
+// Accounting for the position when logged in.
+.role--authenticated {
+
+}
+
+
 @include grid-media-min('lg') {
   .menu--newsroom {
     nav {

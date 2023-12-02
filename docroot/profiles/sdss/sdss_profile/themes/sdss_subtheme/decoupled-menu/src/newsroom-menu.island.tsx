@@ -87,6 +87,22 @@ const MobileMenuButton = styled.button`
   }
 `
 
+const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
+  display: block;
+  background-color: #155f65;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
+
+@media (min-width: 992px) {
+  display: none;
+}
+`
+
 const SearchContainer = styled.li`
   order: 6;
 
@@ -200,6 +216,7 @@ export const NewsroomMenu = ({}) => {
           </a>
         </SearchContainer>
         {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
+        <MobileMenuWrapper></MobileMenuWrapper>
       </TopList>
     </Nav>
   )
@@ -224,7 +241,6 @@ const Button = styled.button<{ open?: boolean }>`
   color: #ffffff;
   background: transparent;
   border: none;
-  border-bottom: 1px solid white;
   padding: 0;
   margin: 0 10px 0 -4px;
   box-shadow: none;
@@ -236,21 +252,20 @@ const Button = styled.button<{ open?: boolean }>`
 
   &:focus, &:hover, &:active {
     box-shadow: none;
-    color: #ffffff;
-    background-color: transparent;
+    border-bottom: none;
+    border-radius: 38px;
+    color: #155F65;
+    background-color: #92D7DD;
     outline: none;
-    border-radius: 0;
   }
 
   @media (min-width: 992px) {
     background: transparent;
     border-radius: unset;
-    border-bottom: 1px solid transparent;
     color: #155f65;
     margin: 4px 10px 0 -4px;
 
     &:hover, &:focus, &:active {
-      border-bottom: 1px solid #155f65;
       border-color: ${props => props.open ? "#155f65" : "#155f65"};
       background: transparent;
       border-radius: unset;
