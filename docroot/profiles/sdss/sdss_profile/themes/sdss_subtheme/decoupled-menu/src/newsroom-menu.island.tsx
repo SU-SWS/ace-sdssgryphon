@@ -423,6 +423,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
 
   return (
     <OutsideClickHandler
+      component="nav"
       onOutsideFocus={() => setSubmenuOpen(false)}
       component={ListItem}
       level={level}

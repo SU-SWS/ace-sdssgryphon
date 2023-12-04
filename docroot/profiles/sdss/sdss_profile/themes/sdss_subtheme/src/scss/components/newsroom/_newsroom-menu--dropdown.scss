@@ -34,6 +34,18 @@
           @include grid-media-max('md') {
             margin: 0 auto;
             margin-bottom: 30px;
+
+            &:hover,
+            &:active,
+            &:focus {
+              background-color: $sdss-color-green-link;
+              color: $sdss-color-blue-bright;
+              text-decoration: underline;
+
+              &:after {
+                background-color: $su-color-white;
+              }
+            }
           }
 
           a {
@@ -78,6 +90,18 @@
           @include grid-media-max('md') {
             margin: 0 auto;
             margin-bottom: 30px;
+
+            &:hover,
+            &:active,
+            &:focus {
+              background-color: $sdss-color-green-link;
+              color: $sdss-color-blue-bright;
+              text-decoration: underline;
+
+              &:after {
+                background-color: $su-color-white;
+              }
+            }
           }
 
           a {
