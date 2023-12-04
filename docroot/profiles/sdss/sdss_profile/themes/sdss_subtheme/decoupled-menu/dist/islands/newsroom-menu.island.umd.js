@@ -96,7 +96,7 @@
     border-radius: 32px;
     padding: 8px 18px 10px;
     width: fit-content;
-    margin: 0 auto;
+    margin: 0px auto 38px auto;
 
     &:focus, &:hover, &:active {
       box-shadow: none;
@@ -183,6 +183,7 @@
     }
   }
 `,nn=Mr.div`
+  background-color: ${e=>e.open?"#017e7c":"transparent"};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -240,7 +241,7 @@
   display: ${e=>e.open?"block":"none"};
   z-index: ${e=>e.level+1};
   list-style: none;
-  padding: 0;
+  padding: 19px 0 15px 0;
   margin: 0;
   min-width: 300px;
   background: #017E7C;
@@ -252,9 +253,7 @@
     background: #155F65;
     width: 100%;
     left: 0;
-    grid-template-rows: 1fr 1fr 1fr;
     grid-auto-flow: column;
-    justify-content: center;
     row-gap: 3.6rem;
     column-gap: 6.6rem;
     color: $sdss-color-white;
