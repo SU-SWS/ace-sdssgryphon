@@ -15,14 +15,15 @@ import Logo from "./components/logo";
 const islandName = 'newsroom-menu-island'
 
 const TopList = styled.ul<{ open?: boolean }>`
-  display: ${props => props.open ? "block" : "none"};
+  display: ${props => props.open ? "flex" : "none"};
   padding: ${props => props.open ? "225px 0 0 0" : "0"};
   top: ${props => props.open ? "-225px" : "0"};
   background: #155F65;
   position: absolute;
   left: 0;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   list-style: none;
   margin: 0;
   margin-left: calc(50% - 50vw);
@@ -34,6 +35,8 @@ const TopList = styled.ul<{ open?: boolean }>`
 
   @media (min-width: 992px) {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     background: transparent;
     padding: 0;
     position: unset;
@@ -104,7 +107,7 @@ const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
 `
 
 const SearchContainer = styled.li`
-  order: 6;
+  order: -1;
 
   a {
     display: block;
@@ -129,6 +132,8 @@ const SearchContainer = styled.li`
 
 
   @media (min-width: 992px) {
+    order: unset;
+
     svg {
       margin-right: 10px;
       margin-top: 3px;
@@ -209,14 +214,14 @@ export const NewsroomMenu = ({}) => {
 
 
       <TopList open={menuOpen}>
+        {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
+        <MobileMenuWrapper></MobileMenuWrapper>
         <SearchContainer>
           <a href="/search">
             <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
             Search news & research
           </a>
         </SearchContainer>
-        {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
-        <MobileMenuWrapper></MobileMenuWrapper>
       </TopList>
     </Nav>
   )
@@ -266,7 +271,7 @@ const Button = styled.button<{ open?: boolean }>`
     margin: 4px 10px 0 -4px;
 
     &:hover, &:focus, &:active {
-      border-color: ${props => props.open ? "#155f65" : "#155f65"};
+      border-bottom: 1px solid ${props => props.open ? "#155f65" : "#155f65"};
       background: transparent;
       border-radius: unset;
       color: ${props => props.open ? "#155f65" : "#155f65"};
