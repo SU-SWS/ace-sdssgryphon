@@ -91,7 +91,7 @@ const MobileMenuButton = styled.button`
 `
 
 const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
-  display: block;
+  display: none;
   background-color: #155f65;
   height: auto;
   position: absolute;
@@ -198,31 +198,36 @@ export const NewsroomMenu = ({}) => {
   }
 
   return (
-    <Nav>
-      <Logo open={menuOpen}
-      />
+    <OutsideClickHandler
+      component="div"
+      onOutsideFocus={() => setMenuOpen(false)}
+    >
+      <Nav>
+        <Logo open={menuOpen}
+        />
 
-      <MobileMenuHeading open={menuOpen}>
-        News & Research
-      </MobileMenuHeading>
+        <MobileMenuHeading open={menuOpen}>
+          News & Research
+        </MobileMenuHeading>
 
-      <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
-        {menuOpen ? <Close /> : <Hamburger />}
-        {menuOpen ? "Close" : ""}
-      </MobileMenuButton>
+        <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
+          {menuOpen ? <Close /> : <Hamburger />}
+          {menuOpen ? "Close" : ""}
+        </MobileMenuButton>
 
 
-      <TopList open={menuOpen}>
-        {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
-        <MobileMenuWrapper></MobileMenuWrapper>
-        <SearchContainer>
-          <a href="/search">
-            <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
-            Search news & research
-          </a>
-        </SearchContainer>
-      </TopList>
-    </Nav>
+        <TopList open={menuOpen}>
+          {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
+          <MobileMenuWrapper></MobileMenuWrapper>
+          <SearchContainer>
+            <a href="/search">
+              <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
+              Search news & research
+            </a>
+          </SearchContainer>
+        </TopList>
+      </Nav>
+    </OutsideClickHandler>
   )
 }
 
