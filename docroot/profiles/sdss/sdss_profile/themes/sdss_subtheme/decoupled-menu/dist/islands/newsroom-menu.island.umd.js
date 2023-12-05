@@ -155,7 +155,7 @@
   margin: 0 10px 0 -4px;
   box-shadow: none;
   flex-shrink: 0;
-  border-radius: 0;
+  border-radius: 38px;
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out, border 0.2s ease-in-out;
   width: 38px;
   height: 38px;
