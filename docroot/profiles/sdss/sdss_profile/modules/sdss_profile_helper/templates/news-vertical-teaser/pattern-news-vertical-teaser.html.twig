@@ -39,6 +39,7 @@
 {%- endif -%}
 
 <article{{ attributes.addClass(classes) }}>
+  <div class="su-figure__wrapper">
   {%- if news_url is not empty -%}
     <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}" tab-index="-1" aria-hidden="true">
   {%- endif -%}
@@ -50,35 +51,42 @@
   {%- if news_url is not empty -%}
     </a>
   {%- endif -%}
-  <div class="su-news-header">
-    {%- if news_url is not empty -%}
-      <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}">
-    {%- endif -%}
-    <h2>
-      {{- news_vertical_teaser_headline -}}
-    </h2>
-    {%- if news_url is not empty -%}
-      </a>
-    {%- endif -%}
-    <div class="news-vertical-teaser__pub-date">{{ news_list_publishing_date }}</div>
   </div>
+  <div class="su-content__wrapper">
+    <div class="su-news-header">
+      {%- if news_url is not empty -%}
+        <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}">
+      {%- endif -%}
+      <h2>
+        {{- news_vertical_teaser_headline -}}
+      </h2>
+      {%- if news_url is not empty -%}
+        </a>
+      {%- endif -%}
+      {%- if news_list_publishing_date is not empty -%}
+        <div class="news-vertical-teaser__pub-date">{{ news_list_publishing_date }}</div>
+      {%- endif -%}
+    </div>
 
-  <div class="su-card__contents">
-    {{ news_dek }}
-  </div>
+    {%- if news_dek|render|striptags('<drupal-render-placeholder>')|trim is not empty -%}
+      <div class="su-card__contents">
+        {{ news_dek }}
+      </div>
+    {%- endif -%}
 
-  <div class="news-vertical-teaser__source">
-      {% if news_source|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    {% if news_source|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+      <div class="news-vertical-teaser__source">
         {{ news_source }}
-      {%- endif -%}
-  </div>
+      </div>
+    {%- endif -%}
 
-  <div class="news-vertical-teaser__topics">
-      {% if news_topics|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+    {% if news_topics|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+      <div class="news-vertical-teaser__topics">
         {{ news_topics }}
-      {%- endif -%}
+      </div>
+    {%- endif -%}
+    {%- if news_footer is not empty -%}
+      <div class="news-vertical-teaser__footer">{{ news_footer }}</div>
+    {%- endif -%}
   </div>
-  {%- if news_footer is not empty -%}
-    <div class="news-vertical-teaser__footer">{{ news_footer }}</div>
-  {%- endif -%}
 </article>
