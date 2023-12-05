@@ -6,15 +6,7 @@
   position: unset;
 }
 
-// Accounting for the position when logged in.
-.role--authenticated {
-
-}
-
-// school news
-// .menu--newsroom nav ul>li:nth-of-type(2n) ul[open=true] > li:last-of-type
-
-
+// School news dropdown
 .menu--newsroom {
   nav {
 
@@ -75,7 +67,7 @@
 
     }
 
-    // Browse topics
+    // Browse Topics dropdown
     ul > li:first-of-type {
       ul[open=true] {
         grid-template-rows: 1fr 1fr 1fr;
