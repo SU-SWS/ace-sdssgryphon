@@ -12,11 +12,11 @@
 
     ul > li:nth-of-type(2n) {
 
-      // School news.
+      // Browse School topics
       ul[open=true] {
         grid-template-rows: 1fr 1fr;
 
-        > li:last-of-type > div {
+        > li:nth-last-child(-n+2) > div {
           border: 1px solid $sdss-color-blue-bright;
           border-radius: 40px;
           padding: 0 56px;
@@ -67,12 +67,12 @@
 
     }
 
-    // Browse Topics dropdown
-    ul > li:first-of-type {
+    // School News dropdown
+    ul > li:nth-of-type(3n) {
       ul[open=true] {
         grid-template-rows: 1fr 1fr 1fr;
 
-        li:nth-last-of-type(-n+2) > div {
+        li:last-child > div {
           border: 1px solid $sdss-color-blue-bright;
           border-radius: 40px;
           padding: 0 56px;

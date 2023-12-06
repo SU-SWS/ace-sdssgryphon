@@ -29,7 +29,6 @@
 
   @include grid-media-max('md') {
     grid-template-columns: 1fr;
-    justify-items: center;
   }
 
   // Unsetting for mobile.

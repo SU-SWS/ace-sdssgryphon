@@ -15,7 +15,7 @@ import Logo from "./components/logo";
 const islandName = 'newsroom-menu-island'
 
 const TopList = styled.ul<{ open?: boolean }>`
-  display: ${props => props.open ? "flex" : "none"};
+  display: ${props => props.open ? "block" : "none"};
   padding: ${props => props.open ? "225px 0 0 0" : "0"};
   top: ${props => props.open ? "-225px" : "0"};
   background: #155F65;
@@ -91,7 +91,7 @@ const MobileMenuButton = styled.button`
 `
 
 const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
-  display: none;
+  display: block;
   background-color: #155f65;
   height: auto;
   position: absolute;
@@ -132,7 +132,7 @@ const SearchContainer = styled.li`
 
 
   @media (min-width: 992px) {
-    order: unset;
+    order: 6;
 
     svg {
       margin-right: 10px;
@@ -217,14 +217,14 @@ export const NewsroomMenu = ({}) => {
 
 
         <TopList open={menuOpen}>
-          {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
-          <MobileMenuWrapper></MobileMenuWrapper>
           <SearchContainer>
             <a href="/search">
               <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
               Search news & research
             </a>
           </SearchContainer>
+          {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
+          <MobileMenuWrapper></MobileMenuWrapper>
         </TopList>
       </Nav>
     </OutsideClickHandler>
