@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.newsroom
   module:
+    - config_pages
     - menu_block
     - system
   theme:
@@ -34,3 +35,9 @@ visibility:
     id: request_path
     negate: false
     pages: '/news/*'
+  config_pages_values_access:
+    id: config_pages_values_access
+    negate: false
+    config_page_field: sdss_site_settings|su_sdss_newsroom_menu|boolean
+    operator: '=='
+    condition_value: '1'

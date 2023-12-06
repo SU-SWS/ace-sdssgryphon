@@ -52,6 +52,7 @@ third_party_settings:
       children:
         - group_site_details
         - group_contact_details
+        - group_sdss_settings
       label: Tabs
       region: content
       parent_name: ''
