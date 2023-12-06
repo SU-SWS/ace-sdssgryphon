@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+// Publications Node
+.publication {
+    .content {
+        .jumpstart-ui--one-column.centered-content {
+            > div:first-child {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .node-stanford-publication-citation-type {
+            color: $su-color-black-70;
+        }
+
+        .node-stanford-publication-su-publication-topics {
+            h2 {
+                @include responsive-spacing('margin-top', 7);
+
+            }
+        }
+
+        // Grid details. Grid happens only for LG and up screensizes.
+        .sdss-publication-content .main-region {
+            @include grid-media-min(lg) {
+                display: grid;
+                grid-template-columns: 75% 25%;
+                column-gap: 4rem;
+            }
+        }
+
+        .node-stanford-publication-su-publication-cta {
+            @include grid-media-min(lg) {
+                grid-column-start: 2;
+            }
+        }
+
+        .node-stanford-publication-su-publication-components {
+            @include grid-media-min(lg) {
+                grid-column-start: 1;
+                grid-row-end: span 2;
+            }
+        }
+
+        // Grid changes for the max size of Medium.
+        @include grid-media-max(md) {
+            .jumpstart-ui--one-column .container-1-items {
+                margin-right: unset;
+                margin-left: unset;
+            }
+
+            .node-stanford-publication-su-publication-citation {
+                @include responsive-spacing('padding-left', 2);
+
+                border-left: 1px solid $su-color-black-10;
+                font-size: 2rem;
+                margin-top: 6rem;
+            }
+        }
+    }
+}

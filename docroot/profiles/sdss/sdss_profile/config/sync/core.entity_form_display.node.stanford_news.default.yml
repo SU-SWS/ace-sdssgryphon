@@ -30,6 +30,7 @@ dependencies:
     - node.type.stanford_news
   module:
     - change_labels
+    - cshs
     - datetime
     - field_group
     - inline_entity_form
@@ -38,7 +39,6 @@ dependencies:
     - media_library
     - metatag
     - scheduler
-    - shs
     - stanford_intranet
     - text
 third_party_settings:
@@ -91,9 +91,9 @@ third_party_settings:
         required_fields: true
     group_tags:
       children:
+        - su_shared_tags
         - su_news_topics
         - su_sdss_magazine_topics
-        - su_shared_tags
         - su_sdss_news_organization
         - su_sdss_news_research_area
         - su_sdss_news_focal_areas
@@ -218,24 +218,30 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
   su_news_topics:
-    type: options_shs
+    type: cshs
     weight: 14
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_magazine_topics:
-    type: options_shs
+    type: cshs
     weight: 15
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_media_contacts:
     type: inline_entity_form_complex
@@ -246,14 +252,22 @@ content:
       override_labels: true
       label_singular: 'Media Contact'
       label_plural: 'Media Contacts'
+      auto_open: true
       allow_new: true
       allow_existing: true
+      allow_edit: true
       match_operator: CONTAINS
       allow_duplicate: false
+      hide_fieldset: false
+      hide_title: false
       collapsible: false
       collapsed: false
       revision: false
       removed_reference: keep
+      config_labels_button: _none
+      labels: {  }
+      add_existing_widget: autocomplete
+      auto_open_edit_form: false
     third_party_settings:
       change_labels:
         add_another: 'Add another Media Contact'
@@ -277,14 +291,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_sdss_news_focal_areas:
-    type: options_shs
+    type: cshs
     weight: 19
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_news_news_source:
     type: entity_reference_autocomplete
@@ -297,24 +314,30 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_sdss_news_organization:
-    type: options_shs
+    type: cshs
     weight: 17
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_news_research_area:
-    type: options_shs
+    type: cshs
     weight: 18
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   su_sdss_person_ref:
     type: entity_reference_autocomplete
@@ -337,14 +360,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_shared_tags:
-    type: options_shs
-    weight: 16
+    type: cshs
+    weight: 9
     region: content
     settings:
-      display_node_count: false
-      create_new_items: false
-      create_new_levels: false
+      save_lineage: false
       force_deepest: false
+      parent: ''
+      level_labels: ''
+      hierarchy_depth: 0
+      required_depth: 0
+      none_label: '- Please select -'
     third_party_settings: {  }
   title:
     type: string_textfield
