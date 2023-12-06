@@ -5,6 +5,33 @@
     box-shadow: none;
     border: none;
 
+    @include grid-media-max('xs') {
+      .su-card__contents {
+        display: none;
+      }
+    }
+
+    @include grid-media-max('md') {
+      // .su-card {
+      display: flex;
+      align-items: center;
+
+      .su-content__wrapper {
+        padding-right: 5rem;
+      }
+
+      .su-figure__wrapper {
+        order: 2;
+        flex-basis: 40%;
+
+        img,
+        picture {
+          aspect-ratio: 2/2;
+        }
+      }
+      // }
+    }
+
     .su-news-header {
       display: flex;
       flex-direction: column;
