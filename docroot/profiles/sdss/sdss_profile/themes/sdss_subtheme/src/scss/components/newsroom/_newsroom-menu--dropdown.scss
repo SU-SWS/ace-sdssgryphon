@@ -14,7 +14,7 @@
 
       // Browse School topics
       ul[open=true] {
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
 
         > li:nth-last-child(-n+2) > div {
           border: 1px solid $sdss-color-blue-bright;

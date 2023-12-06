@@ -257,7 +257,7 @@
     row-gap: 3.6rem;
     column-gap: 6.6rem;
     color: $sdss-color-white;
-    padding: 3.6rem 100px 5.8rem 100px;
+    padding: 3.6rem 15% 5.8rem 15%;
   }
 `,ln=Mr.div`
 
