@@ -5,9 +5,14 @@
     box-shadow: none;
     border: none;
 
-    @include grid-media-max('md') {
+    .su-figure__wrapper {
+      @include responsive-spacing('margin-bottom', 1);
+    }
+
+    @include grid-media-max('sm') {
       display: flex;
       align-items: center;
+      justify-content: space-between;
 
       .su-content__wrapper {
         padding-right: 5rem;
@@ -16,16 +21,13 @@
       .su-figure__wrapper {
         order: 2;
         flex-basis: 40%;
+        margin-bottom: 0;
 
         img,
         picture {
           aspect-ratio: 2/2;
         }
       }
-    }
-
-    .su-figure__wrapper {
-      @include responsive-spacing('margin-bottom', 1);
     }
 
     .su-news-header,

@@ -7,6 +7,10 @@
     .su-card {
       display: block;
 
+      .su-figure__wrapper {
+        @include responsive-spacing('margin-bottom', 1);
+      }
+
       .news-vertical-teaser__pub-date {
         @include type-d;
 
@@ -48,20 +52,29 @@
 
       @include grid-media-min('lg') {
         display: flex;
+        justify-content: space-between;
 
         .su-figure__wrapper {
           order: 2;
+          margin-bottom: 0;
+          flex-basis: 50%;
         }
 
         .su-content__wrapper {
           align-self: center;
           padding-left: 10rem;
+          flex-basis: 50%;
         }
       }
 
       @include grid-media-min('2xl') {
+        .su-figure__wrapper {
+          // flex-basis: unset;
+        }
+
         .su-content__wrapper {
           padding-right: 10rem;
+          // flex-basis: unset;
         }
       }
     }
