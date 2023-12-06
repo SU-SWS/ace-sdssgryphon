@@ -1,0 +1,36 @@
+uuid: f201744b-060d-4755-8e64-87457fbfe0a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.newsroom
+  module:
+    - menu_block
+    - system
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_newsresearch
+theme: sdss_subtheme
+region: newsroom
+weight: 0
+provider: null
+plugin: 'menu_block:newsroom'
+settings:
+  id: 'menu_block:newsroom'
+  label: 'News & Research'
+  label_display: visible
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: menu
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'newsroom:'
+  suggestion: newsroom
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/news/*'
