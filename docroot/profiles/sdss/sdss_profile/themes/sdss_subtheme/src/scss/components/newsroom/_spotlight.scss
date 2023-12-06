@@ -1,28 +1,32 @@
 @charset "UTF-8";
 
-@include grid-media-max('md') {
-  .layout--layout-paragraphs-two-column,
-  .layout--layout-paragraphs-three-column {
-    .sdss-spotlight {
-      .su-card {
-        display: block;
+.layout--layout-paragraphs-one-column,
+.layout--layout-paragraphs-two-column,
+.layout--layout-paragraphs-three-column {
+  .sdss-spotlight {
+    .su-card {
+      display: block;
 
-        .su-card__contents {
-          @include grid-media-max('xs') {
-            display: block;
-          }
-          
-          p {
-            @include sdss-newsroom-med-paragraph;
-  
-          }
+      .news-vertical-teaser__pub-date {
+        @include type-d;
+
+        color: $su-color-black-60;
+      }
+
+      .su-card__contents {
+        p {
+          @include type-d;
         }
 
-        // Image aspect ratios
-        img,
-        picture {
-          aspect-ratio: unset;
+        @include grid-media-max('xs') {
+          display: block;
         }
+      }
+
+      // Image aspect ratios
+      img,
+      picture {
+        aspect-ratio: unset;
       }
     }
   }
@@ -37,14 +41,9 @@
 
   .sdss-spotlight {
     .su-card {
-
       .su-content__wrapper {
         padding-left: 5rem;
         padding-right: 5rem;
-      }
-
-      @include grid-media-max('md') {
-        display: block;
       }
 
       @include grid-media-min('lg') {
@@ -64,50 +63,6 @@
         .su-content__wrapper {
           padding-right: 10rem;
         }
-      }
-  
-      // Padding
-      .su-news-header,
-      .su-card__contents,
-      .news-vertical-teaser__source,
-      .news-vertical-teaser__topics {
-        padding: 0;
-        margin: 0;
-      }
-
-      .su-news-header {
-        @include responsive-spacing('margin-bottom', 0);
-      }
-
-      .news-vertical-teaser__topics {
-        @include responsive-spacing('margin-top', 1);
-      }
-
-      .news-vertical-teaser__pub-date {
-        @include responsive-spacing('margin-bottom', 1);
-        @include responsive-spacing('margin-top', 1);
-
-        padding: 0;
-        
-        @include grid-media-min('lg') {
-          margin-top: 0;
-        }
-      }
-  
-      .su-card__contents {
-        @include grid-media-max('xs') {
-          display: block;
-        }
-
-        p {
-          @include sdss-newsroom-med-paragraph;
-        }
-      }
-
-      // Image aspect ratios
-      img,
-      picture {
-        aspect-ratio: unset;
       }
     }
   }
