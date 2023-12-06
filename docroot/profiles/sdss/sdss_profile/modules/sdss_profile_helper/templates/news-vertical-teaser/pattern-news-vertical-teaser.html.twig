@@ -39,19 +39,17 @@
 {%- endif -%}
 
 <article{{ attributes.addClass(classes) }}>
-  <div class="su-figure__wrapper">
-  {%- if news_url is not empty -%}
-    <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}" tab-index="-1" aria-hidden="true">
-  {%- endif -%}
-  <figure class="su-media su-media--image su-card__media">
-    <div class="su-media__wrapper">
-      {{- news_vertical_teaser_image -}}
+  {%- if news_url is not empty and news_vertical_teaser_image|render|striptags("<drupal-render-placeholder> <img>")|trim is not empty -%}
+    <div class="su-figure__wrapper">
+      <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}" tab-index="-1" aria-hidden="true">
+        <figure class="su-media su-media--image su-card__media">
+          <div class="su-media__wrapper">
+            {{- news_vertical_teaser_image -}}
+          </div>
+        </figure>
+      </a>
     </div>
-  </figure>
-  {%- if news_url is not empty -%}
-    </a>
   {%- endif -%}
-  </div>
   <div class="su-content__wrapper">
     <div class="su-news-header">
       {%- if news_url is not empty -%}
