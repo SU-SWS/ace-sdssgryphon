@@ -23,7 +23,7 @@ content:
       empty_fields:
         handler: ''
       field_formatter_class:
-        class: su-margin-bottom-5
+        class: ''
     weight: 0
     region: content
 hidden:

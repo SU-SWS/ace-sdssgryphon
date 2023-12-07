@@ -68,13 +68,8 @@
       }
 
       @include grid-media-min('2xl') {
-        .su-figure__wrapper {
-          // flex-basis: unset;
-        }
-
         .su-content__wrapper {
           padding-right: 10rem;
-          // flex-basis: unset;
         }
       }
     }
