@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.su_newsroom_article
+    - field.storage.paragraph.su_sdss_spotlight_item
     - node.type.stanford_news
     - paragraphs.paragraphs_type.sdss_spotlight
-id: paragraph.sdss_spotlight.su_newsroom_article
-field_name: su_newsroom_article
+id: paragraph.sdss_spotlight.su_sdss_spotlight_item
+field_name: su_sdss_spotlight_item
 entity_type: paragraph
 bundle: sdss_spotlight
 label: 'Newsroom article'

@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.sdss_spotlight.su_newsroom_article
+    - field.field.paragraph.sdss_spotlight.su_sdss_spotlight_item
     - paragraphs.paragraphs_type.sdss_spotlight
   module:
     - empty_fields
@@ -13,7 +13,7 @@ targetEntityType: paragraph
 bundle: sdss_spotlight
 mode: default
 content:
-  su_newsroom_article:
+  su_sdss_spotlight_item:
     type: entity_reference_entity_view
     label: hidden
     settings:

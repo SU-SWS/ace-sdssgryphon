@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.sdss_spotlight.su_newsroom_article
+    - field.field.paragraph.sdss_spotlight.su_sdss_spotlight_item
     - paragraphs.paragraphs_type.sdss_spotlight
 id: paragraph.sdss_spotlight.default
 targetEntityType: paragraph
@@ -15,7 +15,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  su_newsroom_article:
+  su_sdss_spotlight_item:
     type: entity_reference_autocomplete
     weight: -199
     region: content
