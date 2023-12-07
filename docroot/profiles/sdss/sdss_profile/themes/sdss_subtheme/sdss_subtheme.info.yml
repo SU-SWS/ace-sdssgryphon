@@ -13,6 +13,7 @@ regions:
   header: Header
   search: Search
   menu: Menu
+  newsroom: Newsroom Menu
   help: Help
   content: Content
   footer: Footer
