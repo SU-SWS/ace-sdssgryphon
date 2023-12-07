@@ -218,7 +218,7 @@ export const NewsroomMenu = ({}) => {
 
         <TopList open={menuOpen}>
           <SearchContainer>
-            <a href="/search">
+            <a href="/news/search">
               <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
               Search news & research
             </a>
