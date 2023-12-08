@@ -20,6 +20,7 @@ local.blt.yml
 .lando.yml
 lando/php.ini
 docroot/sites/simpletest
+salt.txt
 
 # Ignore custom test configuration.
 tests/codeception.yml
