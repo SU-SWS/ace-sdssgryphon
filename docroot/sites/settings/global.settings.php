@@ -42,6 +42,9 @@ if (EnvironmentDetector::isAhEnv()) {
       'system.action.user_add_role_action.*',
       'system.action.user_remove_role_action.*',
       'samlauth.authentication',
+      'stanford_earth_r25.adminsettings',
+      'stanford_earth_r25.credentialsettings',
+      'stanford_earth_r25.stanford_earth_r25.*',
     ];
     $settings['config_readonly_content_link_providers'] = [
       'menu_link_content',

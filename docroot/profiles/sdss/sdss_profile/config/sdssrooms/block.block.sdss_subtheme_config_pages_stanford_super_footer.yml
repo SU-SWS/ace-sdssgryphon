@@ -1,0 +1,37 @@
+uuid: 13c8266c-26e4-4165-a7b9-911904932ab3
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - user
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_config_pages_stanford_super_footer
+theme: sdss_subtheme
+region: footer
+weight: -4
+provider: null
+plugin: config_pages_block
+settings:
+  id: config_pages_block
+  label: 'Super Footer'
+  label_display: '0'
+  provider: config_pages
+  config_page_type: stanford_super_footer
+  config_page_view_mode: full
+visibility:
+  config_pages_values_access:
+    id: config_pages_values_access
+    negate: false
+    context_mapping: {  }
+    config_page_field: stanford_super_footer|su_super_foot_enabled|boolean
+    operator: '=='
+    condition_value: '1'
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous
