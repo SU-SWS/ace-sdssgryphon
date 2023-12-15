@@ -1,18 +1,50 @@
 # ACE SDSSGryphon
 
+4.0.3
+--------------------------------------------------------------------------------
+_Release Date: 2023-12-13_
+
+- ae854be SDSS-1145: Added Magazine Topics vocabulary to News list paragraph filters (#334)
+- 2e8dd0b SDSS-1138: Added News search link to the News menu (#331)
+- a72fb11 SDSS-868: NEWS | Added Spotlight paragraph type (#294)
+- 3180a4b SDSS-1124: Newsroom search page (#328)
+- 5c6bc1c SDSS-1133: Add sorting options to shared tags list paragraph (#329)
+- 592f3f5  SDSS-595 | SDSS-596: Add Newsroom menu (#189)
+- ab744c8 SDSS-808: Allow site managers to edit metatags (#286)
+- f57d032 Merge pull request #327 from SU-SWS/backtodev-4.0.3
+- 0dc9e03 backtodev-4.0.3
+
+
+4.0.2
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-30_
+
+- 3e73be0 SDSS-1089: Added JS to redirect to current page when clicking saml_login links (#325)
+- 409459e SDSS-1106: Ignore SDSS Subtheme settings (#324)
+- 483e153 SDSS-1127: Use php8.1 docker images for automation (#323)
+- fc77bcf SDSS-1084 | SDSS-1085: Increase bottom margin on Callout and Editorial Sidebar (#316)
+- 7bd3a53 SDSS-1079: Updated stanford_earth_r25 module to 8.1.10 (#321)
+- abbc14a SDSS-1103 | SDSS-1063: Provision waters-wood and sustainability-accelerator (#320)
+- dc354c9 SDSS-987: Updated publications styles (#248)
+- dda4335 SDSS-1086: Updated margins on images in wysiwyg (#314)
+- b9eb51a Update .gitpod.yml (#319)
+- e17defe Merge pull request #311 from SU-SWS/backtodev-4.0.2
+- 387ea1c backtodev-4.0.2
+
+
 4.0.1
 --------------------------------------------------------------------------------
 _Release Date: 2023-11-16_
 
-92aeec3 SDSS-000: Removed memache packages from composer.json (#309)
-264d452 SDSS-919: A11y | Added background-color behind banner images (#303)
-63aee37 SDSS-998: Added space between masthead and article on News nodes (#304)
-a74c1bb SDSS-1082: Adjusted News node byline spacing (#307)
-4da285f SDSS-1101: Moved SDSS theme JavaScript (#308)
-caea03d SDSS-1087: Added bottom margin to all layout paragraph sections (#305)
-a304ea9 SDSS-1092: Removed JS compiling in sdss_subtheme (#306)
-43533f7 Merge pull request #302 from SU-SWS/backtodev-4.0.1
-413b171 backtodev-4.0.1
+- 92aeec3 SDSS-000: Removed memache packages from composer.json (#309)
+- 264d452 SDSS-919: A11y | Added background-color behind banner images (#303)
+- 63aee37 SDSS-998: Added space between masthead and article on News nodes (#304)
+- a74c1bb SDSS-1082: Adjusted News node byline spacing (#307)
+- 4da285f SDSS-1101: Moved SDSS theme JavaScript (#308)
+- caea03d SDSS-1087: Added bottom margin to all layout paragraph sections (#305)
+- a304ea9 SDSS-1092: Removed JS compiling in sdss_subtheme (#306)
+- 43533f7 Merge pull request #302 from SU-SWS/backtodev-4.0.1
+- 413b171 backtodev-4.0.1
 
 
 4.0.0

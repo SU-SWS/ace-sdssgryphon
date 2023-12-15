@@ -15,3 +15,43 @@
 
 {%- extends "@stanford_basic/page.html.twig" -%}
 
+{# Masthead Section. #}
+{%- block block_header -%}
+  {%- if page.header or page.search or page.menu -%}
+    <header class="su-masthead su-masthead--right">
+
+      {% block block_skiplinks %}
+        <a href="#main-content" class="visually-hidden focusable su-skipnav su-skipnav--content">
+          {{ 'Skip to main content'|t }}
+        </a>
+        <a href="#secondary-navigation" class="visually-hidden focusable su-skipnav su-skipnav--secondary">
+          {{ 'Skip to secondary navigation'|t }}
+        </a>
+      {% endblock %}
+
+      {# Brand Bar #}
+      {%- block block_brandbar -%}
+        {%- include template_brand_bar with { modifier_class : brand_bar_variant } -%}
+      {%- endblock -%}
+
+      {# Help Section #}
+      {%- block block_help -%}
+        {{ page.help }}
+      {%- endblock -%}
+
+      <section class="su-masthead--inner">
+        {{ page.header }}
+        {{ page.search }}
+        {{ page.menu }}
+      </section>
+    </header>
+  {%- endif -%}
+
+  {# Newsroom Section. #}
+  {%- if page.newsroom -%}
+    <div class="newsroom-wrapper">
+      {{ page.newsroom }}
+    </div>
+  {%- endif -%}
+
+{%- endblock -%}

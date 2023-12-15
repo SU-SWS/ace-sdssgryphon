@@ -3,6 +3,8 @@
 //padding set up based on layout.
 .layout--layout-paragraphs-one-column {
   .sidebar {
+    @include responsive-spacing('margin-bottom', 1);
+
     @include grid-media-max('lg') {
       max-width: 100%;
     }
@@ -14,7 +16,7 @@
 
     &.bg_color_option_1,
     &.bg_color_default  {
-      @include modular-spacing('padding', 4);
+      @include responsive-spacing('padding', 4);
     }
   }
 }
@@ -43,7 +45,7 @@
   }
 
   .su-sidebar-title {
-    @include modular-spacing('padding-bottom', 1);
+    @include responsive-spacing('padding-bottom', 1);
   }
 
   // This option is blue
