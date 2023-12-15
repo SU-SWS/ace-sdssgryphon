@@ -316,9 +316,6 @@
             "drupal/paranoia": {
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"
             },
-            "drupal/path_redirect_import": {
-                "https://www.drupal.org/project/path_redirect_import/issues/3373025": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
-            },
             "drupal/taxonomy_entity_index": {
                 "Fix PHP 8 strict error with arrays": "patches/contrib/taxonomy_entity_index.patch"
             },
