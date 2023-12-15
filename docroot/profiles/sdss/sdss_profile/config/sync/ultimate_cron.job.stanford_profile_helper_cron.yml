@@ -1,0 +1,17 @@
+uuid: ccaa7da7-557f-416b-bc9f-ada8ce8f47aa
+langcode: en
+status: true
+dependencies:
+  module:
+    - stanford_profile_helper
+title: null
+id: stanford_profile_helper_cron
+weight: 0
+module: stanford_profile_helper
+callback: stanford_profile_helper_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
