@@ -45,3 +45,23 @@ layout_paragraphs_sdss_3_column:
   default_region: main
   icon_map:
     - [left, main, right]
+
+layout_paragraphs_sdss_4_column:
+  label: '4 Column'
+  category: 'SDSS Layout Paragraphs'
+  class: '\Drupal\sdss_layout_paragraphs\Layouts\FourColumn'
+  path: layouts/four_column
+  template: layout-paragraphs-sdss-four-column
+  library: sdss_layout_paragraphs/four_column
+  regions:
+    left:
+      label: Left
+    main-1:
+      label: Main 1 content
+    main-2:
+      label: Main 2 content
+    right:
+      label: Right
+  default_region: main
+  icon_map:
+    - [left, main, right]
