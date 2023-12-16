@@ -1,28 +1,62 @@
-.layout--layout-paragraphs-four-column {
-  display: flex;
-  flex-wrap: wrap;
+.layout__region.layout__region--bottom {
+  padding-bottom: 7.2rem;
 }
 
-.layout--layout-paragraphs-four-column > .layout__region {
-  flex: 0 1 100%;
+/* Override for the 980px max width */
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-card,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-cta-list,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-entity,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-gallery,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-lists,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-media-caption,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-stories,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-wysiwyg,
+.layout--layout-paragraphs-four-column .ptype-stanford-card,
+.layout--layout-paragraphs-four-column .ptype-stanford-cta-list,
+.layout--layout-paragraphs-four-column .ptype-stanford-entity,
+.layout--layout-paragraphs-four-column .ptype-stanford-gallery,
+.layout--layout-paragraphs-four-column .ptype-stanford-image-cta,
+.layout--layout-paragraphs-four-column .ptype-stanford-lists,
+.layout--layout-paragraphs-four-column .ptype-stanford-media-caption,
+.layout--layout-paragraphs-four-column .ptype-stanford-stories,
+.layout--layout-paragraphs-four-column .ptype-stanford-wysiwyg {
+  max-width: 100%;
 }
 
-@media screen and (min-width: 40em) {
-  .layout--layout-paragraphs-four-column > .layout__region--column {
-    flex: 0 1 25%;
+/*
+XXL - 2000px
+XL 1500px
+LG 992px
+MD 768px
+SM 576px
+XS 390px
+*/
+
+/* At Least Large */
+@media screen and (min-width: 992px) {
+  .layout--layout-paragraphs-four-column .content-well {
+    display: grid;
+    gap: 4rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(30rem, 100%), 1fr));
+    padding: 7.2rem 0;
   }
 }
 
-.content-well > div {
-  flex: 1 1 min-content;
+/*  Between Large and XLarge the cards are 2 per row */
+@media only screen and (min-width: 992px) and (max-width: 1500px) {
+  .layout--layout-paragraphs-four-column .content-well {
+    grid-template-columns: repeat(auto-fill, minmax(min(40rem, 100%), 1fr));
+  }
 }
 
-.content-well {
-  display: flex;
-  gap: 4rem;
-  padding: 7.2rem 0;
+/* At least XLarge the cards are 4 per row */
+@media only screen and (min-width: 2000px) {
+  .layout--layout-paragraphs-four-column .content-well {
+    grid-template-columns: repeat(auto-fill, minmax(min(30rem, 100%), 1fr));
+  }
 }
 
-.layout__region.layout__region--bottom {
-  padding-bottom: 7.2rem;
+/* Max of med */
+.layout--layout-paragraphs-four-column {
+  display: block;
 }
