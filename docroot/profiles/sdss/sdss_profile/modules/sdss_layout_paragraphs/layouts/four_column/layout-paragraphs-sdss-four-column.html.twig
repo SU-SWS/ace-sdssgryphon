@@ -12,33 +12,52 @@
 #}
 {%
   set classes = [
+    'centered-content',
     'layout',
-    'layout--layout-paragraphs-three-column',
-    'layout--layout-paragraphs-sdss-three-column',
+    'layout--layout-paragraphs-four-column',
+    'layout--layout-paragraphs-sdss-four-column',
   ]
 %}
 
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
+    <div class="centered-container">
+      {% if content.top %}
+        <div {{ region_attributes.top.addClass('layout__region', 'layout__region--top') }}>
+          {{ content.top }}
+        </div>
+      {% endif %}
 
-    {% if content.left %}
-      <div {{ region_attributes.left.addClass('layout__region', 'layout__region--sidebar') }}>
-        {{ content.left }}
+      <div class="content-well">
+      {% if content.first %}
+        <div {{ region_attributes.first.addClass('layout__region', 'layout__region--first', 'layout__region--column') }}>
+          {{ content.first }}
+        </div>
+      {% endif %}
+
+      {% if content.second %}
+        <div {{ region_attributes.second.addClass('layout__region', 'layout__region--second', 'layout__region--column') }}>
+          {{ content.second }}
+        </div>
+      {% endif %}
+
+      {% if content.third %}
+        <div {{ region_attributes.third.addClass('layout__region', 'layout__region--third', 'layout__region--column') }}>
+          {{ content.third }}
+        </div>
+      {% endif %}
+
+      {% if content.fourth %}
+        <div {{ region_attributes.fourth.addClass('layout__region', 'layout__region--fourth', 'layout__region--column') }}>
+          {{ content.fourth }}
+        </div>
+      {% endif %}
       </div>
-    {% endif %}
-
-    {% if content.main %}
-      <div {{ region_attributes.main.addClass('layout__region', 'layout__region--main') }}>
-        {{ content.main }}
-      </div>
-    {% endif %}
-
-    {% if content.right %}
-      <div {{ region_attributes.right.addClass('layout__region', 'layout__region--sidebar') }}>
-        {{ content.right }}
-      </div>
-    {% endif %}
-
+      {% if content.bottom %}
+        <div {{ region_attributes.bottom.addClass('layout__region', 'layout__region--bottom') }}>
+          {{ content.bottom }}
+        </div>
+      {% endif %}
+    </div>
   </div>
 {% endif %}
-

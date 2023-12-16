@@ -54,14 +54,20 @@ layout_paragraphs_sdss_4_column:
   template: layout-paragraphs-sdss-four-column
   library: sdss_layout_paragraphs/four_column
   regions:
-    left:
-      label: Left
-    main-1:
-      label: Main 1 content
-    main-2:
-      label: Main 2 content
-    right:
-      label: Right
-  default_region: main
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    fourth:
+      label: Fourth
+    bottom:
+      label: Bottom
+  default_region: left
   icon_map:
-    - [left, main, right]
+  - [top]
+  - [first, second, third, fourth]
+  - [bottom]
