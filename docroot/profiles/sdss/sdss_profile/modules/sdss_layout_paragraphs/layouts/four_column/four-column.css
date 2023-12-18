@@ -2,28 +2,8 @@
   padding-bottom: 7.2rem;
 }
 
-/* Override for the 980px max width */
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-card,
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-cta-list,
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-entity,
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-gallery,
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-lists,
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-media-caption,
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-stories,
-.layout--layout-paragraphs-four-column .paragraph--type--stanford-wysiwyg,
-.layout--layout-paragraphs-four-column .ptype-stanford-card,
-.layout--layout-paragraphs-four-column .ptype-stanford-cta-list,
-.layout--layout-paragraphs-four-column .ptype-stanford-entity,
-.layout--layout-paragraphs-four-column .ptype-stanford-gallery,
-.layout--layout-paragraphs-four-column .ptype-stanford-image-cta,
-.layout--layout-paragraphs-four-column .ptype-stanford-lists,
-.layout--layout-paragraphs-four-column .ptype-stanford-media-caption,
-.layout--layout-paragraphs-four-column .ptype-stanford-stories,
-.layout--layout-paragraphs-four-column .ptype-stanford-wysiwyg {
-  max-width: 100%;
-}
-
 /*
+Breakpoint widths used in designs.
 XXL - 2000px
 XL 1500px
 LG 992px
@@ -31,6 +11,12 @@ MD 768px
 SM 576px
 XS 390px
 */
+
+/* Start with mobile and adjust as browser goes up width */
+/* For a max of med */
+.layout--layout-paragraphs-four-column {
+  display: block;
+}
 
 /* At Least Large */
 @media screen and (min-width: 992px) {
@@ -56,7 +42,24 @@ XS 390px
   }
 }
 
-/* Max of med */
-.layout--layout-paragraphs-four-column {
-  display: block;
+/* Override for the 980px max width */
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-card,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-cta-list,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-entity,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-gallery,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-lists,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-media-caption,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-stories,
+.layout--layout-paragraphs-four-column .paragraph--type--stanford-wysiwyg,
+.layout--layout-paragraphs-four-column .ptype-stanford-card,
+.layout--layout-paragraphs-four-column .ptype-stanford-cta-list,
+.layout--layout-paragraphs-four-column .ptype-stanford-entity,
+.layout--layout-paragraphs-four-column .ptype-stanford-gallery,
+.layout--layout-paragraphs-four-column .ptype-stanford-image-cta,
+.layout--layout-paragraphs-four-column .ptype-stanford-lists,
+.layout--layout-paragraphs-four-column .ptype-stanford-media-caption,
+.layout--layout-paragraphs-four-column .ptype-stanford-stories,
+.layout--layout-paragraphs-four-column .ptype-stanford-wysiwyg {
+  max-width: 100%;
 }
+
