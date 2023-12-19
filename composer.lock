@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "862e3e09533a35ff6a11afd948246a6e",
+    "content-hash": "32645e5e93f342c0d8e6124ce9e5c9f3",
     "packages": [
         {
             "name": "acquia/blt",
@@ -15608,26 +15608,25 @@
         },
         {
             "name": "seboettg/citeproc-php",
-            "version": "v2.5.2",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/seboettg/citeproc-php.git",
-                "reference": "042535d9d1e56058f54156e3c5682f3f9a467abe"
+                "reference": "b6478c9cbac7402d90e692fdb9747afefcf276a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/seboettg/citeproc-php/zipball/042535d9d1e56058f54156e3c5682f3f9a467abe",
-                "reference": "042535d9d1e56058f54156e3c5682f3f9a467abe",
+                "url": "https://api.github.com/repos/seboettg/citeproc-php/zipball/b6478c9cbac7402d90e692fdb9747afefcf276a7",
+                "reference": "b6478c9cbac7402d90e692fdb9747afefcf276a7",
                 "shasum": ""
             },
             "require": {
-                "ext-intl": "*",
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "ext-simplexml": "*",
                 "myclabs/php-enum": "^1.8",
                 "php": ">=7.3",
-                "seboettg/collection": ">=v3.1.0"
+                "seboettg/collection": ">=3.0"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^1",
@@ -15636,6 +15635,7 @@
                 "squizlabs/php_codesniffer": "^3.5"
             },
             "suggest": {
+                "ext-intl": "*",
                 "symfony/polyfill-mbstring": "^1.10"
             },
             "type": "library",
@@ -15655,16 +15655,16 @@
                 {
                     "name": "Sebastian Böttger",
                     "email": "seboettg@gmail.com",
-                    "homepage": "https://sebastianboettger.net",
+                    "homepage": "http://sebastianboettger.net",
                     "role": "Developer"
                 }
             ],
             "description": "Full-featured CSL processor (https://citationstyles.org)",
             "support": {
                 "issues": "https://github.com/seboettg/citeproc-php/issues",
-                "source": "https://github.com/seboettg/citeproc-php/tree/v2.5.2"
+                "source": "https://github.com/seboettg/citeproc-php/tree/v2.4.1"
             },
-            "time": "2023-02-08T21:13:17+00:00"
+            "time": "2022-05-08T11:29:02+00:00"
         },
         {
             "name": "seboettg/collection",
