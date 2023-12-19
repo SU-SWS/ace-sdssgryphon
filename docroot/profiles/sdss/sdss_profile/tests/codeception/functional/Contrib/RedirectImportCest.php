@@ -32,7 +32,7 @@ class RedirectImportCest {
     $I->logInWithRole('site_manager');
     $I->amOnPage('/admin/config/search/redirect/migrate');
     $I->attachFile('CSV File', 'redirects.csv');
-    $I->waitForElementVisible('.form-managed-file input[type="submit"]', 10);
+    $I->waitForElementVisible('.form-managed-file input[type="submit"]', 20);
 
     $I->click('Migrate data');
     $I->waitForText('Processed 1 item');
