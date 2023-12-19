@@ -8,7 +8,7 @@
 }
 
 .menu--newsroom {
-  @include centered-column;
+  @include sdss-centered-column;
 
   display: grid;
   grid-template-columns: 160px 1fr;
