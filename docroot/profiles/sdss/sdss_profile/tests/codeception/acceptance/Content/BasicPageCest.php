@@ -366,18 +366,17 @@ class BasicPageCest {
    */
   public function testSearchResult(AcceptanceTester $I) {
     $text = $this->faker->paragraphs(2, TRUE);
-    $wysiwyg = $I->createEntity([
+    $paragraph = $I->createEntity([
       'type' => 'stanford_wysiwyg',
       'su_wysiwyg_text' => ['value' => $text, 'format' => 'stanford_html'],
     ], 'paragraph');
-    $row = $I->createEntity([
-      'type' => 'node_stanford_page_row',
-      'su_page_components' => $wysiwyg,
-    ], 'paragraph_row');
     $node = $I->createEntity([
-      'title' => $this->faker->words(3, TRUE),
       'type' => 'stanford_page',
-      'su_page_components' => $row,
+      'title' => $this->faker->words(3, TRUE),
+      'su_page_components' => [
+        'target_id' => $paragraph->id(),
+        'entity' => $paragraph,
+      ],
     ]);
     $I->logInWithRole('contributor');
     $I->amOnPage($node->toUrl('edit-form')->toString());
