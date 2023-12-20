@@ -1,6 +1,6 @@
 name: 'Stanford Doerr School of Sustainability Profile'
 description: 'Jumpstart Website Profile for Stanford Doerr School of Sustainability'
-version: 4.0.3-dev
+version: 4.1.1-dev
 type: profile
 project: Stanford
 core_version_requirement: ^9 || ^10
