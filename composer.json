@@ -53,12 +53,12 @@
             "type": "package",
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
-                "version": "8.1.10",
+                "version": "8.1.11",
                 "type": "drupal-custom-module-rooms-site",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
-                    "reference": "8.1.10"
+                    "reference": "8.1.11"
                 }
             }
         }
