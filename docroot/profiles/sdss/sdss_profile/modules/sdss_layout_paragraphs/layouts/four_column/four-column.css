@@ -23,7 +23,7 @@ XS 390px
   .layout--layout-paragraphs-four-column .content-well {
     display: grid;
     gap: 4rem;
-    grid-template-columns: repeat(auto-fill, minmax(min(30rem, 100%), 1fr));
+    grid-template-columns: repeat(4, 1fr);
     padding: 7.2rem 0;
   }
 }
@@ -31,14 +31,15 @@ XS 390px
 /*  Between Large and XLarge the cards are 2 per row */
 @media only screen and (min-width: 992px) and (max-width: 1500px) {
   .layout--layout-paragraphs-four-column .content-well {
-    grid-template-columns: repeat(auto-fill, minmax(min(40rem, 100%), 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* At least XLarge the cards are 4 per row */
 @media only screen and (min-width: 2000px) {
   .layout--layout-paragraphs-four-column .content-well {
-    grid-template-columns: repeat(auto-fill, minmax(min(30rem, 100%), 1fr));
+    grid-template-columns: repeat(4, 1fr);
+
   }
 }
 
