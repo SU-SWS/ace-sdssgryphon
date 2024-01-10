@@ -16,6 +16,24 @@ XS 390px
 /* For a max of med */
 .layout--layout-paragraphs-four-column {
   display: block;
+
+  .su-wysiwyg-text h2 {
+    padding-top: 0;
+  }
+}
+
+.layout--layout-paragraphs-four-column .su-wysiwyg-text h2 {
+  padding-top: 0;
+}
+
+/* Fixup in case a 4-col is added with a secondary navigation */
+.flex-lg-9-of-12.main-region .layout-paragraphs-sdss-four-column .content-well {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.flex-lg-9-of-12.main-region .layout-paragraphs-sdss-four-column .centered-container {
+  margin-left: unset;
+  margin-right: unset;
 }
 
 /* At Least Large */

@@ -46,6 +46,16 @@
       @include serif;
       @include sdss-block-quote--sm;
     }
+
+    // Using this class for the eyebrow on a 4-col layout.
+    &.su-subheading {
+      @include modular-spacing('padding-bottom', 3);
+
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+
+
   }
 
   .caption {
