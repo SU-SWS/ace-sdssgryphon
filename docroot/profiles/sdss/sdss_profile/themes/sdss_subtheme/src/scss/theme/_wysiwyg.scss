@@ -49,7 +49,7 @@
 
     // Using this class for the eyebrow on a 4-col layout.
     &.su-subheading {
-      @include modular-spacing('padding-bottom', 3);
+      @include modular-spacing('padding-bottom', 2);
 
       font-size: 2rem;
       margin-bottom: 0;
