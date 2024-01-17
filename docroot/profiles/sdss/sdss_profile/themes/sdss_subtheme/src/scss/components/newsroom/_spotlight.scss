@@ -76,13 +76,24 @@
   }
 }
 
+// Circle backgrounds for spotlight only on XL and up.
+@include grid-media-min('xl') {
+  .layout--layout-paragraphs-one-column {
+    &.layout-paragraphs-sdss-bgimage--circles {
+      .sdss-spotlight {
+        background: url("../../assets/svg/spotlight-circle-background--D5D5D4.svg") no-repeat;
+        background-position: top -300px left 130px;
+        padding-top: 50px;
+      }
+    }
 
-.layout--layout-paragraphs-one-column {
-  &.layout-paragraphs-sdss-bgimage--circles {
-    .sdss-spotlight {
-      border: 4px solid lime;
-      background: url("#{$su-image-path}/spotlight_circle_background.svg") no-repeat 3px 0;
-
+    &.layout-paragraphs-sdss-bgcolor--green,
+    &.layout-paragraphs-sdss-bgcolor--blue,
+    &.layout-paragraphs-sdss-bgcolor--grey {
+      .sdss-spotlight {
+        background: url("../../assets/svg/spotlight-circle-background--fff.svg") no-repeat;
+        background-position: top -300px left 130px;
+      }
     }
   }
 }
