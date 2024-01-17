@@ -75,3 +75,14 @@
     }
   }
 }
+
+
+.layout--layout-paragraphs-one-column {
+  &.layout-paragraphs-sdss-bgimage--circles {
+    .sdss-spotlight {
+      border: 4px solid lime;
+      background: url("#{$su-image-path}/spotlight_circle_background.svg") no-repeat 3px 0;
+
+    }
+  }
+}
