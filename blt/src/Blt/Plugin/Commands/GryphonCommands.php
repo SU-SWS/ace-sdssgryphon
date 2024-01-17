@@ -4,10 +4,15 @@ namespace Gryphon\Blt\Plugin\Commands;
 
 use Acquia\Blt\Robo\BltTasks;
 
+trait GryphonAcquiaApiCommandsTrait{
+
+}
+
 /**
  * Class GryphonCommands.
  */
 class GryphonCommands extends BltTasks {
+  use GryphonAcquiaApiCommandsTrait;
 
   /**
    * Enable a list of modules for all sites on a given environment.
@@ -88,48 +93,51 @@ class GryphonCommands extends BltTasks {
    * @command gryphon:provision
    * @description This is command to show provision URLs.
    */
-  public function provision($sitename) {
-    // Check if sitename is empty
+  public function provision($sitename): void {
     if (empty($sitename)) {
       $this->say('Sitename cannot be empty. Exiting');
       return;
     }
 
-    // Create three outputs for aliases for NetDB.
-    $sitename_dev = $sitename . '-dev';
-    $sitename_test = $sitename . '-test';
-    $sitename_prod = $sitename . '-prod';
+    // Define environment types
+    $env_types = ['dev', 'test', 'prod'];
 
-    // Display aliases for NetDB.
-    $this->say($sitename_dev);
-    $this->say($sitename_test);
-    $this->say($sitename_prod);
+    foreach ($env_types as $type) {
+      $sitename_env = $sitename . '-' . $type;
+      $this->say('Alias: ' . $sitename_env);
 
-    // Fetch DNS record of the URLs for the environments to check for viability.
-    $this->checkForARecord($sitename_dev);
-    $this->checkForARecord($sitename_test);
-    $this->checkForARecord($sitename_prod);
-  }
-
-  // Prepend each with "stanford.edu" and check for DNS record.
-  private function checkForARecord($domain) {
-    $records = dns_get_record($domain . '.stanford.edu', DNS_A);
-
-    if (!empty($records)) {
-      $this->say($domain . '.stanford.edu: Found');
-    } else {
-      $this->say($domain . '.stanford.edu: Not found. Please remove aliases from NetDB, if permission is given');
-      return;
+      if ($this->checkForARecord($sitename_env)) {
+        $this->say('A Record present in NetDB. Cannot proceed with provision until aliases released.');
+      } else {
+        // Stop execution or handle error
+        $this->say('A Record not present.');
+        $this->addDomainsToAcquia($sitename, $type, $sitename_env);
+      }
     }
   }
 
-  private function askToAddDomains()
-  {
-    $condition = $this->ask("Do you want to run a specific function? (yes/no)", "yes");
+  /**
+   * @param $domain
+   *
+   * @return bool
+   */
+  private function checkForARecord($domain): bool {
+    return !empty(dns_get_record($domain . '.stanford.edu', DNS_A));
+  }
+
+  /**
+   * Adds domains to Acquia
+   *
+   * @param $sitename_env
+   *
+   * @return void
+   */
+  private function addDomainsToAcquia($sitename, $type, $sitename_env): void {
+    $condition = $this->ask("Do you want to add the domain to acquia? (yes/no)", "yes");
 
     if (strtolower($condition) === 'yes') {
       $this->say("Running the specific function...");
-      //$this->runSpecificFunction();
+      $this->humsciAddDomain($type, $sitename_env . '.stanford.edu');
     } else {
       $this->say("Skipped running the specific function.");
     }
