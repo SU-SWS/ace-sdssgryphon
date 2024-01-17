@@ -9,6 +9,12 @@ dependencies:
     - field.storage.node.su_person_type_group
     - field.storage.node.su_sdss_event_topics
     - field.storage.node.su_sdss_magazine_topics
+    - field.storage.node.su_sdss_news_focal_areas
+    - field.storage.node.su_sdss_news_organization
+    - field.storage.node.su_sdss_news_research_area
+    - field.storage.node.su_sdss_person_focal_areas
+    - field.storage.node.su_sdss_person_organization
+    - field.storage.node.su_sdss_person_research_area
     - field.storage.node.su_shared_tags
     - node.type.stanford_event
     - node.type.stanford_news
@@ -525,31 +531,25 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            node_bulk_form: node_bulk_form
+            views_bulk_operations_bulk_form: views_bulk_operations_bulk_form
             title: title
-            type: type
             name: name
             status: status
             changed: changed
-            edit_node: edit_node
-            delete_node: delete_node
-            dropbutton: dropbutton
-            timestamp: title
+            su_person_type_group: su_person_type_group
+            su_shared_tags: su_shared_tags
+            su_sdss_person_research_area: su_sdss_person_research_area
+            su_sdss_person_organization: su_sdss_person_research_area
+            su_sdss_person_focal_areas: su_sdss_person_research_area
+            operations: operations
           default: changed
           info:
-            node_bulk_form:
+            views_bulk_operations_bulk_form:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             title:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            type:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -577,30 +577,32 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            edit_node:
-              sortable: false
-              default_sort_order: asc
+            su_person_type_group:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            delete_node:
-              sortable: false
-              default_sort_order: asc
+            su_shared_tags:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            dropbutton:
-              sortable: false
-              default_sort_order: asc
+            su_sdss_person_research_area:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            timestamp:
-              sortable: false
-              default_sort_order: asc
+            su_sdss_person_organization:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            su_sdss_person_focal_areas:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            operations:
               align: ''
               separator: ''
               empty_column: false
@@ -1017,7 +1019,7 @@ display:
       path: admin/manage-content/news
       menu:
         type: normal
-        title: 'Manage News Content'
+        title: 'Manage Basic Page Content'
         description: ''
         weight: -10
         expanded: false
@@ -1360,6 +1362,195 @@ display:
           admin_label: ''
           plugin_id: field
           label: 'Shared Tags'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_sdss_news_research_area:
+          id: su_sdss_news_research_area
+          table: node__su_sdss_news_research_area
+          field: su_sdss_news_research_area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Other Taxonomy Terms'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_sdss_news_focal_areas:
+          id: su_sdss_news_focal_areas
+          table: node__su_sdss_news_focal_areas
+          field: su_sdss_news_focal_areas
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Focal Areas'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_sdss_news_organization:
+          id: su_sdss_news_organization
+          table: node__su_sdss_news_organization
+          field: su_sdss_news_organization
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Organization
           exclude: false
           alter:
             alter_text: false
@@ -1810,7 +2001,7 @@ display:
       path: admin/manage-content/basic-page
       menu:
         type: normal
-        title: 'Manage Basic Page Content'
+        title: 'Manage News Content'
         description: ''
         weight: -10
         expanded: false
@@ -1835,6 +2026,9 @@ display:
       tags:
         - 'config:field.storage.node.su_news_topics'
         - 'config:field.storage.node.su_sdss_magazine_topics'
+        - 'config:field.storage.node.su_sdss_news_focal_areas'
+        - 'config:field.storage.node.su_sdss_news_organization'
+        - 'config:field.storage.node.su_sdss_news_research_area'
         - 'config:field.storage.node.su_shared_tags'
   page_3:
     id: page_3
@@ -2939,6 +3133,195 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        su_sdss_person_research_area:
+          id: su_sdss_person_research_area
+          table: node__su_sdss_person_research_area
+          field: su_sdss_person_research_area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Other Taxonomy Terms'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_sdss_person_organization:
+          id: su_sdss_person_organization
+          table: node__su_sdss_person_organization
+          field: su_sdss_person_organization
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Organization
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_sdss_person_focal_areas:
+          id: su_sdss_person_focal_areas
+          table: node__su_sdss_person_focal_areas
+          field: su_sdss_person_focal_areas
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Focal Areas'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         operations:
           id: operations
           table: node
@@ -3301,4 +3684,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.su_person_type_group'
+        - 'config:field.storage.node.su_sdss_person_focal_areas'
+        - 'config:field.storage.node.su_sdss_person_organization'
+        - 'config:field.storage.node.su_sdss_person_research_area'
         - 'config:field.storage.node.su_shared_tags'
