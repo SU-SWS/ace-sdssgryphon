@@ -90,19 +90,19 @@ class GryphonCommands extends BltTasks {
   public function provision($sitename) {
     // Check if sitename is empty
     if (empty($sitename)) {
-      echo "Sitename cannot be empty. Exiting.\n";
+      $this->say('Sitename cannot be empty. Exiting');
       return;
     }
 
-    // Create three outputs without "stanford.edu"
+    // Create three outputs for aliases for NetDB.
     $sitename_dev = $sitename . '-dev';
     $sitename_test = $sitename . '-test';
     $sitename_prod = $sitename . '-prod';
 
     // Display aliases for NetDB.
-    echo "Dev: $sitename_dev\n";
-    echo "Test: $sitename_test\n";
-    echo "Prod: $sitename_prod\n";
+    $this->say($sitename_dev);
+    $this->say($sitename_test);
+    $this->say($sitename_prod);
 
     // Check host command for each domain
     $this->checkHost($sitename_dev);
@@ -110,13 +110,27 @@ class GryphonCommands extends BltTasks {
     $this->checkHost($sitename_prod);
   }
 
-  // Prepend each with "stanford.edu" and check host command
-  private function checkHost ($domain) {
-    exec("host $domain.stanford.edu", $output, $resultCode);
-    if ($resultCode === 0) {
-      echo "$domain.stanford.edu: Found\n";
+  // Prepend each with "stanford.edu" and check for DNS record.
+  private function checkHost($domain) {
+    $records = dns_get_record($domain . '.stanford.edu', DNS_A);
+
+    if (!empty($records)) {
+      $this->say($domain . '.stanford.edu: Found');
     } else {
-      echo "$domain.stanford.edu: Not Found\n";
+      $this->say($domain . '.stanford.edu: Not found. Please remove aliases from NetDB, if permission is given');
+      return;
+    }
+  }
+
+  private function askToAddDomains()
+  {
+    $condition = $this->ask("Do you want to run a specific function? (yes/no)", "yes");
+
+    if (strtolower($condition) === 'yes') {
+      $this->say("Running the specific function...");
+      //$this->runSpecificFunction();
+    } else {
+      $this->say("Skipped running the specific function.");
     }
   }
 }
