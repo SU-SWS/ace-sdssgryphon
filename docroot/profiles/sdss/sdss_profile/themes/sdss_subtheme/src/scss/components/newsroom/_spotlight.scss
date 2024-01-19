@@ -96,4 +96,20 @@
       }
     }
   }
+
+  // On the Newsroom landing page. The title is hidden with .sr-only
+  // and the margin-top needs to be removed. A class is added to the layout: .newsroom-title-hidden
+  // It need to only happen, when the cirlces appear.
+
+  .jumpstart-ui--one-column {
+    &.newsroom-title-hidden {
+      &.centered-content {
+        .node-stanford-page-title {
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }
+
+
