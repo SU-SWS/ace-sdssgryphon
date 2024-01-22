@@ -24,6 +24,7 @@ function sdss_profile_requirements($phase) {
     $requirements['stanford_site_alias'] = [
       'title' => t('Stanford Site Alias'),
       'value' => $site_name,
+      'severity' => REQUIREMENT_INFO,
     ];
   }
   return $requirements;
