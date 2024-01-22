@@ -16,10 +16,8 @@ use Drupal\field\Entity\FieldConfig;
 function sdss_profile_requirements($phase) {
   $requirements = [];
   if ($phase == 'runtime') {
-    // This will get you a string for example: 'sites/default'.
-    $site_path = DrupalKernel::findSitePath(\Drupal::request());
 
-    // Explode it to only get the 'default' part in the next step.
+    $site_path = DrupalKernel::findSitePath(\Drupal::request());
     $site_path = explode('/', $site_path);
     $site_name = $site_path[1];
 
