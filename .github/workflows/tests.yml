@@ -15,7 +15,7 @@ jobs:
       DRUPAL_DATABASE_PASSWORD: drupal
       DRUPAL_DATABASE_HOST: mysql
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:8.1
     services:
       mysql:
         image: mysql:5.7
@@ -37,11 +37,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-20231130-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-20231101-${{ hashFiles('composer.json') }}-
-            4.x-20231101-
+            4.x-20231130-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-20231130-${{ hashFiles('composer.json') }}-
+            4.x-20231130-
       - run: git config --system --add safe.directory '*'
       - name: Run Unit Tests
         # env:
@@ -65,7 +65,7 @@ jobs:
       DRUPAL_DATABASE_PASSWORD: drupal
       DRUPAL_DATABASE_HOST: mysql
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:8.1
     services:
       mysql:
         image: mysql:5.7
@@ -120,7 +120,7 @@ jobs:
       DRUPAL_DATABASE_PASSWORD: drupal
       DRUPAL_DATABASE_HOST: mysql
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:8.1
       options: '--network-alias drupal8ci'
     services:
       selenium:

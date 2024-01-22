@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.search
   module:
-    - config_pages
     - views
   theme:
     - sdss_subtheme

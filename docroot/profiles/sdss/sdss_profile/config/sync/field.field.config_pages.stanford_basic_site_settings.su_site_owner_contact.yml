@@ -11,7 +11,7 @@ entity_type: config_pages
 bundle: stanford_basic_site_settings
 label: 'Site Owner Contact Email'
 description: '<p>Please enter the email for the business owner(s) for this site. This might be the director, chair, program owner, lab PI, etc.</p>'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -34,6 +34,7 @@ multisites:
   - environment_ecosystems
   - environmentalbehavior
   - environmentalpolicy
+  - environmentalsocialsci
   - ese
   - esys
   - explore_energy
@@ -66,11 +67,14 @@ multisites:
   - storagex
   - strategic_energy_alliance
   - sustainability
+  - sustainability_accelerator
+  - sustainablemobility
   - understand_energy_course
   - understandenergy
   - water
   - witw
   - woods
+  - woods_water
 tests:
   reports:
     localDir: '${repo.root}/artifacts'

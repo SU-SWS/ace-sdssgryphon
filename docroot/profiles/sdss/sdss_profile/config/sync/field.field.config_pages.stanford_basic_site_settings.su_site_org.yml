@@ -12,7 +12,7 @@ entity_type: config_pages
 bundle: stanford_basic_site_settings
 label: Organization
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

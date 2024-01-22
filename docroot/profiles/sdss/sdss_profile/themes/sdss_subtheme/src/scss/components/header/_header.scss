@@ -205,9 +205,7 @@ header.su-masthead {
 @include grid-media-min('xl') {
   header.su-masthead {
     section.su-masthead--inner {
-      width: calc(100% - 200px);
-      max-width: 1500px;
-      margin: 0 auto;
+      @include sdss-centered-column;
 
       .su-multi-menu {
         padding: 0;

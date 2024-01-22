@@ -1,0 +1,24 @@
+uuid: cc470cf0-4163-4268-843b-9377d7d986a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.sdss_site_settings
+    - field.field.config_pages.sdss_site_settings.su_sdss_newsroom_menu
+id: config_pages.sdss_site_settings.default
+targetEntityType: config_pages
+bundle: sdss_site_settings
+mode: default
+content:
+  su_sdss_newsroom_menu:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 19
+    region: content
+hidden:
+  search_api_excerpt: true

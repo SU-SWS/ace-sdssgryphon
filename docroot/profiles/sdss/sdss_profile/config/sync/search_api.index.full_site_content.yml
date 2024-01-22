@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.su_news_topics
     - search_api.server.database_search
     - core.entity_view_mode.node.search_indexing
   module:
@@ -62,10 +63,26 @@ field_settings:
     dependencies:
       module:
         - node
+  su_news_topics:
+    label: 'News Types'
+    datasource_id: 'entity:node'
+    property_path: su_news_topics
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.su_news_topics
   title:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
+    type: string
+    dependencies:
+      module:
+        - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
     type: string
     dependencies:
       module:
@@ -94,6 +111,7 @@ processor_settings:
   content_access:
     weights:
       preprocess_query: -30
+  custom_value: {  }
   entity_status: {  }
   entity_type: {  }
   highlight:

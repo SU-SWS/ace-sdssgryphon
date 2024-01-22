@@ -1,0 +1,12 @@
+project:
+  machine_name: sustainablemobility
+  human_name: sustainablemobility
+  local:
+    protocol: http
+    hostname: local.sustainablemobility.com
+drush:
+  aliases:
+    local: sustainablemobility.local
+    remote: sustainablemobility.prod
+drupal:
+  db: {  }

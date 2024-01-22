@@ -25,13 +25,23 @@ body.sdss-header-variant--option_a {
   }
 }
 
-
 //
 // Mobile first min-width queries.
 // Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
 //
 
 // Styles for Large or bigger Screens.
+@include grid-media-min('xl') {
+  body.sdss-header-variant--option_a {
+    header.su-masthead {
+
+      #sdss-button--search-link {
+       right: -80px;
+      }
+    }
+  }
+}
+
 @include grid-media-min('lg') {
   body.sdss-header-variant--option_a {
     header.su-masthead {
