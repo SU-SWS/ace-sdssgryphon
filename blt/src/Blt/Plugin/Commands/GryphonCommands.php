@@ -3,16 +3,13 @@
 namespace Gryphon\Blt\Plugin\Commands;
 
 use Acquia\Blt\Robo\BltTasks;
-
-trait GryphonAcquiaApiCommandsTrait{
-
-}
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class GryphonCommands.
  */
 class GryphonCommands extends BltTasks {
-  use GryphonAcquiaApiCommandsTrait;
 
   /**
    * Enable a list of modules for all sites on a given environment.
@@ -104,14 +101,16 @@ class GryphonCommands extends BltTasks {
 
     foreach ($env_types as $type) {
       $sitename_env = $sitename . '-' . $type;
-      $this->say('Alias: ' . $sitename_env);
 
+      // Checks to see if domain name is in use.
       if ($this->checkForARecord($sitename_env)) {
         $this->say('A Record present in NetDB. Cannot proceed with provision until aliases released.');
       } else {
-        // Stop execution or handle error
-        $this->say('A Record not present.');
+        //Outputs alias for NetDB.
+        $this->say('A Record not present. Site name is free to use.');
+        $this->say('Alias for NetDB: ' . $sitename_env);
         $this->addDomainsToAcquia($sitename, $type, $sitename_env);
+        $this->postMultiSiteInit($sitename);
       }
     }
   }
@@ -138,8 +137,36 @@ class GryphonCommands extends BltTasks {
     if (strtolower($condition) === 'yes') {
       $this->say("Running the specific function...");
       $this->humsciAddDomain($type, $sitename_env . '.stanford.edu');
+      $this->addToBltYml();
+      $this->scaffoldingMultisite();
     } else {
       $this->say("Skipped running the specific function.");
+    }
+  }
+
+  private function scaffoldingMultisite(): void {
+    $gryphon = new GryphonHooksCommands();
+    $gryphon->postMultiSiteInit();
+  }
+
+  /**
+   * @return void
+   *
+   * @command gryphon:yaml
+   * @description This is command to show provision URLs.
+   */
+  public function addToBltYml() {
+    $bltYAML =  __DIR__ . "/../../../../blt.yml";
+
+    if (!file_exists($bltYAML)){
+      $this->say('No BLT yaml file to edit.');
+      return;
+    }
+
+    $yamlContentsBlt = Yaml::parseFile($bltYAML);
+
+    foreach($yamlContentsBlt['multisites'] as $multisite){
+      echo $multisite;
     }
   }
 }
