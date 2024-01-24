@@ -94,6 +94,28 @@
     .su-card__headline {
       color: $su-color-white;
     }
+
+    .su-card__contents {
+      p a,
+      h2 a,
+      .su-link--action {
+        color: $su-color-white;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $su-color-white;
+
+          &::after {
+            background-color: $su-color-white;
+          }
+        }
+
+        &::after {
+          background-color: $su-color-white;
+        }
+      }
+    }
   }
 }
 
