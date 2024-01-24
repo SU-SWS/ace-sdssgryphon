@@ -137,7 +137,7 @@ class GryphonCommands extends BltTasks {
     if (strtolower($condition) === 'yes') {
       $this->say("Running the specific function...");
       $this->humsciAddDomain($type, $sitename_env . '.stanford.edu');
-      $this->addToBltYml();
+      $this->addToBltYml($sitename);
       $this->scaffoldingMultisite();
     } else {
       $this->say("Skipped running the specific function.");
@@ -155,7 +155,7 @@ class GryphonCommands extends BltTasks {
    * @command gryphon:yaml
    * @description This is command to show provision URLs.
    */
-  public function addToBltYml() {
+  private function addToBltYml($sitename) {
     $bltYAML =  __DIR__ . "/../../../../blt.yml";
 
     if (!file_exists($bltYAML)){
@@ -164,9 +164,9 @@ class GryphonCommands extends BltTasks {
     }
 
     $yamlContentsBlt = Yaml::parseFile($bltYAML);
-
-    foreach($yamlContentsBlt['multisites'] as $multisite){
-      echo $multisite;
-    }
+    $yamlContentsBlt['multisites'][] = $sitename;
+    sort($yamlContentsBlt['multisites']);
+    $newMultisiteYaml = Yaml::dump($yamlContentsBlt, 10, 2);
+    $this->taskWriteToFile($bltYAML)->text($newMultisiteYaml)->run();
   }
 }
