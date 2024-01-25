@@ -263,21 +263,49 @@
 
 // Newsroom byline mixin
 @mixin sdss-newsroom-byline {
-  @include big-paragraph;
+  line-height: 1.2;
+
+  @include grid-media-between('md', '2xl') {
+    font-size: 2.1rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
 }
 
 // Newsroom callout quote mixin
 @mixin sdss-newsroom-callout-quote {
 
   @include grid-media-min('2xl') {
-      font-size: 2.3rem;
-    }
-
-    @include grid-media-between('md', 'xl') {
-      font-size: 4.1rem;
-    }
-
-    @include grid-media-max('sm') {
-      font-size: 1.8rem;
-    }
+    font-size: 2.3rem;
   }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 4.1rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+// Newsroom medium paragraph mixin
+@mixin sdss-newsroom-med-paragraph {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.1rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.7rem;
+  }
+
+  @include grid-media-max('xs') {
+    font-size: 1.5rem;
+  }
+}

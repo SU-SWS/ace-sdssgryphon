@@ -39,7 +39,7 @@ third_party_settings:
           context_mapping: {  }
           extra_classes: ''
           centered: centered-container
-          columns: default
+          columns: flex-10-of-12
         components:
           4df7625d-a934-4076-a6ff-d70bf5aa9f2e:
             uuid: 4df7625d-a934-4076-a6ff-d70bf5aa9f2e
@@ -79,17 +79,17 @@ third_party_settings:
             additional: {  }
         third_party_settings: {  }
       -
-        layout_id: jumpstart_ui_two_column
+        layout_id: jumpstart_ui_one_column
         layout_settings:
           label: ''
           context_mapping: {  }
-          extra_classes: ''
+          extra_classes: sdss-publication-content
           centered: centered-container
-          orientation: left
+          columns: flex-10-of-12
         components:
           42ec0a5c-ba15-4be4-9d66-9fecee9a3912:
             uuid: 42ec0a5c-ba15-4be4-9d66-9fecee9a3912
-            region: left
+            region: main
             configuration:
               id: 'field_block:node:stanford_publication:su_publication_components'
               label: Components
@@ -106,7 +106,7 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-            weight: 3
+            weight: 0
             additional: {  }
           10a9b9f7-3532-480f-9500-a73f98dc906a:
             uuid: 10a9b9f7-3532-480f-9500-a73f98dc906a
@@ -127,7 +127,7 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-            weight: 0
+            weight: 1
             additional: {  }
           8e0b99d1-3634-419b-b3f7-0660aa3a7537:
             uuid: 8e0b99d1-3634-419b-b3f7-0660aa3a7537
@@ -153,7 +153,7 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-            weight: 1
+            weight: 2
             additional: {  }
         third_party_settings: {  }
       -
@@ -161,23 +161,10 @@ third_party_settings:
         layout_settings:
           label: ''
           context_mapping: {  }
-          extra_classes: ''
+          extra_classes: sdss-publication--types
           centered: centered-container
-          columns: flex-12-of-12
+          columns: flex-10-of-12
         components:
-          797a272b-885d-4772-a161-853409dca684:
-            uuid: 797a272b-885d-4772-a161-853409dca684
-            region: main
-            configuration:
-              id: 'views_block:stanford_publications-related'
-              label: 'More Publications'
-              label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: 'More Publications'
-              items_per_page: none
-            weight: 1
-            additional: {  }
           7bc27225-3b16-491d-b443-c266687f6db8:
             uuid: 7bc27225-3b16-491d-b443-c266687f6db8
             region: main
@@ -202,6 +189,29 @@ third_party_settings:
             weight: 0
             additional: {  }
         third_party_settings: {  }
+      -
+        layout_id: jumpstart_ui_one_column
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          extra_classes: ''
+          centered: centered-container
+          columns: flex-12-of-12
+        components:
+          797a272b-885d-4772-a161-853409dca684:
+            uuid: 797a272b-885d-4772-a161-853409dca684
+            region: main
+            configuration:
+              id: 'views_block:stanford_publications-related'
+              label: 'More Publications'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'More Publications'
+              items_per_page: none
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
   layout_library:
     enable: false
   layout_builder_restrictions:
@@ -212,8 +222,6 @@ third_party_settings:
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
-      - Devel
-      - 'Devel PHP'
       - 'Events Lists (Views)'
       - Forms
       - Help

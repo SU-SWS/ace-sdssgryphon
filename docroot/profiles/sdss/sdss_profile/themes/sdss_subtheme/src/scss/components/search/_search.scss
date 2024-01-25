@@ -53,3 +53,16 @@
     }
   }
 }
+
+
+// Accounting for the position being set when logged in.
+.role--authenticated {
+  // Logged in
+  .su-masthead {
+    .su-site-search__submit {
+      right: 4rem;
+      top: 3.5rem;
+    }
+  }
+}
+

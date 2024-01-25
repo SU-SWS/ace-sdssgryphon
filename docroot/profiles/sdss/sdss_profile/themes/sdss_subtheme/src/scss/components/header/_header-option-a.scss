@@ -25,22 +25,37 @@ body.sdss-header-variant--option_a {
   }
 }
 
-
 //
 // Mobile first min-width queries.
 // Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
 //
 
 // Styles for Large or bigger Screens.
+@include grid-media-min('xl') {
+  body.sdss-header-variant--option_a {
+    header.su-masthead {
+
+      #sdss-button--search-link {
+       right: -80px;
+      }
+    }
+  }
+}
+
 @include grid-media-min('lg') {
   body.sdss-header-variant--option_a {
     header.su-masthead {
-      // margin: 0 auto;
+
+      #sdss-button--search-link {
+        margin: auto 10rem auto auto;
+        position: relative;
+      }
 
       section.su-masthead--inner {
         position: relative;
         display: flex;
         justify-content: flex-start;
+        flex-wrap:  nowrap;
         background: $sdss-color-blue-light;
 
         &::after {
@@ -56,8 +71,8 @@ body.sdss-header-variant--option_a {
 
         .system-menu-block {
           align-self: flex-end;
-          width: auto;
           padding: 0 0 0 3rem;
+          width: 90%;
         }
 
         .su-multi-menu {
@@ -67,6 +82,7 @@ body.sdss-header-variant--option_a {
           .su-multi-menu__menu {
             &.su-multi-menu__menu-lv1 {
               background-color: $sdss-color-blue-light;
+              padding-right: 3rem;
             }
           }
         }

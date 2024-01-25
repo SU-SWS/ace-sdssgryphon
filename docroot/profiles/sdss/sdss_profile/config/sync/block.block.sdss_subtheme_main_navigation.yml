@@ -11,7 +11,7 @@ dependencies:
 id: sdss_subtheme_main_navigation
 theme: sdss_subtheme
 region: menu
-weight: 0
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:

@@ -8,7 +8,7 @@
  * Prepares variables for the html.html.twig template.
  */
 function sdss_subtheme_preprocess_html(&$variables) {
-  $variables['stanford_basic_path'] = drupal_get_path('theme', 'stanford_basic');
+  $variables['stanford_basic_path'] = \Drupal::service('extension.list.theme')->getPath('stanford_basic');
   // Variant setting for the header layout.
   if ($header_layout_variant = theme_get_setting('header_layout_variant')) {
     $variables['attributes']['class'][] = 'sdss-header-variant--' . $header_layout_variant;
@@ -102,6 +102,16 @@ function sdss_subtheme_preprocess_field(&$variables) {
 
  if ($variables['element']['#field_name'] == 'su_para_row_bgcolor') {
     $su_paragraph_row__bgcolor = $variables['items'][0]['content']['#markup'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function sdss_subtheme_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'menu_block:newsroom') {
+    $variables['attributes']['data-island'] = 'newsroom-menu-island';
+    $variables['#attached']['library'][] = 'sdss_subtheme/decoupled_menu';
   }
 }
 

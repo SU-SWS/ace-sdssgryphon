@@ -1,5 +1,101 @@
 # ACE SDSSGryphon
 
+4.0.3
+--------------------------------------------------------------------------------
+_Release Date: 2023-12-13_
+
+- ae854be SDSS-1145: Added Magazine Topics vocabulary to News list paragraph filters (#334)
+- 2e8dd0b SDSS-1138: Added News search link to the News menu (#331)
+- a72fb11 SDSS-868: NEWS | Added Spotlight paragraph type (#294)
+- 3180a4b SDSS-1124: Newsroom search page (#328)
+- 5c6bc1c SDSS-1133: Add sorting options to shared tags list paragraph (#329)
+- 592f3f5  SDSS-595 | SDSS-596: Add Newsroom menu (#189)
+- ab744c8 SDSS-808: Allow site managers to edit metatags (#286)
+- f57d032 Merge pull request #327 from SU-SWS/backtodev-4.0.3
+- 0dc9e03 backtodev-4.0.3
+
+
+4.0.2
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-30_
+
+- 3e73be0 SDSS-1089: Added JS to redirect to current page when clicking saml_login links (#325)
+- 409459e SDSS-1106: Ignore SDSS Subtheme settings (#324)
+- 483e153 SDSS-1127: Use php8.1 docker images for automation (#323)
+- fc77bcf SDSS-1084 | SDSS-1085: Increase bottom margin on Callout and Editorial Sidebar (#316)
+- 7bd3a53 SDSS-1079: Updated stanford_earth_r25 module to 8.1.10 (#321)
+- abbc14a SDSS-1103 | SDSS-1063: Provision waters-wood and sustainability-accelerator (#320)
+- dc354c9 SDSS-987: Updated publications styles (#248)
+- dda4335 SDSS-1086: Updated margins on images in wysiwyg (#314)
+- b9eb51a Update .gitpod.yml (#319)
+- e17defe Merge pull request #311 from SU-SWS/backtodev-4.0.2
+- 387ea1c backtodev-4.0.2
+
+
+4.0.1
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-16_
+
+- 92aeec3 SDSS-000: Removed memache packages from composer.json (#309)
+- 264d452 SDSS-919: A11y | Added background-color behind banner images (#303)
+- 63aee37 SDSS-998: Added space between masthead and article on News nodes (#304)
+- a74c1bb SDSS-1082: Adjusted News node byline spacing (#307)
+- 4da285f SDSS-1101: Moved SDSS theme JavaScript (#308)
+- caea03d SDSS-1087: Added bottom margin to all layout paragraph sections (#305)
+- a304ea9 SDSS-1092: Removed JS compiling in sdss_subtheme (#306)
+- 43533f7 Merge pull request #302 from SU-SWS/backtodev-4.0.1
+- 413b171 backtodev-4.0.1
+
+
+4.0.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-08_
+
+- 6f23a79 SDSS-000: Point understand-energy dev and test domains (#300)
+- 1242c3d SDSS-994: D10 | Gitpod support for 4.x (#299)
+- 1e14218 Merge pull request #298 from SU-SWS/SDSS-994--d10-upgrade
+- 582474b SDSS-995: D10 updates (#297)
+- 454ddb6 SDSS-1073: D10 | Automated test updates (#296)
+- 788049e CKEditor CSS fix.
+- beffa65 SDSS-1069: UPSTREAM | Pull stanford_profile 11.0.8 (#295)
+- 777fc28 Merge pull request #293 from SU-SWS/backtodev-3.0.1
+- 630042e backtodev-3.0.1
+
+
+3.0.0
+--------------------------------------------------------------------------------
+_Release Date: 2023-11-01_
+
+- fe1f6e0 SDSS-000: Added robots.txt patch (#291)
+- 65af33d SDSS-1065: Github automation updates for 3.x (#290)
+- 298d3e9 SDSS-1046: D9.5 | Fixed navigation wrapping and search icon styles (#282)
+- 15646b5 SDSS-1046: D9.5 | Adjusted layout paragraph spacing (#283)
+- e1e0980 SDSS-1053: Updated stanford_earth_r25 to 8.1.7 (#284)
+- 14743d6 Merge pull request #280 from SU-SWS/SDSS-551--D9.5--upgrade
+- b871d70 SDSS-1017: D9.5 |  Layout background colors style adjustments (#281)
+- a4f43f2 Fixes to update hooks.
+- 3287f03 SDSS-559: Upgrade path for react to layout paragraphs. (#278)
+- 4158e23 SDSS-1005: D9.5 | 3.x | Automated test updates (#275)
+- e865781 SDSS-000: Increase rss_feeds view date range from 7 to 8 days (#276)
+- 4e06d1a SDSS-1007: Support stanford_basic page.html.twig updates in sdss_subtheme (#270)
+- 276378a SDSS-889: Added bg_color Layout Option for SDSS layout paragraphs (#263)
+- fe69d5a SDSS-996: Switch to saml_auth from simplesamlphp (#261)
+- b2b8346 Upstream | Updates from stanford_profile 10.1.2 (#259)
+- f4a6650 Merge pull request #257 from SU-SWS/NOJIRA-20231004-merge-2.x
+- 5612edd Updated subtheme version.
+- d2f7c6f Merge branch '2.x' into NOJIRA-20231004-merge-2.x
+- ae71e6b SDSS-849: A11Y | FE | Updated decanter and moved Skip to Main link into a landmark (#254)
+- 8abaf45 SDSS-936: Updated line height for all image captions globally (#247)
+- bf6cac5 SDSS-983: BUG | Fix role permissions for SDSS entities (#246)
+- f9f3429 SDSS-968: Implement Media Contacts QA feedback (#241)
+- 219db3a Merge pull request #245 from SU-SWS/backtodev-2.2.1
+- aedf6ba backtodev-2.2.1
+- bb968a1 Merge branch '2.x' into 3.x
+- c5d83e5 SDSS-551: Drupal 9.5; Claro Admin theme; CKEditor 5; Layout paragraphs (#160)
+- 5a0b8de Merge branch '2.x' into 3.x
+- e6fd297 Merge branch 'feature/newsroom-layout-paragraphs' into 3.x
+
+
 2.2.0
 --------------------------------------------------------------------------------
 _Release Date: 2023-09-27_

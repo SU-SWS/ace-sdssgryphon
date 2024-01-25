@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.newsroom-wrapper {
+
+  @include grid-media-min('lg') {
+    border-bottom: 1px solid $su-color-black-20;
+  }
+}
+
+.menu--newsroom {
+  @include sdss-centered-column;
+
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+
+  margin-top: 4.3rem;
+  margin-bottom: 0;
+
+  // Changing the caret for desktop on the top level menu.
+  @include grid-media-min('lg') {
+    div[open=true] {
+      button[aria-expanded=true] {
+        color: $su-color-white;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+
+  @include grid-media-max('md') {
+    grid-template-columns: 1fr;
+  }
+
+  // Unsetting for mobile.
+  max-width: unset;
+  width: unset;
+
+  .menu-blocknewsroom-menu {
+    align-self: baseline;
+    font-size: 1.7em;
+    line-height: 108%;
+    margin-bottom: 0;
+
+    @include grid-media-max('md') {
+      display: none;
+    }
+  }
+
+  .sdss-newsroom-nav {
+    order: 2;
+  }
+
+  .newsroom-search {
+    order: 3;
+  }
+
+}

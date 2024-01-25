@@ -227,7 +227,7 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: true
-          depth: '1'
+          depth: '3'
           use_taxonomy_term_path: false
           vocabularies:
             stanford_publication_topics: stanford_publication_topics
@@ -514,7 +514,7 @@ display:
         - 'config:field.storage.node.su_publication_citation'
   author_list:
     id: author_list
-    display_title: 'Author''s List APA'
+    display_title: "Author's List APA"
     display_plugin: block
     position: 6
     display_options:
