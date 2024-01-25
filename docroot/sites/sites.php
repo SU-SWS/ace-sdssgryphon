@@ -90,15 +90,20 @@ foreach ($sites_settings as $settings_file) {
   }
 }
 
-// Manually point domains that don't fit naming conventions here.
+// Manually point LIVE domains that don't fit naming conventions here.
 // E.g., $sites['<domain>'] = '<directory>';
 // E.g., $sites['mysite.stanford.edu'] = 'my_site';
-$sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
 $sites['earthsystems.stanford.edu'] = 'esys';
-$sites['epsci.stanford.edu'] = 'gs';
+$sites['eep.stanford.edu'] = 'gep';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
-$sites['understand-energy.stanford.edu'] = 'understandenergy';
+$sites['epsci.stanford.edu'] = 'gs';
+$sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
 $sites['techtransferfordefense.stanford.edu'] = 'hackingfordefense';
+$sites['understand-energy.stanford.edu'] = 'understandenergy';
+
+// Manually point dev/test domains here.
+$sites['understand-energy-dev.stanford.edu'] = 'understandenergy';
+$sites['understand-energy-test.stanford.edu'] = 'understandenergy';
 
 // Hopkins Marine Station dev, test, and prod URL's currently exist on another
 // ACE stack. We need to point custom aliases to build the site.

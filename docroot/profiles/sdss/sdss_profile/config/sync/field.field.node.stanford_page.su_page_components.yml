@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.su_page_components
     - node.type.stanford_page
+    - paragraphs.paragraphs_type.sdss_spotlight
     - paragraphs.paragraphs_type.stanford_banner
     - paragraphs.paragraphs_type.stanford_card
     - paragraphs.paragraphs_type.stanford_entity
@@ -39,8 +40,18 @@ settings:
       stanford_layout: stanford_layout
       stanford_lists: stanford_lists
       stanford_spacer: stanford_spacer
+      sdss_spotlight: sdss_spotlight
     negate: 0
     target_bundles_drag_drop:
+      callout_quote:
+        weight: 16
+        enabled: false
+      editorial_sidebar:
+        weight: 17
+        enabled: false
+      sdss_spotlight:
+        weight: 18
+        enabled: true
       stanford_accordion:
         weight: -25
         enabled: false

@@ -32,13 +32,13 @@ class Issue2901390Cest {
     $I->logInAs($user->id());
     $node = $I->createEntity([
       'type' => 'stanford_page',
-      'title' =>  $this->faker->text(20),
+      'title' => $this->faker->text(20),
     ]);
     $I->amOnPage($node->toUrl()->toString());
     $I->click('Layout');
     $I->click('Add block');
 
-    $I->click('Create custom block');
+    $I->click('Create content block');
     $I->fillField('Title', 'Custom Block');
     $I->fillField('Body', 'Lorem Ipsum Custom Block Text');
     $I->click('Add block');

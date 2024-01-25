@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+// Related publications cards
+.stanford-publications-related {
+    .su-card {
+        &.sdss-card--publication {
+            padding: 0;
+            border: 0;
+            box-shadow: none;
+
+            .su-card__headline {
+                @include type-c;
+
+                color: $su-color-black;
+            }
+
+            .su-card__contents {
+                padding: 0;
+
+                a {
+                    @include sdss-link--primary;
+                    @include type-e;
+
+                    border-radius: 0; // for the edit publication button.
+
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        text-decoration: underline;
+                    }
+
+                    &.su-button--secondary {
+                        margin-top: 1em;
+                        text-decoration: none;
+
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .su-card__superheadline {
+        @include type-e;
+
+        padding-bottom: 1em;
+        display: inline-block;
+        text-transform: uppercase;
+        color: $su-color-black-70;
+    }
+}
+
+// Overrides
+.stanford-publications.view {
+    a {
+        color: $su-color-black;
+        font-weight: unset;
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $sdss-color-green-link;
+            text-decoration: underline;
+        }
+    }
+
+    .more-link {
+        a {
+            @include sdss-button--secondary;
+        }
+    }
+
+    .views-field-edit-node {
+        padding-top: 1em;
+
+        .su-button--secondary {
+            border-radius: 0;
+        }
+    }
+
+    .views-field-su-publication-citation {
+        a {
+            text-decoration: underline;
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.stanford-publications-related {
+    .block__title {
+        text-align: unset;
+    }
+}
+
+// Topics above the related cards above footer.
+.publication {
+    .jumpstart-ui--one-column {
+        .node-stanford-publication-su-publication-topics {
+            .su-publication-topics {
+                li {
+                    a {
+                        @include sdss-link--primary;
+                    }
+
+                }
+            }
+        }
+    }
+}
+

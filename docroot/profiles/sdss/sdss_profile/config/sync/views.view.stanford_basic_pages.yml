@@ -435,7 +435,7 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: true
-          depth: '1'
+          depth: '3'
           use_taxonomy_term_path: false
           vocabularies:
             basic_page_types: basic_page_types
