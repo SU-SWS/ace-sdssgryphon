@@ -27,6 +27,8 @@ dependencies:
     - taxonomy.vocabulary.stanford_news_topics
     - taxonomy.vocabulary.stanford_person_types
     - taxonomy.vocabulary.su_shared_tags
+    - user.role.administrator
+    - user.role.site_manager
   module:
     - node
     - taxonomy
@@ -998,6 +1000,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: true
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            site_manager: site_manager
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1010,16 +1018,19 @@ display:
           empty: true
           content: 'No Basic Page content available on this site.'
           tokenize: false
+      sorts: {  }
       defaults:
         empty: false
+        access: false
         title: false
         fields: false
+        sorts: false
       display_description: 'Admin view for Basic Pages'
       display_extenders: {  }
       path: admin/manage-content/news
       menu:
         type: normal
-        title: 'Manage Basic Page Content'
+        title: 'Manage Content'
         description: ''
         weight: -10
         expanded: false
@@ -1040,7 +1051,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.su_basic_page_type'
         - 'config:field.storage.node.su_shared_tags'
@@ -1655,6 +1666,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: true
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            site_manager: site_manager
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1992,6 +2009,7 @@ display:
           1: AND
       defaults:
         empty: false
+        access: false
         title: false
         fields: false
         filters: false
@@ -2006,7 +2024,7 @@ display:
         weight: -10
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.sdss_manage_content_bytype.page_1'
         context: '0'
       tab_options:
         type: none
@@ -2022,7 +2040,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.su_news_topics'
         - 'config:field.storage.node.su_sdss_magazine_topics'
@@ -2452,6 +2470,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: true
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            site_manager: site_manager
       empty:
         area_text_custom:
           id: area_text_custom
@@ -2789,6 +2813,7 @@ display:
           1: AND
       defaults:
         empty: false
+        access: false
         title: false
         fields: false
         filters: false
@@ -2803,7 +2828,7 @@ display:
         weight: -10
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.sdss_manage_content_bytype.page_1'
         context: '0'
       tab_options:
         type: none
@@ -2819,7 +2844,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.su_event_type'
         - 'config:field.storage.node.su_sdss_event_topics'
@@ -3372,6 +3397,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: true
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            site_manager: site_manager
       empty:
         area_text_custom:
           id: area_text_custom
@@ -3651,6 +3682,7 @@ display:
           1: AND
       defaults:
         empty: false
+        access: false
         title: false
         fields: false
         filters: false
@@ -3665,7 +3697,7 @@ display:
         weight: -10
         expanded: false
         menu_name: admin
-        parent: system.admin_content
+        parent: 'views_view:views.sdss_manage_content_bytype.page_1'
         context: '0'
       tab_options:
         type: none
@@ -3681,7 +3713,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.su_person_type_group'
         - 'config:field.storage.node.su_sdss_person_focal_areas'
