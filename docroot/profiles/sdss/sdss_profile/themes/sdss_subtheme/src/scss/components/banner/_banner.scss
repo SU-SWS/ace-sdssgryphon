@@ -23,8 +23,12 @@
 .section-banner-media {
   .main-region {
     .node-stanford-news-su-news-banner {
-      @include modular-spacing('margin-bottom', 4);
+      ~ .node-stanford-news-su-news-banner-media-caption {
+        @include modular-spacing('margin-top', 0);
+        @include modular-spacing('margin-bottom', 4);
+      }
     }
+
   }
 }
 
