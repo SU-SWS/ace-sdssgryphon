@@ -19,16 +19,17 @@
   }
 }
 
-// Node - top banner image on article. Making it more specific.
+// Node - top banner image on article.
+// Fixing when there is no top banner, or a banner or a banner and caption.
 .section-banner-media {
   .main-region {
-    .node-stanford-news-su-news-banner {
-      ~ .node-stanford-news-su-news-banner-media-caption {
-        @include modular-spacing('margin-top', 0);
-        @include modular-spacing('margin-bottom', 4);
-      }
+    > div:nth-last-child(odd) { // This is the top banner image.
+      @include modular-spacing('margin-bottom', 4);
     }
 
+    > div:nth-last-child(even) { // This is the top banner caption
+      margin-bottom: 0;
+    }
   }
 }
 
