@@ -1027,7 +1027,7 @@ display:
         sorts: false
       display_description: 'Admin view for Basic Pages'
       display_extenders: {  }
-      path: admin/manage-content/news
+      path: admin/manage-content/basic-pages
       menu:
         type: normal
         title: 'Manage Content'
@@ -2016,7 +2016,7 @@ display:
         filter_groups: false
       display_description: 'Admin view for News'
       display_extenders: {  }
-      path: admin/manage-content/basic-page
+      path: admin/manage-content/news
       menu:
         type: normal
         title: 'Manage News Content'
