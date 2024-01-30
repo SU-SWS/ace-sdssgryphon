@@ -54,51 +54,18 @@ class SdssLayoutParagraphsSubscriber implements EventSubscriberInterface
     // If adding a new layout, it won't have a parent.
     if ($parent_component) {
 
-      // Would like to improve this and put in some kind of settings.
-      // Hard coding here for now.
-      $restrict_paragraphs = [
-        'layout_paragraphs_sdss_2_column' => [
-          'left' => [
-            'sdss_spotlight',
-            'stanford_banner',
-            'stanford_gallery'
-          ],
-          'right' => [
-            'sdss_spotlight',
-            'stanford_banner',
-            'stanford_gallery'
-          ]
-        ],
-        'layout_paragraphs_sdss_3_column' => [
-          'left' => [
-            'sdss_spotlight',
-            'stanford_banner',
-            'stanford_gallery'
-          ],
-          'main' => [
-            'sdss_spotlight',
-            'stanford_banner',
-            'stanford_gallery'
-          ],
-          'right' => [
-            'sdss_spotlight',
-            'stanford_banner',
-            'stanford_gallery'
-          ]
-        ],
-      ];
-
-
       $layout_settings = $parent_component->getSettings();
+      $layout_definition = $this->layoutManager->getDefinition($layout_settings['layout']);
 
-      if (
-        array_key_exists($layout_settings['layout'], $restrict_paragraphs)
-        && array_key_exists($event->getRegion(), $restrict_paragraphs[$layout_settings['layout']])
-      ) {
+      if ($paragraph_restrictions = $layout_definition->get('additional')['paragraph_restrictions']) {
         $types = $event->getTypes();
-        foreach ($restrict_paragraphs[$layout_settings['layout']][$event->getRegion()] as $paragraph_type) {
-          if (isset($types[$paragraph_type])) {
-            unset($types[$paragraph_type]);
+        foreach ($paragraph_restrictions as $region => $paragraph_types) {
+          if ($region == $event->getRegion() || $region == 'all_regions') {
+            foreach ($paragraph_types as $paragraph_type) {
+              if (isset($types[$paragraph_type])) {
+                unset($types[$paragraph_type]);
+              }
+            }
           }
         }
         $event->setTypes($types);
