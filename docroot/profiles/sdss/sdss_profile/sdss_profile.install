@@ -5,9 +5,31 @@
  * sdss_profile.install
  */
 
+use Drupal\Core\DrupalKernel;
 use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\node\NodeInterface;
 use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Implements hook_requirements().
+ */
+function sdss_profile_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'runtime') {
+
+    $site_path = DrupalKernel::findSitePath(\Drupal::request());
+    $site_path = explode('/', $site_path);
+    $site_name = $site_path[1];
+
+    $requirements['stanford_site_alias'] = [
+      'title' => t('Stanford Site Alias'),
+      'value' => $site_name,
+      'severity' => REQUIREMENT_INFO,
+    ];
+  }
+  return $requirements;
+}
+
 
 /**
  * Move unsectioned paragraphs on stanford_news nodes into one column
