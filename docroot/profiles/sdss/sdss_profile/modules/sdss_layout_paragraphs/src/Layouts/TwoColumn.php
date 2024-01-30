@@ -20,4 +20,5 @@ class TwoColumn extends SdssLayoutParagraphBase {
       // '67-33' => '67% - 33%',
     ];
   }
+
 }
