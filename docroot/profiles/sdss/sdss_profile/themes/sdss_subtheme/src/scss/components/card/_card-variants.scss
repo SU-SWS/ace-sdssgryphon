@@ -89,6 +89,10 @@
 }
 
 // Green background row - with cards
+// Pending nots:
+// sdss-card-wrapper--grey-dropshadow
+// sdss-card-wrapper--white-dropshadow
+// sdss-card-wrapper--white-border
 .layout-paragraphs-sdss-bgcolor--green {
   .su-card {
     .su-card__headline {
@@ -114,6 +118,29 @@
         &::after {
           background-color: $su-color-white;
         }
+      }
+    }
+  }
+
+  .su-news-vertical-teaser.su-card {
+    .su-news-vertical-teaser__link {
+      h2 {
+        color: $su-color-white;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-blue-bright;
+
+          &::after {
+            background-color: $sdss-color-blue-bright;
+          }
+        }
+      }
+    }
+    .su-news-header {
+      .news-vertical-teaser__pub-date {
+        color: $su-color-white;
       }
     }
   }
