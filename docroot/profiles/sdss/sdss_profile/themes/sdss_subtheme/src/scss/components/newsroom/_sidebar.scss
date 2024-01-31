@@ -30,6 +30,15 @@
   }
 }
 
+.layout--layout-paragraphs-three-column {
+  .sidebar {
+    &.bg_color_option_1,
+    &.bg_color_default {
+      @include modular-spacing('padding', 1);
+    }
+  }
+}
+
 .sidebar {
   .su-sidebar-bgcolor-alt {
     display: none;
