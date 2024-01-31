@@ -75,3 +75,68 @@
     }
   }
 }
+
+// Circle backgrounds for spotlight only on XL and up.
+@include grid-media-min('xl') {
+  .layout--layout-paragraphs-one-column {
+    &.layout-paragraphs-sdss-bgimage--circles {
+      .sdss-spotlight {
+        background: url("../../assets/svg/spotlight-circle-background--D5D5D4.svg") no-repeat;
+        background-position: bottom;
+        padding-top: 50px;
+      }
+    }
+
+    &.layout-paragraphs-sdss-bgcolor--green,
+    &.layout-paragraphs-sdss-bgcolor--blue,
+    &.layout-paragraphs-sdss-bgcolor--grey {
+      .sdss-spotlight {
+        background: url("../../assets/svg/spotlight-circle-background--fff.svg") no-repeat;
+        background-position: bottom;
+      }
+    }
+  }
+
+  // On the Newsroom landing page. The title is hidden with .sr-only
+  // and the margin-top needs to be removed. A class is added to the layout: .newsroom-title-hidden
+  // It need to only happen, when the cirlces appear.
+
+  .jumpstart-ui--one-column {
+    &.newsroom-title-hidden {
+      &.centered-content {
+        .node-stanford-page-title {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+// Making sure text is visible on green
+.layout--layout-paragraphs-one-column {
+  &.layout-paragraphs-sdss-bgcolor--green {
+    .sdss-spotlight {
+      .news-vertical-teaser__pub-date,
+      h2 {
+        color: $su-color-white;
+      }
+
+      a h2 {
+        &:active,
+        &:hover,
+        &:focus {
+          color: $sdss-color-blue-bright;
+        }
+      }
+
+      .su-news-vertical-teaser.su-card {
+        .news-vertical-teaser__topics {
+          a {
+            color: $su-color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
