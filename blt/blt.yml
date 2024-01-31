@@ -5,7 +5,7 @@ project:
     name: sdss_profile
   local: {  }
 git:
-  default_branch: 2.x
+  default_branch: 4.x
   remotes:
     - 'stanfordsos@svn-23450.prod.hosting.acquia.com:stanfordsos.git'
 deploy:
@@ -17,7 +17,6 @@ drush:
   aliases:
     ci: self
   default_alias: '${drush.aliases.local}'
-simplesamlphp: true
 cm:
   strategy: config-split
   allow-overrides: true
@@ -35,6 +34,7 @@ multisites:
   - environment_ecosystems
   - environmentalbehavior
   - environmentalpolicy
+  - environmentalsocialsci
   - ese
   - esys
   - explore_energy
@@ -67,11 +67,14 @@ multisites:
   - storagex
   - strategic_energy_alliance
   - sustainability
+  - sustainability_accelerator
+  - sustainablemobility
   - understand_energy_course
   - understandenergy
   - water
   - witw
   - woods
+  - woods_water
 tests:
   reports:
     localDir: '${repo.root}/artifacts'

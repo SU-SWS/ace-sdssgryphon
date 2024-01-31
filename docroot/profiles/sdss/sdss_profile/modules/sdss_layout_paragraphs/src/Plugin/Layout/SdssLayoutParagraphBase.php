@@ -22,6 +22,7 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
     $configuration = parent::defaultConfiguration();
     return $configuration + [
       'bg_color' => $this->getDefaultBgColor(),
+      'bg_image' => $this->getDefaultBgImage(),
     ];
   }
 
@@ -36,6 +37,13 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
       '#options' => $this->getBgColorOptions(),
       '#description' => $this->t('Choose the background color for this layout.'),
     ];
+    $form['bg_image'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Background image'),
+      '#default_value' => $this->configuration['bg_image'],
+      '#options' => $this->getBgImageOptions(),
+      '#description' => $this->t('Choose the background image for this layout.'),
+    ];
     return parent::buildConfigurationForm($form, $form_state);
   }
 
@@ -45,6 +53,7 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::submitConfigurationForm($form, $form_state);
     $this->configuration['bg_color'] = $form_state->getValue('bg_color');
+    $this->configuration['bg_image'] = $form_state->getValue('bg_image');
   }
 
   /**
@@ -52,7 +61,14 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
    */
   public function build(array $regions) {
     $build = parent::build($regions);
-    $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor--' . $this->configuration['bg_color'];
+    if($this->configuration['bg_color'] !== 'none') {
+      $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor';
+      $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor--' . $this->configuration['bg_color'];
+    }
+    if($this->configuration['bg_image'] !== 'none') {
+      $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgimage';
+      $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgimage--' . $this->configuration['bg_image'];
+    }
     return $build;
   }
 
@@ -77,6 +93,13 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
     ];
   }
 
+  protected function getBgImageOptions() {
+    return $array = [
+      'none' => '- None -',
+      'circles' => 'Circles',
+    ];
+  }
+
   /**
    * Provides a default value for the background color options.
    *
@@ -87,5 +110,11 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
     // Return the first available key from the list of options.
     $bg_color_classes = array_keys($this->getBgColorOptions());
     return array_shift($bg_color_classes);
+  }
+
+  protected function getDefaultBgImage() {
+    // Return the first available key from the list of options.
+    $bg_image_classes = array_keys($this->getBgImageOptions());
+    return array_shift($bg_image_classes);
   }
 }

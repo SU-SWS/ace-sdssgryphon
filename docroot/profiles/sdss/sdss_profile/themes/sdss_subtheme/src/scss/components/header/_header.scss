@@ -146,17 +146,19 @@ header.su-masthead {
     section.su-masthead--inner {
       #sdss-button--search-link {
         align-self: center;
-        position: relative;
+        background-color: $sdss-color-palo-alto-dark;
+        border-radius: 32px;
+        bottom: unset;
         display: inline-block;
         top: unset;
-        right: unset;
+        right: 0;
         left: unset;
-        bottom: unset;
-        margin: 0;
-        width: 32px;
-        height: 32px;
-        border-radius: 32px;
-        background-color: $sdss-color-palo-alto-dark;
+        margin: -4.5rem 1.5rem 0 3rem;
+        position: relative;
+        min-width: 32px;
+        min-height: 32px;
+        z-index: 100;
+        float: right;
       }
 
       .system-menu-block {
@@ -203,9 +205,7 @@ header.su-masthead {
 @include grid-media-min('xl') {
   header.su-masthead {
     section.su-masthead--inner {
-      width: calc(100% - 200px);
-      max-width: 1500px;
-      margin: 0 auto;
+      @include sdss-centered-column;
 
       .su-multi-menu {
         padding: 0;
