@@ -1,62 +1,226 @@
 @charset "UTF-8";
 
-// SDSS other site header - Green
-// Correcting display of main menu bar.
-.fixed-header {
-  &.su-lockup.su-lockup--option-a {
-    display: unset;
+// Default header styles.
+// Includes the default header variant (currently Green Header, Bottom
+// Navigation).
+
+header.su-masthead {
+  section.su-masthead--inner {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: unset;
+
+    .system-menu-block {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .su-multi-menu {
+      .su-multi-menu__nav-toggle {
+        position: relative;
+        top: unset;
+        right: unset;
+        padding: .5rem 1rem;
+        width: auto;
+        border-radius: unset;
+        text-align: center;
+        background-color: $sdss-color-palo-alto-dark;
+        color: $su-color-white;
+
+        &::after {
+          @include margin(0 auto);
+          display: inline-block;
+          width: 30px;
+          height: 26px;
+          background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
+          content: "";
+        }
+
+        &:focus,
+        &:hover {
+          &:before {
+            background-color: $su-color-white;
+          }
+        }
+
+        &[aria-expanded=true] {
+          &:before {
+            background-color: $su-color-white;
+          }
+
+          &:focus,
+          &:hover {
+            &:before {
+              background-color: $su-color-white;
+            }
+          }
+
+          &::after {
+            width: 22px;
+            background: url("#{$su-image-path}/close-white.svg") no-repeat 3px 0;
+            background-size: 16px 16px;
+          }
+        }
+      }
+    }
   }
 
-  &.su-lockup.su-lockup--option-b {
-    display: unset;
+  .su-lockup {
+    display: block;
+    flex: unset;
+    max-width: unset;
+    margin: 0;
+
+    > a {
+      display: block;
+    }
+
+    .su-lockup__cell1,
+    .su-lockup__cell2 {
+      padding: 1.5rem 3rem;
+    }
+
+    .su-lockup__cell2 {
+      max-width: unset;
+      background-color: $sdss-color-palo-alto-dark;
+    }
+
+    .su-lockup__line1,
+    .su-lockup__line2 {
+      margin-left: 0;
+    }
+
+    .su-lockup__line5 {
+      // Remove line 5 from all displays.
+      display: none;
+    }
   }
 }
 
-// For all headers.
-.su-brand-bar__container {
-  display: flex;
 
-  .su-brand-bar__logo {
-    width: 10%;
+//
+// Mobile first min-width queries.
+// Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
+//
+
+// Styles for Medium or bigger Screens.
+@include grid-media-min('md') {
+  header.su-masthead {
+    section.su-masthead--inner {
+      .su-multi-menu {
+        .su-multi-menu__nav-toggle {
+          padding: 1rem;
+        }
+      }
+    }
+
+    .su-lockup {
+      > a {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .su-lockup__cell1 {
+        align-items: center;
+        align-self: unset;
+        max-width: unset;
+        margin: 0;
+        padding: 1.5rem 2rem 1.5rem 5rem;
+      }
+
+      .su-lockup__cell2 {
+        align-self: unset;
+        max-width: unset;
+        margin: 0;
+        padding: 1.5rem 5rem 1.5rem 2rem;
+      }
+    }
   }
 }
 
-// Removed line 5 from all displays
-.fixed-header.su-lockup--option-a,
-.fixed-header.su-lockup--option-b {
-  .su-lockup__line5 {
-    display: none;
-  }
-}
-
-
-// SDSS login page
+// Styles for Large or bigger Screens.
 @include grid-media-min('lg') {
-  .page-user-login {
-    // option a and b
-    .su-masthead>section:last-of-type {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-      "lockup lockup lockup"
-      "main-nav main-nav search";
-      align-items: flex-end;
-    }
-
-    .su-masthead {
-      padding-bottom: 0;
-    }
-
-    // Logo only option
-    .su-lockup--option-none {
-      section:after {
-        background: transparent;
+  header.su-masthead {
+    section.su-masthead--inner {
+      #sdss-button--search-link {
+        align-self: center;
+        background-color: $sdss-color-palo-alto-dark;
+        border-radius: 32px;
+        bottom: unset;
+        display: inline-block;
+        top: unset;
+        right: 0;
+        left: unset;
+        margin: -4.5rem 1.5rem 0 3rem;
+        position: relative;
+        min-width: 32px;
+        min-height: 32px;
+        z-index: 100;
+        float: right;
       }
 
-      .su-masthead {
-        padding-top: 1em;
+      .system-menu-block {
+        position: relative;
+        bottom: unset;
+      }
+
+      .su-multi-menu {
+        padding: 0 8rem;
       }
     }
 
+    .su-site-search,
+    nav+.su-site-search,
+    ul li .su-site-search {
+      display: none;
+    }
+
+    .su-lockup {
+      .su-lockup__cell1 {
+        padding: 3rem 4rem 3rem 8rem;
+      }
+
+      .su-lockup__cell2 {
+        position: relative;
+        padding: 3rem 8rem 3rem 3rem;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 9600px;
+          left: 0;
+          z-index: -1;
+          background: $sdss-color-palo-alto-dark;
+        }
+      }
+    }
+  }
+}
+
+// Styles for Extra Large or bigger Screens.
+@include grid-media-min('xl') {
+  header.su-masthead {
+    section.su-masthead--inner {
+      @include sdss-centered-column;
+
+      .su-multi-menu {
+        padding: 0;
+      }
+    }
+
+    .su-lockup {
+      .su-lockup__cell1 {
+        padding: 3rem 4rem 3rem 0;
+      }
+
+      .su-lockup__cell2 {
+        position: relative;
+        padding: 3rem 0 3rem 3rem;
+      }
+    }
   }
 }

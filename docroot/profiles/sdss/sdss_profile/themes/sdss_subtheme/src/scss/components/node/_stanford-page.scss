@@ -18,7 +18,7 @@
 
 // For the issue with the h1's collapsing over to the left.
 .jumpstart-ui--one-column.centered-content {
-  @include centered-column;
+  @include sdss-centered-column;
 
   > div:first-child {
     margin-left: unset;

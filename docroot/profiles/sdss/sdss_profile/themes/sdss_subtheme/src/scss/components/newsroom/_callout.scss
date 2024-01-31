@@ -2,6 +2,7 @@
 
 .callout {
   @include responsive-spacing('padding', 3 4 3 4);
+  @include responsive-spacing('margin-bottom', 1);
 
   display: flex;
 

@@ -1,0 +1,17 @@
+uuid: e0b45054-d297-43b9-8312-67e2004e620f
+langcode: en
+status: true
+dependencies: {  }
+id: sdss_site_settings
+label: 'SDSS Site Settings'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/system/sdss-site-settings
+  weight: 0
+  description: ''

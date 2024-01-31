@@ -152,7 +152,7 @@ process:
   body/value: bio_html
   body/format: constants/basic_html
   su_person_email: email
-  su_person_mobile_phone: phone
+  su_person_telephone: phone
   su_person_education:
     -
       plugin: skip_on_empty
@@ -314,7 +314,6 @@ destination:
     - su_person_last_name
     - su_person_links
     - su_person_mail_code
-    - su_person_mobile_phone
     - su_person_photo/target_id
     - su_person_profile_link/title
     - su_person_profile_link/uri
@@ -322,6 +321,7 @@ destination:
     - su_person_scholarly_interests/format
     - su_person_scholarly_interests/value
     - su_person_short_title
+    - su_person_telephone
     - title
     - type
 migration_dependencies:

@@ -220,7 +220,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '''{{ su_event_date_time_value_1 }}'
+            text: "'{{ su_event_date_time_value_1 }}"
             make_link: false
             path: ''
             absolute: false
@@ -272,7 +272,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '''{{ su_event_date_time_end_value_1 }} '
+            text: "'{{ su_event_date_time_end_value_1 }} "
             make_link: false
             path: ''
             absolute: false

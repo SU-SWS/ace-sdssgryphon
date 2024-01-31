@@ -8,7 +8,10 @@ dependencies:
     - core.entity_view_display.node.stanford_news.default
     - core.entity_view_display.node.stanford_page.default
     - core.entity_view_display.node.stanford_person.default
+    - core.entity_view_display.node.stanford_policy.default
     - core.entity_view_display.node.stanford_publication.default
+    - filter.format.stanford_html
+    - filter.format.stanford_minimal_html
     - media.type.embeddable
     - media.type.file
     - media.type.google_form
@@ -101,6 +104,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access administration pages'
+  - 'access block library'
   - 'access config_pages overview'
   - 'access content overview'
   - 'access contextual links'
@@ -109,7 +113,6 @@ permissions:
   - 'access files overview'
   - 'access media overview'
   - 'access patterns page'
-  - 'access site in maintenance mode'
   - 'access site reports'
   - 'access taxonomy overview'
   - 'access toolbar'
@@ -121,6 +124,8 @@ permissions:
   - 'admin fields'
   - 'administer account menu items'
   - 'administer admin menu items'
+  - 'administer block content'
+  - 'administer block types'
   - 'administer block_content display'
   - 'administer block_content fields'
   - 'administer block_content form display'
@@ -135,10 +140,8 @@ permissions:
   - 'administer config_pages form display'
   - 'administer config_pages types'
   - 'administer content types'
-  - 'administer course importer settings'
   - 'administer crop'
   - 'administer crop types'
-  - 'administer devel menu items'
   - 'administer display modes'
   - 'administer entity usage'
   - 'administer environment indicator settings'
@@ -203,7 +206,6 @@ permissions:
   - 'bypass embed field validation'
   - 'bypass node access'
   - 'cancel account'
-  - 'change own username'
   - 'choose layout for node stanford_page'
   - 'configure all stanford_page node layout overrides'
   - 'configure any layout'
@@ -212,6 +214,7 @@ permissions:
   - 'configure editable stanford_news node layout overrides'
   - 'configure editable stanford_page node layout overrides'
   - 'configure editable stanford_person node layout overrides'
+  - 'configure editable stanford_policy node layout overrides'
   - 'configure editable stanford_publication node layout overrides'
   - 'configure layout builder restrictions'
   - 'create and edit custom blocks'
@@ -275,6 +278,7 @@ permissions:
   - 'delete orphan revisions'
   - 'delete own embeddable media'
   - 'delete own file media'
+  - 'delete own files'
   - 'delete own google_form media'
   - 'delete own image media'
   - 'delete own stanford_course content'
@@ -377,6 +381,9 @@ permissions:
   - 'edit terms in su_sdss_news_source'
   - 'edit terms in su_shared_tags'
   - 'link to any page'
+  - 'mark as hidden in editoria11y'
+  - 'mark as ok in editoria11y'
+  - 'notify of path changes'
   - 'rabbit hole administer taxonomy_term'
   - 'rabbit hole bypass node'
   - 'rabbit hole bypass taxonomy_term'
@@ -395,6 +402,8 @@ permissions:
   - 'update any media'
   - 'update any stanford_component_block block content'
   - 'update media'
+  - 'use text format stanford_html'
+  - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
   - 'view all media revisions'
   - 'view all revisions'
@@ -405,6 +414,7 @@ permissions:
   - 'view any unpublished stanford_news content'
   - 'view any unpublished stanford_page content'
   - 'view any unpublished stanford_person content'
+  - 'view any unpublished stanford_policy content'
   - 'view any unpublished stanford_publication content'
   - 'view config_pages entity'
   - 'view editoria11y checker'

@@ -27,6 +27,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   su_banner_button:
     type: link_default
     weight: 2
@@ -61,7 +68,6 @@ content:
 hidden:
   created: true
   publish_on: true
-  status: true
   su_banner_body: true
   su_banner_sup_header: true
   unpublish_on: true
