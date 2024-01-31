@@ -9,8 +9,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 /**
  * SDSS layout paragraphs event subscriber.
  */
-class SdssLayoutParagraphsSubscriber implements EventSubscriberInterface
-{
+class SdssLayoutParagraphsSubscriber implements EventSubscriberInterface {
 
   /**
    * The layout manager.
@@ -22,8 +21,7 @@ class SdssLayoutParagraphsSubscriber implements EventSubscriberInterface
   /**
    * {@inheritdoc}
    */
-  public static function getSubscribedEvents(): array
-  {
+  public static function getSubscribedEvents(): array {
     return [
       LayoutParagraphsAllowedTypesEvent::EVENT_NAME => 'layoutParagraphsAllowedTypes',
     ];
@@ -35,8 +33,7 @@ class SdssLayoutParagraphsSubscriber implements EventSubscriberInterface
    * @param \Drupal\Core\Layout\LayoutPluginManagerInterface $layout_manager
    *   The layout manager.
    */
-  public function __construct(LayoutPluginManagerInterface $layout_manager)
-  {
+  public function __construct(LayoutPluginManagerInterface $layout_manager) {
     $this->layoutManager = $layout_manager;
   }
 
@@ -46,30 +43,29 @@ class SdssLayoutParagraphsSubscriber implements EventSubscriberInterface
    * @param \Drupal\layout_paragraphs\Event\LayoutParagraphsAllowedTypesEvent $event
    *   Layout paragraphs event.
    */
-  public function layoutParagraphsAllowedTypes(LayoutParagraphsAllowedTypesEvent $event): void
-  {
+  public function layoutParagraphsAllowedTypes(LayoutParagraphsAllowedTypesEvent $event): void {
     $parent_component = $event->getLayout()
       ->getComponentByUuid($event->getParentUuid());
 
     // If adding a new layout, it won't have a parent.
-    if ($parent_component) {
+    if (!$parent_component) {
+      return;
+    }
 
-      $layout_settings = $parent_component->getSettings();
-      $layout_definition = $this->layoutManager->getDefinition($layout_settings['layout']);
+    $layout_settings = $parent_component->getSettings();
+    $layout_definition = $this->layoutManager->getDefinition($layout_settings['layout']);
 
-      if ($paragraph_restrictions = $layout_definition->get('additional')['paragraph_restrictions']) {
-        $types = $event->getTypes();
-        foreach ($paragraph_restrictions as $region => $paragraph_types) {
-          if ($region == $event->getRegion() || $region == 'all_regions') {
-            foreach ($paragraph_types as $paragraph_type) {
-              if (isset($types[$paragraph_type])) {
-                unset($types[$paragraph_type]);
-              }
-            }
-          }
+    if ($paragraph_restrictions = $layout_definition->get('additional')['paragraph_restrictions']) {
+      $types = $event->getTypes();
+      foreach ($paragraph_restrictions as $region => $paragraph_types) {
+        if ($region != $event->getRegion() && $region != 'all_regions') {
+          continue;
         }
-        $event->setTypes($types);
+        foreach ($paragraph_types as $paragraph_type) {
+          unset($types[$paragraph_type]);
+        }
       }
+      $event->setTypes($types);
     }
   }
 }
