@@ -1,0 +1,14 @@
+uuid: cfe61f60-df7e-475c-8997-d52105f5e87e
+langcode: en
+status: true
+dependencies:
+  module:
+    - toolbar
+    - view_unpublished
+id: custm_sdss_reviewer
+label: 'SDSS Reviewer'
+weight: 3
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'view any unpublished content'
