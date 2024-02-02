@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
 .layout--layout-paragraphs-one-column,
-.layout--layout-paragraphs-two-column,
-.layout--layout-paragraphs-three-column {
+.layout-paragraphs-sdss-four-column  {
   .sdss-spotlight {
     .su-card {
       display: block;
@@ -36,7 +35,8 @@
   }
 }
 
-.layout--layout-paragraphs-one-column  {
+.layout--layout-paragraphs-one-column,
+.layout-paragraphs-sdss-four-column {
   // Needs to be on a full width page.
   .ptype-sdss-spotlight {
     margin-left: unset;
@@ -78,7 +78,8 @@
 
 // Circle backgrounds for spotlight only on XL and up.
 @include grid-media-min('xl') {
-  .layout--layout-paragraphs-one-column {
+  .layout--layout-paragraphs-one-column,
+  .layout-paragraphs-sdss-four-column {
     &.layout-paragraphs-sdss-bgimage--circles {
       .sdss-spotlight {
         background: url("../../assets/svg/spotlight-circle-background--D5D5D4.svg") no-repeat;
@@ -113,7 +114,8 @@
 }
 
 // Making sure text is visible on green
-.layout--layout-paragraphs-one-column {
+.layout--layout-paragraphs-one-column,
+.layout-paragraphs-sdss-four-column {
   &.layout-paragraphs-sdss-bgcolor--green {
     .sdss-spotlight {
       .news-vertical-teaser__pub-date,
