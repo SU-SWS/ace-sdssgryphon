@@ -81,3 +81,24 @@ layout_paragraphs_sdss_4_column:
     - [top]
     - [first, second, third, fourth]
     - [bottom]
+  paragraph_restrictions:
+    first:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
+    second:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
+    third:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
+    fourth:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
