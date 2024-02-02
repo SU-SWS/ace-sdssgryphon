@@ -26,6 +26,18 @@ nav[aria-label^='footer'] {
   background-color: $sdss-color-palo-alto-dark;
   color: $sdss-color-white;
 
+  .su-lockup__custom-logo {
+    max-width: 11em;
+  }
+
+  .su-lockup__custom-logo-link {
+    &:focus {
+      img {
+        outline: 1px solid $sdss-color-blue-bright;
+      }
+    }
+  }
+
   a {
     font-weight: $su-font-regular;
   }
@@ -51,7 +63,7 @@ nav[aria-label^='footer'] {
 
   @include grid-media-min('lg') {
     .su-local-footer__header {
-      @include responsive-spacing('padding-top', 5);
+      @include responsive-spacing('padding-top', 4);
     }
 
     .su-local-footer__columns {
