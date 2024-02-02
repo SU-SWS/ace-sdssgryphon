@@ -112,23 +112,6 @@ third_party_settings:
         open: false
         description: ''
         required_fields: true
-    group_local_lockup:
-      children:
-        - su_local_foot_use_loc
-        - group_lockup_options
-        - group_logo_image
-        - su_local_foot_loc_link
-      label: 'Local Lockup'
-      region: hidden
-      parent_name: ''
-      weight: 8
-      format_type: details
-      format_settings:
-        classes: ''
-        id: ''
-        open: false
-        description: "The local footer's lockup settings"
-        required_fields: true
     group_content_blocks:
       children:
         - su_local_foot_pr_co
@@ -149,15 +132,15 @@ third_party_settings:
     group_lockup_options:
       children:
         - su_local_foot_help
-        - su_local_foot_loc_op
         - su_local_foot_line_1
         - su_local_foot_line_2
         - su_local_foot_line_3
         - su_local_foot_line_4
         - su_local_foot_line_5
+        - su_local_foot_loc_op
       label: 'Lockup Options'
       region: hidden
-      parent_name: group_local_lockup
+      parent_name: ''
       weight: 8
       format_type: details
       format_settings:
@@ -169,11 +152,11 @@ third_party_settings:
         required_fields: false
     group_logo_image:
       children:
-        - su_local_foot_use_logo
         - su_local_foot_loc_img
+        - su_local_foot_use_logo
       label: 'Logo Image'
       region: hidden
-      parent_name: group_local_lockup
+      parent_name: ''
       weight: 9
       format_type: details
       format_settings:
