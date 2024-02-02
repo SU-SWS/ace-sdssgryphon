@@ -1,0 +1,23 @@
+diff --git a/modules/stanford_layout_paragraphs/src/EventSubscriber/StanfordLayoutParagraphsSubscriber.php	b/modules/stanford_layout_paragraphs/src/EventSubscriber/StanfordLayoutParagraphsSubscriber.php
+@@ -44,21 +44,7 @@
+    *   Layout paragraphs event.
+    */
+   public function layoutParagraphsAllowedTypes(LayoutParagraphsAllowedTypesEvent $event): void {
+-    $parent_component = $event->getLayout()
+-      ->getComponentByUuid($event->getParentUuid());
+
+-    // If adding a new layout, it won't have a parent.
+-    if ($parent_component) {
+-
+-      $layout_settings = $parent_component->getSettings();
+-      $layout_regions = $this->layoutManager
+-        ->getDefinition($layout_settings['layout'])->getRegions();
+-      if (count($layout_regions) > 1) {
+-        $types = $event->getTypes();
+-        unset($types['stanford_banner'], $types['stanford_gallery']);
+-        $event->setTypes($types);
+-      }
+-    }
+   }
+
+ }
