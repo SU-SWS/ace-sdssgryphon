@@ -30,6 +30,12 @@ nav[aria-label^='footer'] {
     max-width: 11em;
   }
 
+  .su-lockup__custom-logo-link {
+    &:focus {
+      outline: 1px solid $sdss-color-blue-bright;
+    }
+  }
+
   a {
     font-weight: $su-font-regular;
   }
