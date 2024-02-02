@@ -1032,7 +1032,7 @@ display:
         type: normal
         title: 'Manage Content'
         description: ''
-        weight: -10
+        weight: 0
         expanded: false
         menu_name: admin
         parent: system.admin_content
