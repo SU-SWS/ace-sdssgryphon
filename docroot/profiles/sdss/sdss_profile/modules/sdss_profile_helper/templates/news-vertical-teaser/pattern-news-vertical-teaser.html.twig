@@ -41,7 +41,7 @@
 <article{{ attributes.addClass(classes) }}>
   {%- if news_url is not empty and news_vertical_teaser_image|render|striptags("<drupal-render-placeholder> <img>")|trim is not empty -%}
     <div class="su-figure__wrapper">
-      <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}" tab-index="-1" aria-hidden="true">
+      <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}" tabindex="-1" aria-hidden="true">
         <figure class="su-media su-media--image su-card__media">
           <div class="su-media__wrapper">
             {{- news_vertical_teaser_image -}}
