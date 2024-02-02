@@ -324,6 +324,9 @@
             },
             "drupal/ui_patterns": {
                 "Ui Patterns Views Fixes": "patches/contrib/ui_patterns_views-preview.patch"
+            },
+            "su-sws/stanford_profile_helper": {
+                "Remove paragraph layout restrictions from stanford_layout_paragraphs": "patches/stanford/stanford_layout_paragraphs.patch"
             }
         }
     },
