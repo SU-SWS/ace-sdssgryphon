@@ -1,0 +1,6 @@
+services:
+  sdss_layout_paragraphs.event_subscriber:
+    class: Drupal\sdss_layout_paragraphs\EventSubscriber\SdssLayoutParagraphsSubscriber
+    arguments: ['@plugin.manager.core.layout']
+    tags:
+      - { name: event_subscriber }

@@ -27,6 +27,11 @@ layout_paragraphs_sdss_2_column:
   default_region: left
   icon_map:
     - [left, right]
+  paragraph_restrictions:
+    all_regions:
+      - sdss_spotlight
+      - stanford_banner
+      - stanford_gallery
 
 layout_paragraphs_sdss_3_column:
   label: '3 Column'
@@ -45,3 +50,56 @@ layout_paragraphs_sdss_3_column:
   default_region: main
   icon_map:
     - [left, main, right]
+  paragraph_restrictions:
+    all_regions:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+
+layout_paragraphs_sdss_1_4_1:
+  label: '4 Column with Header and Footer'
+  category: 'SDSS Layout Paragraphs'
+  class: '\Drupal\sdss_layout_paragraphs\Layouts\OneFourOne'
+  path: layouts/one_four_one
+  template: layout-paragraphs-sdss-one-four-one
+  library: sdss_layout_paragraphs/one_four_one
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    fourth:
+      label: Fourth
+    bottom:
+      label: Bottom
+  default_region: left
+  icon_map:
+    - [top]
+    - [first, second, third, fourth]
+    - [bottom]
+  paragraph_restrictions:
+    first:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
+    second:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
+    third:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
+    fourth:
+      - sdss_spotlight
+      - stanford_gallery
+      - stanford_banner
+      - stanford_lists
+
