@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .layout--layout-paragraphs-one-column,
-.layout-paragraphs-sdss-four-column  {
+.layout-paragraphs-sdss-one-four-one {
   .sdss-spotlight {
     .su-card {
       display: block;
@@ -36,7 +36,7 @@
 }
 
 .layout--layout-paragraphs-one-column,
-.layout-paragraphs-sdss-four-column {
+.layout-paragraphs-sdss-one-four-one {
   // Needs to be on a full width page.
   .ptype-sdss-spotlight {
     margin-left: unset;
@@ -79,7 +79,7 @@
 // Circle backgrounds for spotlight only on XL and up.
 @include grid-media-min('xl') {
   .layout--layout-paragraphs-one-column,
-  .layout-paragraphs-sdss-four-column {
+  .layout-paragraphs-sdss-one-four-one {
     &.layout-paragraphs-sdss-bgimage--circles {
       .sdss-spotlight {
         background: url("../../assets/svg/spotlight-circle-background--D5D5D4.svg") no-repeat;
@@ -115,7 +115,7 @@
 
 // Making sure text is visible on green
 .layout--layout-paragraphs-one-column,
-.layout-paragraphs-sdss-four-column {
+.layout-paragraphs-sdss-one-four-one {
   &.layout-paragraphs-sdss-bgcolor--green {
     .sdss-spotlight {
       .news-vertical-teaser__pub-date,
@@ -144,7 +144,7 @@
 
 // Added margins to full width on the 4-col for all paragraphs except banners.
 .node--layout-full {
-  .layout-paragraphs-sdss-four-column {
+  .layout-paragraphs-sdss-one-four-one {
     .layout__region--top,
     .layout__region--bottom {
       .ptype-stanford-lists,
