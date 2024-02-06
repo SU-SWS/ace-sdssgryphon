@@ -36,6 +36,7 @@ if (EnvironmentDetector::isAhEnv()) {
       'system.menu.*',
       'core.menu.static_menu_link_overrides',
       'system.theme',
+      'metatag.metatag_defaults.*',
       'google_tag.container.*',
       'google_tag.settings',
       'user.role.*',
