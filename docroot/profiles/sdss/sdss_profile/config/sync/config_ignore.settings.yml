@@ -6,6 +6,7 @@ ignored_config_entities:
   - 'core.extension:module.earth_news_importer'
   - 'core.extension:theme'
   - 'google_tag.container.*'
+  - 'metatag.metatag_defaults.*'
   - 'migrate_plus.migration.earth_news_importer*'
   - migrate_plus.migration_group.earth_news_importer
   - 'next.next_entity_type_config.*'
