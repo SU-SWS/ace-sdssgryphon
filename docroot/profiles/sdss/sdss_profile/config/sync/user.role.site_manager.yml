@@ -49,6 +49,7 @@ dependencies:
     - filter
     - media
     - menu_admin_per_menu
+    - metatag
     - node
     - paragraphs
     - path
@@ -86,6 +87,7 @@ permissions:
   - 'administer book outlines'
   - 'administer citation entities'
   - 'administer main menu items'
+  - 'administer meta tags'
   - 'administer news-topics menu items'
   - 'administer nodes'
   - 'administer redirects'
