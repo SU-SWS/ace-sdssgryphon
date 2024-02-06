@@ -10,7 +10,8 @@
 
 // Moving the margin further down the html to keep the bgcolors.
 .layout--layout-paragraphs-one-column,
-.layout--layout-paragraphs-three-column {
+.layout--layout-paragraphs-three-column,
+.layout--layout-paragraphs-one-four-one {
   > div {
     @include responsive-spacing('margin-bottom', 1);
   }
@@ -18,7 +19,8 @@
 
 .layout--layout-paragraphs-one-column,
 .layout--layout-paragraphs-three-column,
-.layout--layout-paragraphs-two-column {
+.layout--layout-paragraphs-two-column,
+.layout--layout-paragraphs-one-four-one {
   @include responsive-spacing('padding-bottom', 1);
 
 }
