@@ -12,6 +12,9 @@ ignored_config_entities:
   - 'next.next_site.*'
   - 'samlauth.authentication:map_users_roles'
   - sdss_subtheme.settings
+  - stanford_earth_r25.adminsettings
+  - stanford_earth_r25.credentialsettings
+  - 'stanford_earth_r25.stanford_earth_r25.*'
   - 'system.action.user_add_role_action.custm_*'
   - 'system.action.user_remove_role_action.custm_*'
   - 'system.theme:default'
@@ -21,6 +24,3 @@ ignored_config_entities:
   - '~block.block.sdss_subtheme_*'
   - '~block.block.stanford_basic_*'
   - '~block.block.stanford_profile_admin_*'
-  - stanford_earth_r25.credentialsettings
-  - stanford_earth_r25.adminsettings
-  - 'stanford_earth_r25.stanford_earth_r25.*'

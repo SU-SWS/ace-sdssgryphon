@@ -1,0 +1,7 @@
+adding:
+  dependencies:
+    module:
+      - stanford_earth_r25
+  permissions:
+    - 'view r25 room calendars'
+removing: {  }
