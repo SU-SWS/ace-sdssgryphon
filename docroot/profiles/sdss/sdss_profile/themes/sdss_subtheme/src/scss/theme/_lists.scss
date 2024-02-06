@@ -9,3 +9,10 @@
     }
   }
 }
+
+.ptype-stanford-lists {
+  .stanford-lists.su-list-button {
+    @include responsive-spacing('margin-top', 3);
+
+  }
+}
