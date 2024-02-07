@@ -67,11 +67,134 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
    * @command gryphon:add-domain
    * @aliases grad
    */
-  public function humsciAddDomain($environment, $domains) {
+  public function gryphonAddDomain($environment, $domains) {
     $this->connectAcquiaApi();
     foreach (explode(',', $domains) as $domain) {
       $this->say($this->acquiaDomains->create($this->getEnvironmentUuid($environment), $domain)->message);
     }
+  }
+
+  /**
+   * Sync the staging sites databases with that from production.
+   *
+   * @command sdss:sync-stage
+   * @aliases stage
+   *
+   * @options exclude Comma separated list of database names to skip.
+   */
+  public function syncStaging(array $options = [
+    'exclude' => NULL,
+    'resume' => FALSE,
+    'env' => 'test',
+    'no-notify' => FALSE,
+  ]) {
+    $this->connectAcquiaApi();
+    $from_uuid = $this->getEnvironmentUuid('prod');
+    $to_uuid = $this->getEnvironmentUuid($options['env']);
+
+    $this->taskStartedTime = time() - (60 * 60 * 24);
+
+    $sites = $this->getSitesToSync($options);
+    if (empty($options['no-interaction']) && !$this->confirm(sprintf('Are you sure you wish to stage the following sites: <comment>%s</comment>', implode(', ', $sites)))) {
+      return;
+    }
+    $count = count($sites);
+    $concurrent_copies = 5;
+    $in_progress = [];
+    while (!empty($sites)) {
+      if (count($in_progress) >= $concurrent_copies) {
+        // Check for completion.
+        foreach ($in_progress as $key => $database_name) {
+          if ($this->databaseCopyFinished($database_name)) {
+            unset($in_progress[$key]);
+          }
+        }
+      }
+
+      $copy_these = array_splice($sites, 0, $concurrent_copies - count($in_progress));
+      foreach ($copy_these as $database_name) {
+        $in_progress[] = $database_name;
+        $this->say(sprintf('Copying database %s', $database_name));
+        $access_token = $this->getAccessToken();
+        $client = new Client();
+        $response = $client->post("https://cloud.acquia.com/api/environments/$to_uuid/databases", [
+          'headers' => ['Authorization' => "Bearer $access_token"],
+          'json' => ['name' => $database_name, 'source' => $from_uuid],
+        ]);
+        $message = json_decode((string) $response->getBody(), TRUE, 512, JSON_THROW_ON_ERROR);
+        $this->say($message['message']);
+      }
+      echo '.';
+      sleep(30);
+    }
+    $this->yell("$count database have been copied to staging.");
+
+    $root = $this->getConfigValue('repo.root');
+    if (file_exists("$root/keys/secrets.settings.php")) {
+      include "$root/keys/secrets.settings.php";
+    }
+    if (!$options['no-notify'] && getenv('SLACK_NOTIFICATION_URL')) {
+      $client = new Client();
+      $client->post(getenv('SLACK_NOTIFICATION_URL'), [
+        'form_params' => [
+          'payload' => json_encode([
+            'username' => 'Acquia Cloud',
+            'text' => sprintf('%s Databases have been copied to %s environment.', $count, $options['env']),
+            'icon_emoji' => 'information_source',
+          ]),
+        ],
+      ]);
+    }
+  }
+
+  /**
+   * Call the API and using the notifications, find out if it's done copying.
+   *
+   * @param string $database_name
+   *   Acquia database name.
+   *
+   * @return bool
+   *   If the database has been copied in the past 12 hours.
+   */
+  protected function databaseCopyFinished(string $database_name): bool {
+    $access_token = $this->getAccessToken();
+    $client = new Client();
+    $created_since = date('c', time() - (60 * 60 * 12));
+    $response = $client->get("https://cloud.acquia.com/api/applications/{$this->appId}/notifications", [
+      'headers' => ['Authorization' => "Bearer $access_token"],
+      'query' => [
+        'filter' => "event=DatabaseCopied;description=@*$database_name*;status!=in-progress;created_at>=$created_since",
+      ],
+    ]);
+    $message = json_decode((string) $response->getBody(), TRUE, 512, JSON_THROW_ON_ERROR);
+    return $message['total'] > 0;
+  }
+
+  /**
+   * Call the API and fetch the OAuth token.
+   *
+   * @return string
+   *   Access bearer token.
+   */
+  protected function getAccessToken(): string {
+    if (isset($this->accessToken['expires']) && time() <= $this->accessToken['expires']) {
+      return $this->accessToken['token'];
+    }
+
+    $client = new Client();
+    $response = $client->post('https://accounts.acquia.com/api/auth/oauth/token', [
+      'form_params' => [
+        'client_id' => getenv('ACQUIA_KEY'),
+        'client_secret' => getenv('ACQUIA_SECRET'),
+        'grant_type' => 'client_credentials',
+      ],
+    ]);
+    $response_body = json_decode((string) $response->getBody(), TRUE, 512, JSON_THROW_ON_ERROR);
+    $this->accessToken = [
+      'token' => $response_body['access_token'],
+      'expires' => time() + $response_body['expires_in'] - 60,
+    ];
+    return $this->accessToken['token'];
   }
 
   /**
