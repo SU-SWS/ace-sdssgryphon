@@ -80,8 +80,6 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
    *
    * @command sdss:show-sites
    * @aliases sites
-   *
-   * @options exclude Comma separated list of database names to skip.
    */
   public function showSites() {
     $sites = $this->getConfigValue('multisites');
