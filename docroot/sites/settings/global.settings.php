@@ -36,12 +36,16 @@ if (EnvironmentDetector::isAhEnv()) {
       'system.menu.*',
       'core.menu.static_menu_link_overrides',
       'system.theme',
+      'metatag.metatag_defaults.*',
       'google_tag.container.*',
       'google_tag.settings',
       'user.role.*',
       'system.action.user_add_role_action.*',
       'system.action.user_remove_role_action.*',
       'samlauth.authentication',
+      'stanford_earth_r25.adminsettings',
+      'stanford_earth_r25.credentialsettings',
+      'stanford_earth_r25.stanford_earth_r25.*',
     ];
     $settings['config_readonly_content_link_providers'] = [
       'menu_link_content',

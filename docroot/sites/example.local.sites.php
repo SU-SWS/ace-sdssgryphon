@@ -67,6 +67,8 @@
 // When setting local domain use sdssgryphon-SITENAME.test or update the below
 // code to use own conventions.
 // E.g., carbon_removal becomes sdssgryphon-carbon-removal.test
+$settings = glob(__DIR__ . '/*/settings.php');
+
 foreach ($settings as $settings_file) {
   $site_dir = str_replace(__DIR__ . '/', '', $settings_file);
   $site_dir = str_replace('/settings.php', '', $site_dir);

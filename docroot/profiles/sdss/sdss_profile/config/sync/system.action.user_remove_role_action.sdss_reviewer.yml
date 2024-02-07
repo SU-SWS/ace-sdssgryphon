@@ -1,0 +1,14 @@
+uuid: d250f178-2be6-4fa7-8347-e96d0fbe1bb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.sdss_reviewer
+  module:
+    - user
+id: user_remove_role_action.sdss_reviewer
+label: 'Remove the SDSS Reviewer role to the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: sdss_reviewer
