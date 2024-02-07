@@ -244,7 +244,7 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
   protected function getSitesToSync(array $options) {
     $sites = $this->getConfigValue('multisites');
     foreach ($sites as $key => &$db_name) {
-      $db_name = $db_name == 'default' ? 'sosgryphon' : $db_name;
+      $db_name = $db_name == 'default' ? 'stanfordsos' : $db_name;
 
       if (strpos($db_name, 'sandbox') !== FALSE) {
         unset($sites[$key]);
