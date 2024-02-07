@@ -76,6 +76,23 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
   }
 
   /**
+   * Display all sites on the multi-site and a total count of sites.
+   *
+   * @command sdss:show-sites
+   * @aliases sites
+   *
+   * @options exclude Comma separated list of database names to skip.
+   */
+  public function showSites() {
+    $sites = $this->getConfigValue('multisites');
+    asort($sites);
+    foreach ($sites as $key => $site) {
+      $this->say(sprintf('%s', $site));
+    }
+    $this->say(sprintf('Total sites: %s', count($sites)));
+  }
+
+  /**
    * Copy databases from production sites to staging sites. Includes option to
    * copy to dev sites.
    *
