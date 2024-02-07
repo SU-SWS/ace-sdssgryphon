@@ -97,11 +97,13 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
    * @command sdss:sync-stage
    * @aliases stage
    *
-   * @options exclude Comma separated list of database names to skip.
+   * @option exclude Comma separated list of database names to skip.
+   * @option force Force copying of databases even if they were already copied
+   * recently.
    */
   public function syncStaging(array $options = [
     'exclude' => NULL,
-    'resume' => FALSE,
+    'force' => FALSE,
     'env' => 'test',
     'no-notify' => FALSE,
   ]) {
@@ -251,15 +253,18 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
         continue;
       }
 
-      $this->say(sprintf('Checking if %s has recently been copied', $db_name));
-      if ($this->databaseCopyFinished($db_name)) {
-        unset($sites[$key]);
+      if(!$options['force']) {
+        $this->say(sprintf('Checking if %s has recently been copied', $db_name));
+        if ($this->databaseCopyFinished($db_name)) {
+          unset($sites[$key]);
+        }
       }
     }
     asort($sites);
     $sites = array_values($sites);
     if (!empty($options['exclude'])) {
       $exclude = explode(',', $options['exclude']);
+
       $sites = array_diff($sites, $exclude);
     }
     return array_values($sites);
