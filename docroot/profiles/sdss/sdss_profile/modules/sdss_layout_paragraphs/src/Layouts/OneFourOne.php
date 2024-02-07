@@ -7,7 +7,7 @@ use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBase;
 /**
  * Four column layout class.
  */
-class FourColumn extends SdssLayoutParagraphBase {
+class OneFourOne extends SdssLayoutParagraphBase {
 
   protected function getWidthOptions() {
     return [

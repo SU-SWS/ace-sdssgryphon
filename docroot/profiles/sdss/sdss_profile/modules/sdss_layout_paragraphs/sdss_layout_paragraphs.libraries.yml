@@ -15,7 +15,7 @@ three_column:
     component:
       layouts/three_column/three-column.css: {}
 
-four_column:
+one_four_one:
   css:
     component:
-      layouts/four_column/four-column.css: {}
+      layouts/one_four_one/one-four-one.css: {}

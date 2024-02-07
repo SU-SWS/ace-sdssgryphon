@@ -6,12 +6,16 @@ ignored_config_entities:
   - 'core.extension:module.earth_news_importer'
   - 'core.extension:theme'
   - 'google_tag.container.*'
+  - 'metatag.metatag_defaults.*'
   - 'migrate_plus.migration.earth_news_importer*'
   - migrate_plus.migration_group.earth_news_importer
   - 'next.next_entity_type_config.*'
   - 'next.next_site.*'
   - 'samlauth.authentication:map_users_roles'
   - sdss_subtheme.settings
+  - stanford_earth_r25.adminsettings
+  - stanford_earth_r25.credentialsettings
+  - 'stanford_earth_r25.stanford_earth_r25.*'
   - 'system.action.user_add_role_action.custm_*'
   - 'system.action.user_remove_role_action.custm_*'
   - 'system.theme:default'
