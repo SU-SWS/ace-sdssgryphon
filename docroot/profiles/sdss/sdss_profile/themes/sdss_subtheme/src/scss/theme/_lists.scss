@@ -10,9 +10,21 @@
   }
 }
 
-.ptype-stanford-lists {
-  .stanford-lists.su-list-button {
-    @include responsive-spacing('margin-top', 3);
+// Button spacing on lists
+// adding the spacing.
+.stanford-lists.su-list-button {
+  @include responsive-spacing('margin-top', 3);
+}
 
+// Unsetting the extra spacing from Stanford Basic.
+.ptype-stanford-lists:not([data-react-columns="12"]) .su-news-vertical-teaser.su-card {
+  margin-bottom: unset;
+}
+
+.view.stanford-news,
+.stanford-events-list-page,
+.stanford-events-list-page--filtered {
+  .views-infinite-scroll-content-wrapper {
+    margin-bottom: unset;
   }
 }
