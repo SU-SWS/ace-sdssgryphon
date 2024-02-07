@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+// Row Background Colors
+// layout-paragraphs-sdss-bgcolor--green|Green
+// layout-paragraphs-sdss-bgcolor--blue|Blue
+// layout-paragraphs-sdss-bgcolor--white|White
+
+// Lists of cards, events, basic pages, on green backgrounds.
+
+.layout-paragraphs-sdss-bgcolor--green {
+    background-color: $sdss-color-palo-alto-dark;
+    color: $su-color-white;
+
+    table {
+      tbody,
+      thead {
+        th {
+          color: $su-color-white;
+        }
+      }
+    }
+
+    .su-wysiwyg-text {
+      a {
+        @include sdss-link--negative;
+
+        &.su-button,
+        &.su-button--big,
+        &.su-link--external.su-button,
+        &.su-link--external.su-button--big {
+          color: $sdss-color-palo-alto-dark;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          &:active,
+          &:focus {
+            text-decoration: underline;
+            color: $sdss-color-white;
+            background: transparent;
+            outline: 1px solid $sdss-color-white;
+
+            &::after {
+              background-color: $sdss-color-white;
+            }
+          }
+        }
+
+        &.su-button--secondary,
+        &.su-link--external.su-button-secondary {
+          @include sdss-button--secondary-neg;
+        }
+      }
+    }
+
+    // Padding adjustment for buttons excluding --big.
+    div {
+      a {
+        &.su-button,
+        &.su-link--external.su-button {
+          &:active,
+          &:focus {
+            padding: 0.375em 0.875em;
+          }
+        }
+      }
+    }
+
+    .su-link--action {
+      &::after {
+        background-color: $sdss-color-blue-bright;
+      }
+    }
+
+    figcaption {
+      &.su-media__caption {
+        color: $sdss-color-white;
+      }
+    }
+  }
