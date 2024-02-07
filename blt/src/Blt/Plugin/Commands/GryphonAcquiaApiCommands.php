@@ -75,7 +75,8 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
   }
 
   /**
-   * Sync the staging sites databases with that from production.
+   * Copy databases from production sites to staging sites. Includes option to
+   * copy to dev sites.
    *
    * @command sdss:sync-stage
    * @aliases stage
