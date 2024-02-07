@@ -3,6 +3,7 @@
 namespace Gryphon\Blt\Plugin\Commands;
 
 use AcquiaCloudApi\Endpoints\Crons;
+use GuzzleHttp\Client;
 use Sws\BltSws\Blt\Plugin\Commands\SwsCommandTrait;
 use Symfony\Component\Console\Question\Question;
 
@@ -214,6 +215,39 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
       file_put_contents($config_file, json_encode($conf));
     }
     self::traitConnectAcquiaApi();
+  }
+
+  /**
+   * Get an overall list of database names to sync.
+   *
+   * @param array $options
+   *   Array of keyed command options.
+   *
+   * @return array
+   *   Array of database names to sync.
+   */
+  protected function getSitesToSync(array $options) {
+    $sites = $this->getConfigValue('multisites');
+    foreach ($sites as $key => &$db_name) {
+      $db_name = $db_name == 'default' ? 'sosgryphon' : $db_name;
+
+      if (strpos($db_name, 'sandbox') !== FALSE) {
+        unset($sites[$key]);
+        continue;
+      }
+
+      $this->say(sprintf('Checking if %s has recently been copied', $db_name));
+      if ($this->databaseCopyFinished($db_name)) {
+        unset($sites[$key]);
+      }
+    }
+    asort($sites);
+    $sites = array_values($sites);
+    if (!empty($options['exclude'])) {
+      $exclude = explode(',', $options['exclude']);
+      $sites = array_diff($sites, $exclude);
+    }
+    return array_values($sites);
   }
 
   /**
