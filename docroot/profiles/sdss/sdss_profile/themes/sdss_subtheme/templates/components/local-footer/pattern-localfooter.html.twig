@@ -1,9 +1,19 @@
 {% extends "@jumpstart_ui/components/local-footer/local-footer.html.twig" %}
 
-{# Removing the weblogin in the footer. Better way to do this? #}
+{# Removing the weblogin in the footer.  #}
 {%- set weblogin_url = "" -%}
 {%- set content_cell_1 = cell1 -%}
 {%- set cell1 = "" -%}
+
+{# Use custom logo for the footer. #}
+{% block block_lockup %}
+  <div class="su-lockup__logo-wrapper">
+  <a href="https://sustainability.stanford.edu" class="su-lockup__custom-logo-link">
+    <img src="/{{ base_path ~ directory }}/src/assets/svg/sdss-footer-lockup.svg" alt="Stanford Doerr School of Sustainability" class="su-lockup__custom-logo" />
+  </a>
+  </div>
+
+{% endblock %}
 
 
 {% block contentcell1 %}
@@ -11,7 +21,6 @@
     {# Variable for the First Content block  #}
     {# Content will be the contact or the person #}
     {{ content_cell_1 }}
-
   </div>
 
   {#

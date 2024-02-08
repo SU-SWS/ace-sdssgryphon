@@ -868,7 +868,7 @@ display:
             type: none
             fail: 'not found'
           validate_options: {  }
-          depth: '1'
+          depth: '3'
           vocabularies:
             sdss_magazine_topics: sdss_magazine_topics
             stanford_news_topics: stanford_news_topics
@@ -2487,7 +2487,7 @@ display:
             type: none
             fail: 'not found'
           validate_options: {  }
-          depth: '1'
+          depth: '3'
           vocabularies:
             sdss_magazine_topics: sdss_magazine_topics
             stanford_news_topics: stanford_news_topics
@@ -2632,7 +2632,7 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: true
-          depth: '0'
+          depth: '3'
           use_taxonomy_term_path: false
           vocabularies:
             stanford_news_topics: stanford_news_topics
