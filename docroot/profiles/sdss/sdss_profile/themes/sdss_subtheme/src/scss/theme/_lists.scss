@@ -28,3 +28,31 @@
     margin-bottom: unset;
   }
 }
+
+// .view.stanford-courses .su-course-list.su-list-unstyled {
+//   margin-bottom: 0;
+// }
+
+
+.ptype-stanford-lists{
+
+  .su-list-unstyled > li:last-child {
+    background-color: orange;
+
+    .su-news-list .su-news-article {
+      padding-bottom: 0;
+    }
+
+    .su-event-list-item {
+      margin-bottom: 0;
+      background-color: hotpink;
+    }
+
+
+  }
+
+  .view.stanford-courses.default-list-viewfield-block .views-infinite-scroll-content-wrapper {
+    margin-bottom: 0;
+    background-color: lime;
+  }
+}
