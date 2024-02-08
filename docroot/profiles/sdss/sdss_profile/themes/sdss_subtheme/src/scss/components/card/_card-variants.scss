@@ -89,7 +89,7 @@
 }
 
 // Green background row - with cards
-// Pending nots:
+// Other Background colors:
 // sdss-card-wrapper--grey-dropshadow
 // sdss-card-wrapper--white-dropshadow
 // sdss-card-wrapper--white-border
@@ -141,6 +141,94 @@
     .su-news-header {
       .news-vertical-teaser__pub-date {
         color: $su-color-white;
+      }
+    }
+  }
+
+  // Course card teaser
+  .su-course-vertical-teaser {
+    h2 {
+
+      &.su-link--external {
+        &::after {
+          background-color: $sdss-color-white;
+        }
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $sdss-color-green-bright;
+
+        &::after {
+          background-color: $sdss-color-green-bright;
+        }
+      }
+    }
+  }
+
+  // Person Card Teaser
+  .ds-entity--stanford-person {
+    .su-card {
+      a {
+        color: $su-color-white;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-green-bright;
+
+          &::after {
+            background-color: $sdss-color-green-bright;
+          }
+        }
+      }
+
+      .su-person-short-title {
+        color: $su-color-white;
+      }
+    }
+
+  }
+
+  // Event Card Teaser
+  .stanford-entity {
+    .ds-entity--stanford-event {
+      .su-event-list-item.su-card {
+        .su-event-list-item__details {
+          .event-list-item__type {
+            a {
+              color: $su-color-white;
+
+              &:hover,
+              &:focus,
+              &:active {
+                color: $sdss-color-white;
+
+                &::after {
+                  background-color: $sdss-color-white;
+                }
+              }
+            }
+
+          }
+
+          h2 {
+            > a {
+              color: $su-color-white;
+
+              &:hover,
+              &:focus,
+              &:active {
+                color: $sdss-color-green-bright;
+
+                &::after {
+                  background-color: $sdss-color-green-bright;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
