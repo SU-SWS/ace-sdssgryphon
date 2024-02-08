@@ -108,10 +108,10 @@
         &:hover,
         &:focus,
         &:active {
-          color: $su-color-white;
+          color: $sdss-color-green-bright;
 
           &::after {
-            background-color: $su-color-white;
+            background-color: $sdss-color-green-bright;
           }
         }
 
