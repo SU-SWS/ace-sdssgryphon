@@ -113,3 +113,36 @@
     color: $su-color-white;
   }
 }
+
+// Publications Lists
+
+.stanford-publications.view {
+  .views-field-su-publication-citation  {
+    a {
+      color: $su-color-white;
+
+      &::after {
+        background-color: $sdss-color-white;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $sdss-color-green-bright;
+        text-decoration: underline;
+
+        &::after {
+          background-color: $sdss-color-green-bright;
+        }
+      }
+    }
+  }
+
+  //Edit content link
+  .views-field-edit-node {
+    a {
+      @include button-secondary;
+      text-align: right;
+    }
+  }
+}
