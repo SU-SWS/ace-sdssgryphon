@@ -560,7 +560,7 @@ function sdss_profile_update_9105() {
 }
 
 /**
- * Create su_sdss_media_mention field for News entities if it does not exist.
+ * Create su_sdss_media_mention field from configuration.
  */
 function sdss_profile_update_10001() {
   $config_directory = new FileStorage(Settings::get('config_sync_directory'));
