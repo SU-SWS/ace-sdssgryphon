@@ -145,7 +145,7 @@
     }
   }
 
-  // Course card teaser
+  // Course card teaser and lists
   .su-course-vertical-teaser {
     h2 {
 
@@ -162,6 +162,60 @@
 
         &::after {
           background-color: $sdss-color-green-bright;
+        }
+      }
+    }
+
+    .su-link.su-card__link.su-link--external {
+      text-decoration: none;
+    }
+
+    .su-course-list__title,
+    .su-course-link {
+      a {
+        color: $su-color-white;
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-green-bright;
+          text-decoration: underline;
+
+          &::after {
+            background-color: $sdss-color-green-bright;
+          }
+        }
+      }
+    }
+  }
+
+  .su-course-list-item {
+    .su-course-list__title {
+      a {
+        color: $su-color-white;
+        text-decoration: none;
+
+          h2 {
+          color: $su-color-white;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $sdss-color-green-bright;
+            text-decoration: underline;
+
+            &::after {
+              background-color: $sdss-color-green-bright;
+            }
+          }
         }
       }
     }
