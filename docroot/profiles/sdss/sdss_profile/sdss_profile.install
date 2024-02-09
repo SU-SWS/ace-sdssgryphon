@@ -577,6 +577,35 @@ function sdss_profile_update_10001() {
 }
 
 /**
+ * Set the Media Mentions field to FALSE on all existing News Nodes.
+ */
+function sdss_profile_update_10002(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 25);
+   /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_media_mention')) {
+      continue;
+    }
+    $node->set('su_sdss_media_mention', FALSE)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
  * Update menu links on nodes for the updated version of menu_link_weight.
  *
  * @param array $menu_items
