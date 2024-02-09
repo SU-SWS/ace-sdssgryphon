@@ -574,6 +574,8 @@ function sdss_profile_update_10001() {
   if (!FieldConfig::loadByName($field_config['entity_type'], $field_config['bundle'], $field_config['field_name'])) {
     FieldConfig::create($field_config)->save();
   }
+
+  return t('Created Media Mention field.');
 }
 
 /**
@@ -603,6 +605,8 @@ function sdss_profile_update_10002(&$sandbox) {
   }
 
   $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+
+  return t('Updated @count News nodes.', ['@count' => $sandbox['count']]);
 }
 
 /**
