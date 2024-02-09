@@ -146,3 +146,30 @@
     }
   }
 }
+
+.paragraph--type--stanford-entity {
+  .ds-entity--stanford-publication {
+    .su-card__contents {
+      .su-publication-topics {
+        a {
+          color: $su-color-white;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $sdss-color-white;
+            text-decoration: underline;
+          }
+        }
+      }
+      .stanford-publication.node-title {
+        a {
+          &::after {
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}

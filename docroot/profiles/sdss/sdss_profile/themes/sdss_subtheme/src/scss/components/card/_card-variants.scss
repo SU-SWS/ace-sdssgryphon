@@ -130,10 +130,10 @@
         &:hover,
         &:focus,
         &:active {
-          color: $sdss-color-blue-bright;
+          color: $sdss-color-green-bright;
 
           &::after {
-            background-color: $sdss-color-blue-bright;
+            background-color: $sdss-color-green-bright;
           }
         }
       }

@@ -172,7 +172,8 @@
         }
       }
 
-      .views-field-su-event-location {
+      .views-field-su-event-location,
+      .views-field-su-event-address {
         >.map-icon:before {
           color: $sdss-color-white;
         }
