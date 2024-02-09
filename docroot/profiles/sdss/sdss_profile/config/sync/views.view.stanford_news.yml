@@ -3074,7 +3074,7 @@ display:
         - 'config:field.storage.node.su_sdss_news_news_source'
   viewfield_block_2:
     id: viewfield_block_2
-    display_title: 'Card Grid, Media Mentions'
+    display_title: 'Card Grid, Only Media Mentions'
     display_plugin: viewfield_block
     position: 3
     display_options:
