@@ -594,7 +594,7 @@ function sdss_profile_update_10002(&$sandbox) {
     $sandbox['count'] = count($sandbox['nids']);
   }
 
-  $node_ids = array_splice($sandbox['nids'], 0, 25);
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
    /** @var \Drupal\node\NodeInterface[] $nodes */
   $nodes = $node_storage->loadMultiple($node_ids);
   foreach ($nodes as $node) {
@@ -606,7 +606,9 @@ function sdss_profile_update_10002(&$sandbox) {
 
   $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
 
-  return t('Updated @count News nodes.', ['@count' => $sandbox['count']]);
+  if ($sandbox['#finished']) {
+    return t('Updated @count News nodes.', ['@count' => $sandbox['count']]);
+  }
 }
 
 /**
