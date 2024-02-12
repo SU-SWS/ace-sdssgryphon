@@ -1,0 +1,23 @@
+uuid: 692deee2-fb19-4400-9f18-2369398ac5b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_media_mention
+    - node.type.stanford_news
+id: node.stanford_news.su_sdss_media_mention
+field_name: su_sdss_media_mention
+entity_type: node
+bundle: stanford_news
+label: 'Media Mention'
+description: 'Check this to indicate that a news item is externally produced news. This can be used to drive the display of news using the Lists Paragraph.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean
