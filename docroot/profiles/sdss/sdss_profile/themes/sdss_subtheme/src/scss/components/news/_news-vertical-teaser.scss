@@ -77,10 +77,14 @@
 
       a {
         @include sdss-link--primary;
-        @include type-e;
+        // @include type-e;
 
-        font-weight: $su-font-regular;
-        text-decoration: none;
+        // font-weight: $su-font-regular;
+        // text-decoration: none;
+
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
 
