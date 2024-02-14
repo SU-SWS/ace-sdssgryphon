@@ -13,7 +13,9 @@
 .layout--layout-paragraphs-three-column,
 .layout--layout-paragraphs-one-four-one {
   > div {
-    @include responsive-spacing('margin-bottom', 1);
+    > div {
+      @include responsive-spacing('margin-bottom', 1);
+    }
   }
 }
 
