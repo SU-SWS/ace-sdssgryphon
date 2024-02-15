@@ -23,14 +23,14 @@
 
 // News list with Green row variant.
 .layout-paragraphs-sdss-bgcolor--green {
-  h2 {
-    color: $sdss-color-white;
-  }
+  // h2 {
+  //   color: $sdss-color-white;
+  // }
 
   .su-news-list {
-    h2 {
-      color: $sdss-color-white;
-    }
+    // h2 {
+    //   color: $sdss-color-white;
+    // }
 
     .su-news-list__headline-dek {
       a {
@@ -45,9 +45,9 @@
         &:active {
           color: $sdss-color-green-bright;
 
-          > h2 {
-            color: $sdss-color-green-bright;
-          }
+          // > h2 {
+          //   color: $sdss-color-green-bright;
+          // }
 
           &::after {
             background-color: $sdss-color-green-bright;
@@ -76,9 +76,9 @@
         &:active {
           color: $sdss-color-green-bright;
 
-          > h2 {
-            color: $sdss-color-green-bright;
-          }
+          // > h2 {
+          //   color: $sdss-color-green-bright;
+          // }
 
           &::after {
             background-color: $sdss-color-green-bright;
@@ -112,10 +112,10 @@
             }
           }
 
-          h2 {
-            color: unset;
-            text-decoration: none;
-          }
+          // h2 {
+          //   color: unset;
+          //   text-decoration: none;
+          // }
         // }
       }
 

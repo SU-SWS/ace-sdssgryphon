@@ -8,11 +8,15 @@
 
       text-decoration: none;
 
-      &:hover {
-        >h2 {
-          color: $sdss-color-black;
-        }
+      h2 {
+        color: unset;
       }
+
+      // &:hover {
+      //   >h2 {
+      //     color: $sdss-color-black;
+      //   }
+      // }
     }
   }
 
