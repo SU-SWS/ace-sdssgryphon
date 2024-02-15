@@ -48,9 +48,21 @@
 
   .su-course-list.su-list-unstyled {
     margin-bottom: 0;
+
+    >li:last-of-type {
+      > article {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .su-courses-edit-article {
+      // Edit button for authors
+      @include responsive-spacing('margin-top', 2);
+    }
   }
 
-  .su-event-list-item {
+  .su-card.su-event-card.su-event-list-item {
     margin-bottom: 0;
   }
 }
