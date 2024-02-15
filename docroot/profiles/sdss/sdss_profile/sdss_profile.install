@@ -8,7 +8,6 @@
 use Drupal\Core\DrupalKernel;
 use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Site\Settings;
-use Drupal\Core\Config\FileStorage;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\NodeInterface;
@@ -563,7 +562,7 @@ function sdss_profile_update_9105() {
  * Create su_sdss_media_mention field from configuration.
  */
 function sdss_profile_update_10001() {
-  $config_directory = new FileStorage(Settings::get('config_sync_directory'));
+  $config_directory = \Drupal::service('config.storage.sync');
   $field_storage = $config_directory->read('field.storage.node.su_sdss_media_mention');
   $field_config = $config_directory->read('field.field.node.stanford_news.su_sdss_media_mention');
 
