@@ -23,14 +23,8 @@
 
 // News list with Green row variant.
 .layout-paragraphs-sdss-bgcolor--green {
-  // h2 {
-  //   color: $sdss-color-white;
-  // }
 
   .su-news-list {
-    // h2 {
-    //   color: $sdss-color-white;
-    // }
 
     .su-news-list__headline-dek {
       a {
@@ -44,10 +38,6 @@
         &:focus,
         &:active {
           color: $sdss-color-green-bright;
-
-          // > h2 {
-          //   color: $sdss-color-green-bright;
-          // }
 
           &::after {
             background-color: $sdss-color-green-bright;
@@ -76,10 +66,6 @@
         &:active {
           color: $sdss-color-green-bright;
 
-          // > h2 {
-          //   color: $sdss-color-green-bright;
-          // }
-
           &::after {
             background-color: $sdss-color-green-bright;
           }
@@ -88,35 +74,27 @@
     }
   }
 
-  // .su-list-unstyled .su-card.su-news-vertical-teaser {
   .su-card.su-news-vertical-teaser {
     .su-content__wrapper {
       .su-news-vertical-teaser__link {
-          // h2 {
-          @include link--action;
-  
-          color: $sdss-color-white;
-  
-          &::after {
-            background-color: $sdss-color-white;
-          }
-  
-          &:focus,
-          &:hover,
-          &:active {
-            color:  $sdss-color-green-bright;
-            text-decoration: underline;
-  
-            &::after {
-              background-color:  $sdss-color-green-bright;
-            }
-          }
+        @include link--action;
 
-          // h2 {
-          //   color: unset;
-          //   text-decoration: none;
-          // }
-        // }
+        color: $sdss-color-white;
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+
+        &:focus,
+        &:hover,
+        &:active {
+          color:  $sdss-color-green-bright;
+          text-decoration: underline;
+
+          &::after {
+            background-color:  $sdss-color-green-bright;
+          }
+        }
       }
 
       .news-vertical-teaser__source {
@@ -127,61 +105,13 @@
         a {
           color: $sdss-color-white;
   
-          // &::after {
-          //   background-color: $sdss-color-white;
-          // }
-  
           &:focus,
           &:hover,
           &:active {
-            // color:  $sdss-color-white;
             text-decoration: underline;
           }
         }
       }
     }
-
   }
-
-  // .su-news-vertical-teaser {
-  //   &.su-card {
-  //     .su-link,
-  //     .su-news-vertical-teaser__link {
-  //       color: $sdss-color-green-bright;
-
-  //       &::after {
-  //         background-color: $sdss-color-green-bright;
-  //       }
-
-  //       &:focus,
-  //       &:hover,
-  //       &:active {
-  //         color: $sdss-color-white;
-  //         // text-decoration: unset;
-
-  //         &::after {
-  //           background-color: $sdss-color-white;
-  //         }
-  //       }
-  //     }
-
-  //     .news-vertical-teaser__source {
-  //       color: $sdss-color-white;
-  //     }
-
-  //     .news-vertical-teaser__topics {
-
-  //       a {
-  //         color: $sdss-color-white;
-
-  //         &:focus,
-  //         &:hover,
-  //         &:active {
-  //           color: $sdss-color-white;
-  //           text-decoration: underline;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
