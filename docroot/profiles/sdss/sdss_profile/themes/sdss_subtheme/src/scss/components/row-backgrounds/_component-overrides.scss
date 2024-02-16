@@ -112,64 +112,65 @@
   .su-event--past-events-text {
     color: $su-color-white;
   }
-}
 
-// Publications Lists
-
-.stanford-publications.view {
-  .views-field-su-publication-citation  {
-    a {
-      color: $su-color-white;
-
-      &::after {
-        background-color: $sdss-color-white;
-      }
-
-      &:hover,
-      &:focus,
-      &:active {
-        color: $sdss-color-green-bright;
-        text-decoration: underline;
+  // Publications Lists
+  .stanford-publications.view {
+    .views-field-su-publication-citation  {
+      a {
+        color: $su-color-white;
 
         &::after {
-          background-color: $sdss-color-green-bright;
+          background-color: $sdss-color-white;
         }
-      }
-    }
-  }
 
-  //Edit content link
-  .views-field-edit-node {
-    a {
-      @include button-secondary;
-      text-align: right;
-    }
-  }
-}
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-green-bright;
+          text-decoration: underline;
 
-.paragraph--type--stanford-entity {
-  .ds-entity--stanford-publication {
-    .su-card__contents {
-      .su-publication-topics {
-        a {
-          color: $su-color-white;
-
-          &:hover,
-          &:focus,
-          &:active {
-            color: $sdss-color-white;
-            text-decoration: underline;
-          }
-        }
-      }
-      .stanford-publication.node-title {
-        a {
           &::after {
-            width: 2.5rem;
-            height: 2.5rem;
+            background-color: $sdss-color-green-bright;
+          }
+        }
+      }
+    }
+
+    //Edit content link
+    .views-field-edit-node {
+      a {
+        @include button-secondary;
+        text-align: right;
+      }
+    }
+  }
+
+  .paragraph--type--stanford-entity {
+    .ds-entity--stanford-publication {
+      .su-card__contents {
+        .su-publication-topics {
+          a {
+            color: $su-color-white;
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: $sdss-color-white;
+              text-decoration: underline;
+            }
+          }
+        }
+        .stanford-publication.node-title {
+          a {
+            &::after {
+              width: 2.5rem;
+              height: 2.5rem;
+            }
           }
         }
       }
     }
   }
+
 }
+
