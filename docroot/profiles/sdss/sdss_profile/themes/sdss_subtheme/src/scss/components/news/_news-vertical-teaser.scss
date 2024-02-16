@@ -26,7 +26,8 @@
 
         img,
         picture {
-          aspect-ratio: 2/2;
+          aspect-ratio: 1/1;
+          object-fit: cover;
         }
       }
     }
