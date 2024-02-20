@@ -100,6 +100,7 @@
         &:active {
           color:  $sdss-color-palo-alto-dark;
           text-decoration: underline;
+          text-decoration-thickness: 3px;
 
           &::after {
             background-color:  $sdss-color-palo-alto-dark;

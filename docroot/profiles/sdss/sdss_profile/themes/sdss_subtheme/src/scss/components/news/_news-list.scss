@@ -8,6 +8,12 @@
 
       text-decoration: none;
 
+      &:focus,
+      &:hover,
+      &:active {
+        text-decoration-thickness: 3px;
+      }
+
       h2 {
         color: unset;
       }
