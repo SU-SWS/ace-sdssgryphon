@@ -1,0 +1,30 @@
+uuid: b9f34b79-6753-4cd2-a377-c6dbf65f145f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sdss_spotlight.su_sdss_spotlight_item
+    - paragraphs.paragraphs_type.sdss_spotlight
+id: paragraph.sdss_spotlight.default
+targetEntityType: paragraph
+bundle: sdss_spotlight
+mode: default
+content:
+  layout_paragraphs_fields:
+    weight: -200
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  su_sdss_spotlight_item:
+    type: entity_reference_autocomplete
+    weight: -199
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

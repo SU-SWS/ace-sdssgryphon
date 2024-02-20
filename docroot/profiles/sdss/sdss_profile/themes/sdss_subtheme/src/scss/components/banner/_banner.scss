@@ -7,9 +7,29 @@
 }
 
 // Removing margin-bottom for top "page" banner and banner paragraph.
+.section-banner-media {
+  .main-region {
+    margin-bottom: 0;
+  }
+}
+
 .main-region {
   .node-stanford-page-su-page-banner {
     margin-bottom: 0;
+  }
+}
+
+// Node - top banner image on article.
+// Fixing when there is no top banner, or a banner or a banner and caption.
+.section-banner-media {
+  .main-region {
+    > div:nth-last-child(odd) { // This is the top banner image.
+      @include modular-spacing('margin-bottom', 4);
+    }
+
+    > div:nth-last-child(even) { // This is the top banner caption
+      margin-bottom: 0;
+    }
   }
 }
 

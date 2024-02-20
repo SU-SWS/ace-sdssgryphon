@@ -6,5 +6,9 @@
 
 // when you add any files to /src/scss/utilities/variables you should include them here.
 
+@import 'breakpoints';
 @import 'colors';
+@import 'grid';
+@import 'magic-numbers';
+@import 'screen-margins';
 @import 'typography';

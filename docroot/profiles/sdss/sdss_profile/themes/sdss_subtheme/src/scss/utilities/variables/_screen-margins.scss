@@ -1,0 +1,15 @@
+
+///
+/// A sass map of screen margins for edge containment
+///
+/// @name $su-screen-margins
+///
+/// @group variable
+$sdss-grid-media: (
+  'xs': 20px,
+  'sm': 30px,
+  'md': 50px,
+  'lg': 80px,
+  'xl': 100px,
+  '2xl':  100px
+) !default;

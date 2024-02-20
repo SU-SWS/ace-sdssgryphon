@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display three column layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout wrapper.
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'centered-content',
+    'layout',
+    'layout--layout-paragraphs-one-four-one',
+    'layout--layout-paragraphs-sdss-one-four-one',
+  ]
+%}
+
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+
+    {% if content.top %}
+      <div {{ region_attributes.top.addClass('layout__region', 'layout__region--top') }}>
+        {{ content.top }}
+      </div>
+    {% endif %}
+
+    <div class="content-well centered-container">
+    {% if content.first %}
+      <div {{ region_attributes.first.addClass('layout__region', 'layout__region--first', 'layout__region--column') }}>
+        {{ content.first }}
+      </div>
+    {% endif %}
+
+    {% if content.second %}
+      <div {{ region_attributes.second.addClass('layout__region', 'layout__region--second', 'layout__region--column') }}>
+        {{ content.second }}
+      </div>
+    {% endif %}
+
+    {% if content.third %}
+      <div {{ region_attributes.third.addClass('layout__region', 'layout__region--third', 'layout__region--column') }}>
+        {{ content.third }}
+      </div>
+    {% endif %}
+
+    {% if content.fourth %}
+      <div {{ region_attributes.fourth.addClass('layout__region', 'layout__region--fourth', 'layout__region--column') }}>
+        {{ content.fourth }}
+      </div>
+    {% endif %}
+    </div>
+    {% if content.bottom %}
+      <div {{ region_attributes.bottom.addClass('layout__region', 'layout__region--bottom') }}>
+        {{ content.bottom }}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

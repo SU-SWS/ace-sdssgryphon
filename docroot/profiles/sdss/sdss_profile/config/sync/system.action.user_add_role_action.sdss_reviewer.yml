@@ -1,0 +1,14 @@
+uuid: ec090257-9bb9-4284-b998-6148f4a7b647
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.sdss_reviewer
+  module:
+    - user
+id: user_add_role_action.sdss_reviewer
+label: 'Add the SDSS Reviewer role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: sdss_reviewer

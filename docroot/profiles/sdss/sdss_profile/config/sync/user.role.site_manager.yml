@@ -49,6 +49,7 @@ dependencies:
     - filter
     - media
     - menu_admin_per_menu
+    - metatag
     - node
     - paragraphs
     - path
@@ -86,6 +87,7 @@ permissions:
   - 'administer book outlines'
   - 'administer citation entities'
   - 'administer main menu items'
+  - 'administer meta tags'
   - 'administer news-topics menu items'
   - 'administer nodes'
   - 'administer redirects'
@@ -121,6 +123,7 @@ permissions:
   - 'create stanford_person content'
   - 'create stanford_policy content'
   - 'create stanford_publication content'
+  - 'create su_metatags'
   - 'create terms in basic_page_types'
   - 'create terms in event_audience'
   - 'create terms in media_tags'
@@ -232,6 +235,7 @@ permissions:
   - 'edit own stanford_person content'
   - 'edit own stanford_policy content'
   - 'edit own stanford_publication content'
+  - 'edit own su_metatags'
   - 'edit own video media'
   - 'edit policy log'
   - 'edit sdss entity'
@@ -243,6 +247,7 @@ permissions:
   - 'edit stanford_person_importer config page entity'
   - 'edit stanford_saml config page entity'
   - 'edit stanford_super_footer config page entity'
+  - 'edit su_metatags'
   - 'edit terms in basic_page_types'
   - 'edit terms in event_audience'
   - 'edit terms in media_tags'

@@ -1,0 +1,21 @@
+uuid: 2bc11c45-ddac-4ba3-b701-748c8f33deb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.sdss_site_settings
+    - field.storage.config_pages.su_sdss_newsroom_menu
+id: config_pages.sdss_site_settings.su_sdss_newsroom_menu
+field_name: su_sdss_newsroom_menu
+entity_type: config_pages
+bundle: sdss_site_settings
+label: 'Show Newsroom Menu'
+description: 'Enable the Newsroom menu on /news paths.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Enable
+  off_label: Disable
+field_type: boolean

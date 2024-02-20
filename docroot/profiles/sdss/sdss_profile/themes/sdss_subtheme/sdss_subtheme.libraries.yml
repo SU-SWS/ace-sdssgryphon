@@ -86,6 +86,12 @@
 #       css/pattern-library/theme/theme.css: {}
 #       css/pattern-library/theme/print.css: { media: print }
 
+decoupled_menu:
+  version: VERSION
+  js:
+    decoupled-menu/dist/islands/newsroom-menu.island.umd.js: { minified: true }
+
+
 sdss:
   version: VERSION
   css:

@@ -129,24 +129,6 @@
 // Event list with Green row variant.
 .layout-paragraphs-sdss-bgcolor--green {
 
-  .su-event-card {
-    &.su-card {
-      .su-event-list-item__details {
-        h2 {
-          >a {
-            &:hover,
-            &:focus {
-              &::after {
-                background-color: $sdss-color-white;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-
   .su-event-list-item {
     h2 {
       color: $sdss-color-white;
@@ -157,16 +139,21 @@
 
       h2 {
         > a {
-          color: $sdss-color-green-bright;
+          color: $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
 
           &:focus,
           &:hover,
           &:active {
-            color: $sdss-color-white;
-          }
+            color: $sdss-color-green-bright;
+            text-decoration: underline;
 
-          &:after {
-            background-color: $sdss-color-green-bright;
+            &::after {
+              background-color: $sdss-color-green-bright;
+            }
           }
         }
       }
@@ -185,7 +172,8 @@
         }
       }
 
-      .views-field-su-event-location {
+      .views-field-su-event-location,
+      .views-field-su-event-address {
         >.map-icon:before {
           color: $sdss-color-white;
         }

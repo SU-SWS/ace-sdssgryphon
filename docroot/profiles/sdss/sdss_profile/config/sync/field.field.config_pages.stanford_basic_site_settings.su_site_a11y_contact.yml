@@ -11,7 +11,7 @@ entity_type: config_pages
 bundle: stanford_basic_site_settings
 label: 'Accessibility Contact Email'
 description: '<p>Please enter the email for the person(s) who are responsible for site content. (This may be the same as the Primary Site Manager in many cases.)</p>'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
