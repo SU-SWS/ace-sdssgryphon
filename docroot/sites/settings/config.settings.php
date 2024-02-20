@@ -9,7 +9,7 @@ use Acquia\Blt\Robo\Common\EnvironmentDetector;
 
 if (!EnvironmentDetector::isProdEnv()) {
   $config['domain_301_redirect.settings']['enabled'] = FALSE;
-//  $config['stanford_syndication.settings']['enabled'] = FALSE;
+  $config['stanford_syndication.settings']['enabled'] = FALSE;
 }
 
 // Set stage_file_proxy URL on non-production environments.
