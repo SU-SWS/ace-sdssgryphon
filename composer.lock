@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05868403177d89089eb098b93b13c9c5",
+    "content-hash": "f106cd56470875c4a5ee4b4f813efde9",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16474,19 +16474,18 @@
         },
         {
             "name": "su-sws/stanford_syndication",
-            "version": "1.x-dev",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_syndication.git",
-                "reference": "5965a276672f1d55aa2ce19ca0966c86661a8c8a"
+                "reference": "f05a90a71c209eb5591ede63b1ae9e5569ec7e20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_syndication/zipball/5965a276672f1d55aa2ce19ca0966c86661a8c8a",
-                "reference": "5965a276672f1d55aa2ce19ca0966c86661a8c8a",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_syndication/zipball/f05a90a71c209eb5591ede63b1ae9e5569ec7e20",
+                "reference": "f05a90a71c209eb5591ede63b1ae9e5569ec7e20",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "drupal-custom-module",
             "autoload": {
                 "psr-4": {
@@ -16500,9 +16499,9 @@
             "description": "Drupal module for connection to Syndication CMS systems",
             "support": {
                 "issues": "https://github.com/SU-SWS/stanford_syndication/issues",
-                "source": "https://github.com/SU-SWS/stanford_syndication/tree/1.x"
+                "source": "https://github.com/SU-SWS/stanford_syndication/tree/1.0.0-beta2"
             },
-            "time": "2023-09-22T15:56:04+00:00"
+            "time": "2024-02-12T20:08:26+00:00"
         },
         {
             "name": "symfony/config",
@@ -25774,7 +25773,6 @@
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
         "su-sws/earth_news_importer": 20,
-        "su-sws/stanford_syndication": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,
