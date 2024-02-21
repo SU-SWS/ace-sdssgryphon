@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc538f548cd3aeedcbc71255c91fa018",
+    "content-hash": "f106cd56470875c4a5ee4b4f813efde9",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16420,6 +16420,37 @@
                 "source": "https://github.com/SU-SWS/stanford_samlauth/tree/1.0.3"
             },
             "time": "2023-09-28T23:58:06+00:00"
+        },
+        {
+            "name": "su-sws/stanford_syndication",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SU-SWS/stanford_syndication.git",
+                "reference": "f05a90a71c209eb5591ede63b1ae9e5569ec7e20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_syndication/zipball/f05a90a71c209eb5591ede63b1ae9e5569ec7e20",
+                "reference": "f05a90a71c209eb5591ede63b1ae9e5569ec7e20",
+                "shasum": ""
+            },
+            "type": "drupal-custom-module",
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\stanford_syndication\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Drupal module for connection to Syndication CMS systems",
+            "support": {
+                "issues": "https://github.com/SU-SWS/stanford_syndication/issues",
+                "source": "https://github.com/SU-SWS/stanford_syndication/tree/1.0.0-beta2"
+            },
+            "time": "2024-02-12T20:08:26+00:00"
         },
         {
             "name": "symfony/config",

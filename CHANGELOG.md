@@ -1,6 +1,50 @@
 # ACE SDSSGryphon
 
-4.0.3
+4.2.0
+--------------------------------------------------------------------------------
+_Release Date: 2024-02-21_
+
+- 5d94fee3 (HEAD -> 4.x, origin/4.x) SDSS-812: SQUIZ | Add and enable Stanford Syndication module (#207)
+- d4f60062 Sdss 1070  button margins (#362)
+- f63bac6c (SDSS-835--fix-illegal-choice) SDSS-1166: Use service to load config sync storage (#366)
+- 1c2d26ce SDSS-1176 and SDSS-241: fixup to the cards when added to a green background (#351)
+- 6eaebd15 SDSS-1166: Added Media Mention field and displays to List paragraph (#346)
+- 789a4a94 SDSS-1172: Added sync-staging and show-sites BLT Commands (#363)
+- c486a94c SDSS-988: Fixed SDSS reviewer role (#361)
+- d1b0af1c SDSS-372: Open up metatag defaults for editing (#360)
+- 631cc0e5 SDSS-350: Added Room Reservation config_split and updated stanford_earth_r25 module (#340)
+- 8efba57e Merge branch '4.x' of github.com:SU-SWS/ace-sdssgryphon into 4.x
+- 1556baf8 Fixed example.local.sites.php.
+- 7d3ec988 SDSS-1129: Rename four-column layout to one-four-one (#359)
+- de0982df Added example.local.sites.php.
+- c20c9174 SDSS-1129: 4 column layout with a header and footer, an ibeam (#338)
+- 19e5e562 SDSS-1188: Linked Newsroom menu logo to /news page (#355)
+- f5085d56 SDSS-997: Remove local footer lockup and replace with SDSS logo (#357)
+- 865817f8 SDSS-000: Moved manage content menu link to bottom of content menu (#356)
+- 0cf66e6a SDSS-000: Updated stanford_layout_paragraphs patch to remove test.
+- 50ba8bf0 SDSS-000: Added patch to drop layout paragraph restrictions from stanford_layout_paragraphs (#358)
+- 22d85c6a SDSS-1170: Add region based paragraph restrictions for layout_paragraphs (#353)
+- 8597d70d SDSS-988: Added Reviewer role (#264)
+- 63b07130 SDSS-469: Removed lock-up options SDSS does not support (#277)
+- 93e9e465 SDSS-1183 | @jdwjdwjdw | Add padding to two-column editorial sidebar's with background colors (#354)
+- 757381df SDSS-1157: Circle backgrounds on News Spotlight. (#344)
+- c69bdbbd Update Card help text (#289)
+- 2bb66fc1 SDSS-1081: removed the margin from further up the tree (#350)
+- a8d31b6c SDSS-1134: Added Manage Content views and menu for key content types (#345)
+- 062a97e6 SDSS-1060: Removed featured media label from view (#287)
+- 9c04be27 SDSS-289: Enabled nesting on Shared Tags (#352)
+- 6dbddd31 SDSS-1173: Display Stanford site alias on Status Report page (#349)
+- b2588966 SDSS-985: Increased list paragraphs term depth (#313)
+- e1b42970 SDSS-1163: Provision sustainablemobility (#348)
+- f5df4b90 SDSS-1160: Provision environmentalsocialsci (#342)
+- d812eaa6 SDSS-846: fix the misspelled tabindex (#341)
+- f3ec990a SDSS-1076: Widening the max-width of site to 2000px (#315)
+- b529a2b4 SDSS-1135: Point eep alias to gep site (#337)
+- 7009187f Merge pull request #336 from SU-SWS/backtodev-4.1.1
+- c36e248b (origin/backtodev-4.1.1, backtodev-4.1.1) backtodev-4.1.1
+
+
+4.1.0
 --------------------------------------------------------------------------------
 _Release Date: 2023-12-13_
 

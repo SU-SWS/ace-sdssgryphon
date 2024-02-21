@@ -265,4 +265,5 @@ hidden:
   layout_builder__layout: true
   promote: true
   sticky: true
+  syndication: true
   unpublish_on: true
