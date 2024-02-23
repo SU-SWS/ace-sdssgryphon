@@ -77,7 +77,20 @@
   .su-card.su-news-vertical-teaser {
     .su-content__wrapper {
       .su-news-vertical-teaser__link {
-        @include link--action;
+
+        &:not(.su-link--external) {
+          &::after {
+            background-color: $sdss-color-white;
+          }
+
+          &:focus,
+          &:hover,
+          &:active {
+            &::after {
+              background-color:  $sdss-color-green-bright;
+            }
+          }
+        }
 
         color: $sdss-color-white;
 
