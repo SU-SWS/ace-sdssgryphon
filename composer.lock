@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c027f901ca1e13a5ef82875e3045080",
+    "content-hash": "8f2d0519ab5559af8f74df8db5ed3ae1",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5947,17 +5947,17 @@
         },
         {
             "name": "drupal/google_tag",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/google_tag.git",
-                "reference": "2.0.3"
+                "reference": "2.0.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/google_tag-2.0.3.zip",
-                "reference": "2.0.3",
-                "shasum": "c68d86cd7146f4b40e05ac5d737e4a9a59d19933"
+                "url": "https://ftp.drupal.org/files/projects/google_tag-2.0.4.zip",
+                "reference": "2.0.4",
+                "shasum": "a56bcdb566bf1af54dc0c8871eb720ba54f1392e"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10",
@@ -5975,8 +5975,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.3",
-                    "datestamp": "1708921893",
+                    "version": "2.0.4",
+                    "datestamp": "1709073204",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15956,33 +15956,29 @@
         },
         {
             "name": "seboettg/collection",
-            "version": "v4.0.0",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/seboettg/Collection.git",
-                "reference": "ca96a44ccfd66a68c8872e4bda603383600d1b94"
+                "reference": "6f753aef75923965173dcb11696e5dece0533f45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/seboettg/Collection/zipball/ca96a44ccfd66a68c8872e4bda603383600d1b94",
-                "reference": "ca96a44ccfd66a68c8872e4bda603383600d1b94",
+                "url": "https://api.github.com/repos/seboettg/Collection/zipball/6f753aef75923965173dcb11696e5dece0533f45",
+                "reference": "6f753aef75923965173dcb11696e5dece0533f45",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4"
+                "php": ">=7.3"
             },
             "require-dev": {
-                "ext-json": "*",
                 "php-coveralls/php-coveralls": "^1",
                 "phpunit/phpunit": "8.5.*"
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/Assert/Functions.php",
-                    "src/Lists/Functions.php",
-                    "src/Map/Functions.php",
-                    "src/Common/Functions.php"
+                    "src/ArrayList/Functions.php"
                 ],
                 "psr-4": {
                     "Seboettg\\Collection\\": "src/"
@@ -16017,9 +16013,9 @@
             ],
             "support": {
                 "issues": "https://github.com/seboettg/Collection/issues",
-                "source": "https://github.com/seboettg/Collection/tree/v4.0.0"
+                "source": "https://github.com/seboettg/Collection/tree/v3.1.0"
             },
-            "time": "2023-12-07T21:44:11+00:00"
+            "time": "2022-07-09T19:47:27+00:00"
         },
         {
             "name": "setasign/fpdi",
@@ -16591,20 +16587,21 @@
         },
         {
             "name": "su-sws/stanford_profile_helper",
-            "version": "9.4.1",
+            "version": "9.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_profile_helper.git",
-                "reference": "aee1267f3ca49707d3c067c3662b79b8d4b7b985"
+                "reference": "35d76455178d6efd06350e4c1e5ecd1f83f2d3e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/aee1267f3ca49707d3c067c3662b79b8d4b7b985",
-                "reference": "aee1267f3ca49707d3c067c3662b79b8d4b7b985",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/35d76455178d6efd06350e4c1e5ecd1f83f2d3e7",
+                "reference": "35d76455178d6efd06350e4c1e5ecd1f83f2d3e7",
                 "shasum": ""
             },
             "require": {
-                "drupal/layout_paragraphs": "^2.0"
+                "drupal/layout_paragraphs": "^2.0",
+                "seboettg/collection": "<4.0.0"
             },
             "replace": {
                 "drupal/response_code_condition": "1.1.0"
@@ -16684,9 +16681,9 @@
             ],
             "description": "Helper Module For Stanford Profile",
             "support": {
-                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/9.4.1"
+                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/9.4.2"
             },
-            "time": "2023-12-05T16:30:33+00:00"
+            "time": "2023-12-12T16:13:17+00:00"
         },
         {
             "name": "su-sws/stanford_samlauth",
