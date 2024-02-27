@@ -64,6 +64,26 @@
 
         margin-bottom: .5rem;
       }
+
+      a {
+        @include sdss-link--primary;
+
+        &.su-link--external {
+          &::after {
+            background-color: $sdss-color-green-link;
+            height: 1.5rem;
+            width: 1.5rem;
+          }
+
+          &:hover,
+          &:focus,
+          &:active {
+            &::after {
+              background-color: $sdss-color-black;
+            }
+          }
+        }
+      }
     }
 
     .news-vertical-teaser__source {
