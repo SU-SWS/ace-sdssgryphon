@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3297e33866d83e20232807c681fb5ed4",
+    "content-hash": "b17eba25d08aab249022b28a96c053fb",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16587,20 +16587,19 @@
         },
         {
             "name": "su-sws/stanford_profile_helper",
-            "version": "dev-add-graphql-compose-dependency",
+            "version": "9.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_profile_helper.git",
-                "reference": "293200458f2d8d2e16d4eeb811b0e2f65519357c"
+                "reference": "f2d957a45fb234f64b695343a294dab91b9a165c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/293200458f2d8d2e16d4eeb811b0e2f65519357c",
-                "reference": "293200458f2d8d2e16d4eeb811b0e2f65519357c",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_profile_helper/zipball/f2d957a45fb234f64b695343a294dab91b9a165c",
+                "reference": "f2d957a45fb234f64b695343a294dab91b9a165c",
                 "shasum": ""
             },
             "require": {
-                "drupal/graphql_compose": "^2.0",
                 "drupal/layout_paragraphs": "^2.0",
                 "seboettg/collection": "~3.1"
             },
@@ -16683,9 +16682,9 @@
             ],
             "description": "Helper Module For Stanford Profile",
             "support": {
-                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/add-graphql-compose-dependency"
+                "source": "https://github.com/SU-SWS/stanford_profile_helper/tree/9.5.1"
             },
-            "time": "2024-02-27T20:35:38+00:00"
+            "time": "2024-02-15T20:52:50+00:00"
         },
         {
             "name": "su-sws/stanford_samlauth",
@@ -25871,7 +25870,6 @@
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
         "su-sws/earth_news_importer": 20,
-        "su-sws/stanford_profile_helper": 20,
         "su-sws/blt-sws": 20
     },
     "prefer-stable": true,
