@@ -286,6 +286,26 @@
       }
     }
   }
+
+  .su-news-vertical-teaser {
+    &.su-card {
+      .su-card__contents {
+        a {
+          &.su-link--external {
+            &::after {
+              background-color: $sdss-color-green-bright;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+              &::after {
+                background-color: $sdss-color-white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
-
-
