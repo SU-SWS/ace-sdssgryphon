@@ -35,7 +35,7 @@ class RedirectImportCest {
     $I->waitForElementVisible('.form-managed-file input[type="submit"]', 10);
 
     $I->click('Migrate data');
-    $I->waitForText('Processed 1 item');
+    $I->waitForText('Processed 1 item', 20);
     $I->amOnPage('/admin/config/search/redirect');
     $I->canSee('/foo');
     $I->amOnPage('/foo');

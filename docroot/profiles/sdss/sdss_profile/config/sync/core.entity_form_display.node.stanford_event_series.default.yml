@@ -208,6 +208,7 @@ hidden:
   path: true
   promote: true
   sticky: true
+  syndication: true
   uid: true
   unpublish_on: true
   url_redirects: true
