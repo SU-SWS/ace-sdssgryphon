@@ -27,8 +27,6 @@
       <!-- Exclude the earth_news_importer custom module. This module will be
        removed. -->
       <directory>../modules/custom/earth_news_importer</directory>
-      <!-- Exclude the stanford_syndication custom module for now. -->
-      <directory>../modules/custom/stanford_syndication</directory>
     </exclude>
   </coverage>
   <!-- set printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter" once
@@ -75,6 +73,8 @@
       <directory>../modules/custom</directory>
       <!-- <directory>../profiles/custom</directory> -->
       <directory>../profiles/sdss</directory>
+      <!-- Exclude the stanford_syndication custom module tests for now. -->
+      <exclude>../modules/custom/stanford_syndication</exclude>
     </testsuite>
   </testsuites>
   <listeners>
