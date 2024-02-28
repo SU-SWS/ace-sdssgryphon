@@ -73,6 +73,8 @@
       <directory>../modules/custom</directory>
       <!-- <directory>../profiles/custom</directory> -->
       <directory>../profiles/sdss</directory>
+      <!-- Exclude the stanford_syndication custom module tests for now. -->
+      <exclude>../modules/custom/stanford_syndication</exclude>
     </testsuite>
   </testsuites>
   <listeners>
