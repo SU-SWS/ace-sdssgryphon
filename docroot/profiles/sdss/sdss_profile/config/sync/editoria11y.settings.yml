@@ -8,3 +8,4 @@ download_links: ''
 hidden_handlers: ''
 _core:
   default_config_hash: 8d0nv-vvXs9MZkqD1mhxm8mPeF4yF9fqLLIcVp4cnLQ
+link_ignore_selector: 'svg.ext, svg.mailto, .link-purpose-text'

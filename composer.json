@@ -118,6 +118,7 @@
         "drupal/fontawesome": "^2.19",
         "drupal/google_analytics": "^4.0",
         "drupal/google_tag": "^2.0",
+        "drupal/graphql_compose": "^2.0",
         "drupal/hook_event_dispatcher": "^4.0@beta",
         "drupal/image_effects": "^3.2",
         "drupal/imagemagick": "^3.1",
@@ -151,7 +152,7 @@
         "drupal/page_cache_query_ignore": "^2.2",
         "drupal/page_manager": "^4.0@beta",
         "drupal/paragraphs": "^1.11",
-        "drupal/paragraphs_edit": "^2.0@alpha",
+        "drupal/paragraphs_edit": "^3.0",
         "drupal/paranoia": "^1.9",
         "drupal/path_redirect_import": "^2.0",
         "drupal/pathauto": "^1.6",
@@ -190,6 +191,7 @@
         "onlyextart/colorbox": "dev-master#e58476becbc89dc671093d1bcd9f99b2167fa8f7",
         "sainsburys/guzzle-oauth2-plugin": "^3.0",
         "seboettg/citeproc-php": "2.4.1",
+        "seboettg/collection": "<4.0.0",
         "stanford-earth/stanford_earth_r25": "^8.1",
         "su-sws/ckeditor5_plugins": "^1.0",
         "su-sws/drupal-patches": "^10.0",
@@ -199,8 +201,9 @@
         "su-sws/stanford_fields": "^8.2",
         "su-sws/stanford_media": "^10.0",
         "su-sws/stanford_migrate": "^8.3",
-        "su-sws/stanford_profile_helper": "^9.3",
-        "su-sws/stanford_samlauth": "^1.0"
+        "su-sws/stanford_profile_helper": "<9.5.0",
+        "su-sws/stanford_samlauth": "^1.0",
+        "su-sws/stanford_syndication": "^1.0"
     },
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
@@ -316,9 +319,6 @@
             "drupal/paranoia": {
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"
             },
-            "drupal/path_redirect_import": {
-                "https://www.drupal.org/project/path_redirect_import/issues/3373025": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
-            },
             "drupal/taxonomy_entity_index": {
                 "Fix PHP 8 strict error with arrays": "patches/contrib/taxonomy_entity_index.patch"
             },
@@ -326,7 +326,8 @@
                 "Ui Patterns Views Fixes": "patches/contrib/ui_patterns_views-preview.patch"
             },
             "su-sws/stanford_profile_helper": {
-                "Remove paragraph layout restrictions from stanford_layout_paragraphs": "patches/stanford/stanford_layout_paragraphs.patch"
+                "Remove paragraph layout restrictions from stanford_layout_paragraphs": "patches/stanford/stanford_layout_paragraphs.patch",
+                "Fix bookapa test": "patches/stanford/stanford_publication_apatest.patch"
             }
         }
     },

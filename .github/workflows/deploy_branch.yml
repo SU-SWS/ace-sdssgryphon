@@ -16,7 +16,7 @@ jobs:
       DRUPAL_DATABASE_PASSWORD: drupal
       DRUPAL_DATABASE_HOST: mysql
     container:
-      image: pookmish/drupal8ci:8.1
+      image: pookmish/drupal8ci:latest
     steps:
       - uses: actions/checkout@v3
       - name: Restore Cache
@@ -27,11 +27,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-20231130-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-20240206-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-20231130-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-20231130-${{ hashFiles('composer.json') }}-
-            4.x-20231130-
+            4.x-20240206-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-20240206-${{ hashFiles('composer.json') }}-
+            4.x-20240206-
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
