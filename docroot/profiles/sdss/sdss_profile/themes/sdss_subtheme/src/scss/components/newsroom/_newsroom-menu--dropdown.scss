@@ -72,7 +72,7 @@
       ul[open=true] {
         grid-template-rows: 1fr 1fr 1fr;
 
-        li:last-child > div {
+        li:nth-last-child(-n+2) > div {
           border: 1px solid $sdss-color-blue-bright;
           border-radius: 40px;
           padding: 0 56px;
