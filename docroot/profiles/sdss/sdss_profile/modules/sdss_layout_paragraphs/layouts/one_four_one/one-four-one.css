@@ -1,7 +1,3 @@
-.layout__region.layout__region--bottom {
-  padding-bottom: 7.2rem;
-}
-
 /*
 Breakpoint widths used in designs.
 XXL - 2000px
@@ -16,10 +12,10 @@ XS 390px
 /* For a max of med */
 .layout--layout-paragraphs-one-four-one {
   display: block;
+}
 
-  .su-wysiwyg-text h2 {
-    padding-top: 0;
-  }
+.layout__region.layout__region--bottom > div {
+  padding-bottom: 7.2rem;
 }
 
 .layout--layout-paragraphs-one-four-one .su-wysiwyg-text h2 {
