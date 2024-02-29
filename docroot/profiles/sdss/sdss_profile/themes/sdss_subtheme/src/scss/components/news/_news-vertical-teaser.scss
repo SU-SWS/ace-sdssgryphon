@@ -9,7 +9,7 @@
       @include responsive-spacing('margin-bottom', 1);
     }
 
-    @include grid-media-max('md') {
+    @include grid-media-max('sm') {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -26,7 +26,8 @@
 
         img,
         picture {
-          aspect-ratio: 2/2;
+          aspect-ratio: 1/1;
+          object-fit: cover;
         }
       }
     }
@@ -77,27 +78,59 @@
 
       a {
         @include sdss-link--primary;
-        @include type-e;
 
-        font-weight: $su-font-regular;
-        text-decoration: none;
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
 
-    .su-news-vertical-teaser__link,
-    .su-link,
-    .su-card__link,
-    .su-link--external {
-      h2 {
-        @include sdss-news-link--primary;
-        @include type-b;
+    .su-content__wrapper {
+      .su-news-vertical-teaser__link {
+
+        &:not(.su-link--external) {
+          @include link--action;
+
+          &::after {
+            background-color: $su-color-black;
+            height: 0.9em;
+            width: 0.9em;
+          }
+
+          &:focus,
+          &:hover,
+          &:active {
+            &::after {
+              background-color:  $sdss-color-palo-alto-dark;
+            }
+          }
+        }
 
         color: $su-color-black;
-        display: inline;
-      }
 
-      &:focus {
-        text-decoration: underline;
+        &::after {
+          background-color: $su-color-black;
+          height: 0.9em;
+          width: 0.9em;
+        }
+
+        &:focus,
+        &:hover,
+        &:active {
+          color:  $sdss-color-palo-alto-dark;
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+
+          &::after {
+            background-color:  $sdss-color-palo-alto-dark;
+          }
+        }
+        
+        h2 {
+          @include type-b;
+          display: inline;
+          color: unset;
+        }
       }
     }
 
@@ -122,15 +155,4 @@
 
 .news-vertical-teaser__ext-link {
   display: none;
-}
-
-.su-news-vertical-teaser {
-  a {
-    &.su-link--external {
-      &::after {
-        height: 1em;
-        width: 1em;
-      }
-    }
-  }
 }

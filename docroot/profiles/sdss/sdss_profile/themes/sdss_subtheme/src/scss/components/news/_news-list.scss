@@ -8,10 +8,14 @@
 
       text-decoration: none;
 
-      &:hover {
-        >h2 {
-          color: $sdss-color-black;
-        }
+      &:focus,
+      &:hover,
+      &:active {
+        text-decoration-thickness: 2px;
+      }
+
+      h2 {
+        color: unset;
       }
     }
   }
