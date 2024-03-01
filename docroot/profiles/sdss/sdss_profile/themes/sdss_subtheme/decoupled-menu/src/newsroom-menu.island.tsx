@@ -220,7 +220,7 @@ export const NewsroomMenu = ({}) => {
           <SearchContainer>
             <a href="/news/search">
               <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
-              Search news & research
+              Search all news
             </a>
           </SearchContainer>
           {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
