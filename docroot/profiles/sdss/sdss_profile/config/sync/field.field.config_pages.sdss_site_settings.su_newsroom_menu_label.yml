@@ -1,0 +1,21 @@
+uuid: b9ed007a-3e50-462e-93d6-374c96b9cc84
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.sdss_site_settings
+    - field.storage.config_pages.su_newsroom_menu_label
+id: config_pages.sdss_site_settings.su_newsroom_menu_label
+field_name: su_newsroom_menu_label
+entity_type: config_pages
+bundle: sdss_site_settings
+label: 'Newsroom Menu Label'
+description: 'Change the title of the Newsroom menu.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 'News & Research'
+default_value_callback: ''
+settings: {  }
+field_type: string

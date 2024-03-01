@@ -18,13 +18,13 @@ provider: null
 plugin: 'menu_block:newsroom'
 settings:
   id: 'menu_block:newsroom'
-  label: 'News & Research'
+  label: News
   label_display: visible
   provider: menu_block
   follow: false
   follow_parent: child
   label_link: false
-  label_type: menu
+  label_type: block
   level: 1
   depth: 0
   expand_all_items: false

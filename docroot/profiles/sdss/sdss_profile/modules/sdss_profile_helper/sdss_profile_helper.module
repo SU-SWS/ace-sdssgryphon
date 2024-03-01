@@ -4,3 +4,17 @@
  * @file
  * Contains sdss_profile_helper.module.
  */
+
+use Drupal\menu_block\Plugin\Block\MenuBlock;
+
+/**
+ * Implements hook_block_view_BASE_BLOCK_ID_alter().
+ */
+function sdss_profile_helper_block_view_menu_block_alter(array &$build, MenuBlock $menu_block) {
+  /** @var \Drupal\config_pages\ConfigPagesLoaderServiceInterface $config_pages */
+  $config_pages = \Drupal::service('config_pages.loader');
+  $newsroom_menu_label = $config_pages->getValue('sdss_site_settings', 'su_newsroom_menu_label', 0, 'value');
+  if ($newsroom_menu_label) {
+    $menu_block->setConfigurationValue('label', t('@label', ['@label' => $newsroom_menu_label]));
+  }
+}

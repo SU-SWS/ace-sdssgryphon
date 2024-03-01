@@ -4,12 +4,21 @@ status: true
 dependencies:
   config:
     - config_pages.type.sdss_site_settings
+    - field.field.config_pages.sdss_site_settings.su_newsroom_menu_label
     - field.field.config_pages.sdss_site_settings.su_sdss_newsroom_menu
 id: config_pages.sdss_site_settings.default
 targetEntityType: config_pages
 bundle: sdss_site_settings
 mode: default
 content:
+  su_newsroom_menu_label:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   su_sdss_newsroom_menu:
     type: boolean_checkbox
     weight: 22
