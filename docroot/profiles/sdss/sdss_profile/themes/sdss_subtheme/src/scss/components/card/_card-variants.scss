@@ -102,7 +102,8 @@
     .su-card__contents {
       p a,
       h2 a,
-      .su-link--action {
+      .su-link--action,
+      a.su-link--external {
         color: $su-color-white;
 
         &:hover,
@@ -138,9 +139,30 @@
         }
       }
     }
+
     .su-news-header {
       .news-vertical-teaser__pub-date {
         color: $su-color-white;
+      }
+    }
+
+    .su-card__contents {
+      a.su-link--external {
+        color: $su-color-white;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-green-bright;
+
+          &::after {
+            background-color: $sdss-color-green-bright;
+          }
+        }
+
+        &::after {
+          background-color: $su-color-white;
+        }
       }
     }
   }
