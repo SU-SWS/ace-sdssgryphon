@@ -3320,7 +3320,7 @@ display:
     position: 3
     display_options:
       display_extenders: {  }
-      display_description: 'Vertical cards display that excludes all news items that are flagged as media mentions with Load More'
+      display_description: 'Vertical cards display that excludes all news items that are flagged as media mentions and provides a Load More'
       arguments:
         term_node_taxonomy_name_depth:
           id: term_node_taxonomy_name_depth
