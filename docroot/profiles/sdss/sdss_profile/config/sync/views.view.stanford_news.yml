@@ -3436,7 +3436,7 @@ display:
             previous: '‹ Previous'
             next: 'Next ›'
           expose:
-            items_per_page: 1
+            items_per_page: 0
             items_per_page_label: 'Items per page'
             items_per_page_options: '12, 20, 24, 30, 48'
             items_per_page_options_all: 0
@@ -3555,7 +3555,7 @@ display:
         groups:
           1: AND
       allow:
-        items_per_page: items_per_page
+        items_per_page: 0
     cache_metadata:
       max-age: -1
       contexts:
