@@ -4,39 +4,29 @@
 #block-sdss-subtheme-newsresearch {
 
     .menu {
-        display: flex;
-        flex-direction: row;
-        -moz-box-pack: end;
-        justify-content: flex-end;
-        background: transparent;
-        padding: 0;
-        position: unset;
+        display: inline-block;
         font-size: 18px;
-        width: 100%;
         margin: 0 auto;
         height: unset;
         list-style: none;
+        width: max-content;
 
         > .menu-item {
-            padding: 0 25px 10px 0;
-            width: fit-content;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             display: inline-block;
+            padding: 0 25px 10px 0;
+            vertical-align: text-top;
             
             span {
-                font-weight: $su-font-semi-bold;
                 color: rgb(21, 95, 101);
+                font-weight: $su-font-semi-bold;
             }
 
             &.menu-item--expanded {
                 >ul {
-                    display: flex;
-                    flex-wrap: wrap;
+                    display: block;
+                    width: 400px;
 
                     li.menu-item {
-                        flex: 1 1 100px;
                         margin-right: 20px;
                         padding-right: 0;
                     }
