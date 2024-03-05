@@ -77,6 +77,7 @@ div {
     .button {
       @include sdss-button--primary;
       @include responsive-spacing('padding', null 1 -2 1);
+      @include responsive-spacing('margin-top', 3);
 
       padding-top: .375em;
     }
