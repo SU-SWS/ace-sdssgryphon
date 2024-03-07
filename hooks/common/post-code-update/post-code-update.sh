@@ -27,6 +27,6 @@ repo_root="/var/www/html/$site.$target_env"
 export PATH=$repo_root/vendor/bin:$PATH
 cd $repo_root
 
-blt sws:post-code-deploy $target_env $deployed_tag
+blt sws:post-code-update $target_env $deployed_tag
 
 set +v
