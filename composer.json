@@ -193,7 +193,7 @@
         "seboettg/citeproc-php": "2.4.1",
         "seboettg/collection": "<4.0.0",
         "stanford-earth/stanford_earth_r25": "^8.1",
-        "su-sws/blt-sws": "main-dev",
+        "su-sws/blt-sws": "dev-main",
         "su-sws/ckeditor5_plugins": "^1.0",
         "su-sws/drupal-patches": "^10.0",
         "su-sws/earth_news_importer": "1.x-dev",
