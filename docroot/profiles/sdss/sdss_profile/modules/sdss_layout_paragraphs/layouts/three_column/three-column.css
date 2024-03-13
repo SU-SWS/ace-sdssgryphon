@@ -54,7 +54,10 @@
     margin: 0;
     padding-left: 10rem;
     padding-right: 10rem;
+    max-width: none;
   }
+
+
 
   .flex-lg-9-of-12 .layout--layout-paragraphs-three-column {
     margin: 0;
