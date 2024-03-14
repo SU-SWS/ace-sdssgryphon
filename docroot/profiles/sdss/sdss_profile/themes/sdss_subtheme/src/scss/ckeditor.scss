@@ -25,4 +25,8 @@
 // acceptable amount of bloat for maintaining styles automatically.
 body {
   @extend .su-wysiwyg-text;
+
+  .form-wrapper p {
+    font-size: inherit;
+  }
 }
