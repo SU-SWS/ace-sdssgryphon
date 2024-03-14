@@ -4,4 +4,5 @@ adding:
       - stanford_earth_r25
   permissions:
     - 'book r25 rooms'
+    - 'view r25 room calendars'
 removing: {  }
