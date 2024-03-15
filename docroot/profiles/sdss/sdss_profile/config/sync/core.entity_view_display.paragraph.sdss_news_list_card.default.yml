@@ -1,0 +1,64 @@
+uuid: 43dc6c04-96ef-4445-98c3-7103723d648b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sdss_news_list_card.su_news_card_button
+    - field.field.paragraph.sdss_news_list_card.su_news_card_headline
+    - field.field.paragraph.sdss_news_list_card.su_news_card_links
+    - paragraphs.paragraphs_type.sdss_news_list_card
+  module:
+    - element_class_formatter
+    - empty_fields
+    - field_formatter_class
+    - stanford_fields
+id: paragraph.sdss_news_list_card.default
+targetEntityType: paragraph
+bundle: sdss_news_list_card
+mode: default
+content:
+  su_news_card_button:
+    type: link_class
+    label: hidden
+    settings:
+      class: su-button
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 2
+    region: content
+  su_news_card_headline:
+    type: entity_title_heading
+    label: hidden
+    settings:
+      tag: h2
+      linked: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+  su_news_card_links:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

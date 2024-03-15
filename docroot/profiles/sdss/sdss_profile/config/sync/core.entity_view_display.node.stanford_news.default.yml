@@ -348,6 +348,9 @@ third_party_settings:
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
+      - Devel
+      - 'Devel PHP'
+      - Editoria11y
       - 'Events Lists (Views)'
       - Forms
       - Help
@@ -362,12 +365,12 @@ third_party_settings:
       - Printable
       - 'Publication (Views)'
       - React
-      - 'SimpleSAMLphp Authentication'
       - 'Stanford News'
       - 'Stanford Profile Helper'
-      - 'Stanford SimpleSAML PHP'
+      - 'Stanford SAML Authentication'
       - System
       - 'Taxonomy Terms (Views)'
+      - User
       - Views
       - core
     entity_view_mode_restriction:
@@ -437,16 +440,19 @@ third_party_settings:
         - 'Changelog (Views)'
         - 'Chaos Tools'
         - 'Config Pages'
+        - Devel
+        - 'Devel PHP'
+        - Editoria11y
         - Forms
         - Help
         - 'Lists (Views)'
         - 'Policy (Views)'
         - Printable
         - React
-        - 'SimpleSAMLphp Authentication'
         - 'Stanford Profile Helper'
-        - 'Stanford SimpleSAML PHP'
+        - 'Stanford SAML Authentication'
         - 'Taxonomy Terms (Views)'
+        - User
         - Views
   layout_library:
     enable: false

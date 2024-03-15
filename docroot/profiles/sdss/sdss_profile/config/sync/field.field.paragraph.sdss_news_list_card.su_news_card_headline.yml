@@ -1,0 +1,19 @@
+uuid: c6dd9ea1-2216-4f1c-bb12-4d8ec7644bbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_news_card_headline
+    - paragraphs.paragraphs_type.sdss_news_list_card
+id: paragraph.sdss_news_list_card.su_news_card_headline
+field_name: su_news_card_headline
+entity_type: paragraph
+bundle: sdss_news_list_card
+label: Headline
+description: 'This headline will appear above the news items.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

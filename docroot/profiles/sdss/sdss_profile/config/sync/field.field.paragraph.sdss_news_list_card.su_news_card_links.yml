@@ -1,0 +1,29 @@
+uuid: b76d8c04-d843-44d9-87e3-bccf0e3cfa3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_news_card_links
+    - node.type.stanford_news
+    - paragraphs.paragraphs_type.sdss_news_list_card
+id: paragraph.sdss_news_list_card.su_news_card_links
+field_name: su_news_card_links
+entity_type: paragraph
+bundle: sdss_news_list_card
+label: 'News Item(s)'
+description: 'Start typing the title of the news article to select it. You can add multiple items.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      stanford_news: stanford_news
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
