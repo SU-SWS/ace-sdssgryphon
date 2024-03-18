@@ -64,34 +64,7 @@
     }
 
     a {
-      background: $sdss-color-blue-bright;
-      color: $sdss-color-palo-alto-dark;
-      border: 1px solid $sdss-color-blue-hover;
-
-      &::after {
-        font-family: "Font Awesome 5 Free";
-        content: '\f061';
-        font-weight: 600;
-        background-color: transparent;
-        color: $sdss-color-palo-alto-dark;
-        padding-left: 1.1rem;
-        display: inline-block;
-      }
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: $su-color-white;
-        background: $sdss-color-green-link;
-        border-color: $sdss-color-green-link;
-
-        &::after {
-          transition: background-color .25s ease-in-out, color .25s ease-in-out, border-color .25s ease-in-out;
-          background-color: transparent;
-          color: $su-color-white;
-          text-decoration: none;
-        }
-      }
+      @include sdss-button-graphic-blue--light;
     }
   }
 }
@@ -118,31 +91,13 @@
 
     .su-news-card-button {
       a {
-        border: 1px solid $sdss-color-blue-bright;
-        color: $su-color-white;
-        background-color: transparent;
-
-        &::after {
-          color: $su-color-white;
-        }
-
-        &:hover,
-        &:focus,
-        &:active {
-          background-color: $sdss-color-green-link;
-          border-color: $sdss-color-green-link;
-        }
-        
-        &:focus {
-          padding: .375em 2rem .8rem;
-          outline: 3px solid $sdss-color-green-bright;
-        }
+        @include sdss-button-graphic-blue--dark;
       }
     }
   }
 }
 
-// Center in one-col layout
+// Center one-col layout
 .layout-paragraphs-sdss-one-column {
   .paragraph--type--sdss-news-list-card {
     @include centered-column;
