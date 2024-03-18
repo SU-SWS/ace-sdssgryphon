@@ -1,17 +1,16 @@
 @charset "UTF-8";
 
+// News List Card paragraph type
 .paragraph--type--sdss-news-list-card {
   padding: 3.2rem 3.2rem 3.4rem 3.2rem;
   border: 1px solid $su-color-black-20;
+  container-type: inline-size;
 
   @include grid-media-min('md') {
     padding: 4.5rem 4.5rem 5.8rem 4.5rem;
   }
 
   h2 {
-    // @include type-b;
-    // @include type-c;
-    // @include type-d;
     @include sdss-h5;
     font-weight: 600;
   }
@@ -29,7 +28,7 @@
       @include responsive-spacing('margin-bottom', 2);
     }
   }
-  
+
   .su-sdss-news-news-source {
     font-size: 1.5rem;
     color: $su-color-black-70;
@@ -57,8 +56,95 @@
     }
   }
 
-  .su-button {
+  .su-news-card-button {
+    text-align: center;
 
+    @container (min-width: 1200px) {
+      text-align: unset;
+    }
+
+    a {
+      background: $sdss-color-blue-bright;
+      color: $sdss-color-palo-alto-dark;
+      border: 1px solid $sdss-color-blue-hover;
+
+      &::after {
+        font-family: "Font Awesome 5 Free";
+        content: '\f061';
+        font-weight: 600;
+        background-color: transparent;
+        color: $sdss-color-palo-alto-dark;
+        padding-left: 1.1rem;
+        display: inline-block;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $su-color-white;
+        background: $sdss-color-green-link;
+        border-color: $sdss-color-green-link;
+
+        &::after {
+          transition: background-color .25s ease-in-out, color .25s ease-in-out, border-color .25s ease-in-out;
+          background-color: transparent;
+          color: $su-color-white;
+          text-decoration: none;
+        }
+      }
+    }
   }
+}
 
+// Green background layout
+.layout-paragraphs-sdss-bgcolor--green {
+  .paragraph--type--sdss-news-list-card {
+    .su-sdss-news-news-source {
+      color: $su-color-white;
+    }
+
+    .node-title {
+      a {
+        color: $su-color-white;
+        font-weight: 600;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $sdss-color-green-bright;
+        }
+      }
+    }
+
+    .su-news-card-button {
+      a {
+        border: 1px solid $sdss-color-blue-bright;
+        color: $su-color-white;
+        background-color: transparent;
+
+        &::after {
+          color: $su-color-white;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $sdss-color-green-link;
+          border-color: $sdss-color-green-link;
+        }
+        
+        &:focus {
+          padding: .375em 2rem .8rem;
+          outline: 3px solid $sdss-color-green-bright;
+        }
+      }
+    }
+  }
+}
+
+// Center in one-col layout
+.layout-paragraphs-sdss-one-column {
+  .paragraph--type--sdss-news-list-card {
+    @include centered-column;
+  }
 }
