@@ -149,17 +149,17 @@
     .ds-entity--stanford-publication {
       .su-card__contents {
         > h2 {
-          div a {
+           a {
             color: $su-color-white;
 
             &:hover,
             &:focus,
             &:active {
-              color: sdss-color-green-link;
+              color: $sdss-color-green-bright;
               text-decoration: underline;
 
               &::after {
-                background-color: sdss-color-green-link;
+                background-color: $sdss-color-green-bright;
               }
             }
 
