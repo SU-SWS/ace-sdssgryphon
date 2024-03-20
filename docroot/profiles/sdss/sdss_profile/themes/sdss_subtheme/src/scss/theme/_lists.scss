@@ -20,6 +20,24 @@
           @include sdss-link--primary;
 
           font-weight: $su-font-regular;
+
+          &::after {
+            height: 2.0rem;
+            width: 2.0rem;
+
+            @include grid-media-min('lg') {
+              height: 2.5rem;
+              width: 2.5rem;
+            }
+          }
+        }
+      }
+
+      .su-publication-topics {
+        a {
+          @include sdss-link--primary;
+
+          font-weight: $su-font-regular;
         }
       }
 
