@@ -14,6 +14,14 @@ XS 390px
   display: block;
 }
 
+.layout--layout-paragraphs-one-four-one .content-well {
+  padding: 5rem 0;
+}
+
+.layout--layout-paragraphs-one-four-one .content-well .layout__region--column:not(:last-child) {
+  margin-bottom: 4rem;
+}
+
 .layout__region.layout__region--bottom > div {
   padding-bottom: 7.2rem;
 }
@@ -39,6 +47,10 @@ XS 390px
     gap: 4rem;
     grid-template-columns: repeat(4, 1fr);
     padding: 7.2rem 0;
+  }
+
+  .layout--layout-paragraphs-one-four-one .content-well .layout__region--column:not(:last-child) {
+    margin-bottom: unset;
   }
 }
 

@@ -348,8 +348,6 @@ third_party_settings:
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
-      - Devel
-      - 'Devel PHP'
       - Editoria11y
       - 'Events Lists (Views)'
       - Forms
@@ -440,8 +438,6 @@ third_party_settings:
         - 'Changelog (Views)'
         - 'Chaos Tools'
         - 'Config Pages'
-        - Devel
-        - 'Devel PHP'
         - Editoria11y
         - Forms
         - Help
