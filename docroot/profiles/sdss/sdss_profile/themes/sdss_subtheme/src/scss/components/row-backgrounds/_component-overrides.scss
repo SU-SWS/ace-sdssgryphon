@@ -145,7 +145,37 @@
     }
   }
 
-  .paragraph--type--stanford-entity {
+  .stanford-shared-tags {
+    .ds-entity--stanford-publication {
+      .su-card__contents {
+        > h2 {
+          div a {
+            color: $su-color-white;
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: sdss-color-green-link;
+              text-decoration: underline;
+
+              &::after {
+                background-color: sdss-color-green-link;
+              }
+            }
+
+            &::after {
+              background-color: $sdss-color-white;
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+
+  .paragraph--type--stanford-entity,
+  .stanford-shared-tags {
     .ds-entity--stanford-publication {
       .su-card__contents {
         .su-publication-topics {
@@ -159,6 +189,9 @@
               text-decoration: underline;
             }
           }
+        }
+        span {
+          color: $su-color-white;
         }
         .stanford-publication.node-title {
           a {

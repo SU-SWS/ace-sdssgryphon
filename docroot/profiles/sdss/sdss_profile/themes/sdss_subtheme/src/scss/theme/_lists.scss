@@ -10,6 +10,30 @@
   }
 }
 
+.stanford-shared-tags {
+  .ds-entity--stanford-publication {
+    .su-card__contents {
+      > h2 {
+        @include sdss-h3;
+
+        a {
+          @include sdss-link--primary;
+
+          font-weight: $su-font-regular;
+        }
+      }
+
+      > span {
+        @include type-e;
+
+        text-transform: none;
+        font-weight: 600;
+        color: $su-color-black-70;
+      }
+    }
+  }
+}
+
 // Button spacing on lists
 // adding the spacing.
 .stanford-lists.su-list-button {
