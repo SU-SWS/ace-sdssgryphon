@@ -52,6 +52,49 @@
   }
 }
 
+// Teaser
+.paragraph--type--stanford-entity {
+  .ds-entity--stanford-publication {
+    .su-card__contents {
+      > h2 {
+        @include sdss-h3;
+
+        a {
+          @include sdss-link--primary;
+
+          font-weight: $su-font-regular;
+
+          &::after {
+            height: 2.0rem;
+            width: 2.0rem;
+
+            @include grid-media-min('lg') {
+              height: 2.5rem;
+              width: 2.5rem;
+            }
+          }
+        }
+      }
+
+      .su-publication-topics {
+        a {
+          @include sdss-link--primary;
+
+          font-weight: $su-font-regular;
+        }
+      }
+
+      > span {
+        @include type-e;
+
+        text-transform: none;
+        font-weight: 600;
+        color: $su-color-black-70;
+      }
+    }
+  }
+}
+
 // Button spacing on lists
 // adding the spacing.
 .stanford-lists.su-list-button {
