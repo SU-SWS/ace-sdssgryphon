@@ -205,50 +205,14 @@
     }
   }
 
+  // Fallback color when images are turned off.
   .paragraph--type--stanford-entity {
-    .ds-entity--stanford-publication {
-      .su-card__contents {
-        .su-publication-topics {
-          a {
-            color: $su-color-white;
-
-            &:hover,
-            &:focus,
-            &:active {
-              color: $sdss-color-white;
-              text-decoration: underline;
-            }
-          }
-        }
-
-        span {
-          color: $su-color-white;
-        }
-
-        > h2 {
-          a {
-            color: $sdss-color-white;
-
-            &::after {
-              background-color: $sdss-color-white;
-              width: 2.5rem;
-              height: 2.5rem;
-            }
-
-            &:hover,
-            &:focus,
-            &:active {
-              color: $sdss-color-white;
-              text-decoration: underline;
-
-              &::after {
-                background-color: $sdss-color-white;
-              }
-            }
-          }
-        }
+    .su-entity-item {
+      a {
+        color: $su-color-white;
       }
     }
   }
+  
 }
 
