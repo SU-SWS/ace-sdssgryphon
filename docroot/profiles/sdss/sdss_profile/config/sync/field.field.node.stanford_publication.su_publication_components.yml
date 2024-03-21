@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.su_publication_components
     - node.type.stanford_publication
+    - paragraphs.paragraphs_type.sdss_news_list_card
     - paragraphs.paragraphs_type.stanford_banner
     - paragraphs.paragraphs_type.stanford_card
     - paragraphs.paragraphs_type.stanford_entity
@@ -35,12 +36,25 @@ settings:
       stanford_entity: stanford_entity
       stanford_gallery: stanford_gallery
       stanford_layout: stanford_layout
+      sdss_news_list_card: sdss_news_list_card
       stanford_lists: stanford_lists
       stanford_media_caption: stanford_media_caption
       stanford_spacer: stanford_spacer
       stanford_wysiwyg: stanford_wysiwyg
     negate: 0
     target_bundles_drag_drop:
+      callout_quote:
+        weight: 17
+        enabled: false
+      editorial_sidebar:
+        weight: 18
+        enabled: false
+      sdss_news_list_card:
+        weight: 19
+        enabled: true
+      sdss_spotlight:
+        weight: 20
+        enabled: false
       stanford_accordion:
         weight: 13
         enabled: false

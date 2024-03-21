@@ -1,0 +1,23 @@
+uuid: c5165fd2-8397-4961-b6df-a16cb2ec4b99
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_news_card_button
+    - paragraphs.paragraphs_type.sdss_news_list_card
+  module:
+    - link
+id: paragraph.sdss_news_list_card.su_news_card_button
+field_name: su_news_card_button
+entity_type: paragraph
+bundle: sdss_news_list_card
+label: Button
+description: 'This button will appear below the news items.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link
