@@ -41,6 +41,7 @@ permissions:
   - 'view own su_site_url'
   - 'view policy log'
   - 'view printer friendly versions'
+  - 'view r25 room calendars'
   - 'view sdss entity'
   - 'view su_metatags'
   - 'view su_policy_auto_prefix'

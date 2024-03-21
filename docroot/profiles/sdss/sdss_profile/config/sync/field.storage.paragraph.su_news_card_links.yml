@@ -1,0 +1,20 @@
+uuid: 68f1caf4-96f5-48b8-8270-37ff20a2dcbe
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - paragraphs
+id: paragraph.su_news_card_links
+field_name: su_news_card_links
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

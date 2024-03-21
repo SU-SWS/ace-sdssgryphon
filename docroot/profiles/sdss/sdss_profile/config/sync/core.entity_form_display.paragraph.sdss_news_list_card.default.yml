@@ -1,0 +1,51 @@
+uuid: 37ab1e12-2a5e-4aa8-96e1-f496d83e09fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sdss_news_list_card.su_news_card_button
+    - field.field.paragraph.sdss_news_list_card.su_news_card_headline
+    - field.field.paragraph.sdss_news_list_card.su_news_card_links
+    - paragraphs.paragraphs_type.sdss_news_list_card
+  module:
+    - link
+id: paragraph.sdss_news_list_card.default
+targetEntityType: paragraph
+bundle: sdss_news_list_card
+mode: default
+content:
+  status:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  su_news_card_button:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  su_news_card_headline:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_news_card_links:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true

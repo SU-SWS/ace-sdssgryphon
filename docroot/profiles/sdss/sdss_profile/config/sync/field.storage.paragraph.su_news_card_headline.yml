@@ -1,0 +1,21 @@
+uuid: 2a571c6e-a363-4448-962c-95c8e9485500
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.su_news_card_headline
+field_name: su_news_card_headline
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
