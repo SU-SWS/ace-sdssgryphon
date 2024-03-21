@@ -44,7 +44,7 @@
   {# Label. If not displayed, we still provide it for screen readers. #}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
   {{ title_prefix }}
-  <section class='menu-blocknewsroom-menu' aria-labelledby="news-research"><a href='/news' id="news-research">{{ configuration.label }}</a></section>
+  <div class="menu-blocknewsroom-menu"><a href="/news" id="news-research">{{ configuration.label }}</a></div>
   {{ title_suffix }}
    {# Menu. #}
   {% block content %}
