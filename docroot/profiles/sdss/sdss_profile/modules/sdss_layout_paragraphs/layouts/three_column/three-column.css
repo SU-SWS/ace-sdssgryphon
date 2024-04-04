@@ -4,7 +4,7 @@
   margin: 0 3rem;
 }
 
-.layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
+.jumpstart-ui--one-column .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
   margin: 0;
   padding-left: 3rem;
   padding-right: 3rem;
@@ -15,7 +15,7 @@
     margin: 0 5rem;
   }
 
-  .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
+  .jumpstart-ui--one-column .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
     margin: 0;
     padding-left: 5rem;
     padding-right: 5rem;
@@ -34,7 +34,7 @@
     margin: 0 8rem;
   }
 
-  .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
+  .jumpstart-ui--one-column .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
     margin: 0;
     padding-left: 8rem;
     padding-right: 8rem;
@@ -50,7 +50,7 @@
     margin: 0 10rem;
   }
 
-  .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
+  .jumpstart-ui--one-column .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
     margin: 0;
     padding-left: 10rem;
     padding-right: 10rem;
