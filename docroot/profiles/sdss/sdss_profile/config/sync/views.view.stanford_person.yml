@@ -396,7 +396,7 @@ display:
         type: infinite_scroll
         options:
           offset: 0
-          items_per_page: 39
+          items_per_page: 36
           total_pages: null
           id: 0
           tags:
@@ -413,6 +413,7 @@ display:
           views_infinite_scroll:
             button_text: 'Load More People'
             automatically_load_content: false
+            initially_load_all_pages: false
       exposed_form:
         type: basic
         options:
