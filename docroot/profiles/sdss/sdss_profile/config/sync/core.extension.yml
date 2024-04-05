@@ -251,5 +251,5 @@ theme:
   minimally_branded_subtheme: 0
   sdss_subtheme: 0
   claro: 0
-  stanford_profile_admin: 0
+  stanford_profile_admin_theme: 0
 profile: sdss_profile
