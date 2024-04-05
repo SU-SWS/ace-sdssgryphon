@@ -559,6 +559,19 @@ function sdss_profile_update_9105() {
 }
 
 /**
+ * Install SamlAuth
+ */
+function sdss_profile_update_9501()
+{
+  $config_ignore = \Drupal::configFactory()
+    ->getEditable('config_ignore.settings');
+  $ignored = $config_ignore->get('ignored_config_entities');
+  $ignored[] = 'stanford_samlauth.settings';
+  $config_ignore->set('ignored_config_entities', $ignored)->save();
+  \Drupal::service('module_installer')->install(['stanford_samlauth']);
+}
+
+/**
  * Create su_sdss_media_mention field from configuration.
  */
 function sdss_profile_update_10001() {
@@ -602,6 +615,41 @@ function sdss_profile_update_10002(&$sandbox) {
   }
 
   $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
+ * Update configs 'stanford_profile_admin' with 'stanford_profile_admin_theme'.
+ */
+function sdss_profile_update_10003()
+{
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll() as $config_name) {
+    $config = $config_factory->getEditable($config_name);
+    // Delete the admin theme blocks first.
+    if (str_starts_with($config_name, 'block.block.stanford_profile_admin_')) {
+      $config->delete();
+      continue;
+    }
+
+    // Change the dependencies to the new theme name.
+    if ($theme_dependencies = $config->get('dependencies.theme')) {
+      $position = array_search('stanford_profile_admin', $theme_dependencies);
+      if ($position !== FALSE) {
+        $config->set("dependencies.theme.$position", 'stanford_profile_admin_theme')
+          ->save(TRUE);
+      }
+    }
+  }
+
+  $core_extension = $config_factory->getEditable('core.extension');
+  $core_extension->clear('theme.stanford_profile_admin')
+    ->set('theme.stanford_profile_admin_theme', 0)
+    ->save();
+
+  $system_theme = $config_factory->getEditable('system.theme');
+  if ($system_theme->get('admin') == 'stanford_profile_admin') {
+    $system_theme->set('admin', 'stanford_profile_admin_theme')->save();
+  }
 }
 
 /**
@@ -784,16 +832,4 @@ function _sdss_profile_reset_node_changed_time(NodeInterface $node, int $changed
     ->fields(['changed' => $changed])
     ->condition('vid', $node->getRevisionId())
     ->execute();
-}
-
-/**
- * Install SamlAuth
- */
-function sdss_profile_update_9501() {
-  $config_ignore = \Drupal::configFactory()
-    ->getEditable('config_ignore.settings');
-  $ignored = $config_ignore->get('ignored_config_entities');
-  $ignored[] = 'stanford_samlauth.settings';
-  $config_ignore->set('ignored_config_entities', $ignored)->save();
-  \Drupal::service('module_installer')->install(['stanford_samlauth']);
 }
