@@ -186,7 +186,7 @@
         "drupal/views_taxonomy_term_name_depth": "^7.0",
         "drupal/webp": "^1.0@beta",
         "drupal/xmlsitemap": "^1.0",
-        "drush/drush": "^11.1",
+        "drush/drush": "^12",
         "harvesthq/chosen": "^1.8",
         "onlyextart/colorbox": "dev-master#e58476becbc89dc671093d1bcd9f99b2167fa8f7",
         "sainsburys/guzzle-oauth2-plugin": "^3.0",
@@ -305,7 +305,7 @@
                 "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"
             },
             "drupal/hook_event_dispatcher": {
-                "https://www.drupal.org/project/hook_event_dispatcher/issues/3354751": "https://www.drupal.org/files/issues/2023-04-17/hook_event_dispatcher-4.x-3354751.patch"
+                "https://www.drupal.org/project/hook_event_dispatcher/issues/3354751": "https://www.drupal.org/files/issues/2024-03-14/hook_event_dispatcher-4.x-3354751-7.patch"
             },
             "drupal/menu_block": {
                 "https://www.drupal.org/project/menu_block/issues/3271218": "https://www.drupal.org/files/issues/2022-04-29/menu_block_rendered_empty-3271218-17.patch"
