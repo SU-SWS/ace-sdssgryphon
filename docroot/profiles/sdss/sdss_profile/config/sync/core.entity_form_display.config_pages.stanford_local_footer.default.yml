@@ -106,7 +106,6 @@ third_party_settings:
         - su_local_foot_pr_co
         - su_local_foot_se_co
         - su_local_foot_tr2_co
-        - su_local_foot_tr_co
       label: 'Content Blocks'
       region: content
       parent_name: ''
@@ -119,18 +118,11 @@ third_party_settings:
         description: ''
         required_fields: true
     group_lockup_options:
-      children:
-        - su_local_foot_help
-        - su_local_foot_line_1
-        - su_local_foot_line_2
-        - su_local_foot_line_3
-        - su_local_foot_line_4
-        - su_local_foot_line_5
-        - su_local_foot_loc_op
+      children: {  }
       label: 'Lockup Options'
       region: hidden
       parent_name: ''
-      weight: 8
+      weight: 10
       format_type: details
       format_settings:
         classes: ''
@@ -140,13 +132,11 @@ third_party_settings:
         description: ''
         required_fields: false
     group_logo_image:
-      children:
-        - su_local_foot_loc_img
-        - su_local_foot_use_logo
+      children: {  }
       label: 'Logo Image'
       region: hidden
       parent_name: ''
-      weight: 9
+      weight: 11
       format_type: details
       format_settings:
         classes: ''
@@ -337,13 +327,6 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  su_local_foot_tr_co:
-    type: text_textarea
-    weight: 20
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
   label: true
+  su_local_foot_tr_co: true
