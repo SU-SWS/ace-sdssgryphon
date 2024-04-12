@@ -16,7 +16,7 @@ button {
 div {
   a.su-button,
   a.su-button.su-link,
-  a.su-link--external.su-button {
+  a.su-link.su-link--external.su-button {
     @include sdss-button--primary;
     @include responsive-spacing('padding', null 1 -2 1);
 
