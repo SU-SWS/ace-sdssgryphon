@@ -700,7 +700,6 @@ display:
           use_taxonomy_term_path: false
           vocabularies:
             sdss_focal_areas: sdss_focal_areas
-            sdss_magazine_topics: sdss_magazine_topics
             sdss_research_areas: sdss_research_areas
             stanford_news_topics: stanford_news_topics
       style:

@@ -1,6 +1,6 @@
 uuid: 4d1317e3-47ad-4088-8e58-234b67554dbe
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - field.storage.node.su_basic_page_type
