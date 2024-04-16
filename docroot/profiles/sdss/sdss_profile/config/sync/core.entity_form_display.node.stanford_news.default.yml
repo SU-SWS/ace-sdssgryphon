@@ -16,7 +16,6 @@ dependencies:
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
     - field.field.node.stanford_news.su_sdss_import_source
-    - field.field.node.stanford_news.su_sdss_magazine_topics
     - field.field.node.stanford_news.su_sdss_media_contacts
     - field.field.node.stanford_news.su_sdss_media_mention
     - field.field.node.stanford_news.su_sdss_news_banner_caption
@@ -222,19 +221,6 @@ content:
   su_news_topics:
     type: cshs
     weight: 11
-    region: content
-    settings:
-      save_lineage: false
-      force_deepest: false
-      parent: ''
-      level_labels: ''
-      hierarchy_depth: 0
-      required_depth: 0
-      none_label: '- Please select -'
-    third_party_settings: {  }
-  su_sdss_magazine_topics:
-    type: cshs
-    weight: 12
     region: content
     settings:
       save_lineage: false
