@@ -93,7 +93,6 @@ third_party_settings:
       children:
         - su_shared_tags
         - su_news_topics
-        - su_sdss_magazine_topics
         - su_sdss_news_organization
         - su_sdss_news_research_area
         - su_sdss_news_focal_areas

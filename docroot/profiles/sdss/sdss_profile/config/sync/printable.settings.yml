@@ -127,7 +127,6 @@ printable_entities_bundles:
     sdss_custm_opportunity_type: false
     sdss_event_topics: false
     sdss_focal_areas: false
-    sdss_magazine_topics: false
     sdss_organization: false
     sdss_projects: false
     sdss_research_areas: false
