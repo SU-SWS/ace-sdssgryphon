@@ -630,6 +630,7 @@ display:
           validate_options: {  }
           depth: '1'
           vocabularies:
+            sdss_focal_areas: sdss_focal_areas
             sdss_organization: sdss_organization
             sdss_research_areas: sdss_research_areas
             stanford_person_types: stanford_person_types
