@@ -23,7 +23,6 @@ settings:
     newsroom: newsroom
     admin: '0'
     courses-menu: '0'
-    devel: '0'
     stanford-event-types: '0'
     footer: '0'
     stanford-person-type: '0'
