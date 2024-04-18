@@ -8,7 +8,6 @@ dependencies:
     - field.storage.node.su_news_topics
     - field.storage.node.su_person_type_group
     - field.storage.node.su_sdss_event_topics
-    - field.storage.node.su_sdss_magazine_topics
     - field.storage.node.su_sdss_news_focal_areas
     - field.storage.node.su_sdss_news_organization
     - field.storage.node.su_sdss_news_research_area
@@ -22,7 +21,6 @@ dependencies:
     - node.type.stanford_person
     - system.menu.admin
     - taxonomy.vocabulary.sdss_event_topics
-    - taxonomy.vocabulary.sdss_magazine_topics
     - taxonomy.vocabulary.stanford_event_types
     - taxonomy.vocabulary.stanford_news_topics
     - taxonomy.vocabulary.stanford_person_types
@@ -275,11 +273,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: true
-        su_sdss_magazine_topics:
-          id: su_sdss_magazine_topics
-          table: node__su_sdss_magazine_topics
-          field: su_sdss_magazine_topics
-          plugin_id: field
       pager:
         type: full
         options:
@@ -639,8 +632,7 @@ display:
         - user
         - 'user.node_grants:view'
         - user.permissions
-      tags:
-        - 'config:field.storage.node.su_sdss_magazine_topics'
+      tags: {  }
   page_1:
     id: page_1
     display_title: 'Manage Basic Pages'
@@ -1301,69 +1293,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        su_sdss_magazine_topics:
-          id: su_sdss_magazine_topics
-          table: node__su_sdss_magazine_topics
-          field: su_sdss_magazine_topics
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: 'Magazine Topics'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         su_shared_tags:
           id: su_shared_tags
           table: node__su_shared_tags
@@ -1887,64 +1816,6 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        su_sdss_magazine_topics_target_id:
-          id: su_sdss_magazine_topics_target_id
-          table: node__su_sdss_magazine_topics
-          field: su_sdss_magazine_topics_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: su_sdss_magazine_topics_target_id_op
-            label: 'Magazine Topics'
-            description: ''
-            use_operator: false
-            operator: su_sdss_magazine_topics_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: su_sdss_magazine_topics_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              administrator: '0'
-              anonymous: '0'
-              stanford_faculty: '0'
-              stanford_staff: '0'
-              stanford_student: '0'
-              contributor: '0'
-              site_manager: '0'
-              site_editor: '0'
-              site_builder: '0'
-              site_developer: '0'
-              layout_builder_user: '0'
-              su_site_embedder: '0'
-              decoupled_site_users: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: sdss_magazine_topics
-          type: textfield
-          hierarchy: false
-          limit: true
-          error_message: true
         su_shared_tags_target_id:
           id: su_shared_tags_target_id
           table: node__su_shared_tags
@@ -2043,7 +1914,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.su_news_topics'
-        - 'config:field.storage.node.su_sdss_magazine_topics'
         - 'config:field.storage.node.su_sdss_news_focal_areas'
         - 'config:field.storage.node.su_sdss_news_organization'
         - 'config:field.storage.node.su_sdss_news_research_area'

@@ -1,5 +1,26 @@
 # ACE SDSSGryphon
 
+4.3.1
+--------------------------------------------------------------------------------
+_Release Date: 2024-04-11_
+
+- SDSS-869 | @jdwjdwjdw | Adjust news list card (#402)
+- c1b2a0f1 SDSS-1161: fixing the spacer error (#400)
+- f1028b26 SDSS-359: number of people on initial load of view page (#398)
+- 01e53da9 DEVOPS-000 - PHP 8.2 and removinghooks (#397)
+- d6613a5f SDSS-1245: decoupled menu labels (#396)
+- 8a4a83fb SDSS-637: Publication shared tags list and Teasers (#393)
+- a0a47bf8 SDSS-1244: fine tuning a11y fix (#395)
+- b4c941e9 SDSS-869 | @jdwjdwjdw | Add News List Card paragraph type (#391)
+- d517da97 SDSS-1072: Added role report blt command (#394)
+- 17185222 SDSS-1230: added arialabeledby (#392)
+- e868dd48 SDSS-1238: Add 'view r25 room calendars' user perm to sdssroom config (#390)
+- 8458973e SDSS-1228: lazy load (#388)
+- 6c83a172 SDSS-1036: Fix authoring font sizes  (#387)
+- 51e88a93 SDSS-1237: fix to max-width (#386)
+- ad932da8 SDSS-1142: Uninstalled views_rss module (#385)
+
+
 4.3.0
 --------------------------------------------------------------------------------
 _Release Date: 2024-03-07_

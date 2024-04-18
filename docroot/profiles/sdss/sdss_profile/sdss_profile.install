@@ -605,6 +605,21 @@ function sdss_profile_update_10002(&$sandbox) {
 }
 
 /**
+ * Delete all sdss_magazine_topics terms.
+ */
+function sdss_profile_update_10003() {
+  $vid = 'sdss_magazine_topics';
+  $tids = \Drupal::entityQuery('taxonomy_term')
+    ->condition('vid', $vid)
+    ->accessCheck(FALSE)
+    ->execute();
+
+  $storage_handler = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $entities = $storage_handler->loadMultiple($tids);
+  $storage_handler->delete($entities);
+}
+
+/**
  * Update menu links on nodes for the updated version of menu_link_weight.
  *
  * @param array $menu_items

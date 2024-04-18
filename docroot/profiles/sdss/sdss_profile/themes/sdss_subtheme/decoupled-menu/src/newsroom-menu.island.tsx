@@ -207,7 +207,7 @@ export const NewsroomMenu = ({}) => {
         />
 
         <MobileMenuHeading open={menuOpen}>
-          News & Research
+          News & events
         </MobileMenuHeading>
 
         <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
