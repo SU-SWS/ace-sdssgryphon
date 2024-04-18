@@ -154,8 +154,6 @@
 
     // Override
     a {
-      text-decoration: none;
-
       &.su-link--external {
         &:hover {
           &::after {
