@@ -4,9 +4,11 @@
 a {
   color: $sdss-color-palo-alto-dark;
   font-weight: $su-font-regular;
+  text-decoration: underline;
 
   &:hover {
-    color: $sdss-color-blue-bright-dark;
+    color: $sdss-color-palo-alto-dark;
+    text-decoration: none;
   }
 }
 
@@ -83,19 +85,7 @@ footer {
 
 .su-link--action,
 .su-link--external {
-  text-decoration: underline;
-
-  &:hover {
-    color: $sdss-color-blue-bright-dark;
-
-    &::after {
-      background-color: $sdss-color-blue-bright-dark;
-    }
-  }
-
-  &::after {
-    background-color: $sdss-color-palo-alto-dark;
-  }
+  @include sdss-inline-textual-link;
 }
 
 

@@ -17,13 +17,13 @@
 
 // Inline textual Links for List, Teaser, Cards, Text Area
 @mixin sdss-inline-textual-link--hover {
-  color: $sdss-color-blue-bright-dark;
-  font-weight: $su-font-regular;
+  color: $sdss-color-palo-alto-dark;
   cursor: pointer;
-  text-decoration: underline;
+  font-weight: $su-font-regular;
+  text-decoration: none;
 
   & svg.mailto {
-    fill: $sdss-color-blue-bright-dark;
+    fill: $sdss-color-palo-alto-dark;
   }
 }
 
@@ -100,6 +100,7 @@
   color: $sdss-color-palo-alto-dark;
   font-weight: $su-font-regular;
   outline-color: $sdss-color-palo-alto-dark;
+  text-decoration: underline;
 
   &::after {
     background-color: $sdss-color-palo-alto-dark;
@@ -177,7 +178,7 @@
     @include sdss-inline-textual-link--hover;
 
     &::after {
-      background-color: $sdss-color-blue-bright-dark;
+      background-color: $sdss-color-palo-alto-dark;
     }
   }
 
@@ -185,7 +186,7 @@
     @include sdss-inline-textual-link--focus;
 
     &::after {
-      background-color: $sdss-color-blue-bright-dark;
+      background-color: $sdss-color-palo-alto-dark;
     }
   }
 
@@ -193,7 +194,7 @@
     @include sdss-inline-textual-link--active;
 
     &::after {
-      background-color: $sdss-color-blue-bright-dark;
+      background-color: $sdss-color-palo-alto-dark;
     }
   }
 }
