@@ -28,13 +28,17 @@
 }
 
 @mixin sdss-inline-textual-link--focus {
-  color: $sdss-color-grey-dark;
-  outline: 1px solid $sdss-color-palo-alto-dark;
+  color: $sdss-color-palo-alto-dark;
+  outline: 1px solid $sdss-color-black;
   background-color: transparent;
+  text-decoration: none;
 }
 
 @mixin sdss-inline-textual-link--active {
-  color: $sdss-color-grey-dark;
+  color: $sdss-color-palo-alto-dark;
+  outline: 1px solid $sdss-color-black;
+  background-color: transparent;
+  text-decoration: none;
 }
 // End
 
