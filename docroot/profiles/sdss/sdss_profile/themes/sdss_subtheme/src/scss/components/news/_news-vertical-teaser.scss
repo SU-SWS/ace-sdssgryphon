@@ -67,21 +67,7 @@
       }
 
       a {
-        @include sdss-link--primary;
-
-        &.su-link--external {
-          &::after {
-            background-color: $sdss-color-green-link;
-          }
-
-          &:hover,
-          &:focus,
-          &:active {
-            &::after {
-              background-color: $sdss-color-black;
-            }
-          }
-        }
+        @include sdss-inline-textual-link;
       }
     }
 
@@ -153,15 +139,15 @@
     }
 
     // Override
-    a {
-      &.su-link--external {
-        &:hover {
-          &::after {
-            background-color:  $sdss-color-green-link;
-          }
-        }
-      }
-    }
+    // a {
+    //   &.su-link--external {
+    //     &:hover {
+    //       &::after {
+    //         background-color:  orange;
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
 

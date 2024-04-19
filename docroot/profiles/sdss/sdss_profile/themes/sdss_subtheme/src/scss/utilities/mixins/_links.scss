@@ -15,6 +15,29 @@
   //@include example--black-icons
 //}
 
+// Inline textual Links for List, Teaser, Cards, Text Area
+@mixin sdss-inline-textual-link--hover {
+  color: $sdss-color-blue-bright-dark;
+  font-weight: $su-font-regular;
+  cursor: pointer;
+  text-decoration: underline;
+
+  & svg.mailto {
+    fill: $sdss-color-blue-bright-dark;
+  }
+}
+
+@mixin sdss-inline-textual-link--focus {
+  color: $sdss-color-grey-dark;
+  outline: 1px solid $sdss-color-palo-alto-dark;
+  background-color: transparent;
+}
+
+@mixin sdss-inline-textual-link--active {
+  color: $sdss-color-grey-dark;
+}
+// End
+
 // Primary hover/focus/active/disabled buttons
 @mixin sdss-link-primary--hover {
   color: $sdss-color-black;
@@ -70,6 +93,26 @@
 //End
 
 
+// Inline textual Links for List, Teaser, Cards, Text Area
+@mixin sdss-inline-textual-link {
+  @include sdss-inline-textual-link--hover-and-focus;
+
+  color: $sdss-color-palo-alto-dark;
+  font-weight: $su-font-regular;
+  outline-color: $sdss-color-palo-alto-dark;
+
+  &::after {
+    background-color: $sdss-color-palo-alto-dark;
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-palo-alto-dark;
+    }
+  }
+}
+//End
+
 // Primary link details
 @mixin sdss-link--primary {
   @include sdss-link-primary--hover-and-focus;
@@ -123,6 +166,34 @@
   &.mailto {
     svg {
       fill: $sdss-color-blue-bright;
+    }
+  }
+}
+//End
+
+// Inline textual Links hover for List, Teaser, Cards, Text Area
+@mixin sdss-inline-textual-link--hover-and-focus {
+  &:hover {
+    @include sdss-inline-textual-link--hover;
+
+    &::after {
+      background-color: $sdss-color-blue-bright-dark;
+    }
+  }
+
+  &:focus {
+    @include sdss-inline-textual-link--focus;
+
+    &::after {
+      background-color: $sdss-color-blue-bright-dark;
+    }
+  }
+
+  &:active {
+    @include sdss-inline-textual-link--active;
+
+    &::after {
+      background-color: $sdss-color-blue-bright-dark;
     }
   }
 }
