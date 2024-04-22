@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+
+
+.media-mentions-only-card-grid,
+.media-mentions-list {
+  .su-news-list {
+    .su-news-article {
+      @include responsive-spacing('padding', 1 null);
+    }
+  }
+}
+
 .su-news-list {
 
   .su-news-list__headline-dek {
@@ -53,6 +64,8 @@
   }
 
   .su-news-article {
+    @include responsive-spacing('padding', 0 null);
+
     border-bottom: none;
   }
 
