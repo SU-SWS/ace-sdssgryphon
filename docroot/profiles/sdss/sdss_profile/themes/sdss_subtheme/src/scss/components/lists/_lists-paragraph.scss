@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+// Max four card grid option for card grid lists
+.sdss-card-grid--four-col {
+  .grid-container-3 {
+    @include grid-media-min('2xl') {
+      grid-template-columns: repeat(4,minmax(0,1fr));
+    }
+  }
+}

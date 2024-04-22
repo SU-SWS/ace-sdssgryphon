@@ -57,24 +57,17 @@ banner_variant_info:  # part of the key after the :
       options:
         sdss-banner-wrapper--headline-default: Default
         sdss-banner-wrapper--headline-center: Center
-    # horizontal_card_image_style:
-    #   type: select
-    #   title: 'Horizontal Card: Image Style'
-    #   description: If this is a horizontal card, Select the image style for this card.
-    #   options:
-    #     su-horizontal-card-wrapper--small-circle: Small Circle (220px)
-    #     su-horizontal-card-wrapper--large-rectangle: Large Rectangle (2:1 ratio)
-    # horizontal_card_image_position:
-    #   type: select
-    #   title: 'Horizontal Card: Image Position'
-    #   description: If this is a horizontal card, Select the image style for this card. (Currently only used for Large Rectangle Image Style.)
-    #   options:
-    #     su-horizontal-card-wrapper--image-left: Image on Left
-    #     su-horizontal-card-wrapper--image-right: Image on Right
-#card_style:
-#  id: card_style
-#  label: 'Card Paragraph Style'
-#  bundles:
-#    - paragraphs_type|stanford_card
-#  config:
 
+lists_variant_info:
+  id: lists_style
+  label: Lists Paragraph Style
+  bundles:
+    - paragraphs_type|stanford_lists
+  config:
+    grid_rows:
+      type: select
+      title: Max number of grid columns
+      description: Applicable only to lists with cards.
+      empty_option: Default
+      options:
+        sdss-card-grid--four-col: Max 4 grid columns
