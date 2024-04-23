@@ -816,6 +816,6 @@ function sdss_profile_update_9501() {
 /**
  * Uninstall earth_news_importer.
  */
-function sdss_profile_update_9502() {
+function sdss_profile_update_10004() {
   \Drupal::service('module_installer')->uninstall(['earth_news_importer']);
 }
