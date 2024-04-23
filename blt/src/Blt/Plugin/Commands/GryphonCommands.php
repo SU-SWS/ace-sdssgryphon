@@ -37,7 +37,6 @@ class GryphonCommands extends BltTasks {
   }
 
   /**
-<<<<<<< HEAD
    * Generate a list of emails for the given role on all sites.
    *
    * @command sdss:role-report
@@ -99,19 +98,19 @@ class GryphonCommands extends BltTasks {
     // Define environment types
     $env_types = ['dev', 'test', 'prod'];
 
-    foreach ($env_types as $type) {
-      $sitename_env = $sitename . '-' . $type;
+    foreach ($env_types as $env_type) {
+      $sitename_env = $sitename . '-' . $env_type;
 
       // Checks to see if domain name is in use.
       if ($this->checkForARecord($sitename_env)) {
         $this->say('A Record present in NetDB. Cannot proceed with provision until aliases released.');
-      } else {
-        //Outputs alias for NetDB.
-        $this->say('A Record not present. Site name is free to use.');
-        $this->say('Alias for NetDB: ' . $sitename_env);
-        $this->addDomainsToAcquia($sitename, $type, $sitename_env);
-        $this->postMultiSiteInit($sitename);
       }
+      //Outputs alias for NetDB.
+      $this->say('A Record not present. Site name is free to use.');
+      $this->say('Alias for NetDB: ' . $sitename_env);
+      $this->addDomainsToAcquia($sitename, $env_type, $sitename_env);
+//      $this->postMultiSiteInit($sitename);
+
     }
   }
 
@@ -131,12 +130,12 @@ class GryphonCommands extends BltTasks {
    *
    * @return void
    */
-  private function addDomainsToAcquia($sitename, $type, $sitename_env): void {
+  private function addDomainsToAcquia($sitename, $env_type, $sitename_env): void {
     $condition = $this->ask("Do you want to add the domain to acquia? (yes/no)", "yes");
 
     if (strtolower($condition) === 'yes') {
       $this->say("Running the specific function...");
-      $this->humsciAddDomain($type, $sitename_env . '.stanford.edu');
+      $this->gryphonAddDomain($env_type, $sitename_env . '.stanford.edu');
       $this->addToBltYml($sitename);
       $this->scaffoldingMultisite();
     } else {
