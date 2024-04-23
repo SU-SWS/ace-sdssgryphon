@@ -35,6 +35,7 @@ class GryphonCommands extends BltTasks {
   }
 
   /**
+<<<<<<< HEAD
    * Generate a list of emails for the given role on all sites.
    *
    * @command sdss:role-report
@@ -82,7 +83,7 @@ class GryphonCommands extends BltTasks {
   }
 
   /**
-   * Print "URLS" to the console.
+   * Provisioning a site.
    *
    * @command gryphon:provision
    * @description This is command to show provision URLs.
@@ -104,14 +105,14 @@ class GryphonCommands extends BltTasks {
     $this->say($sitename_test);
     $this->say($sitename_prod);
 
-    // Check host command for each domain
-    $this->checkHost($sitename_dev);
-    $this->checkHost($sitename_test);
-    $this->checkHost($sitename_prod);
+    // Fetch DNS record of the URLs for the environments to check for viability.
+    $this->checkForARecord($sitename_dev);
+    $this->checkForARecord($sitename_test);
+    $this->checkForARecord($sitename_prod);
   }
 
   // Prepend each with "stanford.edu" and check for DNS record.
-  private function checkHost($domain) {
+  private function checkForARecord($domain) {
     $records = dns_get_record($domain . '.stanford.edu', DNS_A);
 
     if (!empty($records)) {
