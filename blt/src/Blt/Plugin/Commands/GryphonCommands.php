@@ -81,4 +81,42 @@ class GryphonCommands extends BltTasks {
     fclose($out);
   }
 
+  /**
+   * Print "URLS" to the console.
+   *
+   * @command gryphon:provision
+   * @description This is command to show provision URLs.
+   */
+  public function provision($sitename) {
+    // Check if sitename is empty
+    if (empty($sitename)) {
+      echo "Sitename cannot be empty. Exiting.\n";
+      return;
+    }
+
+    // Create three outputs without "stanford.edu"
+    $sitename_dev = $sitename . '-dev';
+    $sitename_test = $sitename . '-test';
+    $sitename_prod = $sitename . '-prod';
+
+    // Display aliases for NetDB.
+    echo "Dev: $sitename_dev\n";
+    echo "Test: $sitename_test\n";
+    echo "Prod: $sitename_prod\n";
+
+    // Check host command for each domain
+    $this->checkHost($sitename_dev);
+    $this->checkHost($sitename_test);
+    $this->checkHost($sitename_prod);
+  }
+
+  // Prepend each with "stanford.edu" and check host command
+  private function checkHost ($domain) {
+    exec("host $domain.stanford.edu", $output, $resultCode);
+    if ($resultCode === 0) {
+      echo "$domain.stanford.edu: Found\n";
+    } else {
+      echo "$domain.stanford.edu: Not Found\n";
+    }
+  }
 }
