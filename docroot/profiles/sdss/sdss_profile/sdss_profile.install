@@ -812,3 +812,10 @@ function sdss_profile_update_9501() {
   $config_ignore->set('ignored_config_entities', $ignored)->save();
   \Drupal::service('module_installer')->install(['stanford_samlauth']);
 }
+
+/**
+ * Uninstall earth_news_importer.
+ */
+function sdss_profile_update_9502() {
+  \Drupal::service('module_installer')->uninstall(['earth_news_importer']);
+}
