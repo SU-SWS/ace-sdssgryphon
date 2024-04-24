@@ -3188,7 +3188,7 @@ display:
           offset: 0
       block_category: 'News Lists (Views)'
       block_description: ''
-      css_class: 'stanford-news--cards stanford-news--cards-any'
+      css_class: 'stanford-news--cards stanford-news--cards-any media-mentions-only-card-grid'
       use_more: false
       use_more_always: false
       use_more_text: 'See All News'
@@ -3833,7 +3833,7 @@ display:
               source: edit_node
       block_category: 'News Lists (Views)'
       block_description: ''
-      css_class: ''
+      css_class: media-mentions-list
       fields:
         su_news_publishing_date:
           id: su_news_publishing_date

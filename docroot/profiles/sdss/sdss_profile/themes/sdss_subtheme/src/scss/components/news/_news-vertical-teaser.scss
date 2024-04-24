@@ -72,21 +72,7 @@
       }
 
       a {
-        @include sdss-link--primary;
-
-        &.su-link--external {
-          &::after {
-            background-color: $sdss-color-green-link;
-          }
-
-          &:hover,
-          &:focus,
-          &:active {
-            &::after {
-              background-color: $sdss-color-black;
-            }
-          }
-        }
+        @include sdss-inline-textual-link;
       }
     }
 
@@ -156,19 +142,6 @@
 
           @include grid-media-between('md','xl') {
             font-size: 1.8em;
-          }
-        }
-      }
-    }
-
-    // Override
-    a {
-      text-decoration: none;
-
-      &.su-link--external {
-        &:hover {
-          &::after {
-            background-color:  $sdss-color-green-link;
           }
         }
       }
