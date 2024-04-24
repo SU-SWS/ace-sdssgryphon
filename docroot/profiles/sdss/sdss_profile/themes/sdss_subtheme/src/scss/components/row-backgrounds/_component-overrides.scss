@@ -22,7 +22,7 @@
 
   .su-wysiwyg-text {
     a {
-      @include sdss-link--negative;
+      @include sdss-inline-textual-link-negative;
 
       &.su-button,
       &.su-button--big,

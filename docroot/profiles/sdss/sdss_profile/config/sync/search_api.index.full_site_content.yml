@@ -67,7 +67,7 @@ field_settings:
     label: 'News Types'
     datasource_id: 'entity:node'
     property_path: su_news_topics
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.su_news_topics
@@ -75,7 +75,8 @@ field_settings:
     label: Title
     datasource_id: 'entity:node'
     property_path: title
-    type: string
+    type: text
+    boost: 1.5
     dependencies:
       module:
         - node
@@ -132,7 +133,9 @@ processor_settings:
     all_fields: false
     fields:
       - rendered_item
+      - su_news_topics
       - title
+      - type
     title: true
     alt: true
     tags:
@@ -148,7 +151,9 @@ processor_settings:
     all_fields: false
     fields:
       - rendered_item
+      - su_news_topics
       - title
+      - type
     ignorable: "['¿¡!?,.:;]"
     ignorable_classes:
       - Pc
@@ -170,6 +175,7 @@ processor_settings:
     all_fields: true
     fields:
       - rendered_item
+      - title
     exceptions:
       mexican: mexic
       texan: texa
