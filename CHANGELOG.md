@@ -1,10 +1,17 @@
 # ACE SDSSGryphon
 
+4.3.2
+--------------------------------------------------------------------------------
+_Release Date: 2024-04-23_
+
+- 109012a5 SDSS-1271: Updated stanford_samlauth module (#417)
+
+
 4.3.1
 --------------------------------------------------------------------------------
 _Release Date: 2024-04-11_
 
-- SDSS-869 | @jdwjdwjdw | Adjust news list card (#402)
+- 725669a4 SDSS-869 | @jdwjdwjdw | Adjust news list card (#402)
 - c1b2a0f1 SDSS-1161: fixing the spacer error (#400)
 - f1028b26 SDSS-359: number of people on initial load of view page (#398)
 - 01e53da9 DEVOPS-000 - PHP 8.2 and removinghooks (#397)
