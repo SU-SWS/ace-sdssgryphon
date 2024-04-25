@@ -5,6 +5,7 @@
   padding: 3.2rem 3.2rem 3.4rem 3.2rem;
   border: 1px solid $su-color-black-20;
   container-type: inline-size;
+  background-color: $su-color-white;
 
   @include grid-media-min('md') {
     padding: 4.5rem 4.5rem 5.8rem 4.5rem;
@@ -12,6 +13,8 @@
 
   h2 {
     @include sdss-h5;
+
+    color: $su-color-black;
     font-weight: 600;
   }
 
@@ -72,27 +75,8 @@
 // Green background layout
 .layout-paragraphs-sdss-bgcolor--green {
   .paragraph--type--sdss-news-list-card {
-    .su-sdss-news-news-source {
-      color: $su-color-white;
-    }
-
-    .node-title {
-      a {
-        color: $su-color-white;
-        font-weight: 600;
-
-        &:hover,
-        &:active,
-        &:focus {
-          color: $sdss-color-green-bright;
-        }
-      }
-    }
-
-    .su-news-card-button {
-      a {
-        @include sdss-button-graphic-blue--dark;
-      }
+    h2 {
+      color: $su-color-black;
     }
   }
 }

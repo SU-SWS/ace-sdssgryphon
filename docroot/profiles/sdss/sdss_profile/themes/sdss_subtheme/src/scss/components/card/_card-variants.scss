@@ -102,8 +102,7 @@
     .su-card__contents {
       p a,
       h2 a,
-      .su-link--action,
-      a.su-link--external {
+      .su-link--action {
         color: $su-color-white;
 
         &:hover,

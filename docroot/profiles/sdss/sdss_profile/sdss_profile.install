@@ -561,95 +561,13 @@ function sdss_profile_update_9105() {
 /**
  * Install SamlAuth
  */
-function sdss_profile_update_9501()
-{
+function sdss_profile_update_9501() {
   $config_ignore = \Drupal::configFactory()
     ->getEditable('config_ignore.settings');
   $ignored = $config_ignore->get('ignored_config_entities');
   $ignored[] = 'stanford_samlauth.settings';
   $config_ignore->set('ignored_config_entities', $ignored)->save();
   \Drupal::service('module_installer')->install(['stanford_samlauth']);
-}
-
-/**
- * Create su_sdss_media_mention field from configuration.
- */
-function sdss_profile_update_10001() {
-  $config_directory = \Drupal::service('config.storage.sync');
-  $field_storage = $config_directory->read('field.storage.node.su_sdss_media_mention');
-  $field_config = $config_directory->read('field.field.node.stanford_news.su_sdss_media_mention');
-
-  // Create su_sdss_media_mention field from exported configuration.
-  if (!FieldStorageConfig::loadByName($field_storage['entity_type'], $field_storage['field_name'])) {
-    FieldStorageConfig::create($field_storage)->save();
-  }
-  if (!FieldConfig::loadByName($field_config['entity_type'], $field_config['bundle'], $field_config['field_name'])) {
-    FieldConfig::create($field_config)->save();
-  }
-}
-
-/**
- * Set the Media Mentions field to FALSE on all existing News Nodes.
- */
-function sdss_profile_update_10002(&$sandbox) {
-  $node_storage = \Drupal::entityTypeManager()
-    ->getStorage('node');
-  if (!isset($sandbox['count'])) {
-    $nids = $node_storage->getQuery()
-      ->accessCheck(FALSE)
-      ->condition('type', 'stanford_news')
-      ->sort('created')
-      ->execute();
-    $sandbox['nids'] = $nids;
-    $sandbox['count'] = count($sandbox['nids']);
-  }
-
-  $node_ids = array_splice($sandbox['nids'], 0, 250);
-   /** @var \Drupal\node\NodeInterface[] $nodes */
-  $nodes = $node_storage->loadMultiple($node_ids);
-  foreach ($nodes as $node) {
-    if (!$node->hasField('su_sdss_media_mention')) {
-      continue;
-    }
-    $node->set('su_sdss_media_mention', FALSE)->save();
-  }
-
-  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
-}
-
-/**
- * Update configs 'stanford_profile_admin' with 'stanford_profile_admin_theme'.
- */
-function sdss_profile_update_10003()
-{
-  $config_factory = \Drupal::configFactory();
-  foreach ($config_factory->listAll() as $config_name) {
-    $config = $config_factory->getEditable($config_name);
-    // Delete the admin theme blocks first.
-    if (str_starts_with($config_name, 'block.block.stanford_profile_admin_')) {
-      $config->delete();
-      continue;
-    }
-
-    // Change the dependencies to the new theme name.
-    if ($theme_dependencies = $config->get('dependencies.theme')) {
-      $position = array_search('stanford_profile_admin', $theme_dependencies);
-      if ($position !== FALSE) {
-        $config->set("dependencies.theme.$position", 'stanford_profile_admin_theme')
-          ->save(TRUE);
-      }
-    }
-  }
-
-  $core_extension = $config_factory->getEditable('core.extension');
-  $core_extension->clear('theme.stanford_profile_admin')
-    ->set('theme.stanford_profile_admin_theme', 0)
-    ->save();
-
-  $system_theme = $config_factory->getEditable('system.theme');
-  if ($system_theme->get('admin') == 'stanford_profile_admin') {
-    $system_theme->set('admin', 'stanford_profile_admin_theme')->save();
-  }
 }
 
 /**
@@ -832,4 +750,108 @@ function _sdss_profile_reset_node_changed_time(NodeInterface $node, int $changed
     ->fields(['changed' => $changed])
     ->condition('vid', $node->getRevisionId())
     ->execute();
+}
+
+/**
+ * Create su_sdss_media_mention field from configuration.
+ */
+function sdss_profile_update_10001()
+{
+  $config_directory = \Drupal::service('config.storage.sync');
+  $field_storage = $config_directory->read('field.storage.node.su_sdss_media_mention');
+  $field_config = $config_directory->read('field.field.node.stanford_news.su_sdss_media_mention');
+
+  // Create su_sdss_media_mention field from exported configuration.
+  if (!FieldStorageConfig::loadByName($field_storage['entity_type'], $field_storage['field_name'])) {
+    FieldStorageConfig::create($field_storage)->save();
+  }
+  if (!FieldConfig::loadByName($field_config['entity_type'], $field_config['bundle'], $field_config['field_name'])) {
+    FieldConfig::create($field_config)->save();
+  }
+}
+
+/**
+ * Set the Media Mentions field to FALSE on all existing News Nodes.
+ */
+function sdss_profile_update_10002(&$sandbox)
+{
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_media_mention')) {
+      continue;
+    }
+    $node->set('su_sdss_media_mention', FALSE)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
+ * Update configs 'stanford_profile_admin' with 'stanford_profile_admin_theme'.
+ */
+function sdss_profile_update_10003() {
+  $config_factory = \Drupal::configFactory();
+  foreach ($config_factory->listAll() as $config_name) {
+    $config = $config_factory->getEditable($config_name);
+    // Delete the admin theme blocks first.
+    if (str_starts_with($config_name, 'block.block.stanford_profile_admin_')) {
+      $config->delete();
+      continue;
+    }
+
+    // Change the dependencies to the new theme name.
+    if ($theme_dependencies = $config->get('dependencies.theme')) {
+      $position = array_search('stanford_profile_admin', $theme_dependencies);
+      if ($position !== FALSE) {
+        $config->set("dependencies.theme.$position", 'stanford_profile_admin_theme')
+          ->save(TRUE);
+      }
+    }
+  }
+
+  $core_extension = $config_factory->getEditable('core.extension');
+  $core_extension->clear('theme.stanford_profile_admin')
+    ->set('theme.stanford_profile_admin_theme', 0)
+    ->save();
+
+  $system_theme = $config_factory->getEditable('system.theme');
+  if ($system_theme->get('admin') == 'stanford_profile_admin') {
+    $system_theme->set('admin', 'stanford_profile_admin_theme')->save();
+  }
+}
+
+/**
+ * Delete all sdss_magazine_topics terms.
+ */
+function sdss_profile_update_10004() {
+  $vid = 'sdss_magazine_topics';
+  $tids = \Drupal::entityQuery('taxonomy_term')
+    ->condition('vid', $vid)
+    ->accessCheck(FALSE)
+    ->execute();
+
+  $storage_handler = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $entities = $storage_handler->loadMultiple($tids);
+  $storage_handler->delete($entities);
+}
+
+/**
+ * Uninstall earth_news_importer.
+ */
+function sdss_profile_update_10005() {
+  \Drupal::service('module_installer')->uninstall(['earth_news_importer']);
 }

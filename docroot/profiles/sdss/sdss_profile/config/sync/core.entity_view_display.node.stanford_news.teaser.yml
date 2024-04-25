@@ -17,7 +17,6 @@ dependencies:
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
     - field.field.node.stanford_news.su_sdss_import_source
-    - field.field.node.stanford_news.su_sdss_magazine_topics
     - field.field.node.stanford_news.su_sdss_media_contacts
     - field.field.node.stanford_news.su_sdss_media_mention
     - field.field.node.stanford_news.su_sdss_news_banner_caption
@@ -223,7 +222,6 @@ hidden:
   su_news_source: true
   su_news_topics: true
   su_sdss_import_source: true
-  su_sdss_magazine_topics: true
   su_sdss_media_contacts: true
   su_sdss_media_mention: true
   su_sdss_news_banner_caption: true
