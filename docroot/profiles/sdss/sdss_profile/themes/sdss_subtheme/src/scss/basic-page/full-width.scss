@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// My theme's config settings.
+$su-image-path: '~decanter/core/src/img';
+$fa-font-path:  '~@fortawesome/fontawesome-free/webfonts';
+
+// Import Decanter Library:
+@import 'decanter/core/src/scss/decanter-no-markup';
+
+
+h2 {
+  font-size: 80rem;
+}
+
+.layout-paragraphs-sdss-one-four-one {
+  .layout__region--top,
+  .layout__region--bottom {
+    .ptype-stanford-lists,
+    .ptype-stanford-wysiwyg,
+    .ptype-stanford-gallery,
+    .ptype-stanford-card,
+    .ptype-stanford-media-caption,
+    .ptype-stanford-entity  {
+      // @include sdss-centered-column;
+      
+    }
+  }
+}

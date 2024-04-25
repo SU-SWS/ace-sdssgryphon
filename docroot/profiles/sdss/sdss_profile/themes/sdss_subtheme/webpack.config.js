@@ -18,6 +18,7 @@ var webpackConfig = {
   entry: {
     "ckeditor": path.resolve("src/scss/ckeditor.scss"),
     "sdss_subtheme": path.resolve("src/scss/config/index.scss"),
+    "full-width.basic-page": ["./src/scss/basic-page/full-width.scss"],
   },
   output: {
     path: config.distFolder,

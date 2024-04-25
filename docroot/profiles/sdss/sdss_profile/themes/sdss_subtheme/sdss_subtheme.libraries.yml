@@ -97,3 +97,9 @@ sdss:
      dist/css/sdss_subtheme.css: {minified: true }
   js:
     js/scripts.js: { scope: footer }
+
+
+basic-page-full-width:
+  css:
+    theme:
+      dist/css/full-width.basic-page.css: {}
