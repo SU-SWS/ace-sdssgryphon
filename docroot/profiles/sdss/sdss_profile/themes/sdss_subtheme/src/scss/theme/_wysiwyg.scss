@@ -9,6 +9,10 @@
 // Reusing the intro text class for the Display
 // .tablesaw-cell-content == content within a table
 .su-wysiwyg-text {
+  @include grid-media-max('lg') {
+    max-width: 95%;
+  }
+  
   p,
   .tablesaw-cell-content {
     font-size: 2.1rem;

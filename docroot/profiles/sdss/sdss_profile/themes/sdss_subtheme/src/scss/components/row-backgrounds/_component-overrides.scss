@@ -260,14 +260,3 @@
     }
   }
 }
-
-.layout-paragraphs-sdss-bgcolor--green,
-.layout-paragraphs-sdss-bgcolor--blue,
-.layout-paragraphs-sdss-bgcolor--grey {
- 
-  .su-wysiwyg-text {
-    @include grid-media-max('lg') {
-      max-width: 95%;
-    }
-  }
-}
