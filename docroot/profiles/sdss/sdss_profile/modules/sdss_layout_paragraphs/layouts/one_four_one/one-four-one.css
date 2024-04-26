@@ -35,11 +35,6 @@ XS 390px
   grid-template-columns: repeat(2, 1fr);
 }
 
-.flex-lg-9-of-12.main-region .layout-paragraphs-sdss-one-four-one .centered-container {
-  margin-left: unset;
-  margin-right: unset;
-}
-
 /* At Least Large */
 @media screen and (min-width: 992px) {
   .layout--layout-paragraphs-one-four-one .content-well {
@@ -90,3 +85,9 @@ XS 390px
   max-width: 100%;
 }
 
+/* Style lists in node edit page for one-four-one layout */
+.layout--layout-paragraphs-one-four-one .js-lpb-component[data-type=stanford_lists] .grid-container-3 {
+  grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr)
+}
