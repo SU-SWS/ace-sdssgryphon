@@ -64,6 +64,11 @@
         @include sdss-newsroom-med-paragraph;
 
         margin-bottom: .5rem;
+
+        @include grid-media-between('md','xl') {
+          font-size: 1.8rem;
+          line-height: 1.5;
+        }
       }
 
       a {
@@ -134,6 +139,10 @@
           @include type-b;
           display: inline;
           color: unset;
+
+          @include grid-media-between('md','xl') {
+            font-size: 1.8em;
+          }
         }
       }
     }
