@@ -7,22 +7,27 @@ $fa-font-path:  '~@fortawesome/fontawesome-free/webfonts';
 // Import Decanter Library:
 @import 'decanter/core/src/scss/decanter-no-markup';
 
+// Import SDSS utilities
+@import '../utilities/index';
 
-h2 {
-  font-size: 80rem;
-}
-
+// Full width styles for one-four-one layout
 .layout-paragraphs-sdss-one-four-one {
+  .content-well {
+    @include sdss-centered-column;
+  }
+
   .layout__region--top,
   .layout__region--bottom {
+
+    // All paragraphs except banner and news spotlight
     .ptype-stanford-lists,
     .ptype-stanford-wysiwyg,
     .ptype-stanford-gallery,
     .ptype-stanford-card,
     .ptype-stanford-media-caption,
-    .ptype-stanford-entity  {
-      // @include sdss-centered-column;
-      
+    .ptype-stanford-entity,
+    .ptype-sdss-news-list-card {
+      @include sdss-centered-column;
     }
   }
 }
