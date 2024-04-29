@@ -87,7 +87,7 @@ class GryphonCommands extends BltTasks {
    * Provisioning a site.
    *
    * @command gryphon:provision
-   * @description This is command to show provision URLs.
+   * @description This is command to populate URLs by scafoliding the multisite and designating URLs on Acquia.
    */
   public function provision($sitename): void {
     if (empty($sitename)) {
