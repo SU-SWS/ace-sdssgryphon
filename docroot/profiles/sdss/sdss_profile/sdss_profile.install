@@ -855,3 +855,11 @@ function sdss_profile_update_10004() {
 function sdss_profile_update_10005() {
   \Drupal::service('module_installer')->uninstall(['earth_news_importer']);
 }
+
+/**
+ * Uninstall page_cache.
+ */
+function sdss_profile_update_10006()
+{
+  \Drupal::service('module_installer')->uninstall(['page_cache']);
+}
