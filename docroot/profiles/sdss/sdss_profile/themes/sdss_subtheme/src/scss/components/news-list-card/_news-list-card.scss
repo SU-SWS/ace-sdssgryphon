@@ -80,10 +80,3 @@
     }
   }
 }
-
-// Center one-col layout
-.layout-paragraphs-sdss-one-column {
-  .paragraph--type--sdss-news-list-card {
-    @include centered-column;
-  }
-}

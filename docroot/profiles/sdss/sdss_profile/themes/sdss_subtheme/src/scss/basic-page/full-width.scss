@@ -10,6 +10,18 @@ $fa-font-path:  '~@fortawesome/fontawesome-free/webfonts';
 // Import SDSS utilities
 @import '../utilities/index';
 
+// Full width styles for one-column layout
+.layout-paragraphs-sdss-one-column {
+  // All paragraphs except banner, news spotlight, wysiwyg, and news list card
+  .ptype-stanford-lists,
+  .ptype-stanford-gallery,
+  .ptype-stanford-card,
+  .ptype-stanford-media-caption,
+  .ptype-stanford-entity {
+    @include sdss-centered-column;
+  }
+}
+
 // Full width styles for one-four-one layout
 .layout-paragraphs-sdss-one-four-one {
   .content-well {
@@ -19,14 +31,12 @@ $fa-font-path:  '~@fortawesome/fontawesome-free/webfonts';
   .layout__region--top,
   .layout__region--bottom {
 
-    // All paragraphs except banner and news spotlight
+    // All paragraphs except banner, news spotlight, wysiwyg, and news list card
     .ptype-stanford-lists,
-    .ptype-stanford-wysiwyg,
     .ptype-stanford-gallery,
     .ptype-stanford-card,
     .ptype-stanford-media-caption,
-    .ptype-stanford-entity,
-    .ptype-sdss-news-list-card {
+    .ptype-stanford-entity {
       @include sdss-centered-column;
     }
   }
