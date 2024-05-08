@@ -21,7 +21,7 @@
   }
 
   @include grid-media-max('xl') {
-    @include responsive-spacing('padding', 1);
+    @include padding(2.6rem);
   }
 }
 
