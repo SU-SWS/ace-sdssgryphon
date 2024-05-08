@@ -89,7 +89,6 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
       'green-stat' => 'Green Stat Card',
       'blue' => 'Light Blue',
       'grey' => 'Light Grey',
-      'white' => 'White',
     ];
   }
 
