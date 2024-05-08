@@ -890,9 +890,24 @@ function sdss_profile_update_10008(&$sandbox) {
 }
 
 /**
+ * Delete all paragraphs_row_type entities.
+ */
+function sdss_profile_update_10009() {
+  $paragraphs_row_type_storage = \Drupal::entityTypeManager()->getStorage('paragraphs_row_type');
+  $ids = $paragraphs_row_type_storage->getQuery()
+    ->accessCheck(FALSE)
+    ->execute();
+  $row_types = $paragraphs_row_type_storage->loadMultiple($ids);
+
+  foreach ($row_types as $row_type) {
+    $row_type->delete();
+  }
+}
+
+/**
  * Uninstall react_paragraphs and react_paragraph_behaviors.
  */
-// function sdss_profile_update_10008() {
-//   \Drupal::service('module_installer')->uninstall(['react_paragraphs_behaviors']);
-//   \Drupal::service('module_installer')->uninstall(['react_paragraphs']);
-// }
+function sdss_profile_update_10010() {
+  \Drupal::service('module_installer')->uninstall(['react_paragraphs_behaviors']);
+  \Drupal::service('module_installer')->uninstall(['react_paragraphs']);
+}
