@@ -1,0 +1,11 @@
+.js-lpb-region {
+
+  /* hide fields not used for display */
+  .paragraph--type--callout-quote {
+
+    .field--name-su-callout-bgcolor-alt,
+    .field--name-su-select-font-sizing {
+      display: none;
+    }
+  }
+}
