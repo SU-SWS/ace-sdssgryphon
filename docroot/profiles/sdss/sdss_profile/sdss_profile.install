@@ -859,7 +859,40 @@ function sdss_profile_update_10005() {
 /**
  * Uninstall page_cache.
  */
-function sdss_profile_update_10006()
-{
+function sdss_profile_update_10006() {
   \Drupal::service('module_installer')->uninstall(['page_cache']);
 }
+
+
+/**
+ * Delete all paragraph_row entities.
+ */
+function sdss_profile_update_10008(&$sandbox) {
+  $paragraph_row_storage = \Drupal::entityTypeManager()
+    ->getStorage('paragraph_row');
+  if (!isset($sandbox['count'])) {
+    $ids = $paragraph_row_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->sort('created')
+      ->execute();
+    $sandbox['ids'] = $ids;
+    $sandbox['count'] = count($sandbox['ids']);
+  }
+
+  $paragraph_row_ids = array_splice($sandbox['ids'], 0, 100);
+  $paragraph_rows = $paragraph_row_storage->loadMultiple($paragraph_row_ids);
+  foreach ($paragraph_rows as $paragraph_row) {
+    $paragraph_row->delete();
+  }
+
+  // Support batching updates.
+  $sandbox['#finished'] = empty($sandbox['ids']) ? 1 : ($sandbox['count'] - count($sandbox['ids'])) / $sandbox['count'];
+}
+
+/**
+ * Uninstall react_paragraphs and react_paragraph_behaviors.
+ */
+// function sdss_profile_update_10008() {
+//   \Drupal::service('module_installer')->uninstall(['react_paragraphs_behaviors']);
+//   \Drupal::service('module_installer')->uninstall(['react_paragraphs']);
+// }
