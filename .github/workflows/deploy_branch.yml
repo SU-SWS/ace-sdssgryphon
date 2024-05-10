@@ -15,18 +15,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Restore Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             vendor
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-${{ hashFiles('composer.json') }}-
-            4.x-
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
+            4.x-${{ hashFiles('blt/blt.yml') }}-
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -36,9 +36,9 @@ jobs:
           if_key_exists: fail
       - name: Deploy Artifact
         run: |
-          git config --system --add safe.directory '*'
-          git config --global user.email "sws-developers@lists.stanford.edu"
-          git config --global user.name "Github Actions"
-          ssh-keyscan -t rsa svn-23450.prod.hosting.acquia.com >> /root/.ssh/known_hosts
-          composer install -n
+          git config --system --add safe.directory '*' &&
+          git config --global user.email "sws-developers@lists.stanford.edu" &&
+          git config --global user.name "Github Actions" &&
+          ssh-keyscan -t rsa svn-23450.prod.hosting.acquia.com >> /root/.ssh/known_hosts &&
+          composer install -n &&
           blt deploy -v -n
