@@ -8,7 +8,7 @@ on: [workflow_call]
 # Cancel previous runs of this workflow in the same branch if they're still in
 # progress.
 concurrency:
-  group: ${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
