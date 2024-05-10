@@ -57,7 +57,7 @@ jobs:
           name: unit-tests-results
           path: $GITHUB_WORKSPACE/artifacts
   test_new_site:
-    name: Test new site
+    name: Test New Site
     strategy:
       matrix:
         suite: [acceptance, functional]
@@ -120,7 +120,7 @@ jobs:
           name: newsite-${{ matrix.suite }}-tests
           path: artifacts
   test_sustainability_sync:
-    name: Test Sustainability site sync
+    name: Test Sustainability Site Sync
     runs-on: ubuntu-latest
     container:
       image: pookmish/drupal8ci:latest
