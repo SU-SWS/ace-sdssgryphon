@@ -678,7 +678,6 @@ display:
               sdss_research_areas: sdss_research_areas
               su_sdss_news_source: su_sdss_news_source
             anyall: ','
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
