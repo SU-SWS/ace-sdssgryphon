@@ -70,6 +70,7 @@ jobs:
       DRUPAL_DATABASE_USERNAME: drupal
       DRUPAL_DATABASE_PASSWORD: drupal
       DRUPAL_DATABASE_HOST: mysql
+      STANFORD_ENCRYPT: ${{secrets.STANFORD_ENCRYPT}}
     services:
       selenium:
         image: selenium/standalone-chrome:latest
