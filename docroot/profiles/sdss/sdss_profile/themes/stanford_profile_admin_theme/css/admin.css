@@ -1,0 +1,8 @@
+/* Hide heading level options for paragraphs */
+.js-form-item.form-item.js-form-type-checkbox.form-type--checkbox.form-type--boolean.js-form-item-behavior-plugins-su-card-styles-hide-heading.form-item--behavior-plugins-su-card-styles-hide-heading {
+  display: none;
+}
+
+.js-form-item.form-item.js-form-type-select.form-type--select.js-form-item-behavior-plugins-su-card-styles-heading.form-item--behavior-plugins-su-card-styles-heading {
+  display: none;
+}
