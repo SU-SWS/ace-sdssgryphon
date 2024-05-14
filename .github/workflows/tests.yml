@@ -5,15 +5,16 @@ name: PHPUnit and Acceptance Tests
 # Allow this workflow to be called from other workflows.
 on: [workflow_call]
 
+# Cancel previous runs of this workflow in the same branch if they're still in
+# progress.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   phpunit:
     name: PHPUnit Coverage Tests
     runs-on: ubuntu-latest
-    env:
-      DRUPAL_DATABASE_NAME: drupal
-      DRUPAL_DATABASE_USERNAME: drupal
-      DRUPAL_DATABASE_PASSWORD: drupal
-      DRUPAL_DATABASE_HOST: mysql
     container:
       image: pookmish/drupal8ci:latest
     services:
@@ -30,25 +31,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Restore Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             vendor
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-20240206-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-20240206-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-20240206-${{ hashFiles('composer.json') }}-
-            4.x-20240206-
-      - run: git config --system --add safe.directory '*'
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
+            4.x-${{ hashFiles('blt/blt.yml') }}-
       - name: Run Unit Tests
         # env:
         #   CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         run: |
-          composer install -n
-          blt blt:telemetry:disable --no-interaction
+          git config --system --add safe.directory '*' &&
+          composer install -n &&
           blt tests:phpunit:coverage --no-interaction
       - name: Save Test Results
         uses: actions/upload-artifact@v4
@@ -56,63 +56,11 @@ jobs:
         with:
           name: unit-tests-results
           path: $GITHUB_WORKSPACE/artifacts
-  acceptance:
-    name: Codeception Acceptance Tests
-    runs-on: ubuntu-latest
-    env:
-      DRUPAL_DATABASE_NAME: drupal
-      DRUPAL_DATABASE_USERNAME: drupal
-      DRUPAL_DATABASE_PASSWORD: drupal
-      DRUPAL_DATABASE_HOST: mysql
-    container:
-      image: pookmish/drupal8ci:latest
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_DATABASE: drupal
-          MYSQL_USER: drupal
-          MYSQL_PASSWORD: drupal
-          MYSQL_ROOT_PASSWORD: drupal
-        ports:
-          - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-    steps:
-      - uses: actions/checkout@v4
-      - name: Restore Cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            vendor
-            docroot/core
-            docroot/libraries
-            docroot/modules/contrib
-          key: 4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-          restore-keys: |
-            4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-20231101-${{ hashFiles('composer.json') }}-
-            4.x-20231101-
-      - run: git config --system --add safe.directory '*'
-      - name: Run tests
-        run: |
-          rm -rf /var/www/html
-          ln -snf $GITHUB_WORKSPACE /var/www/html
-          apachectl stop
-          apachectl start
-          composer install -n
-          blt blt:telemetry:disable --no-interaction
-          blt drupal:install -n
-          drush role:perm:add anonymous 'access content'
-          drush xmlsitemap:rebuild
-          blt codeception --suite=acceptance
-      - name: Save Test Results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: acceptance-tests-results
-          path: artifacts
-  functional:
-    name: Codeception Functional Tests
+  test_new_site:
+    name: Test New Site
+    strategy:
+      matrix:
+        suite: [acceptance, functional]
     runs-on: ubuntu-latest
     env:
       DRUPAL_DATABASE_NAME: drupal
@@ -124,7 +72,7 @@ jobs:
       options: '--network-alias drupal8ci'
     services:
       selenium:
-        image: selenium/standalone-chrome:115.0
+        image: selenium/standalone-chrome:latest
         options: '--shm-size="2g"'
       mysql:
         image: mysql:5.7
@@ -139,43 +87,92 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Restore Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             vendor
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-            docroot/modules/custom
-          key: 4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-20231101-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-20231101-${{ hashFiles('composer.json') }}-
-            4.x-20231101-
-      - run: git config --system --add safe.directory '*'
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
+            4.x-${{ hashFiles('blt/blt.yml') }}-
       - name: Install Site
         run: |
-          rm -rf /var/www/html
-          ln -snf $GITHUB_WORKSPACE /var/www/html
-          apachectl stop
-          apachectl start
-          composer install -n
-          blt blt:telemetry:disable --no-interaction
-          blt drupal:install -n
-          drush role:perm:add anonymous 'access content'
-          drush xmlsitemap:rebuild
+          git config --system --add safe.directory '*' &&
+          rm -rf /var/www/html &&
+          ln -snf $GITHUB_WORKSPACE /var/www/html &&
+          apachectl stop &&
+          apachectl start &&
+          composer install -n &&
+          blt drupal:install -n &&
+          drush role:perm:add anonymous 'access content' &&
+          drush xmlsitemap:rebuild &&
           mkdir -p artifacts/_data/
       - name: Run tests
-        run: blt codeception --suite=functional
+        run: blt codeception --suite=${{ matrix.suite }}
       - name: Save Test Results
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: functional-tests-results
+          name: newsite-${{ matrix.suite }}-tests
           path: artifacts
-
-# Cancel previous runs of this workflow in the same branch if they're still in
-# progress.
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
+  test_sustainability_sync:
+    name: Test Sustainability Site Sync
+    runs-on: ubuntu-latest
+    container:
+      image: pookmish/drupal8ci:latest
+      options: '--network-alias drupal8ci'
+    env:
+      DRUPAL_DATABASE_NAME: drupal
+      DRUPAL_DATABASE_USERNAME: drupal
+      DRUPAL_DATABASE_PASSWORD: drupal
+      DRUPAL_DATABASE_HOST: mysql
+      STANFORD_ENCRYPT: ${{secrets.STANFORD_ENCRYPT}}
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        options: '--shm-size="2g"'
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_DATABASE: drupal
+          MYSQL_USER: drupal
+          MYSQL_PASSWORD: drupal
+          MYSQL_ROOT_PASSWORD: drupal
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.ACQUIA_SSH_KEY }}
+          name: id_rsa
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          if_key_exists: fail
+      - uses: actions/checkout@v4
+      - name: Restore Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            vendor
+            docroot/core
+            docroot/libraries
+            docroot/modules/contrib
+          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
+            4.x-${{ hashFiles('blt/blt.yml') }}-
+      - name: Sync Database
+        run: |
+          git config --system --add safe.directory '*' &&
+          mysql -h mysql -P 3306 -u root -pdrupal -e 'SET GLOBAL max_allowed_packet=67108864;' &&
+          rm -rf /var/www/html &&
+          ln -snf $GITHUB_WORKSPACE /var/www/html &&
+          composer install -n &&
+          blt settings &&
+          blt drupal:sync --site=sustainability -n
