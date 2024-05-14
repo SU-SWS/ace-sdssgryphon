@@ -1,0 +1,12 @@
+project:
+  machine_name: hph
+  human_name: hph
+  local:
+    protocol: http
+    hostname: local.hph.com
+drush:
+  aliases:
+    local: hph.local
+    remote: hph.prod
+drupal:
+  db: {  }
