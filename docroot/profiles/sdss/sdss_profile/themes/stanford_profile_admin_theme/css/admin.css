@@ -1,0 +1,25 @@
+/* Hide heading level options for card paragraphs. */
+.js-form-item-behavior-plugins-su-card-styles-hide-heading.form-item--behavior-plugins-su-card-styles-hide-heading {
+  display: none;
+}
+
+.js-form-item-behavior-plugins-su-card-styles-heading.form-item--behavior-plugins-su-card-styles-heading {
+  display: none;
+}
+
+/*  Hide heading level options for the top banner paragraph. */
+.js-form-item-su-page-banner-0-behavior-plugins-hero-pattern-hide-heading.form-item--su-page-banner-0-behavior-plugins-hero-pattern-hide-heading {
+  display: none;
+}
+.js-form-item-su-page-banner-0-behavior-plugins-hero-pattern-heading.form-item--su-page-banner-0-behavior-plugins-hero-pattern-heading {
+  display: none;
+}
+
+/* Hide heading level options for the banner paragraph. */
+.js-form-item-behavior-plugins-hero-pattern-heading.form-item--behavior-plugins-hero-pattern-heading {
+  display: none;
+}
+
+.js-form-item-behavior-plugins-hero-pattern-hide-heading.form-item--behavior-plugins-hero-pattern-hide-heading {
+  display: none;
+}

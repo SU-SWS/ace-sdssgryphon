@@ -15,3 +15,5 @@ regions:
   page_top: 'Page top'
   page_bottom: 'Page bottom'
   sidebar_first: 'First sidebar'
+libraries:
+  - stanford_profile_admin_theme/admin
