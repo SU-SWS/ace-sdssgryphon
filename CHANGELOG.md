@@ -1,5 +1,48 @@
 # ACE SDSSGryphon
 
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [4.4.0] - 2024-05-16
+
+### Added
+ff26b069 SDSS-1290: Updated Github action CI release workflow (#440)
+193a1115 SDSS-1256: Added Sustainability Site Sync test and improved test automation (#431)
+61cff2f8 SDSS-1269: Provisioned hph (#425)
+d3cd6d37 SDSS-1262: Provision for techtransferfordefense (#424)
+f4715d8e SDSS-1272: Enable search by title (#420)
+a0cdcc5c SDSS-1261: List of media mention spacing (#413)
+9b0fa49e SDSS-1220: Add Media Mentions list display to News list paragraph (#409)
+
+### Fixed
+df338cfe SDSS-1292: Change headline CSS specificity (#436)
+faf600ac SDSS-1286: Added admin css to stanford_profile_admin_theme and hid heading fields (#433)
+89d92a5a SDSS-1249: Button color fix (#406)
+
+### Changed
+bd45e591 SDSS-1266: Excluded Media Mention News from Newsroom Search (#427)
+4792b275 SDSS-1266: Excluded Media Mention News from Site Search (#422)
+9d5ebc1d SDSS-1257: Maintenance and dependency updates (#401)
+d999afe4 SDSS-1191: Changed headline and dek for xl-md breakpoint (#389)
+0472d25a SDSS-1263: Change link colors for all inline textual links (#412)
+a6932607 SDSS-252: Allow Events List paragraph to be filtered by multiple taxonomies (#407)
+bad9fb7f SDSS-1265: Allow adding Basic Pages to Newsroom Menu from Edit Node form (#411)
+b054c483 SDSS-1235: Local footer config update (#405)
+001759e3 SDSS-1252: Added additional terms to contextual filter for people list paragraph (#408)
+
+### Removed
+fb883610 SDSS-1218: Disabled page cache module (#426)
+3ed39a3b SDSS-1255: Uninstall earth_news_importer (#415)
+6f9cc082 SDSS-1182: Remove Magazine Topics taxonomy (#410)
+
+
+--------------------------------------------------------------------------------
+
+
 4.3.2
 --------------------------------------------------------------------------------
 _Release Date: 2024-04-23_
