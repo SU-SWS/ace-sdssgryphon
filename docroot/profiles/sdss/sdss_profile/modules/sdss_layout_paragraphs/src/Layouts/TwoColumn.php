@@ -14,10 +14,9 @@ class TwoColumn extends SdssLayoutParagraphBase {
    */
   protected function getWidthOptions() {
     return [
-      '50-50' => '50% - 50%',
-      // 'offset-50-50' => 'Offset: 50% - 50%',
-      // '33-67' => '33% - 67%',
-      // '67-33' => '67% - 33%',
+      '50-50' => 'Equal Columns',
+      '33-67' => 'Larger Right Column',
+      '67-33' => 'Larger Left Column',
     ];
   }
 
