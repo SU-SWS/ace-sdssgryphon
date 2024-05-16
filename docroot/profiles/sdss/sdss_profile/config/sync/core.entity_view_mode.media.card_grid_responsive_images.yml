@@ -1,0 +1,11 @@
+uuid: 5cd6a512-7bd0-48df-a7c2-532610aaee78
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.card_grid_responsive_images
+label: 'Card Grid Responsive Images'
+description: ''
+targetEntityType: media
+cache: true
