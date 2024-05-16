@@ -45,7 +45,7 @@ class LocalFooterCest {
 
     $I->selectOption('State', 'New York');
     $fields = [
-      'Company' => 'Drupal',
+      'Organization' => 'Drupal',
       'Street address' => '123 Drupal Dr',
       'City' => 'New York',
       'Zip code' => 12345,
@@ -101,14 +101,12 @@ class LocalFooterCest {
     $I->checkOption('Enabled');
     $I->fillField("#edit-su-local-foot-pr-co-0-value", "<p>Block one</p>");
     $I->fillField("#edit-su-local-foot-se-co-0-value", "<p>Block two</p>");
-    $I->fillField("#edit-su-local-foot-tr-co-0-value", "<p>Block three</p>");
     $I->click('Save');
     $I->see('Local Footer has been', '.messages-list');
 
     $I->amOnPage('/');
     $I->canSee('Block one');
     $I->canSee('Block two');
-    $I->canSee('Block three');
   }
 
   /**

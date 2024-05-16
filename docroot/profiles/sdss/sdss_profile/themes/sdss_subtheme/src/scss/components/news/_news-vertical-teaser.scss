@@ -64,24 +64,15 @@
         @include sdss-newsroom-med-paragraph;
 
         margin-bottom: .5rem;
+
+        @include grid-media-between('md','xl') {
+          font-size: 1.8rem;
+          line-height: 1.5;
+        }
       }
 
       a {
-        @include sdss-link--primary;
-
-        &.su-link--external {
-          &::after {
-            background-color: $sdss-color-green-link;
-          }
-
-          &:hover,
-          &:focus,
-          &:active {
-            &::after {
-              background-color: $sdss-color-black;
-            }
-          }
-        }
+        @include sdss-inline-textual-link;
       }
     }
 
@@ -148,18 +139,9 @@
           @include type-b;
           display: inline;
           color: unset;
-        }
-      }
-    }
 
-    // Override
-    a {
-      text-decoration: none;
-
-      &.su-link--external {
-        &:hover {
-          &::after {
-            background-color:  $sdss-color-green-link;
+          @include grid-media-between('md','xl') {
+            font-size: 1.8em;
           }
         }
       }

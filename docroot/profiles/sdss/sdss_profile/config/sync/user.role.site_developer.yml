@@ -31,7 +31,6 @@ dependencies:
     - taxonomy.vocabulary.media_tags
     - taxonomy.vocabulary.sdss_event_topics
     - taxonomy.vocabulary.sdss_focal_areas
-    - taxonomy.vocabulary.sdss_magazine_topics
     - taxonomy.vocabulary.sdss_organization
     - taxonomy.vocabulary.sdss_projects
     - taxonomy.vocabulary.sdss_research_areas
@@ -64,6 +63,7 @@ dependencies:
     - field_ui
     - file
     - filter
+    - help
     - image
     - layout_builder
     - layout_builder_modal
@@ -111,6 +111,7 @@ permissions:
   - 'access entity usage statistics'
   - 'access environment indicator'
   - 'access files overview'
+  - 'access help pages'
   - 'access media overview'
   - 'access patterns page'
   - 'access site reports'
@@ -241,7 +242,6 @@ permissions:
   - 'create terms in media_tags'
   - 'create terms in sdss_event_topics'
   - 'create terms in sdss_focal_areas'
-  - 'create terms in sdss_magazine_topics'
   - 'create terms in sdss_organization'
   - 'create terms in sdss_projects'
   - 'create terms in sdss_research_areas'
@@ -305,7 +305,6 @@ permissions:
   - 'delete terms in media_tags'
   - 'delete terms in sdss_event_topics'
   - 'delete terms in sdss_focal_areas'
-  - 'delete terms in sdss_magazine_topics'
   - 'delete terms in sdss_organization'
   - 'delete terms in sdss_projects'
   - 'delete terms in sdss_research_areas'
@@ -368,7 +367,6 @@ permissions:
   - 'edit terms in media_tags'
   - 'edit terms in sdss_event_topics'
   - 'edit terms in sdss_focal_areas'
-  - 'edit terms in sdss_magazine_topics'
   - 'edit terms in sdss_organization'
   - 'edit terms in sdss_projects'
   - 'edit terms in sdss_research_areas'

@@ -7,7 +7,6 @@ dependencies:
     - field.storage.node.su_sdss_news_dek_long
     - node.type.stanford_news
     - taxonomy.vocabulary.sdss_focal_areas
-    - taxonomy.vocabulary.sdss_magazine_topics
     - taxonomy.vocabulary.sdss_research_areas
     - taxonomy.vocabulary.su_sdss_news_source
   module:
@@ -676,11 +675,9 @@ display:
             limit: true
             vids:
               sdss_focal_areas: sdss_focal_areas
-              sdss_magazine_topics: sdss_magazine_topics
               sdss_research_areas: sdss_research_areas
               su_sdss_news_source: su_sdss_news_source
             anyall: ','
-          default_argument_skip_url: false
           summary_options:
             base_path: ''
             count: true
@@ -700,7 +697,6 @@ display:
           use_taxonomy_term_path: false
           vocabularies:
             sdss_focal_areas: sdss_focal_areas
-            sdss_magazine_topics: sdss_magazine_topics
             sdss_research_areas: sdss_research_areas
             stanford_news_topics: stanford_news_topics
       style:
