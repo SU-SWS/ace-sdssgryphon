@@ -1,0 +1,16 @@
+_core:
+  default_config_hash: oByYyT7KZRYvM2OyziogSW_YrSDodQiFDEkUfxI20eM
+entity_config: {  }
+field_config: {  }
+settings:
+  exclude_unpublished: true
+  expose_entity_ids: false
+  schema_description: 'GraphQL Compose'
+  schema_version: '1'
+  simple_queries: true
+  simple_unions: true
+  site_front: true
+  site_name: false
+  site_slogan: false
+  inflector_langcode: en
+  inflector_singularize: true
