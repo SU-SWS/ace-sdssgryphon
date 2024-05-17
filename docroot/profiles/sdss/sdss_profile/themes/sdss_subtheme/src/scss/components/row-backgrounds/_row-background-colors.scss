@@ -19,6 +19,10 @@
     @include responsive-spacing('padding-bottom', 2);
     @include responsive-spacing('margin-bottom', 2);
   }
+
+  @include grid-media-max('xl') {
+    @include padding(2.6rem);
+  }
 }
 
 .layout-paragraphs-sdss-bgcolor--white {
