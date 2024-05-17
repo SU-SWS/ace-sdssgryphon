@@ -1,0 +1,77 @@
+uuid: e45f4eb5-a0f9-453a-813e-140085feab94
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.card_1x_478x318
+    - image.style.card_2x_956x636
+    - image.style.card_3_2_960x640_
+    - image.style.large_square
+    - image.style.medium_square
+  module:
+    - stanford_image_styles
+id: card_grid
+label: 'Card Grid'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: card_1x_478x318
+    breakpoint_id: stanford_image_styles.2xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_1x_478x318
+    breakpoint_id: stanford_image_styles.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_1x_478x318
+    breakpoint_id: stanford_image_styles.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: medium_square
+    breakpoint_id: stanford_image_styles.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: medium_square
+    breakpoint_id: stanford_image_styles.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: medium_square
+    breakpoint_id: stanford_image_styles.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_2x_956x636
+    breakpoint_id: stanford_image_styles.2xl
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_2x_956x636
+    breakpoint_id: stanford_image_styles.xl
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_2x_956x636
+    breakpoint_id: stanford_image_styles.lg
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_square
+    breakpoint_id: stanford_image_styles.md
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_square
+    breakpoint_id: stanford_image_styles.sm
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: large_square
+    breakpoint_id: stanford_image_styles.xs
+    multiplier: 2x
+breakpoint_group: stanford_image_styles
+fallback_image_style: card_3_2_960x640_
