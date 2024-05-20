@@ -43,8 +43,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<em>{{ su_sdss_news_news_source }} </em>'
             make_link: false
             path: ''
             absolute: false
@@ -69,7 +69,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: em
+          element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -366,15 +366,15 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ su_sdss_news_dek_long }} <br/>'
             make_link: false
             path: ''
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: true
             alt: ''
             rel: ''
             link_class: ''
@@ -390,7 +390,7 @@ display:
             more_link_path: ''
             strip_tags: true
             trim: false
-            preserve_tags: '<p>'
+            preserve_tags: '<p><br>'
             html: false
           element_type: ''
           element_class: ''
