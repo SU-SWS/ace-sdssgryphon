@@ -69,7 +69,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: em
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -390,7 +390,7 @@ display:
             more_link_path: ''
             strip_tags: true
             trim: false
-            preserve_tags: ''
+            preserve_tags: '<p>'
             html: false
           element_type: ''
           element_class: ''
@@ -429,7 +429,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<em>{{ su_sdss_news_news_source }}</em>\r\n<p>{{ su_sdss_news_dek_long }}</p>"
+            text: "{{ su_sdss_news_news_source }}\r\n{{ su_sdss_news_dek_long }}"
             make_link: false
             path: ''
             absolute: false
