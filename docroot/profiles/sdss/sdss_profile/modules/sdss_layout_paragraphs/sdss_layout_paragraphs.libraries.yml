@@ -1,4 +1,8 @@
 # Custom module library for general purposes.
+layout_paragraphs:
+  css:
+    component:
+      dist/css/preview_paragraphs.css: { }
 
 one_column:
   css:
