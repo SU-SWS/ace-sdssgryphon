@@ -323,11 +323,11 @@ third_party_settings:
           centered: centered-container
           columns: flex-12-of-12
         components:
-          0dce8d5f-7572-4394-9cbc-9230ac3047a8:
-            uuid: 0dce8d5f-7572-4394-9cbc-9230ac3047a8
+          6b464e2e-34de-472f-8efb-a0137690ae40:
+            uuid: 6b464e2e-34de-472f-8efb-a0137690ae40
             region: main
             configuration:
-              id: 'views_block:stanford_news-vertical_cards'
+              id: 'views_block:stanford_news-viewfield_block_1'
               label: 'Explore More'
               label_display: visible
               provider: views

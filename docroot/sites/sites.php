@@ -98,7 +98,6 @@ $sites['eep.stanford.edu'] = 'gep';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
 $sites['epsci.stanford.edu'] = 'gs';
 $sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
-$sites['techtransferfordefense.stanford.edu'] = 'hackingfordefense';
 $sites['understand-energy.stanford.edu'] = 'understandenergy';
 
 // Manually point dev/test domains here.
