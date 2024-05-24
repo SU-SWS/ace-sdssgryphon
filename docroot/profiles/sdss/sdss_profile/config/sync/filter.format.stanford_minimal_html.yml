@@ -62,7 +62,7 @@ filters:
       title: true
   su_clean_html:
     id: su_clean_html
-    provider: stanford_decoupled
+    provider: stanford_profile_helper
     status: true
     weight: 99
     settings: {  }

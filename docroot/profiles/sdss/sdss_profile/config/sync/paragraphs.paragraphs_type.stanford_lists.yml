@@ -18,6 +18,3 @@ behavior_plugins:
     available_layouts: {  }
   list_paragraph:
     enabled: true
-    hide_empty: false
-    empty_message: ''
-    heading_behavior: show
