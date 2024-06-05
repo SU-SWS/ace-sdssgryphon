@@ -7,6 +7,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.2] - 2024-06-05
+
+### Added
+843b95cb SDSS-1303: Provisioned cepp (#449)
+bc2d5adf SDSS-1291: Label articles in RSS feed with external source (#435)
+
+### Fixed
+3a2cc46c SDSS-478: Fix to the wysiwyg spacing with section background colors (#421)
+3af560e6 Fix changelog commit lists.
+86633bf4 SDSS-834: Hide non-display paragraphs values in Layout Paragraphs preview (#428)
+
+### Changed
+e723a971 SDSS-1253: Unpoint techtransferfordefense from hackingfordefense (#447)
+ff898444 SDSS-1283: Changed default media image mode to full responsive (#439)
+ce197716 SDSS-1288: Exclude Media Mentions from Explore More on News (#432)
+
+
 ## [4.4.1] - 2024-05-16
 
 ### Fixed
