@@ -7,43 +7,60 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.4.2] - 2024-06-05
+
+### Added
+- 843b95cb SDSS-1303: Provisioned cepp (#449)
+- bc2d5adf SDSS-1291: Label articles in RSS feed with external source (#435)
+
+### Fixed
+- 3a2cc46c SDSS-478: Fix to the wysiwyg spacing with section background colors (#421)
+- 3af560e6 Fix changelog commit lists.
+- 86633bf4 SDSS-834: Hide non-display paragraphs values in Layout Paragraphs preview (#428)
+
+### Changed
+- e723a971 SDSS-1253: Unpoint techtransferfordefense from hackingfordefense (#447)
+- ff898444 SDSS-1283: Changed default media image mode to full responsive (#439)
+- ce197716 SDSS-1288: Exclude Media Mentions from Explore More on News (#432)
+
+
 ## [4.4.1] - 2024-05-16
 
 ### Fixed
-dcb09224 SDSS-1294: Fixed logger syntax in SDSS Profile InstallTask (#443)
+- dcb09224 SDSS-1294: Fixed logger syntax in SDSS Profile InstallTask (#443)
 
 
 ## [4.4.0] - 2024-05-16
 
 ### Added
-ff26b069 SDSS-1290: Updated Github action CI release workflow (#440)
-193a1115 SDSS-1256: Added Sustainability Site Sync test and improved test automation (#431)
-61cff2f8 SDSS-1269: Provisioned hph (#425)
-d3cd6d37 SDSS-1262: Provision for techtransferfordefense (#424)
-f4715d8e SDSS-1272: Enable search by title (#420)
-a0cdcc5c SDSS-1261: List of media mention spacing (#413)
-9b0fa49e SDSS-1220: Add Media Mentions list display to News list paragraph (#409)
+- ff26b069 SDSS-1290: Updated Github action CI release workflow (#440)
+- 193a1115 SDSS-1256: Added Sustainability Site Sync test and improved test automation (#431)
+- 61cff2f8 SDSS-1269: Provisioned hph (#425)
+- d3cd6d37 SDSS-1262: Provision for techtransferfordefense (#424)
+- f4715d8e SDSS-1272: Enable search by title (#420)
+- a0cdcc5c SDSS-1261: List of media mention spacing (#413)
+- 9b0fa49e SDSS-1220: Add Media Mentions list display to News list paragraph (#409)
 
 ### Fixed
-df338cfe SDSS-1292: Change headline CSS specificity (#436)
-faf600ac SDSS-1286: Added admin css to stanford_profile_admin_theme and hid heading fields (#433)
-89d92a5a SDSS-1249: Button color fix (#406)
+- df338cfe SDSS-1292: Change headline CSS specificity (#436)
+- faf600ac SDSS-1286: Added admin css to stanford_profile_admin_theme and hid heading fields (#433)
+- 89d92a5a SDSS-1249: Button color fix (#406)
 
 ### Changed
-bd45e591 SDSS-1266: Excluded Media Mention News from Newsroom Search (#427)
-4792b275 SDSS-1266: Excluded Media Mention News from Site Search (#422)
-9d5ebc1d SDSS-1257: Maintenance and dependency updates (#401)
-d999afe4 SDSS-1191: Changed headline and dek for xl-md breakpoint (#389)
-0472d25a SDSS-1263: Change link colors for all inline textual links (#412)
-a6932607 SDSS-252: Allow Events List paragraph to be filtered by multiple taxonomies (#407)
-bad9fb7f SDSS-1265: Allow adding Basic Pages to Newsroom Menu from Edit Node form (#411)
-b054c483 SDSS-1235: Local footer config update (#405)
-001759e3 SDSS-1252: Added additional terms to contextual filter for people list paragraph (#408)
+- bd45e591 SDSS-1266: Excluded Media Mention News from Newsroom Search (#427)
+- 4792b275 SDSS-1266: Excluded Media Mention News from Site Search (#422)
+- 9d5ebc1d SDSS-1257: Maintenance and dependency updates (#401)
+- d999afe4 SDSS-1191: Changed headline and dek for xl-md breakpoint (#389)
+- 0472d25a SDSS-1263: Change link colors for all inline textual links (#412)
+- a6932607 SDSS-252: Allow Events List paragraph to be filtered by multiple taxonomies (#407)
+- bad9fb7f SDSS-1265: Allow adding Basic Pages to Newsroom Menu from Edit Node form (#411)
+- b054c483 SDSS-1235: Local footer config update (#405)
+- 001759e3 SDSS-1252: Added additional terms to contextual filter for people list paragraph (#408)
 
 ### Removed
-fb883610 SDSS-1218: Disabled page cache module (#426)
-3ed39a3b SDSS-1255: Uninstall earth_news_importer (#415)
-6f9cc082 SDSS-1182: Remove Magazine Topics taxonomy (#410)
+- fb883610 SDSS-1218: Disabled page cache module (#426)
+- 3ed39a3b SDSS-1255: Uninstall earth_news_importer (#415)
+- 6f9cc082 SDSS-1182: Remove Magazine Topics taxonomy (#410)
 
 
 --------------------------------------------------------------------------------

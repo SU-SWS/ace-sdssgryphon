@@ -1,0 +1,12 @@
+project:
+  machine_name: cepp
+  human_name: cepp
+  local:
+    protocol: http
+    hostname: local.cepp.com
+drush:
+  aliases:
+    local: cepp.local
+    remote: cepp.prod
+drupal:
+  db: {  }

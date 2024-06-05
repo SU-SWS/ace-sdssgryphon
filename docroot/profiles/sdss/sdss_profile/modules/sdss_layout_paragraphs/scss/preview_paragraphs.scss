@@ -1,0 +1,17 @@
+.js-lpb-region {
+
+  /* hide fields not used for display */
+  .paragraph--type--callout-quote {
+    .field--name-su-callout-bgcolor-alt,
+    .field--name-su-select-font-sizing {
+      display: none;
+    }
+  }
+
+  .paragraph--type--editorial-sidebar {
+    .field--name-su-sidebar-bgcolor-alt,
+    .field--name-su-sidebar-title-size {
+      display: none;
+    }
+  }
+}
