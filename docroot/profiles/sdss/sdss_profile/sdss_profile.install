@@ -773,8 +773,7 @@ function sdss_profile_update_10001()
 /**
  * Set the Media Mentions field to FALSE on all existing News Nodes.
  */
-function sdss_profile_update_10002(&$sandbox)
-{
+function sdss_profile_update_10002(&$sandbox) {
   $node_storage = \Drupal::entityTypeManager()
     ->getStorage('node');
   if (!isset($sandbox['count'])) {
@@ -859,7 +858,43 @@ function sdss_profile_update_10005() {
 /**
  * Uninstall page_cache.
  */
-function sdss_profile_update_10006()
-{
+function sdss_profile_update_10006() {
   \Drupal::service('module_installer')->uninstall(['page_cache']);
+}
+
+/**
+ * Change layout_paragraphs with white backgrounds to default.
+ */
+function sdss_profile_update_10007(&$sandbox) {
+  $paragraph_storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+  if (!isset($sandbox['count'])) {
+    $pids = $paragraph_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_layout')
+      ->sort('created')
+      ->execute();
+    $sandbox['pids'] = $pids;
+    $sandbox['count'] = count($sandbox['pids']);
+  }
+
+  $paragraph_ids = array_splice($sandbox['pids'], 0, 250);
+  /** @var \Drupal\paragraphs\ParagraphInterface[] $paragraph */
+  $paragraphs = $paragraph_storage->loadMultiple($paragraph_ids);
+  foreach ($paragraphs as $paragraph) {
+    $paragraph_config = $paragraph->getBehaviorSetting('layout_paragraphs', 'config');
+
+    if (
+      !empty($paragraph_config) &&
+      isset($paragraph_config['bg_color']) &&
+      $paragraph_config['bg_color'] == 'white'
+    ) {
+      $behavior_settings = $paragraph->getAllBehaviorSettings();
+      $behavior_settings['layout_paragraphs']['config']['bg_color'] = 'none';
+      $paragraph->setAllBehaviorSettings($behavior_settings);
+
+      $paragraph->save();
+    }
+  }
+
+  $sandbox['#finished'] = empty($sandbox['pids']) ? 1 : ($sandbox['count'] - count($sandbox['pids'])) / $sandbox['count'];
 }
