@@ -27,10 +27,6 @@
     max-width: 850px;
     margin: 0 auto;
   }
-
-  .sdss-layout-paragraphs-one-column--offset-100 .paragraph.paragraph--type--stanford-wysiwyg {
-    max-width: 100%;
-  }
 }
 
 @media screen and (min-width: 1200px) {
