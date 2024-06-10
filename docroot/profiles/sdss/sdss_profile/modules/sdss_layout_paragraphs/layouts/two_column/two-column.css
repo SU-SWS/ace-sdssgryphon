@@ -5,6 +5,39 @@
   margin: 0 3rem;
 }
 
+/* The 3 different width for the 2 column layout */
+/* .layout--layout-paragraphs-sdss-two-column--50-50 : Equal columns */
+/* .layout--layout-paragraphs-sdss-two-column--33-67  : Larger right column */
+/* .layout--layout-paragraphs-sdss-two-column--67-33  : Larger left column  */
+
+@media screen and (min-width: 576px) {
+  .layout--layout-paragraphs-sdss-two-column {
+    max-width: calc(100vw - 60px);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .layout--layout-paragraphs-sdss-two-column {
+    max-width: calc(100vw - 100px);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .layout--layout-paragraphs-sdss-two-column--50-50 {
+    grid-template-columns: 1fr 1fr;
+    max-width: calc(100vw - 160px);
+  }
+
+  .layout--layout-paragraphs-sdss-two-column--33-67 {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .layout--layout-paragraphs-sdss-two-column--67-33 {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+
 .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--green,
 .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--blue,
 .layout--layout-paragraphs-two-column.layout-paragraphs-sdss-bgcolor--grey {
@@ -24,12 +57,6 @@
     margin: 0;
     padding-left: 4rem;
     padding-right: 4rem;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .layout--layout-paragraphs-two-column {
-    grid-template-columns: 1fr 1fr;
   }
 }
 

@@ -2,12 +2,12 @@
 
 namespace Drupal\sdss_layout_paragraphs\Layouts;
 
-use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBase;
+use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBaseTwoCol;
 
 /**
  * Two column layout class.
  */
-class TwoColumn extends SdssLayoutParagraphBase {
+class TwoColumn extends SdssLayoutParagraphBaseTwoCol {
     protected function getWidthOptions() {
         return [
           '50-50' => 'Equal Columns',

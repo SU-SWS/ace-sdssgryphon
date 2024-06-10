@@ -21,7 +21,6 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
   public function defaultConfiguration() {
     $configuration = parent::defaultConfiguration();
     return $configuration + [
-      'col_width' => $this->getWidthOptions(),
       'bg_color' => $this->getDefaultBgColor(),
       'bg_image' => $this->getDefaultBgImage(),
     ];
@@ -31,13 +30,6 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    $form['col_width'] = [
-      '#type' => 'select',
-      '#title' => $this->t('Column widths'),
-      '#default_value' => $this->configuration['col_width'],
-      '#options' => $this->getWidthOptions(),
-      '#description' => $this->t('Choose the column widths for this layout.'),
-    ];
     $form['bg_color'] = [
       '#type' => 'select',
       '#title' => $this->t('Background Color'),
@@ -60,7 +52,6 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::submitConfigurationForm($form, $form_state);
-    // $this->configuration['col_width'] = $form_state->getValue('col_width');
     $this->configuration['bg_color'] = $form_state->getValue('bg_color');
     $this->configuration['bg_image'] = $form_state->getValue('bg_image');
   }
@@ -70,10 +61,6 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    */
   public function build(array $regions) {
     $build = parent::build($regions);
-    if($this->configuration['col_width'] !== 'none') {
-      $build['#attributes']['class'][] = 'layout--layout-paragraphs-sdss-two-column';
-      $build['#attributes']['class'][] = 'layout--layout-paragraphs-sdss-two-column--' . $this->configuration['col_width'];
-    }
     if($this->configuration['bg_color'] !== 'none') {
       $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor';
       $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor--' . $this->configuration['bg_color'];
@@ -95,14 +82,6 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    *   The background color options array where the keys are strings that will
    *   be added to the CSS classes and the values are the human readable labels.
    */
-  protected function getWidthOptions() {
-    return $array = [
-      '50-50' => 'Equal Columns',
-      '33-67' => 'Larger Right Column',
-      '67-33' => 'Larger Left Column',
-    ];
-  }
- 
    protected function getBgColorOptions() {
     return $array = [
       'none' => '- None -',
@@ -126,11 +105,6 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    * @return string
    *   A key from the array returned by ::getBgColorOptions().
    */
-  protected function getDefaultWidthOptions() {
-    // Return the first available key from the list of options.
-    $col_width_classes = array_keys($this->getWidthOptions());
-    return array_shift($col_width_classes);
-  }
    protected function getDefaultBgColor() {
     // Return the first available key from the list of options.
     $bg_color_classes = array_keys($this->getBgColorOptions());
