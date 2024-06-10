@@ -60,7 +60,7 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::submitConfigurationForm($form, $form_state);
-    $this->configuration['col_width'] = $form_state->getValue('col_width');
+    // $this->configuration['col_width'] = $form_state->getValue('col_width');
     $this->configuration['bg_color'] = $form_state->getValue('bg_color');
     $this->configuration['bg_image'] = $form_state->getValue('bg_image');
   }
@@ -95,7 +95,15 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    *   The background color options array where the keys are strings that will
    *   be added to the CSS classes and the values are the human readable labels.
    */
-  protected function getBgColorOptions() {
+  protected function getWidthOptions() {
+    return $array = [
+      '50-50' => 'Equal Columns',
+      '33-67' => 'Larger Right Column',
+      '67-33' => 'Larger Left Column',
+    ];
+  }
+ 
+   protected function getBgColorOptions() {
     return $array = [
       'none' => '- None -',
       'green' => 'Green',
@@ -118,7 +126,12 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    * @return string
    *   A key from the array returned by ::getBgColorOptions().
    */
-  protected function getDefaultBgColor() {
+  protected function getDefaultWidthOptions() {
+    // Return the first available key from the list of options.
+    $col_width_classes = array_keys($this->getWidthOptions());
+    return array_shift($col_width_classes);
+  }
+   protected function getDefaultBgColor() {
     // Return the first available key from the list of options.
     $bg_color_classes = array_keys($this->getBgColorOptions());
     return array_shift($bg_color_classes);
