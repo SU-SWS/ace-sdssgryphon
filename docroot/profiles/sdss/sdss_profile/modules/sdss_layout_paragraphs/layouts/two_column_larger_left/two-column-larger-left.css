@@ -1,0 +1,83 @@
+.layout--layout-paragraphs-sdss-two-column-larger-left {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 3rem;
+  margin: 0 3rem;
+}
+
+.layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--green,
+.layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--blue,
+.layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--grey {
+  margin: 0;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .layout--layout-paragraphs-sdss-two-column-larger-left {
+    margin: 0 4.0rem;
+  }
+
+.layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--green,
+.layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--blue,
+.layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--grey {
+    margin: 0;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .layout--layout-paragraphs-sdss-two-column-larger-left {
+    grid-template-columns: 67% 33%;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .layout--layout-paragraphs-sdss-two-column-larger-left {
+    margin: 0 5rem;
+  }
+
+  .layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--green,
+  .layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--blue,
+  .layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--grey {
+    margin: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  .flex-lg-9-of-12 .layout--layout-paragraphs-sdss-two-column-larger-left {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .layout--layout-paragraphs-sdss-two-column-larger-left {
+    margin: 0 10rem;
+  }
+
+  .layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--green,
+  .layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--blue,
+  .layout--layout-paragraphs-sdss-two-column-larger-left.layout-paragraphs-sdss-bgcolor--grey {
+    margin: 0;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+
+  .flex-lg-9-of-12 .layout--layout-paragraphs-sdss-two-column-larger-left {
+    margin: 0;
+  }
+}
+
+.layout--layout-paragraphs-sdss-two-column-larger-left > * {
+  min-width: 0;
+}
+
+/* Override Stanford Basic theme */
+@media screen and (min-width: 1700px) {
+  .su-page-components .layout--layout-paragraphs-three-column,
+  .su-page-components .layout--layout-paragraphs-sdss-two-column-larger-left {
+      max-width: inherit;
+  }
+}
+

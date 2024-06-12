@@ -14,6 +14,21 @@ two_column:
     component:
       layouts/two_column/two-column.css: {}
 
+two_column_equal:
+  css:
+    component:
+      layouts/two_column/two-column-equal.css: {}      
+
+two_column_larger_left:
+  css:
+    component:
+      layouts/two_column/two-column-larger-left.css: {}   
+
+two_column_larger_right:
+  css:
+    component:
+      layouts/two_column/two-column-larger-right.css: {}         
+
 three_column:
   css:
     component:
