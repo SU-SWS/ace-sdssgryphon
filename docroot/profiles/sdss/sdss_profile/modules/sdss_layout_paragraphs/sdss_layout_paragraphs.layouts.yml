@@ -13,7 +13,7 @@ layout_paragraphs_sdss_1_column:
     - [main]
 
 layout_paragraphs_sdss_2_column:
-  label: '2 Column'
+  label: '2 Equal Column'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumn'
   path: layouts/two_column
@@ -32,27 +32,6 @@ layout_paragraphs_sdss_2_column:
       - sdss_spotlight
       - stanford_banner
       - stanford_gallery
-
-layout_paragraphs_sdss_2_column_equal:
-  label: '2 Equal Columns'
-  category: 'SDSS Layout Paragraphs'
-  class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumnEqual'
-  path: layouts/two_column_equal
-  template: layout-paragraphs-sdss-two-column-equal
-  library: sdss_layout_paragraphs/two_column_equal
-  regions:
-    left:
-      label: Left
-    right:
-      label: Right
-  default_region: left
-  icon_map:
-    - [left, right]
-  paragraph_restrictions:
-    all_regions:
-      - sdss_spotlight
-      - stanford_banner
-      - stanford_gallery  
 
 layout_paragraphs_sdss_2_column_larger_left:
   label: '2 Columns Larger Left'
