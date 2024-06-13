@@ -4,6 +4,8 @@
  * Preprocess functions for SDSS Subtheme.
  */
 
+use Drupal\node\NodeInterface;
+
 /**
  * Prepares variables for the html.html.twig template.
  */
@@ -123,5 +125,30 @@ function sdss_subtheme_preprocess_page(&$vars) {
   // These need to allows be the "dark" variants for the SDSS subtheme.
   $vars['brand_bar_variant'] = 'su-brand-bar--dark';
   $vars['global_footer_variant'] = 'su-global-footer--dark';
+
+  // Implement full-width basic page styles
+  $is_page_node = isset($vars['node']) && $vars['node'] instanceof NodeInterface && $vars['node']->bundle() == 'stanford_page';
+  
+  if (!$is_page_node) {
+    return;
+  }
+
+  $has_layout_field = $vars['node']->hasField('layout_selection') && $vars['node']->get('layout_selection')->getString() == 'stanford_basic_page_full';
+
+  if ($has_layout_field) {
+    $vars['#attached']['library'][] = 'sdss_subtheme/basic-page-full-width';
+  }
 }
 
+/**
+ * Implements hook_preprocess_lists().
+ */
+function sdss_subtheme_preprocess_paragraph__stanford_lists(array &$variables): void {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = &$variables['paragraph'];
+  $existing_classes = $variables['attributes']['class'] ?? [];
+  $extra_classes = [
+    $paragraph->getBehaviorSetting('react_paragraphs:lists_variant_info', 'grid_rows'),
+  ];
+  $variables['attributes']['class'] = array_merge($existing_classes, $extra_classes);
+}
