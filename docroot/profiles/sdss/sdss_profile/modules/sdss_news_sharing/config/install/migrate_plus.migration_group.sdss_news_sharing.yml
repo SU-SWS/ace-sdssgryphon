@@ -1,0 +1,10 @@
+# uuid: needs a uuid?
+langcode: en
+status: true
+dependencies: {  }
+id: sdss_news_sharing
+label: 'SDSS News Sharing'
+description: 'Import news content from another SDSS site as a canonical source'
+source_type: null
+module: sdss_news_sharing
+shared_configuration: null
