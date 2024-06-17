@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1cac45512321879e57b03045a4f8e950",
+    "content-hash": "fc7b44bdba7d2e7d965496a57f1c4420",
     "packages": [
         {
             "name": "acquia/blt",
@@ -4869,6 +4869,82 @@
             "homepage": "https://www.drupal.org/project/entity_reference_revisions",
             "support": {
                 "source": "https://git.drupalcode.org/project/entity_reference_revisions"
+            }
+        },
+        {
+            "name": "drupal/entity_share",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entity_share.git",
+                "reference": "8.x-3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity_share-8.x-3.0.zip",
+                "reference": "8.x-3.0",
+                "shasum": "b1c8f40ef2714c45c956c09343e9e9808d3e8a10"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "league/oauth2-client": "^2.4"
+            },
+            "conflict": {
+                "drupal/jsonapi": "1.*"
+            },
+            "require-dev": {
+                "drupal/block_field": "~1.0",
+                "drupal/dynamic_entity_reference": "~3.0 || ~4.0",
+                "drupal/entity_share_client": "*",
+                "drupal/field_group": "~3.0",
+                "drupal/json_api_book": "~1.0",
+                "drupal/jsonapi_extras": "~3.14",
+                "drupal/key": "~1.14",
+                "drupal/metatag": "~1.0",
+                "drupal/paragraphs": "~1.0",
+                "drupal/pathauto": "~1.0"
+            },
+            "suggest": {
+                "drupal/key": "Provides ability to manage keys for Authentication plugins.",
+                "drupal/simple_oauth": "Allows to setup server for OAuth plugin."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.0",
+                    "datestamp": "1681198393",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Grimreaper",
+                    "homepage": "https://www.drupal.org/user/2388214"
+                },
+                {
+                    "name": "ithom",
+                    "homepage": "https://www.drupal.org/user/3175403"
+                },
+                {
+                    "name": "ivan.vujovic",
+                    "homepage": "https://www.drupal.org/user/382945"
+                },
+                {
+                    "name": "yarik.lutsiuk",
+                    "homepage": "https://www.drupal.org/user/3212333"
+                }
+            ],
+            "description": "Provides an UI to share entities.",
+            "homepage": "https://www.drupal.org/project/entity_share",
+            "support": {
+                "source": "https://git.drupalcode.org/project/entity_share"
             }
         },
         {
@@ -26644,5 +26720,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
