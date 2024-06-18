@@ -24,6 +24,7 @@ $fa-font-path:  '~@fortawesome/fontawesome-free/webfonts';
 }
 
 // Full width styles for one-four-one layout
+.layout--layout-paragraphs-one-four-one,
 .layout-paragraphs-sdss-one-four-one {
   .content-well {
     @include sdss-centered-column;
