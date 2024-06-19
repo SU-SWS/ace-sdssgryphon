@@ -59,6 +59,7 @@ jobs:
   test_new_site:
     name: Test New Site
     strategy:
+      fail-fast: false
       matrix:
         suite: [acceptance, functional]
     runs-on: ubuntu-latest
