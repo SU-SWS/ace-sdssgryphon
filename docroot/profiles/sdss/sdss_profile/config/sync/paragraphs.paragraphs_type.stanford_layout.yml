@@ -16,8 +16,8 @@ behavior_plugins:
     enabled: true
     available_layouts:
       layout_paragraphs_sdss_1_column: '1 Column'
-      layout_paragraphs_sdss_2_column: '2 Column'
       layout_paragraphs_sdss_2_column_larger_left: '2 Columns Larger Left'
       layout_paragraphs_sdss_2_column_larger_right: '2 Columns Larger Right'
+      layout_paragraphs_sdss_2_column: '2 Equal Columns'
       layout_paragraphs_sdss_3_column: '3 Column'
       layout_paragraphs_sdss_1_4_1: '4 Column with Header and Footer'
