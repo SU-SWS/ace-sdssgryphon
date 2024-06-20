@@ -46,9 +46,13 @@ source:
       label: 'News Source'
       selector: news_source
     -
-      name: external_source
-      label: 'External Source'
-      selector: external_source
+      name: external_source_title
+      label: 'External Source Title'
+      selector: external_source_title
+    -
+      name: external_source_url
+      label: 'External Source URL'
+      selector: external_source_url
     -
       name: canonical_url
       label: 'Canonical URL'
