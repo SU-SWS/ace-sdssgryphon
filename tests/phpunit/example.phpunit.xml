@@ -21,12 +21,9 @@
       <directory>../profiles/custom/*/modules/*/tests</directory>
       <directory>../profiles/sdss/*/tests</directory>
       <!-- <directory>../profiles/sdss/*/modules/*/tests</directory> -->
-      <!-- Exclude custom sdss_profile modules for now. Tests need to be written
-       ASAP. -->
+      <!-- Exclude custom sdss_profile modules for now. Tests need to be
+      written. -->
       <directory>../profiles/sdss/*/modules</directory>
-      <!-- Exclude the earth_news_importer custom module. This module will be
-       removed. -->
-      <directory>../modules/custom/earth_news_importer</directory>
     </exclude>
   </coverage>
   <!-- set printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter" once

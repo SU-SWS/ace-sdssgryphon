@@ -39,19 +39,6 @@
         {
             "type": "package",
             "package": {
-                "name": "su-sws/earth_news_importer",
-                "version": "1.x-dev",
-                "type": "drupal-custom-module",
-                "source": {
-                    "type": "git",
-                    "url": "https://github.com/SU-SWS/earth_news_importer.git",
-                    "reference": "1.x"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "stanford-earth/stanford_earth_r25",
                 "version": "8.1.12",
                 "type": "drupal-custom-module-rooms-site",
@@ -195,7 +182,6 @@
         "su-sws/blt-sws": "dev-main",
         "su-sws/ckeditor5_plugins": "^1.0",
         "su-sws/drupal-patches": "^10.0",
-        "su-sws/earth_news_importer": "1.x-dev",
         "su-sws/react_paragraphs": "^8.2",
         "su-sws/stanford_actions": "^8.2",
         "su-sws/stanford_fields": "^8.2",
