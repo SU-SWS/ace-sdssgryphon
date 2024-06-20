@@ -28,9 +28,9 @@ class ProfileConnectSectionTest extends UnitTestCase {
   }
 
   /**
-   * Test the connection topics exist.
+   * Test connection topics exist.
    */
-  public function testHelpSections() {
+  public function testConnectSections() {
     $plugin = new ProfileConnectSection([], '', []);
     $topics = $plugin->listTopics();
     $this->assertCount(1, $topics);
