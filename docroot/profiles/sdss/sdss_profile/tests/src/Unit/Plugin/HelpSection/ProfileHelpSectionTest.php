@@ -4,12 +4,11 @@ namespace Drupal\Tests\sdss_profile\Unit\Plugin\HelpSection;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Utility\LinkGeneratorInterface;
-use Drupal\sdss_profile\Plugin\HelpSection\ProfileConnectSection;
 use Drupal\sdss_profile\Plugin\HelpSection\ProfileHelpSection;
 use Drupal\Tests\UnitTestCase;
 
 /**
- * Class ProfileConnectSectionTest
+ * Class ProfileHelpSectionTest
  *
  * @group sdss_profile
  * @coversDefaultClass \Drupal\sdss_profile\Plugin\HelpSection\ProfileHelpSection
@@ -29,7 +28,7 @@ class ProfileHelpSectionTest extends UnitTestCase {
   }
 
   /**
-   * Test the connection topics exist.
+   * Test help topics exist.
    */
   public function testHelpSections() {
     $plugin = new ProfileHelpSection([], '', []);
