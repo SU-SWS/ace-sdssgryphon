@@ -9,15 +9,16 @@ dependencies:
     - field.storage.node.su_sdss_news_dek_long
     - field.storage.node.su_sdss_news_news_source
     - node.type.stanford_news
+    - taxonomy.vocabulary.sdss_organization
   module:
     - datetime
     - image
     - link
-    - link_title_formatter
     - media
     - node
     - rest
     - serialization
+    - taxonomy
     - text
     - user
 id: sdss_news_sharing
@@ -402,73 +403,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: uri
-          type: link_title
-          settings:
-            trim_length: ''
-            url_only: ''
-            url_plain: ''
-            rel: 0
-            target: 0
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        su_news_source_1:
-          id: su_news_source_1
-          table: node__su_news_source
-          field: su_news_source
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: uri
           type: link
           settings:
             trim_length: null
@@ -660,15 +594,17 @@ display:
           exposed: false
           granularity: second
       arguments:
-        su_sdss_news_organization_target_id:
-          id: su_sdss_news_organization_target_id
-          table: node__su_sdss_news_organization
-          field: su_sdss_news_organization_target_id
-          relationship: none
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: su_sdss_news_organization
           group_type: group
           admin_label: ''
-          plugin_id: numeric
-          default_action: ignore
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+          default_action: 'not found'
           exception:
             value: all
             title_enable: false
@@ -687,13 +623,24 @@ display:
             sort_order: asc
             number_of_records: 0
             format: default_summary
-          specify_validation: false
+          specify_validation: true
           validate:
-            type: none
+            type: taxonomy_term_name
             fail: 'not found'
-          validate_options: {  }
+          validate_options:
+            bundles:
+              sdss_organization: sdss_organization
+            access: false
+            operation: view
+            transform: true
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
           break_phrase: false
-          not: false
+          add_table: false
+          require_value: false
       filters:
         status:
           id: status
@@ -741,6 +688,15 @@ display:
           relationship: none
           group_type: group
           admin_label: 'su_news_featured_media: Media'
+          plugin_id: standard
+          required: false
+        su_sdss_news_organization:
+          id: su_sdss_news_organization
+          table: node__su_sdss_news_organization
+          field: su_sdss_news_organization
+          relationship: none
+          group_type: group
+          admin_label: 'su_sdss_news_organization: Taxonomy term'
           plugin_id: standard
           required: false
       header: {  }
@@ -795,14 +751,11 @@ display:
             su_news_publishing_date:
               alias: publishing_date
               raw_output: false
-            su_news_source:
-              alias: external_source_title
-              raw_output: false
-            su_news_source_1:
-              alias: external_source_url
-              raw_output: false
             su_sdss_news_news_source:
               alias: news_source
+              raw_output: false
+            su_news_source:
+              alias: external_source
               raw_output: false
             view_node:
               alias: canonical_url
