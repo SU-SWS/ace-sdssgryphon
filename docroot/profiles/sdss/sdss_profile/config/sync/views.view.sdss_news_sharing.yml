@@ -153,6 +153,7 @@ display:
           type: image_url
           settings:
             image_style: ''
+            absolute_url: true
           group_column: ''
           group_columns: {  }
           group_rows: true
