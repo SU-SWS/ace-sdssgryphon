@@ -725,7 +725,7 @@ display:
             guid_field_is_permalink: true
       display_description: ''
       display_extenders: {  }
-      path: rss/shared-events-this-week
+      path: rss/events-this-week
     cache_metadata:
       max-age: -1
       contexts:
@@ -804,7 +804,7 @@ display:
         arguments: false
       display_description: ''
       display_extenders: {  }
-      path: rss/events-this-week
+      path: rss/shared-events-this-week
     cache_metadata:
       max-age: -1
       contexts:
