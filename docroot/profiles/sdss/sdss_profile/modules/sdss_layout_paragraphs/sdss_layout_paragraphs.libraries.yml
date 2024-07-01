@@ -12,7 +12,17 @@ one_column:
 two_column:
   css:
     component:
-      layouts/two_column/two-column.css: {}
+      layouts/two_column/two-column.css: {} 
+
+two_column_larger_left:
+  css:
+    component:
+      layouts/two_column_larger_left/two-column-larger-left.css: {}   
+
+two_column_larger_right:
+  css:
+    component:
+      layouts/two_column_larger_right/two-column-larger-right.css: {}         
 
 three_column:
   css:

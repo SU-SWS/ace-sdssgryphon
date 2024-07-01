@@ -67,3 +67,10 @@
 .layout--layout-paragraphs-three-column > * {
   min-width: 0;
 }
+
+/* Override Stanford Basic theme */
+@media screen and (min-width: 1700px) {
+  .su-page-components .layout--layout-paragraphs-three-column {
+      max-width: inherit;
+  }
+}
