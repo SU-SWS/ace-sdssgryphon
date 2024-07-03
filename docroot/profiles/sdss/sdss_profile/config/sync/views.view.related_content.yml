@@ -214,7 +214,7 @@ display:
     id: card_grid
     display_title: 'Related from this page - All'
     display_plugin: viewfield_block
-    position: 1
+    position: 6
     display_options:
       display_extenders: {  }
       display_description: 'All content listed in Related Content on this page'
@@ -281,7 +281,7 @@ display:
     id: viewfield_block_1
     display_title: 'Related from this page - News'
     display_plugin: viewfield_block
-    position: 2
+    position: 8
     display_options:
       display_extenders: {  }
       display_description: 'All news selected in the Related Content field on this page'
@@ -441,9 +441,9 @@ display:
       tags: {  }
   viewfield_block_2:
     id: viewfield_block_2
-    display_title: 'Related from this page - Person'
+    display_title: 'Related from this page - People'
     display_plugin: viewfield_block
-    position: 3
+    position: 9
     display_options:
       display_extenders: {  }
       display_description: 'All people selected in the Related Content field on this page'
@@ -617,7 +617,7 @@ display:
     id: viewfield_block_3
     display_title: 'Related from this page - Events'
     display_plugin: viewfield_block
-    position: 4
+    position: 10
     display_options:
       display_extenders: {  }
       display_description: 'All events selected in the Related Content field on this page'
@@ -779,7 +779,7 @@ display:
     id: viewfield_block_4
     display_title: 'This page related to - All'
     display_plugin: viewfield_block
-    position: 6
+    position: 1
     display_options:
       display_extenders: {  }
       display_description: ''
@@ -894,7 +894,7 @@ display:
     id: viewfield_block_5
     display_title: 'Related from this page - Basic Page'
     display_plugin: viewfield_block
-    position: 5
+    position: 7
     display_options:
       display_extenders: {  }
       display_description: 'All Basic Pages selected in the Related Content field on this page'
@@ -1057,7 +1057,7 @@ display:
     id: viewfield_block_6
     display_title: 'This page related to - Basic Pages'
     display_plugin: viewfield_block
-    position: 6
+    position: 2
     display_options:
       display_extenders: {  }
       display_description: ''
@@ -1214,7 +1214,7 @@ display:
     id: viewfield_block_7
     display_title: 'This page related to - News'
     display_plugin: viewfield_block
-    position: 6
+    position: 3
     display_options:
       display_extenders: {  }
       display_description: ''
@@ -1385,9 +1385,9 @@ display:
       tags: {  }
   viewfield_block_8:
     id: viewfield_block_8
-    display_title: 'This page related to - Events'
+    display_title: 'This page related to - People'
     display_plugin: viewfield_block
-    position: 6
+    position: 4
     display_options:
       display_extenders: {  }
       display_description: ''
@@ -1443,7 +1443,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            stanford_event: stanford_event
+            stanford_person: stanford_person
           group: '1'
           exposed: false
           expose:
@@ -1560,7 +1560,7 @@ display:
     id: viewfield_block_9
     display_title: 'This page related to - Events'
     display_plugin: viewfield_block
-    position: 6
+    position: 5
     display_options:
       display_extenders: {  }
       display_description: ''
@@ -1616,7 +1616,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            stanford_person: stanford_person
+            stanford_event: stanford_event
           group: '1'
           exposed: false
           expose:
