@@ -1533,20 +1533,32 @@ display:
           entity_field: nid
           plugin_id: node_nid
       sorts:
-        su_event_date_time_value:
-          id: su_event_date_time_value
-          table: node__su_event_date_time
-          field: su_event_date_time_value
+        su_person_last_name_value:
+          id: su_person_last_name_value
+          table: node__su_person_last_name
+          field: su_person_last_name_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
             field_identifier: ''
-          granularity: second
-          plugin_id: date
+          plugin_id: standard
+        su_person_first_name_value:
+          id: su_person_first_name_value
+          table: node__su_person_first_name
+          field: su_person_first_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+            field_identifier: ''
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -1706,32 +1718,20 @@ display:
           entity_field: nid
           plugin_id: node_nid
       sorts:
-        su_person_last_name_value:
-          id: su_person_last_name_value
-          table: node__su_person_last_name
-          field: su_person_last_name_value
+        su_event_date_time_value:
+          id: su_event_date_time_value
+          table: node__su_event_date_time
+          field: su_event_date_time_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
             field_identifier: ''
-          plugin_id: standard
-        su_person_first_name_value:
-          id: su_person_first_name_value
-          table: node__su_person_first_name
-          field: su_person_first_name_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-            field_identifier: ''
-          plugin_id: standard
+          granularity: second
+          plugin_id: date
     cache_metadata:
       max-age: -1
       contexts:
