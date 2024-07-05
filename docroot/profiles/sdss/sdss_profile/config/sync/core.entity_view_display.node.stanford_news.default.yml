@@ -347,6 +347,8 @@ third_party_settings:
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
+      - Devel
+      - 'Devel PHP'
       - Editoria11y
       - 'Events Lists (Views)'
       - Forms
@@ -417,6 +419,10 @@ third_party_settings:
           - 'field_block:user:user:uid'
           - 'field_block:user:user:status'
       allowlisted_blocks:
+        'Lists (Views)':
+          - 'views_block:explore_more_news-explore_more_other'
+          - 'views_block:explore_more_news-explore_more_curated'
+          - 'views_block:explore_more_news-explore_more_random'
         Menus:
           - 'menu_block:stanford-event-types'
           - 'system_menu_block:stanford-event-types'
@@ -437,10 +443,11 @@ third_party_settings:
         - 'Changelog (Views)'
         - 'Chaos Tools'
         - 'Config Pages'
+        - Devel
+        - 'Devel PHP'
         - Editoria11y
         - Forms
         - Help
-        - 'Lists (Views)'
         - 'Policy (Views)'
         - Printable
         - React
