@@ -376,19 +376,9 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: node_nid
-      empty:
-        view:
-          id: view
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          view_to_insert: 'duplicate_of_related_content:explore_more_random'
-          inherit_arguments: 0
-          plugin_id: view
+      empty: {  }
       block_description: 'Explore More News Related Content'
+      block_hide_empty: 1
     cache_metadata:
       max-age: -1
       contexts:
@@ -402,7 +392,7 @@ display:
     id: explore_more_other
     display_title: 'Explore More News Using Other Relationships'
     display_plugin: viewfield_block
-    position: 2
+    position: 3
     display_options:
       display_extenders: {  }
       display_description: 'This pulls three more news items from other sources'
@@ -574,7 +564,7 @@ display:
     id: explore_more_random
     display_title: 'Random Three News Items'
     display_plugin: viewfield_block
-    position: 3
+    position: 2
     display_options:
       display_extenders: {  }
       display_description: 'Super random!'
