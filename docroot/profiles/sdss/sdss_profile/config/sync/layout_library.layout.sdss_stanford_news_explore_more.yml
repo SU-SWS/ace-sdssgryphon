@@ -1,0 +1,9 @@
+uuid: 5d049c6c-61e7-47fd-b79e-7171ee6a7f6a
+langcode: en
+status: true
+dependencies: {  }
+id: sdss_stanford_news_explore_more
+label: 'Related Content in Explore More'
+targetEntityType: node
+targetBundle: stanford_news
+layout: {  }
