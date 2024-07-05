@@ -33,6 +33,7 @@ dependencies:
     - datetime
     - ds
     - element_class_formatter
+    - empty_fields
     - field_formatter_class
     - link
     - stanford_media
@@ -65,6 +66,11 @@ third_party_settings:
       news_external_url:
         - su_news_source
     fields:
+      'dynamic_token_field:node-news_content_url':
+        plugin_id: 'dynamic_token_field:node-news_content_url'
+        weight: 6
+        label: hidden
+        formatter: default
       node_title:
         plugin_id: node_title
         weight: 1
@@ -75,11 +81,6 @@ third_party_settings:
           'link class': ''
           wrapper: ''
           class: ''
-      'dynamic_token_field:node-news_content_url':
-        plugin_id: 'dynamic_token_field:node-news_content_url'
-        weight: 6
-        label: hidden
-        formatter: default
 id: node.stanford_news.stanford_card
 targetEntityType: node
 bundle: stanford_news
@@ -94,7 +95,7 @@ content:
       image:
         image_formatter: responsive_image_style
         image_formatter_image_style: cta_2x_1014x676
-        image_formatter_responsive_image_style: card_3_2
+        image_formatter_responsive_image_style: card_full_responsive
         image_formatter_view_mode: default
       video:
         video_formatter: entity
@@ -102,6 +103,8 @@ content:
       other:
         view_mode: default
     third_party_settings:
+      empty_fields:
+        handler: ''
       field_formatter_class:
         class: ''
     weight: 0
