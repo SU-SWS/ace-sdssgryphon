@@ -170,6 +170,7 @@ module:
   scheduler: 0
   sdss_entities: 0
   sdss_layout_paragraphs: 0
+  sdss_news_sharing: 0
   search_api: 0
   search_api_db: 0
   seckit: 0
