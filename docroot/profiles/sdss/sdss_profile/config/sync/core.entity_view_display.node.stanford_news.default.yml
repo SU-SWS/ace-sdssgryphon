@@ -451,7 +451,6 @@ third_party_settings:
         - 'Policy (Views)'
         - Printable
         - React
-        - 'Stanford Profile Helper'
         - 'Stanford SAML Authentication'
         - 'Taxonomy Terms (Views)'
         - User
