@@ -10,6 +10,8 @@ dependencies:
     - field.storage.node.su_sdss_news_news_source
     - node.type.stanford_news
     - taxonomy.vocabulary.sdss_organization
+    - taxonomy.vocabulary.sdss_research_areas
+    - taxonomy.vocabulary.stanford_news_topics
   module:
     - datetime
     - image
@@ -18,9 +20,9 @@ dependencies:
     - node
     - rest
     - serialization
-    - taxonomy
     - text
     - user
+    - views_taxonomy_term_name_depth
 id: sdss_news_sharing
 label: 'SDSS News Sharing'
 module: views
@@ -592,17 +594,16 @@ display:
           exposed: false
           granularity: second
       arguments:
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: su_sdss_news_organization
+        term_node_taxonomy_name_depth:
+          id: term_node_taxonomy_name_depth
+          table: node_field_data
+          field: term_node_taxonomy_name_depth
+          relationship: none
           group_type: group
           admin_label: ''
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-          default_action: 'not found'
+          entity_type: node
+          plugin_id: taxonomy_index_name_depth
+          default_action: empty
           exception:
             value: all
             title_enable: false
@@ -628,17 +629,18 @@ display:
           validate_options:
             bundles:
               sdss_organization: sdss_organization
+              sdss_research_areas: sdss_research_areas
+              stanford_news_topics: stanford_news_topics
             access: false
             operation: view
             transform: true
-          glossary: false
-          limit: 0
-          case: none
-          path_case: none
-          transform_dash: false
           break_phrase: false
-          add_table: false
-          require_value: false
+          depth: '0'
+          use_taxonomy_term_path: false
+          vocabularies:
+            sdss_organization: sdss_organization
+            sdss_research_areas: sdss_research_areas
+            stanford_news_topics: stanford_news_topics
       filters:
         status:
           id: status
@@ -686,15 +688,6 @@ display:
           relationship: none
           group_type: group
           admin_label: 'su_news_featured_media: Media'
-          plugin_id: standard
-          required: false
-        su_sdss_news_organization:
-          id: su_sdss_news_organization
-          table: node__su_sdss_news_organization
-          field: su_sdss_news_organization
-          relationship: none
-          group_type: group
-          admin_label: 'su_sdss_news_organization: Taxonomy term'
           plugin_id: standard
           required: false
       header: {  }
@@ -766,7 +759,7 @@ display:
               raw_output: false
       display_description: ''
       display_extenders: {  }
-      path: news-sharing/organization/%organization
+      path: news-sharing/terms/%terms
     cache_metadata:
       max-age: -1
       contexts:
