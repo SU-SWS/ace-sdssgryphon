@@ -210,13 +210,14 @@
 // Captions mixin
 @mixin sdss-caption {
   color: $su-color-black-70;
-  text-align: left;
+  text-align: center;
   float: unset;
   width: auto;
-  max-width: 750px;
+  max-width: 900px;
+  margin: 0 auto;
 
   @include grid-media-min('2xl') {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
   }
 
   @include grid-media-between('md','xl') {
