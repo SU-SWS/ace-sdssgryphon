@@ -1003,6 +1003,7 @@ display:
         filter_groups: false
         sorts: false
         arguments: false
+        relationships: false
       filter_groups:
         operator: AND
         groups:
@@ -1028,7 +1029,7 @@ display:
           id: nid
           table: node_field_data
           field: nid
-          relationship: reverse__node__su_sdss_related_content
+          relationship: none
           group_type: group
           admin_label: ''
           default_action: default
@@ -1055,10 +1056,21 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: 0
-          not: 0
+          not: 1
           entity_type: node
           entity_field: nid
           plugin_id: node_nid
+      relationships:
+        reverse__node__su_sdss_related_content:
+          id: reverse__node__su_sdss_related_content
+          table: node_field_data
+          field: reverse__node__su_sdss_related_content
+          relationship: none
+          group_type: group
+          admin_label: su_sdss_related_content
+          required: 1
+          entity_type: node
+          plugin_id: entity_reverse
     cache_metadata:
       max-age: -1
       contexts:
