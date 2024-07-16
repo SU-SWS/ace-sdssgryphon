@@ -18,7 +18,7 @@ source:
   request_options:
     timeout: 60
   urls:
-    - 'http://sdssgryphon-sustainability.test/news-sharing/organization/Earth-System-Science'
+    - ''
   data_parser_plugin: json
   item_selector: data
   orphan_action: forget

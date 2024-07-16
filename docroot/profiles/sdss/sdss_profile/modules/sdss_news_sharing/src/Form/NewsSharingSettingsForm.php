@@ -4,12 +4,10 @@ namespace Drupal\sdss_news_sharing\Form;
 
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Core\Cache\Cache;
-use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -25,39 +23,21 @@ class NewsSharingSettingsForm extends ConfigFormBase {
   protected $entityTypeManager;
 
   /**
-   * Http client service.
-   *
-   * @var \GuzzleHttp\ClientInterface
-   */
-  protected $guzzle;
-
-  /**
-   * Cache service.
-   *
-   * @var \Drupal\Core\Cache\CacheBackendInterface
-   */
-  protected $cache;
-
-  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('config.factory'),
-      $container->get('entity_type.manager'),
-      $container->get('http_client'),
-      $container->get('cache.default')
+      $container->get('entity_type.manager')
     );
   }
 
   /**
    * {@inheritdoc}
    */
-  public function __construct(ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager, ClientInterface $client, CacheBackendInterface $cache) {
+  public function __construct(ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager) {
     parent::__construct($config_factory);
     $this->entityTypeManager = $entity_type_manager;
-    $this->guzzle = $client;
-    $this->cache = $cache;
   }
 
   /**
@@ -79,25 +59,23 @@ class NewsSharingSettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildForm($form, $form_state);
-    $url = $this->config('sdss_news_sharing.settings')->get('url') ?: [];
+    $url = $this->config('sdss_news_sharing.settings')->get('url') ?: '';
+    $status = $this->config('sdss_news_sharing.settings')->get('status') ?: 0;
 
-    // $form['extra_urls'] = [
-    //   '#type' => 'textarea',
-    //   '#title' => $this->t('Event URLs'),
-    //   '#description' => $this->t('Enter the full url if available or use the fields below.'),
-    //   '#default_value' => implode(PHP_EOL, $this->getExtraUrls($urls)),
-    // ];
+    $form['status'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable News Importing'),
+      '#description' => $this->t('Enable importing news from another SDSS site'),
+      '#default_value' => $status,
+    ];
 
-    // $form['add_one'] = [
-    //   '#type' => 'submit',
-    //   '#name' => 'add_one',
-    //   '#value' => $this->t('Add one'),
-    //   '#submit' => ['::addOne'],
-    //   '#ajax' => [
-    //     'callback' => '::addMoreCallback',
-    //     'wrapper' => 'urls-wrapper',
-    //   ],
-    // ];
+    $form['url'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Source URL'),
+      '#description' => $this->t('Enter the full source URL of the SDSS site to pull from, including the terms'),
+      '#default_value' => $url,
+    ];
+
     return $form;
   }
 
@@ -106,35 +84,14 @@ class NewsSharingSettingsForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
-
-    // $urls = array_filter(explode(PHP_EOL, str_replace("\r", '', $form_state->getValue('extra_urls'))));
-    // foreach ($urls as &$url) {
-    //   $url = trim($url);
-    //   $this->validateUrl($url, $form, $form_state);
-    // }
-
-    // foreach ($form_state->getValue('url_set') as $url_settings) {
-    //   $urls[] = $this->getFullUrl($url_settings);
-    // }
-    // asort($urls);
-    // $urls = array_values(array_unique(array_filter($urls)));
-    // $form_state->setValue('urls', $urls);
-  }
-
-  /**
-   * Validate that the user entered values are xml feeds from stanford events.
-   *
-   * @param string $url
-   *   Url to events-legacy.stanford.edu.
-   * @param array $form
-   *   Complete form.
-   * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *   Current form state.
-   */
-  protected function validateUrl($url, array &$form, FormStateInterface $form_state) {
-    if (!UrlHelper::isValid($url, TRUE)) {
-      $form_state->setError($form['extra_urls'], $this->t('@url is not a valid url.', ['@url' => $url]));
-      return;
+    $status = $form_state->getValue('status');
+    if ($status) {
+      $url = $form_state->getValue('url');
+      $url = trim($url);
+      if (!UrlHelper::isValid($url, TRUE)) {
+        $form_state->setError($form['url'], $this->t('@url is not a valid url.', ['@url' => $url]));
+        return;
+      }
     }
   }
 
@@ -142,44 +99,21 @@ class NewsSharingSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // $this->configFactory()
-    //   ->getEditable('hs_events_importer.settings')
-    //   ->set('urls', $form_state->getValue('urls'))
-    //   ->save();
-    // parent::submitForm($form, $form_state);
-    // Cache::invalidateTags(['migration_plugins']);
+    $this->configFactory()
+      ->getEditable('sdss_news_sharing.settings')
+      ->set('url', trim($form_state->getValue('url')))
+      ->set('status', $form_state->getValue('status'))
+      ->save();
+    parent::submitForm($form, $form_state);
+    Cache::invalidateTags(['migration_plugins']);
 
     // // Add permission to execute importer.
     // $role = $this->entityTypeManager->getStorage('user_role')
     //   ->load('site_manager');
     // if ($role) {
-    //   $role->grantPermission('import hs_events_importer migration');
+    //   $role->grantPermission('import sdss_news_sharing migration');
     //   $role->save();
     // }
-  }
-
-  /**
-   * Parse the url and build an array with the query parts.
-   *
-   * @param string $url
-   *   Events-legacy.stanford.edu url.
-   *
-   * @return array
-   *   Keyed array of the query parameters for the url.
-   */
-  protected function getUrlDefaults($url) {
-    // Break up the URL to get at the query strings.
-    $parts = UrlHelper::parse($url);
-    $parsed = [];
-    // Pull apart the query strings and set them to keys for easy use.
-    if (isset($parts['query'])) {
-      $parsed = $parts['query'];
-      $keys = array_keys($parts['query']);
-      $parsed['type'] = array_shift($keys);
-      $parsed['org_status'] = array_pop($keys);
-    }
-
-    return $parsed;
   }
 
 }
