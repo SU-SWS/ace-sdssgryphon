@@ -17,8 +17,7 @@ source:
   data_fetcher_plugin: http
   request_options:
     timeout: 60
-  urls:
-    - ''
+  urls: {  }
   data_parser_plugin: json
   item_selector: data
   orphan_action: forget

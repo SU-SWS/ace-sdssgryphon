@@ -45,17 +45,11 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
 
     $config = $this->configFactory->get('sdss_news_sharing.settings');
     if ($urls = $config->get('urls')) {
-      $overrides['migrate_plus.migration.sdss_news_sharing'] = [
-        'source' => [
-          'urls' => array_values($urls),
-        ],
-      ];
+      $overrides['migrate_plus.migration.sdss_news_sharing']['source']['urls'] = $urls;
     }
 
     if ($status = $config->get('status')) {
-      $overrides['migrate_plus.migration.sdss_news_sharing'] = [
-        'status' => $status,
-      ];
+      $overrides['migrate_plus.migration.sdss_news_sharing']['source']['status'] = $status;
     }
 
     return $overrides;
