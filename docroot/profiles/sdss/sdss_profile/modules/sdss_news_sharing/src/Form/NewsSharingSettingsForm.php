@@ -59,7 +59,7 @@ class NewsSharingSettingsForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildForm($form, $form_state);
-    $url = $this->config('sdss_news_sharing.settings')->get('url') ?: '';
+    $urls = $this->config('sdss_news_sharing.settings')->get('urls') ?: [];
     $status = $this->config('sdss_news_sharing.settings')->get('status') ?: 0;
 
     $form['status'] = [
@@ -69,11 +69,11 @@ class NewsSharingSettingsForm extends ConfigFormBase {
       '#default_value' => $status,
     ];
 
-    $form['url'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Source URL'),
+    $form['urls'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Source URLs'),
       '#description' => $this->t('Enter the full source URL of the SDSS site to pull from, including the terms'),
-      '#default_value' => $url,
+      '#default_value' => implode(PHP_EOL, $urls),
     ];
 
     return $form;
@@ -86,11 +86,13 @@ class NewsSharingSettingsForm extends ConfigFormBase {
     parent::validateForm($form, $form_state);
     $status = $form_state->getValue('status');
     if ($status) {
-      $url = $form_state->getValue('url');
-      $url = trim($url);
-      if (!UrlHelper::isValid($url, TRUE)) {
-        $form_state->setError($form['url'], $this->t('@url is not a valid url.', ['@url' => $url]));
-        return;
+      $urls = array_filter(explode(PHP_EOL, str_replace("\r", '', $form_state->getValue('urls'))));
+      foreach ($urls as &$url) {
+        $url = trim($url);
+        if (!UrlHelper::isValid($url, TRUE)) {
+          $form_state->setError($form['urls'], $this->t('@url is not a valid url.', ['@url' => $url]));
+          return;
+        }
       }
     }
   }
@@ -99,9 +101,10 @@ class NewsSharingSettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $urls = array_filter(explode(PHP_EOL, str_replace("\r", '', $form_state->getValue('urls'))));
     $this->configFactory()
       ->getEditable('sdss_news_sharing.settings')
-      ->set('url', trim($form_state->getValue('url')))
+      ->set('urls', $urls)
       ->set('status', $form_state->getValue('status'))
       ->save();
     parent::submitForm($form, $form_state);
