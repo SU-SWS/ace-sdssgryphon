@@ -1,0 +1,5 @@
+sdss_news_sharing.news_sharing_settings_form:
+  title: 'SDSS News Sharing Settings'
+  route_name: sdss_news_sharing.news_sharing_settings_form
+  description: 'Modify the SDSS New Sharing Settings'
+  parent: system.admin_config_services
