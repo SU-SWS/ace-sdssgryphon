@@ -70,6 +70,9 @@ process:
       method: process
       source: image
     -
+      plugin: add_base_url
+      method: process
+    -
       plugin: file_import
       destination: constants/image_path
       id_only: true
