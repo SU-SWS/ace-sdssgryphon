@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class EventsImporterForm.
+ * Class NewsSharingSettingsForm.
  */
 class NewsSharingSettingsForm extends ConfigFormBase {
 
