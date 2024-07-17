@@ -109,14 +109,6 @@ class NewsSharingSettingsForm extends ConfigFormBase {
       ->save();
     parent::submitForm($form, $form_state);
     Cache::invalidateTags(['migration_plugins']);
-
-    // // Add permission to execute importer.
-    // $role = $this->entityTypeManager->getStorage('user_role')
-    //   ->load('site_manager');
-    // if ($role) {
-    //   $role->grantPermission('import sdss_news_sharing migration');
-    //   $role->save();
-    // }
   }
 
 }
