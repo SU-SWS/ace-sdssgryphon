@@ -46,6 +46,7 @@ if (EnvironmentDetector::isAhEnv()) {
       'stanford_earth_r25.adminsettings',
       'stanford_earth_r25.credentialsettings',
       'stanford_earth_r25.stanford_earth_r25.*',
+      'sdss_news_sharing.news_sharing_settings_form'
     ];
     $settings['config_readonly_content_link_providers'] = [
       'menu_link_content',
