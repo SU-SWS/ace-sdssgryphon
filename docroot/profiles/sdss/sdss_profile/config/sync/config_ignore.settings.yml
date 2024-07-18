@@ -9,6 +9,7 @@ ignored_config_entities:
   - 'next.next_entity_type_config.*'
   - 'next.next_site.*'
   - 'samlauth.authentication:map_users_roles'
+  - 'sdss_news_sharing.*'
   - sdss_news_sharing.settings
   - sdss_subtheme.settings
   - stanford_earth_r25.adminsettings
