@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.su_sdss_explore_more_picker
     - node.type.stanford_news
+    - views.view.explore_more_news
   module:
     - viewfield
 id: node.stanford_news.su_sdss_explore_more_picker
@@ -15,7 +16,12 @@ label: 'Options for Explore More'
 description: 'Use this field to select how to populate the Explore More section at the bottom of the page. By default, the view will show 3 random articles.'
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 6bee2160-3fb2-4124-b681-990ef5b42804
+    display_id: explore_more_random
+    arguments: ''
+    items_to_display: ''
 default_value_callback: ''
 settings:
   force_default: false
@@ -55,8 +61,8 @@ settings:
     taxonomy_term_pages: '0'
     user_admin_people: '0'
   allowed_display_types:
-    block: block
     viewfield_block: viewfield_block
+    block: '0'
     default: '0'
     feed: '0'
     page: '0'
