@@ -209,7 +209,7 @@ display:
       tags: {  }
   explore_more_curated:
     id: explore_more_curated
-    display_title: 'Explore More News - Curated'
+    display_title: 'Explore More News - News that is selected as related on this article'
     display_plugin: viewfield_block
     position: 1
     display_options:
@@ -376,18 +376,7 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: node_nid
-      empty:
-        view:
-          id: view
-          table: views
-          field: view
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          view_to_insert: 'duplicate_of_related_content:explore_more_random'
-          inherit_arguments: 0
-          plugin_id: view
+      empty: {  }
       block_description: 'Explore More News Related Content'
     cache_metadata:
       max-age: -1
@@ -400,7 +389,7 @@ display:
       tags: {  }
   explore_more_other:
     id: explore_more_other
-    display_title: 'Explore More News Using Other Relationships'
+    display_title: 'Explore More - News that has selected this article as related'
     display_plugin: viewfield_block
     position: 2
     display_options:
@@ -572,12 +561,12 @@ display:
       tags: {  }
   explore_more_random:
     id: explore_more_random
-    display_title: 'Random Three News Items'
+    display_title: 'Explore More News - Three Random News Items'
     display_plugin: viewfield_block
     position: 3
     display_options:
       display_extenders: {  }
-      display_description: 'Super random!'
+      display_description: 'Super random'
       allow:
         items_per_page: items_per_page
       filters:
