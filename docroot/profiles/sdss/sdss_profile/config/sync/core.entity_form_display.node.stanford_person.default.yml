@@ -52,6 +52,7 @@ dependencies:
     - media_library
     - menu_link
     - metatag
+    - path
     - scheduler
     - stanford_intranet
     - text
@@ -160,18 +161,24 @@ content:
         hide_guidelines: '0'
   field_menulink:
     type: menu_link_default
-    weight: 53
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 52
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 50
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -190,7 +197,7 @@ content:
     third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
-    weight: 32
+    weight: 9
     region: content
     settings:
       sidebar: true
@@ -209,7 +216,9 @@ content:
     weight: 7
     region: content
     settings:
+      view_mode: default
       preview_view_mode: default
+      form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
@@ -374,7 +383,7 @@ content:
     third_party_settings: {  }
   su_sdss_person_alt_bio:
     type: text_textarea
-    weight: 36
+    weight: 14
     region: content
     settings:
       rows: 5
@@ -382,7 +391,7 @@ content:
     third_party_settings: {  }
   su_sdss_person_alt_title:
     type: text_textarea
-    weight: 35
+    weight: 13
     region: content
     settings:
       rows: 5
@@ -403,7 +412,7 @@ content:
     third_party_settings: {  }
   su_sdss_person_organization:
     type: cshs
-    weight: 32
+    weight: 10
     region: content
     settings:
       save_lineage: false
@@ -416,7 +425,7 @@ content:
     third_party_settings: {  }
   su_sdss_person_research_area:
     type: cshs
-    weight: 33
+    weight: 11
     region: content
     settings:
       save_lineage: false
@@ -429,7 +438,7 @@ content:
     third_party_settings: {  }
   su_sdss_person_research_state:
     type: text_textarea
-    weight: 34
+    weight: 12
     region: content
     settings:
       rows: 5
@@ -437,7 +446,7 @@ content:
     third_party_settings: {  }
   su_sdss_related_content:
     type: entity_reference_autocomplete
-    weight: 53
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -447,7 +456,7 @@ content:
     third_party_settings: {  }
   su_shared_tags:
     type: cshs
-    weight: 31
+    weight: 8
     region: content
     settings:
       save_lineage: false
@@ -469,7 +478,6 @@ content:
 hidden:
   created: true
   layout_builder__layout: true
-  path: true
   promote: true
   sticky: true
   su_person_academic_appt: true
