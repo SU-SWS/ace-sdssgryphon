@@ -823,6 +823,9 @@ display:
           vocabularies:
             event_audience: event_audience
             sdss_event_topics: sdss_event_topics
+            sdss_focal_areas: sdss_focal_areas
+            sdss_organization: sdss_organization
+            sdss_research_areas: sdss_research_areas
             stanford_event_groups: stanford_event_groups
             stanford_event_keywords: stanford_event_keywords
             stanford_event_subject: stanford_event_subject
@@ -1818,6 +1821,9 @@ display:
           vocabularies:
             event_audience: event_audience
             sdss_event_topics: sdss_event_topics
+            sdss_focal_areas: sdss_focal_areas
+            sdss_organization: sdss_organization
+            sdss_research_areas: sdss_research_areas
             stanford_event_groups: stanford_event_groups
             stanford_event_keywords: stanford_event_keywords
             stanford_event_subject: stanford_event_subject
