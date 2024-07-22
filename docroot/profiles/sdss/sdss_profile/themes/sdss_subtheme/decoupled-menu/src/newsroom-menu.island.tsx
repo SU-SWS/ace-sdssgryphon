@@ -7,7 +7,7 @@ import {buildMenuTree, MenuContentItem} from "./tools/build-menu-tree";
 import {DRUPAL_DOMAIN} from './config/env'
 import OutsideClickHandler from "./components/outside-click-handler";
 import Caret from "./components/caret";
-import Hamburger from "./components/hamburger";
+import Hamburger from "./components/newsroom-mobile-button";
 import Close from "./components/close";
 import MagnifyingGlass from "./components/magnifying-glass";
 import Logo from "./components/logo";

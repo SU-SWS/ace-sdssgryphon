@@ -1,80 +1,95 @@
 import styled from "styled-components";
 import {useWebComponentEvents} from "./hooks/useWebComponentEvents";
 import {createIslandWebComponent} from 'preact-island'
-import {useState, useEffect, useRef, useCallback, useMemo} from 'preact/hooks';
+import {useState, useEffect, useRef, useCallback} from 'preact/hooks';
 import {deserialize} from "./tools/deserialize";
 import {buildMenuTree, MenuContentItem} from "./tools/build-menu-tree";
 import {DRUPAL_DOMAIN} from './config/env'
+import OutsideClickHandler from "./components/outside-click-handler";
 import Caret from "./components/caret";
 import Hamburger from "./components/hamburger";
 import Close from "./components/close";
 import MagnifyingGlass from "./components/magnifying-glass";
-import useOutsideClick from "./hooks/useOutsideClick";
-import {useEventListener} from "usehooks-ts";
+// import Logo from "./components/logo";
 
 const islandName = 'main-menu-island'
 
-const MenuWrapper = styled.div<{ open?: boolean }>`
+const TopList = styled.ul<{ open?: boolean }>`
   display: ${props => props.open ? "block" : "none"};
+  padding: ${props => props.open ? "225px 0 0 0" : "0"};
+  top: ${props => props.open ? "-225px" : "0"};
+  background: #155F65;
   position: absolute;
-  top: 0;
   left: 0;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
-  @media (min-width: 992px) {
-    display: block;
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-  }
-`
-
-const TopList = styled.ul`
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   list-style: none;
   margin: 0;
-  background: #2e2d29;
-  padding: 24px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   font-size: 18px;
+  z-index: 1000;
+  width: 100vw;
+  height: 115vh;
 
   @media (min-width: 992px) {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     background: transparent;
     padding: 0;
-    font-size: 19px;
+    position: unset;
+    font-size: 18px;
     width: 100%;
-
+    margin: 0 auto;
+    height: unset;
   }
 `
 
 const MobileMenuButton = styled.button`
   position: absolute;
-  top: -60px;
-  right: 10px;
+  top: -45px;
+  right: 0;
   box-shadow: none;
   background: transparent;
   border: 0;
-  border-bottom: 2px solid transparent;
-  color: #2e2d29;
+  border-bottom: 0;
+  color: black;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
+  width: auto;
+  z-index: 1001;
 
-  &:hover, &:focus {
-    border-bottom: 2px solid #2e2d29;
+  &:hover, &:focus, &:active {
     background: transparent;
-    color: #2e2d29;
+    color: #ffffff;
     box-shadow: none;
+    outline: none;
   }
 
   @media (min-width: 992px) {
     display: none;
   }
+`
+
+const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
+  display: block;
+  background-color: #155f65;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  position: fixed;
+  z-index: -1;
+
+@media (min-width: 992px) {
+  display: none;
+}
 `
 
 const SearchContainer = styled.div`
@@ -91,7 +106,7 @@ const SearchContainer = styled.div`
   label {
     padding: 0 10px;
     margin: 0;
-    color: #fff;
+    color: #ffffff;
   }
 
   input {
@@ -131,15 +146,12 @@ const SearchContainer = styled.div`
 
 export const MainMenu = ({}) => {
   useWebComponentEvents(islandName)
-  const [menuItems, setMenuItems] = useState<MenuContentItem[]>(window.drupalSettings?.stanford_basic?.decoupledMenuItems || []);
+
+  const [menuItems, setMenuItems] = useState<MenuContentItem[]>([]);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const navRef = useRef<HTMLElement | null>(null);
-  useOutsideClick(navRef, () => setMenuOpen(false));
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (menuItems.length) return;
-
     fetch(DRUPAL_DOMAIN + '/jsonapi/menu_items/main')
       .then(res => res.json())
       .then(data => setMenuItems(deserialize(data)))
@@ -149,34 +161,41 @@ export const MainMenu = ({}) => {
   const handleEscape = useCallback((event: KeyboardEvent) => {
     if (event.key === "Escape" && menuOpen) {
       setMenuOpen(false);
-      buttonRef.current?.focus();
+      buttonRef.current.focus();
     }
   }, [menuOpen]);
 
-  useEventListener("keydown", handleEscape);
+  useEffect(() => {
+    // Add keydown listener for escape button if the submenu is open.
+    if (menuOpen) document.addEventListener("keydown", handleEscape);
+    if (!menuOpen) document.removeEventListener("keydown", handleEscape);
+  }, [menuOpen]);
 
-  const menuTree = useMemo(() => buildMenuTree(menuItems), [menuItems]);
-  if (!menuTree.items || menuTree.items?.length === 0) return;
+  const menuTree = buildMenuTree(menuItems);
+  if (!menuTree.items || menuTree.items?.length === 0) return <div/>;
 
   // Remove the default menu.
   const existingMenu = document.getElementsByClassName('su-multi-menu');
-  if (existingMenu.length > 0) existingMenu[0].remove();
+  if (existingMenu.length > 0) {
+    existingMenu[0].remove();
+  }
 
   return (
-    <nav
-      ref={navRef}
-      style={{position: "relative"}}
+    <OutsideClickHandler
+      component="div"
+      onOutsideFocus={() => setMenuOpen(false)}
     >
-      <MobileMenuButton
-        ref={buttonRef}
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-expanded={menuOpen}
-      >
-        {menuOpen ? <Close/> : <Hamburger/>}
-        {menuOpen ? "Close" : "Menu"}
-      </MobileMenuButton>
+      <Nav>
+        {/* <Logo open={menuOpen}
+        /> */}
 
-      <MenuWrapper open={menuOpen}>
+        <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
+          {menuOpen ? <Close /> : <Hamburger />}
+          {menuOpen ? "Close" : ""}
+        </MobileMenuButton>
+
+
+        <TopList open={menuOpen}>
         <SearchContainer>
           <form action="/search" method="get">
             <label htmlFor="mobile-search-input">Keyword Search</label>
@@ -193,103 +212,126 @@ export const MainMenu = ({}) => {
               </button>
             </div>
           </form>
-
         </SearchContainer>
-        <TopList>
-          {menuTree.items.sort((a, b) => a.weight < b.weight ? -1 : 1).map(item => <MenuItem key={item.id} {...item}/>)}
+          {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
+          <MobileMenuWrapper></MobileMenuWrapper>
         </TopList>
-      </MenuWrapper>
-    </nav>
+      </Nav>
+    </OutsideClickHandler>
   )
 }
 
-const Button = styled.button`
-  color: #fff;
-  background: #b1040e;
+const Mobile = styled.span`
+  @media (min-width: 992px) {
+    position: unset;
+  }
+`
+
+const Nav = styled.nav`
+  position: relative;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    position: unset;
+  }
+`
+
+const Button = styled.button<{ open?: boolean }>`
+  color: #ffffff;
+  background: transparent;
   border: none;
-  border-bottom: 1px solid transparent;
   padding: 0;
-  margin: 0 0 -4px;
+  margin: 0 10px 0 -4px;
   box-shadow: none;
   flex-shrink: 0;
-  border-radius: 999px;
+  border-radius: 38px;
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out, border 0.2s ease-in-out;
   width: 38px;
   height: 38px;
 
-  &:hover, &:focus {
+  &:focus, &:hover, &:active {
     box-shadow: none;
-    border-bottom: 1px solid #b1040e;
-    background: #f4f4f4;
-    color: #000;
+    border-bottom: none;
+    border-radius: 38px;
+    color: #155F65;
+    background-color: #92D7DD;
+    outline: none;
   }
 
   @media (min-width: 992px) {
-    color: #b1040e;
     background: transparent;
-    border-radius: 0;
+    border-radius: unset;
+    color: #155f65;
+    margin: 4px 10px 0 -4px;
 
-    &:hover, &:focus {
-      border-bottom: 1px solid #2e2d29;
-      color: #2e2d29;
+    &:hover, &:focus, &:active {
+      border-bottom: 1px solid ${props => props.open ? "#155f65" : "#155f65"};
       background: transparent;
+      border-radius: unset;
+      color: ${props => props.open ? "#155f65" : "#155f65"};
     }
   }
 `
 
-const MenuItemContainer = styled.div<{ level?: number }>`
+const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
+  background-color: ${props => props.open ? "#017e7c" : "transparent"};
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-right: ${props => props.level === 0 ? "32px" : "0"};
-
   width: 100%;
 
   @media (min-width: 992px) {
+    color: ${props => props.open ? "#ffffff" : "#155f65"};
+    background-color: ${props => props.open ? "#E9F7F8" : "transparent"};
+    padding-bottom: ${props => props.level === 0 ? "46px" : "0"};
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
-    margin-bottom: ${props => props.level === 0 ? "6px" : ""};
   }
 `
 
 const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: number }>`
-  color: #ffffff;
-  font-weight: 600;
+  color: #2E2D29;
+  font-weight: 400;
   text-decoration: none;
-  padding: 16px 0 16px 16px;
+  padding: ${({level}) => level != 0 ? "16px 0 16px 36px" : "16px 20px"};
+
   transition: all 0.2s ease-in-out;
-  border-left: ${({isCurrent}) => isCurrent ? "6px solid #b1040e" : "6px solid transparent"};
   width: 100%;
 
   &:hover, &:focus {
     text-decoration: underline;
-    color: #fff;
-    border-left: 6px solid #fff;
+    color: #ffffff;
+    background-color: #155F65;
+  }
+
+  &:active {
+    text-decoration: underline;
+    color: #ffffff;
+    background-color: #155F65;
   }
 
   @media (min-width: 992px) {
-    color: #2e2d29;
-    font-size: 1.9rem;
+    color: ${({level}) => level != 0 ? "#ffffff" : "#2E2D29"};
     font-weight: 400;
+    font-size: 1.9rem;
     padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
-    border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #2e2d29" : (inTrail ? "6px solid #b6b1a9" : "6px solid transparent")) : ""};
-    border-left: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "6px solid #b1040e" : "6px solid transparent") : "none"};
     margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
 
     &:hover, &:focus {
-      color: #2e2d29;
-      border-left: ${({level}) => level != 0 ? "6px solid #2e2d29" : "none"};
+      color: ${({level}) => level != 0 ? "#92D7DD" : "#155F65"};
+      background-color: transparent;
     }
   }
 `
 
-const NoLink = styled.span<{ level?: number }>`
-  color: #fff;
+const NoLink = styled.span<{  open?: boolean, level?: number }>`
+  color: white;
   font-weight: 600;
   text-decoration: none;
   padding: 16px 0 16px 16px;
 
   @media (min-width: 992px) {
-    color: #b1040e;
+    color: ${props => props.open ? "#ffffff" : "#155F65"};
     padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
   }
 `
@@ -298,25 +340,44 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   display: ${props => props.open ? "block" : "none"};
   z-index: ${props => props.level + 1};
   list-style: none;
-  padding: 0;
+  padding: 19px 0 15px 0;
   margin: 0;
-  border-top: 1px solid #53565a;
   min-width: 300px;
+  background: #017E7C;
 
   @media (min-width: 992px) {
+    display: ${props => props.open ? "grid" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     position: ${props => props.level === 0 ? "absolute" : "relative"};
-    top: 100%;
-    background: #fff;
-    border-top: 1px solid #d9d9d9;
-    right: 0;
+    background: #E9F7F8;
+    width: 100%;
+    left: 0;
+    grid-auto-flow: column;
+    row-gap: 3.6rem;
+    column-gap: 6.6rem;
+    color: $sdss-color-white;
+    padding: 3.6rem 15% 5.8rem 15%;
+  }
+`
+
+const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
+
+  @media (min-width: 992px) {
+    display: flex;
+    opacity: 1;
+    position: absolute;
+    visibility: visible;
+    background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
+    background-color: #fff;
+    left: 0;
+    width: 100%;
+    z-index: 220;
   }
 `
 
 const ListItem = styled.li<{ level?: number }>`
-  position: relative;
-  border-bottom: 1px solid #53565a;
-  padding: ${props => props.level > 0 ? "0 0 0 10px" : "0"};
+  position: unset;
+  border-bottom: ${props => props.level > 0 ? "1px solid transparent" : "1px solid #6BB6BC"};
   margin: 0;
 
   &:last-child {
@@ -324,65 +385,50 @@ const ListItem = styled.li<{ level?: number }>`
   }
 
   @media (min-width: 992px) {
-    border-bottom: ${props => props.level === 0 ? "none" : "1px solid #d9d9d9"};
-    padding: ${props => props.level > 0 ? "0 10px" : "0"};
+    border-bottom: ${props => props.level === 0 ? "none" : "none"};
+    padding: ${props => props.level > 0 ? "0" : "0"};
   }
 `
 
-const MenuItemDivider = styled.div`
-  width: 1px;
-  height: 20px;
-  margin: 0 6px;
-  background: #766253;
-  display: none;
-  flex-shrink: 0;
-
-  @media (min-width: 992px) {
-    display: block;
-  }
-`
-
-const MenuItem = ({id, title, url, items, expanded, level = 0}: {
-  title: string,
-  url: string,
-  items?: MenuContentItem[],
-  expanded: boolean,
-  level?: number
-}) => {
-  const buttonRef = useRef<HTMLButtonElement | null>(null)
+const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, items?: MenuContentItem[], level?: number }) => {
+  const buttonRef = useRef(null)
   const [submenuOpen, setSubmenuOpen] = useState(false)
-  const menuItemRef = useRef<HTMLLIElement | null>(null);
-  useOutsideClick(menuItemRef, () => setSubmenuOpen(false));
-
-  const handleEscape = (event: KeyboardEvent) => {
-    if (event.key === "Escape" && submenuOpen) {
-      setSubmenuOpen(false);
-      if (level === 0) buttonRef.current?.focus();
-    }
-  };
-
-  useEventListener("keydown", handleEscape);
-
-  let linkUrl: URL;
+  const basePath = window.location.protocol + "//" + window.location.host;
+  let linkUrl = new URL(basePath);
   let isNoLink = true;
   let isCurrent, inTrail = false;
 
   if (url) {
     isNoLink = false;
-    linkUrl = new URL(url.startsWith('/') ? `${window.location.origin}${url}` : url);
-    isCurrent = linkUrl.pathname === window.location.pathname && linkUrl.host === window.location.host;
-    inTrail = linkUrl.host === window.location.host && url != '/' && window.location.pathname.startsWith(linkUrl.pathname) && !isCurrent;
+    linkUrl = new URL(url.startsWith('/') ? `${basePath}${url}` : url);
+    isCurrent = linkUrl.pathname === window.location.pathname;
+    inTrail = url != '/' && window.location.pathname.startsWith(linkUrl.pathname) && !isCurrent;
   }
 
+  const handleEscape = useCallback((event: KeyboardEvent) => {
+    if (event.key === "Escape" && submenuOpen) {
+      setSubmenuOpen(false);
+      buttonRef.current.focus();
+    }
+  }, [submenuOpen]);
+
+  useEffect(() => {
+    // Add keydown listener for escape button if the submenu is open.
+    if (submenuOpen) document.addEventListener("keydown", handleEscape);
+    if (!submenuOpen) document.removeEventListener("keydown", handleEscape);
+  }, [submenuOpen]);
+
   return (
-    <ListItem
-      ref={menuItemRef}
+    <OutsideClickHandler
+      component="nav"
+      onOutsideFocus={() => setSubmenuOpen(false)}
+      component={ListItem}
       level={level}
     >
-      <MenuItemContainer level={level}>
+
+      <MenuItemContainer open={submenuOpen} level={level}>
         {!isNoLink &&
           <MenuLink
-            id={id}
             href={url}
             aria-current={isCurrent ? "page" : undefined}
             level={level}
@@ -393,19 +439,16 @@ const MenuItem = ({id, title, url, items, expanded, level = 0}: {
           </MenuLink>
         }
         {isNoLink &&
-          <NoLink>{title}</NoLink>
+          <NoLink open={submenuOpen}>{title}</NoLink>
         }
 
-        {(items && expanded) &&
+        {items &&
           <>
-            {level === 0 &&
-              <MenuItemDivider/>
-            }
             <Button
               ref={buttonRef}
               onClick={() => setSubmenuOpen(!submenuOpen)}
               aria-expanded={submenuOpen}
-              aria-labelledby={id}
+              aria-label={(submenuOpen ? "Close" : "Open") + ` ${title} Submenu`}
             >
               <Caret style={{
                 transform: submenuOpen ? "rotate(180deg)" : "",
@@ -418,15 +461,19 @@ const MenuItem = ({id, title, url, items, expanded, level = 0}: {
         }
       </MenuItemContainer>
 
-      {(items && expanded) &&
-        <MenuList open={submenuOpen} level={level}>
+      {items &&
 
-          {items.sort((a, b) => a.weight < b.weight ? -1 : 1).map(item =>
-            <MenuItem key={item.id} {...item} level={level + 1}/>
-          )}
-        </MenuList>
+        <MenuListWrapper>
+          <MenuList open={submenuOpen} level={level}>
+
+            {items.map(item =>
+              <MenuItem key={item.id} {...item} level={level + 1}/>
+            )}
+
+          </MenuList>
+        </MenuListWrapper>
       }
-    </ListItem>
+    </OutsideClickHandler>
 
   )
 }
