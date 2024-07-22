@@ -33,7 +33,7 @@ const MenuWrapper = styled.div<{ open?: boolean }>`
 
 const TopList = styled.ul`
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   list-style: none;
   margin: 0;
   background: #2e2d29;
@@ -267,7 +267,9 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 
   @media (min-width: 992px) {
-    color: #b1040e;
+    color: #2e2d29;
+    font-size: 1.9rem;
+    font-weight: 400;
     padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
     border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #2e2d29" : (inTrail ? "6px solid #b6b1a9" : "6px solid transparent")) : ""};
     border-left: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "6px solid #b1040e" : "6px solid transparent") : "none"};
