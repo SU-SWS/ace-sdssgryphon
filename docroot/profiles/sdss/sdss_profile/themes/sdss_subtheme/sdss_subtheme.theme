@@ -115,6 +115,10 @@ function sdss_subtheme_preprocess_block(&$variables) {
     $variables['attributes']['data-island'] = 'newsroom-menu-island';
     $variables['#attached']['library'][] = 'sdss_subtheme/decoupled_menu';
   }
+  if ($variables['plugin_id'] == 'menu_block:main') {
+    $variables['attributes']['data-island'] = 'main-menu-island';
+    $variables['#attached']['library'][] = 'sdss_subtheme/decoupled_menu';
+  }
 }
 
 /**
@@ -128,7 +132,7 @@ function sdss_subtheme_preprocess_page(&$vars) {
 
   // Implement full-width basic page styles
   $is_page_node = isset($vars['node']) && $vars['node'] instanceof NodeInterface && $vars['node']->bundle() == 'stanford_page';
-  
+
   if (!$is_page_node) {
     return;
   }
