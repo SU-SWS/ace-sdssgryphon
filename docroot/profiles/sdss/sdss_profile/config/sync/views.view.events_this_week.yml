@@ -700,7 +700,7 @@ display:
         - 'config:field.storage.node.su_event_groups'
   sdss_etw_exclude_shared:
     id: sdss_etw_exclude_shared
-    display_title: 'Exclude Feed by Shared Tag'
+    display_title: 'Exclude Events by Shared Tag'
     display_plugin: feed
     position: 3
     display_options:
@@ -709,15 +709,14 @@ display:
         options:
           offset: 0
       arguments:
-        term_node_taxonomy_name_depth:
-          id: term_node_taxonomy_name_depth
-          table: node_field_data
-          field: term_node_taxonomy_name_depth
+        su_shared_tags_target_id:
+          id: su_shared_tags_target_id
+          table: node__su_shared_tags
+          field: su_shared_tags_target_id
           relationship: none
           group_type: group
-          admin_label: 'Shared Tag Filter'
-          entity_type: node
-          plugin_id: taxonomy_index_name_depth
+          admin_label: ''
+          plugin_id: numeric
           default_action: ignore
           exception:
             value: all
@@ -743,10 +742,129 @@ display:
             fail: 'not found'
           validate_options: {  }
           break_phrase: false
-          depth: '0'
-          use_taxonomy_term_path: false
-          vocabularies:
-            su_shared_tags: su_shared_tags
+          not: false
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            stanford_event: stanford_event
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        su_event_date_time_value:
+          id: su_event_date_time_value
+          table: node__su_event_date_time
+          field: su_event_date_time_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: date
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: today
+            type: date
+            granularity: second
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        su_event_date_time_value_1:
+          id: su_event_date_time_value_1
+          table: node__su_event_date_time
+          field: su_event_date_time_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: date
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: '+8 days'
+            type: date
+            granularity: second
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: rss
         options:
@@ -765,6 +883,8 @@ display:
             guid_field_is_permalink: true
       defaults:
         arguments: false
+        filters: false
+        filter_groups: false
       display_description: ''
       display_extenders: {  }
       path: rss/events-this-week/exclude/%
@@ -833,7 +953,7 @@ display:
         type: rss
         options:
           grouping: {  }
-          description: 'Events happening in the next week at the Stanford Doerr School of Sustainability.'
+          description: 'Featured Events happening in the next week at the Stanford Doerr School of Sustainability.'
       row:
         type: rss_fields
         options:
