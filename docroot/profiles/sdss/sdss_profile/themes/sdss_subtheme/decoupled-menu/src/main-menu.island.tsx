@@ -54,7 +54,7 @@ const MobileMenuButton = styled.button`
   box-shadow: none;
   background: transparent;
   border: 0;
-  border-bottom: 0;
+  border-bottom: 2px solid transparent;
   color: black;
   padding: 0;
   display: flex;
@@ -65,6 +65,7 @@ const MobileMenuButton = styled.button`
   z-index: 1001;
 
   &:hover, &:focus, &:active {
+    border-bottom: 0;
     background: transparent;
     color: #ffffff;
     box-shadow: none;
@@ -284,7 +285,7 @@ const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#155f65"};
     background-color: ${props => props.open ? "#E9F7F8" : "transparent"};
-    padding-bottom: ${props => props.level === 0 ? "46px" : "0"};
+    padding-bottom: ${props => props.level === 0 ? "0" : "0"};
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
   }
 `
@@ -316,6 +317,7 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
     font-size: 1.9rem;
     padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
     margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
+    border-bottom: 6px solid lime;
 
     &:hover, &:focus {
       color: ${({level}) => level != 0 ? "#92D7DD" : "#155F65"};
