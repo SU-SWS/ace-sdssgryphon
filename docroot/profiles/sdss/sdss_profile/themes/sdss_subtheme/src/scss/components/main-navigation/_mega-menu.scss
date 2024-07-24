@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+@media only screen and (min-width: 1200px) and (min-width: 1500px) {
+    header.su-masthead section.su-masthead--inner {
+        max-width: unset;
+        width: 100%;
+    }
+}

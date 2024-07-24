@@ -185,6 +185,7 @@ export const MainMenu = ({}) => {
     <OutsideClickHandler
       component="div"
       onOutsideFocus={() => setMenuOpen(false)}
+      className="menu-wrapper"
     >
       <Nav>
         {/* <Logo open={menuOpen}
@@ -352,7 +353,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     position: ${props => props.level === 0 ? "absolute" : "relative"};
     background: #E9F7F8;
-    width: 100%;
+    width: 100vw;
     left: 0;
     grid-auto-flow: column;
     row-gap: 3.6rem;
@@ -371,7 +372,7 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     visibility: visible;
     background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
     background-color: #fff;
-    left: 0;
+    left: -195px;
     width: 100%;
     z-index: 220;
   }
