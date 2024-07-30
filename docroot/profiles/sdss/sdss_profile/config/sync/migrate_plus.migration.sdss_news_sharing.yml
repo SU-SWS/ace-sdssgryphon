@@ -57,6 +57,8 @@ source:
   ids:
     node_id:
       type: string
+    publishing_date:
+      type: string
   constants:
     stanford_minimal_html: stanford_minimal_html
     type: stanford_news
