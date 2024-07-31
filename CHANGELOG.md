@@ -7,6 +7,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.5.0] - 2024-07-31
+
+### Added
+b4624ad3 SDSS-1276: News Sharing MVP (#465)
+09875389 SDSS-1135: Added publishing_date to source id for news sharing migration (#473)'
+26c88097 SDSS-1302: Added larger left and larger right 2 column layouts (#453)
+b5f6f538 SDSS-1307: Point esos.stanford.edu (#472)
+ee3a472e SDSS-1250: Provisioned sustainablesocieties (#454)
+17a43164 SDSS-1201 | @jdwjdwjdw | Add 4 column card grid option for lists, adjust one-column layout, fixup load more issue (#414)
+
+### Changed
+d1435eaa SDSS-1342: Allow Event Lists to be filtered by focal areas (#468)
+0e68ff3b SDSS-1296: Update SDSS profile installation (#458)
+
+### Removed
+e14cfa29 SDSS-1270: Deprecate and fully remove earth_news_importer (#457)
+98052f9c SDSS-1305: Removed width options from SDSS layout paragraphs (#448)
+de48fc47 SDSS-1268: Removed white option from paragraph section background colors (#430)
+
+### Fixed
+eae0c70c FIXUP - turn off readonly for news sharing form (#467)
+cc4e3751 SDSS-000 | @jdwjdwjdw | Full width specificity fixup (#456)
+
+### Maintenance
+87b8c7a8 SDSS-1308: Routine maintenance (#455)
+
+
 ## [4.4.2] - 2024-06-05
 
 ### Added
