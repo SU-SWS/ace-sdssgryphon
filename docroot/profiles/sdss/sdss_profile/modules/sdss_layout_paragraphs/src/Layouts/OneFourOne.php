@@ -9,9 +9,4 @@ use Drupal\sdss_layout_paragraphs\Plugin\Layout\SdssLayoutParagraphBase;
  */
 class OneFourOne extends SdssLayoutParagraphBase {
 
-  protected function getWidthOptions() {
-    return [
-      '25-25-25-25' => '25%',
-    ];
-  }
 }

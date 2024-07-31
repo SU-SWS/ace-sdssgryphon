@@ -3,15 +3,14 @@ _core:
 mode: simple
 ignored_config_entities:
   - 'block.block.*'
-  - 'core.extension:module.earth_news_importer'
   - 'core.extension:theme'
   - 'google_tag.container.*'
   - 'metatag.metatag_defaults.*'
-  - 'migrate_plus.migration.earth_news_importer*'
-  - migrate_plus.migration_group.earth_news_importer
   - 'next.next_entity_type_config.*'
   - 'next.next_site.*'
   - 'samlauth.authentication:map_users_roles'
+  - 'sdss_news_sharing.*'
+  - sdss_news_sharing.settings
   - sdss_subtheme.settings
   - stanford_earth_r25.adminsettings
   - stanford_earth_r25.credentialsettings

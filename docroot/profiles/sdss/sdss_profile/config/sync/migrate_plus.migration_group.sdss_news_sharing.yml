@@ -1,0 +1,14 @@
+uuid: 4a881755-042e-4148-9c36-6c6f9d04dd88
+langcode: en
+status: true
+dependencies:
+  module:
+    - sdss_news_sharing
+_core:
+  default_config_hash: iZd3WwtY1kB1wA1Fm5b6haoh5NyEFzwbxfOZ5Y9ZBh8
+id: sdss_news_sharing
+label: 'SDSS News Sharing'
+description: 'Import news content from another SDSS site as a canonical source'
+source_type: null
+module: sdss_news_sharing
+shared_configuration: null

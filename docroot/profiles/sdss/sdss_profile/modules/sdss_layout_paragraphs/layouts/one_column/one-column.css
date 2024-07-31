@@ -14,7 +14,9 @@
 }
 
 @media screen and (min-width: 992px) {
-  .layout--layout-paragraphs-one-column .ds-entity--paragraph.ds-entity--stanford-card {
+  .layout--layout-paragraphs-one-column .ds-entity--paragraph.ds-entity--stanford-card,
+  .layout--layout-paragraphs-one-column .ptype-sdss-news-list-card,
+  .layout--layout-paragraphs-one-column .paragraph--type--stanford-entity .su-entity-item>div:first-child:last-child {
     width: 100%;
     max-width: 980px;
     margin: 0 auto;
@@ -25,8 +27,21 @@
     max-width: 850px;
     margin: 0 auto;
   }
+}
 
-  .sdss-layout-paragraphs-one-column--offset-100 .paragraph.paragraph--type--stanford-wysiwyg {
+@media screen and (min-width: 1200px) {
+  .layout--layout-paragraphs-one-column .paragraph--type--stanford-card,
+  .layout--layout-paragraphs-one-column .ptype-stanford-card,
+  .layout--layout-paragraphs-one-column .paragraph--type--stanford-cta-list,
+  .layout--layout-paragraphs-one-column .ptype-stanford-cta-list,
+  .layout--layout-paragraphs-one-column .paragraph--type--stanford-entity,
+  .layout--layout-paragraphs-one-column .ptype-stanford-entity,
+  .layout--layout-paragraphs-one-column .paragraph--type--stanford-gallery,
+  .layout--layout-paragraphs-one-column .ptype-stanford-gallery,
+  .layout--layout-paragraphs-one-column .ptype-stanford-image-cta,
+  .layout--layout-paragraphs-one-column .paragraph--type--stanford-lists,
+  .layout--layout-paragraphs-one-column .ptype-stanford-lists,
+  .layout--layout-paragraphs-one-column .ptype-stanford-media-caption {
     max-width: 100%;
   }
 

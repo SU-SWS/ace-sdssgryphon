@@ -4,7 +4,7 @@ namespace Drupal\sdss_layout_paragraphs\Plugin\Layout;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\PluginFormInterface;
-use Drupal\layout_builder\Plugin\Layout\MultiWidthLayoutBase;
+use Drupal\Core\Layout\LayoutDefault;
 
 
 /**
@@ -13,7 +13,7 @@ use Drupal\layout_builder\Plugin\Layout\MultiWidthLayoutBase;
  * @internal
  *   Plugin classes are internal.
  */
-abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements PluginFormInterface {
+abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFormInterface {
 
   /**
    * {@inheritdoc}
@@ -89,7 +89,6 @@ abstract class SdssLayoutParagraphBase extends MultiWidthLayoutBase implements P
       'green-stat' => 'Green Stat Card',
       'blue' => 'Light Blue',
       'grey' => 'Light Grey',
-      'white' => 'White',
     ];
   }
 

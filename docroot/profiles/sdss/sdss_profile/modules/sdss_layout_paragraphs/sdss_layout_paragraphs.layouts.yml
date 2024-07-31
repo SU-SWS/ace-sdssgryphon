@@ -13,7 +13,7 @@ layout_paragraphs_sdss_1_column:
     - [main]
 
 layout_paragraphs_sdss_2_column:
-  label: '2 Column'
+  label: '2 Equal Columns'
   category: 'SDSS Layout Paragraphs'
   class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumn'
   path: layouts/two_column
@@ -27,6 +27,48 @@ layout_paragraphs_sdss_2_column:
   default_region: left
   icon_map:
     - [left, right]
+  paragraph_restrictions:
+    all_regions:
+      - sdss_spotlight
+      - stanford_banner
+      - stanford_gallery
+
+layout_paragraphs_sdss_2_column_larger_left:
+  label: '2 Columns Larger Left'
+  category: 'SDSS Layout Paragraphs'
+  class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumnLargerLeft'
+  path: layouts/two_column_larger_left
+  template: layout-paragraphs-sdss-two-column-larger-left
+  library: sdss_layout_paragraphs/two_column_larger_left
+  regions:
+    left:
+      label: Left
+    right:
+      label: Right
+  default_region: left
+  icon_map:
+    - [left, left, right]
+  paragraph_restrictions:
+    all_regions:
+      - sdss_spotlight
+      - stanford_banner
+      - stanford_gallery
+
+layout_paragraphs_sdss_2_column_larger_right:
+  label: '2 Columns Larger Right'
+  category: 'SDSS Layout Paragraphs'
+  class: '\Drupal\sdss_layout_paragraphs\Layouts\TwoColumnLargerRight'
+  path: layouts/two_column_larger_right
+  template: layout-paragraphs-sdss-two-column-larger-right
+  library: sdss_layout_paragraphs/two_column_larger_right
+  regions:
+    left:
+      label: Left
+    right:
+      label: Right
+  default_region: left
+  icon_map:
+    - [left, right, right]
   paragraph_restrictions:
     all_regions:
       - sdss_spotlight

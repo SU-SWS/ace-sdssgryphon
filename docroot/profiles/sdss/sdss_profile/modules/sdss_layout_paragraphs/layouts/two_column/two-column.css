@@ -73,26 +73,8 @@
   min-width: 0;
 }
 
-.layout--layout-paragraphs-two-column.sdss-layout-paragraphs-two-column--33-67 {
-  grid-template-columns: 1fr 2fr;
-}
-
-.layout--layout-paragraphs-two-column.sdss-layout-paragraphs-two-column--67-33 {
-  grid-template-columns: 2fr 1fr;
-}
-
-.layout--layout-paragraphs-two-column.sdss-layout-paragraphs-two-column--offset-50-50 {
-  margin: 0;
-  max-width: 1200px;
-}
-
-.layout-paragraphs-sdss-two-column.layout-paragraphs-sdss-two-column--offset-50-50 {
-  margin: 0;
-}
-
 /* Override Stanford Basic theme */
 @media screen and (min-width: 1700px) {
-  .su-page-components .layout--layout-paragraphs-three-column,
   .su-page-components .layout--layout-paragraphs-two-column {
       max-width: inherit;
   }

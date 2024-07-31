@@ -141,20 +141,3 @@
     }
   }
 }
-
-// Added margins to full width on the 4-col for all paragraphs except banners.
-.node--layout-full {
-  .layout-paragraphs-sdss-one-four-one {
-    .layout__region--top,
-    .layout__region--bottom {
-      .ptype-stanford-lists,
-      .ptype-stanford-wysiwyg,
-      .ptype-stanford-gallery,
-      .ptype-stanford-card,
-      .ptype-stanford-media-caption,
-      .ptype-stanford-entity  {
-        @include sdss-centered-column;
-      }
-    }
-  }
-}
