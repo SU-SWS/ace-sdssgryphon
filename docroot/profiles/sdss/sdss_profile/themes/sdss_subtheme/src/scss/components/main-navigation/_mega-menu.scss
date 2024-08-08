@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@include grid-media-min('lg') {
+    header.su-masthead section.su-masthead--inner {
+        max-width: unset;
+        width: 100%;
+    }
+}
+
+.test {
+    width: 100%;
+}
+
+// for the main site/blue header
+body.sdss-header-variant--option_a {
+    .test {
+        display: flex;
+        flex-direction: row;
+    }
+}

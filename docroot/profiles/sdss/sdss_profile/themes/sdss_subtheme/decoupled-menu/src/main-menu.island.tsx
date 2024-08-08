@@ -7,12 +7,12 @@ import {buildMenuTree, MenuContentItem} from "./tools/build-menu-tree";
 import {DRUPAL_DOMAIN} from './config/env'
 import OutsideClickHandler from "./components/outside-click-handler";
 import Caret from "./components/caret";
-import Hamburger from "./components/newsroom-mobile-button";
+import Hamburger from "./components/hamburger";
 import Close from "./components/close";
 import MagnifyingGlass from "./components/magnifying-glass";
-import Logo from "./components/logo";
+// import Logo from "./components/logo";
 
-const islandName = 'newsroom-menu-island'
+const islandName = 'main-menu-island'
 
 const TopList = styled.ul<{ open?: boolean }>`
   display: ${props => props.open ? "block" : "none"};
@@ -36,7 +36,7 @@ const TopList = styled.ul<{ open?: boolean }>`
   @media (min-width: 992px) {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     background: transparent;
     padding: 0;
     position: unset;
@@ -47,29 +47,15 @@ const TopList = styled.ul<{ open?: boolean }>`
   }
 `
 
-const MobileMenuHeading = styled.div<{ open?: boolean }>`
-  color: ${props => props.open ? "#ffffff" : "#000000"};
-  top: ${props => props.open ? "-50px" : "0"};
-  font-size: 32px;
-  margin-bottom: 18px;
-  z-index: ${props => props.open ? "1001" : "unset"};
-  position: relative;
-  text-align: center;
-
-  @media (min-width: 992px) {
-    display: none;
-  }
-`
-
 const MobileMenuButton = styled.button`
   position: absolute;
-  top: -60px;
-  right: -8px;
+  top: -45px;
+  right: 0;
   box-shadow: none;
   background: transparent;
   border: 0;
   border-bottom: 2px solid transparent;
-  color: #ffffff;
+  color: black;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -79,6 +65,7 @@ const MobileMenuButton = styled.button`
   z-index: 1001;
 
   &:hover, &:focus, &:active {
+    border-bottom: 0;
     background: transparent;
     color: #ffffff;
     box-shadow: none;
@@ -106,62 +93,59 @@ const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
 }
 `
 
-const SearchContainer = styled.li`
-  order: -1;
+const SearchContainer = styled.div`
+  padding: 10px 30px 0;
+  margin: 0;
+  background: #2e2d29;
 
-  a {
-    display: block;
-    position: relative;
-    height: auto;
-    background-color: #E9F7F8;
-    color: #155F65;
-    border: 1px solid #6BB6BC;
-    border-radius: 32px;
-    padding: 8px 18px 10px;
-    width: fit-content;
-    margin: 0px auto 38px auto;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    &:focus, &:hover, &:active {
-      box-shadow: none;
-      color: #155F65;
-      background-color: #92D7DD;
-      outline: none;
-      border-radius: 999px;
+  label {
+    padding: 0 10px;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  input {
+    margin: 0;
+    width: 100%;
+    border-radius: 999px;
+    height: 40px;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    color: #b1040e;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    aspect-ratio: 1;
+    padding: 0;
+    margin: 0;
+
+    &:hover, &:focus {
+      border: 1px solid #2e2d29;
     }
   }
 
-
   @media (min-width: 992px) {
-    order: 6;
-
-    svg {
-      margin-right: 10px;
-      margin-top: 3px;
-    }
-
-    a {
-      display: block;
-      position: relative;
-      height: auto;
-      background-color: #E9F7F8;
-      color: #155F65;
-      border: 1px solid #6BB6BC;
-      border-radius: 32px;
-      padding: 8px 18px 10px;
-
-      &:focus, &:hover, &:active {
-        box-shadow: none;
-        color: #155F65;
-        background-color: #6BB6BC;
-        outline: none;
-        border-radius: 999px;
-      }
-    }
-
+    display: none;
   }
 `
 
-export const NewsroomMenu = ({}) => {
+export const MainMenu = ({}) => {
   useWebComponentEvents(islandName)
 
   const [menuItems, setMenuItems] = useState<MenuContentItem[]>([]);
@@ -169,7 +153,7 @@ export const NewsroomMenu = ({}) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    fetch(DRUPAL_DOMAIN + '/jsonapi/menu_items/newsroom')
+    fetch(DRUPAL_DOMAIN + '/jsonapi/menu_items/main')
       .then(res => res.json())
       .then(data => setMenuItems(deserialize(data)))
       .catch(err => console.error(err));
@@ -192,7 +176,7 @@ export const NewsroomMenu = ({}) => {
   if (!menuTree.items || menuTree.items?.length === 0) return <div/>;
 
   // Remove the default menu.
-  const existingMenu = document.getElementsByClassName('menu');
+  const existingMenu = document.getElementsByClassName('su-multi-menu');
   if (existingMenu.length > 0) {
     existingMenu[0].remove();
   }
@@ -201,14 +185,11 @@ export const NewsroomMenu = ({}) => {
     <OutsideClickHandler
       component="div"
       onOutsideFocus={() => setMenuOpen(false)}
+      className="menu-wrapper"
     >
       <Nav>
-        <Logo open={menuOpen}
-        />
-
-        <MobileMenuHeading open={menuOpen}>
-          News & events
-        </MobileMenuHeading>
+        {/* <Logo open={menuOpen}
+        /> */}
 
         <MobileMenuButton ref={buttonRef} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>
           {menuOpen ? <Close /> : <Hamburger />}
@@ -217,12 +198,23 @@ export const NewsroomMenu = ({}) => {
 
 
         <TopList open={menuOpen}>
-          <SearchContainer>
-            <a href="/news/search">
-              <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
-              Search all news
-            </a>
-          </SearchContainer>
+        <SearchContainer>
+          <form action="/search" method="get">
+            <label htmlFor="mobile-search-input">Keyword Search</label>
+            <div style={{position: "relative"}}>
+              <input
+                id="mobile-search-input"
+                type="text"
+                placeholder="Search this site"
+                name="key"
+              />
+              <button type="submit">
+                <MagnifyingGlass style={{width: "25px", height: "25px"}}/>
+                <span className="visually-hidden">Submit Search</span>
+              </button>
+            </div>
+          </form>
+        </SearchContainer>
           {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
           <MobileMenuWrapper></MobileMenuWrapper>
         </TopList>
@@ -293,14 +285,14 @@ const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#155f65"};
-    background-color: ${props => props.open ? "#155f65" : "transparent"};
-    padding-bottom: ${props => props.level === 0 ? "46px" : "0"};
+    background-color: ${props => props.open ? "#E9F7F8" : "transparent"};
+    padding-bottom: ${props => props.level === 0 ? "0" : "0"};
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
   }
 `
 
 const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: number }>`
-  color: #ffffff;
+  color: #2E2D29;
   font-weight: 400;
   text-decoration: none;
   padding: ${({level}) => level != 0 ? "16px 0 16px 36px" : "16px 20px"};
@@ -322,8 +314,11 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
 
   @media (min-width: 992px) {
     color: ${({level}) => level != 0 ? "#ffffff" : "#2E2D29"};
+    font-weight: 400;
+    font-size: 1.9rem;
     padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
     margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
+    border-bottom: 6px solid lime;
 
     &:hover, &:focus {
       color: ${({level}) => level != 0 ? "#92D7DD" : "#155F65"};
@@ -357,8 +352,8 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     display: ${props => props.open ? "grid" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     position: ${props => props.level === 0 ? "absolute" : "relative"};
-    background: #155F65;
-    width: 100%;
+    background: #E9F7F8;
+    width: 100vw;
     left: 0;
     grid-auto-flow: column;
     row-gap: 3.6rem;
@@ -377,7 +372,7 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     visibility: visible;
     background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
     background-color: #fff;
-    left: 0;
+    left: -195px;
     width: 100%;
     z-index: 220;
   }
@@ -487,7 +482,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
 }
 
 
-const island = createIslandWebComponent(islandName, NewsroomMenu)
+const island = createIslandWebComponent(islandName, MainMenu)
 island.render({
   selector: `[data-island="${islandName}"]`,
 })
