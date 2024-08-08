@@ -843,7 +843,7 @@ display:
           field: term_node_taxonomy_name_depth
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Any Term'
           default_action: ignore
           exception:
             value: all
@@ -870,7 +870,10 @@ display:
           validate_options: {  }
           depth: '3'
           vocabularies:
+            sdss_focal_areas: sdss_focal_areas
+            sdss_organization: sdss_organization
             stanford_news_topics: stanford_news_topics
+            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node
@@ -2458,7 +2461,7 @@ display:
           field: term_node_taxonomy_name_depth
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Any Term'
           default_action: ignore
           exception:
             value: all
@@ -2485,7 +2488,10 @@ display:
           validate_options: {  }
           depth: '3'
           vocabularies:
+            sdss_focal_areas: sdss_focal_areas
+            sdss_organization: sdss_organization
             stanford_news_topics: stanford_news_topics
+            su_shared_tags: su_shared_tags
           break_phrase: 1
           use_taxonomy_term_path: false
           entity_type: node

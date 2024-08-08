@@ -1,0 +1,6 @@
+services:
+  sdss_news_sharing.overrider:
+    class: Drupal\sdss_news_sharing\Overrides\ConfigOverrides
+    arguments: ['@config.factory']
+    tags:
+      - {name: config.factory.override, priority: 5}
