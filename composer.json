@@ -159,6 +159,7 @@
         "drupal/stage_file_proxy": "^2.0",
         "drupal/taxonomy_entity_index": "^1.8",
         "drupal/taxonomy_menu": "^3.5",
+        "drupal/tb_megamenu": "^3.0@alpha",
         "drupal/token_or": "^2.0",
         "drupal/transliterate_filenames": "^2.0",
         "drupal/ui_patterns": "^1.0",
