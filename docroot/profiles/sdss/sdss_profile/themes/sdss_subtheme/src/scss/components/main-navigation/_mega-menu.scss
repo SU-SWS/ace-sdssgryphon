@@ -12,6 +12,16 @@
     width: 100%;
 }
 
+nav {
+    ul {
+        li {
+            h3 {
+                background: url("../../assets/svg/heading-bar--bg.svg") no-repeat 3px 0;
+            }
+        }
+    }
+}
+
 // for the main site/blue header
 body.sdss-header-variant--option_a {
     .test {
