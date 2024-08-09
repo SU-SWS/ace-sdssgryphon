@@ -333,7 +333,6 @@ const NoLink = styled.h3<{  open?: boolean, level?: number }>`
   font-size: 23px;
   text-decoration: none;
   padding: 16px 0 16px 16px;
-  border-top: 4px solid #368187;
 
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#2e2D29"};

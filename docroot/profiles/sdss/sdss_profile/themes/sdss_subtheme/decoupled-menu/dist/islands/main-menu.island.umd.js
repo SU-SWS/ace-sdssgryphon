@@ -222,7 +222,6 @@
   font-size: 23px;
   text-decoration: none;
   padding: 16px 0 16px 16px;
-  border-top: 4px solid #368187;
 
   @media (min-width: 992px) {
     color: ${e=>e.open?"#ffffff":"#2e2D29"};

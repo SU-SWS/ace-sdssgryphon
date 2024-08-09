@@ -62,6 +62,7 @@ body.sdss-header-variant--option_a {
         justify-content: flex-start;
         flex-wrap:  nowrap;
         background: $sdss-color-blue-light;
+        padding-left: 0;
 
         &::after {
           content: "";
