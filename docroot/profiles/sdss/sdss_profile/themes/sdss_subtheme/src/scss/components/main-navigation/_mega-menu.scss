@@ -8,6 +8,7 @@
 }
 
 .test {
+    margin-left: 150px;
     width: 100%;
 }
 
@@ -16,5 +17,6 @@ body.sdss-header-variant--option_a {
     .test {
         display: flex;
         flex-direction: row;
+        margin-left: 150px;
     }
 }

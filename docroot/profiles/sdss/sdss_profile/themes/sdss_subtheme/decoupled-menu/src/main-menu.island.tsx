@@ -313,12 +313,12 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 
   @media (min-width: 992px) {
-    color: ${({level}) => level != 0 ? "#ffffff" : "#2E2D29"};
+    color: ${({level}) => level != 0 ? "#2E2D29" : "#2E2D29"};
     font-weight: 400;
     font-size: 1.9rem;
-    padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
+    padding: ${({level}) => level != 0 ? "0" : "16px 0"};
     margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
-    border-bottom: 6px solid lime;
+
 
     &:hover, &:focus {
       color: ${({level}) => level != 0 ? "#92D7DD" : "#155F65"};
@@ -327,15 +327,17 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 `
 
-const NoLink = styled.span<{  open?: boolean, level?: number }>`
-  color: white;
+const NoLink = styled.h3<{  open?: boolean, level?: number }>`
+  color: #2e2D29;
   font-weight: 600;
+  font-size: 23px;
   text-decoration: none;
   padding: 16px 0 16px 16px;
+  border-top: 4px solid #368187;
 
   @media (min-width: 992px) {
-    color: ${props => props.open ? "#ffffff" : "#155F65"};
-    padding: ${({level}) => level != 0 ? "16px 0 16px 16px" : "16px 0"};
+    color: ${props => props.open ? "#ffffff" : "#2e2D29"};
+    padding: ${({level}) => level != 0 ? "0" : "16px 0"};
   }
 `
 
@@ -351,13 +353,14 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   @media (min-width: 992px) {
     display: ${props => props.open ? "grid" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
+    border-top: 2px solid #bed9db;
     position: ${props => props.level === 0 ? "absolute" : "relative"};
     background: #E9F7F8;
     width: 100vw;
     left: 0;
-    grid-auto-flow: column;
-    row-gap: 3.6rem;
-    column-gap: 6.6rem;
+    grid-template-columns: 277px 277px 277px;
+    row-gap: 1.8rem;
+    column-gap: 18rem;
     color: $sdss-color-white;
     padding: 3.6rem 15% 5.8rem 15%;
   }
@@ -372,9 +375,10 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     visibility: visible;
     background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
     background-color: #fff;
-    left: -195px;
+    left: -295px;
     width: 100%;
     z-index: 220;
+    top: 84px;
   }
 `
 

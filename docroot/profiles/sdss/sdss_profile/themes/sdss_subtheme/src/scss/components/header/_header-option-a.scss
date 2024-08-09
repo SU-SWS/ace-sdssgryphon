@@ -15,6 +15,11 @@ body.sdss-header-variant--option_a {
           }
         }
       }
+
+      .sdss-mega-menu {
+        width: -webkit-fill-available; // doesn't work in FF.
+      }
+
     }
 
     .su-lockup {
@@ -90,6 +95,7 @@ body.sdss-header-variant--option_a {
 
       .su-lockup {
         background: $su-color-white;
+        padding-left: 100px;
 
         .su-lockup__cell1 {
           padding: 2rem 3rem 2rem 8rem;
