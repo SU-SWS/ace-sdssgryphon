@@ -1,0 +1,25 @@
+uuid: a79fe3fa-4aaa-4c96-b06e-a2bf4dfc9e39
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:stanford_component_block:a138dde9-16be-49bc-9006-8895dc10797e'
+  module:
+    - block_content
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_megamenuimage
+theme: sdss_subtheme
+region: hidden
+weight: -7
+provider: null
+plugin: 'block_content:a138dde9-16be-49bc-9006-8895dc10797e'
+settings:
+  id: 'block_content:a138dde9-16be-49bc-9006-8895dc10797e'
+  label: 'Mega menu image'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

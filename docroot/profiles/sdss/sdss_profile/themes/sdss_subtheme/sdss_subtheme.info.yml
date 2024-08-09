@@ -18,6 +18,7 @@ regions:
   content: Content
   footer: Footer
   page_bottom: 'Page bottom'
+  hidden: Hidden
 
 components:
   namespaces:

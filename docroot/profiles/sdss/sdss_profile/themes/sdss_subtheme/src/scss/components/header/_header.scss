@@ -140,6 +140,14 @@ header.su-masthead {
   }
 }
 
+div header.su-masthead section.su-masthead--inner {
+  @include grid-media-min('lg') {
+    // For both headers
+    width: unset;
+    max-width: unset;
+  }
+}
+
 // Styles for Large or bigger Screens.
 @include grid-media-min('lg') {
   header.su-masthead {
@@ -186,6 +194,7 @@ header.su-masthead {
         position: relative;
         padding: 3rem 8rem 3rem 3rem;
 
+        // Green header, bottom navigation
         &::after {
           content: "";
           position: absolute;
@@ -214,7 +223,7 @@ header.su-masthead {
 
     .su-lockup {
       .su-lockup__cell1 {
-        padding: 3rem 4rem 3rem 0;
+        padding: 3rem 4rem 3rem 100px;
       }
 
       .su-lockup__cell2 {

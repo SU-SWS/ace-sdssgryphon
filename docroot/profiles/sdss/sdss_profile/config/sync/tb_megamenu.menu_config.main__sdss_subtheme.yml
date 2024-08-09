@@ -14,11 +14,11 @@ block_config: |-
       "animation": "none",
       "duration": 400,
       "delay": 200,
-      "breakpoint": 992,
-      "hide-mobile-menu": "0",
+      "breakpoint": null,
+      "hide-mobile-menu": "1",
       "auto-arrow": "1",
-      "always-show-submenu": "",
-      "number-columns": 5
+      "always-show-submenu": "0",
+      "number-columns": 7
   }
 menu_config: |-
   {
@@ -41,16 +41,31 @@ menu_config: |-
                           }
                       ],
                       "col_config": {
-                          "width": "12",
+                          "width": "6",
                           "class": "",
                           "hidewcol": "0",
                           "showblocktitle": "1"
+                      }
+                  },
+                  {
+                      "col_content": [
+                          {
+                              "block_id": "sdss_subtheme_megamenuimage",
+                              "type": "block",
+                              "tb_item_config": []
+                          }
+                      ],
+                      "col_config": {
+                          "width": "6",
+                          "class": "",
+                          "hidewcol": "",
+                          "showblocktitle": "0"
                       }
                   }
               ]
           ],
           "submenu_config": {
-              "width": "100",
+              "width": "",
               "class": "",
               "group": "0"
           },
@@ -114,7 +129,22 @@ menu_config: |-
                           }
                       ],
                       "col_config": {
-                          "width": "6",
+                          "width": "4",
+                          "class": "",
+                          "hidewcol": "",
+                          "showblocktitle": "1"
+                      }
+                  },
+                  {
+                      "col_content": [
+                          {
+                              "block_id": "sdss_subtheme_megamenuheading",
+                              "type": "block",
+                              "tb_item_config": []
+                          }
+                      ],
+                      "col_config": {
+                          "width": "4",
                           "class": "",
                           "hidewcol": "",
                           "showblocktitle": "1"
@@ -136,7 +166,7 @@ menu_config: |-
                           }
                       ],
                       "col_config": {
-                          "width": "6",
+                          "width": "4",
                           "class": "",
                           "hidewcol": "0",
                           "showblocktitle": "1"

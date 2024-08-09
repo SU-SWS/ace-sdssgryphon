@@ -58,6 +58,7 @@ body.sdss-header-variant--option_a {
         flex-wrap:  nowrap;
         background: $sdss-color-blue-light;
 
+        // Blue header, right navigation
         &::after {
           content: "";
           position: absolute;
@@ -86,10 +87,16 @@ body.sdss-header-variant--option_a {
             }
           }
         }
+
+        .sdss-page-menu {
+          width: 100%;
+        }
+
       }
 
       .su-lockup {
         background: $su-color-white;
+        padding-left: 100px;
 
         .su-lockup__cell1 {
           padding: 2rem 3rem 2rem 8rem;
