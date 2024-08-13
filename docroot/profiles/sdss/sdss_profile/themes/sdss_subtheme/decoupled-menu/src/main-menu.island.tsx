@@ -67,7 +67,7 @@ const MobileMenuButton = styled.button`
   &:hover, &:focus, &:active {
     border-bottom: 0;
     background: transparent;
-    color: #ffffff;
+    color: #2E2D29;
     box-shadow: none;
     outline: none;
   }
@@ -79,7 +79,7 @@ const MobileMenuButton = styled.button`
 
 const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
   display: block;
-  background-color: #155f65;
+  background-color: #ffffff;
   height: auto;
   position: absolute;
   top: 0;
@@ -96,12 +96,13 @@ const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
 const SearchContainer = styled.div`
   padding: 10px 30px 0;
   margin: 0;
-  background: #2e2d29;
+  background: #ffffff;
 
   form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-bottom: 22px;
   }
 
   label {
@@ -239,7 +240,7 @@ const Nav = styled.nav`
 `
 
 const Button = styled.button<{ open?: boolean }>`
-  color: #ffffff;
+  color: ##2E2D29;
   background: transparent;
   border: none;
   padding: 0;
@@ -276,7 +277,7 @@ const Button = styled.button<{ open?: boolean }>`
 `
 
 const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
-  background-color: ${props => props.open ? "#017e7c" : "transparent"};
+  background-color: ${props => props.open ? "#E9F7F8" : "transparent"};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -302,14 +303,14 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
 
   &:hover, &:focus {
     text-decoration: underline;
-    color: #ffffff;
-    background-color: #155F65;
+    color: #014240;
+    background-color: #E9F7F8;
   }
 
   &:active {
     text-decoration: underline;
-    color: #ffffff;
-    background-color: #155F65;
+    color: #014240;
+    background-color: #E9F7F8;
   }
 
   @media (min-width: 992px) {
@@ -333,6 +334,7 @@ const NoLink = styled.h3<{  open?: boolean, level?: number }>`
   font-size: 23px;
   text-decoration: none;
   padding: 16px 0 16px 16px;
+  line-height: 2.3;
 
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#2e2D29"};
@@ -347,7 +349,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   padding: 19px 0 15px 0;
   margin: 0;
   min-width: 300px;
-  background: #017E7C;
+  background: #E9F7F8;
 
   @media (min-width: 992px) {
     display: ${props => props.open ? "grid" : "none"};
@@ -383,7 +385,7 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 
 const ListItem = styled.li<{ level?: number }>`
   position: unset;
-  border-bottom: ${props => props.level > 0 ? "1px solid transparent" : "1px solid #6BB6BC"};
+  border-top: ${props => props.level > 0 ? "1px solid transparent" : "1px solid #014240"};
   margin: 0;
 
   &:last-child {

@@ -11,7 +11,10 @@ header.su-masthead {
     margin: 0;
     width: 100%;
     max-width: unset;
-    padding-left: 100px;
+
+    @include grid-media-min('lg') {
+      padding-left: 100px;
+    }
 
     .system-menu-block {
       position: absolute;
