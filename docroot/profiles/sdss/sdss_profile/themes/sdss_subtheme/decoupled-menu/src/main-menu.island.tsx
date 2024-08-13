@@ -240,7 +240,7 @@ const Nav = styled.nav`
 `
 
 const Button = styled.button<{ open?: boolean }>`
-  color: ##2E2D29;
+  color: #2E2D29;
   background: transparent;
   border: none;
   padding: 0;
@@ -256,8 +256,8 @@ const Button = styled.button<{ open?: boolean }>`
     box-shadow: none;
     border-bottom: none;
     border-radius: 38px;
-    color: #155F65;
-    background-color: #92D7DD;
+    color: #ffffff;
+    background-color: #014240;
     outline: none;
   }
 
