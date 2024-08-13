@@ -393,7 +393,7 @@ const ListItem = styled.li<{ level?: number }>`
   }
 
   @media (min-width: 992px) {
-    border-bottom: ${props => props.level === 0 ? "none" : "none"};
+    border-top: ${props => props.level === 0 ? "none" : "none"};
     padding: ${props => props.level > 0 ? "0" : "0"};
   }
 `
