@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.su_imported_via_news_sharing
+    - field.storage.node.su_sdss_imported_news_sharing
     - node.type.stanford_news
-id: node.stanford_news.su_imported_via_news_sharing
-field_name: su_imported_via_news_sharing
+id: node.stanford_news.su_sdss_imported_news_sharing
+field_name: su_sdss_imported_news_sharing
 entity_type: node
 bundle: stanford_news
 label: 'Imported via News Sharing'

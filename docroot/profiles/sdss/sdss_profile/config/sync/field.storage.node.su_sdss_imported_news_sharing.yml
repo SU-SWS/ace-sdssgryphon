@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - node
-id: node.su_imported_via_news_sharing
-field_name: su_imported_via_news_sharing
+id: node.su_sdss_imported_news_sharing
+field_name: su_sdss_imported_news_sharing
 entity_type: node
 type: boolean
 settings: {  }

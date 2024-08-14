@@ -63,8 +63,10 @@ source:
     stanford_minimal_html: stanford_minimal_html
     type: stanford_news
     image_path: 'public://media/sdss_news_sharing/'
+    imported_via_news_sharing: 1
 process:
   type: constants/type
+  su_sdss_imported_news_sharing: constants/imported_via_news_sharing
   title: title
   image_file:
     -
@@ -113,6 +115,7 @@ process:
       value_key: name
       ignore_case: true
   su_news_source/uri: external_source
+
 destination:
   plugin: 'entity:node'
   overwrite_properties:

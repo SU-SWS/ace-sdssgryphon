@@ -905,10 +905,10 @@ function sdss_profile_update_10008() {
   $entity_type_manager = \Drupal::entityTypeManager();
 
   $field_storage = $entity_type_manager->getStorage('field_storage_config');
-  if (!$field_storage->load('node.su_imported_via_news_sharing')) {
+  if (!$field_storage->load('node.su_sdss_imported_news_sharing')) {
     $field_storage->create([
       'uuid' => '9e91a7b2-54be-4154-b251-b49040727100',
-      'field_name' => 'su_imported_via_news_sharing',
+      'field_name' => 'su_sdss_imported_news_sharing',
       'type' => 'boolean',
       'entity_type' => 'node',
       'cardinality' => 1,
@@ -917,7 +917,7 @@ function sdss_profile_update_10008() {
     $field_config_storage = $entity_type_manager->getStorage('field_config');
     $field_config_storage->create([
       'entity_type' => 'node',
-      'field_name' => 'su_imported_via_news_sharing',
+      'field_name' => 'su_sdss_imported_news_sharing',
       'bundle' => 'stanford_news',
       'label' => 'Imported via News Sharing',
       'description' => 'This content was imported from another site through News Sharing.',
