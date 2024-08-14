@@ -624,7 +624,7 @@ hidden:
   links: true
   search_api_excerpt: true
   stanford_intranet__access: true
-  su_sdss_imported_news_sharing: true
   su_metatags: true
   su_news_source: true
+  su_sdss_imported_news_sharing: true
   su_shared_tags: true

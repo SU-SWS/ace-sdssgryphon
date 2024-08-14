@@ -383,9 +383,9 @@ hidden:
   path: true
   promote: true
   sticky: true
-  su_sdss_imported_news_sharing: true
   su_news_dek: true
   su_sdss_import_source: true
+  su_sdss_imported_news_sharing: true
   uid: true
   unpublish_on: true
   url_redirects: true

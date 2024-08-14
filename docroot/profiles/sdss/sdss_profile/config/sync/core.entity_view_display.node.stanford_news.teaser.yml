@@ -212,7 +212,6 @@ hidden:
   links: true
   search_api_excerpt: true
   stanford_intranet__access: true
-  su_sdss_imported_news_sharing: true
   su_metatags: true
   su_news_banner: true
   su_news_banner_media_caption: true
@@ -224,6 +223,7 @@ hidden:
   su_news_source: true
   su_news_topics: true
   su_sdss_import_source: true
+  su_sdss_imported_news_sharing: true
   su_sdss_media_contacts: true
   su_sdss_media_mention: true
   su_sdss_news_banner_caption: true

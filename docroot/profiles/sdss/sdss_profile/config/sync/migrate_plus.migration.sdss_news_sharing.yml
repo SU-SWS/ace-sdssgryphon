@@ -115,7 +115,6 @@ process:
       value_key: name
       ignore_case: true
   su_news_source/uri: external_source
-
 destination:
   plugin: 'entity:node'
   overwrite_properties:
