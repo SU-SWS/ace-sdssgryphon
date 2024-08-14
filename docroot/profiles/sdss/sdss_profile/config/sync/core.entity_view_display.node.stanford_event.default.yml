@@ -30,6 +30,7 @@ dependencies:
     - field.field.node.stanford_event.su_sdss_custm_event_feat_media
     - field.field.node.stanford_event.su_sdss_event_topics
     - field.field.node.stanford_event.su_sdss_events_focal_areas
+    - field.field.node.stanford_event.su_sdss_featured
     - field.field.node.stanford_event.su_sdss_related_content
     - field.field.node.stanford_event.su_shared_tags
     - node.type.stanford_event
@@ -217,6 +218,24 @@ third_party_settings:
                   link: true
                 third_party_settings: {  }
             weight: -4
+            additional: {  }
+          d6e465c6-0baf-4d44-9672-e9c8a8c3f00c:
+            uuid: d6e465c6-0baf-4d44-9672-e9c8a8c3f00c
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_event:su_sdss_featured'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: boolean
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+            weight: -3
             additional: {  }
         third_party_settings: {  }
       -
@@ -892,6 +911,16 @@ content:
       link: true
     third_party_settings: {  }
     weight: 120
+    region: main
+  su_sdss_featured:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 122
     region: main
   su_sdss_related_content:
     type: entity_reference_label

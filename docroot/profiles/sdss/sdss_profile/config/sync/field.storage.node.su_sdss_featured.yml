@@ -1,0 +1,18 @@
+uuid: bf7eb327-f6da-4490-b2f8-7f798ba5a41d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.su_sdss_featured
+field_name: su_sdss_featured
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
