@@ -219,24 +219,6 @@ third_party_settings:
                 third_party_settings: {  }
             weight: -4
             additional: {  }
-          d6e465c6-0baf-4d44-9672-e9c8a8c3f00c:
-            uuid: d6e465c6-0baf-4d44-9672-e9c8a8c3f00c
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_event:su_sdss_featured'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: boolean
-                label: above
-                settings:
-                  format: default
-                  format_custom_false: ''
-                  format_custom_true: ''
-                third_party_settings: {  }
-            weight: -3
-            additional: {  }
         third_party_settings: {  }
       -
         layout_id: stanford_events_body
