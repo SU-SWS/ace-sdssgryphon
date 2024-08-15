@@ -99,7 +99,7 @@ third_party_settings:
       label: Taxonomy
       region: content
       parent_name: ''
-      weight: 6
+      weight: 5
       format_type: details
       format_settings:
         classes: ''
@@ -131,31 +131,38 @@ mode: default
 content:
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 10
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   stanford_intranet__access:
     type: entity_access
-    weight: 8
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
-    weight: 9
+    weight: 8
     region: content
     settings:
       sidebar: true
@@ -189,7 +196,9 @@ content:
     weight: 4
     region: content
     settings:
+      view_mode: default
       preview_view_mode: default
+      form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
@@ -232,7 +241,7 @@ content:
     third_party_settings: {  }
   su_sdss_media_contacts:
     type: inline_entity_form_complex
-    weight: 12
+    weight: 11
     region: content
     settings:
       form_mode: default
@@ -247,14 +256,6 @@ content:
       collapsed: false
       revision: false
       removed_reference: keep
-      auto_open: true
-      allow_edit: true
-      hide_fieldset: false
-      hide_title: false
-      config_labels_button: _none
-      labels: {  }
-      add_existing_widget: autocomplete
-      auto_open_edit_form: false
     third_party_settings:
       change_labels:
         add_another: 'Add another Media Contact'
@@ -263,7 +264,7 @@ content:
         force_single_cardinality: 0
   su_sdss_media_mention:
     type: boolean_checkbox
-    weight: 13
+    weight: 12
     region: content
     settings:
       display_label: true
@@ -368,7 +369,7 @@ content:
     third_party_settings: {  }
   syndication:
     type: boolean_checkbox
-    weight: 54
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -387,7 +388,6 @@ hidden:
   layout_selection: true
   path: true
   promote: true
-  sticky: true
   su_news_dek: true
   su_sdss_import_source: true
   uid: true
