@@ -754,8 +754,7 @@ function _sdss_profile_reset_node_changed_time(NodeInterface $node, int $changed
 /**
  * Create su_sdss_media_mention field from configuration.
  */
-function sdss_profile_update_10001()
-{
+function sdss_profile_update_10001() {
   $config_directory = \Drupal::service('config.storage.sync');
   $field_storage = $config_directory->read('field.storage.node.su_sdss_media_mention');
   $field_config = $config_directory->read('field.field.node.stanford_news.su_sdss_media_mention');
@@ -923,4 +922,54 @@ function sdss_profile_update_10008() {
       'description' => 'This content was imported from another site through News Sharing.',
     ])->save();
   }
+}
+
+/**
+ * Flag existing content imported via News Sharing.
+ */
+function sdss_profile_update_10009(&$sandbox) {
+  if (!isset($sandbox['count'])) {
+    $migration_storage = \Drupal::entityTypeManager()->getStorage('migration');
+    if (!$migration_entity = $migration_storage->load('sdss_news_sharing')) {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+
+    $sandbox['nids'] = [];
+    $migration = \Drupal::service('plugin.manager.migration')->createInstance($migration_entity->id());
+    if (!$migration) {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+
+    $database = $migration->getIdMap()->getDatabase();
+    $query = $database->select($migration->getIdMap()->mapTableName(), 'mt')
+    ->fields('mt', ['destid1']);
+    $destination_records = $query->execute();
+    foreach ($destination_records as $destination_record) {
+      if (isset($destination_record->destid1)) {
+        $sandbox['nids'][] = $destination_record->destid1;
+      }
+    }
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
+
+  if (empty($node_ids)) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_imported_news_sharing')) {
+      continue;
+    }
+    $field = $node->get('su_sdss_imported_news_sharing');
+    $field->set(0, 1);
+    $node->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
 }
