@@ -328,7 +328,7 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 `
 
-const NoLink = styled.h3<{  open?: boolean, level?: number }>`
+const NoLink = styled.h2<{  open?: boolean, level?: number }>`
   color: #2e2D29;
   font-weight: 600;
   font-size: 23px;

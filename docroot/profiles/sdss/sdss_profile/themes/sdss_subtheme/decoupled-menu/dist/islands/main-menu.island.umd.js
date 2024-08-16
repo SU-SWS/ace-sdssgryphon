@@ -217,7 +217,7 @@
       background-color: transparent;
     }
   }
-`,nn=Or.h3`
+`,nn=Or.h2`
   color: #2e2D29;
   font-weight: 600;
   font-size: 23px;
