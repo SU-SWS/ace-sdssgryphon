@@ -70,7 +70,6 @@ body.sdss-header-variant--option_a {
           position: absolute;
           top: 0;
           bottom: 0;
-          width: 9600px;
           left: 0;
           z-index: -1;
           background: $sdss-color-blue-light;
@@ -100,7 +99,7 @@ body.sdss-header-variant--option_a {
         padding-left: 100px;
 
         .su-lockup__cell1 {
-          padding: 2rem 3rem 2rem 8rem;
+          padding: 2rem 3rem 2rem 0;
         }
       }
     }

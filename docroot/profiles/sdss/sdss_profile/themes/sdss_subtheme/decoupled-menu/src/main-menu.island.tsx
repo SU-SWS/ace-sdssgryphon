@@ -20,13 +20,18 @@ const islandName = 'main-menu-island'
 // Green = no associated classname
 const isBlueHeader = document.getElementsByClassName('sdss-header-variant--option_a');
 
-// Set variable to green for default
-var blueHeader = Variables.topGreen;
+// Set variable to Blue for default
+var headerType = Variables.topBlue;
+var leftZero = Variables.leftBlue;
 
+console.log(headerType)
 // Change it to blue if it is blue
-if (isBlueHeader.length > 0) {
-  var blueHeader = Variables.topBlue;
+if (isBlueHeader.length === 0) {
+  var headerType = Variables.topGreen;
+  var leftZero = Variables.leftGreen;
+
 }
+console.log(headerType)
 
 
 const TopList = styled.ul<{ open?: boolean }>`
@@ -378,7 +383,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     column-gap: 18rem;
     color: $sdss-color-white;
     padding: 3.6rem 15% 5.8rem 15%;
-    top:  ${blueHeader};
+    top:  ${headerType};
   }
 `
 
@@ -391,7 +396,7 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     visibility: visible;
     background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
     background-color: #fff;
-    left: -295px;
+    left: ${leftZero};
     width: 100%;
     z-index: 220;
     top: 84px;
