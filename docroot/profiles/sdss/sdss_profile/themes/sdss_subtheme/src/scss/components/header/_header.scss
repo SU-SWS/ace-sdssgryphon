@@ -13,7 +13,7 @@ header.su-masthead {
     max-width: unset;
 
     @include grid-media-min('lg') {
-      padding-left: 100px;
+      // padding-left: 100px; // needs removing for green header
     }
 
     .system-menu-block {
@@ -101,6 +101,8 @@ header.su-masthead {
       display: none;
     }
   }
+
+
 }
 
 

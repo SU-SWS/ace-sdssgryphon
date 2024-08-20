@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Variables } from "./components/variables";
 import {useWebComponentEvents} from "./hooks/useWebComponentEvents";
 import {createIslandWebComponent} from 'preact-island'
 import {useState, useEffect, useRef, useCallback} from 'preact/hooks';
@@ -14,11 +15,24 @@ import MagnifyingGlass from "./components/magnifying-glass";
 
 const islandName = 'main-menu-island'
 
+// Which header?
+// Blue = sdss-header-variant--option_a
+// Green = no associated classname
+const isBlueHeader = document.getElementsByClassName('sdss-header-variant--option_a');
+
+// Set variable to green for default
+var blueHeader = Variables.topGreen;
+
+// Change it to blue if it is blue
+if (isBlueHeader.length > 0) {
+  var blueHeader = Variables.topBlue;
+}
+
+
 const TopList = styled.ul<{ open?: boolean }>`
   display: ${props => props.open ? "block" : "none"};
   padding: ${props => props.open ? "225px 0 0 0" : "0"};
   top: ${props => props.open ? "-225px" : "0"};
-  background: #155F65;
   position: absolute;
   left: 0;
   flex-direction: column;
@@ -364,6 +378,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     column-gap: 18rem;
     color: $sdss-color-white;
     padding: 3.6rem 15% 5.8rem 15%;
+    top:  ${blueHeader};
   }
 `
 
