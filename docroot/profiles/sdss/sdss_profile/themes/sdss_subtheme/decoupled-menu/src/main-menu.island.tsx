@@ -281,16 +281,10 @@ const Button = styled.button<{ open?: boolean }>`
   }
 
   @media (min-width: 992px) {
-    background: transparent;
-    border-radius: unset;
-    color: #155f65;
-    margin: 4px 10px 0 -4px;
+    margin: 12px 10px 0 10px;
 
     &:hover, &:focus, &:active {
-      border-bottom: 1px solid ${props => props.open ? "#155f65" : "#155f65"};
-      background: transparent;
-      border-radius: unset;
-      color: ${props => props.open ? "#155f65" : "#155f65"};
+
     }
   }
 `
@@ -305,9 +299,12 @@ const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#155f65"};
-    background-color: ${props => props.open ? "#E9F7F8" : "transparent"};
+    background-color: ${props => props.open ? "#F5FEFF" : "transparent"};
     padding-bottom: ${props => props.level === 0 ? "0" : "0"};
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
+    padding-bottom: ${props => props.level === 0 ? "2rem" : "0"};
+    border-radius: ${props => props.level === 0 ? "10px" : "0"};
+    padding-left: 12px;
   }
 `
 
