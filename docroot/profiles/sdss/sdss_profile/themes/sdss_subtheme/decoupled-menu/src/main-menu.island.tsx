@@ -24,15 +24,12 @@ const isBlueHeader = document.getElementsByClassName('sdss-header-variant--optio
 var headerType = Variables.topBlue;
 var leftZero = Variables.leftBlue;
 
-console.log(headerType)
 // Change it to blue if it is blue
 if (isBlueHeader.length === 0) {
   var headerType = Variables.topGreen;
   var leftZero = Variables.leftGreen;
 
 }
-console.log(headerType)
-
 
 const TopList = styled.ul<{ open?: boolean }>`
   display: ${props => props.open ? "block" : "none"};
@@ -338,8 +335,10 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
 
 
     &:hover, &:focus {
-      color: ${({level}) => level != 0 ? "#92D7DD" : "#155F65"};
-      background-color: transparent;
+      color: ${({level}) => level != 0 ? "#155F65" : "#2E2D29"};
+      background-color: #F5FEFF;
+      border-radius: 10px;
+      padding: ${({level}) => level != 0 ? "16px" : "0"};
     }
   }
 `
@@ -368,19 +367,19 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   background: #E9F7F8;
 
   @media (min-width: 992px) {
-    display: ${props => props.open ? "grid" : "none"};
+    display: ${props => props.open ? "" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     border-top: 2px solid #bed9db;
     position: ${props => props.level === 0 ? "absolute" : "relative"};
     background: #E9F7F8;
     width: 100vw;
     left: 0;
-    grid-template-columns: 277px 277px 277px;
-    row-gap: 1.8rem;
-    column-gap: 18rem;
     color: $sdss-color-white;
     padding: 3.6rem 15% 5.8rem 15%;
     top:  ${headerType};
+    columns: 4;
+    column-gap: 40px;
+    column-width: 200px;
   }
 `
 
@@ -467,7 +466,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           <NoLink open={submenuOpen}>{title}</NoLink>
         }
 
-        {items &&
+        {items && level ===0  ? (
           <>
             <Button
               ref={buttonRef}
@@ -483,6 +482,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
               />
             </Button>
           </>
+        ) : ""
         }
       </MenuItemContainer>
 
