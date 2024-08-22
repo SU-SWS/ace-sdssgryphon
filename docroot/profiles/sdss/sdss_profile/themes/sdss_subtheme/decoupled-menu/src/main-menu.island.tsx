@@ -466,8 +466,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           <NoLink open={submenuOpen}>{title}</NoLink>
         }
 
-        {items && level ===0  ? (
-          <>
+        {items && level === 0  ? (
             <Button
               ref={buttonRef}
               onClick={() => setSubmenuOpen(!submenuOpen)}
@@ -481,7 +480,6 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
               }}
               />
             </Button>
-          </>
         ) : ""
         }
       </MenuItemContainer>
@@ -498,6 +496,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           </MenuList>
         </MenuListWrapper>
       }
+
     </OutsideClickHandler>
 
   )
