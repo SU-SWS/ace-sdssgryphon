@@ -966,9 +966,7 @@ function sdss_profile_update_10009(&$sandbox) {
     if (!$node->hasField('su_sdss_imported_news_sharing')) {
       continue;
     }
-    $field = $node->get('su_sdss_imported_news_sharing');
-    $field->set(0, 1);
-    $node->save();
+    $node->set('su_sdss_imported_news_sharing', TRUE)->save();
   }
 
   $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
