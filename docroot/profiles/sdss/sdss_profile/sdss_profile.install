@@ -929,27 +929,13 @@ function sdss_profile_update_10008() {
  */
 function sdss_profile_update_10009(&$sandbox) {
   if (!isset($sandbox['count'])) {
-    $migration_storage = \Drupal::entityTypeManager()->getStorage('migration');
-    if (!$migration_entity = $migration_storage->load('sdss_news_sharing')) {
-      $sandbox['#finished'] = 1;
-      return;
-    }
-
-    $sandbox['nids'] = [];
-    $migration = \Drupal::service('plugin.manager.migration')->createInstance($migration_entity->id());
-    if (!$migration) {
-      $sandbox['#finished'] = 1;
-      return;
-    }
-
-    $database = $migration->getIdMap()->getDatabase();
-    $query = $database->select($migration->getIdMap()->mapTableName(), 'mt')
-    ->fields('mt', ['destid1']);
-    $destination_records = $query->execute();
-    foreach ($destination_records as $destination_record) {
-      if (isset($destination_record->destid1)) {
-        $sandbox['nids'][] = $destination_record->destid1;
-      }
+    $db = \Drupal::database();
+    if ($db->schema()->tableExists('migrate_map_sdss_news_sharing')) {
+      $ids = array_keys($db->select('migrate_map_sdss_news_sharing', 'm')
+        ->fields('m', ['destid1'])
+        ->execute()
+        ->fetchAllAssoc('destid1'));
+      $sandbox['nids'] = $ids;
     }
     $sandbox['count'] = count($sandbox['nids']);
   }
