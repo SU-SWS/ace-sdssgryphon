@@ -936,8 +936,11 @@ function sdss_profile_update_10009(&$sandbox) {
         ->execute()
         ->fetchAllAssoc('destid1'));
       $sandbox['nids'] = $ids;
+      $sandbox['count'] = count($sandbox['nids']);
+    } else {
+      $sandbox['#finished'] = 1;
+      return;
     }
-    $sandbox['count'] = count($sandbox['nids']);
   }
 
   $node_ids = array_splice($sandbox['nids'], 0, 250);
