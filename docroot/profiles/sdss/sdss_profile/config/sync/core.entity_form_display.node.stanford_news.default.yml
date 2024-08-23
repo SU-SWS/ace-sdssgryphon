@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.stanford_news.layout_builder__layout
     - field.field.node.stanford_news.stanford_intranet__access
+    - field.field.node.stanford_news.su_sdss_imported_news_sharing
     - field.field.node.stanford_news.su_metatags
     - field.field.node.stanford_news.su_news_banner
     - field.field.node.stanford_news.su_news_banner_media_caption
@@ -393,6 +394,7 @@ hidden:
   sticky: true
   su_news_dek: true
   su_sdss_import_source: true
+  su_sdss_imported_news_sharing: true
   uid: true
   unpublish_on: true
   url_redirects: true

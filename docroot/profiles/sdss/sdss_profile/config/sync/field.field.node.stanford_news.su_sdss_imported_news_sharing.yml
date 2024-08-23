@@ -1,0 +1,21 @@
+uuid: bec5aa1e-8cb5-4e3f-9673-3198d96ca964
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_imported_news_sharing
+    - node.type.stanford_news
+id: node.stanford_news.su_sdss_imported_news_sharing
+field_name: su_sdss_imported_news_sharing
+entity_type: node
+bundle: stanford_news
+label: 'Imported via News Sharing'
+description: 'This content was imported from another site through News Sharing.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

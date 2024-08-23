@@ -7,7 +7,6 @@
 
 use Drupal\Core\DrupalKernel;
 use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\Core\Site\Settings;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\NodeInterface;
@@ -755,8 +754,7 @@ function _sdss_profile_reset_node_changed_time(NodeInterface $node, int $changed
 /**
  * Create su_sdss_media_mention field from configuration.
  */
-function sdss_profile_update_10001()
-{
+function sdss_profile_update_10001() {
   $config_directory = \Drupal::service('config.storage.sync');
   $field_storage = $config_directory->read('field.storage.node.su_sdss_media_mention');
   $field_config = $config_directory->read('field.field.node.stanford_news.su_sdss_media_mention');
@@ -897,4 +895,68 @@ function sdss_profile_update_10007(&$sandbox) {
   }
 
   $sandbox['#finished'] = empty($sandbox['pids']) ? 1 : ($sandbox['count'] - count($sandbox['pids'])) / $sandbox['count'];
+}
+
+/**
+ * Add imported via news sharing field to News.
+ */
+function sdss_profile_update_10008() {
+  $entity_type_manager = \Drupal::entityTypeManager();
+
+  $field_storage = $entity_type_manager->getStorage('field_storage_config');
+  if (!$field_storage->load('node.su_sdss_imported_news_sharing')) {
+    $field_storage->create([
+      'uuid' => '9e91a7b2-54be-4154-b251-b49040727100',
+      'field_name' => 'su_sdss_imported_news_sharing',
+      'type' => 'boolean',
+      'entity_type' => 'node',
+      'cardinality' => 1,
+    ])->save();
+
+    $field_config_storage = $entity_type_manager->getStorage('field_config');
+    $field_config_storage->create([
+      'entity_type' => 'node',
+      'field_name' => 'su_sdss_imported_news_sharing',
+      'bundle' => 'stanford_news',
+      'label' => 'Imported via News Sharing',
+      'description' => 'This content was imported from another site through News Sharing.',
+    ])->save();
+  }
+}
+
+/**
+ * Flag existing content imported via News Sharing.
+ */
+function sdss_profile_update_10009(&$sandbox) {
+  if (!isset($sandbox['count'])) {
+    $db = \Drupal::database();
+    if ($db->schema()->tableExists('migrate_map_sdss_news_sharing')) {
+      $ids = array_keys($db->select('migrate_map_sdss_news_sharing', 'm')
+        ->fields('m', ['destid1'])
+        ->execute()
+        ->fetchAllAssoc('destid1'));
+      $sandbox['nids'] = $ids;
+      $sandbox['count'] = count($sandbox['nids']);
+    } else {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
+
+  if (empty($node_ids)) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_imported_news_sharing')) {
+      continue;
+    }
+    $node->set('su_sdss_imported_news_sharing', TRUE)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
 }
