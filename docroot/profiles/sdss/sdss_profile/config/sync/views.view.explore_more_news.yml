@@ -24,6 +24,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
+      title: 'Explore More'
       fields:
         title:
           id: title
@@ -209,12 +210,12 @@ display:
       tags: {  }
   explore_more_curated:
     id: explore_more_curated
-    display_title: 'Explore More News - News that is selected as related on this article'
+    display_title: 'Explore More News - Use related content selections'
     display_plugin: viewfield_block
     position: 1
     display_options:
       display_extenders: {  }
-      display_description: '3 items of Related News curated on the page'
+      display_description: 'This pulls three news items from the Related Content field on this news article'
       allow:
         items_per_page: items_per_page
       filters:
@@ -389,12 +390,12 @@ display:
       tags: {  }
   explore_more_other:
     id: explore_more_other
-    display_title: 'Explore More - News that has selected this article as related'
+    display_title: 'Explore More News - Show articles that have selected this article'
     display_plugin: viewfield_block
     position: 2
     display_options:
       display_extenders: {  }
-      display_description: 'This pulls three more news items from other sources'
+      display_description: 'This pulls three news items that have have selected this news article as related content'
       allow:
         items_per_page: items_per_page
       filters:
