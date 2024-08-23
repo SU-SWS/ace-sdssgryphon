@@ -156,7 +156,7 @@
   }
 
   @media (min-width: 992px) {
-    margin: 12px 10px 0 10px;
+    margin: 12px 10px 0 0;
 
     &:hover, &:focus, &:active {
 
@@ -173,7 +173,6 @@
   @media (min-width: 992px) {
     color: ${e=>e.open?"#ffffff":"#155f65"};
     background-color: ${e=>e.open?"#F5FEFF":"transparent"};
-    padding-bottom: ${e=>(e.level,"0")};
     width: ${e=>0===e.level?"fit-content":"100%"};
     padding-bottom: ${e=>0===e.level?"2rem":"0"};
     border-radius: ${e=>0===e.level?"10px":"0"};
@@ -204,15 +203,17 @@
     color: ${({level:e})=>"#2E2D29"};
     font-weight: 400;
     font-size: 1.9rem;
-    padding: ${({level:e})=>0!=e?"0":"16px 0"};
+    padding: ${({level:e})=>"16px 16px 16px 8px"};
+    padding: ${({level:e})=>"16px 16px 2rem 16px"};
     margin-bottom: ${({level:e,inTrail:t,isCurrent:r})=>0===e?"-6px":""};
 
 
     &:hover, &:focus {
-      color: ${({level:e})=>0!=e?"#155F65":"#2E2D29"};
+      color: ${({level:e})=>e>0?"#155F65":"#2E2D29"};
       background-color: #F5FEFF;
       border-radius: 10px;
-      padding: ${({level:e})=>0!=e?"16px":"0"};
+      padding: ${({level:e})=>"16px 16px 16px 8px"};
+      padding: ${({level:e})=>"16px 16px 2rem 16px"};
     }
   }
 `,un=Or.h2`

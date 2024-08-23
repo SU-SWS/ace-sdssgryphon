@@ -31,7 +31,7 @@ if (isBlueHeader.length === 0) {
 
 }
 
-const TopList = styled.ul<{ open?: boolean }>`
+const TopList = styled.ul<{ open?: boolean, level?: number }>`
   display: ${props => props.open ? "block" : "none"};
   padding: ${props => props.open ? "225px 0 0 0" : "0"};
   top: ${props => props.open ? "-225px" : "0"};
@@ -278,7 +278,7 @@ const Button = styled.button<{ open?: boolean }>`
   }
 
   @media (min-width: 992px) {
-    margin: 12px 10px 0 10px;
+    margin: 12px 10px 0 0;
 
     &:hover, &:focus, &:active {
 
@@ -297,7 +297,6 @@ const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#155f65"};
     background-color: ${props => props.open ? "#F5FEFF" : "transparent"};
-    padding-bottom: ${props => props.level === 0 ? "0" : "0"};
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
     padding-bottom: ${props => props.level === 0 ? "2rem" : "0"};
     border-radius: ${props => props.level === 0 ? "10px" : "0"};
@@ -330,15 +329,17 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
     color: ${({level}) => level != 0 ? "#2E2D29" : "#2E2D29"};
     font-weight: 400;
     font-size: 1.9rem;
-    padding: ${({level}) => level != 0 ? "0" : "16px 0"};
+    padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
+    padding: ${({level}) => level === 0 ? "16px 16px 2rem 16px" : "16px 16px 2rem 16px"};
     margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
 
 
     &:hover, &:focus {
-      color: ${({level}) => level != 0 ? "#155F65" : "#2E2D29"};
+      color: ${({level}) => level > 0 ? "#155F65" : "#2E2D29"};
       background-color: #F5FEFF;
       border-radius: 10px;
-      padding: ${({level}) => level != 0 ? "16px" : "0"};
+      padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
+      padding: ${({level}) => level === 0 ? "16px 16px 2rem 16px" : "16px 16px 2rem 16px"};
     }
   }
 `
