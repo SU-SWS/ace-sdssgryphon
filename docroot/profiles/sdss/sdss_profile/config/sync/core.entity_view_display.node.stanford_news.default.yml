@@ -340,7 +340,7 @@ third_party_settings:
                 type: viewfield_default
                 label: hidden
                 settings:
-                  view_title: above
+                  view_title: hidden
                   always_build_output: false
                   empty_view_title: hidden
                 third_party_settings:
