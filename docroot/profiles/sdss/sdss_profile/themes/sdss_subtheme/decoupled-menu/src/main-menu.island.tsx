@@ -368,7 +368,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   background: #E9F7F8;
 
   @media (min-width: 992px) {
-    display: ${props => props.open ? "" : "none"};
+    display: ${props => props.open || props.level >= 1 ? "list-item" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     border-top: 2px solid #bed9db;
     position: ${props => props.level === 0 ? "absolute" : "relative"};
@@ -377,7 +377,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     left: 0;
     color: $sdss-color-white;
     padding: 3.6rem 15% 5.8rem 15%;
-    top:  ${headerType};
+    top: 0;
     columns: 4;
     column-gap: 40px;
     column-width: 200px;
@@ -396,7 +396,7 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     left: ${leftZero};
     width: 100%;
     z-index: 220;
-    top: 84px;
+    top: ${props => props.open || props.level >= 1 ? "${headerType}" : "${zero}"};
   }
 `
 
@@ -467,7 +467,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           <NoLink open={submenuOpen}>{title}</NoLink>
         }
 
-        {items && level === 0  ? (
+        {items && level === 0 ? (
             <Button
               ref={buttonRef}
               onClick={() => setSubmenuOpen(!submenuOpen)}
@@ -481,7 +481,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
               }}
               />
             </Button>
-        ) : ""
+            ) : ""
         }
       </MenuItemContainer>
 
@@ -491,7 +491,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           <MenuList open={submenuOpen} level={level}>
 
             {items.map(item =>
-              <MenuItem key={item.id} {...item} level={level + 1}/>
+              <MenuItem key={item.id} {...item} level={level + 1} />
             )}
 
           </MenuList>

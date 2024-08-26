@@ -5,6 +5,7 @@
 export const Variables = {
     topBlue: '-10px',
     topGreen: '-12px',
+    zero: '0px',
     leftBlue: '-295px',
     leftGreen: '-100px',
   }
