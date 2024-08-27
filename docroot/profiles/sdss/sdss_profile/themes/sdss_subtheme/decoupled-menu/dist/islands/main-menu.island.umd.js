@@ -269,7 +269,6 @@
     background: #E9F7F8;
     left: 0;
     color: $sdss-color-white;
-    padding: 3.6rem 15% 5.8rem 15%;
   }
 `,fn=Or.div`
 
