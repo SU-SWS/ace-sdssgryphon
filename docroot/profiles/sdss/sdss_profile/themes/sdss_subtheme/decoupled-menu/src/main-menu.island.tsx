@@ -368,23 +368,57 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   background: #E9F7F8;
 
   @media (min-width: 992px) {
-    display: ${props => props.open || props.level >= 1 ? "list-item" : "none"};
+    display: ${props => props.open ? "grid" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
-    border-top: 2px solid #bed9db;
+    border-top: "2px solid #bed9db;";
+    position: ${props => props.level === 0 ? "absolute" : "relative"};
+    background:  ${props => props.level >= 1 ? "beige" : "#E9F7F8;"};
+    width: 100vw;
     position: ${props => props.level === 0 ? "absolute" : "relative"};
     background: #E9F7F8;
     width: 100vw;
     left: 0;
+    row-gap: 1.8rem;
+    column-gap: 18rem;
     color: $sdss-color-white;
     padding: 3.6rem 15% 5.8rem 15%;
-    top: 0;
-    columns: 4;
-    column-gap: 40px;
-    column-width: 200px;
+    top:  ${headerType};
+    grid-auto-columns: repeat(3, 275px);
+    grid-auto-rows: minmax(30px, auto);
+    row-gap: 1.8rem;
+    column-gap: 18rem;
+    left: 0;
+    color: $sdss-color-white;
+    padding: ${props => props.level >= 1 ? "0 30% 0 30%" : "3.6rem 15% 5.8rem 15%;"};
   }
 `
 
-const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
+const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
+  display: ${props => props.open ? "block" : "none"};
+  z-index: ${props => props.level + 1};
+  list-style: none;
+  padding: 19px 0 15px 0;
+  margin: 0;
+  min-width: 300px;
+  background: #E9F7F8;
+
+  @media (min-width: 992px) {
+    display: ${props => props.open ? "flex" : "none"};
+    box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
+    border-top: ${props => props.level >= 1 ? "0" : "2px solid #bed9db;"};
+    position: ${props => props.level === 0 ? "absolute" : "relative"};
+    background:  ${props => props.level >= 1 ? "beige" : "orange;"};
+    width: 100vw;
+    left: 0;
+    color: $sdss-color-white;
+    padding: ${props => props.level >= 1 ? "0 30% 0 30%" : "3.6rem 15% 5.8rem 15%;"};
+    top: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+`
+
+const NestedMenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
     display: flex;
@@ -412,6 +446,7 @@ const ListItem = styled.li<{ level?: number }>`
   @media (min-width: 992px) {
     border-top: ${props => props.level === 0 ? "none" : "none"};
     padding: ${props => props.level > 0 ? "0" : "0"};
+    position: ${props => props.level >= 1 ? "relative" : "unset;"}
   }
 `
 
@@ -485,18 +520,29 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
         }
       </MenuItemContainer>
 
-      {items &&
+{items &&
+  <NestedMenuListWrapper>
 
-        <MenuListWrapper>
-          <MenuList open={submenuOpen} level={level}>
-
-            {items.map(item =>
-              <MenuItem key={item.id} {...item} level={level + 1} />
-            )}
-
-          </MenuList>
-        </MenuListWrapper>
+    {level >= 2 ?
+    // CSS Flex (or Grid) for single column layout with indent (and any additional styles from figma mock)
+      <NestedMenuList open={submenuOpen} level={level}>
+        {items.map(item =>
+        // Any additional styles from figma mock for the nested links
+          <MenuItem key={item.id} {...item} level={level + 1} />
+        )}
+      </NestedMenuList>
+      :
+      // CSS Grid; for three column layout
+      <MenuList open={submenuOpen} level={level}>
+        {items.map(item =>
+        // Any additional styles from figma mock for the heading
+          <MenuItem key={item.id} {...item} level={level + 1} />
+        )}
+      </MenuList>
       }
+
+  </NestedMenuListWrapper>
+}
 
     </OutsideClickHandler>
 
