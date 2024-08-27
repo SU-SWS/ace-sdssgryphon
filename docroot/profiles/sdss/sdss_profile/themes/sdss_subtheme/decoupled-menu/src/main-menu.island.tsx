@@ -370,31 +370,24 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
   @media (min-width: 992px) {
     display: ${props => props.open ? "grid" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
-    border-top: "2px solid #bed9db;";
-    position: ${props => props.level === 0 ? "absolute" : "relative"};
-    background:  ${props => props.level >= 1 ? "beige" : "#E9F7F8;"};
-    width: 100vw;
+    border-top: 2px solid #bed9db;
     position: ${props => props.level === 0 ? "absolute" : "relative"};
     background: #E9F7F8;
     width: 100vw;
     left: 0;
+    color: $sdss-color-white;
+    padding: 3.6rem 5.8rem;
+    top: ${headerType};
+    grid-template-columns: repeat(3, 277px);
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-auto-flow: column;
     row-gap: 1.8rem;
     column-gap: 18rem;
-    color: $sdss-color-white;
-    padding: 3.6rem 15% 5.8rem 15%;
-    top:  ${headerType};
-    grid-auto-columns: repeat(3, 275px);
-    grid-auto-rows: minmax(30px, auto);
-    row-gap: 1.8rem;
-    column-gap: 18rem;
-    left: 0;
-    color: $sdss-color-white;
-    padding: ${props => props.level >= 1 ? "0 30% 0 30%" : "3.6rem 15% 5.8rem 15%;"};
   }
 `
 
 const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
-  display: ${props => props.open ? "block" : "none"};
+  display: list-item;
   z-index: ${props => props.level + 1};
   list-style: none;
   padding: 19px 0 15px 0;
@@ -403,22 +396,16 @@ const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
   background: #E9F7F8;
 
   @media (min-width: 992px) {
-    display: ${props => props.open ? "flex" : "none"};
-    box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
-    border-top: ${props => props.level >= 1 ? "0" : "2px solid #bed9db;"};
-    position: ${props => props.level === 0 ? "absolute" : "relative"};
-    background:  ${props => props.level >= 1 ? "beige" : "orange;"};
-    width: 100vw;
+    display: list-item;
+    position: absolute;
+    background: #E9F7F8;
     left: 0;
     color: $sdss-color-white;
-    padding: ${props => props.level >= 1 ? "0 30% 0 30%" : "3.6rem 15% 5.8rem 15%;"};
-    top: 0;
-    flex-direction: column;
-    flex-wrap: wrap;
+    padding: 3.6rem 15% 5.8rem 15%;
   }
 `
 
-const NestedMenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
+const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
     display: flex;
@@ -434,6 +421,17 @@ const NestedMenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
   }
 `
 
+const NestedMenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
+
+  @media (min-width: 992px) {
+    display: flow;
+    position: relative;
+    visibility: visible;
+    background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
+    background-color: #fff;
+  }
+`
+
 const ListItem = styled.li<{ level?: number }>`
   position: unset;
   border-top: ${props => props.level > 0 ? "1px solid transparent" : "1px solid #014240"};
@@ -446,7 +444,6 @@ const ListItem = styled.li<{ level?: number }>`
   @media (min-width: 992px) {
     border-top: ${props => props.level === 0 ? "none" : "none"};
     padding: ${props => props.level > 0 ? "0" : "0"};
-    position: ${props => props.level >= 1 ? "relative" : "unset;"}
   }
 `
 
@@ -520,29 +517,28 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
         }
       </MenuItemContainer>
 
-{items &&
-  <NestedMenuListWrapper>
-
-    {level >= 2 ?
-    // CSS Flex (or Grid) for single column layout with indent (and any additional styles from figma mock)
-      <NestedMenuList open={submenuOpen} level={level}>
-        {items.map(item =>
-        // Any additional styles from figma mock for the nested links
-          <MenuItem key={item.id} {...item} level={level + 1} />
-        )}
-      </NestedMenuList>
-      :
-      // CSS Grid; for three column layout
-      <MenuList open={submenuOpen} level={level}>
-        {items.map(item =>
-        // Any additional styles from figma mock for the heading
-          <MenuItem key={item.id} {...item} level={level + 1} />
-        )}
-      </MenuList>
+      {items &&
+        <>
+          {level === 1 ?
+            <NestedMenuListWrapper>
+              <NestedMenuList open={submenuOpen} level={level}>
+                {items.map(item =>
+                  <MenuItem key={item.id} {...item} level={level + 1} />  // Any additional styles from figma mock for the nested links
+                )}
+              </NestedMenuList>
+            </NestedMenuListWrapper>
+            :
+            // CSS Grid; for three column layout
+            <MenuListWrapper>
+              <MenuList open={submenuOpen} level={level}>
+                {items.map(item =>
+                  <MenuItem key={item.id} {...item} level={level + 1} /> // Any additional styles from figma mock for the heading
+                )}
+              </MenuList>
+            </MenuListWrapper>
+          }
+        </>
       }
-
-  </NestedMenuListWrapper>
-}
 
     </OutsideClickHandler>
 
