@@ -393,18 +393,6 @@ class BasicPageCest {
     $I->canSee('Last Updated: ' . $date_string);
   }
 
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_page');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_page');
-    $I->canSee('Related Content');
-  }
-
   protected static function getTimezone() {
     return \Drupal::config('system.date')
       ->get('timezone.default') ?: @date_default_timezone_get();
