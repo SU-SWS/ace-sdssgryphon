@@ -378,16 +378,15 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     color: $sdss-color-white;
     padding: 3.6rem 5.8rem;
     top: ${headerType};
-    grid-template-columns: repeat(3, 277px);
-    grid-template-rows: 100px 100px 100px 100px;
-    grid-auto-flow: column;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: minmax(30px, auto);
     row-gap: 1.8rem;
     column-gap: 18rem;
   }
 `
 
 const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
-  display: list-item;
+  display: block;
   z-index: ${props => props.level + 1};
   list-style: none;
   padding: 19px 0 15px 0;
@@ -396,10 +395,11 @@ const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
   background: #E9F7F8;
 
   @media (min-width: 992px) {
-    display: list-item;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     background: #E9F7F8;
-    left: 0;
+    left: 8px;
     color: $sdss-color-white;
   }
 `
