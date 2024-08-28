@@ -371,13 +371,10 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     display: ${props => props.open ? "grid" : "none"};
     box-shadow: ${props => props.level === 0 ? "0 10px 20px rgba(0,0,0,.15),0 6px 6px rgba(0,0,0,.2)" : ""};
     border-top: 2px solid #bed9db;
-    position: ${props => props.level === 0 ? "absolute" : "relative"};
-    background: #E9F7F8;
     width: 100vw;
     left: 0;
     color: $sdss-color-white;
     padding: 3.6rem 5.8rem;
-    top: ${headerType};
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: minmax(auto, 1fr) minmax(auto, 1fr) minmax(auto, 1fr);
     row-gap: 1.8rem;
@@ -397,9 +394,8 @@ const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
   @media (min-width: 992px) {
     display: flex;
     flex-direction: column;
-    position: absolute;
     background: #E9F7F8;
-    left: 8px;
+    margin-left: 8px;
     color: $sdss-color-white;
   }
 `
@@ -407,16 +403,12 @@ const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
 const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
-    display: flex;
-    opacity: 1;
     position: absolute;
     visibility: visible;
-    background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
-    background-color: #fff;
-    left: ${leftZero};
-    width: 100%;
+    background: #E9F7F8;
+    right: 0;
+    width: 100vw;
     z-index: 220;
-    top: ${props => props.open || props.level >= 1 ? "${zero}" : "${zero}"};
   }
 `
 
@@ -424,10 +416,8 @@ const NestedMenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
     display: block;
-    position: relative;
-    visibility: visible;
-    background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
-    background-color: #fff;
+    height: 100%;
+    width: 100%;
   }
 `
 
