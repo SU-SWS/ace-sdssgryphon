@@ -1,0 +1,74 @@
+uuid: f86e1b21-0346-4fcf-b334-e645dc57a7ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_sdss_explore_more_picker
+    - node.type.stanford_news
+    - views.view.explore_more_news
+  module:
+    - viewfield
+id: node.stanford_news.su_sdss_explore_more_picker
+field_name: su_sdss_explore_more_picker
+entity_type: node
+bundle: stanford_news
+label: 'Options for Explore More'
+description: 'Use this field to select how to populate the Explore More section at the bottom of the page. By default, the view will show 3 random articles. <b>Only News will be displayed in Explore More.</b>'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 6bee2160-3fb2-4124-b681-990ef5b42804
+    display_id: explore_more_random
+    arguments: ''
+    items_to_display: ''
+default_value_callback: ''
+settings:
+  force_default: false
+  allowed_views:
+    explore_more_news: explore_more_news
+    stanford_shared_tags: '0'
+    stanford_basic_pages: '0'
+    su_block_edit_links: '0'
+    change_logs: '0'
+    content: '0'
+    block_content: '0'
+    stanford_courses: '0'
+    editoria11y_dismissals: '0'
+    editoria11y_results: '0'
+    stanford_events: '0'
+    stanford_events_past: '0'
+    stanford_events_schedule: '0'
+    stanford_event_series: '0'
+    events_feeds: '0'
+    events_this_week: '0'
+    authmap: '0'
+    files: '0'
+    locked_content: '0'
+    sdss_manage_content_bytype: '0'
+    media: '0'
+    media_library: '0'
+    stanford_news: '0'
+    news_research_search: '0'
+    stanford_person: '0'
+    policies: '0'
+    stanford_publications: '0'
+    redirect: '0'
+    rss_feeds: '0'
+    samlauth_map: '0'
+    sdss_news_sharing: '0'
+    search: '0'
+    taxonomy_term_pages: '0'
+    user_admin_people: '0'
+  allowed_display_types:
+    viewfield_block: viewfield_block
+    block: '0'
+    default: '0'
+    feed: '0'
+    page: '0'
+    rest_export: '0'
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: viewfield

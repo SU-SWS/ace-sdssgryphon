@@ -6,7 +6,6 @@ dependencies:
     - core.base_field_override.node.stanford_news.title
     - field.field.node.stanford_news.layout_builder__layout
     - field.field.node.stanford_news.stanford_intranet__access
-    - field.field.node.stanford_news.su_sdss_imported_news_sharing
     - field.field.node.stanford_news.su_metatags
     - field.field.node.stanford_news.su_news_banner
     - field.field.node.stanford_news.su_news_banner_media_caption
@@ -17,7 +16,9 @@ dependencies:
     - field.field.node.stanford_news.su_news_publishing_date
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
+    - field.field.node.stanford_news.su_sdss_explore_more_picker
     - field.field.node.stanford_news.su_sdss_import_source
+    - field.field.node.stanford_news.su_sdss_imported_news_sharing
     - field.field.node.stanford_news.su_sdss_media_contacts
     - field.field.node.stanford_news.su_sdss_media_mention
     - field.field.node.stanford_news.su_sdss_news_banner_caption
@@ -324,17 +325,29 @@ third_party_settings:
           centered: centered-container
           columns: flex-12-of-12
         components:
-          6b464e2e-34de-472f-8efb-a0137690ae40:
-            uuid: 6b464e2e-34de-472f-8efb-a0137690ae40
+          5097835f-3373-42fd-9027-da8e1b253b40:
+            uuid: 5097835f-3373-42fd-9027-da8e1b253b40
             region: main
             configuration:
-              id: 'views_block:stanford_news-viewfield_block_1'
+              id: 'field_block:node:stanford_news:su_sdss_explore_more_picker'
               label: 'Explore More'
               label_display: visible
-              provider: views
-              context_mapping: {  }
-              views_label: 'Explore More'
-              items_per_page: none
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: viewfield_default
+                label: hidden
+                settings:
+                  view_title: hidden
+                  always_build_output: true
+                  empty_view_title: hidden
+                third_party_settings:
+                  empty_fields:
+                    handler: ''
+                  field_formatter_class:
+                    class: ''
             weight: 0
             additional: {  }
         third_party_settings: {  }
@@ -626,5 +639,6 @@ hidden:
   stanford_intranet__access: true
   su_metatags: true
   su_news_source: true
+  su_sdss_explore_more_picker: true
   su_sdss_imported_news_sharing: true
   su_shared_tags: true
