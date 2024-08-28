@@ -13,8 +13,8 @@ field_name: su_sdss_explore_more_picker
 entity_type: node
 bundle: stanford_news
 label: 'Options for Explore More'
-description: 'Use this field to select how to populate the Explore More section at the bottom of the page. By default, the view will show 3 random articles.'
-required: false
+description: 'Use this field to select how to populate the Explore More section at the bottom of the page. By default, the view will show 3 random articles. <b>Only News will be displayed in Explore More.</b>'
+required: true
 translatable: false
 default_value:
   -
