@@ -246,7 +246,7 @@
     color: $sdss-color-white;
     padding: 3.6rem 5.8rem;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(auto, 1fr) minmax(auto, 1fr) minmax(auto, 1fr);
+    grid-template-rows: auto;
     row-gap: 1.8rem;
     column-gap: 18rem;
   }
