@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.stanford_news.su_news_publishing_date
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
+    - field.field.node.stanford_news.su_sdss_explore_more_picker
     - field.field.node.stanford_news.su_sdss_import_source
     - field.field.node.stanford_news.su_sdss_media_contacts
     - field.field.node.stanford_news.su_sdss_media_mention
@@ -136,6 +137,7 @@ hidden:
   stanford_intranet__access: true
   su_metatags: true
   su_news_dek: true
+  su_sdss_explore_more_picker: true
   su_sdss_import_source: true
   su_sdss_imported_news_sharing: true
   su_sdss_media_contacts: true

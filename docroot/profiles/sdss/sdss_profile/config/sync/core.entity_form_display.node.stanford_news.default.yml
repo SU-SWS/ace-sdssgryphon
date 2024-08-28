@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.stanford_news.su_news_publishing_date
     - field.field.node.stanford_news.su_news_source
     - field.field.node.stanford_news.su_news_topics
+    - field.field.node.stanford_news.su_sdss_explore_more_picker
     - field.field.node.stanford_news.su_sdss_import_source
     - field.field.node.stanford_news.su_sdss_media_contacts
     - field.field.node.stanford_news.su_sdss_media_mention
@@ -42,6 +43,7 @@ dependencies:
     - scheduler
     - stanford_intranet
     - text
+    - viewfield
 third_party_settings:
   field_group:
     group_media:
@@ -100,7 +102,7 @@ third_party_settings:
       label: Taxonomy
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: details
       format_settings:
         classes: ''
@@ -111,12 +113,13 @@ third_party_settings:
         required_fields: true
     group_related_content:
       children:
-        - su_sdss_person_ref
         - su_sdss_related_content
-      label: 'Related Fields'
+        - su_sdss_explore_more_picker
+        - su_sdss_person_ref
+      label: 'Related Content'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 6
       format_type: details
       format_settings:
         classes: ''
@@ -132,31 +135,31 @@ mode: default
 content:
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   stanford_intranet__access:
     type: entity_access
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 7
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
-    weight: 9
+    weight: 10
     region: content
     settings:
       sidebar: true
@@ -187,7 +190,7 @@ content:
     third_party_settings: {  }
   su_news_components:
     type: layout_paragraphs
-    weight: 4
+    weight: 3
     region: content
     settings:
       view_mode: default
@@ -222,7 +225,7 @@ content:
     third_party_settings: {  }
   su_news_topics:
     type: cshs
-    weight: 11
+    weight: 17
     region: content
     settings:
       save_lineage: false
@@ -233,9 +236,15 @@ content:
       required_depth: 0
       none_label: '- Please select -'
     third_party_settings: {  }
+  su_sdss_explore_more_picker:
+    type: viewfield_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   su_sdss_media_contacts:
     type: inline_entity_form_complex
-    weight: 12
+    weight: 4
     region: content
     settings:
       form_mode: default
@@ -258,7 +267,7 @@ content:
         force_single_cardinality: 0
   su_sdss_media_mention:
     type: boolean_checkbox
-    weight: 13
+    weight: 5
     region: content
     settings:
       display_label: true
@@ -281,7 +290,7 @@ content:
     third_party_settings: {  }
   su_sdss_news_focal_areas:
     type: cshs
-    weight: 15
+    weight: 20
     region: content
     settings:
       save_lineage: false
@@ -304,7 +313,7 @@ content:
     third_party_settings: {  }
   su_sdss_news_organization:
     type: cshs
-    weight: 13
+    weight: 18
     region: content
     settings:
       save_lineage: false
@@ -317,7 +326,7 @@ content:
     third_party_settings: {  }
   su_sdss_news_research_area:
     type: cshs
-    weight: 14
+    weight: 19
     region: content
     settings:
       save_lineage: false
@@ -330,7 +339,7 @@ content:
     third_party_settings: {  }
   su_sdss_person_ref:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 25
     region: content
     settings:
       match_operator: CONTAINS
@@ -350,7 +359,7 @@ content:
     third_party_settings: {  }
   su_shared_tags:
     type: cshs
-    weight: 9
+    weight: 16
     region: content
     settings:
       save_lineage: false
@@ -363,7 +372,7 @@ content:
     third_party_settings: {  }
   syndication:
     type: boolean_checkbox
-    weight: 54
+    weight: 13
     region: content
     settings:
       display_label: true
