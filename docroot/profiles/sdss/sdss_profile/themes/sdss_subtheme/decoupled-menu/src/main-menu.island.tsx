@@ -379,7 +379,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     padding: 3.6rem 5.8rem;
     top: ${headerType};
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(30px, auto);
+    grid-template-rows: minmax(auto, 1fr) minmax(auto, 1fr) minmax(auto, 1fr);
     row-gap: 1.8rem;
     column-gap: 18rem;
   }
@@ -416,14 +416,14 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     left: ${leftZero};
     width: 100%;
     z-index: 220;
-    top: ${props => props.open || props.level >= 1 ? "${headerType}" : "${zero}"};
+    top: ${props => props.open || props.level >= 1 ? "${zero}" : "${zero}"};
   }
 `
 
 const NestedMenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
-    display: flow;
+    display: block;
     position: relative;
     visibility: visible;
     background: linear-gradient(180deg,rgba(0,0,0,.08) 0,transparent 12px);
@@ -441,6 +441,7 @@ const ListItem = styled.li<{ level?: number }>`
   }
 
   @media (min-width: 992px) {
+    container-type: ${props => props.level > 0 ? "inline-size" : ""};
     border-top: ${props => props.level === 0 ? "none" : "none"};
     padding: ${props => props.level > 0 ? "0" : "0"};
   }
