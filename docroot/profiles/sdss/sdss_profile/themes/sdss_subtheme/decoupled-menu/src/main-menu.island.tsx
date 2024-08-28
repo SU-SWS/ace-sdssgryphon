@@ -376,7 +376,7 @@ const MenuList = styled.ul<{ open?: boolean, level?: number }>`
     color: $sdss-color-white;
     padding: 3.6rem 5.8rem;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(30px, auto);
+    grid-template-rows: minmax(auto, 1fr) minmax(auto, 1fr) minmax(auto, 1fr);
     row-gap: 1.8rem;
     column-gap: 18rem;
   }
@@ -431,6 +431,7 @@ const ListItem = styled.li<{ level?: number }>`
   }
 
   @media (min-width: 992px) {
+    container-type: ${props => props.level > 0 ? "inline-size" : ""};
     border-top: ${props => props.level === 0 ? "none" : "none"};
     padding: ${props => props.level > 0 ? "0" : "0"};
   }
