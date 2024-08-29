@@ -5,6 +5,18 @@
 // Navigation).
 
 header.su-masthead {
+  // This is the line above the h2 in the mega menu.
+  // It only appears on desktop sizes.
+  .heading-bar {
+    display: none;
+
+    @include grid-media-min('lg') {
+      position: absolute;
+      margin-bottom: 25px;
+      display: block;
+    }
+  }
+
   section.su-masthead--inner {
     display: block;
     padding: 0;

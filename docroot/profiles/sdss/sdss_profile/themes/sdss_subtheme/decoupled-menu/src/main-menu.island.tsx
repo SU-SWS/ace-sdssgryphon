@@ -11,6 +11,7 @@ import Caret from "./components/caret";
 import Hamburger from "./components/hamburger";
 import Close from "./components/close";
 import MagnifyingGlass from "./components/magnifying-glass";
+import HeadingBar from "./components/bar";
 // import Logo from "./components/logo";
 
 const islandName = 'main-menu-island'
@@ -355,6 +356,7 @@ const NoLink = styled.h2<{  open?: boolean, level?: number }>`
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#2e2D29"};
     padding: ${({level}) => level != 0 ? "0" : "16px 0"};
+    white-space: nowrap;
   }
 `
 
@@ -409,6 +411,7 @@ const MenuListWrapper = styled.div<{ open?: boolean, level?: number }>`
     right: 0;
     width: 100vw;
     z-index: 220;
+    left: ${leftZero}
   }
 `
 
@@ -486,7 +489,10 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           </MenuLink>
         }
         {isNoLink &&
-          <NoLink open={submenuOpen}>{title}</NoLink>
+          <>
+            <HeadingBar/>
+            <NoLink open={submenuOpen}>{title}</NoLink>
+          </>
         }
 
         {items && level === 0 ? (

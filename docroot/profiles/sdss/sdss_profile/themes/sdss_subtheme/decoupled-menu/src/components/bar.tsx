@@ -1,8 +1,15 @@
 const HeadingBar = ({...props}) => {
     return (
-      <svg role="presentation" width="24" height="24" viewBox="0 0 24 24" fill="none" {...props}>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4887 5.41566C24.1363 6.00024 24.1737 6.98449 23.5725 7.61404L13.1725 18.5029C12.8697 18.8199 12.4449 19 12 19C11.5551 19 11.1303 18.8199 10.8275 18.5029L0.427538 7.61404C-0.173746 6.98449 -0.136251 6.00024 0.511286 5.41566C1.15882 4.83108 2.17119 4.86753 2.77248 5.49708L12 15.1584L21.2275 5.49708C21.8288 4.86753 22.8412 4.83108 23.4887 5.41566Z" fill="currentColor"/>
-      </svg>
+      <div class="heading-bar">
+        <svg width="265" height="42" viewBox="0 0 265 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <mask id="path-1-outside-1_10651_91251" maskUnits="userSpaceOnUse" x="0" y="0" width="265" height="42" fill="black">
+          <rect fill="white" width="265" height="42"/>
+          <path d="M0 1H265V42H0V1Z"/>
+          </mask>
+          <path d="M0 2H265V0H0V2Z" fill="#C0C0BF" mask="url(#path-1-outside-1_10651_91251)"/>
+          <rect y="1" width="46.75" height="3" rx="1.5" fill="#368187"/>
+        </svg>
+      </div>
     )
   }
   export default HeadingBar;
