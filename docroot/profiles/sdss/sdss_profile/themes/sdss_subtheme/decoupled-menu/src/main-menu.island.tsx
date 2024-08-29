@@ -345,6 +345,21 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 `
 
+const NoLinkTopLevel = styled.span<{  open?: boolean, level?: number }>`
+  color: #2e2D29;
+  font-weight: 600;
+  font-size: 23px;
+  text-decoration: none;
+  padding: 16px 0 16px 16px;
+
+  @media (min-width: 992px) {
+    font-weight: 400;
+    font-size: 1.9rem;
+    padding: 16px 16px 2rem 16px;
+    margin-bottom: -6px;
+  }
+`
+
 const NoLink = styled.h2<{  open?: boolean, level?: number }>`
   color: #2e2D29;
   font-weight: 600;
@@ -491,11 +506,16 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
             {title}
           </MenuLink>
         }
+
         {isNoLink &&
           <>
-            <HeadingBar/>
-            <NoLink open={submenuOpen}>{title}</NoLink>
+            <NoLinkTopLevel open={submenuOpen}>{title}</NoLinkTopLevel>
           </>
+        }
+
+        {isNoLink  && level === 1 ? (
+            <HeadingBar/>
+          ) : ""
         }
 
         {items && level === 0 ? (

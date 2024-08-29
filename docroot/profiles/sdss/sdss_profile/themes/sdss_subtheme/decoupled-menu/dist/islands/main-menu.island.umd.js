@@ -216,7 +216,20 @@
       padding: ${({level:e})=>"16px 16px 2rem 16px"};
     }
   }
-`,ln=Or.h2`
+`,ln=Or.span`
+  color: #2e2D29;
+  font-weight: 600;
+  font-size: 23px;
+  text-decoration: none;
+  padding: 16px 0 16px 16px;
+
+  @media (min-width: 992px) {
+    font-weight: 400;
+    font-size: 1.9rem;
+    padding: 16px 16px 2rem 16px;
+    margin-bottom: -6px;
+  }
+`,cn=(Or.h2`
   color: #2e2D29;
   font-weight: 600;
   font-size: 23px;
@@ -231,7 +244,7 @@
     padding: ${({level:e})=>0!=e?"0":"16px 0"};
     white-space: nowrap;
   }
-`,cn=Or.ul`
+`,Or.ul`
   display: ${e=>e.open?"block":"none"};
   z-index: ${e=>e.level+1};
   list-style: none;
@@ -253,7 +266,7 @@
     row-gap: 1.8rem;
     column-gap: 18rem;
   }
-`,un=Or.ul`
+`),un=Or.ul`
   display: block;
   z-index: ${e=>e.level+1};
   list-style: none;
@@ -302,4 +315,4 @@
     border-top: ${e=>(e.level,"none")};
     padding: ${e=>(e.level,"0")};
   }
-`,hn=({title:e,url:t,items:r,level:n=0})=>{const o=ie(null),[i,a]=te(!1),s=window.location.protocol+"//"+window.location.host;let l,c=new URL(s),u=!0,p=!1;t&&(u=!1,c=new URL(t.startsWith("/")?`${s}${t}`:t),l=c.pathname===window.location.pathname,p="/"!=t&&window.location.pathname.startsWith(c.pathname)&&!l);const d=se((e=>{"Escape"===e.key&&i&&(a(!1),o.current.focus())}),[i]);return ne((()=>{i&&document.addEventListener("keydown",d),i||document.removeEventListener("keydown",d)}),[i]),Ur(Wr,{component:"nav",onOutsideFocus:()=>a(!1),component:fn,level:n,children:[Ur(an,{open:i,level:n,children:[!u&&Ur(sn,{href:t,"aria-current":l?"page":void 0,level:n,isCurrent:l,inTrail:p,children:e}),u&&Ur(m,{children:[Ur(Yr,{}),Ur(ln,{open:i,children:e})]}),r&&0===n?Ur(on,{ref:o,onClick:()=>a(!i),"aria-expanded":i,"aria-label":(i?"Close":"Open")+` ${e} Submenu`,children:Ur(Vr,{style:{transform:i?"rotate(180deg)":"",transition:"transform 0.2s ease-in-out",width:"16px"}})}):""]}),r&&Ur(m,{children:1===n?Ur(dn,{children:Ur(un,{open:i,level:n,children:r.map((e=>Ur(hn,{...e,level:n+1},e.id)))})}):Ur(pn,{children:Ur(cn,{open:i,level:n,children:r.map((e=>Ur(hn,{...e,level:n+1},e.id)))})})})]})},_n=((e,t)=>{if(null==customElements.get(e)){class t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}}customElements.define(e,t)}const r=(e=>{const t={_rootsToObservers:new WeakMap,_roots:[],_executedScript:document.currentScript,props:{},render:({selector:r,clean:n=!1,replace:o=!1,inline:i=!1,initialProps:a={},propsSelector:s,elementName:l})=>{let c=!1;const u=()=>{if(!0===c)return;const u=(({selector:e,inline:t,elementName:r})=>{const n=document.currentScript;if(t&&null!=n&&n.parentNode)return[n.parentNode];const o=null==n?void 0:n.dataset.mountIn;return o?Array.from(document.querySelectorAll(o)).map((e=>{if(null!=r){const t=document.createElement(r),n=e.appendChild(t);return null!=n.shadowRoot?n.shadowRoot:n}return e})):e?Array.from(document.querySelectorAll(e)).map((e=>null!=e.shadowRoot?e.shadowRoot:e)):[]})({selector:r,inline:i,elementName:l});if(0===u.length)return;const{rootFragments:p}=(({island:e,widget:t,hostElements:r,clean:n,replace:o,initialProps:i,propsSelector:a})=>{const s=[];return r.forEach((r=>{const l=Dr(e,r,i,a);let c;if(n&&r.replaceChildren(),o)c=zr(r.parentElement||document.body,r);else{const e=document.createElement("div");r.appendChild(e),c=zr(r,e)}s.push(c),Lr({island:e,widget:t,rootFragment:c,props:l});const u=(({island:e,hostElement:t,initialProps:r,onNewProps:n,propsSelector:o})=>{const i=new MutationObserver((function(i){i.forEach((function(){n(Dr(e,t,r,o))}))})),a={attributes:!0,childList:!0,characterData:!0};return e._executedScript&&i.observe(e._executedScript,a),Ir(t).forEach((e=>{i.observe(e,Er({},a,{subtree:!0}))})),o&&Tr(o).forEach((e=>{i.observe(e,Er({},a,{subtree:!0}))})),i.observe(Mr(t)?t.host:t,a),i})({island:e,hostElement:r,initialProps:i,onNewProps:r=>{Lr({island:e,widget:t,rootFragment:c,props:r})},propsSelector:a});e._rootsToObservers.set(c,u)})),{rootFragments:s}})({island:t,widget:e,clean:n,hostElements:u,replace:o,initialProps:a,propsSelector:s});t._roots=t._roots.concat(p),c=!0};u(),document.addEventListener("DOMContentLoaded",u),document.addEventListener("load",u)},rerender:r=>{t._roots.forEach((n=>{Lr({island:t,widget:e,rootFragment:n,props:Er({},t.props,r)})}))},destroy:()=>{t._roots.forEach((e=>{var r;null==(r=t._rootsToObservers.get(e))||r.disconnect(),F(null,e)}))}};return t})(t);return Er({},r,{render:t=>r.render(Er({elementName:e},t)),injectStyles:e=>{r._roots.forEach((t=>{const r=document.createElement("style");r.innerHTML=e,t.parentNode.prepend(r)}))}})})(Zr,rn);_n.render({selector:`[data-island="${Zr}"]`})})(),n})()));
+`,hn=({title:e,url:t,items:r,level:n=0})=>{const o=ie(null),[i,a]=te(!1),s=window.location.protocol+"//"+window.location.host;let l,c=new URL(s),u=!0,p=!1;t&&(u=!1,c=new URL(t.startsWith("/")?`${s}${t}`:t),l=c.pathname===window.location.pathname,p="/"!=t&&window.location.pathname.startsWith(c.pathname)&&!l);const d=se((e=>{"Escape"===e.key&&i&&(a(!1),o.current.focus())}),[i]);return ne((()=>{i&&document.addEventListener("keydown",d),i||document.removeEventListener("keydown",d)}),[i]),Ur(Wr,{component:"nav",onOutsideFocus:()=>a(!1),component:fn,level:n,children:[Ur(an,{open:i,level:n,children:[!u&&Ur(sn,{href:t,"aria-current":l?"page":void 0,level:n,isCurrent:l,inTrail:p,children:e}),u&&Ur(m,{children:Ur(ln,{open:i,children:e})}),u&&1===n?Ur(Yr,{}):"",r&&0===n?Ur(on,{ref:o,onClick:()=>a(!i),"aria-expanded":i,"aria-label":(i?"Close":"Open")+` ${e} Submenu`,children:Ur(Vr,{style:{transform:i?"rotate(180deg)":"",transition:"transform 0.2s ease-in-out",width:"16px"}})}):""]}),r&&Ur(m,{children:1===n?Ur(dn,{children:Ur(un,{open:i,level:n,children:r.map((e=>Ur(hn,{...e,level:n+1},e.id)))})}):Ur(pn,{children:Ur(cn,{open:i,level:n,children:r.map((e=>Ur(hn,{...e,level:n+1},e.id)))})})})]})},_n=((e,t)=>{if(null==customElements.get(e)){class t extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}}customElements.define(e,t)}const r=(e=>{const t={_rootsToObservers:new WeakMap,_roots:[],_executedScript:document.currentScript,props:{},render:({selector:r,clean:n=!1,replace:o=!1,inline:i=!1,initialProps:a={},propsSelector:s,elementName:l})=>{let c=!1;const u=()=>{if(!0===c)return;const u=(({selector:e,inline:t,elementName:r})=>{const n=document.currentScript;if(t&&null!=n&&n.parentNode)return[n.parentNode];const o=null==n?void 0:n.dataset.mountIn;return o?Array.from(document.querySelectorAll(o)).map((e=>{if(null!=r){const t=document.createElement(r),n=e.appendChild(t);return null!=n.shadowRoot?n.shadowRoot:n}return e})):e?Array.from(document.querySelectorAll(e)).map((e=>null!=e.shadowRoot?e.shadowRoot:e)):[]})({selector:r,inline:i,elementName:l});if(0===u.length)return;const{rootFragments:p}=(({island:e,widget:t,hostElements:r,clean:n,replace:o,initialProps:i,propsSelector:a})=>{const s=[];return r.forEach((r=>{const l=Dr(e,r,i,a);let c;if(n&&r.replaceChildren(),o)c=zr(r.parentElement||document.body,r);else{const e=document.createElement("div");r.appendChild(e),c=zr(r,e)}s.push(c),Lr({island:e,widget:t,rootFragment:c,props:l});const u=(({island:e,hostElement:t,initialProps:r,onNewProps:n,propsSelector:o})=>{const i=new MutationObserver((function(i){i.forEach((function(){n(Dr(e,t,r,o))}))})),a={attributes:!0,childList:!0,characterData:!0};return e._executedScript&&i.observe(e._executedScript,a),Ir(t).forEach((e=>{i.observe(e,Er({},a,{subtree:!0}))})),o&&Tr(o).forEach((e=>{i.observe(e,Er({},a,{subtree:!0}))})),i.observe(Mr(t)?t.host:t,a),i})({island:e,hostElement:r,initialProps:i,onNewProps:r=>{Lr({island:e,widget:t,rootFragment:c,props:r})},propsSelector:a});e._rootsToObservers.set(c,u)})),{rootFragments:s}})({island:t,widget:e,clean:n,hostElements:u,replace:o,initialProps:a,propsSelector:s});t._roots=t._roots.concat(p),c=!0};u(),document.addEventListener("DOMContentLoaded",u),document.addEventListener("load",u)},rerender:r=>{t._roots.forEach((n=>{Lr({island:t,widget:e,rootFragment:n,props:Er({},t.props,r)})}))},destroy:()=>{t._roots.forEach((e=>{var r;null==(r=t._rootsToObservers.get(e))||r.disconnect(),F(null,e)}))}};return t})(t);return Er({},r,{render:t=>r.render(Er({elementName:e},t)),injectStyles:e=>{r._roots.forEach((t=>{const r=document.createElement("style");r.innerHTML=e,t.parentNode.prepend(r)}))}})})(Zr,rn);_n.render({selector:`[data-island="${Zr}"]`})})(),n})()));
