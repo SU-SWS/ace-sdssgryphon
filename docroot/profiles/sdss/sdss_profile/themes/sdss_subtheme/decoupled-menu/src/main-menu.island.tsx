@@ -355,6 +355,8 @@ const NoLink = styled.h2<{  open?: boolean, level?: number }>`
 
   @media (min-width: 992px) {
     color: ${props => props.open ? "#ffffff" : "#2e2D29"};
+    margin-bottom: 0;
+    padding-bottom: 0;
     padding: ${({level}) => level != 0 ? "0" : "16px 0"};
     white-space: nowrap;
   }
@@ -399,6 +401,7 @@ const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
     background: #E9F7F8;
     margin-left: 8px;
     color: $sdss-color-white;
+    padding-top: 0;
   }
 `
 

@@ -226,6 +226,8 @@
 
   @media (min-width: 992px) {
     color: ${e=>e.open?"#ffffff":"#2e2D29"};
+    margin-bottom: 0;
+    padding-bottom: 0;
     padding: ${({level:e})=>0!=e?"0":"16px 0"};
     white-space: nowrap;
   }
@@ -266,6 +268,7 @@
     background: #E9F7F8;
     margin-left: 8px;
     color: $sdss-color-white;
+    padding-top: 0;
   }
 `,pn=Or.div`
 
