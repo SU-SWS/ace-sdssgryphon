@@ -962,9 +962,26 @@ function sdss_profile_update_10009(&$sandbox) {
 }
 
 /**
+ * Create su_sdss_featured field from configuration.
+ */
+function sdss_profile_update_10010() {
+  $config_directory = \Drupal::service('config.storage.sync');
+  $field_storage = $config_directory->read('field.storage.node.su_sdss_featured');
+  $field_config = $config_directory->read('field.field.node.stanford_event.su_sdss_featured');
+
+  // Create su_sdss_featured field from exported configuration.
+  if (!FieldStorageConfig::loadByName($field_storage['entity_type'], $field_storage['field_name'])) {
+    FieldStorageConfig::create($field_storage)->save();
+  }
+  if (!FieldConfig::loadByName($field_config['entity_type'], $field_config['bundle'], $field_config['field_name'])) {
+    FieldConfig::create($field_config)->save();
+  }
+}
+
+/**
  * Set the Featured field to FALSE on all existing Event Nodes.
  */
-function sdss_profile_update_10010(&$sandbox) {
+function sdss_profile_update_10011(&$sandbox) {
   $node_storage = \Drupal::entityTypeManager()
     ->getStorage('node');
   if (!isset($sandbox['count'])) {
