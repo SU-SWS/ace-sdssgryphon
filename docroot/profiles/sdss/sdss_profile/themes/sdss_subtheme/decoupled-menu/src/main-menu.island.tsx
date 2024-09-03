@@ -513,7 +513,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           </>
         }
 
-        {isNoLink  && level === 1 ? (
+        {level === 1 ? (
             <HeadingBar/>
           ) : ""
         }
