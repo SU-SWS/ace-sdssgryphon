@@ -1007,7 +1007,6 @@ function sdss_profile_update_10011(&$sandbox) {
   $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
 }
 
-
 /**
  * Create su_sdss_explore_more_picker field from configuration.
  */
