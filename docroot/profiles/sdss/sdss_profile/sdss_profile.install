@@ -962,6 +962,53 @@ function sdss_profile_update_10009(&$sandbox) {
 }
 
 /**
+ * Create su_sdss_featured field from configuration.
+ */
+function sdss_profile_update_10010() {
+  $config_directory = \Drupal::service('config.storage.sync');
+  $field_storage = $config_directory->read('field.storage.node.su_sdss_featured');
+  $field_config = $config_directory->read('field.field.node.stanford_event.su_sdss_featured');
+
+  // Create su_sdss_featured field from exported configuration.
+  if (!FieldStorageConfig::loadByName($field_storage['entity_type'], $field_storage['field_name'])) {
+    FieldStorageConfig::create($field_storage)->save();
+  }
+  if (!FieldConfig::loadByName($field_config['entity_type'], $field_config['bundle'], $field_config['field_name'])) {
+    FieldConfig::create($field_config)->save();
+  }
+}
+
+/**
+ * Set the Featured field to FALSE on all existing Event Nodes.
+ */
+function sdss_profile_update_10011(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_event')
+      ->sort('created')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_featured')) {
+      continue;
+    }
+    $node->set('su_sdss_featured', FALSE)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+
+/**
  * Create su_sdss_explore_more_picker field from configuration.
  */
 function sdss_profile_update_10012() {
@@ -986,11 +1033,11 @@ function sdss_profile_update_10013() {
   $node_storage = \Drupal::entityTypeManager()
     ->getStorage('node');
   if (!isset($sandbox['count'])) {
-  $nids = $node_storage->getQuery()
-    ->accessCheck(FALSE)
-    ->condition('type', 'stanford_news')
-    ->sort('created')
-    ->execute();
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created')
+      ->execute();
     $sandbox['nids'] = $nids;
     $sandbox['count'] = count($sandbox['nids']);
   }
