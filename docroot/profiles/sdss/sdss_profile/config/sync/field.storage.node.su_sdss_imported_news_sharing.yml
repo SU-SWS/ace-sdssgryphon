@@ -1,18 +1,17 @@
-uuid: f36f1040-2401-43c7-b7e0-23d3e2d38a7c
+uuid: 9e91a7b2-54be-4154-b251-b49040727100
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.su_sdss_related_content
-field_name: su_sdss_related_content
+id: node.su_sdss_imported_news_sharing
+field_name: su_sdss_imported_news_sharing
 entity_type: node
-type: entity_reference
-settings:
-  target_type: node
+type: boolean
+settings: {  }
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
