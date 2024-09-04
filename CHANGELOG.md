@@ -7,6 +7,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.0] - 2024-09-04
+
+### Added
+61139bfa SDSS-1359: Set Explore More Options default for existing content (#483)
+1dce19d7 SDSS-1360: DEV | Set Featured Events default value for existing content (#482)
+f8fbd72f SDSS-1299: Add Explore More options and display to News (#466)
+c2303a11 SDSS-1337: Track imported News Sharing content (#478)
+d4136ee8 SDSS-1300: Added featured event field and feeds (#477)
+
+### Changed
+f9ef95db SDSS-1358: Allow all editors to use Related Content field (#480)
+70f3e232 SDSS-1185: Update caption text to be centered to the image and center aligned (#464)
+2fb128a6 SDSS-1341: Allow News Lists to be filtered by focal areas, organization and shared tags (#469)
+
+
 ## [4.5.0] - 2024-07-31
 
 ### Added
