@@ -70,6 +70,8 @@ const MobileMenuButton = styled.button`
   border: 0;
   border-bottom: 2px solid transparent;
   color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
   padding: 0;
   display: flex;
   flex-direction: column;

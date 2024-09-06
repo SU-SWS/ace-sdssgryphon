@@ -29,7 +29,9 @@ var leftZero = Variables.leftBlue;
 if (isBlueHeader.length === 0) {
   var headerType = Variables.topGreen;
   var leftZero = Variables.leftGreen;
-
+  var iconColor = Variables.iconWhite;
+} else {
+  var iconColor = Variables.iconBlack;
 }
 
 const TopList = styled.ul<{ open?: boolean, level?: number }>`
@@ -72,14 +74,16 @@ const MobileMenuButton = styled.button`
   background: transparent;
   border: 0;
   border-bottom: 2px solid transparent;
-  color: black;
+  color: ${iconColor};
+  fill: ${iconColor};
+  stroke: ${iconColor};
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.7rem;
   width: auto;
-  z-index: 1001;
+  z-index: 10010;
 
   &:hover, &:focus, &:active {
     border-bottom: 0;
@@ -347,8 +351,6 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
 
 const NoLinkTopLevel = styled.span<{  open?: boolean, level?: number }>`
   color: #2e2D29;
-  font-weight: 600;
-  font-size: 23px;
   text-decoration: none;
   padding: 16px 0 16px 16px;
 
@@ -363,7 +365,6 @@ const NoLinkTopLevel = styled.span<{  open?: boolean, level?: number }>`
 const NoLink = styled.h2<{  open?: boolean, level?: number }>`
   color: #2e2D29;
   font-weight: 600;
-  font-size: 23px;
   text-decoration: none;
   padding: 16px 0 16px 16px;
   line-height: 2.3;

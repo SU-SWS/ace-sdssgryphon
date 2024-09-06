@@ -4,6 +4,15 @@
 // Includes the default header variant (currently Green Header, Bottom
 // Navigation).
 
+.su-brand-bar {
+  z-index: 10000;
+  position: relative;
+
+  @include grid-media-min('lg') {
+    z-index: unset;
+  }
+}
+
 header.su-masthead {
   // This is the line above the h2 in the mega menu.
   // It only appears on desktop sizes.
@@ -88,6 +97,7 @@ header.su-masthead {
     flex: unset;
     max-width: unset;
     margin: 0;
+    position: relative;
 
     > a {
       display: block;

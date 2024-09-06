@@ -8,4 +8,6 @@ export const Variables = {
     zero: '0px',
     leftBlue: '-295px',
     leftGreen: '-100px',
+    iconWhite: '#ffffff',
+    iconBlack: '#000000',
   }
