@@ -317,7 +317,6 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   font-weight: 400;
   text-decoration: none;
   padding: ${({level}) => level != 0 ? "16px 0 16px 36px" : "16px 20px"};
-
   transition: all 0.2s ease-in-out;
   width: 100%;
 
@@ -409,7 +408,7 @@ const NestedMenuList = styled.ul<{ open?: boolean, level?: number }>`
   display: block;
   z-index: ${props => props.level + 1};
   list-style: none;
-  padding: 19px 0 15px 0;
+  padding: 0 0 15px 0;
   margin: 0;
   min-width: 300px;
   background: #E9F7F8;
@@ -499,6 +498,11 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
     >
 
       <MenuItemContainer open={submenuOpen} level={level}>
+        {level === 1 ? (
+            <HeadingBar/>
+          ) : ""
+        }
+
         {!isNoLink &&
           <MenuLink
             href={url}
@@ -509,11 +513,6 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           >
             {title}
           </MenuLink>
-        }
-
-        {level === 1 ? (
-            <HeadingBar/>
-          ) : ""
         }
 
         {isNoLink &&

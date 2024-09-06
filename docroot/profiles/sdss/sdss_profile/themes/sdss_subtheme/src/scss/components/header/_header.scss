@@ -17,11 +17,13 @@ header.su-masthead {
   // This is the line above the h2 in the mega menu.
   .heading-bar {
     position: relative;
+    height: 4px;
 
     @include grid-media-min('lg') {
       position: absolute;
       margin-bottom: 25px;
       display: block;
+      height: unset;
     }
   }
 
