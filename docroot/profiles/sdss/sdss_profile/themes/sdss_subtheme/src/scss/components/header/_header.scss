@@ -15,9 +15,8 @@
 
 header.su-masthead {
   // This is the line above the h2 in the mega menu.
-  // It only appears on desktop sizes.
   .heading-bar {
-    display: none;
+    position: relative;
 
     @include grid-media-min('lg') {
       position: absolute;

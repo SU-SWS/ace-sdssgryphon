@@ -294,8 +294,9 @@ const Button = styled.button<{ open?: boolean }>`
 const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
   background-color: ${props => props.open ? "#E9F7F8" : "transparent"};
   display: flex;
+  flex-direction: ${props => props.level >= 1 ? "column" : "initial"};
   justify-content: space-between;
-  align-items: center;
+  align-items: ${props => props.level >= 1 ? "left" : "center"};
   margin-right: ${props => props.level === 0 ? "32px" : "0"};
   width: 100%;
 
@@ -306,6 +307,8 @@ const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
     padding-bottom: ${props => props.level === 0 ? "2rem" : "0"};
     border-radius: ${props => props.level === 0 ? "10px" : "0"};
     padding-left: 12px;
+    flex-direction: initial;
+    align-items: center;
   }
 `
 
@@ -508,15 +511,15 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
           </MenuLink>
         }
 
+        {level === 1 ? (
+            <HeadingBar/>
+          ) : ""
+        }
+
         {isNoLink &&
           <>
             <NoLinkTopLevel open={submenuOpen}>{title}</NoLinkTopLevel>
           </>
-        }
-
-        {level === 1 ? (
-            <HeadingBar/>
-          ) : ""
         }
 
         {items && level === 0 ? (
