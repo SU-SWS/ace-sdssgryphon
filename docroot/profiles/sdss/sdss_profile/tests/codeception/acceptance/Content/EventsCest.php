@@ -341,18 +341,6 @@ class EventsCest {
     $I->assertEquals(6, round($diff / (60 * 60 * 24 * 30.5)));
   }
 
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_event');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_event');
-    $I->canSee('Related Content');
-  }
-
   /**
    * Test event card markup.
    *

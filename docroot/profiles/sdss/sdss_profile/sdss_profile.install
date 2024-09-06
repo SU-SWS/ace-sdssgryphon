@@ -7,7 +7,6 @@
 
 use Drupal\Core\DrupalKernel;
 use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\Core\Site\Settings;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\NodeInterface;
@@ -755,8 +754,7 @@ function _sdss_profile_reset_node_changed_time(NodeInterface $node, int $changed
 /**
  * Create su_sdss_media_mention field from configuration.
  */
-function sdss_profile_update_10001()
-{
+function sdss_profile_update_10001() {
   $config_directory = \Drupal::service('config.storage.sync');
   $field_storage = $config_directory->read('field.storage.node.su_sdss_media_mention');
   $field_config = $config_directory->read('field.field.node.stanford_news.su_sdss_media_mention');
@@ -897,4 +895,169 @@ function sdss_profile_update_10007(&$sandbox) {
   }
 
   $sandbox['#finished'] = empty($sandbox['pids']) ? 1 : ($sandbox['count'] - count($sandbox['pids'])) / $sandbox['count'];
+}
+
+/**
+ * Add imported via news sharing field to News.
+ */
+function sdss_profile_update_10008() {
+  $entity_type_manager = \Drupal::entityTypeManager();
+
+  $field_storage = $entity_type_manager->getStorage('field_storage_config');
+  if (!$field_storage->load('node.su_sdss_imported_news_sharing')) {
+    $field_storage->create([
+      'uuid' => '9e91a7b2-54be-4154-b251-b49040727100',
+      'field_name' => 'su_sdss_imported_news_sharing',
+      'type' => 'boolean',
+      'entity_type' => 'node',
+      'cardinality' => 1,
+    ])->save();
+
+    $field_config_storage = $entity_type_manager->getStorage('field_config');
+    $field_config_storage->create([
+      'entity_type' => 'node',
+      'field_name' => 'su_sdss_imported_news_sharing',
+      'bundle' => 'stanford_news',
+      'label' => 'Imported via News Sharing',
+      'description' => 'This content was imported from another site through News Sharing.',
+    ])->save();
+  }
+}
+
+/**
+ * Flag existing content imported via News Sharing.
+ */
+function sdss_profile_update_10009(&$sandbox) {
+  if (!isset($sandbox['count'])) {
+    $db = \Drupal::database();
+    if ($db->schema()->tableExists('migrate_map_sdss_news_sharing')) {
+      $ids = array_keys($db->select('migrate_map_sdss_news_sharing', 'm')
+        ->fields('m', ['destid1'])
+        ->execute()
+        ->fetchAllAssoc('destid1'));
+      $sandbox['nids'] = $ids;
+      $sandbox['count'] = count($sandbox['nids']);
+    } else {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
+
+  if (empty($node_ids)) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_imported_news_sharing')) {
+      continue;
+    }
+    $node->set('su_sdss_imported_news_sharing', TRUE)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
+ * Create su_sdss_featured field from configuration.
+ */
+function sdss_profile_update_10010() {
+  $config_directory = \Drupal::service('config.storage.sync');
+  $field_storage = $config_directory->read('field.storage.node.su_sdss_featured');
+  $field_config = $config_directory->read('field.field.node.stanford_event.su_sdss_featured');
+
+  // Create su_sdss_featured field from exported configuration.
+  if (!FieldStorageConfig::loadByName($field_storage['entity_type'], $field_storage['field_name'])) {
+    FieldStorageConfig::create($field_storage)->save();
+  }
+  if (!FieldConfig::loadByName($field_config['entity_type'], $field_config['bundle'], $field_config['field_name'])) {
+    FieldConfig::create($field_config)->save();
+  }
+}
+
+/**
+ * Set the Featured field to FALSE on all existing Event Nodes.
+ */
+function sdss_profile_update_10011(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_event')
+      ->sort('created')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_featured')) {
+      continue;
+    }
+    $node->set('su_sdss_featured', FALSE)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
+ * Create su_sdss_explore_more_picker field from configuration.
+ */
+function sdss_profile_update_10012() {
+  $config_directory = \Drupal::service('config.storage.sync');
+  $field_storage = $config_directory->read('field.storage.node.su_sdss_explore_more_picker');
+  $field_config = $config_directory->read('field.field.node.stanford_news.su_sdss_explore_more_picker');
+
+  // Create su_sdss_explore_more_picker field from exported configuration.
+  if (!FieldStorageConfig::loadByName($field_storage['entity_type'], $field_storage['field_name'])) {
+    FieldStorageConfig::create($field_storage)->save();
+  }
+  if (!FieldConfig::loadByName($field_config['entity_type'], $field_config['bundle'], $field_config['field_name'])) {
+    FieldConfig::create($field_config)->save();
+  }
+}
+
+/**
+ * Set default value for the su_sdss_explore_more_picker field on all existing
+ * nodes.
+ */
+function sdss_profile_update_10013() {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 250);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  $default_value = [
+    0 => [
+      'target_id' => 'explore_more_news',
+      'display_id' => 'explore_more_random',
+      'arguments' => '',
+      'items_to_display' => '',
+    ]
+  ];
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_explore_more_picker')) {
+      continue;
+    }
+    $node->set('su_sdss_explore_more_picker', $default_value)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
 }
