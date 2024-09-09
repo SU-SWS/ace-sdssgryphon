@@ -282,11 +282,7 @@ const Button = styled.button<{ open?: boolean }>`
   }
 
   @media (min-width: 992px) {
-    margin: 12px 10px 0 0;
-
-    &:hover, &:focus, &:active {
-
-    }
+    margin: 0 10px 0 0;
   }
 `
 
@@ -336,7 +332,7 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
     font-weight: 400;
     font-size: 1.9rem;
     padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
-    padding: ${({level}) => level === 0 ? "16px 16px 2.8rem 16px" : "16px 16px 2.8rem 16px"};
+    padding: ${({level}) => level === 0 ? "2.2rem 16px 2.2rem 16px" : "2.2rem 16px 2.2rem 16px"};
 
     border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #014240" : (inTrail ? "6px solid #014240" : "6px solid transparent")) : ""};
 
@@ -345,7 +341,7 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
       background-color: ${({level}) => level === 0 ? "#F5FEFF" : "transparent"};
       border-radius:  ${({level}) => level === 0 ? "10px 10px 0 0" : "none"};
       padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
-      padding: ${({level}) => level === 0 ? "16px 16px 2.8rem 16px" : "16px 16px 2.8rem 16px"};
+      padding: ${({level}) => level === 0 ? "2.2rem 16px 2.2rem 16px" : "2.2rem 16px 2.2rem 16px"};
     }
   }
 `
@@ -358,8 +354,8 @@ const NoLinkTopLevel = styled.span<{  open?: boolean, level?: number }>`
   @media (min-width: 992px) {
     font-weight: 400;
     font-size: 1.9rem;
-    padding: 16px 16px 2rem 16px;
-    margin-bottom: -6px;
+    padding: 2.2rem 16px 2.2rem 16px;
+
   }
 `
 
