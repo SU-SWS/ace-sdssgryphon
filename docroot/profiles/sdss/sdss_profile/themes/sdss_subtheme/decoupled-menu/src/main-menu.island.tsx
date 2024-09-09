@@ -290,7 +290,7 @@ const Button = styled.button<{ open?: boolean }>`
   }
 `
 
-const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
+const MenuItemContainer = styled.div<{ open?: boolean, level?: number, inTrail?: boolean }>`
   background-color: ${props => props.open ? "#E9F7F8" : "transparent"};
   display: flex;
   flex-direction: ${props => props.level >= 1 ? "column" : "initial"};
@@ -303,8 +303,8 @@ const MenuItemContainer = styled.div<{ open?: boolean, level?: number }>`
     color: ${props => props.open ? "#ffffff" : "#155f65"};
     background-color: ${props => props.open ? "#F5FEFF" : "transparent"};
     width: ${props => props.level === 0 ? "fit-content" : "100%"};
-    padding-bottom: ${props => props.level === 0 ? "2rem" : "0"};
-    border-radius: ${props => props.level === 0 ? "10px" : "0"};
+    padding-bottom: ${props => props.level === 0 ? "0" : "0"};
+    border-radius: ${props => props.level === 0 ? "10px 10px 0 0" : "0"};
     padding-left: 12px;
     flex-direction: initial;
     align-items: center;
@@ -336,16 +336,16 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
     font-weight: 400;
     font-size: 1.9rem;
     padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
-    padding: ${({level}) => level === 0 ? "16px 16px 2rem 16px" : "16px 16px 2rem 16px"};
-    margin-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "-6px" : (inTrail ? "-6px" : "-6px")) : ""};
+    padding: ${({level}) => level === 0 ? "16px 16px 2.8rem 16px" : "16px 16px 2.8rem 16px"};
 
+    border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #014240" : (inTrail ? "6px solid #014240" : "6px solid transparent")) : ""};
 
     &:hover, &:focus {
       color: ${({level}) => level > 0 ? "#155F65" : "#2E2D29"};
-      background-color: #F5FEFF;
-      border-radius: 10px;
+      background-color: ${({level}) => level === 0 ? "#F5FEFF" : "transparent"};
+      border-radius:  ${({level}) => level === 0 ? "10px 10px 0 0" : "none"};
       padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
-      padding: ${({level}) => level === 0 ? "16px 16px 2rem 16px" : "16px 16px 2rem 16px"};
+      padding: ${({level}) => level === 0 ? "16px 16px 2.8rem 16px" : "16px 16px 2.8rem 16px"};
     }
   }
 `
