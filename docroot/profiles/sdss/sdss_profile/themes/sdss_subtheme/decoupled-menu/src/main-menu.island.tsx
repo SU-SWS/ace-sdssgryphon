@@ -12,7 +12,6 @@ import Hamburger from "./components/hamburger";
 import Close from "./components/close";
 import MagnifyingGlass from "./components/magnifying-glass";
 import HeadingBar from "./components/bar";
-// import Logo from "./components/logo";
 
 const islandName = 'main-menu-island'
 
@@ -499,6 +498,7 @@ const MenuItem = ({title, url, items, level = 0}: { title: string, url: string, 
 
       <MenuItemContainer open={submenuOpen} level={level}>
         {level === 1 ? (
+          // How do I say headling level one and it has children?
             <HeadingBar/>
           ) : ""
         }

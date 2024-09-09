@@ -188,7 +188,6 @@
   font-weight: 400;
   text-decoration: none;
   padding: ${({level:e})=>0!=e?"16px 0 16px 36px":"16px 20px"};
-
   transition: all 0.2s ease-in-out;
   width: 100%;
 
