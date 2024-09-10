@@ -221,23 +221,37 @@
       background-color: #E9F7F8;
     }
 
-    &::after {
-      height:  ${({level:e,isCurrent:t})=>0!=e&&t?"3px":" "};
-      width:  ${({level:e,isCurrent:t})=>0!=e&&t?"20px":" "};
+    &::before {
+      // This creates the short line on the mega menu for the current page if it is level 1
+      height:  ${({level:e,isCurrent:t})=>1===e&&t?"3px":" "};
+      width:  ${({level:e,isCurrent:t})=>1===e&&t?"20px":" "};
       content: " ";
-      position: ${({level:e,isCurrent:t})=>0!=e&&t?"absolute":""};
-      bottom: ${({level:e,isCurrent:t})=>0!=e&&t?"0":""};
-      left: ${({level:e,isCurrent:t})=>0!=e&&t?"30px":""};
-      border-bottom: ${({level:e,isCurrent:t})=>0!=e&&t?"3px solid #014240":""};
+      position: ${({level:e,isCurrent:t})=>1===e&&t?"absolute":""};
+      bottom: ${({level:e,isCurrent:t})=>1===e&&t?"0":""};
+      left: ${({level:e,isCurrent:t})=>1===e&&t?"30px":""};
+      border-bottom: ${({level:e,isCurrent:t})=>1===e&&t?"3px solid #014240":""};
+      top: ${({level:e,isCurrent:t})=>1===e&&t?"65px":""};
+    }
+
+    &::after {
+    // This creates the short line on the mega menu for the current page if it is level 2
+      height:  ${({level:e,isCurrent:t})=>2===e&&t?"3px":" "};
+      width:  ${({level:e,isCurrent:t})=>2===e&&t?"20px":" "};
+      content: " ";
+      position: ${({level:e,isCurrent:t})=>2===e&&t?"absolute":""};
+      bottom: ${({level:e,isCurrent:t})=>2===e&&t?"0":""};
+      left: ${({level:e,isCurrent:t})=>2===e&&t?"30px":""};
+      border-bottom: ${({level:e,isCurrent:t})=>2===e&&t?"3px solid #014240":""};
     }
   }
 `,pn=Or.span`
   color: #2e2D29;
   text-decoration: none;
   padding: 16px 0 16px 16px;
+  font-weight: 400;
 
   @media (min-width: 992px) {
-    font-weight: ${({level:e})=>"600"};
+    font-weight: ${({level:e})=>1===e?"600":""};
     font-size: 1.9rem;
     padding: 2.2rem 16px 2.2rem 16px;
 

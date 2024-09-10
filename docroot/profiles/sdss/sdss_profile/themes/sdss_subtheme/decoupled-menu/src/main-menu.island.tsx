@@ -349,14 +349,27 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
       background-color: #E9F7F8;
     }
 
-    &::after {
-      height:  ${({level, isCurrent}) => level != 0 ? (isCurrent ? "3px" : " ") : " "};
-      width:  ${({level, isCurrent}) => level != 0 ? (isCurrent ? "20px" : " ") : " "};
+    &::before {
+      // This creates the short line on the mega menu for the current page if it is level 1
+      height:  ${({level, isCurrent}) => level === 1 ? (isCurrent ? "3px" : " ") : " "};
+      width:  ${({level, isCurrent}) => level === 1 ? (isCurrent ? "20px" : " ") : " "};
       content: " ";
-      position: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "absolute" : "") : ""};
-      bottom: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "0" : "") : ""};
-      left: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "30px" : "") : ""};
-      border-bottom: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "3px solid #014240" : "") : ""};
+      position: ${({level, isCurrent}) => level === 1 ? (isCurrent ? "absolute" : "") : ""};
+      bottom: ${({level, isCurrent}) => level === 1 ? (isCurrent ? "0" : "") : ""};
+      left: ${({level, isCurrent}) => level === 1 ? (isCurrent ? "30px" : "") : ""};
+      border-bottom: ${({level, isCurrent}) => level === 1 ? (isCurrent ? "3px solid #014240" : "") : ""};
+      top: ${({level, isCurrent}) => level === 1 ? (isCurrent ? "65px" : "") : ""};
+    }
+
+    &::after {
+    // This creates the short line on the mega menu for the current page if it is level 2
+      height:  ${({level, isCurrent}) => level === 2 ? (isCurrent ? "3px" : " ") : " "};
+      width:  ${({level, isCurrent}) => level === 2 ? (isCurrent ? "20px" : " ") : " "};
+      content: " ";
+      position: ${({level, isCurrent}) => level === 2 ? (isCurrent ? "absolute" : "") : ""};
+      bottom: ${({level, isCurrent}) => level === 2 ? (isCurrent ? "0" : "") : ""};
+      left: ${({level, isCurrent}) => level === 2 ? (isCurrent ? "30px" : "") : ""};
+      border-bottom: ${({level, isCurrent}) => level === 2 ? (isCurrent ? "3px solid #014240" : "") : ""};
     }
   }
 `
@@ -365,9 +378,10 @@ const NoLinkTopLevel = styled.span<{  open?: boolean, level?: number }>`
   color: #2e2D29;
   text-decoration: none;
   padding: 16px 0 16px 16px;
+  font-weight: 400;
 
   @media (min-width: 992px) {
-    font-weight: ${({level}) => level === 1 ? "600" : "600"};
+    font-weight: ${({level}) => level === 1 ? "600" : ""};
     font-size: 1.9rem;
     padding: 2.2rem 16px 2.2rem 16px;
 
