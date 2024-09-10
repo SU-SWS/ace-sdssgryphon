@@ -328,12 +328,11 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
   }
 
   @media (min-width: 992px) {
-    color: ${({level}) => level != 0 ? "#2E2D29" : "#2E2D29"};
-    font-weight: 400;
+    color: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "#014240" : "") : "#2E2D29"};
+    font-weight: ${({level}) => level === 1 ? "600" : "initial"};
     font-size: 1.9rem;
     padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
     padding: ${({level}) => level === 0 ? "2.2rem 16px 2.2rem 16px" : "2.2rem 16px 2.2rem 16px"};
-
     border-bottom: ${({level, inTrail, isCurrent}) => level === 0 ? (isCurrent ? "6px solid #014240" : (inTrail ? "6px solid #014240" : "6px solid transparent")) : ""};
 
     &:hover, &:focus {
@@ -342,6 +341,22 @@ const MenuLink = styled.a<{ isCurrent?: boolean, inTrail?: boolean, level?: numb
       border-radius:  ${({level}) => level === 0 ? "10px 10px 0 0" : "none"};
       padding: ${({level}) => level > 0 ? "16px 16px 16px 8px" : "16px 16px 16px 8px"};
       padding: ${({level}) => level === 0 ? "2.2rem 16px 2.2rem 16px" : "2.2rem 16px 2.2rem 16px"};
+    }
+
+    &:active {
+      text-decoration: underline;
+      color: #014240;
+      background-color: #E9F7F8;
+    }
+
+    &::after {
+      height:  ${({level, isCurrent}) => level != 0 ? (isCurrent ? "3px" : " ") : " "};
+      width:  ${({level, isCurrent}) => level != 0 ? (isCurrent ? "20px" : " ") : " "};
+      content: " ";
+      position: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "absolute" : "") : ""};
+      bottom: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "0" : "") : ""};
+      left: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "30px" : "") : ""};
+      border-bottom: ${({level, isCurrent}) => level != 0 ? (isCurrent ? "3px solid #014240" : "") : ""};
     }
   }
 `
@@ -352,7 +367,7 @@ const NoLinkTopLevel = styled.span<{  open?: boolean, level?: number }>`
   padding: 16px 0 16px 16px;
 
   @media (min-width: 992px) {
-    font-weight: 400;
+    font-weight: ${({level}) => level === 1 ? "600" : "600"};
     font-size: 1.9rem;
     padding: 2.2rem 16px 2.2rem 16px;
 
