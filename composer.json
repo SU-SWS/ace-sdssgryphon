@@ -186,7 +186,6 @@
         "su-sws/stanford_fields": "^8.2",
         "su-sws/stanford_media": "^11.0",
         "su-sws/stanford_migrate": "^8.3",
-        "su-sws/stanford_profile_helper": "^9.6",
         "su-sws/stanford_samlauth": "^1.0",
         "su-sws/stanford_syndication": "^1.0"
     },
@@ -384,9 +383,6 @@
             },
             "drupal/webp": {
                 "https://www.drupal.org/project/webp/issues/3281606": "https://git.drupalcode.org/project/webp/-/merge_requests/33.patch"
-            },
-            "su-sws/stanford_profile_helper": {
-                "Remove paragraph layout restrictions from stanford_layout_paragraphs": "patches/stanford/stanford_layout_paragraphs.patch"
             }
         }
     },

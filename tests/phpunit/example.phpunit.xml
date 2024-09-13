@@ -8,7 +8,6 @@
   <coverage includeUncoveredFiles="true">
     <include>
       <directory>../modules/custom</directory>
-      <!-- <directory>../profiles/custom</directory> -->
       <directory>../profiles/sdss</directory>
     </include>
     <exclude>
@@ -20,10 +19,11 @@
       <directory>../profiles/custom/*/tests</directory>
       <directory>../profiles/custom/*/modules/*/tests</directory>
       <directory>../profiles/sdss/*/tests</directory>
-      <!-- <directory>../profiles/sdss/*/modules/*/tests</directory> -->
-      <!-- Exclude custom sdss_profile modules for now. Tests need to be
-      written. -->
-      <directory>../profiles/sdss/*/modules</directory>
+      <!-- Exclude some custom sdss_profile modules -->
+      <directory>../profiles/sdss/sdss_profile/modules/sdss_entities</directory>
+      <directory>../profiles/sdss/sdss_profile/modules/sdss_layout_paragraphs</directory>
+      <directory>../profiles/sdss/sdss_profile/modules/sdss_news_sharing</directory>
+      <directory>../profiles/sdss/sdss_profile/modules/sdss_profile_helper</directory>
     </exclude>
   </coverage>
   <!-- set printerClass="\Drupal\Tests\Listeners\HtmlOutputPrinter" once
@@ -68,7 +68,6 @@
     </testsuite>
     <testsuite name="stanford">
       <directory>../modules/custom</directory>
-      <!-- <directory>../profiles/custom</directory> -->
       <directory>../profiles/sdss</directory>
       <!-- Exclude the stanford_syndication custom module tests for now. -->
       <exclude>../modules/custom/stanford_syndication</exclude>
