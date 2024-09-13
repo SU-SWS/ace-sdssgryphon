@@ -1,0 +1,4 @@
+notifications:
+  css:
+    base:
+      dist/css/stanford_notifications.css: {}

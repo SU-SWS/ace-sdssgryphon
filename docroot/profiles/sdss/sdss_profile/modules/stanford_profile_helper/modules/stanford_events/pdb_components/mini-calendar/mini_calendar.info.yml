@@ -1,0 +1,12 @@
+name: Events Mini Calendar
+machine_name: event-mini-cal
+type: pdb
+description: 'Mini Calendar for events display'
+package: React
+core_version_requirement: ^9 || ^10 || ^11
+module_status: active
+presentation: react
+path: /jsonapi/node/stanford_event
+add_js:
+  footer:
+    'dist/islands/event-calendar.island.js': {minified: true}
