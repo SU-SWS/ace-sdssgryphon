@@ -6,3 +6,4 @@ type: module
 project: Stanford
 dependencies:
   - drupal:node
+  - drupal:search_api
