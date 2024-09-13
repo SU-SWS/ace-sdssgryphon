@@ -1,0 +1,32 @@
+From db20d404dbb02a77cf040f6ea3e93f9c7d71b7fe Mon Sep 17 00:00:00 2001
+From: Mike Decker <pookmish@gmail.com>
+Date: Tue, 3 May 2022 13:22:58 -0700
+Subject: [PATCH] 3278470 Decode entities in custom captions with tokens
+
+---
+ colorbox.theme.inc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/colorbox.theme.inc b/colorbox.theme.inc
+index 70ba8dd..566fb00 100644
+--- a/colorbox.theme.inc
++++ b/colorbox.theme.inc
+@@ -5,6 +5,7 @@
+  * Colorbox theme functions.
+  */
+ 
++use Drupal\Component\Render\PlainTextOutput;
+ use Drupal\Component\Utility\Crypt;
+ use Drupal\Component\Utility\Xss;
+ use Drupal\file\Entity\File;
+@@ -73,6 +74,7 @@ function template_preprocess_colorbox_formatter(&$variables) {
+         [$entity_type => $entity, 'file' => $item],
+         ['clear' => TRUE]
+       );
++      $caption = PlainTextOutput::renderFromHtml($caption);
+       break;
+ 
+     default:
+-- 
+GitLab
+

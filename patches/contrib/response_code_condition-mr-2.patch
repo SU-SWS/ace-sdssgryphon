@@ -1,0 +1,36 @@
+From da85277a7dc6ccae0cdec00ea2940691de9af391 Mon Sep 17 00:00:00 2001
+From: Mike Decker <pookmish@gmail.com>
+Date: Tue, 13 Jun 2023 13:00:35 -0700
+Subject: [PATCH]
+
+---
+ src/Plugin/Condition/ResponseCodeCondition.php | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/src/Plugin/Condition/ResponseCodeCondition.php b/src/Plugin/Condition/ResponseCodeCondition.php
+index 5cd3e50..3ca320f 100644
+--- a/src/Plugin/Condition/ResponseCodeCondition.php
++++ b/src/Plugin/Condition/ResponseCodeCondition.php
+@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+ use Symfony\Component\HttpFoundation\RequestStack;
++use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+ 
+ /**
+  * Provides a 'Response code' condition.
+@@ -99,7 +100,10 @@ class ResponseCodeCondition extends ConditionPluginBase implements ContainerFact
+       return TRUE;
+     }
+ 
+-    if (!$this->requestStack->getCurrentRequest()->attributes->has('exception')) {
++    if (
++      !$this->requestStack->getCurrentRequest()->attributes->has('exception') ||
++      !($this->requestStack->getCurrentRequest()->attributes->get('exception') instanceof HttpExceptionInterface)
++    ) {
+       return FALSE;
+     }
+ 
+-- 
+GitLab
+

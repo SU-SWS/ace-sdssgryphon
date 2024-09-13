@@ -1,0 +1,239 @@
+From fa093cd2c76fe352f43f1c49e8386244099e1513 Mon Sep 17 00:00:00 2001
+From: Edouard Cunibil <edouard@happyculture.coop>
+Date: Thu, 23 Feb 2023 12:38:45 +0100
+Subject: [PATCH 1/6] Issue #3281606: Rendering duplicate images when the
+ original images have the same name but different extension
+
+---
+ src/Webp.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Webp.php b/src/Webp.php
+index bbd6de2..410aea4 100644
+--- a/src/Webp.php
++++ b/src/Webp.php
+@@ -172,7 +172,7 @@ class Webp {
+    *   Webp version of srcset
+    */
+   public function getWebpSrcset($srcset) {
+-    return preg_replace('/\.(png|jpg|jpeg)(\\?.*?)?(,| |$)/i', '.webp\\2\\3', $srcset);
++    return preg_replace('/\.(png|jpg|jpeg)(\\?.*?)?(,| |$)/i', '.\\1.webp\\2\\3', $srcset);
+   }
+ 
+   /**
+-- 
+GitLab
+
+
+From 6a3c8023a4aaba3390d9a64c6799af738c920e35 Mon Sep 17 00:00:00 2001
+From: Edouard Cunibil <edouard@happyculture.coop>
+Date: Thu, 23 Feb 2023 12:40:08 +0100
+Subject: [PATCH 2/6] Add old extension when generating webp derivatives.
+
+---
+ .../ImageStyleDownloadController.php          | 22 ++-----------------
+ src/Webp.php                                  |  4 ++--
+ 2 files changed, 4 insertions(+), 22 deletions(-)
+
+diff --git a/src/Controller/ImageStyleDownloadController.php b/src/Controller/ImageStyleDownloadController.php
+index 2816fef..c0933c6 100644
+--- a/src/Controller/ImageStyleDownloadController.php
++++ b/src/Controller/ImageStyleDownloadController.php
+@@ -107,26 +107,8 @@ class ImageStyleDownloadController extends FileDownloadController {
+     $image_uri = $scheme . '://' . $target;
+ 
+     if ($webp_wanted = preg_match('/\.webp$/', $image_uri)) {
+-      $destination = $this->webp->getWebpDestination($image_uri, '@directory@filename');
+-      $possible_image_uris = [$destination];
+-
+-      // Try out the different possible sources for a webp image.
+-      $extensions = [
+-        '.jpg',
+-        '.jpeg',
+-        '.png',
+-      ];
+-      foreach ($extensions as $extension) {
+-        $possible_image_uris[] = str_replace('.webp', mb_strtoupper($extension), $image_uri);
+-        $possible_image_uris[] = str_replace('.webp', $extension, $image_uri);
+-      }
+-
+-      foreach ($possible_image_uris as $possible_image_uri) {
+-        if (file_exists($possible_image_uri)) {
+-          $image_uri = $possible_image_uri;
+-          break;
+-        }
+-      }
++      // Drop the webp extension.
++      $image_uri = $this->webp->getWebpDestination($image_uri, '@directory@filename');
+     }
+ 
+     // Don't try to generate file if source is missing.
+diff --git a/src/Webp.php b/src/Webp.php
+index 410aea4..d814891 100644
+--- a/src/Webp.php
++++ b/src/Webp.php
+@@ -114,7 +114,7 @@ class Webp {
+       // If we can generate a GD resource from the source image, generate the URI
+       // of the WebP copy and try to create it.
+       if ($sourceImage !== NULL) {
+-        $destination = $this->getWebpDestination($uri, '@directory@filename.webp');
++        $destination = $this->getWebpDestination($uri, '@directory@filename.@extension.webp');
+ 
+         imagesavealpha($sourceImage, TRUE);
+         imagealphablending($sourceImage, TRUE);
+@@ -195,7 +195,7 @@ class Webp {
+     // We'll convert the image into webp.
+     $ImageMagickImg->apply('convert', ['extension' => 'webp', 'quality' => $quality]);
+ 
+-    $destination = $this->getWebpDestination($uri, '@directory@filename.webp');
++    $destination = $this->getWebpDestination($uri, '@directory@filename.@extension.webp');
+     if ($ImageMagickImg->save($destination)) {
+       $webp = $destination;
+ 
+-- 
+GitLab
+
+
+From c7ca326e8ee86b12a3e7a06d2c14f918330e1511 Mon Sep 17 00:00:00 2001
+From: Edouard Cunibil <edouard@happyculture.coop>
+Date: Thu, 23 Feb 2023 12:42:39 +0100
+Subject: [PATCH 3/6] Fix tests.
+
+---
+ tests/src/Unit/WebpTest.php | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/tests/src/Unit/WebpTest.php b/tests/src/Unit/WebpTest.php
+index db4a31f..7367e53 100644
+--- a/tests/src/Unit/WebpTest.php
++++ b/tests/src/Unit/WebpTest.php
+@@ -28,27 +28,27 @@ class WebpTest extends UnitTestCase {
+    * @covers Drupal\webp\Webp::getWebpSrcset
+    */
+   public function testgetWebpSrcset() {
+-    $this->assertEquals("testimage.webp", $this->webp->getWebpSrcset("testimage.jpg"));
+-    $this->assertEquals("testimage2.webp", $this->webp->getWebpSrcset("testimage2.png"));
+-    $this->assertEquals("testimage2.webp", $this->webp->getWebpSrcset("testimage2.jpeg"));
+-    $this->assertEquals("testimage2.webp", $this->webp->getWebpSrcset("testimage2.jpg"));
+-    $this->assertEquals("testimage2.ext.webp", $this->webp->getWebpSrcset("testimage2.ext.jpg"));
+-    $this->assertEquals("testimage2.ext.ext.webp", $this->webp->getWebpSrcset("testimage2.ext.ext.jpg"));
++    $this->assertEquals("testimage.jpg.webp", $this->webp->getWebpSrcset("testimage.jpg"));
++    $this->assertEquals("testimage2.png.webp", $this->webp->getWebpSrcset("testimage2.png"));
++    $this->assertEquals("testimage2.jpeg.webp", $this->webp->getWebpSrcset("testimage2.jpeg"));
++    $this->assertEquals("testimage2.jpg.webp", $this->webp->getWebpSrcset("testimage2.jpg"));
++    $this->assertEquals("testimage2.ext.jpg.webp", $this->webp->getWebpSrcset("testimage2.ext.jpg"));
++    $this->assertEquals("testimage2.ext.ext.jpg.webp", $this->webp->getWebpSrcset("testimage2.ext.ext.jpg"));
+ 
+     // Test that double extensions are handled properly.
+-    $this->assertEquals("testimage2.png.webp", $this->webp->getWebpSrcset("testimage2.png.jpg"));
+-    $this->assertEquals("testimage2.jpeg.png.webp", $this->webp->getWebpSrcset("testimage2.jpeg.png.jpg"));
++    $this->assertEquals("testimage2.png.jpg.webp", $this->webp->getWebpSrcset("testimage2.png.jpg"));
++    $this->assertEquals("testimage2.jpeg.png.jpg.webp", $this->webp->getWebpSrcset("testimage2.jpeg.png.jpg"));
+ 
+     // Test source sets with width descriptor/pixel density and multiple images.
+-    $this->assertEquals("some/path/image.webp?itok=vOpRgtYZ 1x", $this->webp->getWebpSrcset("some/path/image.JPG?itok=vOpRgtYZ 1x"));
+-    $this->assertEquals("some/path/image.webp?itok=vOpRgtYZ 1x, some/path/image.webp?itok=vOpRgtYZ 2x", $this->webp->getWebpSrcset("some/path/image.JPG?itok=vOpRgtYZ 1x, some/path/image.JPG?itok=vOpRgtYZ 2x"));
++    $this->assertEquals("some/path/image.JPG.webp?itok=vOpRgtYZ 1x", $this->webp->getWebpSrcset("some/path/image.JPG?itok=vOpRgtYZ 1x"));
++    $this->assertEquals("some/path/image.JPG.webp?itok=vOpRgtYZ 1x, some/path/image.JPG.webp?itok=vOpRgtYZ 2x", $this->webp->getWebpSrcset("some/path/image.JPG?itok=vOpRgtYZ 1x, some/path/image.JPG?itok=vOpRgtYZ 2x"));
+ 
+     // Test source sets with multiple images but without width descriptor/pixel density.
+-    $this->assertEquals("some/path/image.webp?itok=vOpRgtYZ, some/path/image.webp?itok=vOpRgtYZ", $this->webp->getWebpSrcset("some/path/image.JPG?itok=vOpRgtYZ, some/path/image.JPG?itok=vOpRgtYZ"));
++    $this->assertEquals("some/path/image.JPG.webp?itok=vOpRgtYZ, some/path/image.JPG.webp?itok=vOpRgtYZ", $this->webp->getWebpSrcset("some/path/image.JPG?itok=vOpRgtYZ, some/path/image.JPG?itok=vOpRgtYZ"));
+ 
+     // And multiple source sets with multiple images.
+-    $this->assertEquals("some/path/image.png.webp?itok=vOpRgtYZ 1x, some/path/image.jpg.ext.webp?itok=vOpRgtYZ 2x", $this->webp->getWebpSrcset("some/path/image.png.JPG?itok=vOpRgtYZ 1x, some/path/image.jpg.ext.JPG?itok=vOpRgtYZ 2x"));
+-    $this->assertEquals("some/path/image.png.webp?itok=vOpRgtYZ, some/path/image.jpg.ext.webp?itok=vOpRgtYZ", $this->webp->getWebpSrcset("some/path/image.png.JPG?itok=vOpRgtYZ, some/path/image.jpg.ext.JPG?itok=vOpRgtYZ"));
++    $this->assertEquals("some/path/image.png.JPG.webp?itok=vOpRgtYZ 1x, some/path/image.jpg.ext.JPG.webp?itok=vOpRgtYZ 2x", $this->webp->getWebpSrcset("some/path/image.png.JPG?itok=vOpRgtYZ 1x, some/path/image.jpg.ext.JPG?itok=vOpRgtYZ 2x"));
++    $this->assertEquals("some/path/image.png.JPG.webp?itok=vOpRgtYZ, some/path/image.jpg.ext.JPG.webp?itok=vOpRgtYZ", $this->webp->getWebpSrcset("some/path/image.png.JPG?itok=vOpRgtYZ, some/path/image.jpg.ext.JPG?itok=vOpRgtYZ"));
+   }
+ 
+ }
+-- 
+GitLab
+
+
+From cf58c1903dc4d8dfbea2c45fc17b4c540bd92886 Mon Sep 17 00:00:00 2001
+From: Xavier Masson <xavier.masson@fidesio.com>
+Date: Fri, 22 Dec 2023 12:54:12 +0100
+Subject: [PATCH 4/6] Drop the webp extension only if derivate file doesn't
+ exist
+
+---
+ src/Controller/ImageStyleDownloadController.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Controller/ImageStyleDownloadController.php b/src/Controller/ImageStyleDownloadController.php
+index c0933c6..3933661 100644
+--- a/src/Controller/ImageStyleDownloadController.php
++++ b/src/Controller/ImageStyleDownloadController.php
+@@ -106,7 +106,7 @@ class ImageStyleDownloadController extends FileDownloadController {
+     $target = $request->query->get('file');
+     $image_uri = $scheme . '://' . $target;
+ 
+-    if ($webp_wanted = preg_match('/\.webp$/', $image_uri)) {
++    if (!file_exists($image_uri) && ($webp_wanted = preg_match('/\.webp$/', $image_uri))) {
+       // Drop the webp extension.
+       $image_uri = $this->webp->getWebpDestination($image_uri, '@directory@filename');
+     }
+-- 
+GitLab
+
+
+From d1369f9a279f2c362b5a3a3252b156e54f3414ae Mon Sep 17 00:00:00 2001
+From: Mike Decker <pookmish@gmail.com>
+Date: Tue, 23 Apr 2024 12:51:47 -0700
+Subject: [PATCH 5/6] Remove webp extension to match the source file
+
+---
+ src/Controller/ImageStyleDownloadController.php | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/src/Controller/ImageStyleDownloadController.php b/src/Controller/ImageStyleDownloadController.php
+index 3933661..e594d19 100644
+--- a/src/Controller/ImageStyleDownloadController.php
++++ b/src/Controller/ImageStyleDownloadController.php
+@@ -105,11 +105,12 @@ class ImageStyleDownloadController extends FileDownloadController {
+   public function deliver(Request $request, $scheme, ImageStyleInterface $image_style) {
+     $target = $request->query->get('file');
+     $image_uri = $scheme . '://' . $target;
+-
+-    if (!file_exists($image_uri) && ($webp_wanted = preg_match('/\.webp$/', $image_uri))) {
++    $webp_wanted = preg_match('/\.webp$/', $image_uri);
++    if (!file_exists($image_uri) && $webp_wanted) {
+       // Drop the webp extension.
+       $image_uri = $this->webp->getWebpDestination($image_uri, '@directory@filename');
+     }
++    $image_uri = preg_replace('/\.webp$/', '', $image_uri);
+ 
+     // Don't try to generate file if source is missing.
+     if (!file_exists($image_uri)) {
+-- 
+GitLab
+
+
+From 48064e9c28358dfff0228ca532b8c32e91d86649 Mon Sep 17 00:00:00 2001
+From: Travis Neilans <46648-porchlight@users.noreply.drupalcode.org>
+Date: Tue, 28 May 2024 19:19:03 +0000
+Subject: [PATCH 6/6] Dont replace .webp extension if thats the original source
+ extension.
+
+---
+ src/Controller/ImageStyleDownloadController.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Controller/ImageStyleDownloadController.php b/src/Controller/ImageStyleDownloadController.php
+index e594d19..6c14309 100644
+--- a/src/Controller/ImageStyleDownloadController.php
++++ b/src/Controller/ImageStyleDownloadController.php
+@@ -110,7 +110,7 @@ class ImageStyleDownloadController extends FileDownloadController {
+       // Drop the webp extension.
+       $image_uri = $this->webp->getWebpDestination($image_uri, '@directory@filename');
+     }
+-    $image_uri = preg_replace('/\.webp$/', '', $image_uri);
++    $image_uri = preg_replace('/\.[^.]*\.webp$/', '.webp', $image_uri);
+ 
+     // Don't try to generate file if source is missing.
+     if (!file_exists($image_uri)) {
+-- 
+GitLab
+
