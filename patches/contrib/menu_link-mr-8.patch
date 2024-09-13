@@ -1,0 +1,32 @@
+From e3790112e4f5b45f7ba520cc2f1b8957ddc4544d Mon Sep 17 00:00:00 2001
+From: Mike Decker <pookmish@gmail.com>
+Date: Wed, 26 Apr 2023 11:53:26 -0700
+Subject: [PATCH] #3092282 Add support for menu_admin_per_menu module
+
+---
+ src/Plugin/Field/MenuLinkItemList.php | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/src/Plugin/Field/MenuLinkItemList.php b/src/Plugin/Field/MenuLinkItemList.php
+index c65ebdc..83d11c9 100644
+--- a/src/Plugin/Field/MenuLinkItemList.php
++++ b/src/Plugin/Field/MenuLinkItemList.php
+@@ -24,7 +24,14 @@ class MenuLinkItemList extends FieldItemList {
+    */
+   public function defaultAccess($operation = 'view', AccountInterface $account = NULL) {
+     if ($operation === 'edit') {
+-      return AccessResult::allowedIfHasPermission($account, 'administer menu');
++      $available_menus = array_filter($this->getFieldDefinition()
++        ->getSetting('available_menus'));
++
++      $permissions = ['administer menu'];
++      foreach ($available_menus as $menu_name) {
++        $permissions[] = 'administer ' . $menu_name . ' menu items';
++      }
++      return AccessResult::allowedIfHasPermissions($account, $permissions, 'OR');
+     }
+     return parent::defaultAccess($operation, $account);
+   }
+-- 
+GitLab
+

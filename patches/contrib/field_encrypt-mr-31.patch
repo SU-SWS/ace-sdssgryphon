@@ -1,0 +1,44 @@
+From 3cb536cc6dea8bac4373e8f470355ccb5d0af73c Mon Sep 17 00:00:00 2001
+From: Mike Decker <pookmish@gmail.com>
+Date: Fri, 22 Jul 2022 15:21:34 -0700
+Subject: [PATCH] #3299175 Prevent fatal error if eval function is not allowed
+
+---
+ field_encrypt.module | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/field_encrypt.module b/field_encrypt.module
+index 215b7d2..9ae38ca 100644
+--- a/field_encrypt.module
++++ b/field_encrypt.module
+@@ -318,7 +318,9 @@ function field_encrypt_module_implements_alter(&$implementations, $hook) {
+         // Move our implementations as early as possible so other
+         // implementations work with decrypted data.
+         if (!isset($implementations['field_encrypt'])) {
+-          _field_encrypt_define_entity_hooks($entity_type_id);
++          if (!_field_encrypt_define_entity_hooks($entity_type_id)) {
++            return;
++          }
+         }
+         $group = $implementations['field_encrypt'] ?? FALSE;
+         $implementations = ['field_encrypt' => $group] + $implementations;
+@@ -338,7 +340,7 @@ function field_encrypt_module_implements_alter(&$implementations, $hook) {
+  */
+ function _field_encrypt_define_entity_hooks($entity_type_id = NULL) {
+   if (!_field_encrypt_can_eval()) {
+-    return;
++    return FALSE;
+   }
+   $functions = _field_encrypt_entity_hooks($entity_type_id);
+   if ($functions) {
+@@ -347,6 +349,7 @@ function _field_encrypt_define_entity_hooks($entity_type_id = NULL) {
+     eval($functions);
+     // phpcs:enable
+   }
++  return $functions;
+ }
+ 
+ /**
+-- 
+GitLab
+
