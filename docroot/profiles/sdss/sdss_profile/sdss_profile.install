@@ -1061,3 +1061,16 @@ function sdss_profile_update_10013() {
 
   $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
 }
+
+/**
+ * Uninstall minimally_branded_subtheme.
+ */
+function sdss_profile_update_10014() {
+  /** @var \Drupal\Core\Extension\ThemeInstallerInterface $theme_installer */
+  $theme_installer = \Drupal::service('theme_installer');
+  try {
+    $theme_installer->uninstall(['minimally_branded_subtheme']);
+  } catch (\Exception $e) {
+    // Theme was already uninstalled.
+  }
+}
