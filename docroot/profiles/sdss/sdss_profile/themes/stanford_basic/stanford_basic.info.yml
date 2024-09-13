@@ -4,7 +4,7 @@ description: 'Stanford Basic Branding Theme.'
 package: Stanford
 version: 9.x-1.4-dev
 core_version_requirement: ^9 || ^10
-'base theme': stable9
+base theme: stable9
 regions:
   page_top: 'Page top'
   header: Header
@@ -20,8 +20,6 @@ features:
 components:
   namespaces:
     basic: templates
-    basic-dist: dist/templates
-    decanter: dist/templates/decanter
 libraries:
   - stanford_basic/basic
 ckeditor_stylesheets:
