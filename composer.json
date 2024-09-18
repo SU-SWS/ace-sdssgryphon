@@ -212,7 +212,8 @@
         "drupal/google_analytics": "<4.0.0",
         "drupal/menu_link": "<2.0.0",
         "drupal/migrate_plus": ">6.0.2",
-        "drupal/views_infinite_scroll": "<2.0.0"
+        "drupal/views_infinite_scroll": "<2.0.0",
+        "su-sws/stanford_actions": ">8.2.9"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
