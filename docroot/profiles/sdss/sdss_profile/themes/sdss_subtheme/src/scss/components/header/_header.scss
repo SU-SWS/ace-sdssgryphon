@@ -4,13 +4,40 @@
 // Includes the default header variant (currently Green Header, Bottom
 // Navigation).
 
+.su-brand-bar {
+  z-index: 10000;
+  position: relative;
+
+  @include grid-media-min('lg') {
+    z-index: unset;
+  }
+}
+
 header.su-masthead {
+  // This is the line above the h2 in the mega menu.
+  .heading-bar {
+    position: relative;
+    height: 4px;
+    padding-left: 16px;
+
+    @include grid-media-min('lg') {
+      position: absolute;
+      margin-bottom: 25px;
+      display: block;
+      height: unset;
+    }
+  }
+
   section.su-masthead--inner {
     display: block;
     padding: 0;
     margin: 0;
     width: 100%;
     max-width: unset;
+
+    @include grid-media-min('lg') {
+      padding-left: 100px; // needs removing for green header
+    }
 
     .system-menu-block {
       position: absolute;
@@ -72,6 +99,7 @@ header.su-masthead {
     flex: unset;
     max-width: unset;
     margin: 0;
+    position: relative;
 
     > a {
       display: block;
@@ -97,6 +125,8 @@ header.su-masthead {
       display: none;
     }
   }
+
+
 }
 
 
