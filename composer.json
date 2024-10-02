@@ -40,12 +40,12 @@
             "type": "package",
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
-                "version": "8.1.12",
+                "version": "8.1.13",
                 "type": "drupal-custom-module-rooms-site",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
-                    "reference": "8.1.12"
+                    "reference": "8.1.13"
                 }
             }
         }
