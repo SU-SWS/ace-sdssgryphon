@@ -376,6 +376,9 @@
             },
             "drupal/webp": {
                 "https://www.drupal.org/project/webp/issues/3281606": "patches/contrib/webp-mr-33.patch"
+            },
+            "su-sws/stanford_migrate": {
+                "Remove placeimage URL from unit test": "patches/stanford/stanford_migrate-placeimg-test-fix.patch"
             }
         }
     },
