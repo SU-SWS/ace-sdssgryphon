@@ -71,8 +71,6 @@
       <directory>../profiles/sdss</directory>
       <!-- Exclude the stanford_syndication custom module tests for now. -->
       <exclude>../modules/custom/stanford_syndication</exclude>
-      <!-- Exclude the stanford_migrate module until the placeimg URL is fixed in test -->
-      <exclude>../modules/custom/stanford_migrate</exclude>
     </testsuite>
   </testsuites>
   <listeners>
