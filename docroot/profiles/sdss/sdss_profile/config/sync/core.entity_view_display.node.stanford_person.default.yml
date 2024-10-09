@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.stanford_person.su_person_research_interests
     - field.field.node.stanford_person.su_person_scholarly_interests
     - field.field.node.stanford_person.su_person_short_title
+    - field.field.node.stanford_person.su_person_sunetid
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
     - field.field.node.stanford_person.su_sdss_person_alt_bio
@@ -235,6 +236,22 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 1
+            additional: {  }
+          d1d4bb9e-155c-4d1c-911b-e0b96eee64be:
+            uuid: d1d4bb9e-155c-4d1c-911b-e0b96eee64be
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_person_sunetid'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 0
             additional: {  }
         third_party_settings: {  }
       -
@@ -884,6 +901,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 103
+    region: content
+  su_person_sunetid:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 135
     region: content
   su_person_telephone:
     type: string
