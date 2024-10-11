@@ -1074,3 +1074,35 @@ function sdss_profile_update_10014() {
     // Theme was already uninstalled.
   }
 }
+
+/**
+ * Set the Imported via News Sharing field to FALSE on existing News nodes
+ * without a set value.
+ */
+function sdss_profile_update_10015(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created', 'DESC')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 100);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_imported_news_sharing')) {
+      continue;
+    }
+    if ($node->get('su_sdss_imported_news_sharing')->isEmpty()) {
+      $node->set('su_sdss_imported_news_sharing', FALSE)->save();
+    }
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
