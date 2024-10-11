@@ -1028,7 +1028,7 @@ function sdss_profile_update_10012() {
  * Set default value for the su_sdss_explore_more_picker field on all existing
  * nodes.
  */
-function sdss_profile_update_10013() {
+function sdss_profile_update_10013(&$sandbox) {
   $node_storage = \Drupal::entityTypeManager()
     ->getStorage('node');
   if (!isset($sandbox['count'])) {
