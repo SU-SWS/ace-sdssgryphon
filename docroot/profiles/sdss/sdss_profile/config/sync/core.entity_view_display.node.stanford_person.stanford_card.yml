@@ -68,7 +68,6 @@ third_party_settings:
         - node_title
       card_body:
         - su_person_short_title
-        - su_person_wg_tags
     fields:
       node_title:
         plugin_id: node_title
@@ -106,14 +105,6 @@ content:
     third_party_settings: {  }
     weight: 2
     region: card_body
-  su_person_wg_tags:
-    type: entity_reference_label
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
-    region: card_body
 hidden:
   body: true
   field_menulink: true
@@ -146,6 +137,7 @@ hidden:
   su_person_sunetid: true
   su_person_telephone: true
   su_person_type_group: true
+  su_person_wg_tags: true
   su_sdss_person_alt_bio: true
   su_sdss_person_alt_title: true
   su_sdss_person_focal_areas: true
