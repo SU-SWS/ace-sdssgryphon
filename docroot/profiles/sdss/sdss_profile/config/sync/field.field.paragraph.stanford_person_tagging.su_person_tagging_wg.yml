@@ -1,0 +1,19 @@
+uuid: d2ab9147-ffdf-43ed-9550-60d01c0727e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_person_tagging_wg
+    - paragraphs.paragraphs_type.stanford_person_tagging
+id: paragraph.stanford_person_tagging.su_person_tagging_wg
+field_name: su_person_tagging_wg
+entity_type: paragraph
+bundle: stanford_person_tagging
+label: 'Person Tagging Workgroup'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

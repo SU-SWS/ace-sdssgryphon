@@ -1,0 +1,41 @@
+uuid: b213ab73-e549-4185-832e-b727ce3cb8ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.stanford_person_tagging.su_person_tagging_term
+    - field.field.paragraph.stanford_person_tagging.su_person_tagging_wg
+    - paragraphs.paragraphs_type.stanford_person_tagging
+  module:
+    - change_labels
+    - field_formatter_class
+id: paragraph.stanford_person_tagging.default
+targetEntityType: paragraph
+bundle: stanford_person_tagging
+mode: default
+content:
+  su_person_tagging_term:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_person_tagging_wg:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 120
+      placeholder: ''
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      change_labels:
+        field_label_overwrite: ''
+hidden:
+  created: true
+  status: true

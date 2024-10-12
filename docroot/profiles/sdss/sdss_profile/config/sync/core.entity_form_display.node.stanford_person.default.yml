@@ -34,6 +34,7 @@ dependencies:
     - field.field.node.stanford_person.su_person_sunetid
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
+    - field.field.node.stanford_person.su_person_wg_tags
     - field.field.node.stanford_person.su_sdss_person_alt_bio
     - field.field.node.stanford_person.su_sdss_person_alt_title
     - field.field.node.stanford_person.su_sdss_person_focal_areas
@@ -380,6 +381,16 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+    third_party_settings: {  }
+  su_person_wg_tags:
+    type: entity_reference_autocomplete
+    weight: 55
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   su_sdss_person_alt_bio:
     type: text_textarea

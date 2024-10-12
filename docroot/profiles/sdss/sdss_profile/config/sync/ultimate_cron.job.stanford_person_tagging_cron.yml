@@ -1,0 +1,17 @@
+uuid: edc30e00-b78d-4b2b-b82a-6b92068bd5ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - stanford_person_tagging
+title: 'Default cron handler'
+id: stanford_person_tagging_cron
+weight: 0
+module: stanford_person_tagging
+callback: stanford_person_tagging_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

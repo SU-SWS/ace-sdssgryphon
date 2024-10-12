@@ -1,0 +1,25 @@
+uuid: d2666784-e798-422b-89b5-0e8bada16503
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.stanford_person_tagging
+    - field.field.config_pages.stanford_person_tagging.su_person_tags
+  module:
+    - entity_reference_revisions
+id: config_pages.stanford_person_tagging.default
+targetEntityType: config_pages
+bundle: stanford_person_tagging
+mode: default
+content:
+  su_person_tags:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

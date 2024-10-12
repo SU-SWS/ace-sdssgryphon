@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.stanford_person.su_person_sunetid
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
+    - field.field.node.stanford_person.su_person_wg_tags
     - field.field.node.stanford_person.su_sdss_person_alt_bio
     - field.field.node.stanford_person.su_sdss_person_alt_title
     - field.field.node.stanford_person.su_sdss_person_focal_areas
@@ -252,6 +253,22 @@ third_party_settings:
                   link_to_entity: false
                 third_party_settings: {  }
             weight: 0
+            additional: {  }
+          7252d85e-403c-4f32-b783-f0b4e2cef724:
+            uuid: 7252d85e-403c-4f32-b783-f0b4e2cef724
+            region: content
+            configuration:
+              id: 'field_block:node:stanford_person:su_person_wg_tags'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
@@ -623,11 +640,16 @@ third_party_settings:
   layout_builder_restrictions:
     allowed_block_categories:
       - 'Basic Page Type Lists (Views)'
+      - Book
+      - 'Changelog (Views)'
       - 'Chaos Tools'
       - 'Config Pages'
       - 'Content fields'
       - 'Custom block types'
       - 'Custom blocks'
+      - Devel
+      - 'Devel PHP'
+      - Editoria11y
       - 'Events Lists (Views)'
       - Forms
       - Help
@@ -638,13 +660,16 @@ third_party_settings:
       - 'News Lists (Views)'
       - 'PDB React'
       - 'People Lists (Views)'
+      - 'Policy (Views)'
+      - Printable
       - 'Publication (Views)'
       - React
-      - 'SimpleSAMLphp Authentication'
       - 'Stanford News'
       - 'Stanford Profile Helper'
-      - 'Stanford SimpleSAML PHP'
+      - 'Stanford SAML Authentication'
       - System
+      - 'Taxonomy Terms (Views)'
+      - User
       - Views
       - core
     entity_view_mode_restriction:
@@ -678,6 +703,7 @@ third_party_settings:
           - 'field_block:node:stanford_person:revision_uid'
           - 'extra_field_block:node:stanford_person:search_api_excerpt'
           - 'field_block:node:stanford_person:sticky'
+          - 'field_block:node:stanford_person:su_person_sunetid'
           - 'field_block:node:stanford_person:unpublish_on'
           - 'field_block:user:user:changed'
           - 'field_block:user:user:created'
@@ -692,38 +718,46 @@ third_party_settings:
           - 'field_block:user:user:name'
           - 'field_block:user:user:preferred_admin_langcode'
           - 'field_block:user:user:preferred_langcode'
-          - 'field_block:user:user:role_change'
           - 'field_block:user:user:roles'
+          - 'field_block:user:user:role_change'
           - 'extra_field_block:user:user:search_api_excerpt'
           - 'field_block:user:user:timezone'
           - 'field_block:user:user:uid'
           - 'field_block:user:user:status'
       allowlisted_blocks:
         Menus:
-          - 'system_menu_block:stanford-event-types'
           - 'menu_block:stanford-event-types'
-          - 'system_menu_block:main'
+          - 'system_menu_block:stanford-event-types'
           - 'menu_block:main'
+          - 'system_menu_block:main'
           - 'menu_block:stanford-person-type'
           - 'system_menu_block:stanford-person-type'
           - 'menu_block:stanford-publication-topics'
           - 'system_menu_block:stanford-publication-topics'
-          - 'system_menu_block:news-topics'
           - 'menu_block:news-topics'
+          - 'system_menu_block:news-topics'
         System:
           - system_breadcrumb_block
         core:
           - page_title_block
       restricted_categories:
+        - Book
+        - 'Changelog (Views)'
         - 'Chaos Tools'
         - 'Config Pages'
+        - Devel
+        - 'Devel PHP'
+        - Editoria11y
         - Forms
         - Help
         - 'Lists (Views)'
+        - 'Policy (Views)'
+        - Printable
         - React
-        - 'SimpleSAMLphp Authentication'
         - 'Stanford Profile Helper'
-        - 'Stanford SimpleSAML PHP'
+        - 'Stanford SAML Authentication'
+        - 'Taxonomy Terms (Views)'
+        - User
         - Views
   layout_library:
     enable: false
@@ -925,6 +959,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 126
+    region: content
+  su_person_wg_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 136
     region: content
   su_sdss_person_alt_bio:
     type: text_default

@@ -1,0 +1,79 @@
+uuid: 7abb2c4e-cbbe-4556-a20f-70f3302aa625
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.stanford_person_tagging
+    - field.storage.config_pages.su_person_tags
+    - paragraphs.paragraphs_type.stanford_person_tagging
+  module:
+    - entity_reference_revisions
+id: config_pages.stanford_person_tagging.su_person_tags
+field_name: su_person_tags
+entity_type: config_pages
+bundle: stanford_person_tagging
+label: 'Person Tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      stanford_person_tagging: stanford_person_tagging
+    negate: 0
+    target_bundles_drag_drop:
+      callout_quote:
+        weight: 18
+        enabled: false
+      editorial_sidebar:
+        weight: 19
+        enabled: false
+      sdss_news_list_card:
+        weight: 20
+        enabled: false
+      sdss_spotlight:
+        weight: 21
+        enabled: false
+      stanford_accordion:
+        weight: 22
+        enabled: false
+      stanford_banner:
+        weight: 23
+        enabled: false
+      stanford_card:
+        weight: 24
+        enabled: false
+      stanford_entity:
+        weight: 25
+        enabled: false
+      stanford_gallery:
+        weight: 26
+        enabled: false
+      stanford_layout:
+        weight: 27
+        enabled: false
+      stanford_lists:
+        weight: 28
+        enabled: false
+      stanford_media_caption:
+        weight: 29
+        enabled: false
+      stanford_person_cta:
+        weight: 30
+        enabled: false
+      stanford_person_tagging:
+        weight: 31
+        enabled: true
+      stanford_schedule:
+        weight: 32
+        enabled: false
+      stanford_spacer:
+        weight: 33
+        enabled: false
+      stanford_wysiwyg:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions
