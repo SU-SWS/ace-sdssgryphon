@@ -48,6 +48,19 @@
                     "reference": "8.1.14"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "stanford-earth/stanford_person_tagging",
+                "version": "8.1.0",
+                "type": "drupal-custom-module",
+                "source": {
+                    "type": "git", 
+                    "url": "https://github.com/stanford-earth/stanford_person_tagging",
+                    "reference": "8.1.0"
+                }
+            }
         }
     ],
     "require": {
@@ -179,6 +192,7 @@
         "seboettg/citeproc-php": "2.4.1",
         "seboettg/collection": "<4.0.0",
         "stanford-earth/stanford_earth_r25": "^8.1",
+        "stanford-earth/stanford_person_tagging": "^8.1",
         "su-sws/blt-sws": "dev-main",
         "su-sws/ckeditor5_plugins": "^1.0",
         "su-sws/react_paragraphs": "^8.2",

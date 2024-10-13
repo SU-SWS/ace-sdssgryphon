@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c3dd1670586f13098075d98f8403b4e",
+    "content-hash": "646a1ee0a271cc6962d0cd85e7f64239",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16445,6 +16445,16 @@
             "type": "drupal-custom-module-rooms-site"
         },
         {
+            "name": "stanford-earth/stanford_person_tagging",
+            "version": "8.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stanford-earth/stanford_person_tagging",
+                "reference": "8.1.0"
+            },
+            "type": "drupal-custom-module"
+        },
+        {
             "name": "steverhoades/oauth2-openid-connect-server",
             "version": "v2.6.1",
             "source": {
@@ -26663,6 +26673,6 @@
         "php": ">=8.0",
         "ext-imagick": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }
