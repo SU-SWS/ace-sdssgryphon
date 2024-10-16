@@ -40,12 +40,12 @@
             "type": "package",
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
-                "version": "8.1.12",
+                "version": "8.1.14",
                 "type": "drupal-custom-module-rooms-site",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
-                    "reference": "8.1.12"
+                    "reference": "8.1.14"
                 }
             }
         }
@@ -79,9 +79,9 @@
         "drupal/config_split": "^2.0",
         "drupal/confirm_leave": "^1.0@beta",
         "drupal/content_lock": "^2.2",
-        "drupal/core": "^10",
-        "drupal/core-composer-scaffold": "^10",
-        "drupal/core-recommended": "^10",
+        "drupal/core": "~10.2.0",
+        "drupal/core-composer-scaffold": "~10.2.0",
+        "drupal/core-recommended": "~10.2.0",
         "drupal/cshs": "^4.0",
         "drupal/default_content": "^2.0@alpha",
         "drupal/diff": "^1.3",
@@ -96,7 +96,7 @@
         "drupal/fast_404_generator": "^1.0",
         "drupal/field_encrypt": "^3.0",
         "drupal/field_formatter_class": "^1.5",
-        "drupal/field_group": "^3.0@rc",
+        "drupal/field_group": "^3.0",
         "drupal/field_label": "^1.4",
         "drupal/field_permissions": "^1.0@RC",
         "drupal/field_validation": "^1.0-alpha",
@@ -181,13 +181,11 @@
         "stanford-earth/stanford_earth_r25": "^8.1",
         "su-sws/blt-sws": "dev-main",
         "su-sws/ckeditor5_plugins": "^1.0",
-        "su-sws/drupal-patches": "^10.0",
         "su-sws/react_paragraphs": "^8.2",
         "su-sws/stanford_actions": "^8.2",
         "su-sws/stanford_fields": "^8.2",
         "su-sws/stanford_media": "^11.0",
         "su-sws/stanford_migrate": "^8.3",
-        "su-sws/stanford_profile_helper": "^9.6",
         "su-sws/stanford_samlauth": "^1.0",
         "su-sws/stanford_syndication": "^1.0"
     },
@@ -203,7 +201,19 @@
         "drupal/coder": "*"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "drupal/autologout": "<1.5.0",
+        "drupal/config_ignore": "<3.0.0-rc1",
+        "drupal/diff": "<1.3.0",
+        "drupal/fast_404": "<3.0.0-rc1",
+        "drupal/field_encrypt": "<3.0.0",
+        "drupal/field_group": ">3.4",
+        "drupal/focal_point": "<2.0.0-alpha1",
+        "drupal/google_analytics": "<4.0.0",
+        "drupal/menu_link": "<2.0.0",
+        "drupal/migrate_plus": ">6.0.2",
+        "drupal/views_infinite_scroll": "<2.0.0",
+        "su-sws/stanford_actions": ">8.2.9"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -283,6 +293,39 @@
         },
         "enable-patching": true,
         "patches": {
+            "drupal/autologout": {
+                "https://www.drupal.org/project/autologout/issues/3372010": "https://www.drupal.org/files/issues/2024-05-28/autologout_3372010-25.patch"
+            },
+            "drupal/colorbox": {
+                "https://www.drupal.org/project/colorbox/issues/3278470": "patches/contrib/colorbox-mr-14.patch"
+            },
+            "drupal/config_readonly": {
+                "https://www.drupal.org/project/config_readonly/issues/2892631": "https://www.drupal.org/files/issues/2023-07-18/config-readonly-2892631-27.patch"
+            },
+            "drupal/core": {
+                "https://www.drupal.org/project/drupal/issues/2577923": "https://www.drupal.org/files/issues/2022-12-02/2577923-154.patch",
+                "Fix page parameter for JSON Api": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/core-pager-parameters.patch",
+                "https://www.drupal.org/project/drupal/issues/2353611": "https://www.drupal.org/files/issues/2019-10-15/drupal-link_uuid-2353611-262.patch"
+            },
+            "drupal/decoupled_router": {
+                "https://www.drupal.org/project/decoupled_router/issues/3111456: Unable to resolve path on node in other language than default": "https://www.drupal.org/files/issues/2024-07-11/decouple_router-3111456-resolve-language-issue-63--get-translation-re-rolled.patch"
+            },
+            "drupal/default_content": {
+                "https://www.drupal.org/project/default_content/issues/3160146": "patches/contrib/default_content-mr-15.patch",
+                "https://www.drupal.org/project/default_content/issues/2698425": "https://www.drupal.org/files/issues/2020-09-02/default_content-integrity_constrait_violation-3162987-2.patch"
+            },
+            "drupal/diff": {
+                "https://www.drupal.org/project/diff/issues/2882334#comment-13913401": "patches/contrib/diff-mr-42.patch"
+            },
+            "drupal/encrypt": {
+                "https://www.drupal.org/project/encrypt/issues/2975098": "https://www.drupal.org/files/issues/2024-05-23/missing-route-canonical-2975098-5.patch"
+            },
+            "drupal/field_encrypt": {
+                "https://www.drupal.org/project/field_encrypt/issues/3299175": "patches/contrib/field_encrypt-mr-31.patch"
+            },
+            "drupal/field_group": {
+                "https://www.drupal.org/project/field_group/issues/2969051": "https://www.drupal.org/files/issues/2023-12-19/2969051-100_2.patch"
+            },
             "drupal/google_analytics": {
                 "https://www.drupal.org/project/google_analytics/issues/3373921": "https://www.drupal.org/files/issues/2023-08-07/google-analytics-issues-3373921-cannot-install-from-existing-config-11.patch"
             },
@@ -292,14 +335,31 @@
             "drupal/hook_event_dispatcher": {
                 "https://www.drupal.org/project/hook_event_dispatcher/issues/3354751": "https://www.drupal.org/files/issues/2024-03-14/hook_event_dispatcher-4.x-3354751-7.patch"
             },
+            "drupal/jsonapi_views": {
+                "https://www.drupal.org/project/jsonapi_views/issues/3213575": "https://www.drupal.org/files/issues/2023-09-29/3213575-views_json-pagination-10.patch"
+            },
             "drupal/menu_link": {
-                "https://www.drupal.org/project/menu_link/issues/3358081": "https://git.drupalcode.org/project/menu_link/-/merge_requests/9.patch"
+                "https://www.drupal.org/project/menu_link/issues/3358081": "patches/contrib/menu_link-mr-9.patch",
+                "https://www.drupal.org/project/menu_link/issues/3145735": "https://www.drupal.org/files/issues/2022-03-22/menu_link-empty-entity-error-3145735-7.patch",
+                "https://www.drupal.org/project/menu_link/issues/3092282": "patches/contrib/menu_link-mr-8.patch"
             },
             "drupal/menu_link_weight": {
-                "https://www.drupal.org/project/menu_link_weight/issues/2875984": "https://git.drupalcode.org/project/menu_link_weight/-/merge_requests/2.diff"
+                "https://www.drupal.org/project/menu_link_weight/issues/2875984": "patches/contrib/menu_link_weight-mr-2.patch",
+                "https://www.drupal.org/project/menu_link_weight/issues/3410674": "https://www.drupal.org/files/issues/2023-12-23/menu_link_weight-3410674.patch",
+                "https://www.drupal.org/project/menu_link_weight/issues/3099139": "https://www.drupal.org/files/issues/2019-12-05/menu_link_weight-target_blank-3099139.patch"
             },
             "drupal/paranoia": {
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"
+            },
+            "drupal/redirect": {
+                "https://www.drupal.org/project/redirect/issues/3057250": "https://www.drupal.org/files/issues/2024-08-11/redirect--2024-08-11--3057250-79.patch",
+                "https://www.drupal.org/project/redirect/issues/3018897": "https://www.drupal.org/files/issues/2024-08-12/redirect-3018897-28.patch"
+            },
+            "drupal/response_code_condition": {
+                "https://www.drupal.org/project/response_code_condition/issues/3366575": "patches/contrib/response_code_condition-mr-2.patch"
+            },
+            "drupal/shs": {
+                "https://www.drupal.org/project/shs/issues/3047595": "https://www.drupal.org/files/issues/2022-01-06/3047595-5.patch"
             },
             "drupal/taxonomy_entity_index": {
                 "Fix PHP 8 strict error with arrays": "patches/contrib/taxonomy_entity_index.patch"
@@ -307,8 +367,18 @@
             "drupal/ui_patterns": {
                 "Ui Patterns Views Fixes": "patches/contrib/ui_patterns_views-preview.patch"
             },
-            "su-sws/stanford_profile_helper": {
-                "Remove paragraph layout restrictions from stanford_layout_paragraphs": "patches/stanford/stanford_layout_paragraphs.patch"
+            "drupal/views_infinite_scroll": {
+                "https://www.drupal.org/project/views_infinite_scroll/issues/3094488": "https://www.drupal.org/files/issues/2020-04-14/3094488-2.patch",
+                "D8CORE-2949: https://www.drupal.org/project/views_infinite_scroll/issues/3173923": "https://www.drupal.org/files/issues/2021-06-30/views_infinite_scroll-3173923-4.patch"
+            },
+            "drupal/views_taxonomy_term_name_depth": {
+                "https://www.drupal.org/project/views_taxonomy_term_name_depth/issues/2877249": "patches/contrib/views_taxonomy_term_name_depth-mr-2.patch"
+            },
+            "drupal/webp": {
+                "https://www.drupal.org/project/webp/issues/3281606": "patches/contrib/webp-mr-33.patch"
+            },
+            "su-sws/stanford_migrate": {
+                "Remove placeimage URL from unit test": "patches/stanford/stanford_migrate-placeimg-test-fix.patch"
             }
         }
     },

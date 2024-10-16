@@ -1028,7 +1028,7 @@ function sdss_profile_update_10012() {
  * Set default value for the su_sdss_explore_more_picker field on all existing
  * nodes.
  */
-function sdss_profile_update_10013() {
+function sdss_profile_update_10013(&$sandbox) {
   $node_storage = \Drupal::entityTypeManager()
     ->getStorage('node');
   if (!isset($sandbox['count'])) {
@@ -1057,6 +1057,122 @@ function sdss_profile_update_10013() {
       continue;
     }
     $node->set('su_sdss_explore_more_picker', $default_value)->save();
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
+ * Uninstall minimally_branded_subtheme.
+ */
+function sdss_profile_update_10014() {
+  /** @var \Drupal\Core\Extension\ThemeInstallerInterface $theme_installer */
+  $theme_installer = \Drupal::service('theme_installer');
+  try {
+    $theme_installer->uninstall(['minimally_branded_subtheme']);
+  } catch (\Exception $e) {
+    // Theme was already uninstalled.
+  }
+}
+
+/**
+ * Set the Imported via News Sharing field to FALSE on existing News nodes
+ * without a set value.
+ */
+function sdss_profile_update_10015(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created', 'DESC')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 100);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_imported_news_sharing')) {
+      continue;
+    }
+    if ($node->get('su_sdss_imported_news_sharing')->isEmpty()) {
+      $node->set('su_sdss_imported_news_sharing', FALSE)->save();
+    }
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
+ * Set default value for the su_sdss_explore_more_picker field on all existing
+ * nodes without a set value.
+ */
+function sdss_profile_update_10016(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->sort('created', 'DESC')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 100);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  $default_value = [
+    0 => [
+      'target_id' => 'explore_more_news',
+      'display_id' => 'explore_more_random',
+      'arguments' => '',
+      'items_to_display' => '',
+    ]
+  ];
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_explore_more_picker')) {
+      continue;
+    }
+    if ($node->get('su_sdss_explore_more_picker')->isEmpty()) {
+      $node->set('su_sdss_explore_more_picker', $default_value)->save();
+    }
+  }
+
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];
+}
+
+/**
+ * Set the Featured field to FALSE on existing Event nodes without a set value.
+ */
+function sdss_profile_update_10017(&$sandbox) {
+  $node_storage = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  if (!isset($sandbox['count'])) {
+    $nids = $node_storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_event')
+      ->sort('created', 'DESC')
+      ->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['count'] = count($sandbox['nids']);
+  }
+
+  $node_ids = array_splice($sandbox['nids'], 0, 100);
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $node_storage->loadMultiple($node_ids);
+  foreach ($nodes as $node) {
+    if (!$node->hasField('su_sdss_featured')) {
+      continue;
+    }
+    if ($node->get('su_sdss_featured')->isEmpty()) {
+      $node->set('su_sdss_featured', FALSE)->save();
+    }
   }
 
   $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : ($sandbox['count'] - count($sandbox['nids'])) / $sandbox['count'];

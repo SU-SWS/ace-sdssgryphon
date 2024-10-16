@@ -1,6 +1,6 @@
 name: 'Stanford Doerr School of Sustainability Profile'
 description: 'Profile for Stanford Doerr School of Sustainability'
-version: 4.6.1
+version: 4.6.2
 type: profile
 project: Stanford
 core_version_requirement: ^9 || ^10

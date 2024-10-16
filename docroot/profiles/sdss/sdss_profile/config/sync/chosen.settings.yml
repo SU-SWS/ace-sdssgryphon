@@ -12,7 +12,6 @@ disable_search: false
 allow_single_deselect: false
 disabled_themes:
   claro: '0'
-  minimally_branded_subtheme: '0'
   sdss_subtheme: '0'
   stanford_basic: '0'
   stanford_profile_admin_theme: '0'

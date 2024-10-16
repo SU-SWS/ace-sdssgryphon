@@ -13,7 +13,9 @@ label: Featured
 description: 'Feature this content in lists and feeds.'
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 0
 default_value_callback: ''
 settings:
   on_label: Featured
