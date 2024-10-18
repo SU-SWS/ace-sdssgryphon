@@ -3,7 +3,7 @@ description: Functionality for SDSS News Sharing.
 package: SDSS Stanford
 
 type: module
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10 || ^11
 
 dependencies:
   - stanford_migrate
