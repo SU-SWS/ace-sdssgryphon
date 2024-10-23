@@ -1,7 +1,0 @@
-hotlink: false
-origin: 'https://sitename-prod.stanford.edu'
-origin_dir: 'sites/[sitename]/files'
-proxy_headers: ''
-use_imagecache_root: false
-verify: false
-excluded_extensions: ''

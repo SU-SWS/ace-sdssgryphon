@@ -20,5 +20,6 @@ third_party_settings:
     unpublish_revision: false
 name: 'Research Areas'
 vid: sdss_research_areas
-description: ''
+description: null
 weight: 0
+new_revision: false
