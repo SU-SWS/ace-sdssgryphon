@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6436ec6474dd4d2fb433573dc4e08fec",
+    "content-hash": "4a8e1633cc417bb2100375453a9d2e05",
     "packages": [
         {
             "name": "acquia/blt",
@@ -5232,26 +5232,26 @@
         },
         {
             "name": "drupal/extlink",
-            "version": "1.7.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/extlink.git",
-                "reference": "8.x-1.7"
+                "reference": "2.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/extlink-8.x-1.7.zip",
-                "reference": "8.x-1.7",
-                "shasum": "38650688b5a58496db59f40b2a7f36c4bedcbfb4"
+                "url": "https://ftp.drupal.org/files/projects/extlink-2.0.2.zip",
+                "reference": "2.0.2",
+                "shasum": "a9bc7b451f8afd93f0decac97212424a6ec3147a"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10"
+                "drupal/core": "^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.7",
-                    "datestamp": "1665770295",
+                    "version": "2.0.2",
+                    "datestamp": "1723478431",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6612,28 +6612,28 @@
         },
         {
             "name": "drupal/imagemagick",
-            "version": "3.7.0",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/imagemagick.git",
-                "reference": "8.x-3.7"
+                "reference": "4.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/imagemagick-8.x-3.7.zip",
-                "reference": "8.x-3.7",
-                "shasum": "2698db0ccc4a76d44ebbbfcabe9e70d25ae3db9b"
+                "url": "https://ftp.drupal.org/files/projects/imagemagick-4.0.2.zip",
+                "reference": "4.0.2",
+                "shasum": "758bdf632dd8f2eeb97d198b692d20a59cdbdc13"
             },
             "require": {
-                "drupal/core": "^10.1",
-                "drupal/file_mdm": "^3",
-                "drupal/sophron": "^2.0.2"
+                "drupal/core": "^10.3 | ^11",
+                "drupal/file_mdm": "^3.1",
+                "drupal/sophron": "^2.1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.7",
-                    "datestamp": "1706096705",
+                    "version": "4.0.2",
+                    "datestamp": "1724827811",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7492,17 +7492,17 @@
         },
         {
             "name": "drupal/layout_builder_modal",
-            "version": "1.3.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/layout_builder_modal.git",
-                "reference": "8.x-1.3"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/layout_builder_modal-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "7aa935803b19cc46c3806e8e367d6c0e3ef1a32e"
+                "url": "https://ftp.drupal.org/files/projects/layout_builder_modal-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "0ef138ccf387a8e0a39fccd84d15f5998146a72d"
             },
             "require": {
                 "drupal/core": "^9.5 || ^10.2 || ^11"
@@ -7510,8 +7510,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1729151918",
+                    "version": "2.0.0",
+                    "datestamp": "1729141959",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7555,31 +7555,26 @@
         },
         {
             "name": "drupal/layout_builder_restrictions",
-            "version": "2.20.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/layout_builder_restrictions.git",
-                "reference": "8.x-2.20"
+                "reference": "3.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/layout_builder_restrictions-8.x-2.20.zip",
-                "reference": "8.x-2.20",
-                "shasum": "cd5c87869a0843f91fae0600f74b6c2ed102e398"
+                "url": "https://ftp.drupal.org/files/projects/layout_builder_restrictions-3.0.0.zip",
+                "reference": "3.0.0",
+                "shasum": "baa37fa293d149e5eb792e0199d02aa7f2716106"
             },
             "require": {
-                "drupal/core": "^9.3 || ^10"
-            },
-            "require-dev": {
-                "drupal/dashboards": "^2",
-                "drupal/layout_library": "dev-1.x",
-                "drupal/mini_layouts": "dev-2.0.x"
+                "drupal/core": "^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.20",
-                    "datestamp": "1715895237",
+                    "version": "3.0.0",
+                    "datestamp": "1715966111",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -8907,26 +8902,26 @@
         },
         {
             "name": "drupal/node_revision_delete",
-            "version": "1.0.0-rc7",
+            "version": "2.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/node_revision_delete.git",
-                "reference": "8.x-1.0-rc7"
+                "reference": "2.0.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/node_revision_delete-8.x-1.0-rc7.zip",
-                "reference": "8.x-1.0-rc7",
-                "shasum": "e689fd6bc78afe2e26b7871ed4dc56d4dec3abd7"
+                "url": "https://ftp.drupal.org/files/projects/node_revision_delete-2.0.0-rc1.zip",
+                "reference": "2.0.0-rc1",
+                "shasum": "7532c3c7c0f7bbaccf5a2721273a77cdca1b821b"
             },
             "require": {
-                "drupal/core": "^8.7.7 || ^9.0 || ^10"
+                "drupal/core": "^9.0 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc7",
-                    "datestamp": "1709793226",
+                    "version": "2.0.0-rc1",
+                    "datestamp": "1709827878",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -8962,12 +8957,14 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Robert Ngo",
-                    "homepage": "https://www.drupal.org/user/610230"
+                    "name": "Sean Blommaert (seanB)",
+                    "homepage": "https://www.drupal.org/u/seanB",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "seanB",
-                    "homepage": "https://www.drupal.org/user/545912"
+                    "name": "Pravin Gaikwad (Rajeshreeputra)",
+                    "homepage": "https://www.drupal.org/u/rajeshreeputra",
+                    "role": "Maintainer"
                 }
             ],
             "description": "Track and prune node revisions.",
@@ -10828,39 +10825,37 @@
         },
         {
             "name": "drupal/stage_file_proxy",
-            "version": "2.1.5",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/stage_file_proxy.git",
-                "reference": "2.1.5"
+                "reference": "3.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-2.1.5.zip",
-                "reference": "2.1.5",
-                "shasum": "6f5974c106d45211e54945e4d9f5bbf8ec6699de"
+                "url": "https://ftp.drupal.org/files/projects/stage_file_proxy-3.1.3.zip",
+                "reference": "3.1.3",
+                "shasum": "33fe8bf9cf0978a9e370627302b80340c972abd5"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
-                "php": ">=8"
+                "drupal/core": "^10.3 || ^11",
+                "php": ">=8.1"
+            },
+            "conflict": {
+                "drush/drush": "<12"
             },
             "require-dev": {
                 "drupal/coder": "^8.3",
-                "drush/drush": "^11 || ^12"
+                "drush/drush": ">=12"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.5",
-                    "datestamp": "1719499510",
+                    "version": "3.1.3",
+                    "datestamp": "1728406824",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
-                    }
-                },
-                "drush": {
-                    "services": {
-                        "stage_file_proxy.drush.services.yml": "^11"
                     }
                 }
             },
@@ -11683,20 +11678,21 @@
         },
         {
             "name": "drupal/views_bulk_edit",
-            "version": "2.9.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/views_bulk_edit.git",
-                "reference": "8.x-2.9"
+                "reference": "3.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/views_bulk_edit-8.x-2.9.zip",
-                "reference": "8.x-2.9",
-                "shasum": "db45a8cc9ac629859374b24974eafcef257e4387"
+                "url": "https://ftp.drupal.org/files/projects/views_bulk_edit-3.0.0.zip",
+                "reference": "3.0.0",
+                "shasum": "3b16079aa95fb4834561fcfd1197cce73b7f4b88"
             },
             "require": {
-                "drupal/core": "^9.4 || ^10"
+                "drupal/core": "^9.4 || ^10 || ^11",
+                "php": ">=8.1"
             },
             "require-dev": {
                 "drupal/views_bulk_operations": "~4.2.4"
@@ -11707,8 +11703,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.9",
-                    "datestamp": "1690222256",
+                    "version": "3.0.0",
+                    "datestamp": "1725358398",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -26988,7 +26984,6 @@
         "drupal/jsonapi_search_api": 5,
         "drupal/menu_link_weight": 15,
         "drupal/name": 5,
-        "drupal/node_revision_delete": 5,
         "drupal/page_manager": 10,
         "drupal/rabbit_hole": 10,
         "drupal/role_delegation": 10,
