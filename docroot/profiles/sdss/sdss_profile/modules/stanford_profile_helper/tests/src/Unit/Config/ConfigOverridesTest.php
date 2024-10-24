@@ -162,7 +162,7 @@ class ConfigOverridesTest extends UnitTestCase {
     $stream_wrapper_manager->method('getViaUri')->willReturn($stream_wrapper);
 
     $this->configFactory = $this->getConfigFactoryStub([
-      'system.them' => ['stanford_basic' => 0],
+      'system.theme' => ['stanford_basic' => 0],
     ]);
     return new ConfigOverrides($state, $config_pages, $this->getConfigFactoryStub($configs), $entity_manager, $stream_wrapper_manager);
   }

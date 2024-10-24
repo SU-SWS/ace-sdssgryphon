@@ -16,7 +16,7 @@ jobs:
     name: PHPUnit Coverage Tests
     runs-on: ubuntu-latest
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:php8.3
     services:
       mysql:
         image: mysql:5.7
@@ -38,11 +38,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
-            4.x-${{ hashFiles('blt/blt.yml') }}-
+            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
+            4.0-${{ hashFiles('blt/blt.yml') }}-
       - name: Run Unit Tests
         # env:
         #   CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
@@ -69,7 +69,7 @@ jobs:
       DRUPAL_DATABASE_PASSWORD: drupal
       DRUPAL_DATABASE_HOST: mysql
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:php8.3
       options: '--network-alias drupal8ci'
     services:
       selenium:
@@ -95,11 +95,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
-            4.x-${{ hashFiles('blt/blt.yml') }}-
+            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
+            4.0-${{ hashFiles('blt/blt.yml') }}-
       - name: Install Site
         run: |
           git config --system --add safe.directory '*' &&
@@ -124,7 +124,7 @@ jobs:
     name: Test Sustainability Site Sync
     runs-on: ubuntu-latest
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:php8.3
       options: '--network-alias drupal8ci'
     env:
       DRUPAL_DATABASE_NAME: drupal
@@ -163,11 +163,11 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
-            4.x-${{ hashFiles('blt/blt.yml') }}-
+            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
+            4.0-${{ hashFiles('blt/blt.yml') }}-
       - name: Sync Database
         run: |
           git config --system --add safe.directory '*' &&

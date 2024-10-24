@@ -25,3 +25,4 @@ name: 'News Source'
 vid: su_sdss_news_source
 description: 'External news source.'
 weight: 0
+new_revision: false

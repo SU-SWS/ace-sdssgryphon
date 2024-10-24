@@ -29,7 +29,9 @@ settings:
   depth: 0
   expand_all_items: false
   parent: 'newsroom:'
+  render_parent: false
   suggestion: newsroom
+  hide_on_nonactive: false
 visibility:
   request_path:
     id: request_path

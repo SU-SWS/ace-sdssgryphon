@@ -20,5 +20,6 @@ third_party_settings:
     unpublish_revision: false
 name: 'Focal Areas'
 vid: sdss_focal_areas
-description: ''
+description: null
 weight: 0
+new_revision: false

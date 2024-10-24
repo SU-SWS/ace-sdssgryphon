@@ -45,8 +45,7 @@ $dir = dirname(DRUPAL_ROOT);
  *
  * @see https://wiki.php.net/rfc/expectations
  */
-assert_options(ASSERT_ACTIVE, TRUE);
-assert_options(ASSERT_EXCEPTION, TRUE);
+ini_set('zend.assertions', 1);
 
 
 /**

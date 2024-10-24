@@ -49,7 +49,7 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     if ($urls = $config->get('urls')) {
       $overrides['migrate_plus.migration.sdss_news_sharing']['source']['urls'] = $urls;
 
-      if ($config->get('status') && !empty($urls)) {
+      if ($config->get('status')) {
         $overrides['migrate_plus.migration.sdss_news_sharing']['status'] = 1;
       }
     }
