@@ -67,7 +67,7 @@ class EventSubscriberTest extends KernelTestBase {
     $file_system = \Drupal::service('file_system');
     $logger_factory = \Drupal::service('logger.factory');
     $messenger = \Drupal::messenger();
-    $client = $messenger = \Drupal::service('http_client');
+    $client = \Drupal::service('http_client');
 
     $this->eventSubscriber = new TestStanfordEventSubscriber($file_system, $client, $logger_factory, $messenger);
 
