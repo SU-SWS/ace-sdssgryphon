@@ -22,12 +22,11 @@ modules:
     - PhpBrowser:
         url: '${project.local.protocol}://${project.local.hostname}/'
     - WebDriver:
-        wait: 1
-        log_js_errors: true
-        debug_log_entries: 10
         browser: chrome
-        restart: true
         url: '${project.local.protocol}://${project.local.hostname}/'
+        capabilities:
+          unexpectedAlertBehaviour: 'accept'
+          handlesAlerts: true
     - StanfordCaravan\Codeception\Drupal\DrupalEntity:
         cleanup_test: true
         cleanup_failed: false
@@ -57,10 +56,3 @@ env:
           host: selenium
           port: 4444
           restart: true
-#          capabilities:
-#            os: Windows
-#            os_version: 11
-#            'browserstack.user': '${ci.BROWSERSTACK_USERNAME}'
-#            'browserstack.key': '${ci.BROWSERSTACK_ACCESS_KEY}'
-#            'browserstack.localIdentifier': '${ci.BROWSERSTACK_LOCAL_IDENTIFIER}'
-#            'browserstack.local': true
