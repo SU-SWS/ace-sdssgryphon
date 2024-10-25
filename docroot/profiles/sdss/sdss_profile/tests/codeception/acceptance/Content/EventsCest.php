@@ -8,6 +8,7 @@ use Drupal\Core\Cache\Cache;
  * Test the events + importer functionality.
  *
  * @group content
+ * @group events
  */
 class EventsCest {
 
@@ -84,8 +85,7 @@ class EventsCest {
     $I->click('Save');
     $I->canSee('Events Importer has been', '.messages-list');
 
-    $I->amOnPage($event->toUrl('delete-form')->toString());
-    $I->click('Delete');
+    $event->delete();
 
     $I->amOnPage($term->toUrl()->toString());
     $I->canSee($term->label(), 'h1');

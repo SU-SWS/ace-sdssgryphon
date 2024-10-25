@@ -6,6 +6,7 @@ use Faker\Factory;
  * Test the news functionality.
  *
  * @group content
+ * @group news
  */
 class NewsCest {
 
@@ -102,9 +103,10 @@ class NewsCest {
 
     // Revision Delete is enabled.
     $I->amOnPage('/admin/structure/types/manage/stanford_news');
-    $I->seeCheckboxIsChecked("#edit-node-revision-delete-track");
-    $I->seeCheckboxIsChecked("#edit-options-revision");
-    $I->seeInField("#edit-minimum-revisions-to-keep", 5);
+    // "Delete revisions when a certain amount of revisions is reached."
+    // settings.
+    $I->seeCheckboxIsChecked("#edit-amount-status");
+    $I->seeInField("#edit-amount-settings-amount", 5);
 
     // XML Sitemap.
     $I->amOnPage("/admin/config/search/xmlsitemap/settings");

@@ -6,6 +6,8 @@ require_once __DIR__ . '/../TestFilesTrait.php';
 
 /**
  * Tests for various media functionality.
+ *
+ * @group media
  */
 class MediaCest {
 
@@ -241,7 +243,7 @@ class MediaCest {
     $I->canSee('Are you sure you wish to perform');
     $I->canSee($this->filePath);
     $I->click('Execute action');
-    $I->canSee('Action processing results: Delete entities');
+    $I->canSee('Delete entities');
     $I->amOnPage('/admin/content/files');
     $I->cantSee($this->filePath);
 

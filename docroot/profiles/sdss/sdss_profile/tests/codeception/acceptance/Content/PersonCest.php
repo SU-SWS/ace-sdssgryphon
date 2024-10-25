@@ -6,6 +6,7 @@ use Faker\Factory;
  * Test the news functionality.
  *
  * @group content
+ * @group person
  */
 class PersonCest {
 
@@ -96,9 +97,10 @@ class PersonCest {
 
     // Revision Delete is enabled.
     $I->amOnPage('/admin/structure/types/manage/stanford_person');
-    $I->seeCheckboxIsChecked('#edit-node-revision-delete-track');
-    $I->seeCheckboxIsChecked('#edit-options-revision');
-    $I->seeInField('#edit-minimum-revisions-to-keep', 5);
+    // "Delete revisions when a certain amount of revisions is reached."
+    // settings.
+    $I->seeCheckboxIsChecked("#edit-amount-status");
+    $I->seeInField("#edit-amount-settings-amount", 5);
 
     // XML Sitemap.
     $I->amOnPage('/admin/config/search/xmlsitemap/settings');
@@ -176,6 +178,7 @@ class PersonCest {
     $I->selectOption('Parent term', '<root>');
     $I->click('Save');
     $I->amOnPage('/user/logout');
+    $I->click('Log out', 'form');
 
     $I->amOnPage('/people');
     $I->canSeeLink($term3->label());
@@ -185,6 +188,7 @@ class PersonCest {
     $I->selectOption('Parent term', $term2->label());
     $I->click('Save');
     $I->amOnPage('/user/logout');
+    $I->click('Log out', 'form');
 
     $I->amOnPage('/people');
     $I->cantSeeLink($term3->label());
