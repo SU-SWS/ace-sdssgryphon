@@ -17,6 +17,13 @@ class RolesCest {
   protected $state = [];
 
   /**
+   * Faker service.
+   *
+   * @var \Faker\Generator
+   */
+  protected $faker;
+
+  /**
    * Save some state values before the tests run.
    *
    * @param \FunctionalTester $I

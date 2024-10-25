@@ -42,6 +42,7 @@ class EventSubscriberTest extends KernelTestBase {
     'serialization',
     'media',
     'test_stanford_profile',
+    'samlauth',
   ];
 
   /**
