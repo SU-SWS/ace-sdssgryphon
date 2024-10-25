@@ -62,9 +62,7 @@ class EventSubscriber implements EventSubscriberInterface {
     return [
       DefaultContentEvents::IMPORT => 'onContentImport',
       EntityHookEvents::ENTITY_INSERT => 'onEntityInsert',
-      EntityHookEvents::ENTITY_PRE_SAVE => 'onEntityPreSave',
-      EntityHookEvents::ENTITY_DELETE => 'onEntityDelete',
-      KernelEvents::REQUEST => 'onKernelRequest',
+      EntityHookEvents::ENTITY_DELETE => 'onEntityDelete'
     ];
   }
 
@@ -97,82 +95,7 @@ class EventSubscriber implements EventSubscriberInterface {
     }
   }
 
-  /**
-   * On saving the config page, set the renewal date field.
-   *
-   * @param \Drupal\core_event_dispatcher\Event\Entity\EntityPresaveEvent $event
-   *   Entity presave event.
-   */
-  public function onEntityPreSave(EntityPresaveEvent $event) {
-    $entity = $event->getEntity();
-    if (
-      $entity->getEntityTypeId() == 'config_pages' &&
-      $entity->bundle() == 'stanford_basic_site_settings'
-    ) {
-      $renewal_date = time() + (InstallerKernel::installationAttempted() ? 0 : 60 * 60 * 24 * 365);
-      $entity->set('su_site_renewal_due', date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT, $renewal_date));
-      Cache::invalidateTags(['site-renew-date']);
-    }
-  }
-
-  /**
-   * On kernel request, redirect the user to update contact information.
-   *
-   * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
-   *   Triggered event.
-   */
-  public function onKernelRequest(RequestEvent $event) {
-    $current_uri = $event->getRequest()->getRequestUri();
-
-    if (
-      $event->getRequestType() == HttpKernelInterface::MAIN_REQUEST &&
-      !str_starts_with($current_uri, '/admin/config/system/basic-site-settings') &&
-      self::redirectUser()
-    ) {
-      $config_page_url = Url::fromRoute('config_pages.stanford_basic_site_settings', [], ['query' => ['destination' => $current_uri]]);
-      $this->messenger->addWarning('Please update or verify the site contact information on the "Site Contacts" tab.');
-      $event->setResponse(new RedirectResponse($config_page_url->toString() . '#contact'));
-    }
-  }
-
-  /**
-   * Check if the current user should be redirected to the site settings form.
-   *
-   * @return bool
-   *   Redirect the user.
-   */
-  protected static function redirectUser() {
-    $current_user = \Drupal::currentUser();
-    $cache = \Drupal::cache();
-
-    /** @var \Drupal\Core\Routing\CurrentRouteMatch $route_match */
-    $route_match = \Drupal::service('current_route_match');
-    $name = $route_match->getCurrentRouteMatch()->getRouteName();
-    if (in_array($name, ['system.css_asset', 'system.js_asset'])) {
-      return FALSE;
-    }
-
-    if ($cache_data = $cache->get('su_renew_site:' . $current_user->id())) {
-      return $cache_data->data;
-    }
-
-    /** @var \Drupal\config_pages\ConfigPagesLoaderServiceInterface $config_page_loader */
-    $config_page_loader = \Drupal::service('config_pages.loader');
-    $renewal_date = $config_page_loader->getValue('stanford_basic_site_settings', 'su_site_renewal_due', 0, 'value') ?: date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
-
-    // Check for config page edit access and ignore if the user is an
-    // administrator. That way devs don't get forced into submitting the form.
-
-    $site_manager = $current_user->hasPermission('edit stanford_basic_site_settings config page entity') && !in_array('administrator', $current_user->getRoles());
-
-    // If the renewal date has passed, they should be redirected.
-    $needs_renewal = !getenv('CI') && $site_manager && (strtotime($renewal_date) - time() < 60 * 60 * 24);
-    $cache->set('su_renew_site:' . $current_user->id(), $needs_renewal, time() + 60 * 60 * 24, ['site-renew-date']);
-
-    return $needs_renewal;
-  }
-
-  /**
+    /**
    * On entity delete event.
    *
    * @param \Drupal\core_event_dispatcher\Event\Entity\EntityDeleteEvent $event
