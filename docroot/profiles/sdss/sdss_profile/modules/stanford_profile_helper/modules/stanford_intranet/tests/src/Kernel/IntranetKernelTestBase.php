@@ -54,5 +54,4 @@ abstract class IntranetKernelTestBase extends KernelTestBase {
 
     \Drupal::service('module_installer')->install(['stanford_intranet']);
   }
-
 }
