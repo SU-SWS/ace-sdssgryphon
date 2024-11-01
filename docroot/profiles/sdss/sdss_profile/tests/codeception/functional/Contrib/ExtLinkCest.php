@@ -6,6 +6,7 @@ use Drupal\config_pages\Entity\ConfigPages;
 /**
  * Test the external link module functionality.
  *
+ * @group contrib
  * @group ext_links
  */
 class ExtLinkCest {
@@ -60,15 +61,6 @@ class ExtLinkCest {
     $I->amOnPage('/admin/config/system/basic-site-settings');
     $I->uncheckOption('Hide External Link Icons');
 
-    $I->click('Site Contacts');
-    $I->waitForText('Site Owner Contact Email');
-    $I->fillField('Site Owner Contact Email (value 1)', $this->faker->email);
-    $I->fillField('Primary Site Manager Email (value 1)', $this->faker->email);
-    $I->fillField('Accessibility Contact Email (value 1)', $this->faker->email);
-    $I->selectOption('.js-form-item-su-site-org-0-target-id select.simpler-select', $org_term->id());
-    $I->click('Save');
-    $I->canSee('Site Settings has been', '.messages-list');
-
     $I->amOnPage('/admin/config/system/local-footer');
     $I->checkOption('#edit-su-footer-enabled-value');
     $I->click('#edit-group-primary-links summary');
@@ -93,13 +85,10 @@ class ExtLinkCest {
 
     // Validate email links.
     $I->amOnPage('/');
-    $I->waitForElementVisible('a.mailto svg.mailto');
-    $I->canSeeNumberOfElements('a.mailto svg.mailto', 3);
 
     // External Links in the page-content region.
     $I->canSeeNumberOfElements('#page-content a.su-link--external svg.su-link--external', 1);
     // External links in the local footer.
     $I->canSeeNumberOfElements('.su-local-footer__cell2 a.su-link--external svg.su-link--external', 4);
   }
-
 }

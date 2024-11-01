@@ -23,7 +23,8 @@ class EventsCest {
   /**
    * Mini calendar display.
    *
-   * @group mini-calendar
+   * @group events
+   * @group mini_calendar
    */
   public function testMiniCalendar(FunctionalTester $I) {
     $events = [];

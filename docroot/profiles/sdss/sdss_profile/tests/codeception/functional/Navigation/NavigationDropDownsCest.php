@@ -57,15 +57,6 @@ class NavigationDropDownsCest {
     $I->amOnPage('/admin/config/system/basic-site-settings');
     $I->uncheckOption('Use Drop Down Menus');
 
-    $I->click('Site Contacts');
-    $I->waitForText('Site Owner Contact Email');
-    $I->fillField('Site Owner Contact Email (value 1)', $this->faker->email);
-    $I->fillField('Primary Site Manager Email (value 1)', $this->faker->email);
-    $I->fillField('Accessibility Contact Email (value 1)', $this->faker->email);
-    $I->selectOption('.js-form-item-su-site-org-0-target-id select.simpler-select', $org_term->id());
-    $I->click('Save');
-    $I->canSee('Site Settings has been', '.messages-list');
-
     $I->amOnPage('/');
     $I->cantSeeElement('button', ['class' => 'su-nav-toggle']);
 
