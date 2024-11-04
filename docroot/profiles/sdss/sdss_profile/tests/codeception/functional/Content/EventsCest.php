@@ -4,6 +4,12 @@ use Faker\Factory;
 use Drupal\layout_builder\Section;
 use Drupal\layout_builder\SectionComponent;
 
+/**
+ * Test the events functionality.
+ *
+ * @group content
+ * @group events
+ */
 class EventsCest {
 
   /**
@@ -23,7 +29,6 @@ class EventsCest {
   /**
    * Mini calendar display.
    *
-   * @group events
    * @group mini_calendar
    */
   public function testMiniCalendar(FunctionalTester $I) {
@@ -73,6 +78,7 @@ class EventsCest {
         ->get(0)
         ->get('value')
         ->getString();
+      var_dump($start_timestamp);
 
       $button_label = date('M jS Y', $start_timestamp);
 
