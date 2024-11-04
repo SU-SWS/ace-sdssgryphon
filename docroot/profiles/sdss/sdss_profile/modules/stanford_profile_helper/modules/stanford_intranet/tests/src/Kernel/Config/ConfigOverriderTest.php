@@ -9,6 +9,7 @@ use Drupal\Tests\stanford_intranet\Kernel\IntranetKernelTestBase;
  * Class ConfigOverriderTest.
  *
  * @coversDefaultClass \Drupal\stanford_intranet\Config\ConfigOverrider
+ * @group stanford_intranet
  */
 class ConfigOverriderTest extends IntranetKernelTestBase {
 
