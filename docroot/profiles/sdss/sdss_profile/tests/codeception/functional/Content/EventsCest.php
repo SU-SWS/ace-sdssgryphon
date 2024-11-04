@@ -78,7 +78,6 @@ class EventsCest {
         ->get(0)
         ->get('value')
         ->getString();
-      var_dump($start_timestamp);
 
       $button_label = date('M jS Y', $start_timestamp);
 
