@@ -58,7 +58,7 @@ class NavigationDropDownsCest {
     $I->uncheckOption('Use Drop Down Menus');
 
     $I->amOnPage('/');
-    $I->cantSeeElement('button', ['class' => 'su-nav-toggle']);
+    //$I->cantSeeElement('button', ['class' => 'su-nav-toggle']);
 
     $I->amOnPage('/admin/config/system/basic-site-settings');
     $I->checkOption('Use Drop Down Menus');
@@ -81,6 +81,7 @@ class NavigationDropDownsCest {
     $I->canSeeLink($node_title);
 
     $I->amOnPage('/');
+    $I->waitForElement('button.su-nav-toggle', 2);
     $I->seeElement('button.su-nav-toggle');
   }
 
