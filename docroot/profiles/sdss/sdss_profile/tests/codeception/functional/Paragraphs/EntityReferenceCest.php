@@ -4,6 +4,8 @@ use Faker\Factory;
 
 /**
  * Class EntityReferenceCest.
+ *
+ * @group paragraphs
  */
 class EntityReferenceCest {
 

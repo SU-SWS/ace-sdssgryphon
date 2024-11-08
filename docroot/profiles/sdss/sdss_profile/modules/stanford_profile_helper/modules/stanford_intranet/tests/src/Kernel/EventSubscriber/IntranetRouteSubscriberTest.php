@@ -19,6 +19,8 @@ use Symfony\Component\Routing\RouteCollection;
 
 /**
  * Route subscriber.
+ *
+ * @group stanford_intranet
  */
 class IntranetRouteSubscriberTest extends KernelTestBase {
 
