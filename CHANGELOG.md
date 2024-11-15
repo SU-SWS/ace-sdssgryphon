@@ -7,6 +7,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.6.2] - 2024-10-16
+
+### Removed
+dfdebfd0 SDSS-1376: Remove "/r25/*/calendar" from block.stanford_basic.pagetitle (#496)
+f62c0859 SDSS-1374: Drop featured filter from events this week RSS feed view (#495)
+f278e47f SDSS-1369: Uninstall minimally_branded_subtheme (#493)
+2c870628 SDSS-1281: Removed decanter from stanford_basic (#492)
+
+### Fixed
+74cd07a8 SDSS-1379: Set default value for Featured field (#504)
+463cd60c Update search_api index processors to better handle URL's in text (#503)
+0f5938b6 SDSS-1378: FIX | Set default value for explore more picker (#502)
+a208304c SDSS-1377: Set default value for Imported via News Sharing field (#501)
+
+### Maintenance
+0aa9dc29 SDSS-1376: Update stanford_earth_r25 to v8.1.14 (#498)
+459f406f SDSS-1376: Update stanford_earth_r25 module to 8.1.13 (#497)
+28f8b3b9 SDSS-1362: Routine maintenance (#494)
+856701d5 SDSS-000: Add patch to remove defunct placeimg URL from unit test (#500)
+b7c111b2 SDSS-000: Changed drupal core constraint (#499)
+ff978a45 SDSS-1367: Deprecated and updated inclusion of Drupal merge request patches (#491)
+7fcaa8ad SDSS-1313: Consolidated stanford_profile_helper into the sdss_profile (#489)
+e573ba13 SDSS-1366: Consolidated drupal-patches into SDSS (#490)
+
+
 ## [4.6.1] - 2024-09-06
 
 ### Fixed

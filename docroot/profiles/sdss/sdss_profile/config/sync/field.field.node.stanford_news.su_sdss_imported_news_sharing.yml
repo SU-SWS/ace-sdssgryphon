@@ -13,7 +13,9 @@ label: 'Imported via News Sharing'
 description: 'This content was imported from another site through News Sharing.'
 required: false
 translatable: true
-default_value: {  }
+default_value:
+  -
+    value: 0
 default_value_callback: ''
 settings:
   on_label: 'Yes'
