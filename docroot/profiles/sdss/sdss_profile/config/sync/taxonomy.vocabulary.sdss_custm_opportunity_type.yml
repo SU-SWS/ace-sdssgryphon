@@ -22,3 +22,4 @@ name: 'Opportunity Type'
 vid: sdss_custm_opportunity_type
 description: 'Terms for categorizing opportunities'
 weight: 0
+new_revision: false

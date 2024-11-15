@@ -2,5 +2,5 @@ name: SDSS Entities
 type: module
 description: Provides Custom Entity Types for SDSS
 package: SDSS Stanford
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10.3 || ^11
 dependencies: { }

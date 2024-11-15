@@ -309,6 +309,8 @@ class Citation extends ContentEntityBase implements CitationInterface {
     if ($field = $this->getFieldName($data_name)) {
       return $this->get($field)->getString();
     }
+
+    return '';
   }
 
   /**

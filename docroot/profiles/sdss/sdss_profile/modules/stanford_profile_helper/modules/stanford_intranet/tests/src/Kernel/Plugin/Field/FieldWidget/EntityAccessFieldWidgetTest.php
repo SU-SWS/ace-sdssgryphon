@@ -10,6 +10,11 @@ use Drupal\Tests\stanford_intranet\Kernel\IntranetKernelTestBase;
 use Drupal\user\Entity\Role;
 use Drupal\user\Entity\User;
 
+/**
+ * Test entity access field widget.
+ *
+ * @group stanford_intranet
+ */
 class EntityAccessFieldWidgetTest extends IntranetKernelTestBase {
 
   /**
@@ -21,7 +26,7 @@ class EntityAccessFieldWidgetTest extends IntranetKernelTestBase {
    * {@inheritDoc}
    */
   public function setup(): void {
-    parent::setUp();
+    parent::setup();
 
     /** @var \Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display */
     $form_display = EntityFormDisplay::create([

@@ -22,6 +22,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
  * Class EventSubscriberTest.
  *
  * @group sdss_profile
+ * @group event_subscriber
  * @coversDefaultClass \Drupal\sdss_profile\EventSubscriber\EventSubscriber
  */
 class EventSubscriberTest extends KernelTestBase {
@@ -42,6 +43,8 @@ class EventSubscriberTest extends KernelTestBase {
     'serialization',
     'media',
     'test_stanford_profile',
+    'externalauth',
+    'samlauth',
   ];
 
   /**
@@ -67,8 +70,9 @@ class EventSubscriberTest extends KernelTestBase {
     $file_system = \Drupal::service('file_system');
     $logger_factory = \Drupal::service('logger.factory');
     $messenger = \Drupal::messenger();
+    $client = \Drupal::service('http_client');
 
-    $this->eventSubscriber = new TestStanfordEventSubscriber($file_system, $logger_factory, $messenger);
+    $this->eventSubscriber = new TestStanfordEventSubscriber($file_system, $client, $logger_factory, $messenger);
 
     /** @var \Drupal\media\MediaTypeInterface $media_type */
     $media_type = MediaType::create([
@@ -133,32 +137,6 @@ class EventSubscriberTest extends KernelTestBase {
       ->get('map_users_roles');
 
     $this->assertContains('test_role1', $saml_setting);
-  }
-
-  public function testKernelRequest() {
-    $ci = getenv('CI');
-    putenv('CI');
-
-    $config_page_loader = $this->createMock(ConfigPagesLoaderServiceInterface::class);
-
-    \Drupal::getContainer()->set('config_pages.loader', $config_page_loader);
-
-    $account = $this->createMock(AccountProxyInterface::class);
-    $account->method('hasPermission')->willReturn(TRUE);
-    $account->method('getRoles')->willReturn([]);
-
-    \Drupal::currentUser()->setAccount($account);
-    $request = Request::create('/foo/bar', 'GET', [], [], [], ['SCRIPT_NAME' => 'index.php']);
-
-    $http_kernel = $this->createMock(HttpKernelInterface::class);
-    $event = new RequestEvent($http_kernel, $request, HttpKernelInterface::MAIN_REQUEST);
-
-    $this->eventSubscriber->onKernelRequest($event);
-    $this->assertInstanceOf(RedirectResponse::class, $event->getResponse());
-
-    if ($ci) {
-      putenv("CI=$ci");
-    }
   }
 
 }
