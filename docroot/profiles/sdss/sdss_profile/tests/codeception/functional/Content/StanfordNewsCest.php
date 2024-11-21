@@ -4,6 +4,9 @@ use Faker\Factory;
 
 /**
  * Test the news functionality.
+ *
+ * @group content
+ * @group news
  */
 class StanfordNewsCest {
 

@@ -3,8 +3,13 @@
 use Faker\Factory;
 use Drupal\layout_builder\Section;
 use Drupal\layout_builder\SectionComponent;
-use Facebook\WebDriver\WebDriverElement;
 
+/**
+ * Test the events functionality.
+ *
+ * @group content
+ * @group events
+ */
 class EventsCest {
 
   /**
@@ -24,7 +29,7 @@ class EventsCest {
   /**
    * Mini calendar display.
    *
-   * @group mini-calendar
+   * @group mini_calendar
    */
   public function testMiniCalendar(FunctionalTester $I) {
     $events = [];
@@ -85,5 +90,4 @@ class EventsCest {
       $I->click('Next Month');
     }
   }
-
 }

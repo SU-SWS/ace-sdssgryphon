@@ -7,6 +7,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.7.0] - 2024-11-21
+
+### Maintenance
+ac4907ea SDSS-1314: Drupal 10.3 / PHP 8.3 (#510)
+d680167c SDSS-1394: Update stanford_circle image style image mask file path (#508)
+
+
 ## [4.6.2] - 2024-10-16
 
 ### Removed

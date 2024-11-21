@@ -5,6 +5,7 @@
  * stanford_profile_helper_helper.module
  */
 
+use Drupal\Component\Serialization\Yaml;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockPluginInterface;
@@ -14,11 +15,11 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Extension\Extension;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Render\Element;
-use Drupal\Core\Serialization\Yaml;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Url;
@@ -88,7 +89,6 @@ function stanford_profile_helper_cron() {
   $site_managers = $config_pages->getValue('stanford_basic_site_settings', 'su_site_tech_contact', [], 'value');
   $ally = $config_pages->getValue('stanford_basic_site_settings', 'su_site_a11y_contact', [], 'value');
   $org_ids = $config_pages->getValue('stanford_basic_site_settings', 'su_site_org', [], 'target_id');
-  $renewal_date = $config_pages->getValue('stanford_basic_site_settings', 'su_site_renewal_due', 0, 'value');
 
   $orgs = \Drupal::entityTypeManager()
     ->getStorage('taxonomy_term')
@@ -105,13 +105,12 @@ function stanford_profile_helper_cron() {
     'siteManagers' => $site_managers ?: [],
     'accessibility' => $ally ?: [],
     'organizations' => array_values($orgs) ?: [],
-    'renewalDate' => $renewal_date,
   ];
   $uri = 'private://stanford';
   $directory = \Drupal::service('stream_wrapper_manager')->normalizeUri($uri);
   $file_system = \Drupal::service('file_system');
   $file_system->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
-  $file_system->saveData(json_encode($site_information, JSON_PRETTY_PRINT), "$directory/site-info.json", FileSystemInterface::EXISTS_REPLACE);
+  $file_system->saveData(json_encode($site_information, JSON_PRETTY_PRINT), "$directory/site-info.json", FileExists::Replace);
 }
 
 /**
@@ -1125,7 +1124,7 @@ function stanford_profile_helper_entity_view(array &$build, EntityInterface $ent
   }
   // We must have modified some stuff, so call the DS module function.
   if ($list_render_arrays) {
-    ds_entity_view_alter($build, $entity, $display, $view_mode);
+    ds_entity_view_alter($build, $entity, $display);
   }
 
   foreach ($list_render_arrays as $field => $render_array) {
