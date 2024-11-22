@@ -1,0 +1,17 @@
+uuid: 997303a5-74b6-4b90-81b6-7773797aafc0
+langcode: en
+status: true
+dependencies: {  }
+id: stanford_person_tagging
+label: 'Stanford Person Tagging'
+token: false
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/config/importers/person-tagging
+  weight: 0
+  description: ''

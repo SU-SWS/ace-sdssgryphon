@@ -1,0 +1,10 @@
+uuid: 61455c26-825b-44e7-9567-a2da126d1c03
+langcode: en
+status: true
+dependencies: {  }
+id: stanford_person_tagging
+label: 'Stanford Person Tagging'
+icon_uuid: null
+icon_default: null
+description: 'Field pair for tagging imported Person content by taxonomy term based on workgroups.'
+behavior_plugins: {  }

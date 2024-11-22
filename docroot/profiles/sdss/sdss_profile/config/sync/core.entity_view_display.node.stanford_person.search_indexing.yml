@@ -32,8 +32,10 @@ dependencies:
     - field.field.node.stanford_person.su_person_research_interests
     - field.field.node.stanford_person.su_person_scholarly_interests
     - field.field.node.stanford_person.su_person_short_title
+    - field.field.node.stanford_person.su_person_sunetid
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
+    - field.field.node.stanford_person.su_person_wg_tags
     - field.field.node.stanford_person.su_sdss_person_alt_bio
     - field.field.node.stanford_person.su_sdss_person_alt_title
     - field.field.node.stanford_person.su_sdss_person_focal_areas
@@ -277,6 +279,8 @@ hidden:
   stanford_intranet__access: true
   su_metatags: true
   su_person_pronouns: true
+  su_person_sunetid: true
+  su_person_wg_tags: true
   su_sdss_person_alt_bio: true
   su_sdss_person_alt_title: true
   su_sdss_person_focal_areas: true

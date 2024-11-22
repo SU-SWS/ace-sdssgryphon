@@ -1,0 +1,31 @@
+uuid: 94f9e048-5c13-4fe4-9293-008b5c7fdc2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.stanford_person_tagging.su_person_tagging_term
+    - field.field.paragraph.stanford_person_tagging.su_person_tagging_wg
+    - paragraphs.paragraphs_type.stanford_person_tagging
+id: paragraph.stanford_person_tagging.default
+targetEntityType: paragraph
+bundle: stanford_person_tagging
+mode: default
+content:
+  su_person_tagging_term:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  su_person_tagging_wg:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

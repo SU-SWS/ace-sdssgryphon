@@ -1,0 +1,31 @@
+uuid: cdf57109-45a0-4a63-a71c-338c8484eaee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_person_tagging_term
+    - paragraphs.paragraphs_type.stanford_person_tagging
+    - taxonomy.vocabulary.sdss_organization
+    - taxonomy.vocabulary.stanford_person_types
+id: paragraph.stanford_person_tagging.su_person_tagging_term
+field_name: su_person_tagging_term
+entity_type: paragraph
+bundle: stanford_person_tagging
+label: 'Person Tagging Term'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_organization: sdss_organization
+      stanford_person_types: stanford_person_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: sdss_organization
+field_type: entity_reference

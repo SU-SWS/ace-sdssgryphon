@@ -32,8 +32,10 @@ dependencies:
     - field.field.node.stanford_person.su_person_research_interests
     - field.field.node.stanford_person.su_person_scholarly_interests
     - field.field.node.stanford_person.su_person_short_title
+    - field.field.node.stanford_person.su_person_sunetid
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
+    - field.field.node.stanford_person.su_person_wg_tags
     - field.field.node.stanford_person.su_sdss_person_alt_bio
     - field.field.node.stanford_person.su_sdss_person_alt_title
     - field.field.node.stanford_person.su_sdss_person_focal_areas
@@ -89,6 +91,7 @@ content:
       view_mode: default
       link: false
       image_style: responsive_1_1
+      remove_alt: false
     third_party_settings:
       field_formatter_class:
         class: ''
@@ -131,8 +134,10 @@ hidden:
   su_person_research: true
   su_person_research_interests: true
   su_person_scholarly_interests: true
+  su_person_sunetid: true
   su_person_telephone: true
   su_person_type_group: true
+  su_person_wg_tags: true
   su_sdss_person_alt_bio: true
   su_sdss_person_alt_title: true
   su_sdss_person_focal_areas: true
