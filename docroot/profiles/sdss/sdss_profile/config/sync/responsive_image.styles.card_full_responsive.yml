@@ -1,0 +1,57 @@
+uuid: d23ff68a-4735-4a05-8fe1-1956d24f8985
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.card_3_2_480x320_
+    - image.style.card_3_2_960x640_
+    - image.style.square_478
+  module:
+    - stanford_media
+_core:
+  default_config_hash: 87YDNYUvaTv6bZRJVF4DsV7apqKNcQIY5xTHMC97ZjM
+id: card_full_responsive
+label: 'Card Full Responsive'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: card_3_2_960x640_
+    breakpoint_id: stanford_media.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_3_2_960x640_
+    breakpoint_id: stanford_media.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_3_2_480x320_
+    breakpoint_id: stanford_media.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_478
+    breakpoint_id: stanford_media.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_478
+    breakpoint_id: stanford_media.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: card_3_2_960x640_
+    breakpoint_id: stanford_media.md
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_478
+    breakpoint_id: stanford_media.sm
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_478
+    breakpoint_id: stanford_media.xs
+    multiplier: 2x
+breakpoint_group: stanford_media
+fallback_image_style: card_3_2_960x640_
