@@ -7,7 +7,7 @@ import {buildMenuTree, MenuContentItem} from "./tools/build-menu-tree";
 import {DRUPAL_DOMAIN} from './config/env'
 import OutsideClickHandler from "./components/outside-click-handler";
 import Caret from "./components/caret";
-import Hamburger from "./components/hamburger";
+import Hamburger from "./components/newsroom-mobile-button";
 import Close from "./components/close";
 import MagnifyingGlass from "./components/magnifying-glass";
 import Logo from "./components/logo";
@@ -70,6 +70,8 @@ const MobileMenuButton = styled.button`
   border: 0;
   border-bottom: 2px solid transparent;
   color: #ffffff;
+  fill: #ffffff;
+  stroke: #ffffff;
   padding: 0;
   display: flex;
   flex-direction: column;

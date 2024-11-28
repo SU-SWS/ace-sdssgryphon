@@ -89,7 +89,7 @@
 decoupled_menu:
   js:
     decoupled-menu/dist/islands/newsroom-menu.island.umd.js: { minified: true }
-
+    decoupled-menu/dist/islands/main-menu.island.umd.js: { minified: true }
 
 sdss:
   css:
