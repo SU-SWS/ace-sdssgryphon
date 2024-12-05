@@ -18,20 +18,20 @@
 // Primary hover/focus/active/disabled buttons
 @mixin sdss-button-primary--hover {
   background: $sdss-color-green-hover;
-  color: $sdss-color-black;
+  color: $sdss-color-white;
   cursor: pointer;
   text-decoration: underline;
 
   & svg.mailto {
-    fill: $sdss-color-black;
+    fill: $sdss-color-white;
   }
 }
 
 @mixin sdss-button-primary--focus {
   outline: 3px solid $sdss-color-palo-alto-dark;
-  background-color: $sdss-color-green-bright;
+  background-color: $sdss-color-green-link;
   box-shadow: none;
-  color: $sdss-color-palo-alto-dark;
+  color: $sdss-color-white;
   text-decoration: underline;
 }
 
@@ -104,9 +104,8 @@
   @include button-primary;
   @include sdss-button-primary--hover-and-focus;
 
-  background: $sdss-color-green-bright;
-  border-radius: 3rem;
-  color: $sdss-color-black;
+  background: $sdss-color-palo-alto-dark;
+  color: $sdss-color-white;
   font-weight: $su-font-regular;
   line-height: 1.15;
   margin: 0 .3rem .3rem;
@@ -114,7 +113,7 @@
   transition: background-color .25s ease-in-out,color .25s ease-in-out,border-color .25s ease-in-out;
 
   &::after {
-    background-color: $sdss-color-black;
+    background-color: $sdss-color-white;
   }
 }
 
@@ -122,15 +121,14 @@
   @include button-big;
   @include sdss-button-primary--hover-and-focus;
 
-  background: $sdss-color-green-bright;
-  border-radius: 3.5rem;
-  color: $sdss-color-black;
+  background: $sdss-color-palo-alto-dark;
+  color: $sdss-color-white;
   margin: 0 .3rem .3rem;
   text-decoration: none;
   transition: background-color .25s ease-in-out,color .25s ease-in-out,border-color .25s ease-in-out;
 
   &::after {
-    background-color: $sdss-color-black;
+    background-color: $sdss-color-white;
   }
 }
 
@@ -142,7 +140,6 @@
   background: transparent;
   color: $sdss-color-palo-alto-dark;
   border: 1px solid $sdss-color-palo-alto-dark;
-  border-radius: 3rem;
   font-weight: $su-font-regular;
   line-height: 1.15;
   margin: 0 .3rem .3rem;
@@ -161,7 +158,6 @@
   color: $sdss-color-white;
   border: 1px solid $sdss-color-white;
   text-decoration: none;
-  border-radius: 3rem;
   font-weight: $su-font-regular;
   line-height: 1.15;
   margin: 0 .3rem .3rem;
@@ -178,7 +174,6 @@
   @include button-primary;
 
   background: $su-color-bright-red;
-  border-radius: 3rem;
   font-weight: $su-font-regular;
   line-height: 1.15;
 }
@@ -188,7 +183,7 @@
     @include sdss-button-primary--hover;
 
     &::after {
-      background-color: $sdss-color-black;
+      background-color: $sdss-color-white;
     }
   }
 
