@@ -27,8 +27,7 @@
       &.su-button--big,
       &.su-link--external.su-button,
       &.su-link--external.su-button--big {
-        color: $sdss-color-palo-alto-dark;
-        text-decoration: none;
+        @include sdss-button--secondary-neg;
 
         &:hover {
           text-decoration: underline;
