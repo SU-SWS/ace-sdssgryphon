@@ -17,7 +17,7 @@
 
 // Primary hover/focus/active/disabled buttons
 @mixin sdss-button-primary--hover {
-  background: $sdss-color-green-hover;
+  background: $sdss-color-green-link;
   color: $sdss-color-white;
   cursor: pointer;
   text-decoration: underline;
@@ -74,7 +74,7 @@
 // hover/focus/active/disabled buttons
 @mixin sdss-button-secondary-neg--hover {
   background: $sdss-color-green-link;
-  border: 1px solid $sdss-color-green-link;
+  border: 1px solid $sdss-color-white;
   color: $sdss-color-white;
   cursor: pointer;
   text-decoration: underline;
@@ -324,7 +324,7 @@
     background-color: $sdss-color-green-link;
     border-color: $sdss-color-green-link;
   }
-  
+
   &:focus {
     padding: .375em 2rem .8rem;
     outline: 3px solid $sdss-color-green-bright;
