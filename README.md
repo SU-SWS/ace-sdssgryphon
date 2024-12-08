@@ -99,7 +99,7 @@ No other prerequisites are necessary, though you may find it helpful to have PHP
 
 1. Clone this repo to a convenient place in your environment, and change directories to the location to which you cloned it.
 2. In the repo root, run `./lando/setup_lando.sh`.
-3. After the basic installation is complete, it will update the drush aliases, and it will sync down the `sustainability` database and files, and your app should be available at `http://sustainability.lndo.site`. SSO will be configured automatically.
+3. After the basic installation is complete you may be prompted for an Acquia API token, generated [here](https://cloud.acquia.com/app/profile/tokens). Then it will update the drush aliases, and it will sync down the `sustainability` database and files, and your app should be available at `http://sustainability.lndo.site`. SSO will be configured automatically.
 
 
 ---
