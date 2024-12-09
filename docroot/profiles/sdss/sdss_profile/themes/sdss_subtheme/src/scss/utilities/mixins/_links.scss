@@ -209,16 +209,16 @@
 @mixin sdss-link--negative-footer {
   @include sdss-link-negative-footer--hover-and-focus;
 
-  color: $sdss-color-blue-bright;
+  color: $sdss-color-white;
   text-decoration: none;
 
   &::after {
-    background-color: $sdss-color-blue-bright;
+    background-color: $sdss-color-white;
   }
 
   &.mailto {
     svg {
-      fill: $sdss-color-blue-bright;
+      fill: $sdss-color-white;
     }
   }
 }
