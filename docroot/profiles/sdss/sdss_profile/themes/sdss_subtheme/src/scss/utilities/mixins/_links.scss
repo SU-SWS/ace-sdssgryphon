@@ -44,25 +44,25 @@
 
 // Inline textual Links for List, Teaser, Cards, Text Area on dark green background.
 @mixin sdss-inline-textual-link-negative--hover {
-  color: $sdss-color-green-bright;
+  color: $sdss-color-white;
   cursor: pointer;
   font-weight: $su-font-regular;
   text-decoration: none;
 
   & svg.mailto {
-    fill: $sdss-color-green-bright;
+    fill: $sdss-color-white;
   }
 }
 
 @mixin sdss-inline-textual-link-negative--focus {
-  color: $sdss-color-green-bright;
+  color: $sdss-color-white;
   outline: 1px solid $sdss-color-white;
   background-color: transparent;
   text-decoration: none;
 }
 
 @mixin sdss-inline-textual-link-negative--active {
-  color: $sdss-color-green-bright;
+  color: $sdss-color-white;
   outline: 1px solid $sdss-color-white;
   background-color: transparent;
   text-decoration: none;
@@ -258,7 +258,7 @@
     @include sdss-inline-textual-link-negative--hover;
 
     &::after {
-      background-color: $sdss-color-green-bright;
+      background-color: $sdss-color-white;
     }
   }
 
@@ -266,7 +266,7 @@
     @include sdss-inline-textual-link-negative--focus;
 
     &::after {
-      background-color: $sdss-color-green-bright;
+      background-color: $sdss-color-white;
     }
   }
 
@@ -274,7 +274,7 @@
     @include sdss-inline-textual-link-negative--active;
 
     &::after {
-      background-color: $sdss-color-green-bright;
+      background-color: $sdss-color-white;
     }
   }
 }
