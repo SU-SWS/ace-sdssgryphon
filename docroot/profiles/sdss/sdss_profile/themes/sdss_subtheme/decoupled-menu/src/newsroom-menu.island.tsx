@@ -116,6 +116,7 @@ const SearchContainer = styled.li`
     background-color: #FFFFFF;
     color: #155F65;
     border: 1px solid #155f65;
+    border-radius: 32px;
     padding: 8px 18px 10px;
     width: fit-content;
     margin: 0px auto 38px auto;
@@ -124,6 +125,7 @@ const SearchContainer = styled.li`
       box-shadow: none;
       color: #155F65;
       outline: none;
+      border-radius: 999px;
     }
   }
 
@@ -143,12 +145,14 @@ const SearchContainer = styled.li`
       background-color: #FFFFFF;
       color: #155F65;
       border: 1px solid #155f65;
+      border-radius: 32px;
       padding: 8px 18px 10px;
 
       &:focus, &:hover, &:active {
         box-shadow: none;
         color: #155F65;
         outline: none;
+        border-radius: 999px;
       }
     }
 
