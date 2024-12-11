@@ -258,3 +258,57 @@
     }
   }
 }
+
+.layout-paragraphs-sdss-bgcolor--grey,
+.layout-paragraphs-sdss-bgcolor--blue {
+
+  .su-wysiwyg-text {
+    a {
+
+      &.su-button,
+      &.su-button--big,
+      &.su-link--external.su-button,
+      &.su-link--external.su-button--big {
+        @include sdss-button--primary;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:active,
+        &:focus {
+          text-decoration: underline;
+          color: $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+        }
+      }
+
+      &.su-button--secondary,
+      &.su-link--external.su-button-secondary {
+        @include sdss-button--secondary;
+        border: 1px solid $sdss-color-palo-alto-dark;
+        color: $sdss-color-palo-alto-dark;
+        background-color: $sdss-color-white;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:active,
+        &:focus {
+          text-decoration: underline;
+          color: $sdss-color-palo-alto-dark;
+          outline: 1px solid $sdss-color-white;
+          background-color: $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-palo-alto-dark;
+          }
+        }
+      }
+    }
+  }
+}
