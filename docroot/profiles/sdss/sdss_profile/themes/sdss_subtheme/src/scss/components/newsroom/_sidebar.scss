@@ -66,9 +66,9 @@
     @include responsive-spacing('padding-bottom', 1);
   }
 
-  // This option is blue
+  // This option was blue and now is grey
   &.bg_color_option_1 {
-    @include sdss-light-blue--background;
+    background-color: $sdss-color-grey-light;
   }
 
   // Default color is white
