@@ -17,8 +17,7 @@
         grid-template-rows: 1fr 1fr 1fr;
 
         > li:nth-last-child(-n+2) > div {
-          border: 1px solid $sdss-color-blue-bright;
-          border-radius: 40px;
+          border: 1px solid $sdss-color-white;
           padding: 0 56px;
           text-align: center;
           width: fit-content;
@@ -31,7 +30,7 @@
             &:active,
             &:focus {
               background-color: $sdss-color-green-link;
-              color: $sdss-color-blue-bright;
+              color: $sdss-color-white;
               text-decoration: underline;
 
               &:after {
@@ -48,7 +47,7 @@
             &:hover,
             &:active,
             &:focus {
-              color: $sdss-color-blue-bright;
+              color: $sdss-color-white;
               text-decoration: underline;
 
               &:after {
@@ -73,8 +72,7 @@
         grid-template-rows: 1fr 1fr 1fr;
 
         li:nth-last-child(-n+2) > div {
-          border: 1px solid $sdss-color-blue-bright;
-          border-radius: 40px;
+          border: 1px solid $sdss-color-white;
           padding: 0 56px;
           text-align: center;
           width: fit-content;
@@ -87,7 +85,7 @@
             &:active,
             &:focus {
               background-color: $sdss-color-green-link;
-              color: $sdss-color-blue-bright;
+              color: $sdss-color-white;
               text-decoration: underline;
 
               &:after {
@@ -104,7 +102,7 @@
             &:hover,
             &:active,
             &:focus {
-              color: $sdss-color-blue-bright;
+              color: $sdss-color-white;
               text-decoration: underline;
 
               &:after {

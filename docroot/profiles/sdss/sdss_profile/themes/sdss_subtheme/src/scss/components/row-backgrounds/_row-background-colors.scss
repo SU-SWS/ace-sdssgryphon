@@ -34,15 +34,9 @@
   }
 }
 
+// Removed the light blue from the section options.
+// Moved the blue to the light grey color.
 .layout-paragraphs-sdss-bgcolor--blue {
-  background-color: $sdss-color-blue-light;
-
-  article.su-card {
-    background: transparent;
-  }
-}
-
-.layout-paragraphs-sdss-bgcolor--grey {
   background-color: $sdss-color-grey-light;
 
   article.su-card {
