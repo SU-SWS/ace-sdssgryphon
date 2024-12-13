@@ -102,3 +102,17 @@ footer {
   color: $sdss-color-palo-alto-dark;
   border: 1px solid $sdss-color-palo-alto-dark;
 }
+
+a {
+  &.mailto {
+    &.su-button--secondary {
+      svg {
+        fill: $sdss-color-palo-alto-dark;
+      }
+    }
+
+    svg {
+      fill: $sdss-color-palo-alto-dark;
+    }
+  }
+}
