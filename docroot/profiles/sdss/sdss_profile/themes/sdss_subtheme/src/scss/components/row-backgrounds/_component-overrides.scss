@@ -19,6 +19,23 @@
     }
   }
 
+// General button override.
+  div {
+    a {
+
+      &.su-button,
+      &.su-button--big,
+      &.su-button.su-link,
+      &.su-link--external.su-button,
+      &.su-link--external.su-button--big,
+      &.su-button--secondary,
+      &.su-link--external.su-button-secondary {
+        @include sdss-button--secondary-neg;
+        border: 1px solid $su-color-white;
+      }
+    }
+  }
+
   .su-wysiwyg-text {
     a {
       @include sdss-inline-textual-link-negative;
@@ -28,6 +45,7 @@
       &.su-link--external.su-button,
       &.su-link--external.su-button--big {
         @include sdss-button--secondary-neg;
+        border: 1px solid $su-color-white;
 
         &:hover {
           text-decoration: underline;
@@ -49,6 +67,7 @@
       &.su-button--secondary,
       &.su-link--external.su-button-secondary {
         @include sdss-button--secondary-neg;
+        border: 1px solid $su-color-white;
       }
     }
   }
