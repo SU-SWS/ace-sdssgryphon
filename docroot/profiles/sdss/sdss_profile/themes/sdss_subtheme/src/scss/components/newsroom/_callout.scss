@@ -22,7 +22,7 @@
   }
 
   .decoration {
-    color: $sdss-color-decorative-blue;
+    color: $sdss-color-palo-alto-dark;
     font-family: $su-font-serif;
   }
 
@@ -51,11 +51,11 @@
 
   &.bg_color_default {
     // white is the default color
-    border-left: $sdss-color-blue-bright 3px solid;
+    border-left: $sdss-color-palo-alto-dark 3px solid;
   }
 
   &.bg_color_option_1 {
-    @include sdss-light-blue--background;
+    background-color: $sdss-color-grey-light;
   }
 
   .su-callout-quote {
