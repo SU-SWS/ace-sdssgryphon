@@ -28,13 +28,6 @@ footer {
         padding: 1.5rem 3rem 1.8rem;
       }
     }
-
-    &.mailto {
-      svg {
-        fill: $sdss-color-palo-alto-dark;
-      }
-    }
-
   }
 }
 
@@ -98,6 +91,28 @@ footer {
           background-color: $sdss-color-palo-alto-dark;
         }
       }
+    }
+  }
+}
+
+// Back to top
+#back-to-top {
+  border-radius: 0;
+  background-color: $su-color-white;
+  color: $sdss-color-palo-alto-dark;
+  border: 1px solid $sdss-color-palo-alto-dark;
+}
+
+a {
+  &.mailto {
+    &.su-button--secondary {
+      svg {
+        fill: $sdss-color-palo-alto-dark;
+      }
+    }
+
+    svg {
+      fill: $sdss-color-palo-alto-dark;
     }
   }
 }

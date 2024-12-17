@@ -16,7 +16,7 @@ settings:
       label: Default
     -
       value: bg_color_option_1
-      label: Blue
+      label: Grey
   allowed_values_function: ''
 module: options
 locked: false
