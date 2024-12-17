@@ -331,3 +331,14 @@
     }
   }
 }
+
+.layout,
+.layout-paragraphs-sdss-bgcolor {
+  .su-wysiwyg-text {
+    a {
+      &[class^=su-button] {
+        @include responsive-spacing('margin', null 0 0 null);
+      }
+    }
+  }
+}
