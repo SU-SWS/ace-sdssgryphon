@@ -278,9 +278,6 @@
         },
         "enable-patching": true,
         "patches": {
-            "drupal/autologout": {
-                "https://www.drupal.org/project/autologout/issues/3372010": "https://www.drupal.org/files/issues/2024-05-28/autologout_3372010-25.patch"
-            },
             "drupal/colorbox": {
                 "https://www.drupal.org/project/colorbox/issues/3278470": "patches/contrib/colorbox-mr-14.patch"
             },
@@ -303,13 +300,10 @@
                 "https://www.drupal.org/project/diff/issues/2882334#comment-13913401": "patches/contrib/diff-mr-42.patch"
             },
             "drupal/field_encrypt": {
-                "https://www.drupal.org/project/field_encrypt/issues/3299175": "patches/contrib/field_encrypt-mr-31.patch"
+                "https://www.drupal.org/project/field_encrypt/issues/3299175": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/field_encrypt-3299175-3_2_0.patch"
             },
             "drupal/field_group": {
                 "https://www.drupal.org/project/field_group/issues/2969051": "https://www.drupal.org/files/issues/2024-08-05/2787179-highlight-html5-validation-101.patch"
-            },
-            "drupal/google_analytics": {
-                "https://www.drupal.org/project/google_analytics/issues/3373921": "https://www.drupal.org/files/issues/2023-08-07/google-analytics-issues-3373921-cannot-install-from-existing-config-11.patch"
             },
             "drupal/google_tag": {
                 "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"

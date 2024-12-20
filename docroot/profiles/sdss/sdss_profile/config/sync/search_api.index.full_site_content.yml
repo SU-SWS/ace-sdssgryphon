@@ -3,13 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.search_indexing
     - field.storage.node.su_news_topics
     - field.storage.node.su_sdss_media_mention
     - search_api.server.database_search
-    - core.entity_view_mode.node.search_indexing
   module:
     - node
-    - search_api
 id: full_site_content
 name: 'Full Site Content'
 description: ''
