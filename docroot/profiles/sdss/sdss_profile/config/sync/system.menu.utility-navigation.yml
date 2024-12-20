@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: utility-navigation
 label: 'Utility Navigation'
-description: 'Suplemental site navigation'
+description: 'Supplemental site navigation'
 locked: false
