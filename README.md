@@ -19,6 +19,7 @@ The primary theme for SDSS is the `sdss_subtheme` located in the `sdss_profile`.
    3. In GitPod, add a variable named `SSH_PRIVATE_KEY` with the base64 encoded private key
    4. In GitPod, add a variable named `SSH_PUBLIC_KEY` with the base64 encoded public key
    5. In Gitpod, add a variable named `GITCONFIG` with your base64 encoded git config
+      - NOTE: Verify that the `fetch = +refs/heads/*:refs/remotes/origin/*`line is not present in the git config as it prevents the installtion of development packages.
 2. Recommended, but not required:
    1. Install the GitPod browser plugin
    2. Configure your browser settings for an easier experience: https://www.gitpod.io/docs/configure/browser-settings
