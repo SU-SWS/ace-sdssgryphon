@@ -1,0 +1,12 @@
+project:
+  machine_name: energy_transition_analysis
+  human_name: energy_transition_analysis
+  local:
+    protocol: http
+    hostname: local.energy_transition_analysis.com
+drush:
+  aliases:
+    local: energy_transition_analysis.local
+    remote: energy_transition_analysis.prod
+drupal:
+  db: {  }

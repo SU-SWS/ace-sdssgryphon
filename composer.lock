@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "201c57c5157a51d5bb6063b157c51105",
+    "content-hash": "44c257e5ffb265b3347b97693c49b9b1",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16363,12 +16363,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/blt-sws.git",
-                "reference": "33ba40603025eaef51bbb085b8051de3f53091a1"
+                "reference": "37e232f243d79dcd3c951be71a9adc0e907a400a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/blt-sws/zipball/33ba40603025eaef51bbb085b8051de3f53091a1",
-                "reference": "33ba40603025eaef51bbb085b8051de3f53091a1",
+                "url": "https://api.github.com/repos/SU-SWS/blt-sws/zipball/37e232f243d79dcd3c951be71a9adc0e907a400a",
+                "reference": "37e232f243d79dcd3c951be71a9adc0e907a400a",
                 "shasum": ""
             },
             "require": {
@@ -16399,7 +16399,7 @@
                 "issues": "https://github.com/SU-SWS/blt-sws/issues",
                 "source": "https://github.com/SU-SWS/blt-sws/tree/main"
             },
-            "time": "2024-11-27T18:31:45+00:00"
+            "time": "2025-01-22T21:09:02+00:00"
         },
         {
             "name": "su-sws/ckeditor5_plugins",
@@ -26839,6 +26839,6 @@
         "php": ">=8.3",
         "ext-imagick": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "plugin-api-version": "2.6.0"
 }

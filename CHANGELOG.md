@@ -7,20 +7,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.7.2] - 2025-01-13
+## [4.7.2] - 2025-01-13 / 2025-01-22
+
+### Added
+7bb8a797 SDSS-1439: Provisioned energy-transition-analysis.stanford.edu. (#530)
 
 ### Maintenance
-Dependency updates
-Field Encrypt patch updated
-
-### Removed
-Autologout patch removed
+f92fe9ea SDSS-1400: December 2024 maintenance and updates. (#527)
+62f8c165 SDSS-1426: Update Gitpod setup documentation (#528)
 
 
 ## [4.7.1] - 2024-12-19
 
 ### Changed
-Quickstrike redesign elements
+56fd16c2 SDSS-1404: Quickstrike color updates (#520)
+
+### Maintenance
+17fefa07 Removed mysql56 dependency
 
 
 ## [4.7.0] - 2024-11-21
