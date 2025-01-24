@@ -1,0 +1,17 @@
+uuid: c71dd2ca-8c8e-4a1e-8757-7eb00d984513
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: card_3_2_720x480
+label: 'Card 3:2 (720x480)'
+effects:
+  668bc595-8cc1-41a4-a11c-4c4a6e73b1f9:
+    uuid: 668bc595-8cc1-41a4-a11c-4c4a6e73b1f9
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 720
+      height: 480
+      crop_type: focal_point

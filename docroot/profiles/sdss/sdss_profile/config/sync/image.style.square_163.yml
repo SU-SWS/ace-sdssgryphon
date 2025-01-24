@@ -1,0 +1,17 @@
+uuid: bdc7aefc-4e1c-4480-93a7-44ff86bcb940
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: square_163
+label: 'Square - 163'
+effects:
+  de8e9cee-112f-46de-b089-c16759cd6397:
+    uuid: de8e9cee-112f-46de-b089-c16759cd6397
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 163
+      height: 163
+      crop_type: focal_point
