@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body {
+  color: $sdss-color-grey-dark;
+}
+
+@include grid-media-min('lg') {
+  .su-media__caption {
+    font-size: 1.8rem;
+  }
+}
+
+.su-font-splash {
+  @include sdss-block-quote--big;
+}

@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+// Override
+.ptype-stanford-lists:not([data-react-columns="12"]) {
+  .su-news-vertical-teaser.su-card {
+    @include responsive-spacing('margin-bottom', 3);
+  }
+}
+
+// News Node
+.su-news-topics {
+  a {
+    @include sdss-newsroom-topics;
+
+    color: $sdss-color-palo-alto-dark;
+  }
+}
+
+.su-sdss-news-dek-long {
+  @include responsive-spacing('margin-bottom', 5);
+
+}
+
+// News list with Green row variant.
+.layout-paragraphs-sdss-bgcolor--green {
+
+  .su-news-list {
+
+    .su-news-list__headline-dek {
+      a {
+        color: $sdss-color-white;
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+        }
+      }
+    }
+
+    .su-news-list__source {
+      color: $sdss-color-white;
+    }
+  }
+
+  .su-basic-page-types-list {
+
+    .su-basic-page-list__title {
+      a {
+        color: $sdss-color-white;
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+        }
+      }
+    }
+  }
+
+  .su-card.su-news-vertical-teaser {
+    .su-content__wrapper {
+      .su-news-vertical-teaser__link {
+
+        &:not(.su-link--external) {
+          &::after {
+            background-color: $sdss-color-white;
+          }
+
+          &:focus,
+          &:hover,
+          &:active {
+            &::after {
+              background-color: $sdss-color-white;
+            }
+          }
+        }
+
+        color: $sdss-color-white;
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+
+        &:focus,
+        &:hover,
+        &:active {
+          color:  $sdss-color-white;
+          text-decoration: underline;
+
+          &::after {
+            background-color:  $sdss-color-white;
+          }
+        }
+      }
+
+      .news-vertical-teaser__source {
+        color: $sdss-color-white;
+      }
+
+      .news-vertical-teaser__topics {
+        a {
+          color: $sdss-color-white;
+  
+          &:focus,
+          &:hover,
+          &:active {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,344 @@
+@charset "UTF-8";
+
+// Row Background Colors
+// layout-paragraphs-sdss-bgcolor--green|Green
+// layout-paragraphs-sdss-bgcolor--blue|Blue
+
+// Lists of cards, events, basic pages, on green backgrounds.
+
+.layout-paragraphs-sdss-bgcolor--green {
+  background-color: $sdss-color-palo-alto-dark;
+  color: $su-color-white;
+
+  table {
+    tbody,
+    thead {
+      th {
+        color: $su-color-white;
+      }
+    }
+  }
+
+// General button override.
+  div {
+    a {
+
+      &.su-button,
+      &.su-button--big,
+      &.su-button.su-link,
+      &.su-link--external.su-button,
+      &.su-link--external.su-button--big,
+      &.su-button--secondary,
+      &.su-link--external.su-button-secondary {
+        @include sdss-button--secondary-neg;
+        border: 1px solid $su-color-white;
+      }
+    }
+  }
+
+  .su-wysiwyg-text {
+    a {
+      @include sdss-inline-textual-link-negative;
+
+      &.su-button,
+      &.su-button--big,
+      &.su-link--external.su-button,
+      &.su-link--external.su-button--big {
+        @include sdss-button--secondary-neg;
+        border: 1px solid $su-color-white;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:active,
+        &:focus {
+          text-decoration: underline;
+          color: $sdss-color-white;
+          background: transparent;
+          outline: 1px solid $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+        }
+      }
+
+      &.su-button--secondary,
+      &.su-link--external.su-button-secondary {
+        @include sdss-button--secondary-neg;
+        border: 1px solid $su-color-white;
+      }
+    }
+  }
+
+  // Padding adjustment for buttons excluding --big.
+  div {
+    a {
+      &.su-button,
+      &.su-link--external.su-button {
+        &:active,
+        &:focus {
+          padding: 0.375em 0.875em;
+        }
+      }
+    }
+  }
+
+  .su-link--action {
+    &::after {
+      background-color: $sdss-color-blue-bright;
+    }
+  }
+
+  figcaption {
+    &.su-media__caption {
+      color: $sdss-color-white;
+    }
+  }
+
+  .stanford-person.grid-list-all {
+    a {
+      h2 {
+        color: $su-color-white;
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-white;
+          text-decoration: underline;
+
+          > h2 {
+            color: $sdss-color-white;
+          }
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+        }
+      }
+    }
+  }
+
+  // Past Event lists.
+  .su-past-event,
+  .su-event--past-events-text {
+    color: $su-color-white;
+  }
+
+  // Publications Lists
+  .stanford-publications.view {
+    .views-field-su-publication-citation  {
+      a {
+        color: $su-color-white;
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $sdss-color-white;
+          text-decoration: underline;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+        }
+      }
+    }
+
+    //Edit content link
+    .views-field-edit-node {
+      a {
+        @include button-secondary;
+        text-align: right;
+      }
+    }
+  }
+
+  .stanford-shared-tags {
+    .ds-entity--stanford-publication {
+      .su-card__contents {
+        > h2 {
+           a {
+            color: $su-color-white;
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: $sdss-color-white;
+              text-decoration: underline;
+
+              &::after {
+                background-color: $sdss-color-white;
+              }
+            }
+
+            &::after {
+              background-color: $sdss-color-white;
+            }
+
+
+          }
+        }
+      }
+    }
+  }
+
+  // .paragraph--type--stanford-entity,
+  .stanford-shared-tags {
+    .ds-entity--stanford-publication {
+      .su-card__contents {
+        .su-publication-topics {
+          a {
+            color: $su-color-white;
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: $sdss-color-white;
+              text-decoration: underline;
+            }
+          }
+        }
+        span {
+          color: $su-color-white;
+        }
+        .stanford-publication.node-title {
+          a {
+            &::after {
+              width: 2.5rem;
+              height: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Fallback color when images are turned off.
+  .paragraph--type--stanford-entity {
+    .su-entity-item {
+      a {
+        color: $su-color-white;
+      }
+    }
+  }
+
+  .paragraph--type--stanford-entity {
+    .ds-entity--stanford-publication {
+      .su-card__contents {
+        .su-publication-topics {
+          a {
+            color: $su-color-white;
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: $sdss-color-white;
+              text-decoration: underline;
+            }
+          }
+        }
+
+        span {
+          color: $su-color-white;
+        }
+
+        > h2 {
+          a {
+            color: $sdss-color-white;
+
+            &::after {
+              background-color: $sdss-color-white;
+              width: 2.5rem;
+              height: 2.5rem;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+              color: $sdss-color-white;
+              text-decoration: underline;
+
+              &::after {
+                background-color: $sdss-color-white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.layout-paragraphs-sdss-bgcolor--grey,
+.layout-paragraphs-sdss-bgcolor--blue {
+
+  .su-wysiwyg-text {
+    a {
+
+      &.su-button,
+      &.su-button--big,
+      &.su-link--external.su-button,
+      &.su-link--external.su-button--big {
+        @include sdss-button--primary;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:active,
+        &:focus {
+          text-decoration: underline;
+          color: $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-white;
+          }
+        }
+      }
+
+      &.su-button--secondary,
+      &.su-link--external.su-button-secondary {
+        @include sdss-button--secondary;
+        border: 1px solid $sdss-color-palo-alto-dark;
+        color: $sdss-color-palo-alto-dark;
+        background-color: $sdss-color-white;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:active,
+        &:focus {
+          text-decoration: underline;
+          color: $sdss-color-palo-alto-dark;
+          outline: 1px solid $sdss-color-white;
+          background-color: $sdss-color-white;
+
+          &::after {
+            background-color: $sdss-color-palo-alto-dark;
+          }
+        }
+      }
+    }
+  }
+}
+
+.layout,
+.layout-paragraphs-sdss-bgcolor {
+  .su-wysiwyg-text {
+    a {
+      &[class^=su-button] {
+        @include responsive-spacing('margin', null 0 0 null);
+      }
+    }
+  }
+}

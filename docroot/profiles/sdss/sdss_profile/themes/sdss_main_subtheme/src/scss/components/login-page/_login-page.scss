@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.page-user-login {
+    .su-masthead {
+        padding-bottom: 2rem;
+    }
+}
+
+.system-main-block {
+    form {
+        .su-button {
+            @include sdss-button--primary;
+        }
+    }
+}

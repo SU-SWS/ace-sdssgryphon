@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.su-news-banner-media-caption {
+  @include sdss-caption;
+  @include responsive-spacing('margin-top', -1);
+
+  padding-left: 0;
+}
+
+.paragraph {
+  &.su-wysiwyg-text {
+    .caption {
+      figcaption {
+        @include sdss-caption;
+      }
+    }
+  }
+}
+
+.su-media {
+  .su-media__caption {
+    @include sdss-caption;
+
+    * {
+      line-height: 1.5;
+    }
+  }
+}

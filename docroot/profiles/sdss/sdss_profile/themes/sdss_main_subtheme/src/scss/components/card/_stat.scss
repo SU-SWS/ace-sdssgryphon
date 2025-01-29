@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+// Stat cards need to be in a green row and 3 items.
+// this is to get even height white left border lines.
+.layout-paragraphs-sdss-bgcolor--green {
+  > div {
+    color: $su-color-white;
+    background-color: $sdss-color-palo-alto-dark;
+  }
+}
+
+.layout-paragraphs-sdss-bgcolor--green-stat {
+  > div {
+    color: $su-color-white;
+    background-color: $sdss-color-palo-alto-dark;
+  }
+  // white left line for the Stat card only.
+  .paragraph-item {
+    border-left: 1px solid $su-color-white;
+  }
+  .paragraph-item:first-child {
+    border-left: none;
+  }
+}
+
+.sdss-card-wrapper--stat {
+
+  .su-card {
+    @include responsive-spacing('padding-top', 2);
+
+    box-shadow: none;
+    border: none;
+    color: $su-color-white;
+    background-color: $sdss-color-palo-alto-dark;
+
+
+    section.su-card__contents {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+
+    .su-card__superheadline {
+      @include sdss-display;
+    }
+
+    >.su-card__headline {
+      @include sdss-h3;
+      @include responsive-spacing('padding', null 2);
+    }
+
+    p {
+      @include type-d;
+    }
+
+  }
+}

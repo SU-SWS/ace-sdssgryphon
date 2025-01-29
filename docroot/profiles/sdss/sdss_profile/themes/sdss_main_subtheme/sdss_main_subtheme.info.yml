@@ -21,9 +21,9 @@ regions:
 
 components:
   namespaces:
-    # sdss_subtheme: templates/components
+    sdss_subtheme: templates/components
     # decanter: dist/templates/decanter
 
 # Custom ckeditor styles.
-# ckeditor5-stylesheets:
-#  - dist/css/ckeditor.css
+ckeditor5-stylesheets:
+ - dist/css/ckeditor.css

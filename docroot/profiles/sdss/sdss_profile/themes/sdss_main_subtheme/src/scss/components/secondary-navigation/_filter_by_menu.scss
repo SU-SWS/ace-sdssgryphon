@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.filter-menu {
+  position: sticky;
+  top: 250px;
+}
+
+// if logged in
+.role--authenticated {
+  .filter-menu {
+    top: 300px;
+  }
+}
+
+.filter-menu {
+  @include responsive-spacing('margin-bottom', 6);
+
+  .topics__collapsable-menu {
+    color: $sdss-color-grey-dark;
+    font-weight: $su-font-regular;
+    font-size: 1.9rem;
+  }
+
+  .menu {
+    .menu-item {
+      a {
+        color: $sdss-color-grey-dark;
+        font-weight: $su-font-regular;
+        font-size: 1.9rem;
+
+        &:before {
+          background-color: transparent;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+
+          &:before,
+          &:after {
+            background-color: transparent;
+          }
+        }
+
+        // Padding needed for the focus ring.
+        &:focus {
+          padding: 1.6rem 4.8rem 1.6rem 0;
+        }
+      }
+    }
+
+    .menu-item--active-trail {
+      .is-active {
+        color: $sdss-color-grey-dark;
+        font-weight: $su-font-regular;
+      }
+
+      &:before {
+        color: $sdss-color-grey-dark;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+//
+//  3. Component
+//
+
+// Discrete, reusable UI elements.
+//
+// Components should not be responsible for their positioning or layout within
+// the site. Never apply widths or heights except to elements that natively have
+// these properties (e.g. images have these properties, so it's okay to use CSS
+// to modify their width and height). Within components, separate structural
+// rules from stylistic rules.
+//
+// Component Naming Convention
+// .component-name
+// .component-name--variant
+// .component-name__sub-object
+
+// Config and supporting scss.
+
+// Components.
+@import 'all/index.scss';
+@import 'banner/index.scss';
+@import 'basic-page/index.scss';
+@import 'button/index.scss';
+@import 'card/index.scss';
+@import 'events/index.scss';
+@import 'header/index.scss';
+@import 'lists/index.scss';
+@import 'local-footer/index.scss';
+@import 'lockup/index.scss';
+@import 'login-page/index.scss';
+@import 'main-navigation/index.scss';
+@import 'news/index.scss';
+@import 'news-list-card/index.scss';
+@import 'newsroom/index.scss';
+@import 'node/index.scss';
+@import 'people/index.scss';
+@import 'publications/index.scss';
+@import 'row-backgrounds/index.scss';
+@import 'secondary-navigation/index.scss';
+@import 'search/index.scss';
+@import 'spacer/index.scss';

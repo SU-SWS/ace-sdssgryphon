@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+// Max four card grid option for card grid lists in one column layout
+.layout--layout-paragraphs-one-column {
+  .sdss-card-grid--four-col {
+    .grid-container-3 {
+      @include grid-media-min('md') {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+  
+      @include grid-media-min('2xl') {
+        grid-template-columns: repeat(4,minmax(0,1fr));
+      }
+    }
+  }
+}

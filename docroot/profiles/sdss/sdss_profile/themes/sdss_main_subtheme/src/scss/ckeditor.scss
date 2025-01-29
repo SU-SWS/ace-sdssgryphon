@@ -1,0 +1,32 @@
+@charset 'UTF-8';
+
+//
+// ckeditor.scss
+//
+
+// This should include all the styles necessary for previewing in the CKEditor
+// WYSIWYG authoring and editing experience. This SCSS file is compiled into a
+// separate CSS file included specifically for CKEditor.
+//
+// This is based on two separate SCSS files:
+// - https://github.com/SU-SWS/stanford_profile_helper/blob/9.x/modules/stanford_profile_styles/lib/scss/base/admin/ckeditor.scss
+// - https://github.com/SU-SWS/stanford_profile/blob/9.x/themes/stanford_basic/src/scss/ckeditor.scss
+
+// Load the decanter dependencies.
+@import 'decanter/core/src/scss/decanter-no-markup';
+
+// Add our custom CKEeditor styles.
+@import
+'utilities/index',
+'theme/wysiwyg';
+
+// This extend will duplicate the su-wysiwyg-text styles in to this stylesheet
+// and add a secondary set of children selectors under the body tag. This is an
+// acceptable amount of bloat for maintaining styles automatically.
+body {
+  @extend .su-wysiwyg-text;
+
+  .form-wrapper p {
+    font-size: inherit;
+  }
+}

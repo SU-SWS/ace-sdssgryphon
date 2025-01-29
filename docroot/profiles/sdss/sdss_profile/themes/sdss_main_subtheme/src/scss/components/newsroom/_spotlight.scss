@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+.layout--layout-paragraphs-one-column,
+.layout-paragraphs-sdss-one-four-one {
+  .sdss-spotlight {
+    .su-card {
+      display: block;
+
+      .su-figure__wrapper {
+        @include responsive-spacing('margin-bottom', 1);
+      }
+
+      .news-vertical-teaser__pub-date {
+        @include type-d;
+
+        color: $su-color-black-60;
+      }
+
+      .su-card__contents {
+        p {
+          @include type-d;
+        }
+
+        @include grid-media-max('xs') {
+          display: block;
+        }
+      }
+
+      // Image aspect ratios
+      img,
+      picture {
+        aspect-ratio: unset;
+      }
+    }
+  }
+}
+
+.layout--layout-paragraphs-one-column,
+.layout-paragraphs-sdss-one-four-one {
+  // Needs to be on a full width page.
+  .ptype-sdss-spotlight {
+    margin-left: unset;
+    max-width: unset;
+  }
+
+  .sdss-spotlight {
+    .su-card {
+      .su-content__wrapper {
+        padding-left: 5rem;
+        padding-right: 5rem;
+      }
+
+      @include grid-media-min('lg') {
+        display: flex;
+        justify-content: space-between;
+
+        .su-figure__wrapper {
+          order: 2;
+          margin-bottom: 0;
+          flex-basis: 50%;
+        }
+
+        .su-content__wrapper {
+          align-self: center;
+          padding-left: 10rem;
+          flex-basis: 50%;
+        }
+      }
+
+      @include grid-media-min('2xl') {
+        .su-content__wrapper {
+          padding-right: 10rem;
+        }
+      }
+    }
+  }
+}
+
+// Circle backgrounds for spotlight only on XL and up.
+@include grid-media-min('xl') {
+  .layout--layout-paragraphs-one-column,
+  .layout-paragraphs-sdss-one-four-one {
+    &.layout-paragraphs-sdss-bgimage--circles {
+      .sdss-spotlight {
+        background: url("../../assets/svg/spotlight-circle-background--D5D5D4.svg") no-repeat;
+        background-position: bottom;
+        padding-top: 50px;
+      }
+    }
+
+    &.layout-paragraphs-sdss-bgcolor--green,
+    &.layout-paragraphs-sdss-bgcolor--blue,
+    &.layout-paragraphs-sdss-bgcolor--grey {
+      .sdss-spotlight {
+        background: url("../../assets/svg/spotlight-circle-background--fff.svg") no-repeat;
+        background-position: bottom;
+      }
+    }
+  }
+
+  // On the Newsroom landing page. The title is hidden with .sr-only
+  // and the margin-top needs to be removed. A class is added to the layout: .newsroom-title-hidden
+  // It need to only happen, when the cirlces appear.
+
+  .jumpstart-ui--one-column {
+    &.newsroom-title-hidden {
+      &.centered-content {
+        .node-stanford-page-title {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+// Making sure text is visible on green
+.layout--layout-paragraphs-one-column,
+.layout-paragraphs-sdss-one-four-one {
+  &.layout-paragraphs-sdss-bgcolor--green {
+    .sdss-spotlight {
+      .news-vertical-teaser__pub-date,
+      h2 {
+        color: $su-color-white;
+      }
+
+      a h2 {
+        &:active,
+        &:hover,
+        &:focus {
+          color: $sdss-color-blue-bright;
+        }
+      }
+
+      .su-news-vertical-teaser.su-card {
+        .news-vertical-teaser__topics {
+          a {
+            color: $su-color-white;
+          }
+        }
+      }
+    }
+  }
+}

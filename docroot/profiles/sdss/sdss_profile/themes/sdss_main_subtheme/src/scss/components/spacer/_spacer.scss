@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.content {
+    .paragraph-item {
+        .ptype-stanford-spacer {
+            margin-bottom: 0;
+
+            &.sdss-spacer {
+                @include responsive-spacing('margin-bottom', 4);
+
+                &.sdss-spacer-default {
+                    @include responsive-spacing('margin-bottom', 4);
+                }
+
+                &.sdss-spacer-reduced {
+                    @include responsive-spacing('margin-bottom', 1);
+                }
+
+                &.sdss-spacer-minimal {
+                    @include responsive-spacing('margin-bottom', -1);
+                }
+            }
+        }
+    }
+}

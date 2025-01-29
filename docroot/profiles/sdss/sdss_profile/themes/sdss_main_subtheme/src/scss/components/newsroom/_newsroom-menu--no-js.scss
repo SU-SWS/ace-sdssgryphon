@@ -1,0 +1,38 @@
+// This file is to fix the long display for the decoupled menu when it is long
+// and takes a while to load. 
+
+#block-sdss-subtheme-newsresearch {
+
+    .menu {
+        display: inline-block;
+        font-size: 18px;
+        margin: 0 auto;
+        padding-left: 0;
+        height: unset;
+        list-style: none;
+        width: 100vw;
+
+        > .menu-item {
+            display: inline-block;
+            padding: 0 25px 10px 0;
+            vertical-align: text-top;
+            
+            span {
+                color: rgb(21, 95, 101);
+                font-weight: $su-font-semi-bold;
+            }
+
+            &.menu-item--expanded {
+                >ul {
+                    display: block;
+                    width: 400px;
+
+                    li.menu-item {
+                        margin-right: 20px;
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

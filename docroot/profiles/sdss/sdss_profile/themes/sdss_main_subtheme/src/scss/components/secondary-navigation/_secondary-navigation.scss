@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+.navigation.menu--main {
+  position: sticky;
+  top: 250px;
+}
+
+// if logged in
+.role--authenticated {
+  .navigation.menu--main {
+    top: 300px;
+  }
+}
+
+.su-secondary-nav.su-secondary-nav--buttons {
+
+  >.su-secondary-nav__menu {
+    @include responsive-spacing('padding-bottom', 6);
+
+    >.su-secondary-nav__item {
+      border: 0;
+    }
+  }
+
+  .su-secondary-nav__menu-lv2 {
+    .su-secondary-nav__item {
+      a.su-secondary-nav__link {
+        padding-left: .8em;
+      }
+    }
+  }
+
+
+  .su-secondary-nav__item--current {
+    > a.su-secondary-nav__link {
+      color: $sdss-color-palo-alto-dark;
+
+      &:before {
+        background-color: $sdss-color-palo-alto-dark;
+        width: 3px;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $sdss-color-green-link;
+
+        &:before {
+          background-color: $sdss-color-black;
+          color: $sdss-color-grey-dark;
+          width: 3px;
+        }
+      }
+    }
+  }
+
+  a.su-secondary-nav__link {
+    @include responsive-spacing('padding-bottom', -1);
+    @include responsive-spacing('padding-top', -1);
+
+    color: $sdss-color-grey-dark;
+    font-weight: $su-font-regular;
+    font-size: 1.06em;
+
+    &:before {
+      background-color: $sdss-color-black;
+      width: 3px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $sdss-color-green-link;
+
+      &:before {
+        background-color: $sdss-color-black;
+      }
+
+     &:after {
+        background-color: transparent;
+      }
+    }
+
+    &:focus {
+      color: $sdss-color-grey-dark;
+    }
+  }
+
+
+  a.su-link--external {
+    &.su-secondary-nav__link {
+      &:after {
+        background-color: $sdss-color-grey-dark;
+      }
+
+      &:hover {
+        &:after {
+          background-color: $sdss-color-green-link;
+        }
+
+      }
+    }
+  }
+}
+
+
+// Secondary nav collapse/expand icons
+.su-secondary-nav--buttons {
+  .su-secondary-nav__item--parent.su-secondary-nav__item--expanded {
+    >.su-nav-toggle {
+      &:before {
+        background: transparent url("../../assets/svg/caret-down-green.svg") no-repeat center / 50%;
+      }
+    }
+  }
+}
+
+.su-secondary-nav--buttons {
+  .su-secondary-nav__item--parent {
+    >.su-nav-toggle {
+      &:before {
+        background: transparent url("../../assets/svg/caret-down-green.svg") no-repeat center / 50%;
+        border: 2px solid $sdss-color-green-link;
+        border-radius: 19px;
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+

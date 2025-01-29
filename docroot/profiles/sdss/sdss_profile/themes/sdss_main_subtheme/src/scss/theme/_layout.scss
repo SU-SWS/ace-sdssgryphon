@@ -1,0 +1,23 @@
+
+///
+/// Centered Container
+///
+/// Centers the first child element of which this class is applied to.
+///
+///
+
+// Adjustments to the centered container to have a max-width of 2000px.
+
+
+.centered-container {
+    @if(mixin-exists(sdss-centered-column)) { @include sdss-centered-column(); }
+}
+
+.su-brand-bar__container,
+.su-local-footer__columns,
+.su-local-footer__header,
+.su-global-footer__container,
+.jumpstart-ui--one-column.centered-content {
+    @include sdss-centered-column;
+}
+

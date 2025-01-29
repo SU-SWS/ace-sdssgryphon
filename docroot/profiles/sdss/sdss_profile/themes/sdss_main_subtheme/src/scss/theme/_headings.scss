@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+// Heading styles
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $sdss-color-palo-alto-dark;
+  font-weight: $su-font-regular;
+}
+
+// mixin has the media queries for sizing.
+h1 {
+  @include sdss-h1;
+}
+
+h2 {
+  @include sdss-h2;
+}
+
+h3 {
+  @include sdss-h3;
+}
+
+h4 {
+  @include sdss-h4;
+}
+
+h5 {
+  @include sdss-h5;
+}
+
+// Headings with Links - white, grey, blue row backgrounds.
+.su-wysiwyg-text {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      color: $sdss-color-palo-alto-dark;
+      font-weight: $su-font-regular;
+      text-decoration: none;
+
+      &:hover {
+        color: $sdss-color-blue-dark-hover;
+
+        &::after {
+          background-color: $sdss-color-blue-dark-hover;
+        }
+      }
+
+      &::after {
+        background-color: $sdss-color-palo-alto-dark;
+      }
+
+      &.su-link--external {
+        font-weight: $su-font-regular;
+
+        &::after {
+          background-color: $sdss-color-palo-alto-dark;
+        }
+
+        &:hover {
+          color: $sdss-color-blue-dark-hover;
+
+          &::after {
+            background-color: $sdss-color-blue-dark-hover;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Headings with Links - green row backgrounds.
+.layout-paragraphs-sdss-bgcolor--green {
+  .su-wysiwyg-text {
+
+    .su-quote-text,
+    .su-font-splash {
+      color: $sdss-color-white;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $sdss-color-white;
+
+      a,
+      &.su-link--external {
+        color: $sdss-color-white;
+        font-weight: unset;
+        text-decoration: none;
+
+        &:hover {
+          color: $sdss-color-blue-bright-dark;
+
+          &::after {
+            background-color: $sdss-color-blue-bright-dark;
+          }
+        }
+
+        &::after {
+          background-color: $sdss-color-white;
+        }
+      }
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $sdss-color-white;
+  }
+}

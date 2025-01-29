@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+// Lockup Option A.
+header.su-masthead {
+  .su-lockup {
+    &.su-lockup--option-a {
+      .su-lockup__line1 {
+        @include type_c;
+        margin: 0;
+
+        -webkit-text-stroke-width: 0.1px;
+      }
+
+      .su-lockup__line5 {
+        font-weight: $su-font-regular;
+        text-transform: none;
+        font-family: $sdss-font-sans-light;
+        font-size: 25px;
+        letter-spacing: .001em;
+        -webkit-text-stroke-width: 0.1px;
+      }
+    }
+  }
+}

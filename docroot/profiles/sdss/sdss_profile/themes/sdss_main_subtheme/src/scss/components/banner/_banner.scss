@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+.sdss-banner-wrapper--headline-center {
+  .su-hero__card {
+    margin: 0 auto;
+  }
+}
+
+// Removing margin-bottom for top "page" banner and banner paragraph.
+.section-banner-media {
+  .main-region {
+    margin-bottom: 0;
+  }
+}
+
+.main-region {
+  .node-stanford-page-su-page-banner {
+    margin-bottom: 0;
+  }
+}
+
+// Node - top banner image on article.
+// Fixing when there is no top banner, or a banner or a banner and caption.
+.section-banner-media {
+  .main-region {
+    > div:nth-last-child(odd) { // This is the top banner image.
+      @include modular-spacing('margin-bottom', 4);
+    }
+
+    > div:nth-last-child(even) { // This is the top banner caption
+      margin-bottom: 0;
+    }
+  }
+}
+
+.paragraph-item {
+  &.ptype-stanford-banner {
+    margin-bottom: 0;
+  }
+}
+
+.sdss-banner-wrapper--default {
+  //Gradiant on banner image.
+  z-index: 1;
+  position: relative;
+  // A background color when images are turned off.
+  background: $su-color-black;
+
+  .su-hero__media {
+    background: linear-gradient(180deg, rgba(46, 45, 41, 0) 50%, $sdss-color-black-dark 90%);
+  }
+
+  picture {
+    position: relative;
+    z-index: -1;
+    display: block;
+  }
+ // End Gradiant details.
+
+  .su-hero {
+    justify-content: flex-end;
+
+    .su-hero__card {
+      background: transparent;
+      border: 0;
+      bottom: 0;
+      box-shadow: none;
+      margin-top: unset;
+      margin-bottom: 0;
+      max-width: 94%;
+      top: auto;
+
+      .su-card__contents {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding-bottom: 12px;
+
+        h2 {
+          color: $sdss-color-white;
+          margin-top: 0;
+        }
+
+        .su-card__button {
+          margin-top: unset;
+          margin-bottom: unset;
+        }
+      }
+    }
+  }
+
+// Mobile style
+  @include grid-media-max('sm') {
+    .su-hero {
+      .su-hero__card {
+        background: $sdss-color-black-dark;
+        max-width: 100%;
+
+        .su-card__contents {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Variants - banner heights
+.sdss-banner-wrapper--height-default {
+  .su-hero {
+    min-height: 520px;
+  }
+
+  .su-hero__media {
+    min-height: 520px;
+  }
+}
+
+.sdss-banner-wrapper--height-modest {
+  .su-hero {
+    min-height: 350px;
+  }
+
+  .su-hero__media {
+    min-height: 350px;
+  }
+}
+
+.sdss-banner-wrapper--height-minimal {
+  .su-hero {
+    min-height: 250px;
+  }
+
+  .su-hero__media {
+    min-height: 250px;
+
+    @include grid-media-max('sm') {
+      min-height: unset;
+    }
+  }
+}
+
+// Resetting min-height for small and xsmall devices.
+.sdss-banner-wrapper--height-default,
+.sdss-banner-wrapper--height-modest,
+.sdss-banner-wrapper--height-minimal {
+
+  .su-hero__media,
+  .su-hero {
+    @include grid-media-max('sm') {
+      min-height: unset;
+    }
+  }
+}
