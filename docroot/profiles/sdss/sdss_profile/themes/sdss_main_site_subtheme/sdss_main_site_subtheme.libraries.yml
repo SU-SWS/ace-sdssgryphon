@@ -86,10 +86,10 @@
 #       css/pattern-library/theme/theme.css: {}
 #       css/pattern-library/theme/print.css: { media: print }
 
-sdss:
+sdss_main_site:
   css:
    theme:
-     dist/css/sdss_main_subtheme.css: {}
+     dist/css/sdss_main_site_subtheme.css: {}
   js:
     js/scripts.js: {}
 

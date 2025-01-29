@@ -1,5 +1,5 @@
 {
-  "name": "sdss_main_subtheme",
+  "name": "sdss_main_site_subtheme",
   "version": "1.0.0",
   "repository": "https://github.com/SU-SWS/sdss_subtheme",
   "main": "webpack.config.js",
