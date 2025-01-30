@@ -24,8 +24,6 @@
 }
 
 .su-multi-menu {
-  border: 4px solid lime;
-
   @include font-smoothing;
   @include sans;
   display: block;
@@ -650,6 +648,5 @@ ul {
 
   .su-multi-menu .su-multi-menu__nav-toggle {
     display: inline-block;
-    border: 2px solid lime;
   }
 

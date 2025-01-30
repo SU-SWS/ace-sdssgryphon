@@ -89,7 +89,7 @@
 sdss_main_site:
   css:
    theme:
-     dist/css/sdss_main_site_subtheme.css: {}
+     dist/css/sdss_main_site.css: {}
   js:
     js/scripts.js: {}
 

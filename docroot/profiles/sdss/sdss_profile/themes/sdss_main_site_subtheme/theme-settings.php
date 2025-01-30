@@ -9,7 +9,7 @@ use Drupal\Core\Link;
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function sdss_main_sitesubtheme_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state)
+function sdss_main_site_subtheme_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state)
 {
 
   // Header options.
