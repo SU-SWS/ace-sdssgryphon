@@ -6,7 +6,7 @@ version: 4.7.3-dev
 core_version_requirement: ^10.3 || ^11
 base theme: sdss_subtheme
 libraries:
-  - sdss_main_site/sdss
+  - sdss_main_site_subtheme/main
 
 regions:
   page_top: 'Page top'
@@ -22,8 +22,6 @@ regions:
 components:
   namespaces:
     sdss_subtheme: templates/components
-    sdss_main_site: scss/
-    # decanter: dist/templates/decanter
 
 # Custom ckeditor styles.
 ckeditor5-stylesheets:
