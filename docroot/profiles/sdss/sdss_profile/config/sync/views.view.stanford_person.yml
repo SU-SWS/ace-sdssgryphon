@@ -587,7 +587,7 @@ display:
         - 'config:field.storage.node.su_person_type_group'
   grid_list_all:
     id: grid_list_all
-    display_title: 'Grid - All Results'
+    display_title: 'Card Grid'
     display_plugin: viewfield_block
     position: 1
     display_options:
@@ -1216,7 +1216,7 @@ display:
         - 'config:field.storage.node.su_person_short_title'
   viewfield_block_1:
     id: viewfield_block_1
-    display_title: 'Sticky Grid - All Results'
+    display_title: 'Card Grid - Sticky'
     display_plugin: viewfield_block
     position: 1
     display_options:

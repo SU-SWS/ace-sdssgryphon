@@ -190,7 +190,7 @@ content:
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 0
+    weight: 8
     region: content
     settings:
       display_label: true
