@@ -16,17 +16,5 @@
 @import 'decanter/core/src/scss/decanter-no-markup';
 
 // Add our custom CKEeditor styles.
-@import
-'utilities/index',
-'theme/wysiwyg';
+@import 'utilities/index';
 
-// This extend will duplicate the su-wysiwyg-text styles in to this stylesheet
-// and add a secondary set of children selectors under the body tag. This is an
-// acceptable amount of bloat for maintaining styles automatically.
-body {
-  @extend .su-wysiwyg-text;
-
-  .form-wrapper p {
-    font-size: inherit;
-  }
-}
