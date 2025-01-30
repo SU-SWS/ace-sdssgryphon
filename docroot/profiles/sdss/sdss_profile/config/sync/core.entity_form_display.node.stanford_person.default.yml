@@ -188,6 +188,13 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
     weight: 32
@@ -209,7 +216,9 @@ content:
     weight: 7
     region: content
     settings:
+      view_mode: default
       preview_view_mode: default
+      form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
@@ -471,7 +480,6 @@ hidden:
   layout_builder__layout: true
   path: true
   promote: true
-  sticky: true
   su_person_academic_appt: true
   su_person_admin_appts: true
   su_person_research_interests: true
