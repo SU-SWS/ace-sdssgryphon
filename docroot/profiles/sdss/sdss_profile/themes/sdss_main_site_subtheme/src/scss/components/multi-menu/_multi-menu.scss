@@ -143,10 +143,11 @@
 
     @include grid-media("lg") {
 
-      @include padding(null null null 0);
-      flex-direction: row;
+      @include padding(null null null 35px);
+      flex-direction: column;
       flex-wrap: wrap;
-      background: transparent;
+      background: $su-color-white;
+
 
       // Top level horizonal links.
       // --------------------------
@@ -154,14 +155,14 @@
 
         @include margin(0 36px 0 0);
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
         > .su-multi-menu__link {
 
-          font-size: 1.9rem;
-          border-bottom: 0;
-          font-weight: $su-font-semi-bold;
-          color: $su-color-bright-red;
+          font-size: unset;
+          border-bottom: unset;
+          font-weight: unset;
+          color: unset;
 
 
           &::before {
@@ -575,11 +576,11 @@
           > .su-multi-menu__link {
             &::after {
               content: '';
-              height: 1em;
-              margin-bottom: -5px;
-              margin-left: 12px;
-              border-right: #766253 solid 1px;
-              display: inline-block;
+              height: unset;
+              margin-bottom: unset;
+              margin-left: unset;
+              border-right: unset;
+              display: unset;
             }
           }
         }
@@ -625,7 +626,7 @@ nav {
 ul {
   li {
     .su-site-search {
-      display: none;
+      display: node;
     }
   }
 }
@@ -639,6 +640,10 @@ ul {
           @include modular-spacing('margin', 1 1 0 0);
           display: block;
         }
+        @include grid-media-min('xs') {
+          @include modular-spacing('margin', 1 1 0 0);
+          display: block;
+        }
       }
     }
   }
@@ -647,6 +652,6 @@ ul {
 // Overrides
 
   .su-multi-menu .su-multi-menu__nav-toggle {
-    display: inline-block;
+    display: flex;
   }
 
