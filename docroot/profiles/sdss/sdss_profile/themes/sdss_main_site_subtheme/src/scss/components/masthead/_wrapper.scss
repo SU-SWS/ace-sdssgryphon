@@ -52,11 +52,7 @@
   }
 
   li.su-mobile-site-search {
-    display: none;
 
-    @include grid-media-max('md') {
-      display: block;
-    }
     @include grid-media-min('xs') {
       display: block;
     }

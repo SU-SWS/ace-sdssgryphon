@@ -141,15 +141,15 @@ header.su-masthead {
 }
 
 // Styles for Large or bigger Screens.
-@include grid-media-min('lg') {
+@include grid-media-min('xs') {
   header.su-masthead {
     section.su-masthead--inner {
       #sdss-button--search-link {
         align-self: center;
-        // background-color: $sdss-color-palo-alto-dark;
+        background-color: $sdss-color-palo-alto-dark;
         border-radius: 32px;
         bottom: unset;
-        display: inline-block;
+        display: block;
         top: unset;
         right: 0;
         left: unset;
@@ -175,6 +175,11 @@ header.su-masthead {
     nav+.su-site-search,
     ul li .su-site-search {
       display: none;
+    }
+
+    ul li .su-site-search {
+      display: block;
+      max-width: unset;
     }
 
     .su-lockup {

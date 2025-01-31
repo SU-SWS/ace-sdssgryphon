@@ -8,7 +8,9 @@ $fa-font-path:  "~@fortawesome/fontawesome-free/webfonts";
 @import 'decanter/core/src/scss/decanter-no-markup';
 
 // Imports
+@import '../utilities/index';
 @import '../components/multi-menu/index';
 @import '../components/masthead/index.scss';
+@import '../components/search/index.scss';
 @import '../theme/index';
-@import '../utilities/index';
+
