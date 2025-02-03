@@ -79,7 +79,7 @@ class NewsSharingSettingsForm extends ConfigFormBase {
     $form['urls'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Source URLs'),
-      '#description' => $this->t('Enter the full source URL of the SDSS site to pull from, including the terms. More information available at @link', [
+      '#description' => $this->t('Enter the full source URL of the SDSS site to pull from, including the terms. More information available at @link.', [
         '@link' => $user_guide_link,
       ]),
       '#default_value' => implode(PHP_EOL, $urls),
