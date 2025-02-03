@@ -8,6 +8,8 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -69,10 +71,17 @@ class NewsSharingSettingsForm extends ConfigFormBase {
       '#default_value' => $status,
     ];
 
+    $user_guide_link = Link::fromTextAndUrl(
+      t('Website User Guide - News Sharing'),
+      Url::fromUri('https://sdssuserguide-prod.stanford.edu/configure/content-importers/news-sharing')
+    )->toString();
+
     $form['urls'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Source URLs'),
-      '#description' => $this->t('Enter the full source URL of the SDSS site to pull from, including the terms'),
+      '#description' => $this->t('Enter the full source URL of the SDSS site to pull from, including the terms. More information available at @link.', [
+        '@link' => $user_guide_link,
+      ]),
       '#default_value' => implode(PHP_EOL, $urls),
     ];
 
