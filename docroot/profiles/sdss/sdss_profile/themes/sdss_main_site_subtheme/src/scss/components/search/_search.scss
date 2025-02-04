@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.su-masthead {
+  .su-site-search {
+    >form {
+      width: unset;
+    }
+  }
+}
+
+// On desktop views, remove the search input field.
+@include grid-media-min('xs') {
+  .su-site-search {
+    form {
+      display: block;
+    }
+  }
+
+  .su-site-search__submit {
+    background: url("../../assets/svg/magnifying-glass-24px-white.svg") no-repeat center/75%;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: url("../../assets/svg/magnifying-glass-24px-white.svg") no-repeat center/75%;
+    }
+  }
+
+}
+
+@include grid-media-max('md') {
+  a {
+    &.su-site-search__submit {
+      display: none;
+    }
+  }
+}
+
+.search {
+
+  .views-row {
+    border-bottom: 1px solid $sdss-color-grey-60;
+
+    div:last-child {
+      border: none;
+    }
+
+    h2 {
+      line-height: 100%;
+
+      a {
+        font-weight: $su-font-regular;
+        font-size: .6em;
+      }
+    }
+
+    span.field-content {
+      display: block;
+      padding-bottom: 1em;
+    }
+  }
+}
+
+
+// Accounting for the position being set when logged in.
+.role--authenticated {
+  // Logged in
+  .su-masthead {
+    .su-site-search__submit {
+      right: 4rem;
+      top: 3.5rem;
+    }
+  }
+}
+

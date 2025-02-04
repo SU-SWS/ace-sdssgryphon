@@ -1,0 +1,312 @@
+@charset "UTF-8";
+
+// Define typography mixins here
+// Example: All mixin names should be prefaced with your abbreviation (saa, soe, ood, etc)
+
+
+// Display text
+@mixin sdss-display {
+  @include type_c;
+
+  color: $sdss-color-palo-alto-dark;
+  font-weight: $su-font-regular;
+  line-height: 120%;
+
+  @include grid-media-max('sm') {
+    font-size: 5.2rem; //52px
+    line-height: 169%;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 8.0rem;  //80px
+    line-height: 110%;
+  }
+
+  @include grid-media-min('2xl') {
+    font-size: 8.8rem;  //88px
+    line-height: 120%;
+  }
+}
+
+// Intro text
+@mixin sdss-intro {
+  @include type_c;
+
+  font-weight: $su-font-regular;
+}
+
+// Block Quote Big is the design language.
+@mixin sdss-block-quote--big {
+  color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
+  font-weight: $su-font-regular;
+  letter-spacing: -0.01em;
+
+  @include grid-media-max('sm') {
+    font-size: 3.7rem; // ~37px
+    line-height: 40px;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 5.1rem;  // ~51px
+    line-height: 60px;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 5.1rem;  // ~51px
+    line-height: 120%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 5.6rem;  // ~56px
+    line-height: 120%;
+  }
+}
+
+// Block Quote Medium is the design language.
+@mixin sdss-block-quote--med {
+  @include type_b;
+
+  color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
+  font-weight: $su-font-regular;
+  letter-spacing: -0.01em;
+
+  @include grid-media-max('sm') {
+    font-size: 3.1rem; // ~31px
+    line-height: 40px;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 4.1rem;  // ~41px
+    line-height: 60px;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 4.1rem;  // ~41px
+    line-height: 120%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 4.5rem;  // ~45px
+    line-height: 120%;
+  }
+}
+
+ // Block Quote Small is the design language.
+@mixin sdss-block-quote--sm {
+  color: $sdss-color-palo-alto-dark;
+  font-family: $su-font-serif;
+  font-weight: $su-font-regular;
+  letter-spacing: 0.01em;
+
+  @include grid-media-max('sm') {
+    font-size: 2.2rem; // ~22px
+    line-height: 130%;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 2.6rem; // ~26px
+    line-height: 130%;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 2.6rem; // ~26px
+    line-height: 140%;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 2.8rem;  // ~28px
+    line-height: 120%;
+  }
+}
+
+
+@mixin sdss-h1 {
+  @include grid-media-max('sm') {
+    font-size: 4.5rem; // ~45px
+    line-height: 120%;
+  }
+
+  @include grid-media-min('md') {
+      font-size: 6.4rem; // ~64px
+      line-height: 120%;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 6.4rem; // ~64px
+    line-height: 120%;
+  }
+}
+
+@mixin sdss-h2 {
+  @include grid-media-max('sm') {
+    font-size: 3.7rem; // ~37px
+    line-height: 120%;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 5.2rem; // ~52px
+    line-height: 120%;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 5.2rem; // ~52px
+    line-height: 120%;
+  }
+}
+
+@mixin sdss-h3 {
+  @include grid-media-max('sm') {
+    font-size: 3.1rem; // ~31px
+    line-height: 120%;
+  }
+
+  @include grid-media-min('md') {
+      font-size: 4.1rem; // ~41px
+      line-height: 120%;
+  }
+
+  @include grid-media-min('lg') {
+      font-size: 4.1rem; // ~41px
+      line-height: 120%;
+  }
+}
+
+@mixin sdss-h4 {
+  @include grid-media-max('sm') {
+    font-size: 2.6rem; // ~26px
+    line-height: 120%;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 3.2rem; // ~32px
+    line-height: 120%;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 3.2rem; // ~32px
+    line-height: 120%;
+  }
+}
+
+@mixin sdss-h5 {
+  @include grid-media-max('sm') {
+    font-size: 2.1rem; // ~21px
+    line-height: 130%;
+  }
+
+  @include grid-media-min('md') {
+    font-size: 2.6rem; // ~26px
+    line-height: 130%;
+  }
+
+  @include grid-media-min('lg') {
+    font-size: 2.6rem; // ~26px
+    line-height: 130%;
+  }
+}
+
+// Captions mixin
+@mixin sdss-caption {
+  color: $su-color-black-70;
+  text-align: center;
+  float: unset;
+  width: auto;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @include grid-media-min('2xl') {
+    font-size: 1.8rem;
+  }
+
+  @include grid-media-between('md','xl') {
+    font-size: 1.6rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.5rem;
+  }
+}
+
+// Newsroom Topics A mixin
+@mixin sdss-newsroom-topics {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+
+// Newsroom dek long mixin
+@mixin sdss-newsroom-dek-long {
+
+  @include grid-media-min('2xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 3rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 2.5rem;
+  }
+}
+
+// Newsroom byline mixin
+@mixin sdss-newsroom-byline {
+  line-height: 1.2;
+
+  @include grid-media-between('md', '2xl') {
+    font-size: 2.1rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+// Newsroom callout quote mixin
+@mixin sdss-newsroom-callout-quote {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.3rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 4.1rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.8rem;
+  }
+}
+
+// Newsroom medium paragraph mixin
+@mixin sdss-newsroom-med-paragraph {
+
+  @include grid-media-min('2xl') {
+    font-size: 2.1rem;
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 2rem;
+  }
+
+  @include grid-media-max('sm') {
+    font-size: 1.7rem;
+  }
+
+  @include grid-media-max('xs') {
+    font-size: 1.5rem;
+  }
+}
