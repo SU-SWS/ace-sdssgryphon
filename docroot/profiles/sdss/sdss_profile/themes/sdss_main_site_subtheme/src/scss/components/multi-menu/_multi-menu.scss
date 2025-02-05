@@ -250,24 +250,25 @@
 
   // Second level styles
   // -----------------------------------------------------------------------
-  // .su-multi-menu__menu-lv2 {
-  //   // Drop down menu containers.
-  //   // --------------------------
-  //   @include grid-media('lg') {
-  //     @include padding(1px null null 1.2rem);
-  //     @include margin(null null null -1.7rem);
-  //     @include box-shadow('medium', none);
-  //     z-index: 101;
-  //     position: absolute;
-  //     top: 58px;
-  //     max-width: 30rem;
+  .su-multi-menu__menu-lv2 {
+    // Drop down menu containers.
+    // --------------------------
+    @include grid-media('lg') {
+      @include padding(1px null null 1.2rem);
+      @include margin(null null null -1.7rem);
 
-  //     .su-multi-menu__link {
-  //       width: 98%; // Controls the length of the line seperator.
-  //     }
-  //   }
+      box-shadow: none;
+      z-index: unset;
+      position: relative;
+      top: 58px;
+      max-width: 100%;
 
-  // }
+      .su-multi-menu__link {
+        width: 98%; // Controls the length of the line seperator.
+      }
+    }
+
+  }
 
   // Desktop styles for various levels of dropdown menus.
   // -----------------------------------------------------------------------

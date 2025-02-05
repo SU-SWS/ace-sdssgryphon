@@ -17,12 +17,12 @@
   }
 
   .su-site-search__submit {
-    background: url("../../assets/svg/magnifying-glass-24px-white.svg") no-repeat center/75%;
+    background: url("../../assets/svg/magnifying-glass-24px-black.svg") no-repeat center/75%;
 
     &:hover,
     &:active,
     &:focus {
-      background: url("../../assets/svg/magnifying-glass-24px-white.svg") no-repeat center/75%;
+      background: url("../../assets/svg/magnifying-glass-24px-black.svg") no-repeat center/75%;
     }
   }
 
@@ -67,8 +67,9 @@
   // Logged in
   .su-masthead {
     .su-site-search__submit {
-      right: 4rem;
-      top: 3.5rem;
+      top: .2rem;
+      height: 44px;
+      width: 44px;
     }
   }
 }

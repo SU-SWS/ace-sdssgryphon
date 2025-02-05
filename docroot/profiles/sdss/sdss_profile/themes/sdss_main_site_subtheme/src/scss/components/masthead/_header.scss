@@ -20,21 +20,21 @@ header.su-masthead {
     .su-multi-menu {
       .su-multi-menu__nav-toggle {
         position: relative;
-        top: unset;
+        top: -2rem;
         right: unset;
         padding: .5rem 1rem;
         width: auto;
         border-radius: unset;
         text-align: center;
-        // background-color: $sdss-color-palo-alto-dark;
-        color: $su-color-white;
+        background-color: $su-color-white;
+        color: $su-color-black;
 
         &::after {
           @include margin(0 auto);
           display: inline-block;
           width: 30px;
           height: 26px;
-          // background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
+          background: url("../../assets/svg/hamburger-black.svg") no-repeat 3px 0;
           content: "";
         }
 
@@ -58,9 +58,9 @@ header.su-masthead {
           }
 
           &::after {
-            width: 22px;
-            // background: url("#{$su-image-path}/close-white.svg") no-repeat 3px 0;
-            background-size: 16px 16px;
+            width: 30px;
+            height: 26px;
+            background: url("../../assets/svg/hamburger-black.svg") no-repeat 3px 0;
           }
         }
       }
@@ -207,25 +207,25 @@ header.su-masthead {
 }
 
 // Styles for Extra Large or bigger Screens.
-@include grid-media-min('xl') {
-  header.su-masthead {
-    section.su-masthead--inner {
-      // @include sdss-centered-column;
+// @include grid-media-min('xl') {
+//   header.su-masthead {
+//     section.su-masthead--inner {
+//       // @include sdss-centered-column;
 
-      .su-multi-menu {
-        padding: 0;
-      }
-    }
+//       .su-multi-menu {
+//         padding: 0;
+//       }
+//     }
 
-    .su-lockup {
-      .su-lockup__cell1 {
-        padding: 3rem 4rem 3rem 0;
-      }
+//     .su-lockup {
+//       .su-lockup__cell1 {
+//         padding: 3rem 4rem 3rem 0;
+//       }
 
-      .su-lockup__cell2 {
-        position: relative;
-        padding: 3rem 0 3rem 3rem;
-      }
-    }
-  }
-}
+//       .su-lockup__cell2 {
+//         position: relative;
+//         padding: 3rem 0 3rem 3rem;
+//       }
+//     }
+//   }
+// }
