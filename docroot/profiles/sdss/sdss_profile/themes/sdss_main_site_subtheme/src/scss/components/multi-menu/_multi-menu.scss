@@ -104,7 +104,6 @@
     // Not to be confused with the mobile menu toggle.
     // -----------------------------------------------------------------------
     .su-nav-toggle {
-
       // @include grid-media('lg') {
       //   display: inline-block;
       // }
@@ -653,7 +652,50 @@ ul {
 
 // Overrides
 
-  .su-multi-menu .su-multi-menu__nav-toggle {
-    display: flex;
-  }
+.su-multi-menu .su-multi-menu__nav-toggle {
+  display: flex;
+}
 
+
+> .su-multi-menu__item--parent {
+  > .su-multi-menu__menu {
+    min-width: 300px;
+  }
+}
+
+.su-multi-menu .su-multi-menu__menu-lv1>.su-multi-menu__item {
+  flex-direction: row;
+}
+
+li.su-multi-menu__item.su-multi-menu__item--parent.su-multi-menu__item--expanded > ul {
+  border: 2px solid lime;
+  padding: 0 35px;
+  position: relative;
+  left: 0;
+  margin: 0;
+  top: 0;
+}
+
+@include grid-media-min('lg')  {
+  .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item--active-trail>.su-multi-menu__link {
+
+    &::before {
+      background-color: #2e2d29;
+      height: 6px;
+      transform: scaleY(1);
+      visibility: visible;
+    }
+
+    &:hover,
+    &:focus {
+      color:orange;
+
+      &::before {
+        background-color: #2e2d29;
+        height: 6px;
+        transform: scaleY(1);
+        visibility: visible;
+      }
+    }
+  }
+}

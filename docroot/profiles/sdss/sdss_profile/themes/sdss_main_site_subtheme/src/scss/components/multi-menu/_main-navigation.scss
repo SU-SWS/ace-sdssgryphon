@@ -170,6 +170,7 @@
 
       >.su-multi-menu__item--parent {
         margin: 0 40px 0 0;
+        display: block;
 
         >.su-multi-menu__item--parent:last-of-type {
           margin: 0;
@@ -271,7 +272,7 @@
 
       ul.su-multi-menu__menu,
       button.su-nav-toggle {
-        display: unset;
+        // display: unset; testing
       }
 
       .su-multi-menu__link {
@@ -327,7 +328,7 @@
 
           .su-nav-toggle[aria-expanded=true] {
             top: 10px;
-            right: 25px;
+            right: 10px;
           }
 
           .su-nav-toggle:focus[aria-expanded=true]::before {
@@ -368,6 +369,10 @@
 }
 
 .su-multi-menu.su-multi-menu--dropdowns {
+  .su-multi-menu__menu-lv2 button {
+    right: -16px;
+  }
+
   .su-multi-menu__menu {
     >.su-multi-menu__item--parent {
       .su-nav-toggle {
@@ -375,6 +380,8 @@
         width: 32px;
         height: 32px;
         top: 10px;
+        position: absolute;
+        left: 95%;
 
         &:active,
         &:focus,
@@ -390,6 +397,7 @@
         &[aria-expanded=true] {
           top: 15px;
           right: 2px;
+          padding-right: 0;
         }
 
         &:hover {
