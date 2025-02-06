@@ -19,8 +19,7 @@
 
     .su-multi-menu__nav-toggle[aria-expanded=true] + .su-multi-menu__menu-lv1 {
       width: 100vw;
-      margin-left: calc(50% - 50vw);
-      margin-right: calc(50% - 50vw);
+      margin: 0;
 
       @include grid-media('md') {
         width: 100%;

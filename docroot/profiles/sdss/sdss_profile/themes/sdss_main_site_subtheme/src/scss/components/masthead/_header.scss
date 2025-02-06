@@ -6,21 +6,21 @@
 
 header.su-masthead {
   section.su-masthead--inner {
-    display: block;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    max-width: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .system-menu-block {
-      position: absolute;
-      bottom: 0;
+      position: relative;
+      display: inline-flex;
+      width: auto;
+      align-self: stretch;
     }
 
     .su-multi-menu {
       .su-multi-menu__nav-toggle {
         position: relative;
-        top: -2rem;
+        top: 0;
         right: unset;
         padding: .5rem 1rem;
         width: auto;
@@ -68,10 +68,7 @@ header.su-masthead {
   }
 
   .su-lockup {
-    display: block;
-    flex: unset;
-    max-width: unset;
-    margin: 0;
+    display: inline-block;
 
     > a {
       display: block;
@@ -95,6 +92,10 @@ header.su-masthead {
     .su-lockup__line5 {
       // Remove line 5 from all displays.
       display: none;
+    }
+
+    .su-lockup__custom-logo {
+      max-width: 110px;
     }
   }
 }
@@ -136,12 +137,16 @@ header.su-masthead {
         margin: 0;
         padding: 1.5rem 5rem 1.5rem 2rem;
       }
+
+      .su-lockup__custom-logo {
+        max-width: 165px;
+      }
     }
   }
 }
 
 // Styles for Large or bigger Screens.
-@include grid-media-min('xs') {
+@include grid-media-min('lg') {
   header.su-masthead {
     section.su-masthead--inner {
       #sdss-button--search-link {
@@ -162,7 +167,7 @@ header.su-masthead {
       }
 
       .system-menu-block {
-        position: absolute;
+        position: relative;
         bottom: 0;
       }
 

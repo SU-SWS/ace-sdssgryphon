@@ -26,7 +26,8 @@
 .su-multi-menu {
   @include font-smoothing;
   @include sans;
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   z-index: 100;
   width: 100%;
@@ -462,7 +463,8 @@
 
       &[aria-expanded="true"] + .su-multi-menu__menu-lv1 {
         position: absolute;
-        left: 0;
+        right: 0;
+        top: 100%;
       }
 
       // Toggle button variants
