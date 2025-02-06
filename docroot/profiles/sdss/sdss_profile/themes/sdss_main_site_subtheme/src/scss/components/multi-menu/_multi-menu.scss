@@ -68,7 +68,7 @@
       @include margin(null 1.6rem null null);
       display: block;
       // color: color(link, $su-multi-menu-colors);
-      font-weight: $su-font-semi-bold;
+      // font-weight: $su-font-semi-bold;
       font-size: 1.8rem;
       // border-bottom: color(divider, $su-multi-menu-colors) solid 1px;
       outline: 0;
@@ -667,16 +667,21 @@ ul {
   flex-direction: row;
 }
 
-li.su-multi-menu__item.su-multi-menu__item--parent.su-multi-menu__item--expanded > ul {
-  border: 2px solid lime;
-  padding: 0 35px;
-  position: relative;
-  left: 0;
-  margin: 0;
-  top: 0;
-}
 
 @include grid-media-min('lg')  {
+  li.su-multi-menu__item.su-multi-menu__item--parent.su-multi-menu__item--expanded > ul {
+    padding: 0 6px;
+    position: relative;
+    left: 0;
+    margin: 0;
+    top: 0;
+
+    > li {
+      padding-left: 35px;
+    }
+  }
+
+
   .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item--active-trail>.su-multi-menu__link {
 
     &::before {
@@ -698,4 +703,40 @@ li.su-multi-menu__item.su-multi-menu__item--parent.su-multi-menu__item--expanded
       }
     }
   }
+
+
+
+    .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item--active-trail>.su-multi-menu__link {
+      &:before {
+        background-color: $sdss-color-palo-alto-dark;
+        height: 100%;
+        transform: scaleY(1);
+        visibility: visible;
+        width: 6px;
+      }
+    }
+
+
+    .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item>.su-multi-menu__link {
+      &:hover,
+      &:focus {
+        &:before {
+          background-color: $sdss-color-palo-alto-dark;
+          height: 100%;
+          transform: scaleY(1);
+          visibility: visible;
+          width: 6px;
+        }
+
+      }
+    }
+
+
+    .su-multi-menu .su-multi-menu__menu-lv2 .su-multi-menu__item>.su-multi-menu__link:hover:before,
+    .su-multi-menu .su-multi-menu__menu-lv3 .su-multi-menu__item>.su-multi-menu__link:hover:before,
+    .su-multi-menu .su-multi-menu__menu-lv4 .su-multi-menu__item>.su-multi-menu__link:hover:before,
+    .su-multi-menu .su-multi-menu__menu-lv5 .su-multi-menu__item>.su-multi-menu__link:hover:before {
+      left: -44px;
+  }
+
 }
