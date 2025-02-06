@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
-.ds-entity--stanford-banner {
+.ds-entity--stanford-banner.video-banner {
+  .su-hero {
+    @include grid-media-max('md') {
+      aspect-ratio: 16/9;
+    }
+  }
+
   .local-video {
     max-width: 2000px;
     margin: 0 auto;
@@ -12,17 +18,37 @@
     object-fit: cover;
   }
 
+  .overlay-right {
+    .video-info {
+      @include grid-media('md') {
+        bottom: 50px;
+        left: 75px;
+
+        .play-pause-button {
+          margin-right: auto;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
   .video-info {
     position: absolute;
     z-index: 100;
-    right: 20%;
-    bottom: 10%;
+    right: 0;
+    bottom: 0;
     color: white;
+
+    @include grid-media('md') {
+      bottom: 50px;
+      right: 75px;
+    }
 
     p {
       margin-top: 20px;
       background-color: rgba(46, 45, 41, 0.9);
       padding: 4px 11px;
+      width: fit-content;
     }
   }
 
@@ -32,6 +58,7 @@
     border-radius: 100px;
     padding: 1px;
     margin-left: auto;
+    margin-right: 10px;
     border: 2px solid white;
     width: 60px;
     height: 60px;
