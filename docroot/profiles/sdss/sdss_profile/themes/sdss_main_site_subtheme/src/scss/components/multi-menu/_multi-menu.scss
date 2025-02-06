@@ -44,11 +44,6 @@
     flex-direction: column;
     width: 100%;
     list-style: none;
-    // background-color: color(bg, $su-multi-menu-colors);
-
-    @include grid-media("lg") {
-      // background-color: color(bg, $su-multi-menu-light-colors);
-    }
 
     // All li elements.
     // -----------------------------------------------------------------------
@@ -59,54 +54,23 @@
     // All link elements.
     // -----------------------------------------------------------------------
     .su-multi-menu__link {
-      @include fancy-hover(
-        // color(border--hover, $su-multi-menu-colors),
-        // color(border--active, $su-multi-menu-colors),
-        'left'
-      );
       @include padding(1.6rem 0 1.6rem 2.4rem);
       @include margin(null 1.6rem null null);
       display: block;
-      // color: color(link, $su-multi-menu-colors);
-      // font-weight: $su-font-semi-bold;
       font-size: 1.8rem;
-      // border-bottom: color(divider, $su-multi-menu-colors) solid 1px;
       outline: 0;
 
       &:focus,
       &:hover {
-        // color: color(link, $su-multi-menu-colors);
         text-decoration: underline;
       }
-
-      // @include grid-media("lg") {
-
-      //   @include fancy-hover(
-      //     // color(border--hover, $su-multi-menu-light-colors),
-      //     // color(border--active, $su-multi-menu-light-colors),
-      //     'left'
-      //   );
-      //   @include padding(1.6rem 0 1.6rem 0);
-      //   @include margin(0 0 0 0);
-
-      //   // color: color(link, $su-multi-menu-light-colors);
-      //   // border-bottom: color(divider, $su-multi-menu-light-colors) solid 1px;
-
-      //   &:focus,
-      //   &:hover {
-      //     // color: color(link, $su-multi-menu-light-colors);
-      //     text-decoration: underline;
-      //   }
-      // }
     }
 
     // The buttons to open or close sub-menus.
     // Not to be confused with the mobile menu toggle.
     // -----------------------------------------------------------------------
     .su-nav-toggle {
-      // @include grid-media('lg') {
-      //   display: inline-block;
-      // }
+      padding: 0;
 
       &[aria-expanded="true"] {
         transform: rotate(180deg);
@@ -119,7 +83,6 @@
       }
 
     }
-
   }
 
   // First level styles - Vertical - Mobile.
@@ -139,112 +102,6 @@
         }
       }
     }
-
-    // @include grid-media("lg") {
-
-    //   @include padding(null null null 35px);
-    //   flex-direction: column;
-    //   flex-wrap: wrap;
-    //   background: $su-color-white;
-
-
-    //   // Top level horizonal links.
-    //   // --------------------------
-    //   > .su-multi-menu__item {
-
-    //     @include margin(0 36px 0 0);
-    //     display: flex;
-    //     flex-direction: column;
-
-    //     > .su-multi-menu__link {
-
-    //       font-size: unset;
-    //       border-bottom: unset;
-    //       font-weight: unset;
-    //       color: unset;
-
-
-    //       &::before {
-    //         height: 6px;
-    //         width: 100%;
-    //         transition: transform 0.3s ease-out;
-    //         transform: scaleX(0);
-    //       }
-
-    //       // State styles for horizontal desktop.
-    //       // -----------------------------------------------------------------------
-    //       &:hover,
-    //       &:active,
-    //       &:focus {
-    //         font-weight: $su-font-semi-bold;
-    //         color: $su-color-black;
-    //         text-decoration: underline;
-    //       }
-
-    //     }
-    //   }
-
-    //   // Top level list items.
-    //   // --------------------------
-    //   > .su-multi-menu__item {
-    //     // Items in the active trail should be highlighted.
-    //     &.su-multi-menu__item--active-trail {
-    //       > .su-multi-menu__link {
-    //         color: $su-color-black;
-
-    //         &::before {
-    //           height: 6px;
-    //           transform: scaleX(1);
-    //           visibility: visible;
-    //           // background-color: color(h--border, $su-multi-menu-colors);
-
-    //           @include grid-media("lg") {
-    //             // background-color: color(h--border, $su-multi-menu-light-colors);
-    //           }
-    //         }
-
-    //         &:hover,
-    //         &:focus {
-    //           color: $su-color-black;
-
-    //           &::before {
-    //             background: 0;
-    //           }
-    //         }
-    //       }
-    //     }
-
-    //     // First level current items.
-    //     &.su-multi-menu__item--current {
-    //       > .su-multi-menu__link {
-    //         color: $su-color-black;
-
-    //         &::before {
-    //           background-color: $su-color-black;
-    //           transform: scaleX(1);
-    //         }
-
-    //         &:hover {
-    //           &::before {
-    //             display: none;
-    //           }
-    //         }
-
-    //       }
-    //     }
-
-    //     // First level expanded items.
-    //     &.su-multi-menu__item--expanded {
-    //       > a {
-    //         &::before {
-    //           height: 6px;
-    //           transform: scaleX(1);
-    //           visibility: visible;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   // Second level styles
@@ -275,46 +132,6 @@
   .su-multi-menu__menu-lv3,
   .su-multi-menu__menu-lv4,
   .su-multi-menu__menu-lv5 {
-    // @include grid-media('lg') {
-
-    //   > .su-multi-menu__item {
-
-    //     > .su-multi-menu__link {
-
-    //       @include padding(null 0 2.4rem 1rem);
-    //       @include margin(0 1.8em 0 0.5rem);
-
-    //       &::before {
-    //         left: -6px;
-    //       }
-
-    //       .su-multi-menu__link-text-wrapper {
-    //         display: inline-block;
-    //         word-wrap: break-word;
-    //         max-width: calc(100% - 10px);
-    //       }
-    //     }
-
-    //     &.su-multi-menu__item--parent {
-    //       > .su-multi-menu__link {
-    //         .su-multi-menu__link-text-wrapper {
-    //           max-width: calc(100% - 50px);
-    //         }
-    //       }
-    //     }
-
-    //   }
-
-    //   // We have to get rid of the bottom border for the last item
-    //   // in the menu for desktop resolutions.
-    //   .su-multi-menu__item:not(.su-multi-menu__item--expanded) {
-    //     &:last-child {
-    //       .su-multi-menu__link {
-    //         border-bottom: 0;
-    //       }
-    //     }
-    //   }
-    // }
 
     @include grid-media-min('xs') {
       .su-multi-menu__item--parent {
@@ -324,24 +141,10 @@
           word-wrap: break-word;
           max-width: calc(100% - 38px);
         }
-
       }
-
     }
   }
 
-  .su-multi-menu--buttons {
-    // Menu Level 1 (top)
-    .su-multi-menu__menu-lv1 {
-      // Top Level Parent Items.
-      // @include grid-media("lg") {
-
-      //   > .su-multi-menu__item {
-      //     display: contents;
-      //   }
-      // }
-    }
-  }
 
   // Items with children
   // -----------------------------------------------------------------------
@@ -373,13 +176,8 @@
       &::before {
         visibility: visible;
         height: 100%;
-        width: 6px;
+        width: 3px;
         transform: scaleY(1);
-        // background-color: color(border--active, $su-multi-menu-colors);
-
-        @include grid-media("lg") {
-          // background-color: color(border--active, $su-multi-menu-light-colors);
-        }
       }
 
       &:hover,
@@ -387,11 +185,6 @@
 
         &::before {
           transition: left 0.1s ease-out;
-          // background-color: color(border--active, $su-multi-menu-colors);
-
-          @include grid-media("lg") {
-            // background-color: color(border--active, $su-multi-menu-light-colors);
-          }
         }
       }
     }
@@ -412,7 +205,6 @@
       outline: none;
       width: 40px;
       background-color: transparent;
-      // color: color(h--link, $su-multi-menu-colors);
       font-size: 1.6rem;
       line-height: 0.7;
 
@@ -428,8 +220,7 @@
       &[aria-expanded="true"] {
         &::before {
           visibility: visible;
-          transform: scaleX(1);
-          // background-color: color(h--border-expanded, $su-multi-menu-colors);
+          transform: scaleY(1);
         }
 
         &::after {
@@ -437,22 +228,12 @@
           background: url("#{$su-image-path}/close-black.svg") no-repeat 3px 0;
           background-size: 16px 16px;
         }
-
-        &:focus::before,
-        &:hover::before {
-          // background-color: color(h--border-hover, $su-multi-menu-colors);
-        }
-
-        &:active::before {
-          // background-color: color(border--active, $su-multi-menu-colors);
-        }
       }
 
       &:hover,
       &:active,
       &:focus {
         background-color: transparent;
-        // color: color(h--link, $su-multi-menu-colors);
         box-shadow: none;
       }
 
@@ -462,7 +243,9 @@
 
       &[aria-expanded="true"] + .su-multi-menu__menu-lv1 {
         position: absolute;
-        left: 0;
+        right: 0;
+        max-width: 600px;
+        padding-right: 35px;
       }
 
       // Toggle button variants
@@ -488,129 +271,6 @@
     }
 
   }
-
-  // Specific overrides for dropdown menus on desktop
-  // -----------------------------------------------------------------------
-  &.su-multi-menu--dropdowns {
-
-    // @include grid-media('lg') {
-
-    //   .su-multi-menu__menu {
-
-
-    //     > .su-multi-menu__item--parent {
-
-    //       > .su-nav-toggle {
-    //         @include padding(0);
-    //         display: inline-block;
-    //         right: 0;
-    //         text-align: center;
-    //         font-size: 0;
-    //         overflow: hidden;
-    //         z-index: 10;
-    //         background: transparent;
-    //         outline: none;
-    //         box-shadow: none;
-
-    //         &[aria-expanded="true"] {
-    //           border: 0;
-
-    //           &:focus,
-    //           &:active {
-    //             border-top: solid 1px $su-color-black;
-    //             border-bottom: 0;
-    //           }
-    //         }
-
-    //         &::before {
-    //           content: "";
-    //           background: url("#{$su-image-path}/caret-down-black.svg") no-repeat center / 50%;
-    //           background-size: 15px;
-    //           border-radius: 0;
-    //         }
-
-    //         &:hover {
-
-    //           &[aria-expanded="false"] {
-    //             transition: transform 0.3s ease-out, border-bottom 0.25s steps(1);
-    //             transform: rotate(0deg);
-    //             border-bottom: solid 1px $su-color-black;
-    //           }
-    //         }
-
-    //         &:focus,
-    //         &:hover {
-    //           background: transparent;
-
-    //           &::before {
-    //             background: url("#{$su-image-path}/caret-down-black.svg") no-repeat center / 50%;
-    //             background-size: 15px;
-    //           }
-    //         }
-
-    //         &:focus,
-    //         &:active {
-    //           outline: none;
-    //           box-shadow: none;
-    //           font-weight: $su-font-bold;
-    //           background: transparent;
-    //           border-bottom: solid 1px $su-color-black;
-    //         }
-    //       }
-    //     }
-    //   }
-
-    //   // separator bar for dropdown toggle on desktop.
-    //   .su-multi-menu__menu-lv1 {
-
-    //     > .su-multi-menu__item--parent {
-    //       @include margin(0 43px 0 0);
-
-    //       > .su-nav-toggle {
-    //         position: relative;
-    //         width: 15px;
-    //         height: 15px;
-    //         top: calc(50% - 6px);
-    //         left: 6px;
-    //       }
-
-    //       > .su-multi-menu__link {
-    //         &::after {
-    //           content: '';
-    //           height: unset;
-    //           margin-bottom: unset;
-    //           margin-left: unset;
-    //           border-right: unset;
-    //           display: unset;
-    //         }
-    //       }
-    //     }
-    //   }// end of separator bar for dropdown toggle.
-    // }
-  }
-
-  // &.su-multi-menu--right {
-
-  //   @include grid-media('lg') {
-
-  //     > ul,
-  //     .su-multi-menu__menu-lv1 {
-  //       display: flex;
-  //       justify-content: flex-end;
-
-  //       > li:last-of-type,
-  //       > .su-multi-menu__item:last-child,
-  //       > .su-multi-menu__item--parent:last-of-type {
-  //         @include padding(null 0 null null);
-  //         @include margin(null 0 null null);
-
-  //         & > .su-multi-menu__link {
-  //           @include margin(null 0 null null);
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 // Search box styling for devices and mobile views.
@@ -667,10 +327,9 @@ ul {
   flex-direction: row;
 }
 
-
 @include grid-media-min('lg')  {
   li.su-multi-menu__item.su-multi-menu__item--parent.su-multi-menu__item--expanded > ul {
-    padding: 0 6px;
+    // padding: 0 6px;
     position: relative;
     left: 0;
     margin: 0;
@@ -683,60 +342,68 @@ ul {
 
 
   .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item--active-trail>.su-multi-menu__link {
-
     &::before {
       background-color: #2e2d29;
-      height: 6px;
+      width: 3px;
       transform: scaleY(1);
       visibility: visible;
     }
 
     &:hover,
     &:focus {
-      color:orange;
-
       &::before {
         background-color: #2e2d29;
-        height: 6px;
+        height: 3px;
         transform: scaleY(1);
         visibility: visible;
       }
     }
   }
 
+  .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item--active-trail>.su-multi-menu__link {
+    &:before {
+      background-color: $sdss-color-palo-alto-dark;
+      height: 100%;
+      transform: scaleY(1);
+      visibility: visible;
+      width: 3px;
+    }
+  }
 
 
-    .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item--active-trail>.su-multi-menu__link {
+  .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item>.su-multi-menu__link {
+    &:hover,
+    &:focus {
       &:before {
         background-color: $sdss-color-palo-alto-dark;
         height: 100%;
         transform: scaleY(1);
         visibility: visible;
-        width: 6px;
+        width: 3px;
       }
     }
-
-
-    .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item>.su-multi-menu__link {
-      &:hover,
-      &:focus {
-        &:before {
-          background-color: $sdss-color-palo-alto-dark;
-          height: 100%;
-          transform: scaleY(1);
-          visibility: visible;
-          width: 6px;
-        }
-
-      }
-    }
-
-
-    .su-multi-menu .su-multi-menu__menu-lv2 .su-multi-menu__item>.su-multi-menu__link:hover:before,
-    .su-multi-menu .su-multi-menu__menu-lv3 .su-multi-menu__item>.su-multi-menu__link:hover:before,
-    .su-multi-menu .su-multi-menu__menu-lv4 .su-multi-menu__item>.su-multi-menu__link:hover:before,
-    .su-multi-menu .su-multi-menu__menu-lv5 .su-multi-menu__item>.su-multi-menu__link:hover:before {
-      left: -44px;
   }
 
+  // On desktop breakpoints show and hide the menus.  The default state is to hide under lv2 down.
+  .su-multi-menu.su-multi-menu--dropdowns {
+    .su-multi-menu__menu.su-multi-menu__menu-lv2 {
+      button.su-nav-toggle {
+        display: block;
+      }
+
+      .su-nav-toggle {
+        &[aria-expanded="true"] {
+          + ul {
+            display: flex;
+          }
+        }
+        &[aria-expanded="false"] {
+          + ul {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
+

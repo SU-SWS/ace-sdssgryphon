@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+// Search icon.
+.su-site-search__submit {
+  padding: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  background: url("../../assets/svg/magnifying-glass-24px-black.svg") no-repeat 0 0;
+  opacity: .6;
+  position: absolute;
+  right: 1.2rem;
+  top: .2rem;
+  height: 44px;
+  width: 44px;
+
+  &:hover {
+    background: $sdss-color-white url("../../assets/svg/magnifying-glass-24px-black.svg") no-repeat 0 0;
+  }
+}
+
 .su-masthead {
   .su-site-search {
     >form {
