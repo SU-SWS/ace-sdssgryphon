@@ -19,23 +19,7 @@
 // Style guide: Components.Multi Menu
 //
 
-.system-menu-block {
-  width: 100%;
-}
-
 .su-multi-menu {
-  @include font-smoothing;
-  @include sans;
-  display: block;
-  position: relative;
-  z-index: 100;
-  width: 100%;
-
-  // Hide stuff.
-  .mobile-hidden {
-    @include hide-visually;
-  }
-
   // All ul containers.
   // -----------------------------------------------------------------------
   .su-multi-menu__menu {
@@ -57,18 +41,12 @@
       @include padding(1.6rem 0 1.6rem 2.4rem);
       @include margin(null 1.6rem null null);
       display: block;
-      font-size: 1.8rem;
-      outline: 0;
-
-      &:focus,
-      &:hover {
-        text-decoration: underline;
-      }
     }
 
     // The buttons to open or close sub-menus.
     // Not to be confused with the mobile menu toggle.
     // -----------------------------------------------------------------------
+    // Might end up changing this later.
     .su-nav-toggle {
       padding: 0;
 
@@ -171,7 +149,7 @@
   // -----------------------------------------------------------------------
   .su-multi-menu__item--current {
     > .su-multi-menu__link {
-      font-weight: $su-font-bold;
+      font-weight: $su-font-regular;
 
       &::before {
         visibility: visible;
@@ -311,11 +289,9 @@ ul {
 }
 
 // Overrides
-
 .su-multi-menu .su-multi-menu__nav-toggle {
   display: flex;
 }
-
 
 > .su-multi-menu__item--parent {
   > .su-multi-menu__menu {
@@ -336,7 +312,7 @@ ul {
     top: 0;
 
     > li {
-      padding-left: 35px;
+      padding-left: 24px;
     }
   }
 
@@ -369,7 +345,6 @@ ul {
       width: 3px;
     }
   }
-
 
   .su-multi-menu .su-multi-menu__menu>.su-multi-menu__item.su-multi-menu__item>.su-multi-menu__link {
     &:hover,

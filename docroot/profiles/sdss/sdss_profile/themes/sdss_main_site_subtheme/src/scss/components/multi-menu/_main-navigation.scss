@@ -24,7 +24,6 @@
   }
 }
 
-
 // Drop down menu
 @include grid-media-min('lg') {
   .su-multi-menu {
@@ -109,39 +108,11 @@
       }
     }
   }
-
-  .su-multi-menu__menu {
-    >.su-multi-menu__item {
-      >.su-multi-menu__link {
-        color: $sdss-color-grey-dark;
-        font-weight: $su-font-regular;
-
-        &:hover,
-        &:active,
-        &:focus {
-          font-weight: $su-font-regular;
-        }
-
-      }
-
-      // Underline on current page.
-      &.su-multi-menu__item--active-trail {
-        > .su-multi-menu__link {
-          color: $sdss-color-green-link;
-
-          &:before {
-            background-color: $sdss-color-green-link;
-          }
-        }
-      }
-    }
-  }
 }
 
 .su-multi-menu {
   &.su-multi-menu--dropdowns {
     .su-multi-menu__menu-lv1 {
-
       @include grid-media-min('lg') {
         >.su-multi-menu__item--parent:last-of-type {
           margin: 0;
@@ -151,44 +122,6 @@
       >.su-multi-menu__item--parent {
         margin: 0 0 0 0;
         display: block;
-
-        >.su-multi-menu__item--parent:last-of-type {
-          margin: 0;
-        }
-
-        >.su-multi-menu__link {
-          // Remove the pipe, "|", on the dropdrop down menus.
-          &::after {
-            border-right: none;
-            margin-left: 6px;
-          }
-        }
-
-        // What the up and down caret look like.
-        > .su-nav-toggle {
-
-          &[aria-expanded=true]{
-            &:focus {
-                &::before {
-                  background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
-                }
-              }
-            }
-
-          // Mobile toggle - circle background color.
-          @include grid-media-min('xs') {
-            &::before {
-              background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
-            }
-
-            &:focus,
-            &:hover {
-              &::before {
-                background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -270,12 +203,6 @@
     .su-multi-menu__menu {
 
       .su-multi-menu__menu-lv2 {
-        > .su-multi-menu__item {
-          > a.su-multi-menu__link {
-            // padding-right: 1rem;
-          }
-        }
-
         > .su-multi-menu__item--parent {
 
           .su-nav-toggle::before {
@@ -285,7 +212,6 @@
 
           button.su-nav-toggle[aria-expanded=true] {
             top: -2px;
-            // right: 10px;
           }
 
           button.su-nav-toggle:focus[aria-expanded=true]::before {
@@ -303,7 +229,6 @@
 
       &[aria-expanded=true] {
         top: 15px;
-        // right: 0;
       }
 
       &::before {
@@ -313,12 +238,10 @@
         background-size: 15px;
         border-radius: 19px;
         top: 5px;
-        // right: 10px;
       }
 
       &[aria-expanded=true] {
         top: 15px;
-        // right: 17px;
       }
     }
   }
@@ -331,6 +254,7 @@
       right: -16px;
     }
 
+    // Need these because they are not part of the SDSS Subtheme
     .su-multi-menu__menu {
       >.su-multi-menu__item--parent {
         .su-nav-toggle {
@@ -340,23 +264,6 @@
           top: 10px;
           position: absolute;
           left: 95%;
-
-          &:active,
-          &:focus,
-          &:hover,
-          &:hover[aria-expanded=false],
-          &[aria-expanded=true]:active,
-          &[aria-expanded=true]:focus {
-            border-bottom: 0;
-            border-top: 0;
-          }
-
-          // changing animation from toggle
-          &[aria-expanded=true] {
-            top: 15px;
-            right: 2px;
-            padding-right: 0;
-          }
 
           &:hover {
             &::before {
