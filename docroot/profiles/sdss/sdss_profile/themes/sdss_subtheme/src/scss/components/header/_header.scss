@@ -6,15 +6,42 @@
 
 header.su-masthead {
   section.su-masthead--inner {
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     margin: 0;
-    width: 100%;
+    width: auto;
     max-width: unset;
 
-    .system-menu-block {
-      position: absolute;
-      bottom: 0;
+    .su-lockup {
+      display: block;
+      flex: unset;
+      max-width: unset;
+      margin: 0;
+
+      > a {
+        display: block;
+      }
+
+      .su-lockup__cell1,
+      .su-lockup__cell2 {
+        padding: 1.5rem 3rem;
+      }
+
+      .su-lockup__cell2 {
+        max-width: unset;
+        background-color: $sdss-color-palo-alto-dark;
+      }
+
+      .su-lockup__line1,
+      .su-lockup__line2 {
+        margin-left: 0;
+      }
+
+      .su-lockup__line5 {
+        // Remove line 5 from all displays.
+        display: none;
+      }
     }
 
     .su-multi-menu {
@@ -64,37 +91,6 @@ header.su-masthead {
           }
         }
       }
-    }
-  }
-
-  .su-lockup {
-    display: block;
-    flex: unset;
-    max-width: unset;
-    margin: 0;
-
-    > a {
-      display: block;
-    }
-
-    .su-lockup__cell1,
-    .su-lockup__cell2 {
-      padding: 1.5rem 3rem;
-    }
-
-    .su-lockup__cell2 {
-      max-width: unset;
-      background-color: $sdss-color-palo-alto-dark;
-    }
-
-    .su-lockup__line1,
-    .su-lockup__line2 {
-      margin-left: 0;
-    }
-
-    .su-lockup__line5 {
-      // Remove line 5 from all displays.
-      display: none;
     }
   }
 }
