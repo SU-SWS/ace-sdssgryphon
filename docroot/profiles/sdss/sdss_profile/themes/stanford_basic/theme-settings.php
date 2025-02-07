@@ -1,8 +1,6 @@
 <?php
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
-use Drupal\Core\Link;
 
 // @codeCoverageIgnoreStart
 
@@ -53,15 +51,10 @@ function stanford_basic_form_system_theme_settings_alter(array &$form, FormState
     '#default_value' => theme_get_setting('global_footer_variant'),
   ];
 
-  $img = '<img src="' . base_path() . \Drupal::service('extension.list.theme')
-      ->getPath('stanford_basic') . '/dist/assets/img/lockup-example.png" />';
-  $decanter = Link::fromTextAndUrl('Decanter Lockup Component', Url::fromUri('https://decanter.stanford.edu/component/identity-lockup/'))
-    ->toString();
-
   $form['options_settings']['stanford_basic_lockup'] = [
     '#type' => 'fieldset',
     '#title' => t('Lockup Settings'),
-    '#field_prefix' => "<p>$img</p><p>More examples can be found at: $decanter</p>",
+    '#field_prefix' => "",
   ];
 
   $form['options_settings']['stanford_basic_lockup']['lockup']['#tree'] = TRUE;
@@ -73,24 +66,6 @@ function stanford_basic_form_system_theme_settings_alter(array &$form, FormState
       'none' => t('Logo Only'),
       'a' => t('Option A'),
       'b' => t('Option B'),
-      'c' => t('Option C'),
-      'd' => t('Option D'),
-      'e' => t('Option E'),
-      'f' => t('Option F'),
-      'g' => t('Option G'),
-      'h' => t('Option H'),
-      'i' => t('Option I'),
-      'j' => t('Option J'),
-      'k' => t('Option K'),
-      'l' => t('Option L'),
-      'm' => t('Option M'),
-      'n' => t('Option N'),
-      'o' => t('Option O'),
-      'p' => t('Option P'),
-      'q' => t('Option Q'),
-      'r' => t('Option R'),
-      's' => t('Option S'),
-      't' => t('Option T'),
     ],
     '#default_value' => theme_get_setting('lockup.option') ?? 'a',
     '#description' => t("Layout options."),
@@ -104,8 +79,6 @@ function stanford_basic_form_system_theme_settings_alter(array &$form, FormState
     '#states' => [
       'invisible' => [
         [':input[name="lockup[option]"]' => ['value' => 'none']],
-        [':input[name="lockup[option]"]' => ['value' => 'o']],
-        [':input[name="lockup[option]"]' => ['value' => 'r']],
       ],
     ],
   ];
@@ -119,94 +92,6 @@ function stanford_basic_form_system_theme_settings_alter(array &$form, FormState
       'invisible' => [
         [':input[name="lockup[option]"]' => ['value' => 'none']],
         [':input[name="lockup[option]"]' => ['value' => 'a']],
-        [':input[name="lockup[option]"]' => ['value' => 'd']],
-        [':input[name="lockup[option]"]' => ['value' => 'h']],
-        [':input[name="lockup[option]"]' => ['value' => 'i']],
-        [':input[name="lockup[option]"]' => ['value' => 'k']],
-        [':input[name="lockup[option]"]' => ['value' => 'l']],
-        [':input[name="lockup[option]"]' => ['value' => 'n']],
-        [':input[name="lockup[option]"]' => ['value' => 'o']],
-        [':input[name="lockup[option]"]' => ['value' => 'p']],
-        [':input[name="lockup[option]"]' => ['value' => 'q']],
-        [':input[name="lockup[option]"]' => ['value' => 'r']],
-      ],
-    ],
-  ];
-
-  $form['options_settings']['stanford_basic_lockup']['lockup']['line3'] = [
-    '#type' => 'textfield',
-    '#title' => t('Line 3'),
-    '#default_value' => theme_get_setting('lockup.line3'),
-    '#description' => t("Tertiary title line."),
-    '#states' => [
-      'invisible' => [
-        [':input[name="lockup[option]"]' => ['value' => 'none']],
-        [':input[name="lockup[option]"]' => ['value' => 'a']],
-        [':input[name="lockup[option]"]' => ['value' => 'b']],
-        [':input[name="lockup[option]"]' => ['value' => 'c']],
-        [':input[name="lockup[option]"]' => ['value' => 'f']],
-        [':input[name="lockup[option]"]' => ['value' => 'g']],
-        [':input[name="lockup[option]"]' => ['value' => 'j']],
-        [':input[name="lockup[option]"]' => ['value' => 'k']],
-        [':input[name="lockup[option]"]' => ['value' => 'l']],
-        [':input[name="lockup[option]"]' => ['value' => 'm']],
-        [':input[name="lockup[option]"]' => ['value' => 'n']],
-        [':input[name="lockup[option]"]' => ['value' => 'o']],
-        [':input[name="lockup[option]"]' => ['value' => 'p']],
-        [':input[name="lockup[option]"]' => ['value' => 'q']],
-        [':input[name="lockup[option]"]' => ['value' => 'r']],
-        [':input[name="lockup[option]"]' => ['value' => 's']],
-      ],
-    ],
-  ];
-
-  $form['options_settings']['stanford_basic_lockup']['lockup']['line4'] = [
-    '#type' => 'textfield',
-    '#title' => t('Line 4'),
-    '#default_value' => theme_get_setting('lockup.line4'),
-    '#description' => t("Organization name."),
-    '#states' => [
-      'invisible' => [
-        [':input[name="lockup[option]"]' => ['value' => 'none']],
-        [':input[name="lockup[option]"]' => ['value' => 'a']],
-        [':input[name="lockup[option]"]' => ['value' => 'b']],
-        [':input[name="lockup[option]"]' => ['value' => 'c']],
-        [':input[name="lockup[option]"]' => ['value' => 'd']],
-        [':input[name="lockup[option]"]' => ['value' => 'e']],
-        [':input[name="lockup[option]"]' => ['value' => 'f']],
-        [':input[name="lockup[option]"]' => ['value' => 'g']],
-        [':input[name="lockup[option]"]' => ['value' => 'j']],
-        [':input[name="lockup[option]"]' => ['value' => 'k']],
-        [':input[name="lockup[option]"]' => ['value' => 'l']],
-        [':input[name="lockup[option]"]' => ['value' => 'm']],
-        [':input[name="lockup[option]"]' => ['value' => 'n']],
-        [':input[name="lockup[option]"]' => ['value' => 'r']],
-      ],
-    ],
-  ];
-
-  $form['options_settings']['stanford_basic_lockup']['lockup']['line5'] = [
-    '#type' => 'textfield',
-    '#title' => t('Line 5'),
-    '#default_value' => theme_get_setting('lockup.line5'),
-    '#description' => t("Last line full width option."),
-    '#states' => [
-      'invisible' => [
-        [':input[name="lockup[option]"]' => ['value' => 'none']],
-        [':input[name="lockup[option]"]' => ['value' => 'b']],
-        [':input[name="lockup[option]"]' => ['value' => 'd']],
-        [':input[name="lockup[option]"]' => ['value' => 'e']],
-        [':input[name="lockup[option]"]' => ['value' => 'f']],
-        [':input[name="lockup[option]"]' => ['value' => 'h']],
-        [':input[name="lockup[option]"]' => ['value' => 'i']],
-        [':input[name="lockup[option]"]' => ['value' => 'l']],
-        [':input[name="lockup[option]"]' => ['value' => 'm']],
-        [':input[name="lockup[option]"]' => ['value' => 'n']],
-        [':input[name="lockup[option]"]' => ['value' => 'o']],
-        [':input[name="lockup[option]"]' => ['value' => 'p']],
-        [':input[name="lockup[option]"]' => ['value' => 'q']],
-        [':input[name="lockup[option]"]' => ['value' => 's']],
-        [':input[name="lockup[option]"]' => ['value' => 't']],
       ],
     ],
   ];

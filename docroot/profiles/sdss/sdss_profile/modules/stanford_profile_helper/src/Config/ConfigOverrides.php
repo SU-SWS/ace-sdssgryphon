@@ -82,82 +82,10 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     $overrides = [];
 
     // Theme settings override.
-    $this->setLockupOverrides($names, $overrides);
     $this->setRolePermissionOverrides($names, $overrides);
     $this->setMainMenuOverrides($names, $overrides);
     // Overrides.
     return $overrides;
-  }
-
-  /**
-   * Disable google tag manager entities when not on prod environment.
-   *
-   * @param array $names
-   *   Config names.
-   * @param array $overrides
-   *   Keyed array of config overrides.
-   */
-  protected function setLockupOverrides(array $names, array &$overrides) {
-    // Validate we are working with the info we need.
-    $default_theme = $this->configFactory->getEditable('system.theme')
-      ->getOriginal('default', FALSE);
-
-    if (!in_array("$default_theme.settings", $names)) {
-      return;
-    }
-
-    // The lockup isn't enabled, so bail out.
-    if ($this->configPagesLoader->getValue('lockup_settings', 'su_lockup_enabled', 0, 'value')) {
-      return;
-    }
-
-    // Override the lockup settings.
-    if ($lockup_overrides = $this->getLockupTextOverrides()) {
-      $overrides[$default_theme . '.settings'] = $lockup_overrides;
-    }
-  }
-
-  /**
-   * Get the lockup text overrides.
-   */
-  protected function getLockupTextOverrides() {
-    $overrides = [
-      'lockup' => [
-        'option' => $this->configPagesLoader->getValue('lockup_settings', 'su_lockup_options', 0, 'value'),
-        'line1' => $this->configPagesLoader->getValue('lockup_settings', 'su_line_1', 0, 'value'),
-        'line2' => $this->configPagesLoader->getValue('lockup_settings', 'su_line_2', 0, 'value'),
-      ],
-      'logo' => [
-        'path' => $this->getLogoUrl(),
-      ],
-    ];
-    $overrides['lockup'] = array_filter($overrides['lockup']);
-    $overrides['logo'] = array_filter($overrides['logo']);
-
-    if (!empty($overrides['lockup']) && !$this->configPagesLoader->getValue('lockup_settings', 'su_use_theme_logo', 0, 'value')) {
-      $overrides['logo']['use_default'] = FALSE;
-    }
-    return array_filter($overrides);
-  }
-
-  /**
-   * Get the lockup file/logo overrides.
-   */
-  protected function getLogoUrl(): ?string {
-
-    $file_id = $this->configPagesLoader->getValue('lockup_settings', 'su_upload_logo_image', 0, 'target_id');
-    if (!$file_id) {
-      return NULL;
-    }
-
-    $file = $this->entityTypeManager->getStorage('file')->load($file_id);
-    if (!$file) {
-      return NULL;
-    }
-
-    $file_uri = $file->getFileUri();
-    $wrapper = $this->streamWrapperManager->getViaUri($file_uri);
-    return $wrapper->getExternalUrl();
   }
 
   /**
