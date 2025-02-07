@@ -1,0 +1,87 @@
+{#
+/**
+ * @file
+ * Available variables:
+ *
+ * site_logo: Logo for site as defined in Appearance or theme settings.
+ * site_name: Name for site as defined in Site information settings.
+ * site_slogan: Slogan for site as defined in Site information settings
+ * content: Contains the above vars with more information.
+ * lockup: Settings from the theme.
+ * use_logo: Setting from the theme
+ * configuration: More settings from the theme.
+ * - id: "system_branding_block"
+ * - label: "Site Branding"
+ * - use_site_logo: boolean
+ * - use_site_name: boolean
+ * - use_site_slogan: boolean
+ */
+#}
+
+{# Set some of the default options for the lockup. #}
+{% set attributes = attributes|without('class') %}
+{% set link = url('<front>') %}
+
+{# The variant classes change when there is more than one line to render. #}
+{% if lockup.option is not empty %}
+  {% set modifier_class = "su-lockup--option-" ~ lockup.option %}
+{% endif %}
+
+{# Grab the site1 variable if it is not empty #}
+{% if lockup.line1 is not empty %}
+ {% set line1 = lockup.line1 %}
+{% endif %}
+
+{# Default from the theme is to use the site slogan. #}
+{% set line2 = site_slogan %}
+{% if lockup.line2 is not empty %}
+ {% set line2 = lockup.line2 %}
+{% endif %}
+
+{# Enforce no lines on none. #}
+{% if lockup.option == 'none' %}
+  {% set line1 = '' %}
+  {% set line2 = '' %}
+{% endif %}
+
+<div {{ attributes }} class="su-lockup {{ modifier_class }}">
+  {% if link is not empty %}
+     <a href="{{ link }}" {{ link_attributes }}>
+  {% endif %}
+
+  {% block cell1 %}
+    {% if site_logo|render|striptags|trim is not empty and use_logo == false %}
+      <div class="su-lockup__logo-wrapper">
+        <img src="{{ site_logo }}" alt="{{ site_name }}" class="su-lockup__custom-logo" />
+      </div>
+    {% else %}
+      <div class="su-lockup__wordmark-wrapper">
+        <span class="su-lockup__wordmark">Stanford</span>
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block cell2 %}
+    {% if lockup.option != 'none' %}
+      {% if line1 is not empty or line2 is not empty %}
+      <div class="su-lockup__cell2">
+        {% if line1 is not empty %}
+        <span class="su-lockup__line1" {{ region_attributes.line1 }}>{{ line1 }}</span>
+        {% endif %}
+
+        {% if line2 is not empty %}
+        <span class="su-lockup__line2" {{ region_attributes.line2 }}>{{ line2 }}</span>
+        {% endif %}
+
+        {% if line3 is not empty %}
+        <span class="su-lockup__line3" {{ region_attributes.line3 }}>{{ line3 }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    {% endif %}
+  {% endblock %}
+
+  {% if link is not empty %}
+    </a>
+  {% endif %}
+</div>

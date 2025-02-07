@@ -260,6 +260,10 @@ function stanford_basic_preprocess_page(&$vars) {
   if ($global_footer_variant = theme_get_setting('global_footer_variant')) {
     $vars['global_footer_variant'] = 'su-global-footer--' . $global_footer_variant;
   }
+  // Variant setting for the hamburger menu.
+  if ($hamburger_menu_variant = theme_get_setting('hamburger_menu')) {
+    $vars['hamburger_menu_variant'] = 'sdss-hamburger--' . $hamburger_menu_variant;
+  }
 
   // Prepares non node/panel pages to be in a single column.
   _stanford_basic_preprocess_not_nodes($vars);

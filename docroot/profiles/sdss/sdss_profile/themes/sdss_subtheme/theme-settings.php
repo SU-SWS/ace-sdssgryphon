@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
  */
 function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state)
 {
-
   // Header options.
   $form['options_settings']['sdss_subtheme_header_options'] = [
     '#type' => 'fieldset',

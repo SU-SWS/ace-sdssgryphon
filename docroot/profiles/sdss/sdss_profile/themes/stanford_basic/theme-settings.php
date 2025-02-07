@@ -129,6 +129,22 @@ function stanford_basic_form_system_theme_settings_alter(array &$form, FormState
     ],
   ];
 
+  // Menu options.
+  $form['options_settings']['stanford_basic_menu_options'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Menu Options'),
+  ];
+
+  $form['options_settings']['stanford_basic_menu_options']['hamburger_menu'] = [
+    '#type' => 'select',
+    '#title' => t('Hamburger Menu'),
+    '#options' => [
+      'mobile_only' => t('Mobile Only'),
+      'all_widths' => t('All widths'),
+    ],
+    '#default_value' => theme_get_setting('hamburger_menu') ?? 'mobile_only',
+  ];
+
 }
 
 // @codeCoverageIgnoreEnd
