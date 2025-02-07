@@ -19,6 +19,17 @@
   }
 }
 
+.su-masthead {
+  .su-multi-menu {
+    .su-multi-menu__nav-toggle[aria-expanded=true]+.su-multi-menu__menu-lv1 {
+      margin: 0;
+      top: 100%;
+      right: 0;
+      width: 100%;
+    }
+  }
+}
+
 // Spacing overrides
 .su-multi-menu {
 
