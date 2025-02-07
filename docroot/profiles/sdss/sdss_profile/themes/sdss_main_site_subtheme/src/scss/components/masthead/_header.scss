@@ -20,7 +20,7 @@ header.su-masthead {
     .su-multi-menu {
       .su-multi-menu__nav-toggle {
         position: relative;
-        top: -2rem;
+        top: -1rem;
         right: unset;
         padding: .5rem 1rem;
         width: auto;
@@ -60,7 +60,10 @@ header.su-masthead {
           &::after {
             width: 30px;
             height: 26px;
-            background: url("../../assets/svg/hamburger-black.svg") no-repeat 3px 0;
+            background: url("../../assets/svg/close.svg") no-repeat 3px 0;
+            height: 24px;
+            width: 22px;
+            background-size: 16px 16px;
           }
         }
       }
@@ -98,7 +101,6 @@ header.su-masthead {
     }
   }
 }
-
 
 //
 // Mobile first min-width queries.
@@ -166,8 +168,9 @@ header.su-masthead {
         bottom: 0;
       }
 
+      // Align the mobile menu
       .su-multi-menu {
-        padding: 0 8rem;
+        padding: 0 3rem;
       }
     }
 
@@ -180,6 +183,7 @@ header.su-masthead {
     ul li .su-site-search {
       display: block;
       max-width: unset;
+      margin: 26px auto;
     }
 
     .su-lockup {
@@ -207,25 +211,42 @@ header.su-masthead {
 }
 
 // Styles for Extra Large or bigger Screens.
-// @include grid-media-min('xl') {
-//   header.su-masthead {
-//     section.su-masthead--inner {
-//       // @include sdss-centered-column;
+@include grid-media-min('xl') {
+  header.su-masthead {
+    section.su-masthead--inner {
+      width: calc(100% - 200px);
+    }
 
-//       .su-multi-menu {
-//         padding: 0;
-//       }
-//     }
+    .su-lockup {
+      .su-lockup__cell1 {
+        padding: 1.5rem 3rem;
+      }
+    }
+  }
+}
 
-//     .su-lockup {
-//       .su-lockup__cell1 {
-//         padding: 3rem 4rem 3rem 0;
-//       }
+// Logo alignment on left/right.
+header.su-masthead {
+  .su-lockup {
+    .su-lockup__cell1 {
+      @include grid-media-min('xs') {
+        padding: 1.5rem 2rem;
+      }
+      @include grid-media-min('sm') {
+        padding: 1.5rem 3rem;
+      }
+      @include grid-media-min('md') {
+        padding: 1.5rem 5rem;
+      }
+      @include grid-media-min('lg') {
+        padding: 1.5rem 8rem;
+      }
+      @include grid-media-min('xl') {
+        padding: 1.5rem 10rem;
+      }
+    }
+  }
+}
 
-//       .su-lockup__cell2 {
-//         position: relative;
-//         padding: 3rem 0 3rem 3rem;
-//       }
-//     }
-//   }
-// }
+
+

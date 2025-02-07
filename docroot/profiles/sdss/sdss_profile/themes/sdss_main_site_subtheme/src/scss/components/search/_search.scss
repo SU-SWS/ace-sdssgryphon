@@ -22,7 +22,10 @@
 .su-masthead {
   .su-site-search {
     >form {
-      width: unset;
+      width: 350px;
+      min-width: 200px;
+      margin: 0 auto;
+      position: relative;
     }
   }
 }
@@ -79,7 +82,6 @@
     }
   }
 }
-
 
 // Accounting for the position being set when logged in.
 .role--authenticated {
