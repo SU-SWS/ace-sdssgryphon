@@ -5,59 +5,28 @@
  * Local development override configuration feature.
  */
 
-global $_acsf_site_name;
-$db_name = '${drupal.db.database}';
-if (isset($_acsf_site_name)) {
-  $db_name .= '_' . $_acsf_site_name;
-}
+use Acquia\Blt\Robo\Common\EnvironmentDetector;
+
+$db_name = '${drupal.db.database}_' . basename(dirname(__FILE__, 2));
 
 /**
  * Database configuration.
  */
-$databases = [
-  'default' =>
-  [
-    'default' =>
-    [
-      'database' => $db_name,
-      'username' => '${drupal.db.username}',
-      'password' => '${drupal.db.password}',
-      'host' => '${drupal.db.host}',
-      'port' => '${drupal.db.port}',
-      'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-      'driver' => 'mysql',
-      'prefix' => '',
-    ],
-  ],
+$databases['default']['default'] = [
+  'database' => $db_name,
+  'username' => '${drupal.db.username}',
+  'password' => '${drupal.db.password}',
+  'host' => '${drupal.db.host}',
+  'port' => '${drupal.db.port}',
+  'driver' => 'mysql',
+  'prefix' => '',
 ];
 
-$dir = dirname(DRUPAL_ROOT);
-
 // Use development service parameters.
-$settings['container_yamls'][] = $dir . '/docroot/sites/development.services.yml';
-$settings['container_yamls'][] = $dir . '/docroot/sites/blt.development.services.yml';
+$settings['container_yamls'][] = EnvironmentDetector::getRepoRoot() . '/docroot/sites/development.services.yml';
 
 // Allow access to update.php.
 $settings['update_free_access'] = TRUE;
-
-/**
- * Assertions.
- *
- * The Drupal project primarily uses runtime assertions to enforce the
- * expectations of the API by failing when incorrect calls are made by code
- * under development.
- *
- * @see http://php.net/assert
- * @see https://www.drupal.org/node/2492225
- *
- * If you are using PHP 7.0 it is strongly recommended that you set
- * zend.assertions=1 in the PHP.ini file (It cannot be changed from .htaccess
- * or runtime) on development machines and to 0 in production.
- *
- * @see https://wiki.php.net/rfc/expectations
- */
-assert_options(ASSERT_ACTIVE, TRUE);
-assert_options(ASSERT_EXCEPTION, TRUE);
 
 /**
  * Show all error messages, with backtrace information.
@@ -141,14 +110,17 @@ $settings['rebuild_access'] = FALSE;
 $settings['skip_permissions_hardening'] = TRUE;
 
 /**
- * Private file path.
+ * Files paths.
  */
-$settings['file_private_path'] = $dir . '/files-private/default';
-if (isset($_acsf_site_name)) {
-  $settings['file_public_path'] = "sites/default/files/$_acsf_site_name";
-  // phpcs:ignore
-  $settings['file_private_path'] = "$repo_root/files-private/$_acsf_site_name";
-}
+$settings['file_private_path'] = EnvironmentDetector::getRepoRoot() . '/files-private/' . EnvironmentDetector::getSiteName($site_path);
+/**
+ * Site path.
+ *
+ * @var string $site_path
+ * This is always set and exposed by the Drupal Kernel.
+ */
+// phpcs:ignore
+$settings['file_public_path'] = 'sites/' . EnvironmentDetector::getSiteName($site_path) . '/files';
 
 /**
  * Trusted host configuration.

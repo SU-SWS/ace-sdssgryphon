@@ -1,0 +1,21 @@
+uuid: 5a29dbb5-1abe-40fe-8e0c-1dbfcf238038
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.su_media_video_silent
+    - media.type.local_video
+id: media.local_video.su_media_video_silent
+field_name: su_media_video_silent
+entity_type: media
+bundle: local_video
+label: 'Silent Video'
+description: 'By uploading this file, I certify that it contains no audio. Any audio that exists on the video file will cause accessibility issues.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
