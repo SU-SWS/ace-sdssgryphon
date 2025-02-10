@@ -1,0 +1,367 @@
+@charset "UTF-8";
+
+// Define link mixins here
+// Example: All mixin names should be prefaced with your abbreviation (saa, soe, ood, etc)
+
+//@mixin example-button--gray {
+  // button colors here
+
+  /* don't forget to include decanter icon color overrides too;
+  ** if you override a link color, you must also override the :after psuedo element
+  ** so decanter icons correspond to the link color.
+  */
+
+  // Include the correct icon color mixin inside your mixins here
+  //@include example--black-icons
+//}
+
+// Inline textual Links for List, Teaser, Cards, Text Area
+@mixin sdss-inline-textual-link--hover {
+  color: $sdss-color-palo-alto-dark;
+  cursor: pointer;
+  font-weight: $su-font-regular;
+  text-decoration: none;
+
+  & svg.mailto {
+    fill: $sdss-color-palo-alto-dark;
+  }
+}
+
+@mixin sdss-inline-textual-link--focus {
+  color: $sdss-color-palo-alto-dark;
+  outline: 1px solid $sdss-color-black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+@mixin sdss-inline-textual-link--active {
+  color: $sdss-color-palo-alto-dark;
+  outline: 1px solid $sdss-color-black;
+  background-color: transparent;
+  text-decoration: none;
+}
+// End
+
+// Inline textual Links for List, Teaser, Cards, Text Area on dark green background.
+@mixin sdss-inline-textual-link-negative--hover {
+  color: $sdss-color-white;
+  cursor: pointer;
+  font-weight: $su-font-regular;
+  text-decoration: none;
+
+  & svg.mailto {
+    fill: $sdss-color-white;
+  }
+}
+
+@mixin sdss-inline-textual-link-negative--focus {
+  color: $sdss-color-white;
+  outline: 1px solid $sdss-color-white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+@mixin sdss-inline-textual-link-negative--active {
+  color: $sdss-color-white;
+  outline: 1px solid $sdss-color-white;
+  background-color: transparent;
+  text-decoration: none;
+}
+// End
+
+// Primary hover/focus/active/disabled buttons
+@mixin sdss-link-primary--hover {
+  color: $sdss-color-black;
+  cursor: pointer;
+  text-decoration: underline;
+
+  & svg.mailto {
+    fill: $sdss-color-black;
+  }
+}
+
+@mixin sdss-link-primary--focus {
+  color: $sdss-color-grey-dark;
+  outline: 1px solid $sdss-color-palo-alto-dark;
+  background-color: transparent;
+}
+
+@mixin sdss-link-primary--active {
+  color: $sdss-color-grey-dark;
+}
+// End
+
+// Negative hover/focus/active/disabled Links
+@mixin sdss-link-negative--hover {
+  color: $sdss-color-blue-bright-dark;
+  cursor: pointer;
+
+  & svg.mailto {
+    fill: $sdss-color-blue-bright-dark;
+  }
+}
+
+@mixin sdss-link-negative--focus {
+  color: $sdss-color-white;
+  outline: 1px solid $sdss-color-white;
+  background-color: transparent;
+}
+
+@mixin sdss-link-negative--active {
+  color: $sdss-color-white;
+}
+//End
+
+// Negative hover FOOTER Links
+@mixin sdss-link-negative-footer--hover {
+  color: $sdss-color-white;
+  cursor: pointer;
+
+  & svg.mailto {
+    fill: $sdss-color-white;
+  }
+}
+//End
+
+
+// Inline textual Links for List, Teaser, Cards, Text Area
+@mixin sdss-inline-textual-link {
+  @include sdss-inline-textual-link--hover-and-focus;
+
+  color: $sdss-color-palo-alto-dark;
+  font-weight: $su-font-regular;
+  outline-color: $sdss-color-palo-alto-dark;
+  text-decoration: underline;
+
+  &::after {
+    background-color: $sdss-color-palo-alto-dark;
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-palo-alto-dark;
+    }
+  }
+}
+//End
+
+// Inline textual Links for List, Teaser, Cards, Text Area on dark green background
+@mixin sdss-inline-textual-link-negative {
+  @include sdss-inline-textual-link-negative--hover-and-focus;
+
+  color: $sdss-color-white;
+  font-weight: $su-font-regular;
+  outline-color: $sdss-color-white;
+  text-decoration: underline;
+
+  &::after {
+    background-color: $sdss-color-white;
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-white;
+    }
+  }
+}
+//End
+
+// Primary link details
+@mixin sdss-link--primary {
+  @include sdss-link-primary--hover-and-focus;
+
+  color: $sdss-color-palo-alto-dark;
+  outline-color: $sdss-color-palo-alto-dark;
+
+  &::after {
+    background-color: $sdss-color-palo-alto-dark;
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-palo-alto-dark;
+    }
+  }
+}
+//End
+
+// Negative link details
+@mixin sdss-link--negative {
+  @include sdss-link-negative--hover-and-focus;
+
+  color: $sdss-color-blue-bright;
+  outline-color: $sdss-color-blue-bright;
+  text-decoration: underline;
+
+  &::after {
+    background-color: $sdss-color-blue-bright;
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-blue-bright;
+    }
+  }
+}
+//End
+
+// Negative FOOTER link details
+@mixin sdss-link--negative-footer {
+  @include sdss-link-negative-footer--hover-and-focus;
+
+  color: $sdss-color-white;
+  text-decoration: none;
+
+  &::after {
+    background-color: $sdss-color-white;
+  }
+
+  &.mailto {
+    svg {
+      fill: $sdss-color-white;
+    }
+  }
+}
+//End
+
+// Inline textual Links hover for List, Teaser, Cards, Text Area
+@mixin sdss-inline-textual-link--hover-and-focus {
+  &:hover {
+    @include sdss-inline-textual-link--hover;
+
+    &::after {
+      background-color: $sdss-color-palo-alto-dark;
+    }
+  }
+
+  &:focus {
+    @include sdss-inline-textual-link--focus;
+
+    &::after {
+      background-color: $sdss-color-palo-alto-dark;
+    }
+  }
+
+  &:active {
+    @include sdss-inline-textual-link--active;
+
+    &::after {
+      background-color: $sdss-color-palo-alto-dark;
+    }
+  }
+}
+//End
+
+// Inline textual Links hover for List, Teaser, Cards, Text Area on dark green background
+@mixin sdss-inline-textual-link-negative--hover-and-focus {
+  &:hover {
+    @include sdss-inline-textual-link-negative--hover;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+
+  &:focus {
+    @include sdss-inline-textual-link-negative--focus;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+
+  &:active {
+    @include sdss-inline-textual-link-negative--active;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+}
+//End
+
+// Primary link hover states
+@mixin sdss-link-primary--hover-and-focus {
+  &:hover {
+    @include sdss-link-primary--hover;
+
+    &::after {
+      background-color: $sdss-color-black;
+    }
+  }
+
+  &:focus {
+    @include sdss-link-primary--focus;
+
+    &::after {
+      background-color: $sdss-color-black;
+    }
+  }
+
+  &:active {
+    @include sdss-link-primary--active;
+
+    &::after {
+      background-color: $sdss-color-black;
+    }
+  }
+}
+//End
+
+// Negative link hover states
+@mixin sdss-link-negative--hover-and-focus {
+  &:hover {
+    @include sdss-link-negative--hover;
+
+    &::after {
+      background-color: $sdss-color-blue-bright-dark;
+    }
+  }
+
+  &:focus {
+    @include sdss-link-negative--focus;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+
+  &:active {
+    @include sdss-link-negative--active;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+}
+//End
+
+// Negative FOOTER link hover states
+@mixin sdss-link-negative-footer--hover-and-focus {
+  &:hover {
+    @include sdss-link-negative-footer--hover;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+
+  &:focus {
+    @include sdss-link-negative--focus;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+
+  &:active {
+    @include sdss-link-negative--active;
+
+    &::after {
+      background-color: $sdss-color-white;
+    }
+  }
+}
+//End
+
+
