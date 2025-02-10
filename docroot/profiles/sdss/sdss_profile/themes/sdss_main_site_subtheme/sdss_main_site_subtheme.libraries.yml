@@ -86,16 +86,7 @@
 #       css/pattern-library/theme/theme.css: {}
 #       css/pattern-library/theme/print.css: { media: print }
 
-decoupled_menu:
-  js:
-    decoupled-menu/dist/islands/newsroom-menu.island.umd.js: { minified: true }
-
-
 main:
   css:
    theme:
      dist/css/sdss_main_site_subtheme.css: {minified: true }
-  js:
-    js/scripts.js: { scope: footer }
-
-
