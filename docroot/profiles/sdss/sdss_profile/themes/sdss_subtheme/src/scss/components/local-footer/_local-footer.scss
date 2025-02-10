@@ -23,8 +23,10 @@ nav[aria-label^='footer'] {
 }
 
 .su-local-footer {
-  background-color: $sdss-color-palo-alto-dark;
+  background-color: $sdss-color-grey-dark;
   color: $sdss-color-white;
+  border-top: 1px solid $su-color-black-80;
+  border-bottom: 1px solid $su-color-black-80;
 
   .su-lockup__custom-logo {
     max-width: 11em;
