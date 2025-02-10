@@ -12,16 +12,13 @@ header.su-masthead {
     width: 100%;
     max-width: unset;
 
-    .system-menu-block {
-      position: absolute;
-      bottom: 0;
-    }
-
     .su-multi-menu {
+      padding: 0 1.5rem;
+
       .su-multi-menu__nav-toggle {
         position: relative;
-        top: -1rem;
-        right: unset;
+        top: -.5rem;
+        right: -.5rem;
         padding: .5rem 1rem;
         width: auto;
         border-radius: unset;
@@ -99,6 +96,10 @@ header.su-masthead {
       // Remove line 5 from all displays.
       display: none;
     }
+
+    .su-lockup__custom-logo {
+      max-width: 110px;
+    }
   }
 }
 
@@ -107,7 +108,6 @@ header.su-masthead {
 // Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
 //
 
-// Styles for Large or bigger Screens.
 @include grid-media-min('xs') {
   header.su-masthead {
     section.su-masthead--inner {
@@ -131,11 +131,6 @@ header.su-masthead {
       .system-menu-block {
         position: absolute;
         bottom: 0;
-      }
-
-      // Align the mobile menu
-      .su-multi-menu {
-        padding: 0 3rem;
       }
     }
 
@@ -180,6 +175,8 @@ header.su-masthead {
     section.su-masthead--inner {
       .su-multi-menu {
         .su-multi-menu__nav-toggle {
+          top: -1rem;
+          right: 0;
           padding: 1rem;
         }
       }
@@ -204,6 +201,10 @@ header.su-masthead {
         max-width: unset;
         margin: 0;
         padding: 1.5rem 5rem 1.5rem 2rem;
+      }
+
+      .su-lockup__custom-logo {
+        max-width: 165px;
       }
     }
   }
