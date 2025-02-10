@@ -1,0 +1,27 @@
+uuid: aae2db00-89d8-4fea-95cc-1dd6c3960fca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.su_media_video_file
+    - media.type.local_video
+  module:
+    - file
+id: media.local_video.su_media_video_file
+field_name: su_media_video_file
+entity_type: media
+bundle: local_video
+label: 'Video file'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: mp4
+  max_filesize: 20MB
+  description_field: false
+field_type: file
