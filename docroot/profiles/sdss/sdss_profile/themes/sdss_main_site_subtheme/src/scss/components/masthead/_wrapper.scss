@@ -19,11 +19,13 @@
 
     .su-multi-menu__nav-toggle[aria-expanded=true] + .su-multi-menu__menu-lv1 {
       width: 100vw;
-      margin: 0;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      max-width: 600px;
 
       @include grid-media('md') {
         width: 100%;
-        max-width: 100%;
+        max-width: 600px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -51,7 +53,6 @@
   }
 
   li.su-mobile-site-search {
-
     @include grid-media-min('xs') {
       display: block;
     }
@@ -66,7 +67,6 @@
   .su-site-search__submit {
     color: unset;
     opacity: 100;
-    right: 1.6rem;
+    right: 1rem;
   }
-
 }

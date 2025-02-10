@@ -7,6 +7,9 @@ sdss:
      dist/css/sdss_subtheme.css: {minified: true }
   js:
     js/scripts.js: { scope: footer }
+  dependencies:
+    - core/jquery
+    - core/once
 basic-page-full-width:
   css:
     theme:
