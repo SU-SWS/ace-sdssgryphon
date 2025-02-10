@@ -107,41 +107,6 @@ header.su-masthead {
 // Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
 //
 
-// Styles for Medium or bigger Screens.
-@include grid-media-min('md') {
-  header.su-masthead {
-    section.su-masthead--inner {
-      .su-multi-menu {
-        .su-multi-menu__nav-toggle {
-          padding: 1rem;
-        }
-      }
-    }
-
-    .su-lockup {
-      > a {
-        display: flex;
-        align-items: stretch;
-      }
-
-      .su-lockup__cell1 {
-        align-items: center;
-        align-self: unset;
-        max-width: unset;
-        margin: 0;
-        padding: 1.5rem 2rem 1.5rem 5rem;
-      }
-
-      .su-lockup__cell2 {
-        align-self: unset;
-        max-width: unset;
-        margin: 0;
-        padding: 1.5rem 5rem 1.5rem 2rem;
-      }
-    }
-  }
-}
-
 // Styles for Large or bigger Screens.
 @include grid-media-min('xs') {
   header.su-masthead {
@@ -203,8 +168,42 @@ header.su-masthead {
           width: 9600px;
           left: 0;
           z-index: -1;
-          // background: $sdss-color-palo-alto-dark;
         }
+      }
+    }
+  }
+}
+
+// Styles for Medium or bigger Screens.
+@include grid-media-min('md') {
+  header.su-masthead {
+    section.su-masthead--inner {
+      .su-multi-menu {
+        .su-multi-menu__nav-toggle {
+          padding: 1rem;
+        }
+      }
+    }
+
+    .su-lockup {
+      > a {
+        display: flex;
+        align-items: stretch;
+      }
+
+      .su-lockup__cell1 {
+        align-items: center;
+        align-self: unset;
+        max-width: unset;
+        margin: 0;
+        padding: 1.5rem 2rem 1.5rem 5rem;
+      }
+
+      .su-lockup__cell2 {
+        align-self: unset;
+        max-width: unset;
+        margin: 0;
+        padding: 1.5rem 5rem 1.5rem 2rem;
       }
     }
   }
@@ -247,6 +246,3 @@ header.su-masthead {
     }
   }
 }
-
-
-

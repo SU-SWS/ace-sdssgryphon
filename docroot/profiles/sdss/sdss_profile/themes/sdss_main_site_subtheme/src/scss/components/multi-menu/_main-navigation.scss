@@ -1,29 +1,5 @@
 @charset "UTF-8";
 
-// Makes the menu 'sticky' for LG sreens and up
-@include grid-media-min('xs') {
-  // Add a scroll offset equivalent to the sticky header to account for any
-  // anchor or jump links.
-  :target {
-    scroll-margin-top: 10rem;
-  }
-
-  .fixed-header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-  }
-
-  // If user is logged in.
-  .role--authenticated {
-    .fixed-header {
-      top: 79px;
-    }
-  }
-}
-
 // Drop down menu
 @include grid-media-min('lg') {
   .su-multi-menu {
@@ -120,14 +96,14 @@
       }
 
       >.su-multi-menu__item--parent {
-        margin: 0 0 0 0;
+        margin: 0;
         display: block;
+        width: 100%;
       }
     }
   }
 }
 
-// Mobile Style.
 .su-multi-menu {
   .su-multi-menu__menu {
     background-color: $sdss-color-white;
@@ -155,7 +131,6 @@
     }
   }
 }
-// End Mobile Style.
 
 @include grid-media-min('xs') {
   .su-multi-menu__menu {
@@ -173,10 +148,6 @@
       }
     }
   }
-}
-
-// Changing the toggle in menus below the -lv1.
-@include grid-media-min('xs') {
 
   .su-multi-menu__menu-lv1 {
     .su-multi-menu__menu {
@@ -203,7 +174,7 @@
     .su-multi-menu__menu {
 
       .su-multi-menu__menu-lv2 {
-        > .su-multi-menu__item--parent {
+        >.su-multi-menu__item--parent {
 
           .su-nav-toggle::before {
             right: 0;
@@ -224,7 +195,7 @@
     }
   }
 
-  .su-multi-menu__menu-lv2 .su-multi-menu__item  {
+  .su-multi-menu__menu-lv2 .su-multi-menu__item {
     .su-nav-toggle {
 
       &[aria-expanded=true] {
