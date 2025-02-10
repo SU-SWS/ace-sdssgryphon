@@ -68,10 +68,12 @@ header.su-masthead {
   }
 
   .su-lockup {
-    display: block;
+    display: inline-block;
     flex: unset;
     max-width: unset;
     margin: 0;
+    position: relative;
+    z-index: 102;
 
     > a {
       display: block;
@@ -99,6 +101,9 @@ header.su-masthead {
 
     .su-lockup__custom-logo {
       max-width: 110px;
+      display: inline-block;
+      margin: 0;
+      vertical-align: top;
     }
   }
 }
