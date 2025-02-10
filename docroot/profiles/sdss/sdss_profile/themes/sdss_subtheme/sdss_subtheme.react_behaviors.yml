@@ -26,7 +26,6 @@ card_variant_info:  # part of the key after the :
         sdss-card-wrapper--grey-dropshadow: Light Grey Background with shadow
         sdss-card-wrapper--white-dropshadow: White Background with shadow
         sdss-card-wrapper--white-border: White Background with border
-
 banner_variant_info:  # part of the key after the :
   id: banner_type
   label: 'Banner Paragraphs Type'
@@ -57,7 +56,6 @@ banner_variant_info:  # part of the key after the :
       options:
         sdss-banner-wrapper--headline-default: Default
         sdss-banner-wrapper--headline-center: Center
-
 lists_variant_info:
   id: lists_style
   label: Lists Paragraph Style

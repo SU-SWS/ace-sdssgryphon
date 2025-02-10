@@ -89,11 +89,9 @@ admin:
   css:
     base:
       dist/css/admin.css: {  }
-
 decoupled_menu:
   js:
     decoupled-menu/dist/islands/main-menu.island.umd.js: { minified: true }
-
 basic:
   css:
     base:
@@ -116,17 +114,14 @@ basic:
     - core/once
     - core/modernizr
     - stanford_basic/fontawesome
-
 search-page:
   css:
     theme:
       dist/css/search-page.css: {  }
-
 user_login:
   css:
     base:
       dist/css/user_login.css: {  }
-
 fontawesome:
   version: 5.15.4
   remote: https://use.fontawesome.com/releases/v5.15.4/css/all.css
@@ -136,7 +131,6 @@ fontawesome:
   css:
     base:
       //use.fontawesome.com/releases/v5.15.4/css/all.css: {}
-
 content.stanford_policy:
   css:
     theme:
