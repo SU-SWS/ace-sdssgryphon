@@ -2,8 +2,12 @@
 
 .ds-entity--stanford-banner.video-banner {
   .su-hero {
-    @include grid-media-max('md') {
-      aspect-ratio: 16/9;
+    min-height: unset;
+    position: static;
+
+    .su-hero__media {
+      min-height: unset;
+      position: static;
     }
   }
 
@@ -13,6 +17,7 @@
   }
 
   video {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -73,6 +78,8 @@
 
     &:focus {
       outline: none;
+      text-decoration: none;
+      border: 4px solid #a6a7a9;
     }
 
     &:focus-visible,
