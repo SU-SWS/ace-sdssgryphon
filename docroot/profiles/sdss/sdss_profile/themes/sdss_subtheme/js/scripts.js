@@ -21,8 +21,7 @@
         const $playPauseButton = $('<button>')
           .html($playPauseLabel)
           .addClass('fas play-pause-button')
-          .attr('aria-controls', videoId)
-          .attr('aria-describedby', `${videoId}-description`);
+          .attr('aria-controls', videoId);
 
         $playPauseButton.click(() => video.paused ? video.play() : video.pause());
         $($playPauseButton).after($playPauseLabel);
@@ -36,8 +35,7 @@
         }
 
         const $container = $('<div>').addClass('video-info')
-          .append($playPauseButton)
-          .append($('<p>').attr('id', `${videoId}-description`).text('This video does not contain audio'));
+          .append($playPauseButton);
 
         $video.attr('id', videoId).after($container);
 
