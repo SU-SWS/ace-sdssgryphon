@@ -41,7 +41,7 @@ class IntranetCommandsTest extends IntranetKernelTestBase {
       'field_name' => 'su_simplesaml_affil',
       'type' => 'list_string',
       'entity_type' => 'config_pages',
-      'cardinality' => -1
+      'cardinality' => -1,
     ])->save();
     FieldConfig::create([
       'field_name' => 'su_simplesaml_affil',
@@ -54,7 +54,7 @@ class IntranetCommandsTest extends IntranetKernelTestBase {
       'field_name' => 'su_simplesaml_users',
       'type' => 'string',
       'entity_type' => 'config_pages',
-      'cardinality' => -1
+      'cardinality' => -1,
     ])->save();
     FieldConfig::create([
       'field_name' => 'su_simplesaml_users',
@@ -66,7 +66,7 @@ class IntranetCommandsTest extends IntranetKernelTestBase {
       'field_name' => 'su_simplesaml_allowed',
       'type' => 'string',
       'entity_type' => 'config_pages',
-      'cardinality' => -1
+      'cardinality' => -1,
     ])->save();
     FieldConfig::create([
       'field_name' => 'su_simplesaml_allowed',
@@ -89,6 +89,9 @@ class IntranetCommandsTest extends IntranetKernelTestBase {
     $this->commands = new IntranetCommands(\Drupal::entityTypeManager(), \Drupal::state(), $ext_auth, \Drupal::service('password_generator'), \Drupal::service('stanford_intranet.manager'));
   }
 
+  /**
+   * Test intranet setup.
+   */
   public function testIntranetSetup() {
     $options = [
       'users' => 'Foo,Foo',
