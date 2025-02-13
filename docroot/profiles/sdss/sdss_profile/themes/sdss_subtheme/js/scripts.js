@@ -26,7 +26,7 @@
         $playPauseButton.click(() => video.paused ? video.play() : video.pause());
         $($playPauseButton).after($playPauseLabel);
 
-        if ($video.attr('autoplay') === 'autoplay') {
+        if (!video.paused) {
           $playPauseButton.addClass('fa-pause');
           $playPauseLabel.text('Pause');
         } else {
