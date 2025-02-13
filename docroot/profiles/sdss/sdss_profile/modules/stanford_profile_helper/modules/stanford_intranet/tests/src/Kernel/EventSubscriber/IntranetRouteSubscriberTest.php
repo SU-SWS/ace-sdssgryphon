@@ -2,11 +2,7 @@
 
 namespace Drupal\Tests\stanford_intranet\Kernel\EventSubscriber;
 
-use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Field\FieldItemListInterface;
-use Drupal\Core\Routing\RouteSubscriberBase;
-use Drupal\Core\Routing\RoutingEvents;
-use Drupal\Core\State\StateInterface;
 use Drupal\Core\TypedData\ComplexDataInterface;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\NodeInterface;
@@ -14,11 +10,9 @@ use Drupal\search_api\Event\IndexingItemsEvent;
 use Drupal\search_api\Event\SearchApiEvents;
 use Drupal\search_api\IndexInterface;
 use Drupal\search_api\Item\ItemInterface;
-use Drupal\stanford_intranet\Plugin\Field\FieldType\EntityAccessFieldType;
-use Symfony\Component\Routing\RouteCollection;
 
 /**
- * Route subscriber.
+ * Route subscriber test.
  *
  * @group stanford_intranet
  */
@@ -34,6 +28,9 @@ class IntranetRouteSubscriberTest extends KernelTestBase {
     'file',
   ];
 
+  /**
+   * Test search items alter.
+   */
   public function testSearchItemsAlter() {
     \Drupal::state()->set('stanford_intranet', 1);
     $index = $this->createMock(IndexInterface::class);
