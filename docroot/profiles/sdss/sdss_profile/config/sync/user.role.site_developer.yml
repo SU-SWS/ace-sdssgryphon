@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block_content.type.stanford_component_block
     - core.entity_view_display.node.stanford_event.default
     - core.entity_view_display.node.stanford_event_series.default
     - core.entity_view_display.node.stanford_news.default
@@ -46,7 +47,6 @@ dependencies:
     - auto_entitylabel
     - block
     - block_content
-    - block_content_permissions
     - book
     - config_pages
     - content_lock
@@ -321,6 +321,7 @@ permissions:
   - 'edit any file media'
   - 'edit any google_form media'
   - 'edit any image media'
+  - 'edit any stanford_component_block block content'
   - 'edit any stanford_course content'
   - 'edit any stanford_event content'
   - 'edit any stanford_event_series content'
@@ -398,7 +399,6 @@ permissions:
   - 'select account cancellation method'
   - 'switch shortcut sets'
   - 'update any media'
-  - 'update any stanford_component_block block content'
   - 'update media'
   - 'use text format stanford_html'
   - 'use text format stanford_minimal_html'
