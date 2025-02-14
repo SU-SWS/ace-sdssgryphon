@@ -71,7 +71,6 @@
         "drupal/colorbox": "^2.0",
         "drupal/components": "^3.0",
         "drupal/conditional_fields": "^4.0",
-        "drupal/config_filter": "^2.0",
         "drupal/config_ignore": "^3.0",
         "drupal/config_pages": "^2.6",
         "drupal/config_pages_overrides": "^2.0",
