@@ -44,6 +44,10 @@ class LocalFooterCest {
     $I->click('Save');
     $I->see('Local Footer has been', '.messages-list');
 
+    $I->amOnPage('/');
+    $I->canSee('450 Jane Stanford Way');
+
+    $I->amOnPage('/admin/config/system/local-footer');
     $I->selectOption('State', 'New York');
     $fields = [
       'Organization' => 'Drupal',
