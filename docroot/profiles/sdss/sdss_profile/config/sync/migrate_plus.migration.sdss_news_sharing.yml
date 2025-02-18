@@ -19,7 +19,7 @@ source:
     timeout: 60
   urls: {  }
   data_parser_plugin: json
-  item_selector: data
+  item_selector: 0
   orphan_action: forget
   fields:
     -

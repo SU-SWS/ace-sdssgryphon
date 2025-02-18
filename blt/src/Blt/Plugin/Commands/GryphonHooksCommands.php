@@ -55,6 +55,24 @@ class GryphonHooksCommands extends BltTasks {
   }
 
   /**
+   * Before creating the site settings files, copy the default site defaults.
+   *
+   * @hook pre-command blt:init:settings
+   */
+  public function preInitSettings() {
+    $docroot = $this->getConfigValue('docroot');
+    $dirs = glob("$docroot/sites/*/settings");
+    $tasks = $this->collectionBuilder();
+    foreach ($dirs as $dir) {
+      $tasks->addTask($this->taskFilesystemStack()
+        ->stopOnFail()
+        ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_VERBOSE)
+        ->copy("$docroot/sites/default/settings/default.local.settings.php", "$dir/default.local.settings.php"));
+    }
+    $tasks->run();
+  }
+
+  /**
    * Copy the default global settings for local settings.
    *
    * @hook post-command blt:init:settings
