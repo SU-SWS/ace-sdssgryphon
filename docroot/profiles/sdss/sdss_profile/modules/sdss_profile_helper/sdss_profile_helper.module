@@ -13,6 +13,9 @@ use Drupal\menu_block\Plugin\Block\MenuBlock;
 function sdss_profile_helper_block_view_menu_block_alter(array &$build, MenuBlock $menu_block) {
   /** @var \Drupal\config_pages\ConfigPagesLoaderServiceInterface $config_pages */
   $config_pages = \Drupal::service('config_pages.loader');
+  if ($menu_block->getPluginId() != 'menu_block:newsroom') {
+    return;
+  }
   $newsroom_menu_label = $config_pages->getValue('sdss_site_settings', 'su_newsroom_menu_label', 0, 'value');
   if ($newsroom_menu_label) {
     $menu_block->setConfigurationValue('label', t('@label', ['@label' => $newsroom_menu_label]));
