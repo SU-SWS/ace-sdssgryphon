@@ -14,7 +14,7 @@ use Drupal\stanford_publication\Entity\CitationInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class CitationViewBuilder.
+ * Citation View Builder.
  *
  * @package Drupal\stanford_publication
  */

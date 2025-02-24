@@ -71,7 +71,7 @@ class StanfordEventsImporterAPIURLFieldWidget extends LinkWidget {
 
     /** @var \Drupal\link\LinkItemInterface $item */
     $item = $items[$delta];
-    $defaults = $this->parseURLForDefaults($item);
+    $defaults = $this->parseUrlForDefaults($item);
 
     // Add a type of feed.
     $element['_other']['type'] = [
@@ -176,7 +176,8 @@ class StanfordEventsImporterAPIURLFieldWidget extends LinkWidget {
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
 
-    // Parse form options we added into a url for the events-legacy.stanford.edu feed.
+    // Parse form options we added into a url for the events-legacy.stanford.edu
+    // feed.
     array_walk($values, 'self::walkMassagedFormValues');
 
     // Let the parent LinkWidget do its thing.
@@ -235,7 +236,7 @@ class StanfordEventsImporterAPIURLFieldWidget extends LinkWidget {
    *
    * @throws \Drupal\Core\TypedData\Exception\MissingDataException
    */
-  protected function parseURLForDefaults(LinkItemInterface $item) {
+  protected function parseUrlForDefaults(LinkItemInterface $item) {
     $parsed = [];
     $uri = $item->get('uri')->getValue();
 
