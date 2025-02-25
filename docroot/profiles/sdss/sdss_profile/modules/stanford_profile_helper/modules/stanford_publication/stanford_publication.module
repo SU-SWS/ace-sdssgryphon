@@ -73,7 +73,7 @@ function stanford_publication_entity_view(array &$build, EntityInterface $entity
     $entity instanceof NodeInterface &&
     $entity->bundle() == 'stanford_publication' &&
     $display->getComponent('citation_type') &&
-    $citation = _stanford_pubs_get_citation_entity($entity)
+    $citation = stanford_publication__get_citation_entity($entity)
   ) {
     $citation_type = \Drupal::entityTypeManager()
       ->getStorage('citation_type')
@@ -189,7 +189,7 @@ function stanford_publication_node_update(NodeInterface $entity) {
  *   Node entity object.
  */
 function _stanford_publication_node_post_save(NodeInterface $entity) {
-  $citation_entity = _stanford_pubs_get_citation_entity($entity);
+  $citation_entity = stanford_publication__get_citation_entity($entity);
   $original_title = '';
   if (isset($entity->original) && $entity->original->id()) {
     $original_title = $entity->original->label();
@@ -210,7 +210,7 @@ function _stanford_publication_node_post_save(NodeInterface $entity) {
  * Implements hook_ENTITY_TYPE_delete().
  */
 function stanford_publication_node_delete(NodeInterface $entity) {
-  if ($citation_entity = _stanford_pubs_get_citation_entity($entity)) {
+  if ($citation_entity = stanford_publication__get_citation_entity($entity)) {
     // Clean up nested Citation entity after node deletion.
     $citation_entity->delete();
   }
@@ -266,7 +266,7 @@ function stanford_publication_field_widget_form_alter(&$element, FormStateInterf
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  * @throws \Drupal\Core\TypedData\Exception\MissingDataException
  */
-function _stanford_pubs_get_citation_entity(NodeInterface $node) {
+function stanford_publication__get_citation_entity(NodeInterface $node) {
   if ($node->bundle() !== 'stanford_publication') {
     return NULL;
   }

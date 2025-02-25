@@ -9,7 +9,7 @@ use Drupal\paragraphs\ParagraphsBehaviorBase;
 use Drupal\paragraphs\ParagraphsTypeInterface;
 
 /**
- * Class HeroPatternBehavior.
+ * Hero Pattern Behavior.
  *
  * @ParagraphsBehavior(
  *   id = "hero_pattern",

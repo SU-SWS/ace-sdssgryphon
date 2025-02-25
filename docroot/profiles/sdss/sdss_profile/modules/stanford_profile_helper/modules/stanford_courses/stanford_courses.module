@@ -18,9 +18,6 @@ function stanford_courses_views_pre_render(ViewExecutable $view) {
 }
 
 /**
- * Implements hook_pathauto_alias_alter().
- */
-/**
  * Implements hook_pathauto_pattern_alter().
  */
 function stanford_courses_pathauto_pattern_alter(PathautoPatternInterface $pattern, array $context) {

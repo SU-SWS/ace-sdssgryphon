@@ -21,7 +21,7 @@ final class StanfordDecoupledCommands extends DrushCommands {
   public function __construct(private readonly EntityTypeManagerInterface $entityTypeManager, private readonly UuidInterface $uuid) {}
 
   /**
-   * Create a next site entity to connect with Next.JS site
+   * Create a next site entity to connect with Next.JS site.
    */
   #[CLI\Command(name: 'stanford-decoupled:connect-next', aliases: ['su-next-connect'])]
   #[CLI\Argument(name: 'domain', description: 'Next.js Domain.')]
@@ -29,12 +29,14 @@ final class StanfordDecoupledCommands extends DrushCommands {
   #[CLI\Option(name: 'revalidation-secret', description: 'Use a specific revalidation secret')]
   #[CLI\Option(name: 'format', description: 'Format the result data. Available formats: json,string')]
   #[CLI\Usage(name: 'stanford-decoupled:connect-next "https://localhost:3000"', description: 'Create a next site entity to connect with Next.JS site')]
-  public function connectNextSite($domain, $options = [
-    'id' => 'local',
-    'preview-secret' => NULL,
-    'revalidation-secret' => NULL,
-    'format' => 'string',
-  ]
+  public function connectNextSite(
+    $domain,
+    $options = [
+      'id' => 'local',
+      'preview-secret' => NULL,
+      'revalidation-secret' => NULL,
+      'format' => 'string',
+    ],
   ) {
     $domain = trim($domain);
     if (!UrlHelper::isValid($domain, TRUE)) {

@@ -5,7 +5,7 @@ namespace Drupal\sdss_profile\Annotation;
 use Drupal\Component\Annotation\Plugin;
 
 /**
- * Class InstallTask.
+ * Install Task annotation.
  *
  * @Annotation
  */

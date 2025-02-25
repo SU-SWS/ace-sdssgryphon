@@ -16,6 +16,9 @@ use Drupal\image\Entity\ImageStyle;
  */
 class StanfordIntranetManagerTest extends IntranetKernelTestBase {
 
+  /**
+   * {@inheritDoc}
+   */
   public function setup(): void {
     parent::setUp();
     $this->setSetting('file_private_path', $this->container->getParameter('site.path') . '/private');
@@ -55,7 +58,6 @@ class StanfordIntranetManagerTest extends IntranetKernelTestBase {
     \Drupal::service('stanford_intranet.manager')->moveIntranetFiles();
     $moved_file = File::load($file->id());
     $this->assertEquals('public', StreamWrapperManager::getScheme($moved_file->getFileUri()));
-
 
     \Drupal::service('file.usage')->add($file, 'file', 'media', 1);
     \Drupal::service('stanford_intranet.manager')->moveIntranetFiles();

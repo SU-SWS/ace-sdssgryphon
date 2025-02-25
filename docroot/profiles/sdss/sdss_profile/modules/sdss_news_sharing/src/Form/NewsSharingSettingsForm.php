@@ -13,7 +13,7 @@ use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class NewsSharingSettingsForm.
+ * News Sharing settings form.
  */
 class NewsSharingSettingsForm extends ConfigFormBase {
 

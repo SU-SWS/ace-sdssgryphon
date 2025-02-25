@@ -9,7 +9,7 @@ use Drush\Commands\DrushCommands;
 use Drush\Exceptions\UserAbortException;
 
 /**
- * Class StanfordNotificationsCommands.
+ * Drush commands for Stanford Notifications.
  *
  * @package Drupal\stanford_notifications\Commands
  */
@@ -46,10 +46,13 @@ class StanfordNotificationsCommands extends DrushCommands {
    *
    * @throws \Drush\Exceptions\UserAbortException
    */
-  public function addNotification($message, array $options = [
-    'roles' => '',
-    'status' => Messenger::TYPE_STATUS,
-  ]) {
+  public function addNotification(
+    $message,
+    array $options = [
+      'roles' => '',
+      'status' => Messenger::TYPE_STATUS,
+    ],
+  ) {
     $status_options = [
       Messenger::TYPE_STATUS,
       Messenger::TYPE_WARNING,

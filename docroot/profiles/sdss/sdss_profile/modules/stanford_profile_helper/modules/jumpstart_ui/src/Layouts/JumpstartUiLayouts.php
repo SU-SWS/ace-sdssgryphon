@@ -7,7 +7,7 @@ use Drupal\Core\Layout\LayoutDefault;
 use Drupal\Core\Plugin\PluginFormInterface;
 
 /**
- * Class JumpstartUiLayouts.
+ * Layouts for Jumpstart UI.
  *
  * @package Drupal\jumpstart_ui
  */

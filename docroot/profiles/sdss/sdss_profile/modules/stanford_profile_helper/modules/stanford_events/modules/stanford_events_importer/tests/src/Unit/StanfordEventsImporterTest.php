@@ -90,10 +90,10 @@ class StanfordEventsImporterTest extends UnitTestCase {
    * Test Fetch.
    */
   public function testFetchXML() {
-    $this->xml = $this->plugin->fetchXML();
+    $this->xml = $this->plugin->fetchXml();
     $this->assertStringContainsString("Arts", $this->xml);
 
-    $orgs = $this->plugin->fetchXML('organization-list');
+    $orgs = $this->plugin->fetchXml('organization-list');
     $this->assertStringContainsString("AASA", $orgs);
   }
 
@@ -151,7 +151,7 @@ EOD;
       'guids' => '/CategoryList/Category/guid',
       'label' => '/CategoryList/Category/name',
     ];
-    $result = $this->plugin->parseXML($xml_string, $args);
+    $result = $this->plugin->parseXml($xml_string, $args);
     $this->assertIsArray($result);
     $this->assertEquals("Class", $result[19]);
   }
@@ -166,7 +166,7 @@ EOD;
     $client->method('request')
       ->willThrowException(new RequestException('Failure', new Request('GET', 'test')));
     $plugin = new StanfordEventsImporter($client);
-    $val = $plugin->fetchXML();
+    $val = $plugin->fetchXml();
     $this->assertFalse($val);
   }
 
@@ -180,7 +180,7 @@ EOD;
       'guids' => '/CategoryList/Category/guid',
       'label' => '/CategoryList/Category/name',
     ];
-    $val = $this->plugin->parseXML('<root><item>stuff</item></root>', $args);
+    $val = $this->plugin->parseXml('<root><item>stuff</item></root>', $args);
     $this->assertFalse($val);
   }
 

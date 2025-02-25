@@ -6,7 +6,7 @@ use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
- * Class RouteSubscriber.
+ * Stanford Profile Admin Route Subscriber.
  *
  * @package Drupal\stanford_profile_admin\Routing
  */

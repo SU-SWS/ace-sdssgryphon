@@ -14,6 +14,9 @@ use Symfony\Component\Validator\Constraint;
  */
 class GlobalMessageConstraint extends Constraint {
 
+  /**
+   * @var string
+   */
   public $fieldsNotPopulated = 'To enable a global message, at least one field must have a value: Label, Headline, Message, Action Link.';
 
 }

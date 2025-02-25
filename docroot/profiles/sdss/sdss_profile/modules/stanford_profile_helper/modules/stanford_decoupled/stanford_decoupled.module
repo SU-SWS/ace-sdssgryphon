@@ -12,7 +12,6 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\graphql\GraphQL\Execution\FieldContext;
 use Drupal\graphql_compose\Plugin\GraphQLCompose\GraphQLComposeFieldTypeInterface;
-use Drupal\node\NodeInterface;
 use Drupal\paragraphs\ParagraphInterface;
 
 /**
@@ -96,7 +95,7 @@ function stanford_decoupled_entity_update(EntityInterface $entity) {
 }
 
 /**
- * Implement hook_entity_delete().
+ * Implements hook_entity_delete().
  */
 function stanford_decoupled_entity_delete(EntityInterface $entity) {
   _stanford_decoupled_entity_changes($entity);
@@ -132,7 +131,7 @@ function _stanford_decoupled_entity_changes(EntityInterface $entity) {
       ->execute();
 
     foreach ($referencing_ids as $referencing_id) {
-      $referencing_entity = $entity_storage->load($referencing_id);;
+      $referencing_entity = $entity_storage->load($referencing_id);
       next_entity_update($referencing_entity);
     }
   }
@@ -232,7 +231,7 @@ function stanford_decoupled_next_site_insert(EntityInterface $entity) {
           'sites' => [$entity->id() => $entity->id()],
         ],
         'revalidator_configuration' => [
-          'revalidate_page' => false,
+          'revalidate_page' => FALSE,
           'additional_paths' => "/tags/config-pages",
         ],
       ])->save();

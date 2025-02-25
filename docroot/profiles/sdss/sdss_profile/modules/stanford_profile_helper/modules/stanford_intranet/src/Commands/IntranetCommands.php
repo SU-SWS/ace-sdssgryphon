@@ -97,13 +97,15 @@ class IntranetCommands extends DrushCommands {
    *   Comma delimited list of role mappings in the form `workgroup=role_name`
    * @usage stanford-intranet:setup --roles='Site Group' --workgroups=foo:bar --role-mapping='Foo Bar=site_manager'
    */
-  public function setupIntranet($options = [
-    'roles' => '',
-    'affiliations' => '',
-    'users' => '',
-    'workgroups' => '',
-    'role-mapping' => '',
-  ]) {
+  public function setupIntranet(
+    $options = [
+      'roles' => '',
+      'affiliations' => '',
+      'users' => '',
+      'workgroups' => '',
+      'role-mapping' => '',
+    ],
+  ) {
     // Create the users and roles first in case we need to reference the roles
     // later.
     if (!empty($options['users'])) {

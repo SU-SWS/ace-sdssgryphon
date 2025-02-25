@@ -6,7 +6,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 
 /**
- * Trait ProfileHelpTrait.
+ * Profile Help Trait.
  *
  * @package Drupal\sdss_profile\Plugin\HelpSection
  */

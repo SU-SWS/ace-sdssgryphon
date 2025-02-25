@@ -27,7 +27,7 @@ class JumpstartUITwig extends AbstractExtension {
    * @param \Drupal\Core\Render\RendererInterface $renderer
    *   Renderer service.
    */
-  public function __construct(RendererInterface $renderer = NULL) {
+  public function __construct(?RendererInterface $renderer = NULL) {
     $this->renderer = $renderer;
   }
 
@@ -88,8 +88,8 @@ class JumpstartUITwig extends AbstractExtension {
     if (!str_contains($tags, '<drupal-render-placeholder>')) {
       $tags .= '<drupal-render-placeholder>';
     }
-    // Use a markup to flag it as "safe".
 
+    // Use a markup to flag it as "safe".
     $result = is_null($rendered) ? '' : trim(strip_tags($rendered, $tags));
     return $result ? ['#markup' => $result] : NULL;
   }

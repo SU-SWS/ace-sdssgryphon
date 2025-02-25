@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
+/**
+ * Test response code condition.
+ */
 class ResponseCodeConditionTest extends UnitTestCase {
 
   /**
@@ -18,8 +21,14 @@ class ResponseCodeConditionTest extends UnitTestCase {
    */
   protected $plugin;
 
+  /**
+   * @var array[]
+   */
   protected $requestAttributes = [];
 
+  /**
+   * {@inheritDoc}
+   */
   public function setup(): void {
     parent::setUp();
 
@@ -36,6 +45,9 @@ class ResponseCodeConditionTest extends UnitTestCase {
     $this->plugin = ResponseCodeCondition::create($container, $config, '', []);
   }
 
+  /**
+   * Test the condition.
+   */
   public function testCondition() {
     $form = [];
     $form_state = new FormState();
@@ -55,6 +67,9 @@ class ResponseCodeConditionTest extends UnitTestCase {
     $this->assertTrue($this->plugin->evaluate());
   }
 
+  /**
+   * Get the current request.
+   */
   public function getCurrentRequest() {
     $current_request = $this->createMock(Request::class);
     $current_request->attributes = new ParameterBag($this->requestAttributes);

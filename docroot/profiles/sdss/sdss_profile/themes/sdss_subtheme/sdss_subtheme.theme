@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Preprocess functions for SDSS Subtheme.
+ * sdss_subtheme.theme
  */
 
 use Drupal\node\NodeInterface;
@@ -30,20 +31,19 @@ function sdss_subtheme_theme_suggestions_block_alter(array &$suggestions, array 
  * Implements hook_preprocess_HOOK().
  */
 function sdss_subtheme_preprocess_ds_entity_view(&$variables) {
-
-  // if not running on a paragraph, exit out.
+  // If not running on a paragraph, exit out.
   if (!isset($variables['content']['#paragraph'])) {
     return;
   }
 
   $paragraph = $variables['content']['#paragraph'];
 
-  // Process Cards
+  // Process Cards.
   if ($paragraph->bundle() == 'stanford_card') {
     sdss_subtheme_preprocess_card($variables);
   }
 
-  // Process Banners
+  // Process Banners.
   if ($paragraph->bundle() == 'stanford_banner') {
     sdss_subtheme_preprocess_banner($variables);
   }
@@ -54,7 +54,6 @@ function sdss_subtheme_preprocess_ds_entity_view(&$variables) {
  * Implements hook_preprocess_card().
  */
 function sdss_subtheme_preprocess_card(&$variables) {
-
   $paragraph = $variables['content']['#paragraph'];
 
   // Add border style class to card wrapper.
@@ -65,7 +64,8 @@ function sdss_subtheme_preprocess_card(&$variables) {
 
   $card_info = [];
 
-  // Add card type class to card wrapper. 3rd variable provides the default card type.
+  // Add card type class to card wrapper. 3rd variable provides the default card
+  // type.
   $card_info['card_type'] = $paragraph->getBehaviorSetting('react_paragraphs:card_variant_info', 'card_type', 'sdss-card-wrapper--default');
   $variables['attributes']['class'][] = $card_info['card_type'];
 
@@ -81,13 +81,10 @@ function sdss_subtheme_preprocess_card(&$variables) {
  * Implements hook_preprocess_banner().
  */
 function sdss_subtheme_preprocess_banner(&$variables) {
-
   $paragraph = $variables['content']['#paragraph'];
 
-  // Add button color style class to card wrapper.
-  //$variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_button_style', 'sdss-wrapper--button-green');
-
-  // Add banner type class to card wrapper. 3rd variable provides the default type.
+  // Add banner type class to card wrapper. 3rd variable provides the default
+  // type.
   $variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_style', 'sdss-banner-wrapper--default');
 
   // Center align the headline. 3rd variable provides the default type.
@@ -101,8 +98,7 @@ function sdss_subtheme_preprocess_banner(&$variables) {
  * Implements hook_preprocess_field().
  */
 function sdss_subtheme_preprocess_field(&$variables) {
-
- if ($variables['element']['#field_name'] == 'su_para_row_bgcolor') {
+  if ($variables['element']['#field_name'] == 'su_para_row_bgcolor') {
     $su_paragraph_row__bgcolor = $variables['items'][0]['content']['#markup'];
   }
 }
@@ -126,9 +122,9 @@ function sdss_subtheme_preprocess_page(&$vars) {
   $vars['brand_bar_variant'] = 'su-brand-bar--dark';
   $vars['global_footer_variant'] = 'su-global-footer--dark';
 
-  // Implement full-width basic page styles
+  // Implement full-width basic page styles.
   $is_page_node = isset($vars['node']) && $vars['node'] instanceof NodeInterface && $vars['node']->bundle() == 'stanford_page';
-  
+
   if (!$is_page_node) {
     return;
   }

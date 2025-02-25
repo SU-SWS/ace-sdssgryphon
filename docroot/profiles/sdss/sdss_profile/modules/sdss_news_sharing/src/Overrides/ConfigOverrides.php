@@ -8,7 +8,7 @@ use Drupal\Core\Config\ConfigFactoryOverrideInterface;
 use Drupal\Core\Config\StorageInterface;
 
 /**
- * Class ConfigOverrides.
+ * Configuration overrides for SDSS News Sharing configuration.
  *
  * @package Drupal\sdss_news_sharing\Overrides
  */
@@ -33,8 +33,6 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
 
   /**
    * {@inheritdoc}
-   *
-   * Override
    */
   public function loadOverrides($names) {
     $overrides = [];
@@ -77,4 +75,5 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
   public function createConfigObject($name, $collection = StorageInterface::DEFAULT_COLLECTION) {
     return NULL;
   }
+
 }

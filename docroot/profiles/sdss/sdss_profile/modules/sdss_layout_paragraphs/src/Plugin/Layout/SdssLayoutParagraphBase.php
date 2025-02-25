@@ -6,7 +6,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\PluginFormInterface;
 use Drupal\Core\Layout\LayoutDefault;
 
-
 /**
  * Base class of layouts with configurable options.
  *
@@ -61,11 +60,11 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    */
   public function build(array $regions) {
     $build = parent::build($regions);
-    if($this->configuration['bg_color'] !== 'none') {
+    if ($this->configuration['bg_color'] !== 'none') {
       $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor';
       $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgcolor--' . $this->configuration['bg_color'];
     }
-    if($this->configuration['bg_image'] !== 'none') {
+    if ($this->configuration['bg_image'] !== 'none') {
       $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgimage';
       $build['#attributes']['class'][] = 'layout-paragraphs-sdss-bgimage--' . $this->configuration['bg_image'];
     }
@@ -83,19 +82,12 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
    *   be added to the CSS classes and the values are the human readable labels.
    */
   protected function getBgColorOptions() {
-    return $array = [
+    return [
       'none' => '- None -',
       'green' => 'Green',
       'green-stat' => 'Green Stat Card',
       'grey' => 'Light Grey',
-      'grey-border' => 'Grey Border'
-    ];
-  }
-
-  protected function getBgImageOptions() {
-    return $array = [
-      'none' => '- None -',
-      'circles' => 'Circles',
+      'grey-border' => 'Grey Border',
     ];
   }
 
@@ -111,9 +103,33 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
     return array_shift($bg_color_classes);
   }
 
+  /**
+   * Gets the background image options for the configuration form.
+   *
+   * The first option will be used as the default 'bg_color' configuration
+   * value.
+   *
+   * @return string[]
+   *   The background image options array where the keys are strings that will
+   *   be added to the CSS classes and the values are the human readable labels.
+   */
+  protected function getBgImageOptions() {
+    return [
+      'none' => '- None -',
+      'circles' => 'Circles',
+    ];
+  }
+
+  /**
+   * Provides a default value for the background image options.
+   *
+   * @return string
+   *   A key from the array returned by ::getBgImageOptions().
+   */
   protected function getDefaultBgImage() {
     // Return the first available key from the list of options.
     $bg_image_classes = array_keys($this->getBgImageOptions());
     return array_shift($bg_image_classes);
   }
+
 }

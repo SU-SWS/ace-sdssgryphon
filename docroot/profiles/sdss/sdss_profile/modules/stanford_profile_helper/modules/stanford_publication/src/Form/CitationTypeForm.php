@@ -8,7 +8,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 
 /**
- * Class CitationTypeForm.
+ * Citation Type Form.
  */
 class CitationTypeForm extends EntityForm {
 
