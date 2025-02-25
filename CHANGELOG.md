@@ -7,6 +7,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.8.0] - 2025-02-18
+
+### Changed
+933dc66b SDSS-1457: Changed local footer color (#544).
+33d118f5 Made header logo clickable (#543).
+20cd0926 SDSS-1411: Extended hamburger breakpoint to all breakpoints in sdss_main_site_subtheme (#539).
+
+### Added
+20cd0926 SDSS-1411: New sdss_main_site_subtheme (#539).
+c0c1d799 SDSS-1452: New local video media type. Added it to image banner paragraph (#542).
+33d118f5 SDSS-1413: Utility Navigation region to sdss_main_site_subtheme (#543).
+eed0e34d SDSS-1412: New Utility Navigation menu (#518).
+
+### Fixed
+7bd0eb7e SDSS-1461: Quickstrike tweaks and fixes (#546).
+67e3b531 SDSS-1461: Quickstrike tweaks and fixes (#545).
+bcc0a7ff SDSS-1427: Fix SDSS News Sharing migration item_selector configuration (#529).
+
+
 ## [4.7.2] - 2025-01-13 / 2025-01-22
 
 ### Added

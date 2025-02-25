@@ -71,7 +71,6 @@
         "drupal/colorbox": "^2.0",
         "drupal/components": "^3.0",
         "drupal/conditional_fields": "^4.0",
-        "drupal/config_filter": "^2.0",
         "drupal/config_ignore": "^3.0",
         "drupal/config_pages": "^2.6",
         "drupal/config_pages_overrides": "^2.0",
@@ -317,9 +316,6 @@
                 "https://www.drupal.org/project/menu_link_weight/issues/2875984": "patches/contrib/menu_link_weight-mr-2.patch",
                 "https://www.drupal.org/project/menu_link_weight/issues/3410674": "https://www.drupal.org/files/issues/2023-12-23/menu_link_weight-3410674.patch",
                 "https://www.drupal.org/project/menu_link_weight/issues/3099139": "https://www.drupal.org/files/issues/2019-12-05/menu_link_weight-target_blank-3099139.patch"
-            },
-            "drupal/node_revision_delete": {
-                "https: //www.drupal.org/project/node_revision_delete/issues/3436432: Check if queue table exists": "patches/contrib/node_revision_delete-mr-26.patch"
             },
             "drupal/paranoia": {
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"

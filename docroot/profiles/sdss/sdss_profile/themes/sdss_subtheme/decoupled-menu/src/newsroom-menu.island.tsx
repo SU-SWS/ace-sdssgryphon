@@ -189,11 +189,9 @@ export const NewsroomMenu = ({}) => {
   const menuTree = buildMenuTree(menuItems);
   if (!menuTree.items || menuTree.items?.length === 0) return <div/>;
 
-  // Remove the default menu.
-  const existingMenu = document.getElementsByClassName('menu');
-  if (existingMenu.length > 0) {
-    existingMenu[0].remove();
-  }
+  // Remove the default newroom menu.
+  const existingMenu = document.getElementsByClassName('menu--newsroom')[0].getElementsByClassName('menu')[0];
+  existingMenu.remove();
 
   return (
     <OutsideClickHandler
