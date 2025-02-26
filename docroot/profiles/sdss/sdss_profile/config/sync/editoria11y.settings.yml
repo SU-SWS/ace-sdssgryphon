@@ -1,11 +1,13 @@
-content_root: '#block-stanford-basic-content'
-no_load: ''
-ignore_containers: .su-secondary-nav
-embedded_content_warning: ''
-allow_overflow: ''
-assertiveness: smart
-download_links: ''
-hidden_handlers: ''
 _core:
   default_config_hash: 8d0nv-vvXs9MZkqD1mhxm8mPeF4yF9fqLLIcVp4cnLQ
+content_root: '#block-stanford-basic-content'
+assertiveness: smart
+no_load: ''
+embedded_content_warning: ''
+download_links: ''
 link_ignore_selector: 'svg.ext, svg.mailto, .link-purpose-text'
+hidden_handlers: ''
+disable_live: false
+live_h2: 'form[id^="node-"] #edit-body-wrapper .ck-content'
+ignore_containers: .su-secondary-nav
+allow_overflow: ''

@@ -10,7 +10,7 @@ card_variant_info:  # part of the key after the :
       type: select
       title: 'Card Style'
       description: Select the card style.
-      default_value: sdss-card-wrapper--topic
+      default_value: sdss-card-wrapper--title
       options:
         sdss-card-wrapper--icon: Icon
         sdss-card-wrapper--stat: Stat

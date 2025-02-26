@@ -10,7 +10,6 @@ module:
   autologout: 0
   block: 0
   block_content: 0
-  block_content_permissions: 0
   book: 0
   breakpoint: 0
   change_labels: 0
