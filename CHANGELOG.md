@@ -7,6 +7,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.8.1] - 2025-02-26
+
+### Changed
+105df37c SDSS-1332: Enhanced help text for News Sharing settings field (#540).
+07a15dff SDSS-1333: Moved SDSS News Sharing Settings menu location to Configuration > Importers (#538).
+a387a9a1 SDSS-1355: Changed default card style variant from Topic to Title (#537).
+8177ef65 SDSS-1391: Added 'www' to Stanford University brand bar link (#534).
+
+### Deprecated
+7a5adcb3 SDSS-1370: Removed minimally_branded_subtheme from SDSS Profile (#536).
+
+### Removed
+7a5adcb3 SDSS-1370: Removed minimally_branded_subtheme from SDSS Profile (#536).
+
+### Fixed
+3082dd42 SDSS-1466: Restored Newsroom menu for sdss_main_site_subtheme (#552).
+
+### Security
+1ec46afa SDSS-1450: 4.7.4 Routine Maintenance (#547).
+
+### Maintenance
+1ec46afa SDSS-1450: 4.7.4 Routine Maintenance (#547).
+
+
 ## [4.8.0] - 2025-02-18
 
 ### Changed
