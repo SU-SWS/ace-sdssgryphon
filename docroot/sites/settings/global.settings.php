@@ -30,7 +30,7 @@ if (EnvironmentDetector::isAhEnv()) {
   // Configuration settings and the setting here cannot exceed what's set there.
   // Per: https://acquia.my.site.com/s/article/360004542293-Conditionally-increasing-memory-limits
   // The increase is primarily to handle drush site installs because the
-  // install_config_import_batch step consumes upwards for 350+ MB of memory.
+  // install_config_import_batch step consumes upwards of 350+ MB of memory.
   if (PHP_SAPI === 'cli') {
     ini_set('memory_limit', '768M');
   }
