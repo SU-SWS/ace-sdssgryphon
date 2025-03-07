@@ -48,9 +48,10 @@ class BannerCest {
       'su_banner_body' => $field_values['body'],
     ], 'paragraph');
 
+    $node_title = $this->faker->words(4, TRUE);
     $node = $I->createEntity([
       'type' => 'stanford_page',
-      'title' => $this->faker->words(4, TRUE),
+      'title' => $node_title,
       'su_page_components' => [
         'target_id' => $paragraph->id(),
         'entity' => $paragraph,
@@ -76,6 +77,7 @@ class BannerCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText($node_title);
     $I->canSeeElement('.overlay-right');
   }
 

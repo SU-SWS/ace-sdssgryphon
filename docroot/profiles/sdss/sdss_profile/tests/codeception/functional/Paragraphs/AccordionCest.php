@@ -42,6 +42,7 @@ abstract class AccordionCest {
     $I->click('Continue');
     $I->waitForElementNotVisible('.MuiDialog-scrollPaper');
     $I->click('Save');
+    $I->waitForText($node->getTitle());
 
     $I->canSee('Hello. Is it me you\'re looking for?');
     $I->cantSeeElement('.open');

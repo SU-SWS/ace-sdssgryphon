@@ -86,6 +86,8 @@ class BasicPageParagraphsCest {
     $I->amOnPage("/node/{$node->id()}/edit");
     $I->fillField('Title', $this->faker->text(15));
     $I->click('Save');
+
+    $I->waitForText("Revisions for");
     $I->amOnPage("/node/{$node->id()}/revisions");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 2);
 
@@ -95,12 +97,12 @@ class BasicPageParagraphsCest {
     $I->click('Edit', '.lpb-controls');
     $I->waitForText('Superhead');
     $I->fillField('Superhead', $this->faker->text(10));
-    // Headline field is required on SDSS but not on Stanford Sites.
     $I->fillField('Headline', $this->faker->text(10));
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
 
+    $I->waitForText("Revisions for");
     $I->amOnPage("/node/{$node->id()}/revisions");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 3);
   }
