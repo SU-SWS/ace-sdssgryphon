@@ -9,7 +9,7 @@ use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\State\StateInterface;
 
 /**
- * Class ConfigOverrider.
+ * Configuration overrides for Stanford Intranet.
  *
  * @package Drupal\stanford_intranet\Config
  */

@@ -7,6 +7,9 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\node\Entity\NodeType;
 
+/**
+ * Intranet Kernel Test Class.
+ */
 abstract class IntranetKernelTestBase extends KernelTestBase {
 
   /**
@@ -28,7 +31,7 @@ abstract class IntranetKernelTestBase extends KernelTestBase {
     'options',
     'image',
     'rabbit_hole',
-    'stanford_intranet'
+    'stanford_intranet',
   ];
 
   /**
@@ -74,4 +77,5 @@ abstract class IntranetKernelTestBase extends KernelTestBase {
       ])->save();
     }
   }
+
 }

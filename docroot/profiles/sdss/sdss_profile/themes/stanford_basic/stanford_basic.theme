@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Preprocess functions for Stanford Basic.
+ * stanford_basic.theme
  */
 
 use Drupal\Core\Cache\CacheableMetadata;
@@ -93,7 +93,7 @@ function stanford_basic_page_attachments_alter(array &$attachments) {
   if ($route_match->getRouteName() == 'user.login') {
     $attachments['#attached']['library'][] = 'stanford_basic/user_login';
   }
-  // Check if dropdown menus are activated
+  // Check if dropdown menus are activated.
   $attachments['#attached']['drupalSettings']['stanford_basic']['nav_dropdown_enabled'] = (bool) theme_get_setting('nav_dropdown_enabled', 'stanford_basic');
 }
 
@@ -119,7 +119,7 @@ function stanford_basic_preprocess_html(&$variables) {
     if (!empty($alias)) {
       $name = str_replace('/', '-', $alias);
       $variables['attributes']['class'][] = 'page-' . $name;
-      [$section,] = explode('/', $alias, 2);
+      [$section] = explode('/', $alias, 2);
       if (!empty($section)) {
         $variables['attributes']['class'][] = 'section-' . $section;
       }
@@ -160,8 +160,8 @@ function stanford_basic_preprocess_field(&$variables, $hook) {
   $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['field_type']);
   $variables['attributes']['class'][] = Html::cleanCssIdentifier('label-' . $variables['label_display']);
 
-  $first_item = isset($variables['element'][0]) ? $variables['element'][0] : NULL;
-  $is_paragraph = isset($first_item['#paragraph']) ? $first_item['#paragraph'] : FALSE;
+  $first_item = $variables['element'][0] ?? NULL;
+  $is_paragraph = $first_item['#paragraph'] ?? FALSE;
   $has_items = isset($variables['items']) ? count($variables['items']) : FALSE;
 
   // Add additional information to paragraph fields.
@@ -215,6 +215,8 @@ function stanford_basic_preprocess_views_view(&$variables) {
 }
 
 /**
+ * Clean characters.
+ *
  * Html::cleanCssIdentifier() doesn't remove ":" so we have to clean a little
  * more.
  *
@@ -242,7 +244,7 @@ function stanford_basic_preprocess_image(&$vars) {
  * Implements hook_preprocess_patterns_overview_page().
  */
 function stanford_basic_preprocess_patterns_overview_page(&$variables) {
-  uasort($variables['patterns'], function($pattern_a, $pattern_b) {
+  uasort($variables['patterns'], function ($pattern_a, $pattern_b) {
     return strcmp($pattern_a['label'], $pattern_b['label']);
   });
 }
@@ -268,14 +270,17 @@ function stanford_basic_preprocess_page(&$vars) {
 /**
  * Only center the container if the page is not a node and not a panel.
  *
- * @param array $vars the page vars
+ * @param array[] $vars
+ *   The page vars.
  */
 function _stanford_basic_preprocess_not_nodes(&$vars) {
   $pbag = \Drupal::routeMatch()->getParameters();
   $pkeys = $pbag->keys();
   $blacklist = [
-    'node', // Node Types.
-    'page_manager_page', // Panels.
+    // Node Types.
+    'node',
+    // Panels.
+    'page_manager_page',
   ];
 
   foreach ($blacklist as $key) {
@@ -379,13 +384,13 @@ function _stanford_basic_menu_process_submenu(&$submenu, $current_path) {
  * Determine if a menu path corresponds to the current home page.
  *
  * @param string $path
- *   The path given for a menu entry
+ *   The path given for a menu entry.
  *
  * @return bool
  *   TRUE if the path corresponds to the current home page.
  */
 function _stanford_basic_path_is_home(string $path) {
-  // account for weird paths in input
+  // Account for weird paths in input.
   $normal_path = strtolower(trim($path));
   $config = \Drupal::config('system.site');
   $front_uri = $config->get('page.front');

@@ -33,7 +33,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
   protected $client;
 
   /**
-   * {@inheritDoc}.
+   * {@inheritDoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
@@ -47,7 +47,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
   }
 
   /**
-   * {@inheritDoc}.
+   * {@inheritDoc}
    */
   public static function defaultSettings() {
     $settings = ['api_version' => '20200810'];
@@ -55,7 +55,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
   }
 
   /**
-   * {@inheritDoc}.
+   * {@inheritDoc}
    */
   public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, array $third_party_settings, ClientInterface $client) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $third_party_settings);
@@ -63,7 +63,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
   }
 
   /**
-   * {@inheritDoc}.
+   * {@inheritDoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
     $elements['api_version'] = [
@@ -102,7 +102,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
       $xml = new \SimpleXMLElement($response);
       // Do this as a string, since SimpleXMLElement doesn't cast to bools.
       if ((string) $xml->deprecated == 'true') {
-        $form_state->setError($element, $this->t("That API version is deprecated. Newest version is: $xml->latestVersion"));
+        $form_state->setError($element, $this->t("That API version is deprecated. Newest version is: @latest_version", ['@latest_version' => $xml->latestVersion]));
       }
     }
     catch (\Throwable $e) {
@@ -111,7 +111,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
   }
 
   /**
-   * {@inheritDoc}.
+   * {@inheritDoc}
    */
   public function settingsSummary() {
     $summary = [];
@@ -125,7 +125,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
   }
 
   /**
-   * {@inheritDoc}.
+   * {@inheritDoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
     $element = parent::formElement($items, $delta, $element, $form, $form_state);
@@ -156,7 +156,7 @@ class ExploreCoursesUrlWidget extends LinkWidget {
   }
 
   /**
-   * {@inheritDoc}.
+   * {@inheritDoc}
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
 

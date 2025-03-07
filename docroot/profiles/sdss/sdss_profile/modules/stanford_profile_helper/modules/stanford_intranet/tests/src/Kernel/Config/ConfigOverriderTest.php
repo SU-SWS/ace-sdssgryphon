@@ -6,7 +6,7 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\Tests\stanford_intranet\Kernel\IntranetKernelTestBase;
 
 /**
- * Class ConfigOverriderTest.
+ * Test the configuration overrides.
  *
  * @coversDefaultClass \Drupal\stanford_intranet\Config\ConfigOverrider
  * @group stanford_intranet

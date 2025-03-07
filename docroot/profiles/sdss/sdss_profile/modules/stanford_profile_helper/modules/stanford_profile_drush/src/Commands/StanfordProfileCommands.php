@@ -11,7 +11,7 @@ use Drupal\field\FieldConfigInterface;
 use Drush\Commands\DrushCommands;
 
 /**
- * Class StanfordProfileCommands.
+ * Drush command for the Stanford Profile.
  *
  * @package Drupal\stanford_profile\Commands
  */
@@ -100,10 +100,12 @@ class StanfordProfileCommands extends DrushCommands {
    * @params array $options
    *   Keyed array of command options.
    */
-  public function generateStressTestNode(array $options = [
-    'name' => NULL,
-    'exclude' => '',
-  ]) {
+  public function generateStressTestNode(
+    array $options = [
+      'name' => NULL,
+      'exclude' => '',
+    ],
+  ) {
     $this->name = $options['name'] ?? 'Stress Test ' . date('F j Y');
     $this->exclude = explode(',', $options['exclude']);
 

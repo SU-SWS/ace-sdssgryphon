@@ -13,7 +13,8 @@ use Drupal\paragraphs\ParagraphInterface;
  */
 function stanford_paragraph_card_preprocess_paragraph(&$variables) {
   // This function is not running on several paragraph types.
-  // Could be related to: https://www.drupal.org/project/paragraphs/issues/2897906
+  // Could be related to:
+  // https://www.drupal.org/project/paragraphs/issues/2897906
   // It is likely due to something in the way that display suite handles
   // rendering the patterns. To get around this, we have to use
   // hook_preprocess_ds_entity_view() instead.

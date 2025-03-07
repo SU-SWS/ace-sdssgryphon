@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
- * Class RouteSubscriberTest
+ * Test the Route Subscriber.
  *
  * @group stanford_profile_helper
  * @coversDefaultClass \Drupal\stanford_profile_admin\Routing\RouteSubscriber

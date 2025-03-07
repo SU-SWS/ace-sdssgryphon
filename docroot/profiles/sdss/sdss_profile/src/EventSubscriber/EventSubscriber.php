@@ -3,19 +3,14 @@
 namespace Drupal\sdss_profile\EventSubscriber;
 
 use Acquia\DrupalEnvironmentDetector\AcquiaDrupalEnvironmentDetector;
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\Installer\InstallerKernel;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StreamWrapper\StreamWrapperManager;
-use Drupal\Core\Url;
 use Drupal\core_event_dispatcher\EntityHookEvents;
 use Drupal\core_event_dispatcher\Event\Entity\EntityDeleteEvent;
 use Drupal\core_event_dispatcher\Event\Entity\EntityInsertEvent;
-use Drupal\core_event_dispatcher\Event\Entity\EntityPresaveEvent;
-use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\default_content\Event\DefaultContentEvents;
 use Drupal\default_content\Event\ImportEvent;
 use Drupal\file\FileInterface;
@@ -23,13 +18,9 @@ use Drupal\user\Entity\Role;
 use Drupal\user\RoleInterface;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * Class EventSubscriber.
+ * Subscribe to events for SDSS Profile.
  *
  * @package Drupal\sdss_profile\EventSubscriber
  */
@@ -62,7 +53,7 @@ class EventSubscriber implements EventSubscriberInterface {
     return [
       DefaultContentEvents::IMPORT => 'onContentImport',
       EntityHookEvents::ENTITY_INSERT => 'onEntityInsert',
-      EntityHookEvents::ENTITY_DELETE => 'onEntityDelete'
+      EntityHookEvents::ENTITY_DELETE => 'onEntityDelete',
     ];
   }
 
@@ -78,8 +69,7 @@ class EventSubscriber implements EventSubscriberInterface {
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   Messenger service.
    */
-  public function __construct(protected FileSystemInterface $fileSystem, protected ClientInterface $client, LoggerChannelFactoryInterface $logger_factory, protected MessengerInterface $messenger)
-  {
+  public function __construct(protected FileSystemInterface $fileSystem, protected ClientInterface $client, LoggerChannelFactoryInterface $logger_factory, protected MessengerInterface $messenger) {
     $this->logger = $logger_factory->get('sdss_profile');
   }
 
@@ -95,7 +85,7 @@ class EventSubscriber implements EventSubscriberInterface {
     }
   }
 
-    /**
+  /**
    * On entity delete event.
    *
    * @param \Drupal\core_event_dispatcher\Event\Entity\EntityDeleteEvent $event

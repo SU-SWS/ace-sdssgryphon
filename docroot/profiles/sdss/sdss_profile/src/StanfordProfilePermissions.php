@@ -8,7 +8,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Class StanfordProfilePermissions.
+ * Stanford Profile Permissions.
  *
  * @package Drupal\sdss_profile
  */

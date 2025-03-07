@@ -22,6 +22,9 @@ use Drupal\user\RoleInterface;
  */
 class StanfordPolicySubscriberTest extends KernelTestBase {
 
+  /**
+   * @var array[]
+   */
   protected static $modules = [
     'node',
     'user',
@@ -50,6 +53,9 @@ class StanfordPolicySubscriberTest extends KernelTestBase {
    */
   protected $childNode;
 
+  /**
+   * {@inheritDoc}
+   */
   public function setup(): void {
     parent::setUp();
     $this->installEntitySchema('node');
@@ -160,6 +166,9 @@ class StanfordPolicySubscriberTest extends KernelTestBase {
     $this->childNode->save();
   }
 
+  /**
+   * Test number prefix.
+   */
   public function testNumberPrefix() {
     /** @var \Drupal\book\BookManagerInterface $book_manager */
     $book_manager = \Drupal::service('book.manager');
@@ -178,6 +187,9 @@ class StanfordPolicySubscriberTest extends KernelTestBase {
       ->label());
   }
 
+  /**
+   * Test upper case alpha.
+   */
   public function testUpperCaseAlpha() {
     ConfigPages::create([
       'type' => 'policy_settings',
@@ -196,6 +208,9 @@ class StanfordPolicySubscriberTest extends KernelTestBase {
     $this->assertStringStartsWith('A.i ', $reloaded_node->label());
   }
 
+  /**
+   * Test lower case alpha.
+   */
   public function testLowerCaseAlpha() {
     ConfigPages::create([
       'type' => 'policy_settings',
@@ -214,6 +229,9 @@ class StanfordPolicySubscriberTest extends KernelTestBase {
     $this->assertStringStartsWith('a.I ', $reloaded_node->label());
   }
 
+  /**
+   * Test upper case roman numerals.
+   */
   public function testUpperCaseRomanNumeral() {
     ConfigPages::create([
       'type' => 'policy_settings',
@@ -232,6 +250,9 @@ class StanfordPolicySubscriberTest extends KernelTestBase {
     $this->assertStringStartsWith('I.A ', $reloaded_node->label());
   }
 
+  /**
+   * Test lower case roman numerals.
+   */
   public function testLowerCaseRomanNumeral() {
     ConfigPages::create([
       'type' => 'policy_settings',
@@ -250,6 +271,9 @@ class StanfordPolicySubscriberTest extends KernelTestBase {
     $this->assertStringStartsWith('i.a', $reloaded_node->label());
   }
 
+  /**
+   * Test the form alter.
+   */
   public function testFormAlter() {
     $renderer = \Drupal::service('renderer');
     /** @var \Drupal\Core\Form\FormBuilderInterface $form_builder */

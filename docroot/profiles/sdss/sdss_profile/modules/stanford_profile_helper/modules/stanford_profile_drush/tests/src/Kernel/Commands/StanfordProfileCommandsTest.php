@@ -13,7 +13,7 @@ use Drupal\react_paragraphs\Entity\ParagraphsRowType;
 use Drupal\stanford_profile_drush\Commands\StanfordProfileCommands;
 
 /**
- * Class StanfordProfileCommandsTest.
+ * Test stanford profile drush commands.
  *
  * @group stanford_profile
  * @coversDefaultClass \Drupal\stanford_profile_drush\Commands\StanfordProfileCommands
@@ -73,7 +73,7 @@ class StanfordProfileCommandsTest extends KernelTestBase {
       'field_name' => 'field_row',
       'entity_type' => 'node',
       'type' => 'entity_reference_revisions',
-      'settings' => ['target_type' => 'paragraph_row']
+      'settings' => ['target_type' => 'paragraph_row'],
     ]);
     $field_storage->save();
 
@@ -88,7 +88,7 @@ class StanfordProfileCommandsTest extends KernelTestBase {
       'field_name' => 'field_items',
       'entity_type' => 'paragraph_row',
       'type' => 'entity_reference_revisions',
-      'settings' => ['target_type' => 'paragraph']
+      'settings' => ['target_type' => 'paragraph'],
     ]);
     $field_storage->save();
 
@@ -106,6 +106,9 @@ class StanfordProfileCommandsTest extends KernelTestBase {
     $this->command = new StanfordProfileCommands($entityTypeManager, $bundleInfo, $fieldManager, $fieldTypeManager);
   }
 
+  /**
+   * Create field on the paragraph type.
+   */
   protected function createFieldOnParagraphType($bundle) {
     $field_storage = FieldStorageConfig::create([
       'field_name' => 'field_bar_string',
