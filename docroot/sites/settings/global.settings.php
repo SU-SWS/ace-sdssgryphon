@@ -25,14 +25,14 @@ if (EnvironmentDetector::isAhEnv()) {
   $settings['file_temp_path'] = '/mnt/gfs/' . EnvironmentDetector::getAhGroup() . '.' . EnvironmentDetector::getAhEnv() . '/tmp';
   $settings['letsencrypt_challenge_directory'] = $settings['file_temp_path'];
 
-  // Increase memory limit for drush commands.
+  // Increase memory limit for site install tasks.
+  // The increase is to handle drush site installs because the
+  // install_config_import_batch step consumes upwards of 350+ MB of memory.
   // The memory needs to be increased first for the environment in the Cloud
   // Configuration settings and the setting here cannot exceed what's set there.
   // Per: https://acquia.my.site.com/s/article/360004542293-Conditionally-increasing-memory-limits
-  // The increase is primarily to handle drush site installs because the
-  // install_config_import_batch step consumes upwards of 350+ MB of memory.
-  if (PHP_SAPI === 'cli') {
-    ini_set('memory_limit', '768M');
+  if (Drupal\Core\Installer\InstallerKernel::installationAttempted()) {
+    ini_set('memory_limit', '1024M');
   }
 
   // Lock the UI to read_only when on production or test in Acquia.
