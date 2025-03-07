@@ -56,6 +56,7 @@ class BasicPageParagraphsCest {
     $I->waitForElementNotVisible('.ui-dialog');
     $I->wait(1);
     $I->click('Save', '#edit-actions');
+    $I->waitForText($node->getTitle());
     $I->canSee($card_values['superhead']);
     $I->canSee($card_values['headline']);
     $I->canSeeLink($card_values['title'], $card_values['uri']);
@@ -102,7 +103,8 @@ class BasicPageParagraphsCest {
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
 
-    $I->waitForText("Revisions for");
+    $I->waitForText($node->getTitle());
+
     $I->amOnPage("/node/{$node->id()}/revisions");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 3);
   }
