@@ -88,8 +88,10 @@ class BasicPageParagraphsCest {
     $I->fillField('Title', $this->faker->text(15));
     $I->click('Save');
 
-    $I->waitForText("Revisions for");
+    $I->waitForText($node->getTitle());
+
     $I->amOnPage("/node/{$node->id()}/revisions");
+    $I->waitForText("Revisions for");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 2);
 
     $I->amOnPage("/node/{$node->id()}/edit");
@@ -106,6 +108,7 @@ class BasicPageParagraphsCest {
     $I->waitForText($node->getTitle());
 
     $I->amOnPage("/node/{$node->id()}/revisions");
+    $I->waitForText("Revisions for");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 3);
   }
 
