@@ -28,9 +28,7 @@ if (EnvironmentDetector::isAhEnv()) {
   // Increase memory limit for site install tasks.
   // The increase is to handle drush site installs because the
   // install_config_import_batch step consumes upwards of 350+ MB of memory.
-  // The memory needs to be increased first for the environment in the Cloud
-  // Configuration settings and the setting here cannot exceed what's set there.
-  // Per: https://acquia.my.site.com/s/article/360004542293-Conditionally-increasing-memory-limits
+  // See: https://acquia.my.site.com/s/article/360004542293-Conditionally-increasing-memory-limits
   if (Drupal\Core\Installer\InstallerKernel::installationAttempted()) {
     ini_set('memory_limit', '1024M');
   }
