@@ -256,7 +256,7 @@ function stanford_intranet_user_role_insert(RoleInterface $role) {
 /**
  * Implements hook_ENTITY_TYPE_predelete().
  */
-function stanford_intranet_user_role_predelete(RoleInterface $role){
+function stanford_intranet_user_role_predelete(RoleInterface $role) {
   $state = \Drupal::state()->get('stanford_intranet.rids', []);
   unset($state[$role->id()]);
   \Drupal::state()->set('stanford_intranet.rids', $state);

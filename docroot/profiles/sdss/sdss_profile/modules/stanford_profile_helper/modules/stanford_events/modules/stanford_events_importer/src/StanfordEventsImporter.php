@@ -50,7 +50,7 @@ class StanfordEventsImporter {
    * @return string|bool
    *   Full string of raw xml.
    */
-  public function fetchXML($query = "category-list") {
+  public function fetchXml($query = "category-list") {
 
     $options = [
       'query' => [
@@ -88,7 +88,7 @@ class StanfordEventsImporter {
    * @return array|bool
    *   Success or not.
    */
-  public function parseXML($raw, array $options) {
+  public function parseXml($raw, array $options) {
     $xml = new \SimpleXMLElement($raw);
     $guids = $xml->xpath($options['guids']);
     $labels = $xml->xpath($options['label']);

@@ -13,8 +13,14 @@ use Drupal\Tests\UnitTestCase;
  */
 class ConfigOverridesTest extends UnitTestCase {
 
+  /**
+   * @var
+   */
   protected $configPages;
 
+  /**
+   * @var array[]
+   */
   protected $configPagesValues = [];
 
   /**

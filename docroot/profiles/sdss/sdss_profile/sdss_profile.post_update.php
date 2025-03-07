@@ -2,7 +2,7 @@
 
 /**
  * @file
- * sdss_profile.post_update
+ * sdss_profile.post_update.php
  */
 
 /**

@@ -89,7 +89,7 @@ function stanford_events_importer_update_opts() {
 
   // Categories.
   // --------------------------------------------------------------------------.
-  $cat_xml_raw = $importer->fetchXML('category-list');
+  $cat_xml_raw = $importer->fetchXml('category-list');
 
   $args = [
     'guids' => '/CategoryList/Category/guid',
@@ -97,7 +97,7 @@ function stanford_events_importer_update_opts() {
   ];
 
   // Get the formatted key->value pairs.
-  $key_val = $importer->parseXML($cat_xml_raw, $args);
+  $key_val = $importer->parseXml($cat_xml_raw, $args);
 
   // Set the state storage for this site.
   \Drupal::cache()
@@ -105,7 +105,7 @@ function stanford_events_importer_update_opts() {
 
   // Organizations.
   // --------------------------------------------------------------------------.
-  $org_xml_raw = $importer->fetchXML('organization-list');
+  $org_xml_raw = $importer->fetchXml('organization-list');
 
   $args = [
     'guids' => '/OrganizationList/Organization/guid',
@@ -113,7 +113,7 @@ function stanford_events_importer_update_opts() {
   ];
 
   // Get the formatted key->value pairs.
-  $key_val = $importer->parseXML($org_xml_raw, $args);
+  $key_val = $importer->parseXml($org_xml_raw, $args);
 
   // Set the state storage for this site.
   \Drupal::cache()
