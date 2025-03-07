@@ -85,10 +85,11 @@ class BasicPageParagraphsCest {
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 1);
 
     $I->amOnPage("/node/{$node->id()}/edit");
-    $I->fillField('Title', $this->faker->text(15));
+    $node_title = $this->faker->text(15);
+    $I->fillField('Title', $node_title);
     $I->click('Save');
 
-    $I->waitForText($node->getTitle());
+    $I->waitForText($node_title);
 
     $I->amOnPage("/node/{$node->id()}/revisions");
     $I->waitForText("Revisions for");
@@ -105,7 +106,7 @@ class BasicPageParagraphsCest {
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
 
-    $I->waitForText($node->getTitle());
+    $I->waitForText($node_title));
 
     $I->amOnPage("/node/{$node->id()}/revisions");
     $I->waitForText("Revisions for");
