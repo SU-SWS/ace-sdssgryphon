@@ -106,7 +106,7 @@ class BasicPageParagraphsCest {
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
 
-    $I->waitForText($node_title));
+    $I->waitForText($node_title);
 
     $I->amOnPage("/node/{$node->id()}/revisions");
     $I->waitForText("Revisions for");
