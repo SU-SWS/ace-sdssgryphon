@@ -1,0 +1,12 @@
+uuid: d6a0020e-1df6-4a0e-ae58-d77d6976ab30
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+id: search_indexer
+label: 'Search Indexer'
+weight: 4
+is_admin: null
+permissions:
+  - 'access content'

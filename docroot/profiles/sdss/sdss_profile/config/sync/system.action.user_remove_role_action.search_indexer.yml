@@ -1,0 +1,14 @@
+uuid: 4b309570-12e2-40bb-9ec8-8d02e51253ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.search_indexer
+  module:
+    - user
+id: user_remove_role_action.search_indexer
+label: 'Remove the Search Indexer role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: search_indexer
