@@ -58,6 +58,7 @@ class GalleryCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText($node->getTitle());
 
     // On the node page.
     $I->canSee($node->label(), 'h1');

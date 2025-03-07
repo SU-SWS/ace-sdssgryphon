@@ -39,10 +39,6 @@ jobs:
             docroot/libraries
             docroot/modules/contrib
           key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-          restore-keys: |
-            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
-            4.0-${{ hashFiles('blt/blt.yml') }}-
       - name: Run Unit Tests
         # env:
         #   CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
@@ -96,10 +92,6 @@ jobs:
             docroot/libraries
             docroot/modules/contrib
           key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-          restore-keys: |
-            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
-            4.0-${{ hashFiles('blt/blt.yml') }}-
       - name: Install Site
         run: |
           git config --system --add safe.directory '*' &&
@@ -164,10 +156,6 @@ jobs:
             docroot/libraries
             docroot/modules/contrib
           key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-          restore-keys: |
-            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
-            4.0-${{ hashFiles('blt/blt.yml') }}-
       - name: Sync Database
         run: |
           git config --system --add safe.directory '*' &&

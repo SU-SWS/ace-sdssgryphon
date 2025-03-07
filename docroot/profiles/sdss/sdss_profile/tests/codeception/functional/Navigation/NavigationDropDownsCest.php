@@ -63,6 +63,7 @@ class NavigationDropDownsCest {
     $I->amOnPage('/admin/config/system/basic-site-settings');
     $I->checkOption('Use Drop Down Menus');
     $I->click('Save');
+    $I->waitForText('Site Settings has been');
     $I->canSee('Site Settings has been', '.messages-list');
 
     $node_title = Factory::create()->text(20);
@@ -78,6 +79,7 @@ class NavigationDropDownsCest {
     $I->waitForText("Change the weight of the links within the $parent_menu_title menu");
 
     $I->click('Save');
+    $I->waitForText($node_title);
     $I->canSeeLink($node_title);
 
     $I->amOnPage('/');

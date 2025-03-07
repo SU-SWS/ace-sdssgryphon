@@ -81,6 +81,7 @@ class ExtLinkCest {
     $I->fillField('su_local_foot_second[1][title]', 'Another secondary link');
 
     $I->click('Save');
+    $I->waitForText('Local Footer has been');
     $I->see('Local Footer has been', '.messages-list');
 
     // Validate email links.
