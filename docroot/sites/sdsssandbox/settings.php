@@ -764,3 +764,6 @@ require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
  *
  * @link https://docs.acquia.com/blt/
  */
+
+// Disable Configuration Read-Only on the Sandbox site.
+$settings['config_readonly'] = FALSE;
