@@ -29,7 +29,6 @@ dependencies:
     - field.field.node.stanford_event.su_sdss_custm_event_feat_media
     - field.field.node.stanford_event.su_sdss_event_topics
     - field.field.node.stanford_event.su_sdss_events_focal_areas
-    - field.field.node.stanford_event.su_sdss_featured
     - field.field.node.stanford_event.su_sdss_related_content
     - field.field.node.stanford_event.su_shared_tags
     - node.type.stanford_event
@@ -37,6 +36,7 @@ dependencies:
     - address
     - change_labels
     - cshs
+    - field_formatter_class
     - field_group
     - layout_paragraphs
     - link
@@ -52,7 +52,6 @@ third_party_settings:
   field_group:
     group_editorial_content:
       children:
-        - su_sdss_featured
         - su_event_subheadline
         - su_event_dek
         - su_event_sponsor
@@ -154,6 +153,12 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+  layout_builder__layout:
+    type: null
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
     weight: 10
@@ -178,6 +183,17 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      change_labels:
+        field_label_overwrite: Featured
   su_event_alt_loc:
     type: string_textfield
     weight: 5
@@ -229,16 +245,12 @@ content:
     settings:
       modal: false
       default_duration: 60
-      default_duration_increments: |-
-        30
-        60|1 hour
-        90
-        120|2 hours
-        custom
+      default_duration_increments: "30\n60|1 hour\n90\n120|2 hours\ncustom"
       show_extra: false
       hide_date: true
       allday: true
       remove_seconds: false
+      duration_overlay: true
       separator: to
       default_tz: user
       custom_tz: America/Los_Angeles
@@ -399,13 +411,6 @@ content:
     third_party_settings:
       change_labels:
         add_another: ''
-  su_sdss_featured:
-    type: boolean_checkbox
-    weight: 7
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   su_sdss_related_content:
     type: entity_reference_autocomplete
     weight: 20
@@ -439,12 +444,11 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  layout_builder__layout: true
   path: true
   promote: true
-  sticky: true
   su_metatags: true
   syndication: true
   uid: true
   unpublish_on: true
   url_redirects: true
+
