@@ -7,15 +7,20 @@ label: 'config_pages stanford_basic_site_settings validation'
 entity_type: config_pages
 bundle: stanford_basic_site_settings
 field_validation_rules:
-  a24c3b48-8555-4b09-8ab7-12f3a60cc543:
-    id: regex_field_validation_rule
+  d13a7bf0-c2ed-4415-97e8-803378bd18a7:
+    uuid: d13a7bf0-c2ed-4415-97e8-803378bd18a7
+    id: regex_constraint_rule
     title: 'Google Analytics'
-    data:
-      setting: '/(?:UA|G|AW|DC)-[0-9a-zA-Z]{5,}(?:-[0-9]{1,})?/'
-    weight: 1
-    uuid: a24c3b48-8555-4b09-8ab7-12f3a60cc543
+    weight: 2
     field_name: su_google_analytics
     column: value
-    error_message: 'A valid Google Analytics Web Property ID is case sensitive and formatted like UA-xxxxxxx-yy or G-xxxxxxxxxx.'
+    error_message: ''
     roles: {  }
-    condition: {  }
+    condition:
+      field: ''
+      operator: ''
+      value: ''
+    data:
+      pattern: '/(?:UA|G|AW|DC)-[0-9a-zA-Z]{5,}(?:-[0-9]{1,})?/'
+      message: 'A valid Google Analytics Web Property ID is case sensitive and formatted like UA-xxxxxxx-yy or G-xxxxxxxxxx.'
+      validate_mode: direct
