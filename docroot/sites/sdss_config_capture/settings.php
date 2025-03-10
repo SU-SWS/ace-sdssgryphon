@@ -768,4 +768,6 @@ require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
  */
 
 // Disable Configuration Read-Only on the Config Capture Staging site.
-$settings['config_readonly'] = FALSE;
+if (EnvironmentDetector::isAhStageEnv()) {
+  $settings['config_readonly'] = FALSE;
+}

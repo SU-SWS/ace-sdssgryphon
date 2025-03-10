@@ -1,5 +1,7 @@
 <?php
 
+use Acquia\Blt\Robo\Common\EnvironmentDetector;
+
 // @codingStandardsIgnoreFile
 
 /**
@@ -765,5 +767,7 @@ require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
  * @link https://docs.acquia.com/blt/
  */
 
-// Disable Configuration Read-Only on the Sandbox site.
-$settings['config_readonly'] = FALSE;
+// Disable Configuration Read-Only on the Sandbox staging site.
+if (EnvironmentDetector::isAhStageEnv()) {
+  $settings['config_readonly'] = FALSE;
+}
