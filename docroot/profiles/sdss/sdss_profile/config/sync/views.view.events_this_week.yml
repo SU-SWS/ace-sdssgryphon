@@ -1152,4 +1152,3 @@ display:
         - 'config:field.storage.node.su_event_alt_loc'
         - 'config:field.storage.node.su_event_dek'
         - 'config:field.storage.node.su_event_groups'
-
