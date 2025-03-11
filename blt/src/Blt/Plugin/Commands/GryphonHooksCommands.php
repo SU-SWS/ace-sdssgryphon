@@ -14,7 +14,7 @@ use Robo\Contract\VerbosityThresholdInterface;
 class GryphonHooksCommands extends BltTasks {
 
   /**
-   * @hook pre-command sws:pre-code-deploy
+   * @hook pre-command sws:post-code-deploy
    */
   public function preSwsCodeDeploy()   {
     // Enable the field_validation_legacy module before running database
