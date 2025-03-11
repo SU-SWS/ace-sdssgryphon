@@ -292,6 +292,9 @@
             "drupal/diff": {
                 "https://www.drupal.org/project/diff/issues/2882334#comment-13913401": "patches/contrib/diff-mr-42.patch"
             },
+            "drupal/field_formatter_class": {
+                "https://www.drupal.org/project/field_formatter_class/issues/3473891": "patches/contrib/field_formatter_class-3473891-mr-10.patch"
+            },
             "drupal/field_encrypt": {
                 "https://www.drupal.org/project/field_encrypt/issues/3299175": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/field_encrypt-3299175-3_2_0.patch"
             },
