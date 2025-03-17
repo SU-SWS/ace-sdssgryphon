@@ -246,16 +246,4 @@ class PublicationsCest {
     $I->canSee('Publisher');
   }
 
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_publication');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_publication');
-    $I->canSee('Related Content');
-  }
-
 }

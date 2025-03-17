@@ -4,6 +4,8 @@ use Faker\Factory;
 
 /**
  * Class EntityReferenceCest.
+ *
+ * @group paragraphs
  */
 class EntityReferenceCest {
 
@@ -51,6 +53,7 @@ class EntityReferenceCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText('has been updated');
     $I->canSee('has been updated');
     $I->canSee($news->label(), '.su-card.su-news-vertical-teaser');
   }
@@ -70,6 +73,7 @@ class EntityReferenceCest {
     $I->click('Add new Citation');
     $I->waitForText('First Name');
     $I->click('Save');
+    $I->waitForText($publication->label());
     $I->canSee($publication->label(), 'h1');
 
     $node = $this->getNodeWithReferenceParagraph($I);
@@ -89,6 +93,7 @@ class EntityReferenceCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText('has been updated');
     $I->canSee('has been updated');
     $I->canSee($publication->label(), 'h2');
     $I->canSee('Journal Article');

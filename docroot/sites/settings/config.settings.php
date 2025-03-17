@@ -8,13 +8,13 @@
 use Acquia\Blt\Robo\Common\EnvironmentDetector;
 
 if (!EnvironmentDetector::isProdEnv()) {
+  // Turn off domain_301_redirect on non-production environments.
   $config['domain_301_redirect.settings']['enabled'] = FALSE;
+
+  // Turn off stanford_syndication on non-production environments.
   $config['stanford_syndication.settings']['enabled'] = FALSE;
-}
 
-// Set stage_file_proxy URL on non-production environments.
-if (!EnvironmentDetector::isProdEnv()) {
-
+  // Set stage_file_proxy URL on non-production environments.
   // Get the site name and replace:
   // - Underscores "_" with dashes "-".
   // - Double underscores "__" with dots ".".

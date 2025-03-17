@@ -3,30 +3,24 @@
 namespace Drupal\sdss_profile\EventSubscriber;
 
 use Acquia\DrupalEnvironmentDetector\AcquiaDrupalEnvironmentDetector;
-use Drupal\Core\Cache\Cache;
+use Drupal\Core\File\FileExists;
 use Drupal\Core\File\FileSystemInterface;
-use Drupal\Core\Installer\InstallerKernel;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\StreamWrapper\StreamWrapperManager;
-use Drupal\Core\Url;
 use Drupal\core_event_dispatcher\EntityHookEvents;
 use Drupal\core_event_dispatcher\Event\Entity\EntityDeleteEvent;
 use Drupal\core_event_dispatcher\Event\Entity\EntityInsertEvent;
-use Drupal\core_event_dispatcher\Event\Entity\EntityPresaveEvent;
-use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\default_content\Event\DefaultContentEvents;
 use Drupal\default_content\Event\ImportEvent;
 use Drupal\file\FileInterface;
+use Drupal\user\Entity\Role;
 use Drupal\user\RoleInterface;
+use GuzzleHttp\ClientInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
- * Class EventSubscriber.
+ * Subscribe to events for SDSS Profile.
  *
  * @package Drupal\sdss_profile\EventSubscriber
  */
@@ -59,9 +53,7 @@ class EventSubscriber implements EventSubscriberInterface {
     return [
       DefaultContentEvents::IMPORT => 'onContentImport',
       EntityHookEvents::ENTITY_INSERT => 'onEntityInsert',
-      EntityHookEvents::ENTITY_PRE_SAVE => 'onEntityPreSave',
       EntityHookEvents::ENTITY_DELETE => 'onEntityDelete',
-      KernelEvents::REQUEST => 'onKernelRequest',
     ];
   }
 
@@ -70,13 +62,14 @@ class EventSubscriber implements EventSubscriberInterface {
    *
    * @param \Drupal\Core\File\FileSystemInterface $fileSystem
    *   File system service.
+   * @param \GuzzleHttp\ClientInterface $client
+   *   Guzzle client service.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
    *   Logger factory service.
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   Messenger service.
    */
-  public function __construct(protected FileSystemInterface $fileSystem, LoggerChannelFactoryInterface $logger_factory, protected MessengerInterface $messenger)
-  {
+  public function __construct(protected FileSystemInterface $fileSystem, protected ClientInterface $client, LoggerChannelFactoryInterface $logger_factory, protected MessengerInterface $messenger) {
     $this->logger = $logger_factory->get('sdss_profile');
   }
 
@@ -90,81 +83,6 @@ class EventSubscriber implements EventSubscriberInterface {
     if ($event->getEntity()->getEntityTypeId() == 'user_role') {
       self::updateSamlauthRoles();
     }
-  }
-
-  /**
-   * On saving the config page, set the renewal date field.
-   *
-   * @param \Drupal\core_event_dispatcher\Event\Entity\EntityPresaveEvent $event
-   *   Entity presave event.
-   */
-  public function onEntityPreSave(EntityPresaveEvent $event) {
-    $entity = $event->getEntity();
-    if (
-      $entity->getEntityTypeId() == 'config_pages' &&
-      $entity->bundle() == 'stanford_basic_site_settings'
-    ) {
-      $renewal_date = time() + (InstallerKernel::installationAttempted() ? 0 : 60 * 60 * 24 * 365);
-      $entity->set('su_site_renewal_due', date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT, $renewal_date));
-      Cache::invalidateTags(['site-renew-date']);
-    }
-  }
-
-  /**
-   * On kernel request, redirect the user to update contact information.
-   *
-   * @param \Symfony\Component\HttpKernel\Event\RequestEvent $event
-   *   Triggered event.
-   */
-  public function onKernelRequest(RequestEvent $event) {
-    $current_uri = $event->getRequest()->getRequestUri();
-
-    if (
-      $event->getRequestType() == HttpKernelInterface::MAIN_REQUEST &&
-      !str_starts_with($current_uri, '/admin/config/system/basic-site-settings') &&
-      self::redirectUser()
-    ) {
-      $config_page_url = Url::fromRoute('config_pages.stanford_basic_site_settings', [], ['query' => ['destination' => $current_uri]]);
-      $this->messenger->addWarning('Please update or verify the site contact information on the "Site Contacts" tab.');
-      $event->setResponse(new RedirectResponse($config_page_url->toString() . '#contact'));
-    }
-  }
-
-  /**
-   * Check if the current user should be redirected to the site settings form.
-   *
-   * @return bool
-   *   Redirect the user.
-   */
-  protected static function redirectUser() {
-    $current_user = \Drupal::currentUser();
-    $cache = \Drupal::cache();
-
-    /** @var \Drupal\Core\Routing\CurrentRouteMatch $route_match */
-    $route_match = \Drupal::service('current_route_match');
-    $name = $route_match->getCurrentRouteMatch()->getRouteName();
-    if (in_array($name, ['system.css_asset', 'system.js_asset'])) {
-      return FALSE;
-    }
-
-    if ($cache_data = $cache->get('su_renew_site:' . $current_user->id())) {
-      return $cache_data->data;
-    }
-
-    /** @var \Drupal\config_pages\ConfigPagesLoaderServiceInterface $config_page_loader */
-    $config_page_loader = \Drupal::service('config_pages.loader');
-    $renewal_date = $config_page_loader->getValue('stanford_basic_site_settings', 'su_site_renewal_due', 0, 'value') ?: date(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
-
-    // Check for config page edit access and ignore if the user is an
-    // administrator. That way devs don't get forced into submitting the form.
-
-    $site_manager = $current_user->hasPermission('edit stanford_basic_site_settings config page entity') && !in_array('administrator', $current_user->getRoles());
-
-    // If the renewal date has passed, they should be redirected.
-    $needs_renewal = !getenv('CI') && $site_manager && (strtotime($renewal_date) - time() < 60 * 60 * 24);
-    $cache->set('su_renew_site:' . $current_user->id(), $needs_renewal, time() + 60 * 60 * 24, ['site-renew-date']);
-
-    return $needs_renewal;
   }
 
   /**
@@ -187,7 +105,7 @@ class EventSubscriber implements EventSubscriberInterface {
       return;
     }
 
-    $role_ids = array_keys(user_role_names(TRUE));
+    $role_ids = array_keys(Role::loadMultiple());
     $role_ids = array_combine($role_ids, $role_ids);
     unset($role_ids[RoleInterface::AUTHENTICATED_ID]);
     asort($role_ids);
@@ -257,7 +175,7 @@ class EventSubscriber implements EventSubscriberInterface {
           '%source' => $local_file,
           '%destination' => $file_uri,
         ]);
-        $this->fileSystem->copy($local_file, $file_uri, FileSystemInterface::EXISTS_REPLACE);
+        $this->fileSystem->copy($local_file, $file_uri, FileExists::Replace);
         return;
       }
       catch (\Exception $e) {
@@ -292,7 +210,8 @@ class EventSubscriber implements EventSubscriberInterface {
       '%source' => $source,
       '%destination' => $destination,
     ]);
-    return system_retrieve_file($source, $destination, FALSE, FileSystemInterface::EXISTS_REPLACE);
+    $data = (string) $this->client->get($source)->getBody();
+    return $this->fileSystem->saveData($data, $destination, FileExists::Replace);
   }
 
 }

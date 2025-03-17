@@ -36,6 +36,7 @@ dependencies:
     - address
     - change_labels
     - cshs
+    - field_formatter_class
     - field_group
     - layout_paragraphs
     - link
@@ -58,7 +59,7 @@ third_party_settings:
       label: 'Editorial Content'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 1
       format_type: fieldset
       format_settings:
         classes: ''
@@ -72,7 +73,7 @@ third_party_settings:
       label: 'Body Content'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -94,7 +95,7 @@ third_party_settings:
       label: 'Event Details'
       region: content
       parent_name: ''
-      weight: 5
+      weight: 2
       format_type: fieldset
       format_settings:
         classes: ''
@@ -107,7 +108,7 @@ third_party_settings:
       label: 'Schedule Details'
       region: content
       parent_name: ''
-      weight: 6
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -117,23 +118,26 @@ third_party_settings:
         open: false
     group_taxonomy:
       children:
+        - su_sdss_event_topics
+        - su_event_type
         - su_shared_tags
         - su_event_keywords
         - su_event_subject
         - su_event_groups
         - su_sdss_events_focal_areas
-      label: Taxonomy
+        - su_sdss_related_content
+      label: 'Taxonomy & Related Content'
       region: content
       parent_name: ''
-      weight: 10
-      format_type: details
+      weight: 5
+      format_type: fieldset
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        open: false
         description: ''
         required_fields: false
+        open: 0
 id: node.stanford_event.default
 targetEntityType: node
 bundle: stanford_event
@@ -141,7 +145,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 1
     region: content
     settings:
       rows: 9
@@ -149,20 +153,26 @@ content:
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+  layout_builder__layout:
+    type: null
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 11
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   stanford_intranet__access:
     type: entity_access
-    weight: 9
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -173,9 +183,20 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+      change_labels:
+        field_label_overwrite: Featured
   su_event_alt_loc:
     type: string_textfield
-    weight: 24
+    weight: 5
     region: content
     settings:
       size: 60
@@ -183,16 +204,18 @@ content:
     third_party_settings: {  }
   su_event_audience:
     type: options_buttons
-    weight: 30
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   su_event_components:
     type: layout_paragraphs
-    weight: 4
+    weight: 3
     region: content
     settings:
+      view_mode: default
       preview_view_mode: default
+      form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
@@ -201,7 +224,7 @@ content:
         add_another: ''
   su_event_contact_info:
     type: string_textfield
-    weight: 29
+    weight: 9
     region: content
     settings:
       size: 60
@@ -209,7 +232,7 @@ content:
     third_party_settings: {  }
   su_event_cta:
     type: link_default
-    weight: 31
+    weight: 11
     region: content
     settings:
       placeholder_url: ''
@@ -217,30 +240,26 @@ content:
     third_party_settings: {  }
   su_event_date_time:
     type: smartdate_timezone
-    weight: 21
+    weight: 1
     region: content
     settings:
       modal: false
-      default_tz: user
-      custom_tz: America/Los_Angeles
-      allowed_timezones: {  }
       default_duration: 60
-      default_duration_increments: |-
-        30
-        60|1 hour
-        90
-        120|2 hours
-        custom
+      default_duration_increments: "30\n60|1 hour\n90\n120|2 hours\ncustom"
       show_extra: false
       hide_date: true
       allday: true
       remove_seconds: false
+      duration_overlay: true
       separator: to
+      default_tz: user
+      custom_tz: America/Los_Angeles
+      allowed_timezones: {  }
       add_abbreviations: ''
     third_party_settings: {  }
   su_event_dek:
     type: string_textfield
-    weight: 5
+    weight: 9
     region: content
     settings:
       size: 60
@@ -248,7 +267,7 @@ content:
     third_party_settings: {  }
   su_event_email:
     type: email_default
-    weight: 26
+    weight: 7
     region: content
     settings:
       placeholder: ''
@@ -256,7 +275,7 @@ content:
     third_party_settings: {  }
   su_event_groups:
     type: readonly_field_widget
-    weight: 13
+    weight: 18
     region: content
     settings:
       label: above
@@ -267,7 +286,7 @@ content:
     third_party_settings: {  }
   su_event_keywords:
     type: readonly_field_widget
-    weight: 11
+    weight: 16
     region: content
     settings:
       label: above
@@ -278,14 +297,14 @@ content:
     third_party_settings: {  }
   su_event_location:
     type: address_default
-    weight: 23
+    weight: 3
     region: content
     settings:
       wrapper_type: details
     third_party_settings: {  }
   su_event_map_link:
     type: link_default
-    weight: 25
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
@@ -305,7 +324,7 @@ content:
     third_party_settings: {  }
   su_event_source:
     type: link_default
-    weight: 22
+    weight: 2
     region: content
     settings:
       placeholder_url: ''
@@ -313,7 +332,7 @@ content:
     third_party_settings: {  }
   su_event_sponsor:
     type: string_textfield
-    weight: 6
+    weight: 10
     region: content
     settings:
       size: 60
@@ -323,7 +342,7 @@ content:
         add_another: 'Add another sponsor'
   su_event_subheadline:
     type: string_textfield
-    weight: 4
+    weight: 8
     region: content
     settings:
       size: 60
@@ -331,7 +350,7 @@ content:
     third_party_settings: {  }
   su_event_subject:
     type: readonly_field_widget
-    weight: 12
+    weight: 17
     region: content
     settings:
       label: above
@@ -342,14 +361,14 @@ content:
     third_party_settings: {  }
   su_event_telephone:
     type: telephone_default
-    weight: 28
+    weight: 8
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   su_event_type:
     type: cshs
-    weight: 0
+    weight: 14
     region: content
     settings:
       save_lineage: false
@@ -362,14 +381,14 @@ content:
     third_party_settings: {  }
   su_sdss_custm_event_feat_media:
     type: media_library_widget
-    weight: 7
+    weight: 11
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   su_sdss_event_topics:
     type: cshs
-    weight: 1
+    weight: 13
     region: content
     settings:
       save_lineage: false
@@ -382,7 +401,7 @@ content:
     third_party_settings: {  }
   su_sdss_events_focal_areas:
     type: entity_reference_autocomplete
-    weight: 14
+    weight: 19
     region: content
     settings:
       match_operator: CONTAINS
@@ -394,7 +413,7 @@ content:
         add_another: ''
   su_sdss_related_content:
     type: entity_reference_autocomplete
-    weight: 32
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -404,7 +423,7 @@ content:
     third_party_settings: {  }
   su_shared_tags:
     type: cshs
-    weight: 10
+    weight: 15
     region: content
     settings:
       save_lineage: false
@@ -417,7 +436,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 2
+    weight: 0
     region: content
     settings:
       size: 60
@@ -425,10 +444,8 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  layout_builder__layout: true
   path: true
   promote: true
-  sticky: true
   su_metatags: true
   syndication: true
   uid: true

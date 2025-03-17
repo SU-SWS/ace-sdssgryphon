@@ -1,16 +1,18 @@
 <?php
 
+/**
+ * @file
+ * Theme settings for the SDSS Subtheme.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
-use Drupal\Core\Link;
 
 // @codeCoverageIgnoreStart
 
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state)
-{
+function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state) {
 
   // Header options.
   $form['options_settings']['sdss_subtheme_header_options'] = [

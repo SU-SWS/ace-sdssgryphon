@@ -1,0 +1,17 @@
+uuid: 343f4ac7-ada0-46af-abbc-728c25e2f648
+langcode: en
+status: true
+dependencies:
+  module:
+    - stanford_migrate
+title: 'Importer: SDSS News Sharing'
+id: stanford_migrate_sdss_news_sharing
+weight: 0
+module: stanford_migrate
+callback: stanford_migrate_ultimate_cron_task
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

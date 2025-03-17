@@ -1,0 +1,33 @@
+{
+  "name": "stanford_starter",
+  "version": "1.0.0",
+  "description": "Changelog: [CHANGELOG.md](CHANGELOG.md)",
+  "main": "webpack.config.js",
+  "scripts": {
+    "watch": "NODE_ENV=production webpack --watch",
+    "build": "NODE_ENV=production webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.24.0",
+    "autoprefixer": "^10.4.18",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.10.0",
+    "decanter": "^6.3.3",
+    "filemanager-webpack-plugin": "^8.0.0",
+    "mini-css-extract-plugin": "^2.8.1",
+    "node-sass": "^9.0.0",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^9.5.0",
+    "sass-loader": "^14.1.1",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-fix-style-only-entries": "^0.6.1"
+  },
+  "packageManager": "yarn@4.1.1"
+}

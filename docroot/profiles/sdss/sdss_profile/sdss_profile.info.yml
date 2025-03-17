@@ -1,9 +1,9 @@
 name: 'Stanford Doerr School of Sustainability Profile'
 description: 'Profile for Stanford Doerr School of Sustainability'
-version: 4.4.3-dev
+version: 4.8.2-dev
 type: profile
 project: Stanford
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10.3 || ^11
 install:
   - 'address:address'
   - 'admin_toolbar:admin_toolbar'
@@ -13,7 +13,6 @@ install:
   - 'chosen:chosen'
   - 'chosen:chosen_lib'
   - 'components:components'
-  - 'config_filter:config_filter'
   - 'config_pages:config_pages'
   - 'config_pages_overrides:config_pages_overrides'
   - 'config_readonly:config_readonly'

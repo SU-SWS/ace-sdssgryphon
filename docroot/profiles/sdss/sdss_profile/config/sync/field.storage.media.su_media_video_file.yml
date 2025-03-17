@@ -1,0 +1,23 @@
+uuid: f947174c-505f-41e7-a361-db46d3b5d11f
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - media
+id: media.su_media_video_file
+field_name: su_media_video_file
+entity_type: media
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

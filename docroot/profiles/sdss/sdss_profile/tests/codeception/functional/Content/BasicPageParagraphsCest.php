@@ -56,6 +56,7 @@ class BasicPageParagraphsCest {
     $I->waitForElementNotVisible('.ui-dialog');
     $I->wait(1);
     $I->click('Save', '#edit-actions');
+    $I->waitForText($node->getTitle());
     $I->canSee($card_values['superhead']);
     $I->canSee($card_values['headline']);
     $I->canSeeLink($card_values['title'], $card_values['uri']);
@@ -84,9 +85,14 @@ class BasicPageParagraphsCest {
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 1);
 
     $I->amOnPage("/node/{$node->id()}/edit");
-    $I->fillField('Title', $this->faker->text(15));
+    $node_title = $this->faker->text(15);
+    $I->fillField('Title', $node_title);
     $I->click('Save');
+
+    $I->waitForText($node_title);
+
     $I->amOnPage("/node/{$node->id()}/revisions");
+    $I->waitForText("Revisions for");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 2);
 
     $I->amOnPage("/node/{$node->id()}/edit");
@@ -95,13 +101,15 @@ class BasicPageParagraphsCest {
     $I->click('Edit', '.lpb-controls');
     $I->waitForText('Superhead');
     $I->fillField('Superhead', $this->faker->text(10));
-    // Headline field is required on SDSS but not on Stanford Sites.
     $I->fillField('Headline', $this->faker->text(10));
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
 
+    $I->waitForText($node_title);
+
     $I->amOnPage("/node/{$node->id()}/revisions");
+    $I->waitForText("Revisions for");
     $I->canSeeNumberOfElements('.diff-revisions tbody tr', 3);
   }
 

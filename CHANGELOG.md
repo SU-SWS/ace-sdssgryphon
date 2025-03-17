@@ -7,6 +7,148 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.8.1] - 2025-02-26
+
+### Changed
+105df37c SDSS-1332: Enhanced help text for News Sharing settings field (#540).
+07a15dff SDSS-1333: Moved SDSS News Sharing Settings menu location to Configuration > Importers (#538).
+a387a9a1 SDSS-1355: Changed default card style variant from Topic to Title (#537).
+8177ef65 SDSS-1391: Added 'www' to Stanford University brand bar link (#534).
+
+### Deprecated
+7a5adcb3 SDSS-1370: Removed minimally_branded_subtheme from SDSS Profile (#536).
+
+### Removed
+7a5adcb3 SDSS-1370: Removed minimally_branded_subtheme from SDSS Profile (#536).
+
+### Fixed
+3082dd42 SDSS-1466: Restored Newsroom menu for sdss_main_site_subtheme (#552).
+
+### Security
+1ec46afa SDSS-1450: 4.7.4 Routine Maintenance (#547).
+
+### Maintenance
+1ec46afa SDSS-1450: 4.7.4 Routine Maintenance (#547).
+
+
+## [4.8.0] - 2025-02-18
+
+### Changed
+933dc66b SDSS-1457: Changed local footer color (#544).
+33d118f5 Made header logo clickable (#543).
+20cd0926 SDSS-1411: Extended hamburger breakpoint to all breakpoints in sdss_main_site_subtheme (#539).
+
+### Added
+20cd0926 SDSS-1411: New sdss_main_site_subtheme (#539).
+c0c1d799 SDSS-1452: New local video media type. Added it to image banner paragraph (#542).
+33d118f5 SDSS-1413: Utility Navigation region to sdss_main_site_subtheme (#543).
+eed0e34d SDSS-1412: New Utility Navigation menu (#518).
+
+### Fixed
+7bd0eb7e SDSS-1461: Quickstrike tweaks and fixes (#546).
+67e3b531 SDSS-1461: Quickstrike tweaks and fixes (#545).
+bcc0a7ff SDSS-1427: Fix SDSS News Sharing migration item_selector configuration (#529).
+
+
+## [4.7.2] - 2025-01-13 / 2025-01-22
+
+### Added
+7bb8a797 SDSS-1439: Provisioned energy-transition-analysis.stanford.edu. (#530)
+
+### Maintenance
+f92fe9ea SDSS-1400: December 2024 maintenance and updates. (#527)
+62f8c165 SDSS-1426: Update Gitpod setup documentation (#528)
+
+
+## [4.7.1] - 2024-12-19
+
+### Changed
+56fd16c2 SDSS-1404: Quickstrike color updates (#520)
+
+### Maintenance
+17fefa07 Removed mysql56 dependency
+
+
+## [4.7.0] - 2024-11-21
+
+### Maintenance
+ac4907ea SDSS-1314: Drupal 10.3 / PHP 8.3 (#510)
+d680167c SDSS-1394: Update stanford_circle image style image mask file path (#508)
+
+
+## [4.6.2] - 2024-10-16
+
+### Removed
+dfdebfd0 SDSS-1376: Remove "/r25/*/calendar" from block.stanford_basic.pagetitle (#496)
+f62c0859 SDSS-1374: Drop featured filter from events this week RSS feed view (#495)
+f278e47f SDSS-1369: Uninstall minimally_branded_subtheme (#493)
+2c870628 SDSS-1281: Removed decanter from stanford_basic (#492)
+
+### Fixed
+74cd07a8 SDSS-1379: Set default value for Featured field (#504)
+463cd60c Update search_api index processors to better handle URL's in text (#503)
+0f5938b6 SDSS-1378: FIX | Set default value for explore more picker (#502)
+a208304c SDSS-1377: Set default value for Imported via News Sharing field (#501)
+
+### Maintenance
+0aa9dc29 SDSS-1376: Update stanford_earth_r25 to v8.1.14 (#498)
+459f406f SDSS-1376: Update stanford_earth_r25 module to 8.1.13 (#497)
+28f8b3b9 SDSS-1362: Routine maintenance (#494)
+856701d5 SDSS-000: Add patch to remove defunct placeimg URL from unit test (#500)
+b7c111b2 SDSS-000: Changed drupal core constraint (#499)
+ff978a45 SDSS-1367: Deprecated and updated inclusion of Drupal merge request patches (#491)
+7fcaa8ad SDSS-1313: Consolidated stanford_profile_helper into the sdss_profile (#489)
+e573ba13 SDSS-1366: Consolidated drupal-patches into SDSS (#490)
+
+
+## [4.6.1] - 2024-09-06
+
+### Fixed
+0e9be86a SDSS-1365: Update colorbox module to v2.1.1 (#486)
+
+
+## [4.6.0] - 2024-09-04
+
+### Added
+61139bfa SDSS-1359: Set Explore More Options default for existing content (#483)
+1dce19d7 SDSS-1360: DEV | Set Featured Events default value for existing content (#482)
+f8fbd72f SDSS-1299: Add Explore More options and display to News (#466)
+c2303a11 SDSS-1337: Track imported News Sharing content (#478)
+d4136ee8 SDSS-1300: Added featured event field and feeds (#477)
+
+### Changed
+f9ef95db SDSS-1358: Allow all editors to use Related Content field (#480)
+70f3e232 SDSS-1185: Update caption text to be centered to the image and center aligned (#464)
+2fb128a6 SDSS-1341: Allow News Lists to be filtered by focal areas, organization and shared tags (#469)
+
+
+## [4.5.0] - 2024-07-31
+
+### Added
+b4624ad3 SDSS-1276: News Sharing MVP (#465)
+09875389 SDSS-1135: Added publishing_date to source id for news sharing migration (#473)'
+26c88097 SDSS-1302: Added larger left and larger right 2 column layouts (#453)
+b5f6f538 SDSS-1307: Point esos.stanford.edu (#472)
+ee3a472e SDSS-1250: Provisioned sustainablesocieties (#454)
+17a43164 SDSS-1201 | @jdwjdwjdw | Add 4 column card grid option for lists, adjust one-column layout, fixup load more issue (#414)
+
+### Changed
+d1435eaa SDSS-1342: Allow Event Lists to be filtered by focal areas (#468)
+0e68ff3b SDSS-1296: Update SDSS profile installation (#458)
+
+### Removed
+e14cfa29 SDSS-1270: Deprecate and fully remove earth_news_importer (#457)
+98052f9c SDSS-1305: Removed width options from SDSS layout paragraphs (#448)
+de48fc47 SDSS-1268: Removed white option from paragraph section background colors (#430)
+
+### Fixed
+eae0c70c FIXUP - turn off readonly for news sharing form (#467)
+cc4e3751 SDSS-000 | @jdwjdwjdw | Full width specificity fixup (#456)
+
+### Maintenance
+87b8c7a8 SDSS-1308: Routine maintenance (#455)
+
+
 ## [4.4.2] - 2024-06-05
 
 ### Added

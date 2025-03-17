@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Preprocess functions for SDSS Main Site sub-theme.
+ */
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function sdss_main_site_subtheme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['elements']['#id']) && $variables['elements']['#id'] == 'sdss_main_site_subtheme_search') {
+    $suggestions[] = 'block__stanford_basic_search';
+  }
+}

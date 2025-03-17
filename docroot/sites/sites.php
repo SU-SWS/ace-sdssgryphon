@@ -97,6 +97,8 @@ $sites['earthsystems.stanford.edu'] = 'esys';
 $sites['eep.stanford.edu'] = 'gep';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
 $sites['epsci.stanford.edu'] = 'gs';
+$sites['esos.stanford.edu'] = 'environmentalsocialsci';
+$sites['nzea.stanford.edu'] = 'nza';
 $sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
 $sites['understand-energy.stanford.edu'] = 'understandenergy';
 

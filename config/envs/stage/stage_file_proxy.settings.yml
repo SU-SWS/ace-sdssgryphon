@@ -4,3 +4,4 @@ origin_dir: 'sites/[sitename]/files'
 use_imagecache_root: false
 verify: false
 excluded_extensions: ''
+proxy_headers: ''

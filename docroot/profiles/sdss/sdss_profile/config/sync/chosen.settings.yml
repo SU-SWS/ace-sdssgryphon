@@ -1,5 +1,6 @@
 _core:
   default_config_hash: YWbqKPHA3djohSgnBRKhK0NUjnO1dL1XmIo3yBw3oFo
+langcode: en
 minimum_single: 20
 minimum_multiple: 20
 disable_search_threshold: 0
@@ -12,7 +13,6 @@ disable_search: false
 allow_single_deselect: false
 disabled_themes:
   claro: '0'
-  minimally_branded_subtheme: '0'
   sdss_subtheme: '0'
   stanford_basic: '0'
   stanford_profile_admin_theme: '0'

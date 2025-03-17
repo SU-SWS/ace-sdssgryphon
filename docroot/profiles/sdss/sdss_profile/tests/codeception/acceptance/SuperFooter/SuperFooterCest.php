@@ -2,6 +2,8 @@
 
 /**
  * Test for the Super Footer.
+ *
+ * @group super_footer
  */
 class SuperFooterCest {
 

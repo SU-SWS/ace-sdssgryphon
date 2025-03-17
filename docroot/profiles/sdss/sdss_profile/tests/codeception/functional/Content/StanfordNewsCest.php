@@ -4,6 +4,9 @@ use Faker\Factory;
 
 /**
  * Test the news functionality.
+ *
+ * @group content
+ * @group news
  */
 class StanfordNewsCest {
 
@@ -62,6 +65,7 @@ class StanfordNewsCest {
     $I->selectOption('.form-item--su-news-topics-2-target-id select.simpler-select', $third_term->id());
 
     $I->click('Save');
+    $I->waitForText($node->label());
     $I->canSee($node->label(), 'h1');
     $I->canSee($first_term->label() . ', ' . $second_term->label() . ', ' . $third_term->label());
 
@@ -74,6 +78,7 @@ class StanfordNewsCest {
     $I->selectOption('.form-item--su-news-topics-2-target-id select.simpler-select', $third_term->id());
 
     $I->click('Save');
+    $I->waitForText($node->label());
     $I->canSee($node->label(), 'h1');
     $I->canSee($second_term->label() . ', ' . $first_term->label() . ', ' . $third_term->label());
 
@@ -86,6 +91,7 @@ class StanfordNewsCest {
     $I->selectOption('.form-item--su-news-topics-2-target-id select.simpler-select', $first_term->id());
 
     $I->click('Save');
+    $I->waitForText($node->label());
     $I->canSee($node->label(), 'h1');
     $I->canSee($third_term->label() . ', ' . $second_term->label() . ', ' . $first_term->label());
 
@@ -98,6 +104,7 @@ class StanfordNewsCest {
     $I->selectOption('.form-item--su-news-topics-2-target-id select.simpler-select', $second_term->id());
 
     $I->click('Save');
+    $I->waitForText($node->label());
     $I->canSee($node->label(), 'h1');
     $I->canSee($third_term->label() . ', ' . $first_term->label() . ', ' . $second_term->label());
   }

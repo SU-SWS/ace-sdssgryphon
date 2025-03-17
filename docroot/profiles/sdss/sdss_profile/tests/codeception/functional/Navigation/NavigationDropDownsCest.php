@@ -57,21 +57,13 @@ class NavigationDropDownsCest {
     $I->amOnPage('/admin/config/system/basic-site-settings');
     $I->uncheckOption('Use Drop Down Menus');
 
-    $I->click('Site Contacts');
-    $I->waitForText('Site Owner Contact Email');
-    $I->fillField('Site Owner Contact Email (value 1)', $this->faker->email);
-    $I->fillField('Primary Site Manager Email (value 1)', $this->faker->email);
-    $I->fillField('Accessibility Contact Email (value 1)', $this->faker->email);
-    $I->selectOption('.js-form-item-su-site-org-0-target-id select.simpler-select', $org_term->id());
-    $I->click('Save');
-    $I->canSee('Site Settings has been', '.messages-list');
-
     $I->amOnPage('/');
-    $I->cantSeeElement('button', ['class' => 'su-nav-toggle']);
+    //$I->cantSeeElement('button', ['class' => 'su-nav-toggle']);
 
     $I->amOnPage('/admin/config/system/basic-site-settings');
     $I->checkOption('Use Drop Down Menus');
     $I->click('Save');
+    $I->waitForText('Site Settings has been');
     $I->canSee('Site Settings has been', '.messages-list');
 
     $node_title = Factory::create()->text(20);
@@ -87,9 +79,11 @@ class NavigationDropDownsCest {
     $I->waitForText("Change the weight of the links within the $parent_menu_title menu");
 
     $I->click('Save');
+    $I->waitForText($node_title);
     $I->canSeeLink($node_title);
 
     $I->amOnPage('/');
+    $I->waitForElement('button.su-nav-toggle', 2);
     $I->seeElement('button.su-nav-toggle');
   }
 

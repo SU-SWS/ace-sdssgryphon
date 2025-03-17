@@ -113,6 +113,7 @@ class WYSIWYGCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText($node->getTitle());
     $I->canSeeLink($url);
 
     $I->canSeeNumberOfElements('.su-wysiwyg-text td', 15);
@@ -148,6 +149,7 @@ class WYSIWYGCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForAjaxToFinish();
     $I->click('Save');
+    $I->waitForText($node->getTitle());
     $I->canSee($node->label(), 'h1');
     $I->canSeeElement('.su-wysiwyg-text img[src*="logo"]');
   }
@@ -253,6 +255,7 @@ class WYSIWYGCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText($node->getTitle());
     $I->scrollTo('.oembed-lazyload', 0, 100);
     $I->waitForElementVisible('iframe');
     $I->canSeeNumberOfElements('iframe', 1);
@@ -292,6 +295,7 @@ class WYSIWYGCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText($node->getTitle());
     $I->canSeeElement('.su-wysiwyg-text a[href*="test"]');
   }
 

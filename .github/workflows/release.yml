@@ -16,7 +16,7 @@ jobs:
     permissions: write-all
     if: github.event.pull_request.merged
     container:
-      image: pookmish/drupal8ci:latest
+      image: pookmish/drupal8ci:php8.3
     steps:
       - name: Get Next Release
         id: tag
@@ -58,11 +58,7 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-          restore-keys: |
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
-            4.x-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-
-            4.x-${{ hashFiles('blt/blt.yml') }}-
+          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Deploy Tag
         if: ${{ steps.tag.outputs.tag }}
         run: |

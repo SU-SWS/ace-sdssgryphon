@@ -1,0 +1,233 @@
+From 5426d831cda940cfc2e624f2ce505e429ce4469e Mon Sep 17 00:00:00 2001
+From: Christopher Lewis <christopher.lewis@brandcode.de>
+Date: Wed, 7 Feb 2024 13:44:26 +0100
+Subject: [PATCH 1/2] Move revision translation conditions to query, and work
+ on the translation when building the row.
+
+---
+ src/Form/RevisionOverviewForm.php | 137 +++++++++++++++---------------
+ 1 file changed, 69 insertions(+), 68 deletions(-)
+
+diff --git a/src/Form/RevisionOverviewForm.php b/src/Form/RevisionOverviewForm.php
+index be03826..4a52e12 100755
+--- a/src/Form/RevisionOverviewForm.php
++++ b/src/Form/RevisionOverviewForm.php
+@@ -156,6 +156,8 @@ class RevisionOverviewForm extends FormBase {
+       ->condition($node->getEntityType()->getKey('id'), $node->id())
+       ->pager($pagerLimit)
+       ->allRevisions()
++      ->condition($node->getEntityType()->getKey('langcode'), $langcode)
++      ->condition($node->getEntityType()->getKey('revision_translation_affected'), '1')
+       ->sort($node->getEntityType()->getKey('revision'), 'DESC')
+       // Access to the content has already been verified. Disable query-level
+       // access checking so that revisions for unpublished content still
+@@ -217,83 +219,82 @@ class RevisionOverviewForm extends FormBase {
+       }
+       /** @var \Drupal\Core\Entity\ContentEntityInterface $revision */
+       if ($revision = $node_storage->loadRevision($vid)) {
+-        if ($revision->hasTranslation($langcode) && $revision->getTranslation($langcode)->isRevisionTranslationAffected()) {
+-          $username = [
+-            '#theme' => 'username',
+-            '#account' => $revision->getRevisionUser(),
+-          ];
+-          $revision_date = $this->date->format($revision->getRevisionCreationTime(), 'short');
+-          // Use revision link to link to revisions that are not active.
+-          if ($vid != $node->getRevisionId()) {
+-            $link = Link::fromTextAndUrl($revision_date, new Url('entity.node.revision', ['node' => $node->id(), 'node_revision' => $vid]));
+-          }
+-          else {
+-            $link = $node->toLink($revision_date);
+-          }
++        $revision = $revision->getTranslation($langcode);
++        $username = [
++          '#theme' => 'username',
++          '#account' => $revision->getRevisionUser(),
++        ];
++        $revision_date = $this->date->format($revision->getRevisionCreationTime(), 'short');
++        // Use revision link to link to revisions that are not active.
++        if ($vid != $node->getRevisionId()) {
++          $link = Link::fromTextAndUrl($revision_date, new Url('entity.node.revision', ['node' => $node->id(), 'node_revision' => $vid]));
++        }
++        else {
++          $link = $node->toLink($revision_date);
++        }
+ 
+-          if ($vid == $default_revision) {
+-            $row = [
+-              'revision' => $this->buildRevision($link, $username, $revision, $previous_revision),
+-            ];
++        if ($vid == $default_revision) {
++          $row = [
++            'revision' => $this->buildRevision($link, $username, $revision, $previous_revision),
++          ];
+ 
+-            // Allow comparisons only if there are 2 or more revisions.
+-            if ($revision_count > 1) {
+-              $row += [
+-                'select_column_one' => $this->buildSelectColumn('radios_left', $vid, FALSE),
+-                'select_column_two' => $this->buildSelectColumn('radios_right', $vid, $vid),
+-              ];
+-            }
+-            $row['operations'] = [
+-              '#prefix' => '<em>',
+-              '#markup' => $this->t('Current revision'),
+-              '#suffix' => '</em>',
+-              '#attributes' => [
+-                'class' => ['revision-current'],
+-              ],
+-            ];
+-            $row['#attributes'] = [
+-              'class' => ['revision-current'],
++          // Allow comparisons only if there are 2 or more revisions.
++          if ($revision_count > 1) {
++            $row += [
++              'select_column_one' => $this->buildSelectColumn('radios_left', $vid, FALSE),
++              'select_column_two' => $this->buildSelectColumn('radios_right', $vid, $vid),
+             ];
+           }
+-          else {
+-            $route_params = [
+-              'node' => $node->id(),
+-              'node_revision' => $vid,
+-              'langcode' => $langcode,
+-            ];
+-            $links = [];
+-            if ($revert_permission) {
+-              $links['revert'] = [
+-                'title' => $vid < $node->getRevisionId() ? $this->t('Revert') : $this->t('Set as current revision'),
+-                'url' => $has_translations ?
++          $row['operations'] = [
++            '#prefix' => '<em>',
++            '#markup' => $this->t('Current revision'),
++            '#suffix' => '</em>',
++            '#attributes' => [
++              'class' => ['revision-current'],
++            ],
++          ];
++          $row['#attributes'] = [
++            'class' => ['revision-current'],
++          ];
++        }
++        else {
++          $route_params = [
++            'node' => $node->id(),
++            'node_revision' => $vid,
++            'langcode' => $langcode,
++          ];
++          $links = [];
++          if ($revert_permission) {
++            $links['revert'] = [
++              'title' => $vid < $node->getRevisionId() ? $this->t('Revert') : $this->t('Set as current revision'),
++              'url' => $has_translations ?
+                 Url::fromRoute('node.revision_revert_translation_confirm', ['node' => $node->id(), 'node_revision' => $vid, 'langcode' => $langcode]) :
+                 Url::fromRoute('node.revision_revert_confirm', ['node' => $node->id(), 'node_revision' => $vid]),
+-              ];
+-            }
+-            if ($delete_permission) {
+-              $links['delete'] = [
+-                'title' => $this->t('Delete'),
+-                'url' => Url::fromRoute('node.revision_delete_confirm', $route_params),
+-              ];
+-            }
+-
+-            // Here we don't have to deal with 'only one revision' case because
+-            // if there's only one revision it will also be the default one,
+-            // entering on the first branch of this if else statement.
+-            $row = [
+-              'revision' => $this->buildRevision($link, $username, $revision, $previous_revision),
+-              'select_column_one' => $this->buildSelectColumn('radios_left', $vid,
+-                $vids[1] ?? FALSE),
+-              'select_column_two' => $this->buildSelectColumn('radios_right', $vid, FALSE),
+-              'operations' => [
+-                '#type' => 'operations',
+-                '#links' => $links,
+-              ],
+             ];
+           }
+-          // Add the row to the table.
+-          $build['node_revisions_table'][] = $row;
++          if ($delete_permission) {
++            $links['delete'] = [
++              'title' => $this->t('Delete'),
++              'url' => Url::fromRoute('node.revision_delete_confirm', $route_params),
++            ];
++          }
++
++          // Here we don't have to deal with 'only one revision' case because
++          // if there's only one revision it will also be the default one,
++          // entering on the first branch of this if else statement.
++          $row = [
++            'revision' => $this->buildRevision($link, $username, $revision, $previous_revision),
++            'select_column_one' => $this->buildSelectColumn('radios_left', $vid,
++              $vids[1] ?? FALSE),
++            'select_column_two' => $this->buildSelectColumn('radios_right', $vid, FALSE),
++            'operations' => [
++              '#type' => 'operations',
++              '#links' => $links,
++            ],
++          ];
+         }
++        // Add the row to the table.
++        $build['node_revisions_table'][] = $row;
+       }
+     }
+ 
+-- 
+GitLab
+
+
+From 07ede6614d9a117ccf3235de797d85eeb0e9e598 Mon Sep 17 00:00:00 2001
+From: Christopher Lewis <christopher.lewis@brandcode.de>
+Date: Wed, 7 Feb 2024 17:49:33 +0100
+Subject: [PATCH 2/2] Integrate logic from #3418442
+
+---
+ src/Form/RevisionOverviewForm.php | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
+
+diff --git a/src/Form/RevisionOverviewForm.php b/src/Form/RevisionOverviewForm.php
+index 4a52e12..c47472d 100755
+--- a/src/Form/RevisionOverviewForm.php
++++ b/src/Form/RevisionOverviewForm.php
+@@ -148,23 +148,31 @@ class RevisionOverviewForm extends FormBase {
+     $languages = $node->getTranslationLanguages();
+     $has_translations = (count($languages) > 1);
+     $node_storage = $this->entityTypeManager->getStorage('node');
++    $entity_type = $node->getEntityType();
+     $type = $node->getType();
+ 
+     $pagerLimit = $this->config->get('general_settings.revision_pager_limit');
+ 
+     $query = $this->entityTypeManager->getStorage('node')->getQuery()
+-      ->condition($node->getEntityType()->getKey('id'), $node->id())
+-      ->pager($pagerLimit)
+       ->allRevisions()
+-      ->condition($node->getEntityType()->getKey('langcode'), $langcode)
+-      ->condition($node->getEntityType()->getKey('revision_translation_affected'), '1')
+-      ->sort($node->getEntityType()->getKey('revision'), 'DESC')
++      ->condition($entity_type->getKey('id'), $node->id())
+       // Access to the content has already been verified. Disable query-level
+       // access checking so that revisions for unpublished content still
+       // appear.
+       ->accessCheck(FALSE)
+-      ->execute();
+-    $vids = array_keys($query);
++      ->pager($pagerLimit);
++
++    if ($entity_type->isTranslatable()) {
++      if ($langcode && ($langcode_key = $entity_type->getKey('langcode'))) {
++        $query->condition($langcode_key, $langcode);
++      }
++      if ($revision_translation_affected_key = $entity_type->getKey('revision_translation_affected')) {
++        $query->condition($revision_translation_affected_key, '1');
++      }
++    }
++
++    $query->sort($entity_type->getKey('revision'), 'DESC');
++    $vids = array_keys($query->execute());
+ 
+     $revision_count = count($vids);
+ 
+-- 
+GitLab
+

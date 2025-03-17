@@ -1,0 +1,42 @@
+uuid: 75bd60b0-ef4f-42c6-ac06-7a8442fd4547
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.local_video.su_media_video_file
+    - field.field.media.local_video.su_media_video_silent
+    - media.type.local_video
+  module:
+    - empty_fields
+    - field_formatter_class
+    - file
+id: media.local_video.default
+targetEntityType: media
+bundle: local_video
+mode: default
+content:
+  su_media_video_file:
+    type: file_video
+    label: hidden
+    settings:
+      controls: false
+      autoplay: true
+      loop: true
+      multiple_file_display_type: tags
+      muted: true
+      width: 3000
+      height: 500
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 0
+    region: content
+hidden:
+  created: true
+  name: true
+  search_api_excerpt: true
+  su_media_video_silent: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,9 @@
+name: SDSS News Sharing
+description: Functionality for SDSS News Sharing.
+package: SDSS Stanford
+
+type: module
+core_version_requirement: ^10.3 || ^11
+
+dependencies:
+  - stanford_migrate

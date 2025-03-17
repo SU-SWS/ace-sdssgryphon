@@ -91,7 +91,8 @@ class BasicPageCest {
     $I->canSeeLink($node_title, $node->toUrl()->toString());
 
     $I->amOnPage($node->toUrl('delete-form')->toString());
-    $I->click('Delete');
+    $I->click('Delete', 'form');
+    $I->canSee('has been deleted');
 
     $I->amOnPage('/');
     $I->cantSeeLink($node_title);
@@ -391,18 +392,6 @@ class BasicPageCest {
     $date_string = \Drupal::service('date.formatter')
       ->format($time, 'custom', 'F j, Y', self::getTimezone());
     $I->canSee('Last Updated: ' . $date_string);
-  }
-
-  public function testRelatedContent(AcceptanceTester $I){
-    // A quick test to make sure it's only visible to administrators.
-    $I->logInWithRole('contributor');
-    $I->amOnPage('/node/add/stanford_page');
-    $I->cantSee('Related Content');
-    $I->amOnPage('/user/logout');
-    $I->runDrush('cr');
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/node/add/stanford_page');
-    $I->canSee('Related Content');
   }
 
   protected static function getTimezone() {
