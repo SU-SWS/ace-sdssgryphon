@@ -268,6 +268,7 @@ display:
         operator: AND
         groups:
           1: AND
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -896,6 +897,7 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: node_nid
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
