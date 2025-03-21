@@ -196,7 +196,8 @@
         "su-sws/drupal-dev": "^10"
     },
     "conflict": {
-        "drupal/drupal": "*"
+        "drupal/drupal": "*",
+        "su-sws/stanford_fields": ">8.4.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
