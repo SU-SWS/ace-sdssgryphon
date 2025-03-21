@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b1701da778ecd2bcdfc64e943f579a0",
+    "content-hash": "0cb574af10e8748b58f4a8a6193382cd",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2696,27 +2696,27 @@
         },
         {
             "name": "drupal/chosen",
-            "version": "4.0.3",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/chosen.git",
-                "reference": "4.0.3"
+                "reference": "5.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/chosen-4.0.3.zip",
-                "reference": "4.0.3",
-                "shasum": "72a4090b4b21ff7341d1f2e05866b25feede3188"
+                "url": "https://ftp.drupal.org/files/projects/chosen-5.0.1.zip",
+                "reference": "5.0.1",
+                "shasum": "e12bad5888c965823f5bad647a18c41ce6bac073"
             },
             "require": {
                 "drupal/chosen_lib": "*",
-                "drupal/core": "^9.2 || ^10 || ^11"
+                "drupal/core": "^10.2 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.3",
-                    "datestamp": "1725307446",
+                    "version": "5.0.1",
+                    "datestamp": "1740832971",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2765,7 +2765,7 @@
                     "homepage": "https://www.drupal.org/user/235438"
                 }
             ],
-            "description": "Makes select elements more user-friendly using <a href=\"https://github.com/JJJ/chosen\">Chosen</a>.",
+            "description": "Makes select elements more user-friendly using <a href=\"https://github.com/noli42/chosen\">Chosen</a>.",
             "homepage": "https://www.drupal.org/project/chosen",
             "support": {
                 "source": "https://git.drupalcode.org/project/chosen"
@@ -2773,16 +2773,16 @@
         },
         {
             "name": "drupal/chosen_lib",
-            "version": "4.0.3",
+            "version": "5.0.1",
             "require": {
-                "drupal/chosen": "^4",
-                "drupal/core": "^9.2 || ^10 || ^11"
+                "drupal/chosen": "^5",
+                "drupal/core": "^10.2 || ^11"
             },
             "type": "metapackage",
             "extra": {
                 "drupal": {
-                    "version": "4.0.3",
-                    "datestamp": "1725307446",
+                    "version": "5.0.1",
+                    "datestamp": "1740832971",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2831,7 +2831,7 @@
                     "homepage": "https://www.drupal.org/user/235438"
                 }
             ],
-            "description": "Add <a href=\"https://github.com/JJJ/chosen\">chosen</a> library definition.",
+            "description": "Add <a href=\"https://github.com/noli42/chosen\">chosen</a> library definition.",
             "homepage": "https://www.drupal.org/project/chosen",
             "support": {
                 "source": "https://git.drupalcode.org/project/chosen"
@@ -13152,58 +13152,6 @@
             "time": "2024-07-18T09:59:12+00:00"
         },
         {
-            "name": "harvesthq/chosen",
-            "version": "v1.8.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/harvesthq/chosen-package.git",
-                "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/harvesthq/chosen-package/zipball/ad86732b668627c131e61ee8f0e6e9ed52e4db8d",
-                "reference": "ad86732b668627c131e61ee8f0e6e9ed52e4db8d",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Koen Punt",
-                    "homepage": "https://github.com/koenpunt"
-                },
-                {
-                    "name": "Patrick Filler",
-                    "homepage": "https://github.com/pfiller"
-                },
-                {
-                    "name": "Christophe Coevoet",
-                    "homepage": "https://github.com/stof"
-                },
-                {
-                    "name": "Ken Earley",
-                    "homepage": "https://github.com/kenearley"
-                }
-            ],
-            "description": "Chosen is a JavaScript plugin that makes select boxes user-friendly. It is currently available in both jQuery and Prototype flavors.",
-            "homepage": "https://harvesthq.github.io/chosen/",
-            "keywords": [
-                "dropdown",
-                "form",
-                "input",
-                "multiselect",
-                "select",
-                "ui"
-            ],
-            "support": {
-                "source": "https://github.com/harvesthq/chosen-package/tree/v1.8.7"
-            },
-            "time": "2018-06-28T20:32:51+00:00"
-        },
-        {
             "name": "joshfraser/php-name-parser",
             "version": "dev-master",
             "source": {
@@ -14771,6 +14719,18 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
             },
             "time": "2024-12-30T11:07:19+00:00"
+        },
+        {
+            "name": "noli42/chosen",
+            "version": "3.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/noli42/chosen/releases/download/3.0.0/chosen-assets-v3.0.0.zip"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "chosen"
+            }
         },
         {
             "name": "onelogin/php-saml",

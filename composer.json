@@ -48,6 +48,21 @@
                     "reference": "8.1.14"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "noli42/chosen",
+                "version": "3.0.0",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "chosen"
+                },
+                "dist": {
+                    "url": "https://github.com/noli42/chosen/releases/download/3.0.0/chosen-assets-v3.0.0.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -67,7 +82,7 @@
         "drupal/auto_entitylabel": "^3.0@beta",
         "drupal/block_content_permissions": "^1.8",
         "drupal/change_labels": "^1.0",
-        "drupal/chosen": "^4.0",
+        "drupal/chosen": "^5.0",
         "drupal/colorbox": "^2.0",
         "drupal/components": "^3.0",
         "drupal/conditional_fields": "^4.0",
@@ -170,7 +185,7 @@
         "drupal/webp": "^1.0@beta",
         "drupal/xmlsitemap": "^1.0",
         "drush/drush": "^12",
-        "harvesthq/chosen": "^1.8",
+        "noli42/chosen": "^3.0",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "onlyextart/colorbox": "dev-master#e58476becbc89dc671093d1bcd9f99b2167fa8f7",
         "sainsburys/guzzle-oauth2-plugin": "^3.0",
@@ -223,8 +238,7 @@
             ],
             "docroot/libraries/{$name}": [
                 "type:drupal-library",
-                "enyo/dropzone",
-                "harvesthq/chosen"
+                "enyo/dropzone"
             ],
             "docroot/modules/contrib/{$name}": [
                 "type:drupal-module"
