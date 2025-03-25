@@ -12,7 +12,7 @@ use Drupal\rabbit_hole\Plugin\RabbitHoleBehaviorPluginManager;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Class PreprocessEventSubscriber.
+ * Subcribe to events for pre-processing.
  */
 class PreprocessEventSubscriber implements EventSubscriberInterface {
 

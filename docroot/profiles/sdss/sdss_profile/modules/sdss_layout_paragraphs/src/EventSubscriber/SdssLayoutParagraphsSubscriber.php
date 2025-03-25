@@ -68,4 +68,5 @@ class SdssLayoutParagraphsSubscriber implements EventSubscriberInterface {
       $event->setTypes($types);
     }
   }
+
 }

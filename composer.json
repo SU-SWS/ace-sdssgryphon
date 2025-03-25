@@ -98,7 +98,7 @@
         "drupal/field_group": "^3.0",
         "drupal/field_label": "^1.4",
         "drupal/field_permissions": "^1.0@RC",
-        "drupal/field_validation": "^1.0-alpha",
+        "drupal/field_validation": "^3.0",
         "drupal/file_mdm": "^2.4 || ^3.0",
         "drupal/flat_taxonomy": "^2.0",
         "drupal/fontawesome": "^2.19",
@@ -171,6 +171,7 @@
         "drupal/xmlsitemap": "^1.0",
         "drush/drush": "^12",
         "harvesthq/chosen": "^1.8",
+        "mnsami/composer-custom-directory-installer": "^2.0",
         "onlyextart/colorbox": "dev-master#e58476becbc89dc671093d1bcd9f99b2167fa8f7",
         "sainsburys/guzzle-oauth2-plugin": "^3.0",
         "seboettg/citeproc-php": "2.4.1",
@@ -189,12 +190,10 @@
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
         "acquia/blt-multisite": "^1.0",
+        "drupal/core-dev": "~10.3.0",
         "drupal/upgrade_status": "^4.0",
         "phpspec/prophecy-phpunit": "^2.0",
         "su-sws/drupal-dev": "^10"
-    },
-    "replace": {
-        "drupal/coder": "*"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -222,7 +221,9 @@
                 "type:drupal-core"
             ],
             "docroot/libraries/{$name}": [
-                "type:drupal-library"
+                "type:drupal-library",
+                "enyo/dropzone",
+                "harvesthq/chosen"
             ],
             "docroot/modules/contrib/{$name}": [
                 "type:drupal-module"
@@ -251,14 +252,7 @@
         },
         "custom-installer": {
             "docroot/libraries/{$name}/": [
-                "type:component",
-                "ckeditor/ckeditor",
-                "enyo/dropzone",
-                "components/jquery",
-                "harvesthq/chosen"
-            ],
-            "vendor/{$vendor}/{$name}/": [
-                "type:library"
+                "type:component"
             ],
             "docroot/profiles/custom/{$name}": [
                 "type:drupal-custom-profile"
@@ -297,6 +291,9 @@
             },
             "drupal/diff": {
                 "https://www.drupal.org/project/diff/issues/2882334#comment-13913401": "patches/contrib/diff-mr-42.patch"
+            },
+            "drupal/field_formatter_class": {
+                "https://www.drupal.org/project/field_formatter_class/issues/3473891": "patches/contrib/field_formatter_class-3473891-mr-10.patch"
             },
             "drupal/field_encrypt": {
                 "https://www.drupal.org/project/field_encrypt/issues/3299175": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/field_encrypt-3299175-3_2_0.patch"

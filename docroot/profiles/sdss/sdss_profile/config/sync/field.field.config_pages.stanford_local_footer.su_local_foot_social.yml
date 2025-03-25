@@ -7,17 +7,21 @@ dependencies:
     - field.storage.config_pages.su_local_foot_social
   module:
     - link
+    - stanford_fields
+third_party_settings:
+  stanford_fields:
+    force_relative: true
 id: config_pages.stanford_local_footer.su_local_foot_social
 field_name: su_local_foot_social
 entity_type: config_pages
 bundle: stanford_local_footer
 label: 'Social Links'
-description: ''
+description: 'Links added in this section will automatically create icons that will appear in your footer. Supported social links include: Bluesky, Facebook, Flickr, Github, Google Scholar, Instagram, LinkedIn, Mastodon.social, Threads, X, and YouTube.'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   title: 2
-  link_type: 17
+  link_type: 16
 field_type: link

@@ -153,7 +153,7 @@ class NotificationService implements NotificationServiceInterface {
   /**
    * {@inheritDoc}
    */
-  public function getUserNotifications(AccountInterface $account = NULL) {
+  public function getUserNotifications(?AccountInterface $account = NULL) {
     if (!$account) {
       $account = $this->currentUser;
     }
@@ -164,7 +164,7 @@ class NotificationService implements NotificationServiceInterface {
   /**
    * {@inheritDoc}
    */
-  public function clearUserNotifications(AccountInterface $account = NULL) {
+  public function clearUserNotifications(?AccountInterface $account = NULL) {
     foreach ($this->getUserNotifications($account) as $notification) {
       $notification->delete();
     }

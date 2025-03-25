@@ -17,7 +17,7 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Render\Element;
 
 /**
- * Implements hook_page_attachments.
+ * Implements hook_page_attachments().
  */
 function stanford_events_page_attachments(array &$attachments) {
 

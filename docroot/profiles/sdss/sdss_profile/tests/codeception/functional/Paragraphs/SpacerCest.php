@@ -33,9 +33,10 @@ class SpacerCest {
       'type' => 'stanford_spacer',
     ], 'paragraph');
 
+    $node_title = $this->faker->text(30);
     $page = $I->createEntity([
       'type' => 'stanford_page',
-      'title' => $this->faker->text(30),
+      'title' => $node_title,
       'su_page_components' => [
         'target_id' => $paragraph->id(),
         'entity' => $paragraph,
@@ -54,6 +55,7 @@ class SpacerCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText($node_title);
     $I->seeElementInDOM('.sdss-spacer-reduced');
 
     $I->amOnPage($page->toUrl('edit-form')->toString());
@@ -65,6 +67,7 @@ class SpacerCest {
     $I->click('Save', '.ui-dialog-buttonpane');
     $I->waitForElementNotVisible('.ui-dialog');
     $I->click('Save');
+    $I->waitForText($node_title);
     $I->seeElementInDOM('.sdss-spacer-minimal');
 
   }

@@ -82,7 +82,7 @@ function stanford_news_page_attachments(array &$attachments) {
  * keeping cached renders much longer.
  *
  * @see stanford_person_node_presave()
- * @see stanford_person_taxonomy_term_presave ()
+ * @see stanford_person_taxonomy_term_presave()
  */
 function stanford_news_views_post_render(ViewExecutable $view, &$output, CachePluginBase $cache) {
 
