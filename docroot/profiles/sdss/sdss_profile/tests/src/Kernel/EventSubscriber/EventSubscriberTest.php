@@ -45,6 +45,7 @@ class EventSubscriberTest extends KernelTestBase {
     'test_stanford_profile',
     'externalauth',
     'samlauth',
+    'options',
   ];
 
   /**
