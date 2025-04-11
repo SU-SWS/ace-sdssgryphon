@@ -153,6 +153,7 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
   field_menulink:
     type: menu_link_default
     weight: 53
