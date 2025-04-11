@@ -1,0 +1,34 @@
+sdss_workgroup_tagging.top:
+  path: '/admin/config/importers/workgroup_tagging'
+  defaults:
+    _title: 'SDSS Workgroup Tagging'
+  requirements:
+    _permission: 'administer site configuration'
+
+sdss_workgroup_tagging.output:
+  # JSON output of news
+  path: '/admin/config/importers/workgroup_tagging/tag-persons-from-workgroups'
+  defaults:
+    _controller: '\Drupal\sdss_workgroup_tagging\Controller\SdssWgTaggingController::output'
+    _title: 'SDSS Workgroup Tagging'
+  options:
+    no_cache: TRUE
+  requirements:
+    _permission: 'administer site configuration'
+
+sdss_workgroup_tagging.config:
+  # this will be a pick under admin/config
+  path: '/admin/config/importers/workgroup_tagging/config'
+  # define where the form will be found and who can access it
+  defaults:
+    _form: '\Drupal\sdss_workgroup_tagging\Form\SdssWgTaggingForm'
+    _title: 'SDSS Workgroup Tagging settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+dn_addremove.simple_add_remove_ajax_dn_dynamicform_form:
+  path: '/dn-addremove/addfield'
+  defaults:
+    _form: '\Drupal\sdss_workgroup_tagging\Form\AddRemoveForm'
+  requirements:
+    _access: 'TRUE'

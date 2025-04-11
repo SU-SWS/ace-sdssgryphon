@@ -1,0 +1,19 @@
+sdss_workgroup_tagging.top:
+  title: 'SDSS Workgroup Tagging'
+  route_name: sdss_workgroup_tagging.top
+  description: 'Configuration and manual run links.'
+  parent: stanford_migrate.list
+
+sdss_workgroup_tagging.config:
+  title: 'SDSS Workgroup Tagging configuration'
+  route_name: sdss_workgroup_tagging.config
+  parent: sdss_workgroup_tagging.top
+  description: 'Configure SDSS Workgroup Tagging'
+  weight: 1
+
+sdss_workgroup_tagging.run:
+  title: 'Run SDSS Workgroup Tagging manually'
+  route_name: sdss_workgroup_tagging.output
+  parent: sdss_workgroup_tagging.top
+  description: 'Manual run for Workgroup tagging.'
+  weight: 2
