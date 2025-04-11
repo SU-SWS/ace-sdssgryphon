@@ -6,13 +6,7 @@ dependencies:
     - field.storage.paragraph.su_schedule_description
     - paragraphs.paragraphs_type.stanford_schedule
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    stanford_minimal_html: stanford_minimal_html
-    stanford_html: '0'
-    plain_text: '0'
 id: paragraph.stanford_schedule.su_schedule_description
 field_name: su_schedule_description
 entity_type: paragraph
