@@ -42,6 +42,7 @@ dependencies:
     - link
     - media_library
     - paragraphs
+    - path
     - readonly_field_widget
     - scheduler
     - smart_date
@@ -156,6 +157,12 @@ content:
   layout_builder__layout:
     type: null
     weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -449,7 +456,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  path: true
   promote: true
   su_metatags: true
   syndication: true
