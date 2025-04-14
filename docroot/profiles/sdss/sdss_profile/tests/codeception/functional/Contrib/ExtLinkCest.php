@@ -52,11 +52,6 @@ class ExtLinkCest {
    * Test external links get the added class and svg.
    */
   public function testExtLink(FunctionalTester $I) {
-    $org_term = $I->createEntity([
-      'vid' => 'site_owner_orgs',
-      'name' => $this->faker->words(2, TRUE),
-    ], 'taxonomy_term');
-
     $I->logInWithRole('site_manager');
     $I->amOnPage('/admin/config/system/basic-site-settings');
     $I->uncheckOption('Hide External Link Icons');
@@ -84,12 +79,31 @@ class ExtLinkCest {
     $I->waitForText('Local Footer has been');
     $I->see('Local Footer has been', '.messages-list');
 
-    // Validate email links.
-    $I->amOnPage('/');
+    $text = $this->faker->paragraph;
+    $paragraph = $I->createEntity([
+      'type' => 'stanford_wysiwyg',
+      'su_wysiwyg_text' => [
+        'format' => 'stanford_html',
+        'value' => $text . '<a href="mailto:foo@bar.com">email link</a> <a href="/foobar">local link</a> <a href="https://stanford.edu">external link</a>',
+      ],
+    ], 'paragraph');
+
+    $page = $I->createEntity([
+      'type' => 'stanford_page',
+      'title' => $this->faker->words(4, TRUE),
+      'su_page_components' => [
+        'target_id' => $paragraph->id(),
+        'entity' => $paragraph,
+      ],
+    ]);
+
+    $I->amOnPage($page->toUrl()->toString());
+    $I->waitForElementVisible('#page-content a.su-link--external');
 
     // External Links in the page-content region.
-    $I->canSeeNumberOfElements('#page-content a.su-link--external svg.su-link--external', 1);
+    $I->canSeeNumberOfElements('#page-content a.su-link--external', 2);
+    $I->canSeeNumberOfElements('#page-content a.mailto.su-link--external', 1);
     // External links in the local footer.
-    $I->canSeeNumberOfElements('.su-local-footer__cell2 a.su-link--external svg.su-link--external', 4);
+    $I->canSeeNumberOfElements('.su-local-footer__cell2 a.su-link--external', 4);
   }
 }

@@ -6,13 +6,7 @@ dependencies:
     - field.storage.paragraph.su_accordion_body
     - paragraphs.paragraphs_type.stanford_accordion
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    stanford_minimal_html: stanford_minimal_html
-    stanford_html: '0'
-    plain_text: '0'
 id: paragraph.stanford_accordion.su_accordion_body
 field_name: su_accordion_body
 entity_type: paragraph
