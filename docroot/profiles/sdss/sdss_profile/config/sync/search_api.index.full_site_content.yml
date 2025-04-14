@@ -35,7 +35,7 @@ field_settings:
     type: text
     configuration:
       roles:
-        - search_indexer
+        - authenticated
       view_mode:
         'entity:node':
           ':default': ''
