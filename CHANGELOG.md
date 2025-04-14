@@ -7,6 +7,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.9.0] - 2025-03-25
+
+### Added
+46856be3 SDSS-1480: Add the ability to feature Events in the This Week newsletter (#561)
+76265485 SDSS-1477: Manually point neza.stanford.edu to the nza site (#562)
+ea872ea4 SDSS-1424: Added more social options to local footer; updated field_validation module (#556)
+
+### Changed
+8799cb89 SDSS-000: Change code deploy hook for enabling field_validation_legacy module (#565)
+94a4304a SDSS-1477: Point nzea.stanford.edu to nza instead of neza.stanford.edu (#563)
+4f7380ee SDSS-1442: Change memory limit increase to be during install tasks, not general drush commands (#557)
+
+### Fixed
+07e02c80 SDSS-1442: Set drush memory limit to 768M on Acquia (#555)
+
+### Maintenance
+5a4b3ce6 SDSS-1446: Added PHP Code Sniffer (PHPCS) to CI; cleaned-up code (#548)
+54e9f17b SDSS-1478: Update functional tests to work with the latest Selenium version; update blt-sws; remove restore-keys from cache (#559)
+ddd58f78 SDSS-1442: Remove inaccurate memory increase comment (#558)
+
+
 ## [4.8.1] - 2025-02-26
 
 ### Changed
