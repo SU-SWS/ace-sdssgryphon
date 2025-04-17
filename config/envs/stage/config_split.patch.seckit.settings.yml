@@ -1,0 +1,8 @@
+adding:
+  seckit_ssl:
+    hsts: true
+    hsts_max_age: 31536000
+removing:
+  seckit_ssl:
+    hsts: false
+    hsts_max_age: 1000

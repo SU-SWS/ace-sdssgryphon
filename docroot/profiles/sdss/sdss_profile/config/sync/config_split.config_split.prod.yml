@@ -11,7 +11,6 @@ no_patching: false
 storage: folder
 folder: ../config/envs/prod
 module:
-  seckit: 0
   acquia_purge: 0
   purge_queuer_coretags: 0
   http_cache_control: 0
@@ -23,4 +22,6 @@ module:
   purge_tokens: 0
 theme: {  }
 complete_list: {  }
-partial_list: {  }
+partial_list:
+  - seckit.settings
+  - system.performance

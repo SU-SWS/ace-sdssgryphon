@@ -85,6 +85,7 @@ dependencies:
     - scheduler
     - sdss_entities
     - sdss_profile
+    - seckit
     - shortcut
     - stanford_media
     - stanford_policy
@@ -174,6 +175,7 @@ permissions:
   - 'administer redirect settings'
   - 'administer redirects'
   - 'administer responsive images'
+  - 'administer seckit'
   - 'administer shortcuts'
   - 'administer stanford-event-types menu items'
   - 'administer stanford-person-type menu items'
