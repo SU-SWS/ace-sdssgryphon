@@ -1,0 +1,7 @@
+adding:
+  dependencies:
+    module:
+      - seckit
+  permissions:
+    - 'administer seckit'
+removing: {  }
