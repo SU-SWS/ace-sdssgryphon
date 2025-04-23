@@ -2,23 +2,15 @@
 
 namespace Drupal\sdss_workgroup_tagging;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Batch\BatchBuilder;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
+/**
+ * Tag imported person content using workgroup membership.
+ */
 class SdssWgTaggingUtil {
 
   /**
-   * Tag imported person content using workgroup membership.
-   */
-
-  /**
-   *
-   * Updates su_person_wg_tags field in Stanford Person content type
-   * for nodes containing a sunetid.
-   *
+   * Updates tag field in Stanford Person for nodes containing a sunetid.
    */
   public function tagPersons() {
     /** @var \Drupal\Core\Entity\EntityTypeManager $em */
@@ -34,14 +26,14 @@ class SdssWgTaggingUtil {
       empty($all_bundle_fields['su_person_sunetid'])) {
       \Drupal::logger('sdss_workgroup_tagging')
         ->info('Person content type missing su_person_sunetid and/or su_sdss_workgroups fields.');
-      return false;
+      return FALSE;
     }
 
     // Build an array of workgroups => taxonomy terms from config.
     $config = \Drupal::configFactory()
       ->getEditable('sdss_workgroup_tagging.settings');
     $initial_tagList = $config->get('tags');
-    // Merge tag arrays for the same workgroups
+    // Merge tag arrays for the same workgroups.
     $tags = [];
     foreach ($initial_tagList as $tag) {
       $wg = $tag['workgroup'];
@@ -55,12 +47,12 @@ class SdssWgTaggingUtil {
     }
 
     if (empty($tags)) {
-        \Drupal::logger('sdss_workgroup_tagging')
-          ->info('No workgroup tags available.');
-      return false;
+      \Drupal::logger('sdss_workgroup_tagging')
+        ->info('No workgroup tags available.');
+      return FALSE;
     }
 
-    // Get all the stanford_person nodes that have a SUNet ID
+    // Get all the stanford_person nodes that have a SUNet ID.
     $storage_handler = $em->getStorage('node');
     $persons = $storage_handler->getQuery('AND')
       ->accessCheck(FALSE)
@@ -68,7 +60,7 @@ class SdssWgTaggingUtil {
       ->condition('su_person_sunetid', NULL, 'IS NOT NULL')
       ->execute();
 
-    // loop for each workgroup
+    // Loop for each workgroup.
     foreach ($tags as $wg => $terms) {
       $members = self::getWgMembers($wg);
 
@@ -79,18 +71,18 @@ class SdssWgTaggingUtil {
         if (!empty($sunetid)) {
           if (array_key_exists($sunetid, $members['members'])) {
             $wg_terms = $personNode->get('su_sdss_person_wg_tags')->getValue();
-            $update = false;
+            $update = FALSE;
             foreach ($terms as $term) {
-              $found = false;
+              $found = FALSE;
               foreach ($wg_terms as $wg_term) {
                 if ($wg_term['target_id'] == $term) {
-                  $found = true;
+                  $found = TRUE;
                   continue;
                 }
               }
               if (!$found) {
                 $wg_terms[] = ['target_id' => $term];
-                $update = true;
+                $update = TRUE;
               }
             }
             if ($update) {
@@ -101,18 +93,7 @@ class SdssWgTaggingUtil {
         }
       }
     }
-    return true;
-  }
-
-  public static function getTerms() {
-    EntityTypeManagerInterface:
-    $query = \Drupal::entityQuery('taxonomy_term');
-    $query->condition('vid', "tags");
-    $tids = $query->execute();
-    $terms = \Drupal\taxonomy\Entity\Term::loadMultiple($tids);
-    foreach ($terms as $term) {
-      var_dump($term->name->value);
-    }
+    return TRUE;
   }
 
   /**
@@ -120,10 +101,6 @@ class SdssWgTaggingUtil {
    *
    * @param string $wg
    *   The name of the workgroup.
-   * @param string $certin
-   *   The SSL certificate allowing access to the Workgroup API.
-   * @param string $keyin
-   *   The SSL key allowing access to the Workgroup API.
    *
    * @return array
    *   An array of workgroup members.
@@ -151,7 +128,7 @@ class SdssWgTaggingUtil {
         return ['members' => [], 'status' => $status];
       }
 
-      $httpClient = new \GuzzleHttp\Client();
+      $httpClient = new Client();
       $result = $httpClient->request('GET',
         'https://workgroupsvc.stanford.edu/v1/workgroups/' . $wg,
         ['cert' => $cert, 'ssl_key' => $key]);

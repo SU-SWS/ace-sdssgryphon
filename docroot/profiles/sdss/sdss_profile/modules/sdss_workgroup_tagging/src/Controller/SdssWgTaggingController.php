@@ -11,8 +11,7 @@ use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
 /**
  * Tag imported person content using workgroup membership.
  */
-class SdssWgTaggingController extends ControllerBase
-{
+class SdssWgTaggingController extends ControllerBase {
 
   /**
    * Page cache kill switch.
@@ -25,16 +24,14 @@ class SdssWgTaggingController extends ControllerBase
   /**
    * StanfordEarthExportNewsController constructor.
    */
-  public function __construct(KillSwitch $killSwitch)
-  {
+  public function __construct(KillSwitch $killSwitch) {
     $this->killSwitch = $killSwitch;
   }
 
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container)
-  {
+  public static function create(ContainerInterface $container) {
     return new static(
       $container->get('page_cache_kill_switch')
     );
@@ -45,10 +42,8 @@ class SdssWgTaggingController extends ControllerBase
    *
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   The currently processing request.
-   *
    */
-  public function output(Request $request)
-  {
+  public function output(Request $request) {
     $tagger = new SdssWgTaggingUtil();
     $done = $tagger->tagPersons();
     if ($done) {

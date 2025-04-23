@@ -7,7 +7,6 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
 
 /**
  * Configuration for SDSS Workgroup tagging.
@@ -24,20 +23,20 @@ class SdssWgTaggingForm extends ConfigFormBase {
   /**
    * The entity type manager.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface;
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected $emInterface;
 
   /**
-   * SdssWgTaggingForm constructor.
-   *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The ConfigFactory interface.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $emInterface
-   *    The EntityTypeManager interface.
+   *   The EntityTypeManager interface.
    */
-  public function __construct(ConfigFactoryInterface $configFactory,
-    EntityTypeManagerInterface $emInterface) {
+  public function __construct(
+    ConfigFactoryInterface $configFactory,
+    EntityTypeManagerInterface $emInterface,
+  ) {
     $this->configFactory = $configFactory;
     $this->emInterface = $emInterface;
     parent::__construct($configFactory);
@@ -75,7 +74,7 @@ class SdssWgTaggingForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $terms = [];
-    foreach (['sdss_organization','stanford_person_types'] as $vid) {
+    foreach (['sdss_organization', 'stanford_person_types'] as $vid) {
       $termObjs = $this->emInterface->getStorage('taxonomy_term')
         ->loadByProperties(['vid' => $vid]);
       foreach ($termObjs as $tid => $term) {
@@ -87,19 +86,21 @@ class SdssWgTaggingForm extends ConfigFormBase {
     if (empty($user_input)) {
       $config = $this->config('sdss_workgroup_tagging.settings');
       if ($config->isNew()) {
-        $config->initWithData(['tags'=>[]]);
+        $config->initWithData(['tags' => []]);
       }
       $tag_defaults = $config->get('tags');
       if (!empty($tag_defaults)) {
         $lines = count($tag_defaults);
-      } else {
+      }
+      else {
         $lines = 1;
       }
       $form['lines'] = [
         '#type' => 'hidden',
         '#value' => $lines,
       ];
-    } else {
+    }
+    else {
       $lines = $form_state->get('lines');
       if (empty($lines) && !empty($user_input['lines'])) {
         $lines = $user_input['lines'];
@@ -127,13 +128,13 @@ class SdssWgTaggingForm extends ConfigFormBase {
         continue;
       }
       $fieldset_name = 'tag-' . ($i + 1);
-      $wg_fieldname = 'workgroup-'. ($i + 1);
-      $tag_fieldname = 'tag-term-'. ($i + 1);
+      $wg_fieldname = 'workgroup-' . ($i + 1);
+      $tag_fieldname = 'tag-term-' . ($i + 1);
       $form['tags_fieldsets'][$fieldset_name] = [
         '#type' => 'fieldset',
         '#title' => '',
       ];
-      $wg_default = null;
+      $wg_default = NULL;
       if (isset($tag_defaults[$i])) {
         $wg_default = $tag_defaults[$i]['workgroup'];
       }
@@ -142,7 +143,7 @@ class SdssWgTaggingForm extends ConfigFormBase {
         '#title' => $this->t('Workgroup'),
         '#default_value' => $wg_default,
       ];
-      $tag_default = null;
+      $tag_default = NULL;
       if (isset($tag_defaults[$i])) {
         $tag_default = $tag_defaults[$i]['tag-term'];
       }
@@ -150,7 +151,7 @@ class SdssWgTaggingForm extends ConfigFormBase {
         '#type' => 'select',
         '#title' => $this->t('Organization/Person Type'),
         '#options' => $terms,
-        '#multiple' => true,
+        '#multiple' => TRUE,
         '#default_value' => $tag_default,
       ];
       $form['tags_fieldsets'][$fieldset_name]['actions'] = [
@@ -204,31 +205,32 @@ class SdssWgTaggingForm extends ConfigFormBase {
     if (empty($lines) && isset($userInput['lines'])) {
       $lines = $userInput['lines'];
     }
-    $lines = strval(intval($lines)+1);
+    $lines = strval(intval($lines) + 1);
     $userInput['lines'] = $lines;
     $form_state->setUserInput($userInput);
     $form_state->set('lines', $lines);
     $form_state->setRebuild();
   }
 
+  /**
+   * Remove a Workgroup/Tag pair from the configuration.
+   *
+   * @param array $form
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *
+   * @return void
+   */
   public function removeCallback(array &$form, FormStateInterface $form_state) {
     $trigger = $form_state->getTriggeringElement();
     $indexToRemove = $trigger['#name'];
-    $wg_fieldname = 'workgroup-'. ($indexToRemove + 1);
-    $tag_fieldname = 'tag-term-'. ($indexToRemove + 1);
+    $wg_fieldname = 'workgroup-' . ($indexToRemove + 1);
+    $tag_fieldname = 'tag-term-' . ($indexToRemove + 1);
     $form_state->unsetValue($wg_fieldname);
     $form_state->unsetValue($tag_fieldname);
     $removed_fields = $form_state->get('removed_fields');
     $removed_fields[] = $indexToRemove;
     $form_state->set('removed_fields', $removed_fields);
     $form_state->setRebuild();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    parent::validateForm($form, $form_state);
   }
 
   /**
@@ -255,12 +257,12 @@ class SdssWgTaggingForm extends ConfigFormBase {
           continue;
         }
         $tags[] = [
-          'workgroup' => $form_state->getValue('workgroup-'. ($i + 1)),
-          'tag-term' => $form_state->getValue('tag-term-'. ($i + 1)),
+          'workgroup' => $form_state->getValue('workgroup-' . ($i + 1)),
+          'tag-term' => $form_state->getValue('tag-term-' . ($i + 1)),
         ];
       }
     }
-    $config->set('tags',$tags);
+    $config->set('tags', $tags);
     $config->save();
   }
 

@@ -19,7 +19,3 @@ function sdss_workgroup_tagging_cron() {
   \Drupal::logger('sdss_workgroup_tagging')
     ->info('Workgroup tagging@success ran successfully.', ['@group' => $success]);
 }
-
-function sdss_workgroup_tagging_form_alter(&$form, &$form_state, $form_id = NULL) {
-  $xyz = 1;
-}
