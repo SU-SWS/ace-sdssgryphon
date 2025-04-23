@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.su_sdss_news_dek_long
+    - filter.format.stanford_minimal_html
     - node.type.stanford_news
   module:
     - text
