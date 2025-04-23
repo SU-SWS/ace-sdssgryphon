@@ -7,6 +7,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.10.0] - 2025-04-23
+
+### Added
+b8ab5f6a SDSS-000: Implemented http_cache_control module (#574)
+0c96f5b3 SDSS-1496: Added more filters to Past Events list paragraph (#573)
+a0dc1449 SDSS-586: Created Related Content list displays for People, News and Events (#460)
+
+### Changed
+ce245087 SDSS-460: Enabled the URL alias field on News, Events, and People node forms (#572)
+75443354 SDSS-1445: Use the Authenticated role to render Search API results (#560)
+
+### Removed
+8ceb8590 SDSS-1445: Removed intranet search results test (#571)
+
+### Security
+45697cf4 SDSS-1472: Routine maintenance (#566)
+
+### Maintenance
+b8ab5f6a SDSS-000: Implement http_cache_control module (#574)
+45697cf4 SDSS-1472: Routine maintenance (#566)
+
+
 ## [4.9.0] - 2025-03-25
 
 ### Added

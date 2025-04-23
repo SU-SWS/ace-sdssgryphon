@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.su_sidebar_body
     - paragraphs.paragraphs_type.editorial_sidebar
   module:
-    - allowed_formats
     - text
 id: paragraph.editorial_sidebar.su_sidebar_body
 field_name: su_sidebar_body

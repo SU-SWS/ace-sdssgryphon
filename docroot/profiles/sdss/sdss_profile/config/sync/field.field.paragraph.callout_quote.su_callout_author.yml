@@ -6,7 +6,6 @@ dependencies:
     - field.storage.paragraph.su_callout_author
     - paragraphs.paragraphs_type.callout_quote
   module:
-    - allowed_formats
     - text
 id: paragraph.callout_quote.su_callout_author
 field_name: su_callout_author
