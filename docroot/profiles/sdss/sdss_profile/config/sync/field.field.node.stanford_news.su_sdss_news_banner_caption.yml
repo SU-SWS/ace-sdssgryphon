@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.su_sdss_news_banner_caption
     - node.type.stanford_news
   module:
-    - allowed_formats
     - text
 id: node.stanford_news.su_sdss_news_banner_caption
 field_name: su_sdss_news_banner_caption

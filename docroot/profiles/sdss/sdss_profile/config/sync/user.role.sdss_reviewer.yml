@@ -8,7 +8,7 @@ dependencies:
 id: sdss_reviewer
 label: 'SDSS Reviewer'
 weight: 3
-is_admin: null
+is_admin: false
 permissions:
   - 'access toolbar'
   - 'view any unpublished content'

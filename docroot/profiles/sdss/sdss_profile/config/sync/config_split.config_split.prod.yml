@@ -12,13 +12,16 @@ storage: folder
 folder: ../config/envs/prod
 module:
   acquia_purge: 0
+  purge_queuer_coretags: 0
+  http_cache_control: 0
+  purge_processor_lateruntime: 0
   paranoia: 0
   purge: 0
-  purge_drush: 0
   purge_processor_cron: 0
-  purge_processor_lateruntime: 0
-  purge_queuer_coretags: 0
+  purge_drush: 0
   purge_tokens: 0
 theme: {  }
 complete_list: {  }
-partial_list: {  }
+partial_list:
+  - seckit.settings
+  - system.performance

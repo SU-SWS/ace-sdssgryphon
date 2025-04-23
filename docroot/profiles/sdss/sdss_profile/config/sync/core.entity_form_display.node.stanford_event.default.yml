@@ -42,6 +42,7 @@ dependencies:
     - link
     - media_library
     - paragraphs
+    - path
     - readonly_field_widget
     - scheduler
     - smart_date
@@ -159,6 +160,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   publish_on:
     type: datetime_timestamp_no_default
     weight: 10
@@ -245,7 +252,12 @@ content:
     settings:
       modal: false
       default_duration: 60
-      default_duration_increments: "30\n60|1 hour\n90\n120|2 hours\ncustom"
+      default_duration_increments: |-
+        30
+        60|1 hour
+        90
+        120|2 hours
+        custom
       show_extra: false
       hide_date: true
       allday: true
@@ -444,7 +456,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  path: true
   promote: true
   su_metatags: true
   syndication: true

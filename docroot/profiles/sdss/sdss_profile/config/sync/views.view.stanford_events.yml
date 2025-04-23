@@ -4662,7 +4662,12 @@ display:
           validate_options: {  }
           depth: '1'
           vocabularies:
+            event_audience: event_audience
             sdss_event_topics: sdss_event_topics
+            sdss_focal_areas: sdss_focal_areas
+            stanford_event_groups: stanford_event_groups
+            stanford_event_keywords: stanford_event_keywords
+            stanford_event_subject: stanford_event_subject
             stanford_event_types: stanford_event_types
             su_shared_tags: su_shared_tags
           break_phrase: 1
