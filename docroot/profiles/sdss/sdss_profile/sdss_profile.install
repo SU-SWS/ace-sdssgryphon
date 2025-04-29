@@ -33,3 +33,29 @@ function sdss_profile_requirements($phase) {
 function sdss_profile_update_last_removed() {
   return 10017;
 }
+
+/**
+ * Import field configurations with allowed_formats.
+ */
+function sdss_profile_update_10018() {
+  $config_storage = \Drupal::service('config.storage');
+  $config_storage_sync = \Drupal::service('config.storage.sync');
+  $field_configs = $config_storage_sync->listAll('field.field.');
+
+  foreach ($field_configs as $field_config_name) {
+    $field_config = $config_storage_sync->read($field_config_name);
+
+    // Check if the field configuration has 'allowed_formats'.
+    if (!isset($field_config['settings']['allowed_formats'])) {
+      continue;
+    }
+
+    // Check if the field exists in the active configuration.
+    $active_config = $config_storage->read($field_config_name);
+    if ($active_config !== FALSE) {
+      // Import the configuration into active storage.
+      $config_storage->write($field_config_name, $field_config);
+      \Drupal::logger('sdss_profile')->info('Imported field configuration: @name', ['@name' => $field_config_name]);
+    }
+  }
+}
