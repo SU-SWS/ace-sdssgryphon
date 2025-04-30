@@ -98,6 +98,7 @@ $sites['eep.stanford.edu'] = 'gep';
 $sites['energypostdoc.stanford.edu'] = 'sepf';
 $sites['epsci.stanford.edu'] = 'gs';
 $sites['esos.stanford.edu'] = 'environmentalsocialsci';
+$sites['integrative-design-for-radical-energy-efficiency.stanford.edu'] = 'extreme_energy_efficiency';
 $sites['nzea.stanford.edu'] = 'nza';
 $sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
 $sites['understand-energy.stanford.edu'] = 'understandenergy';
