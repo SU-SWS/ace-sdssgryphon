@@ -12,6 +12,7 @@ ignored_config_entities:
   - 'sdss_news_sharing.*'
   - sdss_news_sharing.settings
   - sdss_subtheme.settings
+  - sdss_workgroup_tagging.settings
   - stanford_earth_r25.adminsettings
   - stanford_earth_r25.credentialsettings
   - 'stanford_earth_r25.stanford_earth_r25.*'

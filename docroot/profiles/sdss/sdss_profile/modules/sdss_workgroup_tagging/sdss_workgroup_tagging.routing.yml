@@ -25,10 +25,3 @@ sdss_workgroup_tagging.config:
     _title: 'SDSS Workgroup Tagging settings'
   requirements:
     _permission: 'administer site configuration'
-
-dn_addremove.simple_add_remove_ajax_dn_dynamicform_form:
-  path: '/dn-addremove/addfield'
-  defaults:
-    _form: '\Drupal\sdss_workgroup_tagging\Form\AddRemoveForm'
-  requirements:
-    _access: 'TRUE'

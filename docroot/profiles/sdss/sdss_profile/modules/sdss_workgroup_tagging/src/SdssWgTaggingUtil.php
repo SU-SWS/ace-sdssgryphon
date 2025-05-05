@@ -15,84 +15,144 @@ class SdssWgTaggingUtil {
   public function tagPersons() {
     /** @var \Drupal\Core\Entity\EntityTypeManager $em */
     $em = \Drupal::service('entity_type.manager');
-    /** @var \Drupal\Core\Entity\EntityFieldManager $fm */
-    $fm = \Drupal::service('entity_field.manager');
+
+    // Match the config field names to their Person content type field names.
+    $field_map = [
+      'org-tag-term' => 'su_sdss_person_organization',
+      'person-tag-term' => 'su_person_type_group',
+    ];
 
     // Make sure we have the fields we need in the Stanford Person type.
-    $all_bundle_fields = $fm
+    $all_bundle_fields = \Drupal::service('entity_field.manager')
       ->getFieldDefinitions('node',
         'stanford_person');
-    if (empty($all_bundle_fields['su_sdss_person_wg_tags']) ||
-      empty($all_bundle_fields['su_person_sunetid'])) {
+    if (empty($all_bundle_fields['su_person_sunetid'])) {
       \Drupal::logger('sdss_workgroup_tagging')
-        ->info('Person content type missing su_person_sunetid and/or su_sdss_workgroups fields.');
+        ->info('Person content type missing su_person_sunetid field.');
       return FALSE;
     }
 
     // Build an array of workgroups => taxonomy terms from config.
-    $config = \Drupal::configFactory()
-      ->getEditable('sdss_workgroup_tagging.settings');
-    $initial_tagList = $config->get('tags');
-    // Merge tag arrays for the same workgroups.
-    $tags = [];
+    $initial_tagList = \Drupal::configFactory()
+      ->getEditable('sdss_workgroup_tagging.settings')->get('tags');
+
+    // Initialize arrays of tags to remove and add.
+    $remove = [
+      'org-tag-term' => [],
+      'person-tag-term' => [],
+    ];
+    $add = [];
+
+    // Build the remove and add arrays from the configuration.
     foreach ($initial_tagList as $tag) {
       $wg = $tag['workgroup'];
-      $terms = $tag['tag-term'];
-      if (empty($tags[$wg])) {
-        $tags[$wg] = $terms;
-      }
-      else {
-        $tags[$wg] = array_merge($tags[$wg], $terms);
-      }
-    }
-
-    if (empty($tags)) {
-      \Drupal::logger('sdss_workgroup_tagging')
-        ->info('No workgroup tags available.');
-      return FALSE;
-    }
-
-    // Get all the stanford_person nodes that have a SUNet ID.
-    $storage_handler = $em->getStorage('node');
-    $persons = $storage_handler->getQuery('AND')
-      ->accessCheck(FALSE)
-      ->condition('type', 'stanford_person', '=')
-      ->condition('su_person_sunetid', NULL, 'IS NOT NULL')
-      ->execute();
-
-    // Loop for each workgroup.
-    foreach ($tags as $wg => $terms) {
-      $members = self::getWgMembers($wg);
-
-      // For each person, get the workgroups that person belongs to.
-      foreach ($persons as $entity_id) {
-        $personNode = $em->getStorage('node')->load((int) $entity_id);
-        $sunetid = $personNode->get('su_person_sunetid')->value;
-        if (!empty($sunetid)) {
-          if (array_key_exists($sunetid, $members['members'])) {
-            $wg_terms = $personNode->get('su_sdss_person_wg_tags')->getValue();
-            $update = FALSE;
-            foreach ($terms as $term) {
-              $found = FALSE;
-              foreach ($wg_terms as $wg_term) {
-                if ($wg_term['target_id'] == $term) {
-                  $found = TRUE;
-                  continue;
-                }
-              }
-              if (!$found) {
-                $wg_terms[] = ['target_id' => $term];
-                $update = TRUE;
-              }
-            }
-            if ($update) {
-              $personNode->su_sdss_person_wg_tags = $wg_terms;
-              $personNode->save();
-            }
+      $auto_remove = $tag['auto-removal'];
+      // Do the next step separately for each of the taxonomy terms involved.
+      foreach (['org-tag-term', 'person-tag-term'] as $fname) {
+        if (!empty($tag[$fname])) {
+          // Add terms to remove array if auto-removal is set for workgroup.
+          if (!empty($auto_remove)) {
+            $remove[$fname] = $remove[$fname] + $tag[$fname];
           }
+          // Add terms to the add array for this workgroup.
+          $add[$wg][$fname] = $tag[$fname];
         }
       }
     }
+
+    // Build an array of person nids to process to avoid multiple db writes.
+    $process = [];
+    // Add 'remove' terms for each person node that has it.
+    foreach (['org-tag-term', 'person-tag-term'] as $fname) {
+      if (!empty($remove[$fname])) {
+        $persons = $em->getStorage('node')
+          ->getQuery('AND')
+          ->accessCheck(FALSE)
+          ->condition('type', 'stanford_person', '=')
+          ->condition($field_map[$fname], $remove[$fname], 'IN')
+          ->execute();
+        foreach ($persons as $person) {
+          $process[$person]['remove'][$fname] = $remove[$fname];
+        }
+      }
+    }
+
+    // For each person in a workgroup, add terms to include to process array.
+    foreach ($add as $wg => $terms) {
+      // Get the sunetids for people in a workgroup.
+      $members = self::getWgMembers($wg);
+      if (!empty($members['members'])) {
+        // Flip the sunetid keys to values to use in query.
+        $sunets = array_flip($members['members']);
+        // Get the person node ids that match the sunet ids from the workgroup.
+        $persons = $em->getStorage('node')
+          ->getQuery('AND')
+          ->accessCheck(FALSE)
+          ->condition('type', 'stanford_person', '=')
+          ->condition('su_person_sunetid', $sunets, 'IN')
+          ->execute();
+        // Add instruction to process to add terms for each person found.
+        foreach ($persons as $person) {
+          $process[$person]['add'] = $terms;
+        }
+      }
+    }
+
+    // Load the node objects for all the persons we are processing.
+    $node_ids = [];
+    foreach ($process as $entityid => $items) {
+      $node_ids[] = $entityid;
+    }
+    $nodes = $em->getStorage('node')->loadMultiple($node_ids);
+
+    // Add/Remove terms for each person.
+    foreach ($nodes as $node) {
+      $nid = $node->id();
+      $updated = FALSE;
+      // For each taxonomy reference field, get the currently set terms values.
+      foreach (['org-tag-term', 'person-tag-term'] as $fname) {
+        $field = $field_map[$fname];
+        $terms = $node->get($field)->getValue();
+        // The updated value of the reference field will come from new_terms.
+        $new_terms = [];
+        // For removal, keep terms by copying them to the new_terms array.
+        // Do not keep if term is in remove array and *not* in add array.
+        foreach ($terms as $term) {
+          if (!empty($process[$nid]['remove'][$fname][$term['target_id']])
+            && empty($process[$nid]['add'][$fname][$term['target_id']])) {
+            // If we are removing a term, set updated to true for this node.
+            $updated = TRUE;
+          }
+          else {
+            $new_terms[] = ['target_id' => $term['target_id']];
+          }
+        }
+        // For each term to add, do so if not already in new_terms.
+        foreach ($process[$nid]['add'][$fname] as $tid) {
+          $found = FALSE;
+          foreach ($new_terms as $new_term) {
+            if ($new_term['target_id'] == $tid) {
+              $found = TRUE;
+              break;
+            }
+          }
+          if (!$found) {
+            $new_terms[] = ['target_id' => $tid];
+            // Set updated to true for the node if a term was really added.
+            $updated = TRUE;
+          }
+        }
+        // Update the field value if warranted.
+        if ($updated) {
+          $node->set($field, $new_terms);
+        }
+      }
+      // Only save the node back to the database if it was changed.
+      if ($updated) {
+        $node->save();
+      }
+    }
+    // All done.
     return TRUE;
   }
 
@@ -108,14 +168,17 @@ class SdssWgTaggingUtil {
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public static function getWgMembers(string $wg) {
+    // Initialize the return array.
     $status = ['workgroup' => $wg, 'member_count' => 0];
     try {
       $logger = \Drupal::logger('sdss_workgroup_tagging');
+      // Get the MAIS Workgroup API cert from the stanford_samlauth config.
       $key = '';
       $cert = '';
       $config = \Drupal::configFactory()->get('stanford_samlauth.settings');
       $cert_path = $config->get('role_mapping.workgroup_api.cert');
       $key_path = $config->get('role_mapping.workgroup_api.key');
+      // Make sure we can access the cert files.
       if ($cert_path && is_file($cert_path) && $key_path && is_file($key_path)) {
         $key = $key_path;
         $cert = $cert_path;
@@ -128,6 +191,7 @@ class SdssWgTaggingUtil {
         return ['members' => [], 'status' => $status];
       }
 
+      // Call the API.
       $httpClient = new Client();
       $result = $httpClient->request('GET',
         'https://workgroupsvc.stanford.edu/v1/workgroups/' . $wg,
@@ -138,6 +202,7 @@ class SdssWgTaggingUtil {
         $status['message'] = $errmsg;
         return ['members' => [], 'status' => $status];
       }
+      // Get the workgroup results XML.
       $xml = simplexml_load_string($result->getBody());
       $xpath = $xml->xpath('members');
       $id_attribute = 'id';
@@ -146,6 +211,7 @@ class SdssWgTaggingUtil {
       if (is_array($xpath)) {
         $xpath0 = reset($xpath);
         if ($xpath0 !== FALSE) {
+          // Get members and store them in array keyed by sunetid.
           $members = $xpath0->xpath('member');
           if (is_array($members)) {
             foreach ($members as $member) {
@@ -154,6 +220,7 @@ class SdssWgTaggingUtil {
               $sunets[$sunetid] = $name;
             }
           }
+          // Get nested workgroups and recursively call this function.
           $workgroups = $xpath0->xpath('workgroup');
           if (is_array($workgroups)) {
             foreach ($workgroups as $next_wg) {
@@ -174,6 +241,7 @@ class SdssWgTaggingUtil {
         $status['message'] = 'Empty workgroups may not be used.';
         $logger->error($status['message']);
       }
+      // Return the results.
       return ['members' => $sunets, 'status' => $status];
     }
     catch (\Exception $e) {
