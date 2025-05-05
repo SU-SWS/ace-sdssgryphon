@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.su_callout_author
+    - filter.format.stanford_minimal_html
     - paragraphs.paragraphs_type.callout_quote
   module:
     - text
