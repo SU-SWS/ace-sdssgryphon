@@ -271,6 +271,10 @@
     }
 
     .su-person-links {
+      > div {
+        @include modular-spacing('margin-bottom', -3);
+      }
+
       a {
         @include link-icon(arrow-up-right, 10px, topright);
 
@@ -318,6 +322,10 @@
           }
         }
       }
+    }
+
+    .node-stanford-person-su-person-profile-link {
+      @include responsive-spacing('margin-bottom', 5);
     }
   }
 }
