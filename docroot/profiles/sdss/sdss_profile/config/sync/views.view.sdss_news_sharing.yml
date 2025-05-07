@@ -774,27 +774,24 @@ display:
               raw_output: false
             title:
               alias: title
-              raw_output: false
+              raw_output: true
             field_media_image:
               alias: image
               raw_output: false
             su_sdss_news_dek_long:
               alias: dek
-              raw_output: false
+              raw_output: true
             su_news_publishing_date:
               alias: publishing_date
               raw_output: false
             su_sdss_news_news_source:
               alias: news_source
               raw_output: false
-            su_news_source:
-              alias: external_source
-              raw_output: false
             view_node:
               alias: canonical_url
               raw_output: false
-            status:
-              alias: publishing_status
+            su_news_source:
+              alias: external_source
               raw_output: false
       defaults:
         relationships: false
@@ -910,27 +907,24 @@ display:
               raw_output: false
             title:
               alias: title
-              raw_output: false
+              raw_output: true
             field_media_image:
               alias: image
               raw_output: false
             su_sdss_news_dek_long:
               alias: dek
-              raw_output: false
+              raw_output: true
             su_news_publishing_date:
               alias: publishing_date
               raw_output: false
             su_sdss_news_news_source:
               alias: news_source
               raw_output: false
-            su_news_source:
-              alias: external_source
-              raw_output: false
             view_node:
               alias: canonical_url
               raw_output: false
-            status:
-              alias: publishing_status
+            su_news_source:
+              alias: external_source
               raw_output: false
       defaults:
         relationships: false
@@ -1046,27 +1040,24 @@ display:
               raw_output: false
             title:
               alias: title
-              raw_output: false
+              raw_output: true
             field_media_image:
               alias: image
               raw_output: false
             su_sdss_news_dek_long:
               alias: dek
-              raw_output: false
+              raw_output: true
             su_news_publishing_date:
               alias: publishing_date
               raw_output: false
             su_sdss_news_news_source:
               alias: news_source
               raw_output: false
-            su_news_source:
-              alias: external_source
-              raw_output: false
             view_node:
               alias: canonical_url
               raw_output: false
-            status:
-              alias: publishing_status
+            su_news_source:
+              alias: external_source
               raw_output: false
       defaults:
         relationships: false
