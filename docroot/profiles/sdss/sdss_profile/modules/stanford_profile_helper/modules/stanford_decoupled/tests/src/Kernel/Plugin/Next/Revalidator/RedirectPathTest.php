@@ -5,7 +5,6 @@ namespace Drupal\Tests\stanford_decoupled\Kernel\Plugin\Next\Revalidator;
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\next\Entity\NextSite;
 use Drupal\next\Event\EntityActionEvent;
-use Drupal\node\NodeInterface;
 use Drupal\redirect\Entity\Redirect;
 use Drupal\user\Entity\User;
 use GuzzleHttp\ClientInterface;
