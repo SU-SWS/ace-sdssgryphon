@@ -83,7 +83,6 @@ class RolesCest {
     $I->checkOption('tbody tr:nth-child(2) input[type="checkbox"]');
     $I->selectOption('Action', 'Delete selected entities');
     $I->click('Apply to selected items');
-    $I->waitForText('Execute action');
     $I->click('Execute action');
     $I->waitForText('Delete entities');
     $I->canSee('Access denied (1)');
