@@ -109,7 +109,7 @@
         "drupal/fast_404_generator": "^1.0",
         "drupal/field_encrypt": "^3.0",
         "drupal/field_formatter_class": "^1.5",
-        "drupal/field_group": "^3.0",
+        "drupal/field_group": "^4.0",
         "drupal/field_label": "^1.4",
         "drupal/field_permissions": "^1.0@RC",
         "drupal/field_validation": "^3.0",
@@ -312,9 +312,6 @@
             },
             "drupal/field_encrypt": {
                 "https://www.drupal.org/project/field_encrypt/issues/3299175": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/field_encrypt-3299175-3_2_0.patch"
-            },
-            "drupal/field_group": {
-                "https://www.drupal.org/project/field_group/issues/2969051": "https://www.drupal.org/files/issues/2024-08-05/2787179-highlight-html5-validation-101.patch"
             },
             "drupal/google_tag": {
                 "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"
