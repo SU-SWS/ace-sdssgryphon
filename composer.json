@@ -183,7 +183,7 @@
         "drupal/views_infinite_scroll": "^2.0",
         "drupal/views_taxonomy_term_name_depth": "^7.0",
         "drupal/webp": "^1.0@beta",
-        "drupal/xmlsitemap": "^1.0",
+        "drupal/xmlsitemap": "^2.0",
         "drush/drush": "^12",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "noli42/chosen": "^3.0",
