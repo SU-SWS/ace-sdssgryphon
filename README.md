@@ -5,6 +5,11 @@ The ACE SDSSGryphon stack serves the Doerr School of Sustainability. This stack 
 The primary theme for SDSS is the `sdss_subtheme` located in the `sdss_profile`.
 
 ----
+# ADR's
+
+This site uses Architecture Decision Records to record important technical decisions and the context surrounding them. ADR's can be found in [docs/architecture/decisions](docs/architecture/decisions/). For more information see [0. Record architecture decisions](docs/architecture/decisions/0000-record-architecture-decisions.md).
+
+----
 # GitPod Setup
 1. Add your ssh key to [GitPod](https://gitpod.io/variables)
    1. It is recommended to have a password-less ssh key for simplicity.
@@ -104,28 +109,6 @@ No other prerequisites are necessary, though you may find it helpful to have PHP
 
 
 ---
-## Other Local Setup Steps
-
-1. Set up frontend build and theme.
-By default BLT sets up a site with the lightning profile and a cog base theme. You can choose your own profile before setup in the blt.yml file. If you do choose to use cog, see [Cog's documentation](https://github.com/acquia-pso/cog/blob/8.x-1.x/STARTERKIT/README.md#create-cog-sub-theme) for installation.
-See [BLT's Frontend docs](https://docs.acquia.com/blt/developer/frontend/) to see how to automate the theme requirements and frontend tests.
-After the initial theme setup you can configure `blt/blt.yml` to install and configure your frontend dependencies with `blt setup`.
-
-2. Pull Files locally.
-Use BLT to pull all files down from your Cloud environment.
-
-   ```
-   $ blt drupal:sync:files
-   ```
-
-3. Sync the Cloud Database.
-If you have an existing database you can use BLT to pull down the database from your Cloud environment.
-   ```
-   $ blt sync
-   ```
-
-
----
 
 # Resources
 
@@ -133,11 +116,6 @@ Additional [BLT documentation](https://docs.acquia.com/blt/) may be useful. You 
 ```
 $ blt
 ```
-
-Note the following properties of this project:
-* Primary development branch: 1.x
-* Local environment: @default.local
-* Local site URL: http://local.example.loc/
 
 ## Working With a BLT Project
 
@@ -151,7 +129,6 @@ BLT uses a number of configuration (`.yml` or `.json`) files to define and custo
 
 * `blt/blt.yml` (formerly blt/project.yml prior to BLT 9.x)
 * `blt/local.blt.yml` (local only specific blt configuration)
-* `box/config.yml` (if using Drupal VM)
 * `drush/sites` (contains Drush aliases for this project)
 * `composer.json` (includes required components, including Drupal Modules, for this project)
 
