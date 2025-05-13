@@ -1,5 +1,5 @@
 # .github/workflows/copy_dbs_to_staging.yml
-# Copies the databases from proudction sites to staging sites. This workflow
+# Copies the databases from production sites to staging sites. This workflow
 # is triggered manually and is not triggerged by any events or other workflows.
 # Typical use case is to copy databases to testing at the beginning of a code
 # freeze and QA review.
