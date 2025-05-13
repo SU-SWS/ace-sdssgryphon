@@ -1,0 +1,32 @@
+# .github/workflows/copy_dbs_to_staging.yml
+# Copies the databases from production sites to staging sites. This workflow
+# is triggered manually and is not triggerged by any events or other workflows.
+# Typical use case is to copy databases to testing at the beginning of a code
+# freeze and QA review.
+name: Copy Production Databases to Staging
+on: workflow_dispatch
+jobs:
+  Copy-Prod-Database-Down:
+    runs-on: ubuntu-latest
+    container:
+      image: pookmish/drupal8ci:php8.3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            vendor
+            docroot/core
+            docroot/libraries
+            docroot/modules/contrib
+          key: 1.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+      - name: Copy databases
+        env:
+          SLACK_NOTIFICATION_URL: ${{ secrets.SLACK_NOTIFICATION_URL }}
+          ACQUIA_KEY: ${{ secrets.ACQUIA_KEY }}
+          ACQUIA_SECRET: ${{ secrets.ACQUIA_SECRET }}
+        run: |
+          composer install -n &&
+          blt blt:telemetry:disable --no-interaction &&
+          blt stage --no-interaction
