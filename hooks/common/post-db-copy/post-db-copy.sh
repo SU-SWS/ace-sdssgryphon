@@ -19,6 +19,9 @@ repo_root="/var/www/html/$site.$target_env"
 export PATH=$repo_root/vendor/bin:$PATH
 cd $repo_root
 
-blt artifact:ac-hooks:post-db-copy $site $target_env $db_name $source_env --environment=$target_env -v --no-interaction -D drush.ansi=false
+#blt artifact:ac-hooks:post-db-copy $site $target_env $db_name $source_env --environment=$target_env -v --no-interaction -D drush.ansi=false
+# Run the BLT command to run deploy hooks, including updating the database and
+# importing configuration.
+blt artifact:update:drupal --site=$db_name --environment=$target_env
 
 set +v
