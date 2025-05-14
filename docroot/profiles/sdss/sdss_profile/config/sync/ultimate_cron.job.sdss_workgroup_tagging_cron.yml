@@ -1,0 +1,17 @@
+uuid: 1a624f52-a4f6-41c6-ad09-4e1507d9e529
+langcode: en
+status: true
+dependencies:
+  module:
+    - sdss_workgroup_tagging
+title: 'Default cron handler'
+id: sdss_workgroup_tagging_cron
+weight: 0
+module: sdss_workgroup_tagging
+callback: 'sdss_workgroup_tagging#cron'
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

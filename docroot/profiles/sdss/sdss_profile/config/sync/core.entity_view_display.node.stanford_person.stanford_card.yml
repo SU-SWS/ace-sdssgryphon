@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.stanford_person.su_person_research_interests
     - field.field.node.stanford_person.su_person_scholarly_interests
     - field.field.node.stanford_person.su_person_short_title
+    - field.field.node.stanford_person.su_person_sunetid
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
     - field.field.node.stanford_person.su_sdss_person_alt_bio
@@ -131,6 +132,7 @@ hidden:
   su_person_research: true
   su_person_research_interests: true
   su_person_scholarly_interests: true
+  su_person_sunetid: true
   su_person_telephone: true
   su_person_type_group: true
   su_sdss_person_alt_bio: true
