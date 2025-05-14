@@ -222,16 +222,23 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
    * @throws \Acquia\Blt\Robo\Exceptions\BltException
    */
   protected function connectAcquiaApi() {
-    $config_file = $_SERVER['HOME'] . '/.acquia/cloud_api.conf';
-    if (!file_exists($config_file)) {
-      mkdir(dirname($config_file), 0777, TRUE);
-      $conf = [
-        'key' => getenv('ACE_KEY'),
-        'secret' => getenv('ACE_SECRET'),
-      ];
-      file_put_contents($config_file, json_encode($conf));
+    $acquia_conf = $_SERVER['HOME'] . '/.acquia/cloud_api.conf';
+    $key = getenv('ACQUIA_KEY');
+    $secret = getenv('ACQUIA_SECRET');
+    if ($key && $secret && !file_exists($acquia_conf)) {
+      mkdir(dirname($acquia_conf), 0777, TRUE);
+      $conf = ['key' => $key, 'secret' => $secret];
+      file_put_contents($acquia_conf, json_encode($conf, JSON_PRETTY_PRINT));
     }
-    self::traitConnectAcquiaApi();
+
+    if (!$this->acquiaApplications) {
+      $this->traitConnectAcquiaApi();
+    }
+    try {
+      $this->acquiaApplications->getAll();
+    } catch (\Throwable $e) {
+      $this->traitConnectAcquiaApi();
+    }
   }
 
   /**
