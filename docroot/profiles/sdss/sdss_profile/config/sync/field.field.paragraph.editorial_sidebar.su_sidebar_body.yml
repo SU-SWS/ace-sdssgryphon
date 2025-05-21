@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.su_sidebar_body
+    - filter.format.stanford_html
     - paragraphs.paragraphs_type.editorial_sidebar
   module:
     - text
