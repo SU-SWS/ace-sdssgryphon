@@ -7,6 +7,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.10.1] - 2025-05-21
+
+### Added
+eb9463e Allow exclusion of sites in database copy workflow (#586)
+b84172f Added database copying automation (#585)
+b84172f Added ADR's (#585)
+0a644d5 Add filter_format dependencies (#577)
+
+### Changed
+d261f66 Update code for getting Acquia API access token in blt commands (#587)
+1b77fec Point integrative-design long alias to extreme eneregy efficiency site (#579)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+732504b SDSS-1515: Update CAP importer to handle large org code arrays (#588)
+2fa19af SDSS-1469: A11y | Add spacing between person node links (#583)
+457b87e SDSS-1350: Adjusted News Sharing feed fields to raw output to properly import special characters in title and dek fields (#582)
+74328c5 Import field configurations with allowed_formats before uninstalling allowed_formats module (#578)
+0a644d5 Add filter_format dependencies (#577)
+
+### Security
+e72a86d SDSS-1507: Routine maintenance (#584)
+
+### Maintenance
+e72a86d SDSS-1507: Routine maintenance (#584)
+
+
 ## [4.10.0] - 2025-04-23
 
 ### Added
