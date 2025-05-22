@@ -9,6 +9,7 @@ install:
   - 'admin_toolbar:admin_toolbar'
   - 'admin_toolbar:admin_toolbar_links_access_filter'
   - 'admin_toolbar:admin_toolbar_tools'
+  - 'better_exposed_filters:better_exposed_filters'
   - 'chosen:chosen'
   - 'chosen:chosen_lib'
   - 'components:components'
