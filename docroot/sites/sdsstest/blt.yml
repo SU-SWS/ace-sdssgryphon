@@ -1,0 +1,12 @@
+project:
+  machine_name: sdsstest
+  human_name: sdsstest
+  local:
+    protocol: http
+    hostname: local.sdsstest.com
+drush:
+  aliases:
+    local: sdsstest.local
+    remote: sdsstest.prod
+drupal:
+  db: {  }
