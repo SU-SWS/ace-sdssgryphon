@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.stanford_person.su_person_research_interests
     - field.field.node.stanford_person.su_person_scholarly_interests
     - field.field.node.stanford_person.su_person_short_title
+    - field.field.node.stanford_person.su_person_sunetid
     - field.field.node.stanford_person.su_person_telephone
     - field.field.node.stanford_person.su_person_type_group
     - field.field.node.stanford_person.su_sdss_person_alt_bio
@@ -357,6 +358,14 @@ content:
   su_person_short_title:
     type: string_textfield
     weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_person_sunetid:
+    type: string_textfield
+    weight: 54
     region: content
     settings:
       size: 60
