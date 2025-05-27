@@ -23,7 +23,6 @@ cm:
 multisites:
   - abc_hub
   - bitsandwatts
-  - carbon_removal
   - cepp
   - changeleadership
   - climate
@@ -51,7 +50,6 @@ multisites:
   - hopkinsmarinestation
   - hph
   - hydrogen
-  - mce2050
   - naturalcapitalproject
   - ngi
   - nza
@@ -62,7 +60,6 @@ multisites:
   - sdssrooms
   - sdsssandbox
   - sdssuserguide
-  - seca
   - seepac
   - sepf
   - sesur
