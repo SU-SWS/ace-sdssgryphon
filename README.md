@@ -6,6 +6,7 @@ The primary theme for SDSS is the `sdss_subtheme` located in the `sdss_profile`.
 # Docs
 - [Development Requirements](docs/development-requirements.md)
 - [New Site Provision](docs/new-site-provision.md)
+- [Retire Site](docs/retire-site.md)
 
 
 # ADR's
