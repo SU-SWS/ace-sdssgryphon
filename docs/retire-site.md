@@ -1,5 +1,8 @@
 # SDSS Site Retirement
 
+## Requirements
+*See [SDSS Development Requirements](development-requirements.md)*
+
 ## Introduction
 This document outlines the steps required to retire an existing site from the SDSS Acquia application. Please follow each step carefully to ensure a clean and safe removal.  
 
