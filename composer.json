@@ -78,9 +78,9 @@
         "drupal/acquia_purge": "^1.1",
         "drupal/address": "^2.0",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/allowed_formats": "^3.0",
         "drupal/auto_entitylabel": "^3.0@beta",
         "drupal/better_exposed_filters": "^7.0",
+        "drupal/book": "^2.0",
         "drupal/change_labels": "^1.0",
         "drupal/chosen": "^5.0",
         "drupal/colorbox": "^2.0",
@@ -212,8 +212,7 @@
         "su-sws/drupal-dev": "^10"
     },
     "conflict": {
-        "drupal/drupal": "*",
-        "su-sws/stanford_fields": ">8.4.0"
+        "drupal/drupal": "*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
