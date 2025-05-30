@@ -174,8 +174,11 @@ class SdssWgTaggingUtil {
   public static function getWgMembers(string $workgroup) {
     // Initialize the return array.
     $status = ['workgroup' => $workgroup, 'member_count' => 0];
+
+    // Ensure the logger is initialized properly.
+    $logger = \Drupal::logger('sdss_workgroup_tagging');
+    
     try {
-      $logger = \Drupal::logger('sdss_workgroup_tagging');
       // Get the MAIS Workgroup API cert from the stanford_samlauth config.
       $key = '';
       $cert = '';
@@ -249,7 +252,6 @@ class SdssWgTaggingUtil {
       return ['members' => $sunets, 'status' => $status];
     }
     catch (\Exception $e) {
-
       $error_message = 'Error getting workgroup ' . $workgroup . '. ' . $e->getMessage();
       $logger->error($error_message);
       $status['message'] = $error_message;
