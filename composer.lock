@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b24bf40613c708ab335db409af4083ad",
+    "content-hash": "01b334312c76e47a3f08d052021fcb0f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -2564,26 +2564,27 @@
         },
         {
             "name": "drupal/book",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/book.git",
-                "reference": "1.0.0"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/book-1.0.0.zip",
-                "reference": "1.0.0",
-                "shasum": "8838e4a314e54dff2bc34a0ae4f0a85ac03b6fb8"
+                "url": "https://ftp.drupal.org/files/projects/book-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "1274147b4a012ae21dba7ee05685b01bc9ca776e"
             },
             "require": {
-                "drupal/core": ">=10.0"
+                "drupal/core": "^10.3 || ^11",
+                "ext-pdo": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0",
-                    "datestamp": "1712238320",
+                    "version": "2.0.0",
+                    "datestamp": "1735922161",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2596,18 +2597,21 @@
             ],
             "authors": [
                 {
-                    "name": "pwolanin",
-                    "homepage": "https://www.drupal.org/user/49851"
+                    "name": "Peter Wolanin (pwolanin)",
+                    "homepage": "https://www.drupal.org/u/pwolanin",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "smustgrave",
-                    "homepage": "https://www.drupal.org/user/3252890"
+                    "name": "Stephen Mustgrave (smustgrave)",
+                    "homepage": "https://www.drupal.org/u/smustgrave",
+                    "role": "Co-Maintainer"
                 }
             ],
-            "description": "Allows users to create and organize related content in an outline.",
-            "homepage": "https://www.drupal.org/project/book",
+            "description": "A book is a set of nodes tied together in a hierarchical structure, with chapters, sections, and subsections.",
+            "homepage": "https://drupal.org/project/book",
             "support": {
-                "source": "https://git.drupalcode.org/project/book"
+                "source": "https://git.drupalcode.org/project/book",
+                "issues": "https://drupal.org/project/issues/book"
             }
         },
         {
@@ -16639,24 +16643,27 @@
         },
         {
             "name": "su-sws/stanford_fields",
-            "version": "8.4.0",
+            "version": "8.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_fields.git",
-                "reference": "6dee16cf94de83b3e3fe3a6dc99aeb16fcb00c57"
+                "reference": "245f86a7f3c75820c305563b7f2627c59318b1b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_fields/zipball/6dee16cf94de83b3e3fe3a6dc99aeb16fcb00c57",
-                "reference": "6dee16cf94de83b3e3fe3a6dc99aeb16fcb00c57",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_fields/zipball/245f86a7f3c75820c305563b7f2627c59318b1b8",
+                "reference": "245f86a7f3c75820c305563b7f2627c59318b1b8",
                 "shasum": ""
             },
             "require": {
-                "drupal/book": "^1.0",
                 "drupal/core": "^10.3 || ^11",
                 "drupal/ds": "~3.3 || ^5.0@alpha"
             },
+            "conflict": {
+                "drupal/book": "<2.0"
+            },
             "require-dev": {
+                "drupal/book": "^2.0",
                 "drupal/cshs": "^4.0"
             },
             "type": "drupal-custom-module",
@@ -16668,9 +16675,9 @@
             "homepage": "https://github.com/SU-SWS/stanford_fields",
             "support": {
                 "issues": "https://github.com/SU-SWS/stanford_fields/issues",
-                "source": "https://github.com/SU-SWS/stanford_fields/tree/8.4.0"
+                "source": "https://github.com/SU-SWS/stanford_fields/tree/8.6.0"
             },
-            "time": "2024-09-13T16:06:01+00:00"
+            "time": "2025-04-23T17:40:46+00:00"
         },
         {
             "name": "su-sws/stanford_media",
