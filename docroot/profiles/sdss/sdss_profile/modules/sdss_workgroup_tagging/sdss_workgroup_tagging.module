@@ -5,13 +5,13 @@
  * Contains sdss_workgroup_tagging.module.
  */
 
-use Drupal\sdss_workgroup_tagging\SdssWorkgroupTagging;
+use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
 
 /**
  * Implements hook_cron().
  */
 function sdss_workgroup_tagging_cron() {
-  $tagger = new SdssWorkgroupTagging();
+  $tagger = new SdssWgTaggingUtil();
   $success = ' did not';
   if ($tagger->tagPersons()) {
     $success = '';
