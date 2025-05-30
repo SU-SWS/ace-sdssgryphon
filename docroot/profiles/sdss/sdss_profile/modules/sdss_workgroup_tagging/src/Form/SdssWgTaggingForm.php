@@ -25,20 +25,20 @@ class SdssWgTaggingForm extends ConfigFormBase {
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $emInterface;
+  protected $entityManager;
 
   /**
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The ConfigFactory interface.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $emInterface
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityManager
    *   The EntityTypeManager interface.
    */
   public function __construct(
     ConfigFactoryInterface $configFactory,
-    EntityTypeManagerInterface $emInterface,
+    EntityTypeManagerInterface $entityManager,
   ) {
     $this->configFactory = $configFactory;
-    $this->emInterface = $emInterface;
+    $this->entityManager = $entityManager;
     parent::__construct($configFactory);
   }
 
@@ -77,10 +77,9 @@ class SdssWgTaggingForm extends ConfigFormBase {
     // Populate the term arrays for the select fields and validation.
     $terms = [];
     foreach (['sdss_organization', 'stanford_person_types'] as $vid) {
-      $levels = [];
-      $termObjs = $this->emInterface->getStorage('taxonomy_term')
+      $load_terms = $this->entityManager->getStorage('taxonomy_term')
         ->loadTree($vid);
-      foreach ($termObjs as $term) {
+      foreach ($load_terms as $term) {
         $terms[$vid][$term->tid] = $term->name;
       }
     }
