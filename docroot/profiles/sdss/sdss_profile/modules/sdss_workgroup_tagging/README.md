@@ -1,5 +1,5 @@
 # [SDSS Workgroup Tagging](https://github.com/stanford-earth/sdss_workgroup_tagging)
-##### Version: 8.x-1.x
+##### Version: 1.0.0
 
 Maintainers: [Kassie Sharp](https://github.com/ksharp-drupal)  
 

@@ -3,6 +3,6 @@ type: module
 description: 'Tag imported Person content from workgroups.'
 core_version_requirement: ^10 || ^11
 package: SDSS Stanford
-version: 8.x-1.x-dev
+version: 1.0.0
 dependencies:
   - stanford_samlauth:stanford_samlauth
