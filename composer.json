@@ -78,8 +78,9 @@
         "drupal/acquia_purge": "^1.1",
         "drupal/address": "^2.0",
         "drupal/admin_toolbar": "^3.1",
-        "drupal/allowed_formats": "^3.0",
         "drupal/auto_entitylabel": "^3.0@beta",
+        "drupal/better_exposed_filters": "^7.0",
+        "drupal/book": "^2.0",
         "drupal/change_labels": "^1.0",
         "drupal/chosen": "^5.0",
         "drupal/colorbox": "^2.0",
@@ -109,7 +110,7 @@
         "drupal/fast_404_generator": "^1.0",
         "drupal/field_encrypt": "^3.0",
         "drupal/field_formatter_class": "^1.5",
-        "drupal/field_group": "^3.0",
+        "drupal/field_group": "^4.0",
         "drupal/field_label": "^1.4",
         "drupal/field_permissions": "^1.0@RC",
         "drupal/field_validation": "^3.0",
@@ -146,7 +147,7 @@
         "drupal/menu_link_weight": "^2.0@alpha",
         "drupal/metatag": "^2.0",
         "drupal/name": "^1.0@RC",
-        "drupal/next": "^1.2",
+        "drupal/next": "^2.0",
         "drupal/nobots": "^1.0",
         "drupal/node_revision_delete": "^2.0",
         "drupal/oembed_lazyload": "^2.0",
@@ -183,7 +184,7 @@
         "drupal/views_infinite_scroll": "^2.0",
         "drupal/views_taxonomy_term_name_depth": "^7.0",
         "drupal/webp": "^1.0@beta",
-        "drupal/xmlsitemap": "^1.0",
+        "drupal/xmlsitemap": "^2.0",
         "drush/drush": "^12",
         "mnsami/composer-custom-directory-installer": "^2.0",
         "noli42/chosen": "^3.0",
@@ -211,8 +212,7 @@
         "su-sws/drupal-dev": "^10"
     },
     "conflict": {
-        "drupal/drupal": "*",
-        "su-sws/stanford_fields": ">8.4.0"
+        "drupal/drupal": "*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -312,9 +312,6 @@
             },
             "drupal/field_encrypt": {
                 "https://www.drupal.org/project/field_encrypt/issues/3299175": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/field_encrypt-3299175-3_2_0.patch"
-            },
-            "drupal/field_group": {
-                "https://www.drupal.org/project/field_group/issues/2969051": "https://www.drupal.org/files/issues/2024-08-05/2787179-highlight-html5-validation-101.patch"
             },
             "drupal/google_tag": {
                 "Comment out GA conflict in Google Tag": "patches/contrib/google_tag-ga_conflict.patch"
