@@ -34,6 +34,11 @@ class SdssWgTaggingUtil {
     // Build an array of workgroups => taxonomy terms from config.
     $initial_tag_list = \Drupal::configFactory()
       ->getEditable('sdss_workgroup_tagging.settings')->get('tags');
+    if (empty($initial_tag_list)) {
+      \Drupal::logger('sdss_workgroup_tagging')
+        ->info('No tags configured for workgroup tagging.');
+      return FALSE;
+    }
 
     // Initialize arrays of tags to remove and add.
     $remove = [
