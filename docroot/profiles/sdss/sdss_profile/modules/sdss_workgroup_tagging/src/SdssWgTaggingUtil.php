@@ -88,7 +88,19 @@ class SdssWgTaggingUtil {
           ->condition($field_map[$field_name], $remove[$field_name], 'IN')
           ->execute();
         foreach ($persons as $person) {
-          $process[$person]['remove'][$field_name] = $remove[$field_name];
+          if (!isset($process[$person]['remove'])) {
+            $process[$person]['remove'] = [];
+          }
+          if (!isset($process[$person]['remove'][$field_name])) {
+            $process[$person]['remove'][$field_name] = [];
+          }
+          if (!empty($remove[$field_name])) {
+            // Merge and ensure unique term IDs.
+            $process[$person]['remove'][$field_name] = array_unique(array_merge(
+              $process[$person]['remove'][$field_name],
+              $remove[$field_name]
+            ));
+          }
         }
       }
     }
@@ -109,7 +121,21 @@ class SdssWgTaggingUtil {
           ->execute();
         // Add instruction to process to add terms for each person found.
         foreach ($persons as $person) {
-          $process[$person]['add'] = $terms;
+          if (!isset($process[$person]['add'])) {
+            $process[$person]['add'] = [];
+          }
+          foreach (['org-tag-term', 'person-tag-term'] as $field_name) {
+            if (!isset($process[$person]['add'][$field_name])) {
+              $process[$person]['add'][$field_name] = [];
+            }
+            if (!empty($terms[$field_name])) {
+              // Merge and ensure unique term IDs.
+              $process[$person]['add'][$field_name] = array_unique(array_merge(
+                $process[$person]['add'][$field_name],
+                $terms[$field_name]
+              ));
+            }
+          }
         }
       }
     }
