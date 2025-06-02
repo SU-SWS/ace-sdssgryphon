@@ -20,7 +20,7 @@ class SdssWgTaggingUtil {
         'status' => ['message' => 'Workgroup tagging is disabled.'],
       ];
     }
-    
+
     /** @var \Drupal\Core\Entity\EntityTypeManager $entity_manager */
     $entity_manager = \Drupal::service('entity_type.manager');
 
@@ -196,8 +196,8 @@ class SdssWgTaggingUtil {
     }
     // All done.
     return [
-        'status' => ['message' => 'Tagged members successfully.'],
-      ];
+      'status' => ['message' => 'Tagged members successfully.'],
+    ];
   }
 
   /**
