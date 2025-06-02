@@ -13,6 +13,14 @@ class SdssWgTaggingUtil {
    * Updates tag field in Stanford Person for nodes containing a sunetid.
    */
   public function tagPersons() {
+    $config = \Drupal::config('sdss_workgroup_tagging.settings');
+    if (!$config->get('enabled')) {
+      // Module is disabled, do not run functionality.
+      return [
+        'status' => ['message' => 'Workgroup tagging is disabled.'],
+      ];
+    }
+    
     /** @var \Drupal\Core\Entity\EntityTypeManager $entity_manager */
     $entity_manager = \Drupal::service('entity_type.manager');
 
@@ -28,7 +36,9 @@ class SdssWgTaggingUtil {
     if (empty($all_bundle_fields['su_person_sunetid'])) {
       \Drupal::logger('sdss_workgroup_tagging')
         ->info('Person content type missing su_person_sunetid field.');
-      return FALSE;
+      return [
+        'status' => ['message' => 'Person content type missing su_person_sunetid field.'],
+      ];
     }
 
     // Build an array of workgroups => taxonomy terms from config.
@@ -37,7 +47,9 @@ class SdssWgTaggingUtil {
     if (empty($initial_tag_list)) {
       \Drupal::logger('sdss_workgroup_tagging')
         ->info('No tags configured for workgroup tagging.');
-      return FALSE;
+      return [
+        'status' => ['message' => 'No tags configured for workgroup tagging.'],
+      ];
     }
 
     // Initialize arrays of tags to remove and add.
@@ -157,7 +169,9 @@ class SdssWgTaggingUtil {
       }
     }
     // All done.
-    return TRUE;
+    return [
+        'status' => ['message' => 'Tagged members successfully.'],
+      ];
   }
 
   /**

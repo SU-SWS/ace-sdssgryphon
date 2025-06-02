@@ -41,4 +41,30 @@ class WorkgroupTaggingTest extends TestCase {
     $this->assertStringContainsString('credentials have not been set', $result['status']['message']);
   }
 
+  /**
+   * Test tagPersons() is disabled.
+   */
+  public function testTagPersonsDisabled() {
+    $config = $this->createMock(ImmutableConfig::class);
+    $config->method('get')->willReturnMap([
+        ['enabled', FALSE],
+    ]);
+    $config_factory = $this->createMock(ConfigFactoryInterface::class);
+    $config_factory->method('get')->willReturn($config);
+
+    $logger = $this->createMock(LoggerInterface::class);
+    $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
+    $logger_factory->method('get')->willReturn($logger);    
+
+    $container = new ContainerBuilder();
+    $container->set('config.factory', $config_factory);
+    $container->set('logger.factory', $logger_factory);    
+
+    \Drupal::setContainer($container);
+
+    $wg_tagging_util = new SdssWgTaggingUtil;
+    $result = $wg_tagging_util->tagPersons();
+    $this->assertStringContainsString('disabled', strtolower($result['status']['message']));
+  }
+
 }

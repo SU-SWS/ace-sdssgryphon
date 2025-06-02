@@ -97,6 +97,7 @@ class SdssWgTaggingForm extends ConfigFormBase {
     // Get the existing configuration.
     $config = $this->config('sdss_workgroup_tagging.settings');
     $tag_defaults = $config->get('tags');
+    $enabled = $config->get('enabled');
     if (empty($tag_defaults) || !is_array($tag_defaults)) {
       // We need at least one fieldset to start.
       $tag_defaults = [
@@ -108,6 +109,14 @@ class SdssWgTaggingForm extends ConfigFormBase {
         ],
       ];
     }
+
+    // Add the enable checkbox.
+    $form['enabled'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable Workgroup Tagging'),
+      '#default_value' => $enabled,
+      '#description' => $this->t('Check to enable workgroup tagging functionality.'),
+    ];
 
     // Get # of fieldsets based on a count in storage or size of defaults array.
     $fieldset_count = $form_state->get('fieldset_count');
@@ -405,6 +414,7 @@ class SdssWgTaggingForm extends ConfigFormBase {
     }
     $config = $this->configFactory->getEditable('sdss_workgroup_tagging.settings');
     $config->set('tags', $tags);
+    $config->set('enabled', $form_state->getValue('enabled'));
     $config->save();
   }
 

@@ -11,6 +11,11 @@ use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
  * Implements hook_cron().
  */
 function sdss_workgroup_tagging_cron() {
+  $config = \Drupal::config('sdss_workgroup_tagging.settings');
+  if (!$config->get('enabled')) {
+    // Module is disabled, do not run functionality.
+    return;
+  }
   $tagger = new SdssWgTaggingUtil();
   $success = ' did not';
   if ($tagger->tagPersons()) {

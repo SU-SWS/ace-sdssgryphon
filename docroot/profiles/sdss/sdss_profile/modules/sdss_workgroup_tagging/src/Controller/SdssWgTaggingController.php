@@ -45,9 +45,12 @@ class SdssWgTaggingController extends ControllerBase {
    */
   public function output(Request $request) {
     $tagger = new SdssWgTaggingUtil();
-    $done = $tagger->tagPersons();
-    if ($done) {
-      $response = ['#markup' => 'Success!'];
+    $result = $tagger->tagPersons();
+    if (
+      $result
+      && $result['status']
+    ) {
+      $response = ['#markup' => $result['status']['message']];
     }
     else {
       $response = ['#markup' => 'Error!'];

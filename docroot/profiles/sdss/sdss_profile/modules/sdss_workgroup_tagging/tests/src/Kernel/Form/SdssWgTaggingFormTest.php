@@ -63,10 +63,12 @@ class SdssWgTaggingFormKernelTest extends KernelTestBase {
     // Build the form.
     $form = $form_object->buildForm([], $form_state);
 
-    // Assert the form has the expected field.
+    // Assert the form has the expected fields.
+    $this->assertArrayHasKey('enabled', $form);
     $this->assertArrayHasKey('tags_fieldsets', $form);
 
     // Simulate form submission.
+    $form_state->setValue('enabled', TRUE);
     $form_state->setValue('workgroup-0', 'testgroup');
     $form_state->setValue('org-tag-term-0', []);
     $form_state->setValue('person-tag-term-0', []);
@@ -79,7 +81,8 @@ class SdssWgTaggingFormKernelTest extends KernelTestBase {
 
     // Check that the config was saved.
     $config = \Drupal::config('sdss_workgroup_tagging.settings');
-    $tags = $config->get('tags');
+    $this->assertTrue($config->get('enabled'));
+    $tags = $config->get('tags');    
     $this->assertEquals('testgroup', $tags[0]['workgroup']);
   }
 
