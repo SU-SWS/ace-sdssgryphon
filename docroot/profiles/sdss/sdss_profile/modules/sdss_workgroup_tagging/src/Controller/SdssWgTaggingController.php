@@ -13,7 +13,7 @@ use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
  */
 class SdssWgTaggingController extends ControllerBase {
 
-    /**
+  /**
    * Page cache kill switch.
    *
    * @var Drupal\Core\PageCache\ResponsePolicy\KillSwitch
@@ -21,6 +21,11 @@ class SdssWgTaggingController extends ControllerBase {
    */
   protected $killSwitch;
 
+  /**
+   * The SDSS Workgroup Tagging utility service.
+   *
+   * @var \Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil
+   */
   protected $taggingUtil;
 
   /**

@@ -12,16 +12,51 @@ use GuzzleHttp\ClientInterface;
  */
 class SdssWgTaggingUtil {
 
+  /**
+   * The Guzzle HTTP client service.
+   *
+   * @var \GuzzleHttp\ClientInterface
+   */
   protected $httpClient;
+
+  /**
+   * The config factory service.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
   protected $configFactory;
+
+  /**
+   * The entity type manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $entityTypeManager;
+
+  /**
+   * The logger channel for this module.
+   *
+   * @var \Psr\Log\LoggerInterface
+   */
   protected $logger;
 
+  /**
+   * Constructs the SDSS Workgroup Tagging utility service.
+   *
+   * @param \GuzzleHttp\ClientInterface $http_client
+   *   The Guzzle HTTP client service.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The configuration factory service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   *   The entity type manager service.
+   * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
+   *   The logger channel factory service.
+   */
   public function __construct(
     ClientInterface $http_client,
     ConfigFactoryInterface $config_factory,
     EntityTypeManagerInterface $entity_type_manager,
-    LoggerChannelFactoryInterface $logger_factory
+    LoggerChannelFactoryInterface $logger_factory,
   ) {
     $this->httpClient = $http_client;
     $this->configFactory = $config_factory;
@@ -177,8 +212,10 @@ class SdssWgTaggingUtil {
         // For removal, keep terms by copying them to the new_terms array.
         // Do not keep if term is in remove array and *not* in add array.
         foreach ($terms as $term) {
-          if (!empty($process[$nid]['remove'][$field_name][$term['target_id']])
-            && empty($process[$nid]['add'][$field_name][$term['target_id']])) {
+          if (
+            !empty($process[$nid]['remove'][$field_name][$term['target_id']])
+            && empty($process[$nid]['add'][$field_name][$term['target_id']])
+          ) {
             // If we are removing a term, set updated to true for this node.
             $updated = TRUE;
           }
@@ -187,18 +224,20 @@ class SdssWgTaggingUtil {
           }
         }
         // For each term to add, do so if not already in new_terms.
-        foreach ($process[$nid]['add'][$field_name] as $tid) {
-          $found = FALSE;
-          foreach ($new_terms as $new_term) {
-            if ($new_term['target_id'] == $tid) {
-              $found = TRUE;
-              break;
+        if (isset($process[$nid]['add'])) {
+          foreach ($process[$nid]['add'][$field_name] as $tid) {
+            $found = FALSE;
+            foreach ($new_terms as $new_term) {
+              if ($new_term['target_id'] == $tid) {
+                $found = TRUE;
+                break;
+              }
             }
-          }
-          if (!$found) {
-            $new_terms[] = ['target_id' => $tid];
-            // Set updated to true for the node if a term was really added.
-            $updated = TRUE;
+            if (!$found) {
+              $new_terms[] = ['target_id' => $tid];
+              // Set updated to true for the node if a term was really added.
+              $updated = TRUE;
+            }
           }
         }
         // Update the field value if warranted.
