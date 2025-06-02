@@ -177,7 +177,7 @@ class SdssWgTaggingUtil {
 
     // Ensure the logger is initialized properly.
     $logger = \Drupal::logger('sdss_workgroup_tagging');
-    
+
     try {
       // Get the MAIS Workgroup API cert from the stanford_samlauth config.
       $key = '';
