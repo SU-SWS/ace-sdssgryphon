@@ -2,27 +2,44 @@
 
 namespace Drupal\sdss_workgroup_tagging;
 
-use GuzzleHttp\Client;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use GuzzleHttp\ClientInterface;
 
 /**
  * Tag imported person content using workgroup membership.
  */
 class SdssWgTaggingUtil {
 
+  protected $httpClient;
+  protected $configFactory;
+  protected $entityTypeManager;
+  protected $logger;
+
+  public function __construct(
+    ClientInterface $http_client,
+    ConfigFactoryInterface $config_factory,
+    EntityTypeManagerInterface $entity_type_manager,
+    LoggerChannelFactoryInterface $logger_factory
+  ) {
+    $this->httpClient = $http_client;
+    $this->configFactory = $config_factory;
+    $this->entityTypeManager = $entity_type_manager;
+    $this->logger = $logger_factory->get('sdss_workgroup_tagging');
+  }
+
   /**
    * Updates tag field in Stanford Person for nodes containing a sunetid.
    */
   public function tagPersons() {
-    $config = \Drupal::config('sdss_workgroup_tagging.settings');
+    $config = $this->configFactory->get('sdss_workgroup_tagging.settings');
     if (!$config->get('enabled')) {
       // Module is disabled, do not run functionality.
       return [
         'status' => ['message' => 'Workgroup tagging is disabled.'],
       ];
     }
-
-    /** @var \Drupal\Core\Entity\EntityTypeManager $entity_manager */
-    $entity_manager = \Drupal::service('entity_type.manager');
 
     // Match the config field names to their Person content type field names.
     $field_map = [
@@ -81,7 +98,7 @@ class SdssWgTaggingUtil {
     // Add 'remove' terms for each person node that has it.
     foreach (['org-tag-term', 'person-tag-term'] as $field_name) {
       if (!empty($remove[$field_name])) {
-        $persons = $entity_manager->getStorage('node')
+        $persons = $this->entityTypeManager->getStorage('node')
           ->getQuery('AND')
           ->accessCheck(FALSE)
           ->condition('type', 'stanford_person', '=')
@@ -108,12 +125,12 @@ class SdssWgTaggingUtil {
     // For each person in a workgroup, add terms to include to process array.
     foreach ($add as $workgroup => $terms) {
       // Get the sunetids for people in a workgroup.
-      $members = self::getWgMembers($workgroup);
+      $members = $this->getWgMembers($workgroup);
       if (!empty($members['members'])) {
         // Flip the sunetid keys to values to use in query.
         $sunets = array_flip($members['members']);
         // Get the person node ids that match the sunet ids from the workgroup.
-        $persons = $entity_manager->getStorage('node')
+        $persons = $this->entityTypeManager->getStorage('node')
           ->getQuery('AND')
           ->accessCheck(FALSE)
           ->condition('type', 'stanford_person', '=')
@@ -145,7 +162,7 @@ class SdssWgTaggingUtil {
     foreach ($process as $entity_id => $items) {
       $node_ids[] = $entity_id;
     }
-    $nodes = $entity_manager->getStorage('node')->loadMultiple($node_ids);
+    $nodes = $this->entityTypeManager->getStorage('node')->loadMultiple($node_ids);
 
     // Add/Remove terms for each person.
     foreach ($nodes as $node) {
@@ -211,18 +228,15 @@ class SdssWgTaggingUtil {
    *
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public static function getWgMembers(string $workgroup) {
+  public function getWgMembers(string $workgroup) {
     // Initialize the return array.
     $status = ['workgroup' => $workgroup, 'member_count' => 0];
-
-    // Ensure the logger is initialized properly.
-    $logger = \Drupal::logger('sdss_workgroup_tagging');
 
     try {
       // Get the MAIS Workgroup API cert from the stanford_samlauth config.
       $key = '';
       $cert = '';
-      $config = \Drupal::configFactory()->get('stanford_samlauth.settings');
+      $config = $this->configFactory->get('stanford_samlauth.settings');
       $cert_path = $config->get('role_mapping.workgroup_api.cert');
       $key_path = $config->get('role_mapping.workgroup_api.key');
       // Make sure we can access the cert files.
@@ -233,19 +247,18 @@ class SdssWgTaggingUtil {
       if (empty($key) || empty($cert)) {
         $error_message = 'Error getting workgroup ' . $workgroup .
           '. Workgroup API credentials have not been set.';
-        $logger->notice($error_message);
+        $this->logger->notice($error_message);
         $status['message'] = $error_message;
         return ['members' => [], 'status' => $status];
       }
 
       // Call the API.
-      $http_client = new Client();
-      $result = $http_client->request('GET',
+      $result = $this->httpClient->request('GET',
         'https://workgroupsvc.stanford.edu/v1/workgroups/' . $workgroup,
         ['cert' => $cert, 'ssl_key' => $key]);
       if ($result->getStatusCode() != 200) {
         $error_message = 'Error getting workgroup ' . $workgroup . '. ' . $result->getReasonPhrase();
-        $logger->error($error_message);
+        $this->logger->error($error_message);
         $status['message'] = $error_message;
         return ['members' => [], 'status' => $status];
       }
@@ -272,7 +285,7 @@ class SdssWgTaggingUtil {
           if (is_array($workgroups)) {
             foreach ($workgroups as $next_wg) {
               $nested = (string) $next_wg->attributes()->$id_attribute;
-              $subsunets = self::getWgMembers($nested);
+              $subsunets = $this->getWgMembers($nested);
               if ($subsunets['status']['member_count'] > 0) {
                 $sunets = array_merge($sunets, $subsunets['members']);
               }
@@ -286,14 +299,14 @@ class SdssWgTaggingUtil {
       }
       else {
         $status['message'] = 'Empty workgroups may not be used.';
-        $logger->error($status['message']);
+        $this->logger->error($status['message']);
       }
       // Return the results.
       return ['members' => $sunets, 'status' => $status];
     }
     catch (\Exception $e) {
       $error_message = 'Error getting workgroup ' . $workgroup . '. ' . $e->getMessage();
-      $logger->error($error_message);
+      $this->logger->error($error_message);
       $status['message'] = $error_message;
       return ['members' => [], 'status' => $status];
     }

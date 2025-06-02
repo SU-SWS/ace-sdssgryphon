@@ -13,7 +13,7 @@ use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
  */
 class SdssWgTaggingController extends ControllerBase {
 
-  /**
+    /**
    * Page cache kill switch.
    *
    * @var Drupal\Core\PageCache\ResponsePolicy\KillSwitch
@@ -21,11 +21,14 @@ class SdssWgTaggingController extends ControllerBase {
    */
   protected $killSwitch;
 
+  protected $taggingUtil;
+
   /**
    * StanfordEarthExportNewsController constructor.
    */
-  public function __construct(KillSwitch $killSwitch) {
+  public function __construct(KillSwitch $killSwitch, SdssWgTaggingUtil $taggingUtil) {
     $this->killSwitch = $killSwitch;
+    $this->taggingUtil = $taggingUtil;
   }
 
   /**
@@ -33,7 +36,8 @@ class SdssWgTaggingController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('page_cache_kill_switch')
+      $container->get('page_cache_kill_switch'),
+      $container->get('sdss_workgroup_tagging.util')
     );
   }
 
@@ -44,8 +48,7 @@ class SdssWgTaggingController extends ControllerBase {
    *   The currently processing request.
    */
   public function output(Request $request) {
-    $tagger = new SdssWgTaggingUtil();
-    $result = $tagger->tagPersons();
+    $result = $this->taggingUtil->tagPersons();
     if (
       $result
       && $result['status']

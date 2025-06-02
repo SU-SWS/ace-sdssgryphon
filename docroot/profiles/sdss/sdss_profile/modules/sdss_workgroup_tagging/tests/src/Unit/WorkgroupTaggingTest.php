@@ -4,9 +4,10 @@ namespace Drupal\Tests\sdss_workgroup_tagging\Unit;
 
 use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\DependencyInjection\ContainerBuilder;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
+use GuzzleHttp\ClientInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
@@ -26,17 +27,19 @@ class WorkgroupTaggingTest extends TestCase {
     $config_factory = $this->createMock(ConfigFactoryInterface::class);
     $config_factory->method('get')->willReturn($config);
 
+    $entity_type_manager = $this->createMock(EntityTypeManagerInterface::class);
     $logger = $this->createMock(LoggerInterface::class);
     $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
-    $logger_factory->method('get')->willReturn($logger);    
+    $logger_factory->method('get')->willReturn($logger);
+    $http_client = $this->createMock(ClientInterface::class);   
 
-    $container = new ContainerBuilder();
-    $container->set('config.factory', $config_factory);
-    $container->set('logger.factory', $logger_factory);    
-
-    \Drupal::setContainer($container);
-
-    $result = SdssWgTaggingUtil::getWgMembers('testgroup');
+    $wg_tagging_util = new SdssWgTaggingUtil(
+      $http_client,
+      $config_factory,
+      $entity_type_manager,
+      $logger_factory
+    );
+    $result = $wg_tagging_util->getWgMembers('testgroup');
     $this->assertEquals([], $result['members']);
     $this->assertStringContainsString('credentials have not been set', $result['status']['message']);
   }
@@ -52,17 +55,18 @@ class WorkgroupTaggingTest extends TestCase {
     $config_factory = $this->createMock(ConfigFactoryInterface::class);
     $config_factory->method('get')->willReturn($config);
 
+    $entity_type_manager = $this->createMock(EntityTypeManagerInterface::class);
     $logger = $this->createMock(LoggerInterface::class);
     $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
-    $logger_factory->method('get')->willReturn($logger);    
+    $logger_factory->method('get')->willReturn($logger);
+    $http_client = $this->createMock(ClientInterface::class);
 
-    $container = new ContainerBuilder();
-    $container->set('config.factory', $config_factory);
-    $container->set('logger.factory', $logger_factory);    
-
-    \Drupal::setContainer($container);
-
-    $wg_tagging_util = new SdssWgTaggingUtil;
+    $wg_tagging_util = new SdssWgTaggingUtil(
+      $http_client,
+      $config_factory,
+      $entity_type_manager,
+      $logger_factory
+    );
     $result = $wg_tagging_util->tagPersons();
     $this->assertStringContainsString('disabled', strtolower($result['status']['message']));
   }

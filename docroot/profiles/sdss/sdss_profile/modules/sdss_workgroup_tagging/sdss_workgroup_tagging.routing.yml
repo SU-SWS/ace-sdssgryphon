@@ -6,13 +6,10 @@ sdss_workgroup_tagging.top:
     _permission: 'administer site configuration'
 
 sdss_workgroup_tagging.output:
-  # JSON output of news
   path: '/admin/config/importers/workgroup_tagging/tag-persons-from-workgroups'
   defaults:
-    _controller: '\Drupal\sdss_workgroup_tagging\Controller\SdssWgTaggingController::output'
-    _title: 'SDSS Workgroup Tagging'
-  options:
-    no_cache: TRUE
+    _controller: 'sdss_workgroup_tagging.controller:output'
+    _title: 'Tag Persons from Workgroups'
   requirements:
     _permission: 'administer site configuration'
 

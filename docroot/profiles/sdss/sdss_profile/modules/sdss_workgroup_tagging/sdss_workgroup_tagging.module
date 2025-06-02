@@ -5,8 +5,6 @@
  * Contains sdss_workgroup_tagging.module.
  */
 
-use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
-
 /**
  * Implements hook_cron().
  */
@@ -16,7 +14,7 @@ function sdss_workgroup_tagging_cron() {
     // Module is disabled, do not run functionality.
     return;
   }
-  $tagger = new SdssWgTaggingUtil();
+  $tagger = \Drupal::service('sdss_workgroup_tagging.util');
   $success = ' did not';
   if ($tagger->tagPersons()) {
     $success = '';
