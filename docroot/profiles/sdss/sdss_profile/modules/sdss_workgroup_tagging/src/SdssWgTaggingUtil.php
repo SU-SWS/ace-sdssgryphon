@@ -3,6 +3,7 @@
 namespace Drupal\sdss_workgroup_tagging;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
@@ -27,6 +28,13 @@ class SdssWgTaggingUtil {
   protected $configFactory;
 
   /**
+   * The entity field manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
+   */
+  protected $entityFieldManager;
+
+  /**
    * The entity type manager service.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
@@ -47,6 +55,8 @@ class SdssWgTaggingUtil {
    *   The Guzzle HTTP client service.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The configuration factory service.
+   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
+   *   The entity field manager service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager service.
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
@@ -55,11 +65,13 @@ class SdssWgTaggingUtil {
   public function __construct(
     ClientInterface $http_client,
     ConfigFactoryInterface $config_factory,
+    EntityFieldManagerInterface $entity_field_manager,
     EntityTypeManagerInterface $entity_type_manager,
     LoggerChannelFactoryInterface $logger_factory,
   ) {
     $this->httpClient = $http_client;
     $this->configFactory = $config_factory;
+    $this->entityFieldManager = $entity_field_manager;
     $this->entityTypeManager = $entity_type_manager;
     $this->logger = $logger_factory->get('sdss_workgroup_tagging');
   }
@@ -83,22 +95,20 @@ class SdssWgTaggingUtil {
     ];
 
     // Make sure we have the fields we need in the Stanford Person type.
-    $all_bundle_fields = \Drupal::service('entity_field.manager')
+    $all_bundle_fields = $this->entityFieldManager
       ->getFieldDefinitions('node', 'stanford_person');
     if (empty($all_bundle_fields['su_person_sunetid'])) {
-      \Drupal::logger('sdss_workgroup_tagging')
-        ->info('Person content type missing su_person_sunetid field.');
+      $this->logger->info('Person content type missing su_person_sunetid field.');
       return [
         'status' => ['message' => 'Person content type missing su_person_sunetid field.'],
       ];
     }
 
     // Build an array of workgroups => taxonomy terms from config.
-    $initial_tag_list = \Drupal::configFactory()
+    $initial_tag_list = $this->configFactory
       ->getEditable('sdss_workgroup_tagging.settings')->get('tags');
     if (empty($initial_tag_list)) {
-      \Drupal::logger('sdss_workgroup_tagging')
-        ->info('No tags configured for workgroup tagging.');
+      $this->logger->info('No tags configured for workgroup tagging.');
       return [
         'status' => ['message' => 'No tags configured for workgroup tagging.'],
       ];

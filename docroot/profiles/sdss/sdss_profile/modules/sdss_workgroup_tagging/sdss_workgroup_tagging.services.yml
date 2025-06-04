@@ -4,6 +4,7 @@ services:
     arguments:
       - '@http_client'
       - '@config.factory'
+      - '@entity_field.manager'
       - '@entity_type.manager'
       - '@logger.factory'
   sdss_workgroup_tagging.controller:

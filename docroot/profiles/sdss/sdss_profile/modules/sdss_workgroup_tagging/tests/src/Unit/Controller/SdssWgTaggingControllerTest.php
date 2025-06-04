@@ -6,6 +6,7 @@ use Drupal\Core\PageCache\ResponsePolicy\KillSwitch;
 use Drupal\sdss_workgroup_tagging\Controller\SdssWgTaggingController;
 use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
@@ -19,6 +20,13 @@ use Psr\Log\LoggerInterface;
  */
 class SdssWgTaggingControllerTest extends TestCase {
 
+  /**
+   * Tests that the controller output returns the expected status message.
+   *
+   * Ensures that the output() method returns the status message from
+   * SdssWgTaggingUtil::tagPersons() as markup, and that the KillSwitch is 
+   * triggered.
+   */
   public function testOutputReturnsStatusMessage() {
     // Mock the KillSwitch.
     $killSwitch = $this->createMock(KillSwitch::class);
@@ -31,12 +39,14 @@ class SdssWgTaggingControllerTest extends TestCase {
     $logger = $this->createMock(LoggerInterface::class);
     $logger_factory = $this->createMock(LoggerChannelFactoryInterface::class);
     $logger_factory->method('get')->willReturn($logger);
+    $entity_field_manager = $this->createMock(EntityFieldManagerInterface::class);
 
     // Mock tagPersons() to return a known value.
     $mockUtil = $this->getMockBuilder(SdssWgTaggingUtil::class)
       ->setConstructorArgs([
         $http_client,
         $config_factory,
+        $entity_field_manager,
         $entity_type_manager,
         $logger_factory,
       ])
