@@ -39,6 +39,5 @@ jobs:
           git config --global user.name "Github Actions" &&
           ssh-keyscan -t rsa svn-23450.prod.hosting.acquia.com >> /root/.ssh/known_hosts &&
           composer install -n &&
-          blt blt:telemetry:disable --no-interaction &&
           blt sdss:clean-database-backups &&
           blt sdss:clean-branches-tags
