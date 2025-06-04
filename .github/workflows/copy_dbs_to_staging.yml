@@ -34,7 +34,6 @@ jobs:
           ACQUIA_SECRET: ${{ secrets.ACQUIA_SECRET }}
         run: |
           composer install -n &&
-          blt blt:telemetry:disable --no-interaction &&
           if [ -n "${{ github.event.inputs.exclude }}" ]; then
             blt stage --no-interaction --exclude="${{ github.event.inputs.exclude }}"
           else

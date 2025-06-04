@@ -190,6 +190,128 @@ class GryphonAcquiaApiCommands extends GryphonCommands {
   }
 
   /**
+   * Delete all old database backups.
+   *
+   * @command sdss:clean-database-backups
+   */
+  public function deleteOldBackups() {
+    $this->connectAcquiaApi();
+    $environments = $this->acquiaEnvironments->getAll($this->appId);
+    $environment_uuids = [];
+
+    foreach ($environments as $environment) {
+      if ($environment->name != 'ra') {
+        $environment_uuids[$environment->uuid] = $environment->name;
+      }
+    }
+
+    foreach ($this->acquiaDatabases->getNames($this->appId) as $database) {
+      $this->say(sprintf('Gather database backup info for %s', $database->name));
+
+      foreach ($environment_uuids as $environment_uuid => $name) {
+        $backups = $this->acquiaDatabaseBackups->getAll($environment_uuid, $database->name);
+        foreach ($backups as $backup) {
+
+          $start_at = strtotime($backup->startedAt);
+          // Delete backups older than 120 days.
+          if ($backup->type == 'ondemand' && time() - $start_at > 60 * 60 * 24 * 120) {
+            $this->say(sprintf('Deleting %s backup #%s on %s environment.', $database->name, $backup->id, $name));
+            $this->acquiaDatabaseBackups->delete($environment_uuid, $database->name, $backup->id);
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * Delete unused branches and tags from acquia repo.
+   *
+   * @command sdss:clean-branches-tags
+   */
+  public function cleanBranches() {
+    $this->connectAcquiaApi();
+    $active_branches = ['master'];
+    $active_tags = [];
+    $git_url = $this->getConfigValue('git.remotes.0');
+    $one_year_ago = strtotime('-1 year');
+
+    /** @var \AcquiaCloudApi\Response\EnvironmentResponse $environment */
+    foreach ($this->acquiaEnvironments->getAll($this->appId) as $environment) {
+      $git_url = $environment->vcs->url;
+      $vcs = $environment->vcs->path;
+      if (strpos($vcs, 'tags/') !== FALSE) {
+        $active_tags[] = str_replace('tags/', '', $vcs);
+      }
+      else {
+        $active_branches[] = $vcs;
+      }
+    }
+    $root = $this->getConfigValue('repo.root');
+    if (file_exists("$root/deploy")) {
+      $this->taskExec("rm -rf $root/deploy")->run();
+    }
+    $this->taskGit()
+      ->cloneRepo($git_url, "$root/deploy")
+      ->run();
+
+    // Get the list of branches.
+    $get_branches = $this->taskGit()
+      ->dir("$root/deploy")
+      ->exec("for-each-ref --format='%(refname:short) %(committerdate:iso8601)' refs/remotes/origin/")
+      ->printOutput(FALSE)
+      ->run()
+      ->getMessage();
+    $branches = explode("\n", $get_branches);
+        
+    // Delete branches older than 1 year.
+    $this->say('Deleting branches older than 1 year.');
+    foreach ($branches as $line) {
+      list($branch, $date) = explode(' ', $line, 2);
+      $branch = trim(str_replace('origin/', '', $branch));
+      if (
+        strtotime($date) < $one_year_ago &&
+        !empty($active_branches) &&
+        !in_array($branch, $active_branches) &&
+        $branch !== 'HEAD' &&
+        $branch !== 'origin'
+      ) {
+        $this->taskGit()
+          ->dir("$root/deploy")
+          ->exec('push -d origin ' . $branch)
+          ->run();
+        $this->say('Deleted branch: ' . $branch);
+      }
+    }
+
+    // Get the list of tags.
+    $get_tags = $this->taskGit()
+      ->dir("$root/deploy")
+      ->exec("for-each-ref --format='%(refname:short) %(creatordate:iso8601)' refs/tags/")
+      ->printOutput(FALSE)
+      ->run()
+      ->getMessage();
+    $tags = explode("\n", $get_tags);
+
+    // Delete tags older than 1 year.
+    $this->say('Deleting tags older than 1 year.');
+    foreach ($tags as $line) {
+      list($tag, $date) = explode(' ', $line, 2);
+      $tag = trim($tag);
+      if (
+        strtotime($date) < $one_year_ago &&
+        !empty($active_tags) &&
+        !in_array($tag, $active_tags)
+      ) {
+        $this->taskGit()
+          ->dir("$root/deploy")
+          ->exec('push origin :refs/tags/' . $tag)
+          ->run();
+        $this->say('Deleted tag: ' . $tag);
+      }
+    }
+  }
+
+  /**
    * Call the API and fetch the OAuth token.
    *
    * @return string
