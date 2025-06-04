@@ -9,8 +9,8 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Tests\UnitTestCase;
 use GuzzleHttp\ClientInterface;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Psr\Log\LoggerInterface;
 
@@ -18,7 +18,7 @@ use Psr\Log\LoggerInterface;
  * @coversDefaultClass \Drupal\sdss_workgroup_tagging\Controller\SdssWgTaggingController
  * @group sdss_workgroup_tagging
  */
-class SdssWgTaggingControllerTest extends TestCase {
+class SdssWgTaggingControllerTest extends UnitTestCase {
 
   /**
    * Tests that the controller output returns the expected status message.

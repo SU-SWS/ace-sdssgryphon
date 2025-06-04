@@ -8,9 +8,9 @@ use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil;
+use Drupal\Tests\UnitTestCase;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response;
-use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\StreamInterface;
 use Psr\Log\LoggerInterface;
 
@@ -20,7 +20,7 @@ use Psr\Log\LoggerInterface;
  * @coversDefaultClass \Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil
  * @group sdss_workgroup_tagging
  */
-class WorkgroupTaggingTest extends TestCase {
+class WorkgroupTaggingTest extends UnitTestCase {
 
   /**
    * Helper to instantiate SdssWgTaggingUtil with mocked dependencies.
