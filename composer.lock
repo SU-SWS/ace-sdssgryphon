@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01b334312c76e47a3f08d052021fcb0f",
+    "content-hash": "bf899562ef8ad6b09ea2ec4eafbee90b",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16837,6 +16837,16 @@
                 "source": "https://github.com/SU-SWS/stanford_samlauth/tree/1.2.1"
             },
             "time": "2025-02-25T19:20:29+00:00"
+        },
+        {
+            "name": "su-sws/stanford_searchstax",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SU-SWS/stanford_searchstax",
+                "reference": "main"
+            },
+            "type": "drupal-custom-module"
         },
         {
             "name": "su-sws/stanford_syndication",

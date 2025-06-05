@@ -15,6 +15,19 @@
         {
             "type": "package",
             "package": {
+                "name": "su-sws/stanford_searchstax",
+                "version": "1.0.0",
+                "type": "drupal-custom-module",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/SU-SWS/stanford_searchstax",
+                    "reference": "main"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
                 "name": "citation-style-language/locales",
                 "version": "1.0.0",
                 "source": {
@@ -201,6 +214,7 @@
         "su-sws/stanford_media": "^11.0",
         "su-sws/stanford_migrate": "^8.3",
         "su-sws/stanford_samlauth": "^1.0",
+        "su-sws/stanford_searchstax": "^1.0",
         "su-sws/stanford_syndication": "^1.0"
     },
     "require-dev": {
