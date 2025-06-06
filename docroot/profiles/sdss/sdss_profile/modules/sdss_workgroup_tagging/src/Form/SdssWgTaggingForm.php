@@ -105,7 +105,7 @@ class SdssWgTaggingForm extends ConfigFormBase {
           'workgroup' => NULL,
           'org-tag-term' => NULL,
           'person-tag-term' => NULL,
-          'auto-removal' => 1,
+          'auto-removal' => 0 ,
         ],
       ];
     }
@@ -197,7 +197,7 @@ class SdssWgTaggingForm extends ConfigFormBase {
       ];
 
       // Get the default value for auto-removal of tags and create checkbox.
-      $auto_removal_default = 1;
+      $auto_removal_default = 0;
       if (isset($tag_defaults[$i]['auto-removal'])) {
         $auto_removal_default = $tag_defaults[$i]['auto-removal'];
       }

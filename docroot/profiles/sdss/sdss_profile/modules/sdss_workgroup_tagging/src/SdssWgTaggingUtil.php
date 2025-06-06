@@ -158,10 +158,10 @@ class SdssWgTaggingUtil {
           }
           if (!empty($remove[$field_name])) {
             // Merge and ensure unique term IDs.
-            $process[$person]['remove'][$field_name] = array_unique(array_merge(
-              $process[$person]['remove'][$field_name],
+            $process[$person]['remove'][$field_name] = array_unique(
+              $process[$person]['remove'][$field_name] +
               $remove[$field_name]
-            ));
+            );
           }
         }
       }
@@ -192,10 +192,10 @@ class SdssWgTaggingUtil {
             }
             if (!empty($terms[$field_name])) {
               // Merge and ensure unique term IDs.
-              $process[$person]['add'][$field_name] = array_unique(array_merge(
-                $process[$person]['add'][$field_name],
+              $process[$person]['add'][$field_name] = array_unique(
+                $process[$person]['add'][$field_name] +
                 $terms[$field_name]
-              ));
+              );
             }
           }
         }
