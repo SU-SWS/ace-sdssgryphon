@@ -1,0 +1,4 @@
+name: 'Test SDSS Workgroup Tagging'
+type: module
+core_version_requirement: ^10 || ^11
+hidden: true

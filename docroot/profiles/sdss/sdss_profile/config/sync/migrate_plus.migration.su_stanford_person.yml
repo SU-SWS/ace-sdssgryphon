@@ -144,6 +144,7 @@ process:
       default_value: 1
   status: constants/status
   type: constants/type
+  su_person_sunetid: sunetid
   su_person_first_name: first_name
   su_person_last_name: last_name
   su_person_full_title/value: long_title
@@ -321,6 +322,7 @@ destination:
     - su_person_scholarly_interests/format
     - su_person_scholarly_interests/value
     - su_person_short_title
+    - su_person_sunetid
     - su_person_telephone
     - title
     - type

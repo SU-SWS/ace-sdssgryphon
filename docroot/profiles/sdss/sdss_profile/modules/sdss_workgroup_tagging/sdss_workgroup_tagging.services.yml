@@ -1,0 +1,16 @@
+services:
+  sdss_workgroup_tagging.util:
+    class: Drupal\sdss_workgroup_tagging\SdssWgTaggingUtil
+    arguments:
+      - '@http_client'
+      - '@config.factory'
+      - '@entity_field.manager'
+      - '@entity_type.manager'
+      - '@logger.factory'
+  sdss_workgroup_tagging.controller:
+    class: Drupal\sdss_workgroup_tagging\Controller\SdssWgTaggingController
+    arguments:
+      - '@page_cache_kill_switch'
+      - '@sdss_workgroup_tagging.util'
+    tags:
+      - { name: controller.service_arguments }
