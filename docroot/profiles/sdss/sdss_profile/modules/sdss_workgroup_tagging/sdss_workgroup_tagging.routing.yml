@@ -1,0 +1,24 @@
+sdss_workgroup_tagging.top:
+  path: '/admin/config/importers/workgroup_tagging'
+  defaults:
+    _title: 'SDSS Workgroup Tagging'
+  requirements:
+    _permission: 'administer site configuration'
+
+sdss_workgroup_tagging.output:
+  path: '/admin/config/importers/workgroup_tagging/tag-persons-from-workgroups'
+  defaults:
+    _controller: 'sdss_workgroup_tagging.controller:output'
+    _title: 'Tag Persons from Workgroups'
+  requirements:
+    _permission: 'administer site configuration'
+
+sdss_workgroup_tagging.config:
+  # this will be a pick under admin/config
+  path: '/admin/config/importers/workgroup_tagging/config'
+  # define where the form will be found and who can access it
+  defaults:
+    _form: '\Drupal\sdss_workgroup_tagging\Form\SdssWgTaggingForm'
+    _title: 'SDSS Workgroup Tagging settings'
+  requirements:
+    _permission: 'administer site configuration'
