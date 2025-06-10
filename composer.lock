@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf899562ef8ad6b09ea2ec4eafbee90b",
+    "content-hash": "b13ee6478914b96456e2ab7f6046b9bd",
     "packages": [
         {
             "name": "acquia/blt",
@@ -10401,6 +10401,66 @@
             }
         },
         {
+            "name": "drupal/searchstax",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/searchstax.git",
+                "reference": "1.7.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/searchstax-1.7.0.zip",
+                "reference": "1.7.0",
+                "shasum": "27e5a0fdf73852596459a3b7daa02955ce372d7f"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10 || ^11",
+                "drupal/search_api": "^1",
+                "ext-libxml": "*"
+            },
+            "require-dev": {
+                "drupal/acquia_search": "*",
+                "drupal/search_api_autocomplete": "*",
+                "drupal/search_api_page": "*",
+                "drupal/search_api_solr": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.7.0",
+                    "datestamp": "1749104288",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "azovsky",
+                    "homepage": "https://www.drupal.org/user/330533"
+                },
+                {
+                    "name": "drunken monkey",
+                    "homepage": "https://www.drupal.org/user/205582"
+                },
+                {
+                    "name": "searchstax",
+                    "homepage": "https://www.drupal.org/user/3557783"
+                }
+            ],
+            "description": "Integrates with SearchStax and SearchStudio.",
+            "homepage": "https://www.drupal.org/project/searchstax",
+            "support": {
+                "source": "https://git.drupalcode.org/project/searchstax"
+            }
+        },
+        {
             "name": "drupal/seckit",
             "version": "2.0.3",
             "source": {
@@ -16840,13 +16900,31 @@
         },
         {
             "name": "su-sws/stanford_searchstax",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SU-SWS/stanford_searchstax",
-                "reference": "main"
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "/home/joegl/drupal_modules/stanford_searchstax",
+                "reference": "e5ca37c0c3c160a9a322484c7d37a4514e335f29"
             },
-            "type": "drupal-custom-module"
+            "require": {
+                "drupal/core": ">=10.0",
+                "drupal/searchstax": "^1.0"
+            },
+            "type": "drupal-module",
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\stanford_searchstax\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Proof of Concept for a generic Drupal SearchStax integration module. Allows site builders to connect to SearchStax and style the frontend via the theme.",
+            "homepage": "https://github.com/SU-SWS/stanford_searchstax",
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "su-sws/stanford_syndication",
@@ -27560,7 +27638,8 @@
         "drupal/views_block_filter_block": 10,
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
-        "su-sws/blt-sws": 20
+        "su-sws/blt-sws": 20,
+        "su-sws/stanford_searchstax": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
