@@ -16904,7 +16904,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/joegl/drupal_modules/stanford_searchstax",
-                "reference": "e5ca37c0c3c160a9a322484c7d37a4514e335f29"
+                "reference": "262c54afe79783d67f435b439b585ce804af73d5"
             },
             "require": {
                 "drupal/core": ">=10.0",
