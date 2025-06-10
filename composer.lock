@@ -16910,7 +16910,7 @@
                 "drupal/core": ">=10.0",
                 "drupal/searchstax": "^1.0"
             },
-            "type": "drupal-module",
+            "type": "drupal-custom-module",
             "autoload": {
                 "psr-4": {
                     "Drupal\\stanford_searchstax\\": "src/"
