@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01b334312c76e47a3f08d052021fcb0f",
+    "content-hash": "0ede82e19585a111ef0f774d5df3b54f",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16870,6 +16870,51 @@
             "time": "2024-03-18T16:40:08+00:00"
         },
         {
+            "name": "su-sws/sws-drush-commands",
+            "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SU-SWS/sws-drush-commands.git",
+                "reference": "2a0fbc9ac8b0f79280acec38b29b2b68af89c425"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SU-SWS/sws-drush-commands/zipball/2a0fbc9ac8b0f79280acec38b29b2b68af89c425",
+                "reference": "2a0fbc9ac8b0f79280acec38b29b2b68af89c425",
+                "shasum": ""
+            },
+            "require": {
+                "acquia/drupal-environment-detector": "^1.7",
+                "loophp/phposinfo": "~1.0",
+                "symfony/console": "^6 || ^7",
+                "typhonius/acquia-php-sdk-v2": "^3.4"
+            },
+            "conflict": {
+                "drush/drush": "<11.0"
+            },
+            "replace": {
+                "drupal/artifact_deployment": "*"
+            },
+            "default-branch": true,
+            "type": "drupal-drush",
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\SwsDrush\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "SWS Drush commands.",
+            "homepage": "https://packagist.org/packages/su-sws/sws-drush-commands",
+            "support": {
+                "issues": "https://github.com/SU-SWS/sws-drush-commands/issues",
+                "source": "https://github.com/SU-SWS/sws-drush-commands"
+            },
+            "time": "2025-06-02T20:25:06+00:00"
+        },
+        {
             "name": "symfony/cache",
             "version": "v7.3.0",
             "source": {
@@ -27550,7 +27595,8 @@
         "drupal/views_block_filter_block": 10,
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
-        "su-sws/blt-sws": 20
+        "su-sws/blt-sws": 20,
+        "su-sws/sws-drush-commands": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
