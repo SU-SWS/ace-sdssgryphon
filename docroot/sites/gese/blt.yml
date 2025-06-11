@@ -1,0 +1,12 @@
+project:
+  machine_name: gese
+  human_name: gese
+  local:
+    protocol: http
+    hostname: local.gese.com
+drush:
+  aliases:
+    local: gese.local
+    remote: gese.prod
+drupal:
+  db: {  }
