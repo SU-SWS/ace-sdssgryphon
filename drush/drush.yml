@@ -1,13 +1,84 @@
-# This file defines drush configuration that applies to drush commands
-# for the entire application. For site-specific settings, like URI, use
-# ../docroot/sites/[site]/drush.yml
 drush:
   paths:
     config:
-      # Load a drush.yml configuration file from the current working directory.
       - ../docroot/sites/default/local.drush.yml
-      # Allow local global config overrides.
       - local.drush.yml
+      - drush/local.drush.yml
     include:
       - '${env.home}/.drush'
       - /usr/share/drush/commands
+project:
+  profile: sdss_profile
+command:
+  sws:
+    options:
+      git-url:
+        - 'stanfordsos@svn-23450.prod.hosting.acquia.com:stanfordsos.git'
+      post-build-script: drush/deploy-cleanup.sh
+      artifact-dir: deploy
+      alias-dir: drush/sites
+      app-id: f7e9fc1b-062d-4ed8-baf7-ae33551f8934
+      sync-ssh: stanfordsos.test@stanfordsosstg.ssh.prod.acquia-sites.com
+      sync-files:
+        - /mnt/gfs/stanfordsos.test/nobackup/apikeys/
+        - /mnt/gfs/stanfordsos.test/secrets.settings.php
+      multisites:
+        - abc_hub
+        - bitsandwatts
+        - cepp
+        - changeleadership
+        - climate
+        - climatechange
+        - default
+        - earthsystemscience
+        - eiper
+        - energy
+        - energy_transition_analysis
+        - environment_ecosystems
+        - environmentalbehavior
+        - environmentalpolicy
+        - environmentalsocialsci
+        - ese
+        - esys
+        - explore_energy
+        - extreme_energy_efficiency
+        - farm
+        - fuels
+        - geophysics
+        - gep
+        - gese
+        - gfi
+        - gs
+        - hackingfordefense
+        - hawaii
+        - hopkinsmarinestation
+        - hph
+        - hydrogen
+        - naturalcapitalproject
+        - ngi
+        - nza
+        - oceans
+        - planetary
+        - scv
+        - sdss_config_capture
+        - sdssrooms
+        - sdsssandbox
+        - sdssuserguide
+        - seepac
+        - sepf
+        - sesur
+        - sfi
+        - storagex
+        - strategic_energy_alliance
+        - sunproject
+        - sustainability
+        - sustainability_accelerator
+        - sustainablemobility
+        - sustainablesocieties
+        - techtransferfordefense
+        - understand_energy_course
+        - understandenergy
+        - water
+        - witw
+        - woods
+        - woods_water
