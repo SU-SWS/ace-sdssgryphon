@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ede82e19585a111ef0f774d5df3b54f",
+    "content-hash": "ed10692082fa90ce107d554b1659e1de",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16872,16 +16872,10 @@
         {
             "name": "su-sws/sws-drush-commands",
             "version": "1.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SU-SWS/sws-drush-commands.git",
-                "reference": "2a0fbc9ac8b0f79280acec38b29b2b68af89c425"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/sws-drush-commands/zipball/2a0fbc9ac8b0f79280acec38b29b2b68af89c425",
-                "reference": "2a0fbc9ac8b0f79280acec38b29b2b68af89c425",
-                "shasum": ""
+                "type": "path",
+                "url": "/home/joegl/repo-no-www/sws-drush-commands",
+                "reference": "2a0fbc9ac8b0f79280acec38b29b2b68af89c425"
             },
             "require": {
                 "acquia/drupal-environment-detector": "^1.7",
@@ -16895,14 +16889,12 @@
             "replace": {
                 "drupal/artifact_deployment": "*"
             },
-            "default-branch": true,
             "type": "drupal-drush",
             "autoload": {
                 "psr-4": {
                     "Drupal\\SwsDrush\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -16912,7 +16904,10 @@
                 "issues": "https://github.com/SU-SWS/sws-drush-commands/issues",
                 "source": "https://github.com/SU-SWS/sws-drush-commands"
             },
-            "time": "2025-06-02T20:25:06+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "symfony/cache",
