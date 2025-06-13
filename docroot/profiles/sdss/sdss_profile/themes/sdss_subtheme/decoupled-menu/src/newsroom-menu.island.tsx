@@ -107,7 +107,6 @@ const MobileMenuWrapper = styled.div<{ open?: boolean, level?: number }>`
 `
 
 const SearchContainer = styled.li`
-  order: -1;
 
   a {
     display: block;
@@ -121,17 +120,28 @@ const SearchContainer = styled.li`
     width: fit-content;
     margin: 0px auto 38px auto;
 
-    &:focus, &:hover, &:active {
+    &:hover, &:active {
       box-shadow: none;
       color: #155F65;
       outline: none;
       border-radius: 999px;
     }
+    &:focus {
+      outline: 2px solid #FFFFFF;
+      outline-offset: 2px;
+      background: #e0f7fa;
+    }
+  }
+
+  &.mobile-search {
+    display: block;
+  }
+  &.desktop-search {
+    display: none;
   }
 
 
   @media (min-width: 992px) {
-    order: 6;
 
     svg {
       margin-right: 10px;
@@ -148,12 +158,24 @@ const SearchContainer = styled.li`
       border-radius: 32px;
       padding: 8px 18px 10px;
 
-      &:focus, &:hover, &:active {
+      &:hover, &:active {
         box-shadow: none;
         color: #155F65;
-        outline: none;
         border-radius: 999px;
+        outline: none;
       }
+      &:focus {
+        outline: 2px solid #155F65;
+        outline-offset: 2px;
+        background: #e0f7fa;
+      }
+    }
+
+    &.mobile-search {
+      display: none;
+    }
+    &.desktop-search {
+      display: block;
     }
 
   }
@@ -190,8 +212,13 @@ export const NewsroomMenu = ({}) => {
   if (!menuTree.items || menuTree.items?.length === 0) return <div/>;
 
   // Remove the default newroom menu.
-  const existingMenu = document.getElementsByClassName('menu--newsroom')[0].getElementsByClassName('menu')[0];
-  existingMenu.remove();
+  const menuNewsroom = document.getElementsByClassName('menu--newsroom')[0];
+  if (menuNewsroom) {
+    const existingMenu = menuNewsroom.getElementsByClassName('menu')[0];
+    if (existingMenu) {
+      existingMenu.remove();
+    }
+  }
 
   return (
     <OutsideClickHandler
@@ -213,13 +240,21 @@ export const NewsroomMenu = ({}) => {
 
 
         <TopList open={menuOpen}>
-          <SearchContainer>
+          {/* Mobile: Search All News button at the top */}
+          <SearchContainer className="mobile-search">
             <a href="/news/search">
               <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
               Search all news
             </a>
           </SearchContainer>
           {menuTree.items.map(item => <MenuItem key={item.id} {...item} />)}
+          {/* Desktop: Search All News button after all menu links */}
+          <SearchContainer className="desktop-search">
+            <a href="/news/search">
+              <MagnifyingGlass style={{ width: "18px", height: "18px", margin: "5px 15px 0 0"}} />
+              Search all news
+            </a>
+          </SearchContainer>
           <MobileMenuWrapper></MobileMenuWrapper>
         </TopList>
       </Nav>
