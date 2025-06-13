@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.editorial_sidebar.su_hide_sidebar_title
     - field.field.paragraph.editorial_sidebar.su_sidebar_bgcolor_alt
     - field.field.paragraph.editorial_sidebar.su_sidebar_body
     - field.field.paragraph.editorial_sidebar.su_sidebar_title
@@ -64,3 +65,4 @@ content:
     region: content
 hidden:
   search_api_excerpt: true
+  su_hide_sidebar_title: true
