@@ -42,13 +42,7 @@
 
       }
     }
-
-    > section:last-of-type {
-      @include grid-media('lg') {
-        @include padding(3.6rem null null null);
-      }
-    }
-
+    
     .su-lockup {
       @include grid-media('lg') {
         @include margin(null null null null);

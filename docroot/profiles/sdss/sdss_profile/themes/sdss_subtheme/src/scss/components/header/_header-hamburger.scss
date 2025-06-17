@@ -5,69 +5,12 @@
 .desktop-hamburger {
   header.su-masthead {
     section.su-masthead--inner {
-      display: block;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      max-width: unset;
-
       .su-multi-menu {
-        padding: 0 1.5rem;
-
-        .su-multi-menu__nav-toggle {
-          position: relative;
-          top: -.5rem;
-          right: -.5rem;
-          padding: .5rem 1rem;
-          width: auto;
-          border-radius: unset;
-          text-align: center;
-          background-color: $su-color-white;
-          color: $su-color-black;
-
-          &::after {
-            @include margin(0 auto);
-            display: inline-block;
-            width: 30px;
-            height: 26px;
-            background: url("../../assets/svg/hamburger-black.svg") no-repeat 3px 0;
-            content: "";
-          }
-
-          &:focus,
-          &:hover {
-            &:before {
-              background-color: $su-color-white;
-            }
-          }
-
-          &[aria-expanded=true] {
-            &:before {
-              background-color: $su-color-white;
-            }
-
-            &:focus,
-            &:hover {
-              &:before {
-                background-color: $su-color-white;
-              }
-            }
-
-            &::after {
-              width: 30px;
-              height: 26px;
-              background: url("../../assets/svg/close.svg") no-repeat 3px 0;
-              height: 24px;
-              width: 22px;
-              background-size: 16px 16px;
-            }
-          }
-        }
+        padding: 0 1.5rem;        
       }
     }
 
     .su-lockup {
-      display: inline-block;
       flex: unset;
       max-width: unset;
       margin: 0;
@@ -116,25 +59,13 @@
     header.su-masthead {
       section.su-masthead--inner {
         #sdss-button--search-link {
-          align-self: center;
-          background-color: $sdss-color-palo-alto-dark;
-          border-radius: 32px;
-          bottom: unset;
-          display: block;
-          top: unset;
-          right: 0;
-          left: unset;
-          margin: -4.5rem 1.5rem 0 3rem;
-          position: relative;
-          min-width: 32px;
-          min-height: 32px;
-          z-index: 100;
-          float: right;
+          display: none;
         }
 
         .system-menu-block {
           position: absolute;
           bottom: 0;
+          z-index: 103;
         }
       }
 
@@ -184,6 +115,12 @@
             padding: 1rem;
           }
         }
+
+        .system-menu-block {
+          right: 0;
+          width: auto;
+          min-width: 600px;
+        }
       }
 
       .su-lockup {
@@ -214,7 +151,6 @@
     }
   }
 
-  // Styles for Extra Large or bigger Screens.
   @include grid-media-min('xl') {
     header.su-masthead {
       section.su-masthead--inner {
