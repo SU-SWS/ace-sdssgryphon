@@ -11,8 +11,10 @@ use Drupal\node\NodeInterface;
  * Prepares variables for the html.html.twig template.
  */
 function sdss_subtheme_preprocess_html(&$variables) {
-  // Add desktop hamburger class for testing
-  $variables['attributes']['class'][] = 'desktop-hamburger';
+  // Add class for desktop hamburger menu if enabled.
+  if (theme_get_setting('desktop_hamburger')) {
+    $variables['attributes']['class'][] = 'desktop-hamburger';
+  }
 
   $variables['stanford_basic_path'] = \Drupal::service('extension.list.theme')->getPath('stanford_basic');
   // Variant setting for the header layout.
