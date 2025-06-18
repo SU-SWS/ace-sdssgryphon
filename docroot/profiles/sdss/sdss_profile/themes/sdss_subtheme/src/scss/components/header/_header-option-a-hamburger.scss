@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+// Hamburger menu styles for desktop and mobile navigation.
+// Applies to .desktop-hamburger wrapper when hamburger menu is enabled.
+body.desktop-hamburger {
+  &.sdss-header-variant--option_a {
+    header.su-masthead {
+      section.su-masthead--inner {
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: unset;      
+      
+        .system-menu-block {
+          z-index: unset;
+        }
+
+        .su-multi-menu {
+          padding: 0 1.5rem;
+
+          .su-multi-menu__nav-toggle {
+            position: relative;
+            top: -.5rem;
+            right: -.5rem;
+            padding: .5rem 1rem;
+            width: auto;
+            border-radius: unset;
+            text-align: center;
+            background-color: $su-color-white;
+            color: $su-color-black;
+
+            &::after {
+              @include margin(0 auto);
+              display: inline-block;
+              width: 30px;
+              height: 26px;
+              background: url("../../assets/svg/hamburger-black.svg") no-repeat 3px 0;
+              content: "";
+            }
+
+            &:focus,
+            &:hover {
+              &:before {
+                background-color: $su-color-white;
+              }
+            }
+
+            &[aria-expanded=true] {
+              &:before {
+                background-color: $su-color-white;
+              }
+
+              &:focus,
+              &:hover {
+                &:before {
+                  background-color: $su-color-white;
+                }
+              }
+
+              &::after {
+                width: 30px;
+                height: 26px;
+                background: url("../../assets/svg/close.svg") no-repeat 3px 0;
+                height: 24px;
+                width: 22px;
+                background-size: 16px 16px;
+              }
+            }
+          }
+        }
+      }
+
+      .su-lockup {
+        display: inline-block;
+      }
+    }
+
+    @include grid-media-min('md') {
+      header.su-masthead {
+        section.su-masthead--inner {
+          .system-menu-block {
+            right: auto;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    // Logo alignment on left/right.
+    header.su-masthead {
+      .su-lockup {
+        .su-lockup__cell1 {
+          @include grid-media-min('xs') {
+            padding: 1.5rem 2rem;
+          }
+          @include grid-media-min('sm') {
+            padding: 1.5rem 3rem;
+          }
+          @include grid-media-min('md') {
+            padding: 1.5rem 5rem;
+          }
+          @include grid-media-min('lg') {
+            padding: 1.5rem 8rem;
+          }
+          @include grid-media-min('xl') {
+            padding: 1.5rem 10rem;
+          }
+        }
+      }
+    }
+  }
+}
