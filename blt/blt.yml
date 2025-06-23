@@ -32,6 +32,7 @@ multisites:
   - eiper
   - energy
   - energy_transition_analysis
+  - energynexus
   - environment_ecosystems
   - environmentalbehavior
   - environmentalpolicy
@@ -44,7 +45,6 @@ multisites:
   - fuels
   - geophysics
   - gep
-  - gese
   - gfi
   - gs
   - hackingfordefense
@@ -54,6 +54,7 @@ multisites:
   - hydrogen
   - naturalcapitalproject
   - ngi
+  - nuclear
   - nza
   - oceans
   - planetary
@@ -68,7 +69,6 @@ multisites:
   - sfi
   - storagex
   - strategic_energy_alliance
-  - sunproject
   - sustainability
   - sustainability_accelerator
   - sustainablemobility

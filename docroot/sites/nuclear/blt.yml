@@ -1,0 +1,12 @@
+project:
+  machine_name: nuclear
+  human_name: nuclear
+  local:
+    protocol: http
+    hostname: local.nuclear.com
+drush:
+  aliases:
+    local: nuclear.local
+    remote: nuclear.prod
+drupal:
+  db: {  }
