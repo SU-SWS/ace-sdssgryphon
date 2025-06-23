@@ -1,0 +1,12 @@
+project:
+  machine_name: energynexus
+  human_name: energynexus
+  local:
+    protocol: http
+    hostname: local.energynexus.com
+drush:
+  aliases:
+    local: energynexus.local
+    remote: energynexus.prod
+drupal:
+  db: {  }
