@@ -23,7 +23,6 @@ cm:
 multisites:
   - abc_hub
   - bitsandwatts
-  - carbon_removal
   - cepp
   - changeleadership
   - climate
@@ -33,6 +32,7 @@ multisites:
   - eiper
   - energy
   - energy_transition_analysis
+  - energynexus
   - environment_ecosystems
   - environmentalbehavior
   - environmentalpolicy
@@ -42,6 +42,7 @@ multisites:
   - explore_energy
   - extreme_energy_efficiency
   - farm
+  - fuels
   - geophysics
   - gep
   - gfi
@@ -51,9 +52,9 @@ multisites:
   - hopkinsmarinestation
   - hph
   - hydrogen
-  - mce2050
   - naturalcapitalproject
   - ngi
+  - nuclear
   - nza
   - oceans
   - planetary
@@ -62,7 +63,6 @@ multisites:
   - sdssrooms
   - sdsssandbox
   - sdssuserguide
-  - seca
   - seepac
   - sepf
   - sesur

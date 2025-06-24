@@ -4,9 +4,9 @@ module:
   auto_entitylabel: -100
   address: 0
   admin_toolbar: 0
-  admin_toolbar_links_access_filter: 0
   admin_toolbar_tools: 0
   autologout: 0
+  better_exposed_filters: 0
   block: 0
   block_content: 0
   book: 0
@@ -62,7 +62,6 @@ module:
   field_permissions: 0
   field_ui: 0
   field_validation: 0
-  field_validation_legacy: 0
   file: 0
   file_mdm: 0
   file_mdm_exif: 0
@@ -170,6 +169,7 @@ module:
   sdss_entities: 0
   sdss_layout_paragraphs: 0
   sdss_news_sharing: 0
+  sdss_workgroup_tagging: 0
   search_api: 0
   search_api_db: 0
   seckit: 0

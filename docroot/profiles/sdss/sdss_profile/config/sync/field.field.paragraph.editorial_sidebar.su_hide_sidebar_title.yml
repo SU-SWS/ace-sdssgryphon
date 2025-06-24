@@ -1,0 +1,21 @@
+uuid: 6463dfe9-d210-46df-8496-ead7bf9692e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_hide_sidebar_title
+    - paragraphs.paragraphs_type.editorial_sidebar
+id: paragraph.editorial_sidebar.su_hide_sidebar_title
+field_name: su_hide_sidebar_title
+entity_type: paragraph
+bundle: editorial_sidebar
+label: 'Hide Sidebar Title'
+description: 'Hide the sidebar title visually. The title will remain for screen readers. It is important to provide a relevant and descriptive title, even if it is hidden from visual display.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

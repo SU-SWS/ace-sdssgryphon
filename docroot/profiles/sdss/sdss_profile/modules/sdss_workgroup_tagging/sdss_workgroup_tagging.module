@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains sdss_workgroup_tagging.module.
+ */
+
+/**
+ * Implements hook_cron().
+ */
+function sdss_workgroup_tagging_cron() {
+  $config = \Drupal::config('sdss_workgroup_tagging.settings');
+  if (!$config->get('enabled')) {
+    // Module is disabled, do not run functionality.
+    return;
+  }
+  $tagger = \Drupal::service('sdss_workgroup_tagging.util');
+  $success = ' did not';
+  if ($tagger->tagPersons()) {
+    $success = '';
+  }
+  \Drupal::logger('sdss_workgroup_tagging')
+    ->info('Workgroup tagging@success ran successfully.', ['@group' => $success]);
+}

@@ -1,0 +1,29 @@
+sdss_workgroup_tagging.settings:
+  type: mapping
+  label: 'SDSS Workgroup Tagging settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enable Workgroup Tagging'
+    tags:
+      type: sequence
+      label: 'Tags'
+      sequence:
+        type: mapping
+        mapping:
+          workgroup:
+            type: string
+            label: 'Workgroup'
+          org-tag-term:
+            type: sequence
+            label: 'Org Tag Terms'
+            sequence:
+              type: integer
+          person-tag-term:
+            type: sequence
+            label: 'Person Tag Terms'
+            sequence:
+              type: integer
+          auto-removal:
+            type: boolean
+            label: 'Auto Removal'

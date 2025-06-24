@@ -4,6 +4,6 @@
 {%- set attributes = attributes.addClass(['sidebar', background_color, selectedFontSize]) -%}
 
 <aside {{ attributes }}>
-    {{ content.su_sidebar_title }}
+    {{ content.su_sidebar_title|add_class(paragraph.su_hide_sidebar_title.value ? 'visually-hidden' : '') }}
     {{ content.su_sidebar_body }}
 </aside>

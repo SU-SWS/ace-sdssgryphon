@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.js .menu--newsroom .menu {
+  // Hide the original menu when JS is enabled.
+  display: none;
+}
+
 .newsroom-wrapper {
 
   @include grid-media-min('lg') {
