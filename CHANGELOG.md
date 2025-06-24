@@ -7,6 +7,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.11.0] - 2025-06-24
+
+### Added
+e347324 SDSS-0000: Update stanford_earth_r25 room reservation module to 8.1.15 (#606)
+5dce56e SDSS-856: Add field to conditionally hide the editorial sidebar title (#604)
+855abb4 SDSS-1524, SDSS-1525, SDSS-1526: Provisioned fuels, gese, and sunproject (#601)
+2b3b9e7 SDSS-1347 Add sdss_workgroup_tagging.settings to config_readonly whitelist (#600)
+b2218df SDSS-1347: Workgroup auto-tagging (#581)
+9d7335f Added database and branch clean-up workflows (#591)
+4e1ca9c SDSS-1489, SDSS-1509: Create All News feed and add date/time to News This Week feed (#598)
+ec02925 Add site retirement documentation (#597)
+e5306b4 Added provisioning and requirements documentation (#595)
+d0695ef SDSS-1518: Enable Better Exposed Filters module (#594)
+5fc81ea SDSS-1518: Add and enable Better Exposed Filters module (#592)
+
+### Changed
+0fc670e SDSS-1525,SDSS-1526: Re-provision sites with new aliases (nuclear, energynexus) (#607)
+
+### Deprecated
+None.
+
+### Removed
+9de1463 SDSS-1493, SDSS-1494, SDSS-1495: Removed mce2050, seca, and carbon_removal sites (#596)
+
+### Fixed
+05f28e7 SDSS-1189: Hide original newsroom menu when JS is enabled (#603)
+b8a4b1b SDSS-1444, SDSS-1189: A11y | Fix newsroom search button; Fix newsroom menu page load flashing (#602)
+1030948 Fix clean-up workflow ssh_key variable.
+
+### Security
+755b230 SDSS-1517: Routine maintenance (#599)
+
+### Maintenance
+0d588b4 SDSS-1513: Add Akamai SureRoute test objects (#608)
+755b230 SDSS-1517: Routine maintenance (#599)
+
+
 ## [4.10.1] - 2025-05-21
 
 ### Added
