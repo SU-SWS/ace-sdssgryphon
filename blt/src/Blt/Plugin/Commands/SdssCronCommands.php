@@ -19,10 +19,10 @@ class SdssCronCommands extends BltTasks {
   }
 
   /**
-   * Run the Drupal Scheduler cron on all sites.
+   * Run the Drupal Scheduler cron on all sites to publish/unpublish nodes.
    *
-   * This handles nodes scheduled to be published or unpublished and needs to
-   * be run more frequently than most cron tasks.
+   * Because this handles nodes scheduled to be published or unpublished and 
+   * needs to be run more frequently than most cron tasks it is separated out.
    *
    * @command sdss:drupal:cron:scheduler
    */
