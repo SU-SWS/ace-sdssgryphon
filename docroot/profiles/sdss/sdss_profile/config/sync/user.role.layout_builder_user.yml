@@ -26,7 +26,7 @@ label: 'Layout Builder User'
 weight: 1
 is_admin: false
 permissions:
-  - 'access patterns page'
+  - 'access components page'
   - 'configure editable stanford_event node layout overrides'
   - 'configure editable stanford_event_series node layout overrides'
   - 'configure editable stanford_event_types taxonomy_term layout overrides'

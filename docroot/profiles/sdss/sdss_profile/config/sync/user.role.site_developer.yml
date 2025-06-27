@@ -105,6 +105,7 @@ is_admin: false
 permissions:
   - 'access administration pages'
   - 'access block library'
+  - 'access components page'
   - 'access config_pages overview'
   - 'access content overview'
   - 'access contextual links'
@@ -113,7 +114,6 @@ permissions:
   - 'access files overview'
   - 'access help pages'
   - 'access media overview'
-  - 'access patterns page'
   - 'access site reports'
   - 'access taxonomy overview'
   - 'access toolbar'
