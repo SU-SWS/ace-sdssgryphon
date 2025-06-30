@@ -116,7 +116,10 @@ class WYSIWYGCest {
     $I->waitForText($node->getTitle());
     $I->canSeeLink($url);
 
-    $I->canSeeNumberOfElements('.su-wysiwyg-text td', 15);
+    // Check table structure. It's a 5 row, 3 column table, however the first
+    // row is a header row which uses <th> instead of <td>.
+    $I->canSeeNumberOfElements('.su-wysiwyg-text td', 12);
+    $I->canSeeNumberOfElements('.su-wysiwyg-text th', 3);
     $I->canSeeNumberOfElements('.su-wysiwyg-text tr', 5);
   }
 
