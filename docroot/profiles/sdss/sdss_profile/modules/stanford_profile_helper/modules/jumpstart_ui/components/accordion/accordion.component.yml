@@ -1,0 +1,15 @@
+name: Accordion
+description: 'Collapsible accordion.'
+slots:
+  title:
+    title: Title
+    description: 'Accordion Title'
+  contents:
+    title: Contents
+    description: 'The contents of the accordion body.'
+libraryOverrides:
+  css:
+    component:
+      ../../../dist/css/accordion.css: {  }
+  dependencies:
+    - core/drupal.collapse

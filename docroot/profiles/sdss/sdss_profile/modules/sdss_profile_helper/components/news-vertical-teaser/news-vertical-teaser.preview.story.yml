@@ -1,0 +1,10 @@
+name: Preview
+slots:
+  news_vertical_teaser_image: "<img src='https://picsum.photos/900/900/' alt='Example Image' />"
+  news_vertical_teaser_headline: 'This is a headline'
+  news_list_publishing_date: 'This is the published date.'
+  news_topics: 'Link to taxonomy terms'
+  news_source: 'I am a link'
+  news_dek: 'This is a dek'
+  news_url: 'http://www.stanford.edu/'
+  news_external_url: 'http://www.stanford.edu/'

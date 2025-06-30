@@ -5,7 +5,6 @@ package: Stanford
 version: 9.6.15
 core_version_requirement: ^10.3 || ^11
 dependencies:
-  - components:components
   - drupal:block
   - drupal:breakpoint
   - ds:ds
@@ -15,5 +14,5 @@ dependencies:
 
 components:
   namespaces:
-    jumpstart_ui: templates
+    # jumpstart_ui: templates
     decanter: dist/templates/decanter

@@ -1,0 +1,15 @@
+name: 'SDSS Media Contact'
+description: 'Component for displaying a single media contact.'
+slots:
+  media_contact_name:
+    title: 'Media Contact Name'
+    description: 'The media contact name.'
+  media_contact_email:
+    title: 'Media Contact Email'
+    description: 'The media contact email address.'
+  media_contact_phone:
+    title: 'Media Contact Phone Number'
+    description: 'The media contact phone number.'
+  media_contact_org:
+    title: 'Media Contact Organization or School'
+    description: 'The media contact organization or school.'

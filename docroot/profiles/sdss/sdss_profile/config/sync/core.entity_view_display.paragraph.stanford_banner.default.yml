@@ -18,7 +18,7 @@ dependencies:
 third_party_settings:
   ds:
     layout:
-      id: pattern_hero
+      id: 'ui_patterns:jumpstart_ui:hero'
       library: null
       disable_css: false
       entity_classes: all_classes

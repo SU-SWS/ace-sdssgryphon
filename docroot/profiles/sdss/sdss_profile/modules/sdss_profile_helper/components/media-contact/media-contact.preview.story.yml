@@ -1,0 +1,6 @@
+name: Preview
+slots:
+  media_contact_name: 'John Muir'
+  media_contact_email: donotuse@this.email
+  media_contact_phone: 123-456-7890
+  media_contact_org: 'The Sierra Club'

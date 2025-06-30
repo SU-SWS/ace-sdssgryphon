@@ -1,0 +1,92 @@
+{#
+/**
+ * @file
+ * News Vertical Teaser.
+ *
+ * Vertical Teaser for News
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - news_vertical_teaser_image: Hero image for card
+ * - news_vertical_teaser_headline: Title of card
+ * - news_topics: Topic selected. Dynamically altered vi news-banner.js
+ * - news_source: The source field.
+ * - news_url: A url to wrap the image and heading with
+ */
+#}
+
+{%-
+  set classes = [
+    'su-card',
+    'su-news-vertical-teaser',
+    modifier_class
+  ]
+-%}
+
+{%- set news_url_link_type = "su-link--action" -%}
+
+{# If the news source url is set go there instead of the default. #}
+{%- if news_external_url|render|striptags("<drupal-render-placeholder>")|trim is not empty -%}
+  {%- set news_url = news_external_url -%}
+  {%- set classes = classes|merge(['su-news-external']) -%}
+  {%- set news_url_link_type = "su-link--external" -%}
+{%- endif %}
+
+{% set news_url = news_url|render|striptags("<drupal-render-placeholder>")|trim %}
+
+{%- if news_url_attributes is empty -%}
+  {% set news_url_attributes = create_attribute() -%}
+{%- endif -%}
+
+TEST STRING
+
+<article{{ attributes.addClass(classes) }}>
+  {%- if news_url is not empty and news_vertical_teaser_image|render|striptags("<drupal-render-placeholder> <img>")|trim is not empty -%}
+    <div class="su-figure__wrapper">
+      <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}" tabindex="-1" aria-hidden="true">
+        <figure class="su-media su-media--image su-card__media">
+          <div class="su-media__wrapper">
+            {{- news_vertical_teaser_image -}}
+          </div>
+        </figure>
+      </a>
+    </div>
+  {%- endif -%}
+  <div class="su-content__wrapper">
+    <div class="su-news-header">
+      {%- if news_url is not empty -%}
+        <a {{ news_url_attributes.addClass('su-news-vertical-teaser__link') }} href="{{ news_url }}">
+      {%- endif -%}
+      <h2>
+        {{- news_vertical_teaser_headline -}}
+      </h2>
+      {%- if news_url is not empty -%}
+        </a>
+      {%- endif -%}
+      {%- if news_list_publishing_date is not empty -%}
+        <div class="news-vertical-teaser__pub-date">{{ news_list_publishing_date }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- if news_dek|render|striptags('<drupal-render-placeholder>')|trim is not empty -%}
+      <div class="su-card__contents">
+        {{ news_dek }}
+      </div>
+    {%- endif -%}
+
+    {% if news_source|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+      <div class="news-vertical-teaser__source">
+        {{ news_source }}
+      </div>
+    {%- endif -%}
+
+    {% if news_topics|render|striptags('<drupal-render-placeholder>')|trim is not empty %}
+      <div class="news-vertical-teaser__topics">
+        {{ news_topics }}
+      </div>
+    {%- endif -%}
+    {%- if news_footer is not empty -%}
+      <div class="news-vertical-teaser__footer">{{ news_footer }}</div>
+    {%- endif -%}
+  </div>
+</article>

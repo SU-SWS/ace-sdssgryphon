@@ -1,0 +1,30 @@
+name: 'SDSS News Vertical Teaser'
+description: 'News Vertical Teaser'
+slots:
+  news_vertical_teaser_image:
+    title: Image
+    description: 'The vertical teaser image.'
+  news_vertical_teaser_headline:
+    title: Headline
+    description: 'Text heading'
+  news_list_publishing_date:
+    title: Date
+    description: 'Publishing date'
+  news_topics:
+    title: Topics
+    description: 'Associated terms from the topics taxonomy'
+  news_source:
+    title: Source
+    description: 'The source field.'
+  news_dek:
+    title: Dek
+    description: 'The dek field.'
+  news_url:
+    title: 'URL for item'
+    description: 'URL for image and heading'
+  news_external_url:
+    title: 'External URL for item'
+    description: 'URL for image and heading'
+  news_footer:
+    title: Footer
+    description: 'The footer area.'

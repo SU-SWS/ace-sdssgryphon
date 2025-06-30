@@ -1,0 +1,46 @@
+name: Hero
+description: 'A big graphic element for use as a focal point or a large video.'
+variants:
+  default:
+    title: Default
+    description: Default
+  youtube:
+    title: 'Youtube Video'
+    description: 'A youtube video in the background.'
+slots:
+  hero_image:
+    title: Image
+    description: 'A full HTML entity for an image. Can be img or picture.'
+  hero_media:
+    title: Media
+    description: 'iframe or HTML5 video players'
+  hero_super_headline:
+    title: 'Super Headline'
+    description: 'Text heading'
+  hero_headline:
+    title: Headline
+    description: 'The text headline'
+  hero_headline_tag:
+    title: 'Headline Tag'
+    description: 'Tag element for the headline'
+  hero_body:
+    title: Content
+    description: 'An open variable for anything. Generally this would be for WYSIWYG editor contents.'
+  hero_cta_link:
+    title: 'CTA Link'
+    description: 'The href value for the cta field link'
+  hero_cta_attributes:
+    title: 'CTA element attributes'
+    description: 'Any html attributes on the cta link that need to be added. For example: _target.'
+  hero_cta_label:
+    title: 'CTA Label'
+    description: 'The clickable text for the CTA link'
+  hero_button_link:
+    title: 'Button Link'
+    description: 'The href property of the button element'
+  hero_button_label:
+    title: 'Button Label'
+    description: 'The text label of the button component.'
+libraryOverrides:
+  dependencies:
+    - jumpstart_ui/components.hero

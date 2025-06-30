@@ -5,9 +5,4 @@ core_version_requirement: ^10.3 || ^11
 package: 'sdss'
 
 dependencies:
-  - components:components
   - ui_patterns:ui_patterns
-
-components:
-  namespaces:
-    sdss_profile_helper: templates
