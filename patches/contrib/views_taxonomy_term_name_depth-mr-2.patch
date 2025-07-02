@@ -1,41 +1,21 @@
-From 38a409c77a3435dac8e39637bb94f4835bd569d3 Mon Sep 17 00:00:00 2001
-From: Mike Decker <pookmish@gmail.com>
-Date: Wed, 7 Jul 2021 09:54:57 -0700
-Subject: [PATCH 1/2] #2877249 Allow multiple terms in the contextual argument
-
----
- src/Plugin/views/argument/IndexNameDepth.php | 106 ++++++++++---------
- 1 file changed, 57 insertions(+), 49 deletions(-)
-
 diff --git a/src/Plugin/views/argument/IndexNameDepth.php b/src/Plugin/views/argument/IndexNameDepth.php
-index a51f97b..580b56c 100644
+index 1eecd61e69c1f27cc0b0b9404442e09c991d756e..9844bdbd5a8d4ea86c55ad4608c49eceaf568412 100644
 --- a/src/Plugin/views/argument/IndexNameDepth.php
 +++ b/src/Plugin/views/argument/IndexNameDepth.php
-@@ -159,65 +159,30 @@ class IndexNameDepth extends ArgumentPluginBase {
-   public function query($group_by = FALSE) {
-     $this->ensureMyTable();
+@@ -167,68 +167,20 @@ class IndexNameDepth extends ArgumentPluginBase {
  
--    if (!empty($this->options['break_phrase'])) {
--      $break = static::breakString($this->argument);
--      if ($break->value === [-1]) {
--        return FALSE;
-+    $break = static::breakString($this->argument);
-+    if (count($break->value) > 1) {
-+      if (!empty($this->options['break_phrase'])) {
-+        if ($break->value === [-1]) {
-+          return FALSE;
-+        }
-+        $operator = (count($break->value) > 1) ? 'IN' : '=';
-+        $tids = $break->value;
-       }
--
--      $operator = (count($break->value) > 1) ? 'IN' : '=';
--      $tids = $break->value;
+       $operator = (count($break->value) > 1) ? 'IN' : '=';
+       $tids = $break->value;
+-      // To pass argument value to check name.(I create a another variable for
+-      // above same value because i need to make an array of $tids.).
+-      $args = $break->value;
      }
      else {
--      $operator = "=";
-+      $operator = "IN";
+       $operator = "IN";
        $tids = $this->argument;
+-      // To pass argument value to check name.(I create a another variable for
+-      // above same value because i need to make an array of $tids.).
+-      $args = $this->argument;
      }
  
 -    // Now build the subqueries.
@@ -51,10 +31,11 @@ index a51f97b..580b56c 100644
 -
 -        $results = $query->execute()->fetchAll(\PDO::FETCH_OBJ);
 -
+-        $tids = [];
 -        // Iterate results.
 -        foreach ($results as $row) {
--          if ($this->pathautoAliasCleaner->cleanString($row->name) == $this->pathautoAliasCleaner->cleanString($tids)) {
--            $tids = $row->tid;
+-          if ($this->pathautoAliasCleaner->cleanString($row->name) == $this->pathautoAliasCleaner->cleanString($args)) {
+-            $tids[] = $row->tid;
 -          }
 -        }
 -      }
@@ -72,17 +53,20 @@ index a51f97b..580b56c 100644
 -        $query->condition('t.name', $argument, '=');
 -
 -        $results = $query->execute()->fetchAll(\PDO::FETCH_OBJ);
--
+-        $tids = [];
 -        // Iterate results.
 -        foreach ($results as $row) {
--          $tids = $row->tid;
+-          $tids[] = $row->tid;
 -        }
 -      }
+-    }
+-    // Condition to avoid error when $tids is empty because we cannot return an
+-    // empty value due to (IN) clause.
 +    $tids = $this->getTidsFromNames(is_string($tids) ? [$tids] : $tids);
-+    if (empty($tids)) {
+     if (empty($tids)) {
+-      $tids = $args;
 +      return FALSE;
      }
- 
      // Now build the subqueries.
      $subquery = $this->database->select('taxonomy_index', 'tn');
      $subquery->addField('tn', 'nid');
@@ -90,7 +74,7 @@ index a51f97b..580b56c 100644
      $where = (new Condition('OR'))->condition('tn.tid', $tids, $operator);
      $last = "tn";
  
-@@ -240,7 +205,50 @@ class IndexNameDepth extends ArgumentPluginBase {
+@@ -251,7 +203,50 @@ class IndexNameDepth extends ArgumentPluginBase {
      }
  
      $subquery->condition($where);
@@ -113,7 +97,7 @@ index a51f97b..580b56c 100644
 +   */
 +  protected function getTidsFromNames(array $names) {
 +
-+    $query = $this->termStorage->getQuery();
++    $query = $this->termStorage->getQuery()->accessCheck();
 +    // Filter by vocabulary ID if one or more are provided.
 +    if (!empty($this->options['vocabularies'])) {
 +      $query->condition('vid', $this->options['vocabularies'], 'IN');
@@ -142,32 +126,3 @@ index a51f97b..580b56c 100644
    }
  
    /**
--- 
-GitLab
-
-
-From f4cd1fe42cfd31e4df94de1441ad9c027e724364 Mon Sep 17 00:00:00 2001
-From: Mike Decker <pookmish@gmail.com>
-Date: Fri, 8 Sep 2023 16:42:57 -0700
-Subject: [PATCH 2/2] add required access check for D10
-
----
- src/Plugin/views/argument/IndexNameDepth.php | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/Plugin/views/argument/IndexNameDepth.php b/src/Plugin/views/argument/IndexNameDepth.php
-index 580b56c..6b80be4 100644
---- a/src/Plugin/views/argument/IndexNameDepth.php
-+++ b/src/Plugin/views/argument/IndexNameDepth.php
-@@ -223,7 +223,7 @@ class IndexNameDepth extends ArgumentPluginBase {
-    */
-   protected function getTidsFromNames(array $names) {
- 
--    $query = $this->termStorage->getQuery();
-+    $query = $this->termStorage->getQuery()->accessCheck();
-     // Filter by vocabulary ID if one or more are provided.
-     if (!empty($this->options['vocabularies'])) {
-       $query->condition('vid', $this->options['vocabularies'], 'IN');
--- 
-GitLab
-
