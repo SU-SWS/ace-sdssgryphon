@@ -41,6 +41,9 @@
 
       <section class="su-masthead--inner">
         {{ page.header }}
+        {%- if page.utility_nav -%}
+          {{ page.utility_nav }}
+        {%- endif -%}
         {{ page.search }}
         {{ page.menu }}
       </section>

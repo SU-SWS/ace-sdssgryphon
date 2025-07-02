@@ -10,6 +10,7 @@ libraries:
 regions:
   page_top: 'Page top'
   header: Header
+  utility_nav: 'Utility nav'
   search: Search
   menu: Menu
   newsroom: Newsroom Menu
