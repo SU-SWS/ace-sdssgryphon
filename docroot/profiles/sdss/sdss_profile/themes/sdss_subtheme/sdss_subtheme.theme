@@ -118,7 +118,7 @@ function sdss_subtheme_preprocess_page(&$variables) {
   $variables['brand_bar_variant'] = 'su-brand-bar--dark';
   $variables['global_footer_variant'] = 'su-global-footer--dark';
 
-  // Display the utility navigation region only if both the desktop hamburger 
+  // Display the utility navigation region only if both the desktop hamburger
   // menu and display utility navigation options are enabled.
   $variables['display_utility_navigation'] = (
     theme_get_setting('desktop_hamburger')
