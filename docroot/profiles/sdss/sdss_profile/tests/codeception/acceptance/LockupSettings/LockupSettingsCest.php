@@ -68,13 +68,7 @@ class LockupSettingsCest {
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
-    $I->uncheckOption('Use Default Lockup');
-    $I->selectOption('Lockup Options', 'a');
     $I->fillField('Line 1', 'Site title line');
-    $I->fillField('Line 2', 'Secondary title line');
-    $I->fillField('Line 3', 'Tertiary title line');
-    $I->fillField('Line 4', 'Organization name');
-    $I->fillField('Line 5', 'Last line full width option');
 
     // Add custom logo.
     $I->uncheckOption('Use the logo supplied by the theme');
@@ -103,13 +97,8 @@ class LockupSettingsCest {
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
-    $I->uncheckOption('Use Default Lockup');
     $I->selectOption('Lockup Options', 'none');
     $I->fillField('Line 1', 'Site title line');
-    $I->fillField('Line 2', 'Secondary title line');
-    $I->fillField('Line 3', 'Tertiary title line');
-    $I->fillField('Line 4', 'Organization name');
-    $I->fillField('Line 5', 'Last line full width option');
 
     // Add custom logo.
     $I->uncheckOption('Use the logo supplied by the theme');
