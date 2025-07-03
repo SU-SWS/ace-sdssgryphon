@@ -100,15 +100,6 @@ function sdss_subtheme_preprocess_banner(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_field().
- */
-function sdss_subtheme_preprocess_field(&$variables) {
-  if ($variables['element']['#field_name'] == 'su_para_row_bgcolor') {
-    $su_paragraph_row__bgcolor = $variables['items'][0]['content']['#markup'];
-  }
-}
-
-/**
  * Implements hook_preprocess_block().
  */
 function sdss_subtheme_preprocess_block(&$variables) {
@@ -127,9 +118,12 @@ function sdss_subtheme_preprocess_page(&$variables) {
   $variables['brand_bar_variant'] = 'su-brand-bar--dark';
   $variables['global_footer_variant'] = 'su-global-footer--dark';
 
-  // Display the utility navigation region if the desktop hamburger menu is
-  // enabled.
-  $variables['display_utility_nav'] = theme_get_setting('desktop_hamburger');
+  // Display the utility navigation region only if both the desktop hamburger 
+  // menu and display utility navigation options are enabled.
+  $variables['display_utility_navigation'] = (
+    theme_get_setting('desktop_hamburger')
+    && theme_get_setting('display_utility_navigation')
+  );
 
   // Implement full-width basic page styles.
   $is_page_node = isset($variables['node']) && $variables['node'] instanceof NodeInterface && $variables['node']->bundle() == 'stanford_page';

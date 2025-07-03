@@ -36,6 +36,18 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
     '#default_value' => theme_get_setting('desktop_hamburger'),
     '#description' => t('Use a hamburger (collapsible) menu on desktop instead of the regular menu with drop-down navigation.'),
   ];
+
+  $form['options_settings']['sdss_subtheme_header_options']['display_utility_navigation'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Display Utility Navigation'),
+    '#default_value' => theme_get_setting('display_utility_navigation'),
+    '#description' => t('Display the utility navigation menu in the header.'),
+    '#states' => [
+      'visible' => [
+        ':input[name="desktop_hamburger"]' => ['checked' => TRUE],
+      ],
+    ],
+  ];
 }
 
 // @codeCoverageIgnoreEnd
