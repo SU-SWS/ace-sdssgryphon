@@ -1,8 +1,15 @@
 @charset "UTF-8";
 
 .su-masthead--inner .menu--utility-navigation {
+  /* Utility navigation menu styles
+   * This menu is used for the utility navigation in the masthead.
+   * As part of Quickstrike 2 in Summer 2025 the decision was made to hide this 
+   * on smaller screens. To re-enable this menu switch "none" to "block" below 
+   * and do comprehensive testing and re-styling to accommodate the different
+   * header options.
+   */
+  display: none;
   position: absolute;
-  display: block;
   margin: 0;
   bottom: 1.25rem;
   right: 8rem;
@@ -81,5 +88,11 @@
         margin: 0;
       }
     }
+  }
+}
+
+@include grid-media-min('lg') {
+  .su-masthead--inner .menu--utility-navigation {
+    display: block;
   }
 }

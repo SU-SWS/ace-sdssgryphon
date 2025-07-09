@@ -76,17 +76,6 @@ body.desktop-hamburger {
       }
     }
 
-    @include grid-media-min('md') {
-      header.su-masthead {
-        section.su-masthead--inner {
-          .system-menu-block {
-            right: auto;
-            width: 100%;
-          }
-        }
-      }
-    }
-
     // Logo alignment on left/right.
     header.su-masthead {
       .su-lockup {
@@ -105,6 +94,30 @@ body.desktop-hamburger {
           }
           @include grid-media-min('xl') {
             padding: 1.5rem 10rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include grid-media-min('md') {
+  body.desktop-hamburger {
+    &.sdss-header-variant--option_a {
+      header.su-masthead {
+        section.su-masthead--inner {
+          .system-menu-block {
+            right: auto;
+            width: 100%;
+          }
+
+          .su-multi-menu {
+            .su-multi-menu__nav-toggle {
+              padding: 1rem;
+              right: 0;
+              top: -1rem;
+            }
           }
         }
       }
