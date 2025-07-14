@@ -53,7 +53,7 @@ class LockupSettingsCest {
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
     $I->checkOption('Use the logo supplied by the theme');
-    $I->fillField('Line 1', 'Site title line');
+    $I->fillField('Site Title', 'Site title line');
     $I->click('Save');
     $I->see('Lockup Settings has been', '.messages-list');
 
@@ -68,7 +68,7 @@ class LockupSettingsCest {
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
-    $I->fillField('Line 1', 'Site title line');
+    $I->fillField('Site Title', 'Site title line');
 
     // Add custom logo.
     $I->uncheckOption('Use the logo supplied by the theme');
@@ -97,7 +97,7 @@ class LockupSettingsCest {
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
-    $I->fillField('Line 1', 'Site title line');
+    $I->fillField('Site Title', 'Site title line');
 
     // Add custom logo.
     $I->uncheckOption('Use the logo supplied by the theme');
