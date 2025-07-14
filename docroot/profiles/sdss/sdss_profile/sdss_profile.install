@@ -59,3 +59,36 @@ function sdss_profile_update_10018() {
     }
   }
 }
+
+/**
+ * Set the default and active theme to sdss_subtheme for the sustainability site
+ * only.
+ */
+function sdss_profile_update_10019() {
+  // Get the current site path.
+  $site_path = \Drupal\Core\DrupalKernel::findSitePath(\Drupal::request());
+  $site_path_parts = explode('/', $site_path);
+  // The site folder is usually the second part (e.g., 'sites/sustainability').
+  $site_name = isset($site_path_parts[1]) ? $site_path_parts[1] : '';
+
+  var_dump($site_name);
+
+  if ($site_name === 'sustainability') {
+    // Set the default theme.
+    \Drupal::configFactory()->getEditable('system.theme')
+      ->set('default', 'sdss_subtheme')
+      ->save();
+
+    // Set the active theme in state (for runtime changes).
+    \Drupal::state()->set('theme.default', 'sdss_subtheme');
+
+    // Enable theme settings: desktop_hamburger and display_utility_navigation.
+    $theme_settings = \Drupal::configFactory()->getEditable('sdss_subtheme.settings');
+    $theme_settings
+      ->set('desktop_hamburger', TRUE)
+      ->set('display_utility_navigation', TRUE)
+      ->save();
+
+    \Drupal::logger('sdss_profile')->info('Default and active theme set to sdss_subtheme for sustainability site. Theme settings desktop_hamburger and display_utility_navigation enabled.');
+  }
+}
