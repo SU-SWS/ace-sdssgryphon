@@ -71,8 +71,6 @@ function sdss_profile_update_10019() {
   // The site folder is usually the second part (e.g., 'sites/sustainability').
   $site_name = isset($site_path_parts[1]) ? $site_path_parts[1] : '';
 
-  var_dump($site_name);
-
   if ($site_name === 'sustainability') {
     // Set the default theme.
     \Drupal::configFactory()->getEditable('system.theme')
