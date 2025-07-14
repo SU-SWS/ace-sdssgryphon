@@ -97,7 +97,6 @@ class LockupSettingsCest {
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
-    $I->selectOption('Lockup Options', 'none');
     $I->fillField('Line 1', 'Site title line');
 
     // Add custom logo.
