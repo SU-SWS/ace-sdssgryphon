@@ -61,15 +61,14 @@ function sdss_profile_update_10018() {
 }
 
 /**
- * Set the default and active theme to sdss_subtheme for the sustainability site
- * only.
+ * Set the default theme to sdss_subtheme for the sustainability site.
  */
 function sdss_profile_update_10019() {
   // Get the current site path.
-  $site_path = \Drupal\Core\DrupalKernel::findSitePath(\Drupal::request());
+  $site_path = DrupalKernel::findSitePath(\Drupal::request());
   $site_path_parts = explode('/', $site_path);
   // The site folder is usually the second part (e.g., 'sites/sustainability').
-  $site_name = isset($site_path_parts[1]) ? $site_path_parts[1] : '';
+  $site_name = $site_path_parts[1] ?? '';
 
   if ($site_name === 'sustainability') {
     // Set the default theme.
