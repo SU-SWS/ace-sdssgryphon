@@ -1,0 +1,34 @@
+uuid: f14240e5-5862-4b87-9431-271aef9dade7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility-navigation
+  module:
+    - menu_block
+  theme:
+    - sdss_subtheme
+id: sdss_subtheme_utilitynavigation
+theme: sdss_subtheme
+region: utility_nav
+weight: 0
+provider: null
+plugin: 'menu_block:utility-navigation'
+settings:
+  id: 'menu_block:utility-navigation'
+  label: 'Utility Navigation'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  display_empty: false
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'utility-navigation:'
+  render_parent: false
+  suggestion: utility_navigation
+  hide_on_nonactive: false
+visibility: {  }

@@ -11,6 +11,11 @@ use Drupal\node\NodeInterface;
  * Prepares variables for the html.html.twig template.
  */
 function sdss_subtheme_preprocess_html(&$variables) {
+  // Add class for desktop hamburger menu if enabled.
+  if (theme_get_setting('desktop_hamburger')) {
+    $variables['attributes']['class'][] = 'desktop-hamburger';
+  }
+
   $variables['stanford_basic_path'] = \Drupal::service('extension.list.theme')->getPath('stanford_basic');
   // Variant setting for the header layout.
   if ($header_layout_variant = theme_get_setting('header_layout_variant')) {
@@ -95,15 +100,6 @@ function sdss_subtheme_preprocess_banner(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_field().
- */
-function sdss_subtheme_preprocess_field(&$variables) {
-  if ($variables['element']['#field_name'] == 'su_para_row_bgcolor') {
-    $su_paragraph_row__bgcolor = $variables['items'][0]['content']['#markup'];
-  }
-}
-
-/**
  * Implements hook_preprocess_block().
  */
 function sdss_subtheme_preprocess_block(&$variables) {
@@ -116,23 +112,30 @@ function sdss_subtheme_preprocess_block(&$variables) {
 /**
  * Implements hook_preprocess_page().
  */
-function sdss_subtheme_preprocess_page(&$vars) {
+function sdss_subtheme_preprocess_page(&$variables) {
   // Override the variant settings for the brand bar and global footer.
   // These need to allows be the "dark" variants for the SDSS subtheme.
-  $vars['brand_bar_variant'] = 'su-brand-bar--dark';
-  $vars['global_footer_variant'] = 'su-global-footer--dark';
+  $variables['brand_bar_variant'] = 'su-brand-bar--dark';
+  $variables['global_footer_variant'] = 'su-global-footer--dark';
+
+  // Display the utility navigation region only if both the desktop hamburger
+  // menu and display utility navigation options are enabled.
+  $variables['display_utility_navigation'] = (
+    theme_get_setting('desktop_hamburger')
+    && theme_get_setting('display_utility_navigation')
+  );
 
   // Implement full-width basic page styles.
-  $is_page_node = isset($vars['node']) && $vars['node'] instanceof NodeInterface && $vars['node']->bundle() == 'stanford_page';
+  $is_page_node = isset($variables['node']) && $variables['node'] instanceof NodeInterface && $variables['node']->bundle() == 'stanford_page';
 
   if (!$is_page_node) {
     return;
   }
 
-  $has_layout_field = $vars['node']->hasField('layout_selection') && $vars['node']->get('layout_selection')->getString() == 'stanford_basic_page_full';
+  $has_layout_field = $variables['node']->hasField('layout_selection') && $variables['node']->get('layout_selection')->getString() == 'stanford_basic_page_full';
 
   if ($has_layout_field) {
-    $vars['#attached']['library'][] = 'sdss_subtheme/basic-page-full-width';
+    $variables['#attached']['library'][] = 'sdss_subtheme/basic-page-full-width';
   }
 }
 

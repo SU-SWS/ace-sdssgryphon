@@ -39,8 +39,7 @@ class GryphonCommands extends BltTasks {
    *
    * @command sdss:role-report
    */
-  public function roleReport($role)
-  {
+  public function roleReport($role) {
     $information = [];
     foreach ($this->getConfigValue('multisites') as $site) {
       $emails = $this->taskDrush()

@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
-// Header Option A variant styles (currently Blue Header, Right Navigation).
-
+// Header Option A variant styles: Blue Header, Right Navigation
 body.sdss-header-variant--option_a {
   header.su-masthead {
     section.su-masthead--inner {
@@ -9,7 +8,6 @@ body.sdss-header-variant--option_a {
         .su-multi-menu__nav-toggle {
           background-color: unset;
           color: $su-color-black;
-
           &:after {
             background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
           }
@@ -25,27 +23,10 @@ body.sdss-header-variant--option_a {
   }
 }
 
-//
-// Mobile first min-width queries.
-// Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
-//
-
-// Styles for Large or bigger Screens.
-@include grid-media-min('xl') {
-  body.sdss-header-variant--option_a {
-    header.su-masthead {
-
-      #sdss-button--search-link {
-       right: -80px;
-      }
-    }
-  }
-}
-
+// Responsive queries: smallest to largest (sm, md, lg, xl)
 @include grid-media-min('lg') {
   body.sdss-header-variant--option_a {
     header.su-masthead {
-
       #sdss-button--search-link {
         margin: auto 10rem auto auto;
         position: relative;
@@ -55,7 +36,7 @@ body.sdss-header-variant--option_a {
         position: relative;
         display: flex;
         justify-content: flex-start;
-        flex-wrap:  nowrap;
+        flex-wrap: nowrap;
         background: $sdss-color-white;
 
         .system-menu-block {
@@ -79,7 +60,6 @@ body.sdss-header-variant--option_a {
 
       .su-lockup {
         background: $su-color-white;
-
         .su-lockup__cell1 {
           padding: 2rem 3rem 2rem 8rem;
         }
@@ -88,7 +68,7 @@ body.sdss-header-variant--option_a {
   }
 }
 
-// Styles for Extra Large or bigger Screens.
+// Extra large screens and up
 @include grid-media-min('xl') {
   body.sdss-header-variant--option_a {
     header.su-masthead {

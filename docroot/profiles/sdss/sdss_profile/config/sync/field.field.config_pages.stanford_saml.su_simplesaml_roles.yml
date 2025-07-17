@@ -16,6 +16,8 @@ translatable: false
 default_value:
   -
     value: 'administrator:eduPersonEntitlement,=,uit:sws'
+  -
+    value: 'administrator:eduPersonEntitlement,=,sdss:webdev'
 default_value_callback: ''
 settings: {  }
 field_type: string_long
