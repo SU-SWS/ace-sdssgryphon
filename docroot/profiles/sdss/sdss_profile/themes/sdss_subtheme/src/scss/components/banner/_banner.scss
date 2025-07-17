@@ -11,10 +11,12 @@
     }
   }
 
-  .local-video {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
+  // 2025-07-17: max-width removed from .local-video for full-width video.
+  // See SDSS-1527 for details. Restore if a max-width is needed in the future.
+  // .local-video {
+  //   max-width: 1400px;
+  //   margin: 0 auto;
+  // }
 
   video {
     display: block;
@@ -107,7 +109,7 @@
   }
 }
 
-// Removing margin-bottom for top "page" banner and banner paragraph.
+// Remove margin-bottom for top "page" banner and banner paragraph.
 .section-banner-media {
   .main-region {
     margin-bottom: 0;
@@ -120,17 +122,17 @@
   }
 }
 
-// Node - top banner image on article.
-// Fixing when there is no top banner, or a banner or a banner and caption.
+// Article node: top banner image and caption spacing.
+// Handles cases with no banner, a banner, or a banner with caption.
 .section-banner-media {
   .main-region {
-    > div:nth-last-child(odd) { // This is the top banner image.
-      @include modular-spacing('margin-bottom', 4);
-    }
+  > div:nth-last-child(odd) { // Top banner image
+    @include modular-spacing('margin-bottom', 4);
+  }
 
-    > div:nth-last-child(even) { // This is the top banner caption
-      margin-bottom: 0;
-    }
+  > div:nth-last-child(even) { // Top banner caption
+    margin-bottom: 0;
+  }
   }
 }
 
@@ -141,10 +143,10 @@
 }
 
 .sdss-banner-wrapper--default {
-  //Gradiant on banner image.
+// Gradient overlay on banner image.
   z-index: 1;
   position: relative;
-  // A background color when images are turned off.
+  // Fallback background color when images are disabled.
   background: $su-color-black;
 
   .su-hero__media {
@@ -157,7 +159,7 @@
     display: block;
   }
 
-  // End Gradiant details.
+  // End gradient overlay details.
 
   .su-hero {
     justify-content: flex-end;
@@ -191,7 +193,7 @@
     }
   }
 
-  // Mobile style
+  // Mobile styles for banner card and contents
   @include grid-media-max('sm') {
     .su-hero {
       .su-hero__card {
@@ -206,7 +208,7 @@
   }
 }
 
-// Variants - banner heights
+// Banner height variants
 .sdss-banner-wrapper--height-default {
   .su-hero {
     min-height: 520px;
@@ -241,7 +243,7 @@
   }
 }
 
-// Resetting min-height for small and xsmall devices.
+// Reset min-height for small and xsmall devices.
 .sdss-banner-wrapper--height-default,
 .sdss-banner-wrapper--height-modest,
 .sdss-banner-wrapper--height-minimal {
