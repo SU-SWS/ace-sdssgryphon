@@ -11,10 +11,12 @@
     }
   }
 
-  .local-video {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
+  // 2025-07-17: Removed max-width for now. Can be easily restored if needed.
+  // See SDSS-1527 for details.
+  // .local-video {
+  //   max-width: 1400px;
+  //   margin: 0 auto;
+  // }
 
   video {
     display: block;
