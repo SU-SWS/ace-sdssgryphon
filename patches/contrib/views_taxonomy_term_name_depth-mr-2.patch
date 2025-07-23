@@ -1,17 +1,26 @@
 diff --git a/src/Plugin/views/argument/IndexNameDepth.php b/src/Plugin/views/argument/IndexNameDepth.php
-index 1eecd61e69c1f27cc0b0b9404442e09c991d756e..9844bdbd5a8d4ea86c55ad4608c49eceaf568412 100644
+index ef92cdc..f977185 100644
 --- a/src/Plugin/views/argument/IndexNameDepth.php
 +++ b/src/Plugin/views/argument/IndexNameDepth.php
-@@ -167,68 +167,20 @@ class IndexNameDepth extends ArgumentPluginBase {
+@@ -165,77 +165,22 @@ class IndexNameDepth extends ArgumentPluginBase {
+         return FALSE;
+       }
  
-       $operator = (count($break->value) > 1) ? 'IN' : '=';
+-      $operator = (count($break->value) > 1) ? 'IN' : '=';
+-      if (count($break->value) > 1) {
+-        $operator = 'IN';
+-      }
+-      else {
+-        $operator = '=';
+-        $break->value = reset($break->value);
+-      }
        $tids = $break->value;
 -      // To pass argument value to check name.(I create a another variable for
 -      // above same value because i need to make an array of $tids.).
 -      $args = $break->value;
      }
      else {
-       $operator = "IN";
+-      $operator = "IN";
        $tids = $this->argument;
 -      // To pass argument value to check name.(I create a another variable for
 -      // above same value because i need to make an array of $tids.).
@@ -67,6 +76,8 @@ index 1eecd61e69c1f27cc0b0b9404442e09c991d756e..9844bdbd5a8d4ea86c55ad4608c49ece
 -      $tids = $args;
 +      return FALSE;
      }
++    $operator = count($tids) > 1 ? 'IN' : '=';
++
      // Now build the subqueries.
      $subquery = $this->database->select('taxonomy_index', 'tn');
      $subquery->addField('tn', 'nid');
@@ -74,7 +85,7 @@ index 1eecd61e69c1f27cc0b0b9404442e09c991d756e..9844bdbd5a8d4ea86c55ad4608c49ece
      $where = (new Condition('OR'))->condition('tn.tid', $tids, $operator);
      $last = "tn";
  
-@@ -251,7 +203,50 @@ class IndexNameDepth extends ArgumentPluginBase {
+@@ -258,7 +203,50 @@ class IndexNameDepth extends ArgumentPluginBase {
      }
  
      $subquery->condition($where);
