@@ -154,8 +154,14 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     }
 
     $file_uri = $file->getFileUri();
-    $wrapper = $this->streamWrapperManager->getViaUri($file_uri);
-    return $wrapper->getExternalUrl();
+    // Get the scheme and directory for the file URI.
+    $scheme = $this->streamWrapperManager->getScheme($file_uri);
+    $directory = $this->streamWrapperManager->getViaScheme($scheme)->getDirectoryPath();
+    // Remove the scheme (e.g., 'public://') and get the full relative path.
+    $relative_path = str_replace($scheme . '://', '', $file_uri);
+    $relative_path = $directory . '/' . $relative_path;
+    // Remove leading slash for theme settings compatibility.
+    return ltrim($relative_path, '/');
   }
 
   /**
