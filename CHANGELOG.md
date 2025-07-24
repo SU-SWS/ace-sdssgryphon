@@ -7,6 +7,63 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.12.1] - 2025-07-23
+
+### Added
+None.
+
+### Changed
+None.
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+7e7399b Updated views_taxonomy_term_name_depth module and multiple value patch.
+
+### Security
+None.
+
+### Maintenance
+None.
+
+
+## [4.12.0] - 2025-07-17
+
+### Added
+f7f6cfe SDSS-1539: Map sdss:webdev Workgroup to Administrator Role for All Sites (#622)
+79a482e Update room reservations module to latest version 8.1.16 (#617)
+057b708 SDSS-1499: Add option and styles to SDSS theme to use Desktop Hamburger menu (#605)
+dff05b2 SDSS-1500: Add utility nav to sdss_subtheme (#613)
+e1fdd03 SDSS-1501: Hide utility nav up until the large breakpoint (#616)
+c4a0ad9 SDSS-1503: Set default theme and enable theme settings for sustainability site via database update (#618)
+b4ed4e6 SDSS-1530: Add drupal cron and drupal cron scheduler commands and scripts (#611)
+
+### Changed
+fb0749a SDSS-1527: Full-width video banner (#623)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+f7f6cfe SDSS-1539: Map sdss:webdev Workgroup to Administrator Role for All Sites (#622)
+ff9fc36 SDSS-1498: Add min-height to masthead inner to prevent menu overlap (#621)
+2db63d9 SDSS-0000: Room reservation fixups (#620)
+a644a43 Fix PHPCS issues.
+
+### Security
+0cb5b86 SDSS-1510,SDSS-1533: 10.4.x core upgrade and routine maintenance (#612)
+
+### Maintenance
+0cb5b86 SDSS-1510,SDSS-1533: 10.4.x core upgrade and routine maintenance (#612)
+
+
 ## [4.11.0] - 2025-06-24
 
 ### Added

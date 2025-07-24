@@ -59,3 +59,63 @@ function sdss_profile_update_10018() {
     }
   }
 }
+
+/**
+ * Set the default theme to sdss_subtheme for the sustainability site.
+ */
+function sdss_profile_update_10019() {
+  // Get the current site path.
+  $site_path = DrupalKernel::findSitePath(\Drupal::request());
+  $site_path_parts = explode('/', $site_path);
+  // The site folder is usually the second part (e.g., 'sites/sustainability').
+  $site_name = $site_path_parts[1] ?? '';
+
+  if ($site_name === 'sustainability') {
+    // Set the default theme.
+    \Drupal::configFactory()->getEditable('system.theme')
+      ->set('default', 'sdss_subtheme')
+      ->save();
+
+    // Set the active theme in state (for runtime changes).
+    \Drupal::state()->set('theme.default', 'sdss_subtheme');
+
+    // Enable theme settings: desktop_hamburger and display_utility_navigation.
+    $theme_settings = \Drupal::configFactory()->getEditable('sdss_subtheme.settings');
+    $theme_settings
+      ->set('desktop_hamburger', TRUE)
+      ->set('display_utility_navigation', TRUE)
+      ->save();
+
+    \Drupal::logger('sdss_profile')->info('Default and active theme set to sdss_subtheme for sustainability site. Theme settings desktop_hamburger and display_utility_navigation enabled.');
+  }
+}
+
+/**
+ * Add sdss:webdev role mapping.
+ *
+ * This update adds a new role mapping to the su_simplesaml_roles configuration
+ * on the stanford_saml config page. It maps the 'administrator' role to users
+ * with the 'eduPersonEntitlement' attribute containing 'sdss:webdev'.
+ */
+function sdss_profile_update_10020() {
+  $config_page = \Drupal::entityTypeManager()
+    ->getStorage('config_pages')
+    ->load('stanford_saml');
+  if ($config_page) {
+    $roles = $config_page->get('su_simplesaml_roles') ?: '';
+    $mappings = array_filter(explode('|', is_object($roles) && method_exists($roles, 'getString') ? $roles->getString() : (string) $roles));
+    $new_mapping = 'administrator:eduPersonEntitlement,=,sdss:webdev';
+    if (!in_array($new_mapping, $mappings)) {
+      $mappings[] = $new_mapping;
+      $config_page->set('su_simplesaml_roles', implode('|', $mappings));
+      $config_page->save();
+      \Drupal::logger('sdss_profile')->info('Mapping added to su_simplesaml_roles by update_10020.');
+    }
+    else {
+      \Drupal::logger('sdss_profile')->info('Mapping already present in su_simplesaml_roles by update_10020.');
+    }
+  }
+  else {
+    \Drupal::logger('sdss_profile')->warning('stanford_saml config page not found in update_10020.');
+  }
+}
