@@ -16,7 +16,7 @@ $theme_name = \Drupal::theme()->getActiveTheme()->getName();
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function stanford_basic_form_system_tsheme_settings_alter(array &$form, FormStateInterface $form_state) {
+function stanford_basic_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state) {
 
   $form['options_settings'] = [
     '#type' => 'fieldset',
