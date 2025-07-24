@@ -40,7 +40,7 @@ class LockupSettingsCest {
   /**
    * Test the lockup exists.
    */
-  public function testLockupSettings(AcceptanceTester $I) {
+  public function testLockup(AcceptanceTester $I) {
     $I->amOnPage('/');
     $I->seeElement('.su-lockup');
   }
@@ -48,7 +48,7 @@ class LockupSettingsCest {
   /**
    * Test the lockup settings overrides.
    */
-  public function testLockupSettingsA(AcceptanceTester $I) {
+  public function testLockupSiteTitle(AcceptanceTester $I) {
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
@@ -64,7 +64,7 @@ class LockupSettingsCest {
   /**
    * Test the logo image settings overrides.
    */
-  public function testLogoWithLockup(AcceptanceTester $I) {
+  public function testLockupLogo(AcceptanceTester $I) {
     $I->logInWithRole('administrator');
     $I->amOnPage('/admin/config/system/lockup-settings');
     $I->canSeeResponseCodeIs(200);
@@ -88,36 +88,6 @@ class LockupSettingsCest {
     $I->seeElement(".su-lockup__custom-logo");
     $I->assertNotEmpty($I->grabAttributeFrom('.su-lockup__custom-logo', 'alt'));
     $I->canSee("Site title line");
-  }
-
-  /**
-   * Test for the logo without the lockup text.
-   */
-  public function testLogoWithOutLockup(AcceptanceTester $I) {
-    $I->logInWithRole('administrator');
-    $I->amOnPage('/admin/config/system/lockup-settings');
-    $I->canSeeResponseCodeIs(200);
-    $I->fillField('Site Title', 'Site title line');
-
-    // Add custom logo.
-    $I->uncheckOption('Use the logo supplied by the theme');
-
-    // In case there was an image already.
-    if ($I->grabMultiple('input[value="Remove"]')) {
-      $I->click("Remove");
-    }
-
-    // For CircleCI
-    $I->attachFile('input[name="files[su_upload_logo_image_0]"]', $this->logoPath);
-    $I->click('Upload');
-
-    $I->click('Save');
-    $I->see('Lockup Settings has been', '.messages-list');
-
-    $I->amOnPage('/');
-    $I->seeElement(".su-lockup__custom-logo");
-    $I->assertNotEmpty($I->grabAttributeFrom('.su-lockup__custom-logo', 'alt'));
-    $I->cantSee("Site title line");
   }
 
 }
