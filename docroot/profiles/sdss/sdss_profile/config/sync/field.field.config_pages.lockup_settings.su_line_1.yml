@@ -9,8 +9,8 @@ id: config_pages.lockup_settings.su_line_1
 field_name: su_line_1
 entity_type: config_pages
 bundle: lockup_settings
-label: 'Line 1'
-description: 'Site title line.'
+label: 'Site Title'
+description: 'Change the site title to be different in the lockup.'
 required: false
 translatable: false
 default_value: {  }

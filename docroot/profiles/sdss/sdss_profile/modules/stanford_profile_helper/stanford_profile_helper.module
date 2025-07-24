@@ -659,50 +659,6 @@ function stanford_profile_helper_config_readonly_whitelist_patterns() {
 }
 
 /**
- * Implements field_group_form_process_build_alter().
- */
-function stanford_profile_helper_field_group_form_process_build_alter(&$element) {
-  // Hide / Show the field groups based on the enabled checkbox.
-  if (isset($element['group_lockup_options'])) {
-    $element['group_lockup_options']['#states'] = [
-      'visible' => [
-        ':input[name="su_lockup_enabled[value]"]' => [
-          'checked' => FALSE,
-        ],
-      ],
-    ];
-    $element['group_logo_image']['#states'] = [
-      'visible' => [
-        ':input[name="su_lockup_enabled[value]"]' => [
-          'checked' => FALSE,
-        ],
-      ],
-    ];
-  }
-}
-
-/**
- * Creates a states array.
- *
- * @param array $opts
- *   Allowed values.
- * @param string $input
- *   Field selector.
- *
- * @return array
- *   State array.
- */
-function _stanford_profile_helper_get_lockup_states(array $opts, $input) {
-  $ret = [];
-  foreach ($opts as $val) {
-    $ret[] = [
-      $input => ['value' => $val],
-    ];
-  }
-  return $ret;
-}
-
-/**
  * Implements hook_entity_type_update().
  */
 function stanford_profile_helper_taxonomy_term_update(TermInterface $entity) {
@@ -760,10 +716,6 @@ function stanford_profile_helper_preprocess_pattern_alert(&$variables) {
  * Implements hook_preprocess_pattern_NAME().
  */
 function stanford_profile_helper_preprocess_pattern_localfooter(&$variables) {
-  $entity_type = $variables['context']->getProperty('entity_type');
-  $bundle = $variables['context']->getProperty('bundle');
-  $entity = $variables['context']->getProperty('entity');
-
   // If the pattern has already been rendered and the 2nd cell is already a
   // markup object or other, we can't manipulate it.
   if (!is_array($variables['cell2'])) {
@@ -794,53 +746,6 @@ function stanford_profile_helper_preprocess_pattern_localfooter(&$variables) {
       ],
     ];
   }
-
-  // Local Footer!
-  if ($entity_type == "config_pages" && $bundle == "stanford_local_footer") {
-
-    // If the lockup updates are not enabled just end.
-    if (
-      !$entity->hasField('su_local_foot_use_loc')
-      || $entity->get('su_local_foot_use_loc')->getString() === "1"
-    ) {
-      return;
-    }
-
-    // Enable custom lockup.
-    $variables['custom_lockup'] = TRUE;
-
-    // Lockup customizations are enabled.
-    $variables['line1'] = $entity->get('su_local_foot_line_1')->getString();
-    $variables['line2'] = $entity->get('su_local_foot_line_2')->getString();
-    $variables['line3'] = $entity->get('su_local_foot_line_3')->getString();
-    $variables['line4'] = $entity->get('su_local_foot_line_4')->getString();
-    $variables['line5'] = $entity->get('su_local_foot_line_5')->getString();
-    $variables['use_logo'] = $entity->get('su_local_foot_use_logo')
-      ->getString();
-    $file_field = $entity->get('su_local_foot_loc_img');
-
-    // Check if there is a file.
-    if (isset($file_field->entity)) {
-      $file_uri = $file_field->entity->getFileUri();
-      $variables['site_logo'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
-    }
-    else {
-      $variables['use_logo'] = "1";
-    }
-
-    // Check if there is a link and patch it through.
-    $link = $entity->get('su_local_foot_loc_link')->getString();
-    if ($link) {
-      $variables['lockup_link'] = [
-        '#markup' => URL::fromUri($link)->toString(TRUE)->getGeneratedUrl(),
-      ];
-    }
-
-    // Pass through the lockup option.
-    $option = $entity->get('su_local_foot_loc_op')->getString();
-    $variables['lockup_option'] = 'su-lockup--option-' . $option;
-  }
-
 }
 
 /**

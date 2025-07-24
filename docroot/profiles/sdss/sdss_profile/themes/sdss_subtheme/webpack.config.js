@@ -75,6 +75,14 @@ var webpackConfig = {
       events: {
         onStart: {
           delete: ["dist"]
+        },
+        onEnd: {
+          copy: [
+            {
+              source: path.resolve(__dirname, 'src/assets/img'),
+              destination: path.resolve(__dirname, 'dist/img')
+            }
+          ]
         }
       }
     }),

@@ -48,11 +48,7 @@ class ConfigOverridesTest extends UnitTestCase {
 
     $this->configPageValues['lockup_settings'] = [
       'su_lockup_enabled' => 0,
-      'su_lockup_options' => 'a',
       'su_line_1' => 'Line 1',
-      'su_line_2' => 'Line 2',
-      'su_line_4' => 'Line 4',
-      'su_line_5' => 'Line 5',
       'su_use_theme_logo' => 0,
       'su_upload_logo_image' => NULL,
     ];
@@ -61,11 +57,7 @@ class ConfigOverridesTest extends UnitTestCase {
       'foobar.settings' =>
         [
           'lockup' => [
-            'option' => 'a',
             'line1' => 'Line 1',
-            'line2' => 'Line 2',
-            'line4' => 'Line 4',
-            'line5' => 'Line 5',
           ],
           'logo' => [
             'use_default' => FALSE,
@@ -85,6 +77,9 @@ class ConfigOverridesTest extends UnitTestCase {
     $this->assertEquals($expected, $overridder->loadOverrides(['foobar.settings']));
   }
 
+  /**
+   * Main Menu override.
+   */
   public function testMainMenuOverrides() {
     $configs = [
       'block.block.foobar_main_menu' => [
