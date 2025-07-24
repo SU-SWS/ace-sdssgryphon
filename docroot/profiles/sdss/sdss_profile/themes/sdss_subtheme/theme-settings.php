@@ -50,9 +50,9 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
     '#type' => 'select',
     '#title' => t('Header Layout Variant'),
     '#options' => [
-      'option_a' => t('Blue header, Right navigation, Logo only'),
+      'option_a' => t('White header, logo only, right navigation (for select sites only)'),
     ],
-    '#empty_option' => t('Green header, Bottom navigation'),
+    '#empty_option' => t('Green header, logo + site title, bottom navigation (recommended/default)'),
     '#default_value' => theme_get_setting('header_layout_variant'),
   ];
 
