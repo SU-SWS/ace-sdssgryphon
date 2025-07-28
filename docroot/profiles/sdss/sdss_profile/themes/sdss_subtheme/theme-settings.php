@@ -27,7 +27,7 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
   $lockup_config = \Drupal::config('config_pages.type.lockup_settings');
   $lockup_path = $lockup_config->get('menu.path');
   if ($lockup_config && !empty($lockup_path)) {
-    // Logo options are managed on the Lockup Settings page and values are 
+    // Logo options are managed on the Lockup Settings page and values are
     // overridden. Hide the field and unset values to prevent confusion.
     if (isset($form['logo'])) {
       $form['logo']['#access'] = FALSE;
@@ -35,7 +35,11 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
     if (isset($form['options_settings']['logo'])) {
       $form['options_settings']['logo']['#access'] = FALSE;
     }
-    $form['options_settings']['sdss_subtheme_logo_info'] = [
+    $form['options_settings']['logo_lockup'] = [
+      '#type' => 'fieldset',
+      '#title' => t('Logo and Lockup Settings'),
+    ];
+    $form['options_settings']['logo_lockup']['sdss_subtheme_logo_info'] = [
       '#type' => 'item',
       '#markup' => t('Logo and lockup options are managed on the <a href=":url">Lockup Settings</a> config page.', [':url' => $lockup_path]),
       '#description' => t('Configure the logo and lockup options using the Lockup Settings page.'),
