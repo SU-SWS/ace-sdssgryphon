@@ -9,7 +9,6 @@ use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\config_pages\ConfigPagesLoaderServiceInterface;
-use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
 
 /**
  * Config overrides for stanford profile.
@@ -47,13 +46,6 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
   protected $entityTypeManager;
 
   /**
-   * StreamWrapperInterface service.
-   *
-   * @var \Drupal\Core\StreamWrapper\StreamWrapperManagerInterface
-   */
-  protected $streamWrapperManager;
-
-  /**
    * ConfigOverrides constructor.
    *
    * @param \Drupal\Core\State\StateInterface $state
@@ -64,15 +56,12 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
    *   Config factory service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   Entity type manager interface.
-   * @param \Drupal\Core\StreamWrapper\StreamWrapperManagerInterface $stream_wrapper_manager
-   *   Stream wrapper manager interface.
    */
-  public function __construct(StateInterface $state, ConfigPagesLoaderServiceInterface $config_pages_loader, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager, StreamWrapperManagerInterface $stream_wrapper_manager) {
+  public function __construct(StateInterface $state, ConfigPagesLoaderServiceInterface $config_pages_loader, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager) {
     $this->state = $state;
     $this->configPagesLoader = $config_pages_loader;
     $this->configFactory = $config_factory;
     $this->entityTypeManager = $entity_type_manager;
-    $this->streamWrapperManager = $stream_wrapper_manager;
   }
 
   /**
@@ -134,6 +123,8 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
 
     if (!empty($overrides['lockup']) && !$this->configPagesLoader->getValue('lockup_settings', 'su_use_theme_logo', 0, 'value')) {
       $overrides['logo']['use_default'] = FALSE;
+    } else {
+      $overrides['logo']['use_default'] = TRUE;
     }
     return array_filter($overrides);
   }
@@ -153,15 +144,11 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
       return NULL;
     }
 
-    $file_uri = $file->getFileUri();
-    // Get the scheme and directory for the file URI.
-    $scheme = $this->streamWrapperManager->getScheme($file_uri);
-    $directory = $this->streamWrapperManager->getViaScheme($scheme)->getDirectoryPath();
-    // Remove the scheme (e.g., 'public://') and get the full relative path.
-    $relative_path = str_replace($scheme . '://', '', $file_uri);
-    $relative_path = $directory . '/' . $relative_path;
+    // Use the createFileUrl method to get the root-relative URL.
+    $relative_url = $file->createFileUrl(TRUE);
+
     // Remove leading slash for theme settings compatibility.
-    return ltrim($relative_path, '/');
+    return ltrim($relative_url, '/');
   }
 
   /**

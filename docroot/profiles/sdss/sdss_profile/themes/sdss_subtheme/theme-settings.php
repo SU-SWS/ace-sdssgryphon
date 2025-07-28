@@ -27,7 +27,7 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
   $lockup_config = \Drupal::config('config_pages.type.lockup_settings');
   $lockup_path = $lockup_config->get('menu.path');
   if ($lockup_config && !empty($lockup_path)) {
-    // Logo options are managed on the Lockup Settings page and values are
+    // Logo options are managed on the Lockup Settings page and values are 
     // overridden. Hide the field and unset values to prevent confusion.
     if (isset($form['logo'])) {
       $form['logo']['#access'] = FALSE;

@@ -11,8 +11,6 @@ use Drupal\Tests\UnitTestCase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\config_pages\ConfigPagesLoaderServiceInterface;
 use Drupal\Core\Entity\EntityStorageInterface;
-use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
-use Drupal\Core\StreamWrapper\StreamWrapperInterface;
 
 /**
  * Class ConfigOverridesTest
@@ -43,8 +41,6 @@ class ConfigOverridesTest extends UnitTestCase {
   public function testConfigLockupOverrides() {
 
     $overridder = $this->getOverrideService();
-    $this->assertEmpty($overridder->loadOverrides(['barfoo.settings']));
-    $this->assertEmpty($overridder->loadOverrides(['foobar.settings']));
 
     $this->configPageValues['lockup_settings'] = [
       'su_lockup_enabled' => 0,
@@ -71,9 +67,9 @@ class ConfigOverridesTest extends UnitTestCase {
     $this->assertEquals($expected, $overridder->loadOverrides(['foobar.settings']));
 
     $this->logoFile = $this->createMock(FileInterface::class);
-    $this->logoFile->method('getFileUri')->wilLReturn('public://foobar.jpg');
+    $this->logoFile->method('createFileUrl')->willReturn('/sites/default/files/logo.jpg');
 
-    $expected['foobar.settings']['logo']['path'] = '/sites/default/files/logo.jpg';
+    $expected['foobar.settings']['logo']['path'] = 'sites/default/files/logo.jpg';
     $this->assertEquals($expected, $overridder->loadOverrides(['foobar.settings']));
   }
 
@@ -147,19 +143,12 @@ class ConfigOverridesTest extends UnitTestCase {
     $file_storage->method('load')->willReturnReference($this->logoFile);
 
     $entity_manager = $this->createMock(EntityTypeManagerInterface::class);
-    $entity_manager->method('getStorage')->wilLReturn($file_storage);
-
-    $stream_wrapper = $this->createMock(StreamWrapperInterface::class);
-    $stream_wrapper->method('getExternalUrl')
-      ->willReturn('/sites/default/files/logo.jpg');
-
-    $stream_wrapper_manager = $this->createMock(StreamWrapperManagerInterface::class);
-    $stream_wrapper_manager->method('getViaUri')->willReturn($stream_wrapper);
+    $entity_manager->method('getStorage')->willReturn($file_storage);
 
     $this->configFactory = $this->getConfigFactoryStub([
       'system.theme' => ['stanford_basic' => 0],
     ]);
-    return new ConfigOverrides($state, $config_pages, $this->getConfigFactoryStub($configs), $entity_manager, $stream_wrapper_manager);
+    return new ConfigOverrides($state, $config_pages, $this->getConfigFactoryStub($configs), $entity_manager);
   }
 
   public function getConfigFactoryStub(array $configs = []) {
