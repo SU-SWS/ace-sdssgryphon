@@ -51,4 +51,5 @@ content:
       change_labels:
         field_label_overwrite: ''
 hidden:
+  created: true
   search_api_excerpt: true
