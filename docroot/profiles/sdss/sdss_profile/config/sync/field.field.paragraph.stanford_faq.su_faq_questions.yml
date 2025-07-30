@@ -28,3 +28,40 @@ settings:
       layout:
         weight: 15
         enabled: false
+      stanford_accordion:
+        weight: 16
+        enabled: true
+      stanford_banner:
+        weight: 17
+        enabled: false
+      stanford_card:
+        weight: 18
+        enabled: false
+      stanford_entity:
+        weight: 19
+        enabled: false
+      stanford_faq:
+        weight: 14
+        enabled: false
+      stanford_gallery:
+        weight: 20
+        enabled: false
+      stanford_lists:
+        weight: 21
+        enabled: false
+      stanford_media_caption:
+        weight: 22
+        enabled: false
+      stanford_person_cta:
+        weight: 23
+        enabled: false
+      stanford_schedule:
+        weight: 24
+        enabled: false
+      stanford_spacer:
+        weight: 25
+        enabled: false
+      stanford_wysiwyg:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

@@ -82,6 +82,7 @@ install:
   - 'layout_library:layout_library'
   - 'link_title_formatter:link_title_formatter'
   - 'linkit:linkit'
+  - 'maxlength:maxlength'
   - 'metatag:metatag'
   - 'metatag:metatag_open_graph'
   - 'metatag:metatag_verification'

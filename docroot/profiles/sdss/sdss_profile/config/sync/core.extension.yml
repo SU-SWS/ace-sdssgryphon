@@ -111,6 +111,7 @@ module:
   link: 0
   link_title_formatter: 0
   linkit: 0
+  maxlength: 0
   markup: 0
   mathjax: 0
   media: 0
