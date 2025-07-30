@@ -1,20 +1,20 @@
-uuid: 2da3adf0-4d0e-417f-bb05-9f5f3f178c6b
+uuid: 9066b0ab-e64a-4a0d-8b2d-07de1fc155db
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.su_accordion_body
+    - field.storage.paragraph.su_faq_description
     - filter.format.stanford_minimal_html
-    - paragraphs.paragraphs_type.stanford_accordion
+    - paragraphs.paragraphs_type.stanford_faq
   module:
     - text
-id: paragraph.stanford_accordion.su_accordion_body
-field_name: su_accordion_body
+id: paragraph.stanford_faq.su_faq_description
+field_name: su_faq_description
 entity_type: paragraph
-bundle: stanford_accordion
-label: Body/Answer
+bundle: stanford_faq
+label: Description
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

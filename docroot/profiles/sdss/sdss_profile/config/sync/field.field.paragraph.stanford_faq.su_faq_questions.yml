@@ -1,0 +1,30 @@
+uuid: 6e670c6e-2bda-4615-827b-9a2dd3c6c13e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_faq_questions
+    - paragraphs.paragraphs_type.stanford_accordion
+    - paragraphs.paragraphs_type.stanford_faq
+  module:
+    - entity_reference_revisions
+id: paragraph.stanford_faq.su_faq_questions
+field_name: su_faq_questions
+entity_type: paragraph
+bundle: stanford_faq
+label: Questions/Answers
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      stanford_accordion: stanford_accordion
+    negate: 0
+    target_bundles_drag_drop:
+      layout:
+        weight: 15
+        enabled: false
