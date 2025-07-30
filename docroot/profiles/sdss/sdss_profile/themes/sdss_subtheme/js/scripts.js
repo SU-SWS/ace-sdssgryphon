@@ -29,9 +29,11 @@
         if (!video.paused) {
           $playPauseButton.addClass('fa-pause');
           $playPauseLabel.text('Pause');
+          $playPauseButton.attr('aria-label', 'Pause video');
         } else {
           $playPauseButton.addClass('fa-play');
           $playPauseLabel.text('Play');
+          $playPauseButton.attr('aria-label', 'Play video');
         }
 
         const $container = $('<div>').addClass('video-info')
@@ -42,9 +44,11 @@
         $video.on('play', function () {
           $playPauseButton.toggleClass('fa-pause').toggleClass('fa-play');
           $playPauseLabel.text('Pause');
+          $playPauseButton.attr('aria-label', 'Pause video');
         }).on('pause', function () {
           $playPauseButton.toggleClass('fa-pause').toggleClass('fa-play');
           $playPauseLabel.text('Play');
+          $playPauseButton.attr('aria-label', 'Play video');
         });
       });
     },
