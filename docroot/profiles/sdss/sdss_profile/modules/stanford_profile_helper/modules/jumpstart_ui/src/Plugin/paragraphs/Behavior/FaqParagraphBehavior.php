@@ -9,7 +9,7 @@ use Drupal\paragraphs\ParagraphsBehaviorBase;
 use Drupal\paragraphs\ParagraphsTypeInterface;
 
 /**
- * Class FaqParagraphBehavior.
+ * Paragraph behavior for FAQ Accordion paragraph type.
  *
  * @ParagraphsBehavior(
  *   id = "faq_accordions",
