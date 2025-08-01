@@ -1,41 +1,7 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 903:
-/***/ (function() {
-
-var header = document.getElementById('block-stanford-basic-local-tasks');
-var sticky = 0;
-if (header) {
-  sticky = header.getBoundingClientRect().top;
-  window.onscroll = function () {
-    stickyHeaderOnScroll();
-  };
-}
-
-/**
- * Stick the local block tasks to the top of the window.
- */
-function stickyHeaderOnScroll() {
-  var toolbarHeight = 0;
-  var toolbarOpen = document.body.classList.contains('toolbar-tray-open');
-  if (toolbarOpen === true) {
-    toolbarHeight = 79;
-  } else {
-    toolbarHeight = 39;
-  }
-  if (window.pageYOffset >= sticky - toolbarHeight) {
-    header.classList.add('sticky');
-    header.style.marginTop = toolbarHeight + 'px';
-  } else {
-    header.classList.remove('sticky');
-    header.style.marginTop = '0px';
-  }
-}
-
-/***/ }),
-
-/***/ 5741:
+/***/ 5644:
 /***/ (function() {
 
 /**
@@ -124,6 +90,24 @@ window.Drupal.behaviors.stanford_basic = {
           $(this).attr('aria-expanded', 'false');
         }
       });
+      $(once('faq-expand-all', '.ptype-stanford-faq', context)).each(function (index, faq) {
+        if ($('.accordion__title', faq).length < 2 || $('.ptype-stanford-faq', faq).length) {
+          return;
+        }
+        var $button = $('<button class="expand-collapse-button expand-all su-button--secondary">' + '<span class="expand-collapse">Expand</span> All' + '<span class="visually-hidden"> Items below.</span>' + '</button>');
+        $button.click(function () {
+          $button.toggleClass('expand-all').toggleClass('collapse-all');
+          var expanded = !$button.hasClass('expand-all');
+          $('span', $button).text(expanded ? 'Collapse' : 'Expand');
+          $(".accordion__title[aria-expanded=\"".concat(expanded ? 'false' : 'true', "\"]"), faq).click();
+        });
+        var $headline = $('.su-faq-headline', faq);
+        if ($headline.length) {
+          $headline.append($('<div class="button-wrapper">').append($button));
+        } else {
+          $(faq).prepend($('<div class="button-wrapper clearfix">').append($button));
+        }
+      });
     })(jQuery, once);
   },
   // Detach Example.
@@ -131,6 +115,40 @@ window.Drupal.behaviors.stanford_basic = {
     // console.log("Detached.");
   }
 };
+
+/***/ }),
+
+/***/ 8035:
+/***/ (function() {
+
+var header = document.getElementById('block-stanford-basic-local-tasks');
+var sticky = 0;
+if (header) {
+  sticky = header.getBoundingClientRect().top;
+  window.onscroll = function () {
+    stickyHeaderOnScroll();
+  };
+}
+
+/**
+ * Stick the local block tasks to the top of the window.
+ */
+function stickyHeaderOnScroll() {
+  var toolbarHeight = 0;
+  var toolbarOpen = document.body.classList.contains('toolbar-tray-open');
+  if (toolbarOpen === true) {
+    toolbarHeight = 79;
+  } else {
+    toolbarHeight = 39;
+  }
+  if (window.pageYOffset >= sticky - toolbarHeight) {
+    header.classList.add('sticky');
+    header.style.marginTop = toolbarHeight + 'px';
+  } else {
+    header.classList.remove('sticky');
+    header.style.marginTop = '0px';
+  }
+}
 
 /***/ })
 
@@ -161,16 +179,15 @@ window.Drupal.behaviors.stanford_basic = {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 !function() {
 "use strict";
 
 // EXTERNAL MODULE: ./src/js/theme/menu/StickyHeaderOnScroll.js
-var StickyHeaderOnScroll = __webpack_require__(903);
-;// CONCATENATED MODULE: ./src/js/theme/menu/index.js
+var StickyHeaderOnScroll = __webpack_require__(8035);
+;// ./src/js/theme/menu/index.js
 
-;// CONCATENATED MODULE: ./src/js/theme/index.js
+;// ./src/js/theme/index.js
 /**
  * Primary roll up file
  */
@@ -178,8 +195,8 @@ var StickyHeaderOnScroll = __webpack_require__(903);
 // The Local Task Menu
 
 // EXTERNAL MODULE: ./src/js/stanford_basic.behavior.js
-var stanford_basic_behavior = __webpack_require__(5741);
-;// CONCATENATED MODULE: ./src/js/behaviors.js
+var stanford_basic_behavior = __webpack_require__(5644);
+;// ./src/js/behaviors.js
 // Theme code.
 
 
