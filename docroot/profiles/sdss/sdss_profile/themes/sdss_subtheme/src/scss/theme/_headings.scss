@@ -99,10 +99,10 @@ h5 {
         text-decoration: none;
 
         &:hover {
-          color: $sdss-color-blue-bright-dark;
+          color: $sdss-color-white;
 
           &::after {
-            background-color: $sdss-color-blue-bright-dark;
+            background-color: $sdss-color-white;
           }
         }
 
