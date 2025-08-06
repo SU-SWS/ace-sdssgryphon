@@ -466,7 +466,7 @@ third_party_settings:
                     class: su-person-affiliations
                   ds:
                     ds_limit: ''
-            weight: 4
+            weight: 5
             additional: {  }
           b6ebfc7d-2035-4b63-a17c-adc15ba17fbe:
             uuid: b6ebfc7d-2035-4b63-a17c-adc15ba17fbe
@@ -488,7 +488,7 @@ third_party_settings:
                     class: su-person-research
                   ds:
                     ds_limit: ''
-            weight: 3
+            weight: 4
             additional: {  }
           1c0fe326-6520-4837-8022-65865025a1ac:
             uuid: 1c0fe326-6520-4837-8022-65865025a1ac
@@ -579,6 +579,28 @@ third_party_settings:
                   field_formatter_class:
                     class: ''
             weight: 11
+            additional: {  }
+          6814a695-5913-4f8a-b914-ce23303af7f7:
+            uuid: 6814a695-5913-4f8a-b914-ce23303af7f7
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_person:su_sdss_person_research_state'
+              label: 'Research Statement'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings:
+                  empty_fields:
+                    handler: ''
+                  field_formatter_class:
+                    class: sdss-person-research-statement
+            weight: 3
             additional: {  }
         third_party_settings: {  }
       -
