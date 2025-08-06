@@ -34,7 +34,7 @@ nav[aria-label^='footer'] {
 
   .su-lockup__custom-logo-link {
     &:focus {
-      img { 
+      img {
         outline: 1px solid $sdss-color-white;
       }
     }
