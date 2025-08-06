@@ -1,7 +1,41 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 5644:
+/***/ 903:
+/***/ (function() {
+
+var header = document.getElementById('block-stanford-basic-local-tasks');
+var sticky = 0;
+if (header) {
+  sticky = header.getBoundingClientRect().top;
+  window.onscroll = function () {
+    stickyHeaderOnScroll();
+  };
+}
+
+/**
+ * Stick the local block tasks to the top of the window.
+ */
+function stickyHeaderOnScroll() {
+  var toolbarHeight = 0;
+  var toolbarOpen = document.body.classList.contains('toolbar-tray-open');
+  if (toolbarOpen === true) {
+    toolbarHeight = 79;
+  } else {
+    toolbarHeight = 39;
+  }
+  if (window.pageYOffset >= sticky - toolbarHeight) {
+    header.classList.add('sticky');
+    header.style.marginTop = toolbarHeight + 'px';
+  } else {
+    header.classList.remove('sticky');
+    header.style.marginTop = '0px';
+  }
+}
+
+/***/ }),
+
+/***/ 5741:
 /***/ (function() {
 
 /**
@@ -116,40 +150,6 @@ window.Drupal.behaviors.stanford_basic = {
   }
 };
 
-/***/ }),
-
-/***/ 8035:
-/***/ (function() {
-
-var header = document.getElementById('block-stanford-basic-local-tasks');
-var sticky = 0;
-if (header) {
-  sticky = header.getBoundingClientRect().top;
-  window.onscroll = function () {
-    stickyHeaderOnScroll();
-  };
-}
-
-/**
- * Stick the local block tasks to the top of the window.
- */
-function stickyHeaderOnScroll() {
-  var toolbarHeight = 0;
-  var toolbarOpen = document.body.classList.contains('toolbar-tray-open');
-  if (toolbarOpen === true) {
-    toolbarHeight = 79;
-  } else {
-    toolbarHeight = 39;
-  }
-  if (window.pageYOffset >= sticky - toolbarHeight) {
-    header.classList.add('sticky');
-    header.style.marginTop = toolbarHeight + 'px';
-  } else {
-    header.classList.remove('sticky');
-    header.style.marginTop = '0px';
-  }
-}
-
 /***/ })
 
 /******/ 	});
@@ -179,15 +179,16 @@ function stickyHeaderOnScroll() {
 /******/ 	}
 /******/ 	
 /************************************************************************/
-// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 !function() {
 "use strict";
 
 // EXTERNAL MODULE: ./src/js/theme/menu/StickyHeaderOnScroll.js
-var StickyHeaderOnScroll = __webpack_require__(8035);
-;// ./src/js/theme/menu/index.js
+var StickyHeaderOnScroll = __webpack_require__(903);
+;// CONCATENATED MODULE: ./src/js/theme/menu/index.js
 
-;// ./src/js/theme/index.js
+;// CONCATENATED MODULE: ./src/js/theme/index.js
 /**
  * Primary roll up file
  */
@@ -195,8 +196,8 @@ var StickyHeaderOnScroll = __webpack_require__(8035);
 // The Local Task Menu
 
 // EXTERNAL MODULE: ./src/js/stanford_basic.behavior.js
-var stanford_basic_behavior = __webpack_require__(5644);
-;// ./src/js/behaviors.js
+var stanford_basic_behavior = __webpack_require__(5741);
+;// CONCATENATED MODULE: ./src/js/behaviors.js
 // Theme code.
 
 
