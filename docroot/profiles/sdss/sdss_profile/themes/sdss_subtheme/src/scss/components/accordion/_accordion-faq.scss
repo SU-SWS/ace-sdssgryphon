@@ -20,6 +20,42 @@
   @include grid-media('xl') {
     max-width: 980px;
   }
+  
+  .expand-collapse-button {
+    float: right;
+    flex: 1;
+    white-space: nowrap;
+    margin-left: 20px;
+
+    &::after {
+      margin-left: 5px;
+      content: '+';
+      text-decoration: none;
+      background: none;
+      color: $sdss-color-palo-alto-light;
+    }
+
+    &:hover::after {
+      background: none;
+      color: $sdss-color-grey-dark;
+      text-decoration: none;
+    }
+
+    &:focus::after {
+      background: none;
+    }
+
+    &:active::after {
+      background: none;
+      color: inherit;
+    }
+
+    &.collapse-all {
+      &::after {
+        content: '-';
+      }
+    }
+  }
 }
 
 .su-faq-headline {
@@ -55,10 +91,8 @@
     }
   }
 
-  details {
-    margin: 0;
-
-    summary {
+  .jumpstart-accordion {
+    button {
       &::after {
         color: $sdss-color-palo-alto-light;
       }
