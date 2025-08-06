@@ -12,6 +12,7 @@ export default {
   // Attach Drupal Behavior.
   attach(context, settings) {
     (function ($, once) {
+
       // Validate there is a skip link anchor for the main content. If not,
       // default to #page-content.
       var $mc = $('#main-content', context).length;
@@ -87,6 +88,34 @@ export default {
         }
         else {
           $(this).attr('aria-expanded', 'false');
+        }
+      });
+
+      $(once('faq-expand-all', '.ptype-stanford-faq', context)).each((index, faq) => {
+        if ($('.accordion__title', faq).length < 2 || $('.ptype-stanford-faq', faq).length) {
+          return;
+        }
+
+        const $button = $(
+          '<button class="expand-collapse-button expand-all su-button--secondary">' +
+          '<span class="expand-collapse">Expand</span> All' +
+          '<span class="visually-hidden"> Items below.</span>' +
+          '</button>',
+        );
+
+        $button.click(function () {
+          $button.toggleClass('expand-all').toggleClass('collapse-all');
+          const expanded = !$button.hasClass('expand-all');
+
+          $('span', $button).text(expanded ? 'Collapse' : 'Expand');
+          $(`.accordion__title[aria-expanded="${expanded ? 'false' : 'true'}"]`, faq).click();
+        });
+
+        const $headline = $('.su-faq-headline', faq);
+        if ($headline.length) {
+          $headline.append($('<div class="button-wrapper">').append($button));
+        } else {
+          $(faq).prepend($('<div class="button-wrapper clearfix">').append($button));
         }
       });
 
