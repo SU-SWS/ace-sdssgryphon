@@ -13,6 +13,15 @@ button {
   padding-top: .375em;
 }
 
+button {
+  &.su-button--secondary {
+    @include sdss-button--secondary;
+    @include responsive-spacing('padding', null 1 -2 1);
+
+    padding-top: .375em;
+  }
+}
+
 div {
   a.su-button,
   a.su-button.su-link,

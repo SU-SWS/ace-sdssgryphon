@@ -124,6 +124,24 @@ window.Drupal.behaviors.stanford_basic = {
           $(this).attr('aria-expanded', 'false');
         }
       });
+      $(once('faq-expand-all', '.ptype-stanford-faq', context)).each(function (index, faq) {
+        if ($('.accordion__title', faq).length < 2 || $('.ptype-stanford-faq', faq).length) {
+          return;
+        }
+        var $button = $('<button class="expand-collapse-button expand-all su-button--secondary">' + '<span class="expand-collapse">Expand</span> All' + '<span class="visually-hidden"> Items below.</span>' + '</button>');
+        $button.click(function () {
+          $button.toggleClass('expand-all').toggleClass('collapse-all');
+          var expanded = !$button.hasClass('expand-all');
+          $('span', $button).text(expanded ? 'Collapse' : 'Expand');
+          $(".accordion__title[aria-expanded=\"".concat(expanded ? 'false' : 'true', "\"]"), faq).click();
+        });
+        var $headline = $('.su-faq-headline', faq);
+        if ($headline.length) {
+          $headline.append($('<div class="button-wrapper">').append($button));
+        } else {
+          $(faq).prepend($('<div class="button-wrapper clearfix">').append($button));
+        }
+      });
     })(jQuery, once);
   },
   // Detach Example.
