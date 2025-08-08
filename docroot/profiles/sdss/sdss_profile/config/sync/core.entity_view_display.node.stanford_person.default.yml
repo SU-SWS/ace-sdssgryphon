@@ -172,6 +172,26 @@ third_party_settings:
               context_mapping: {  }
             weight: -10
             additional: {  }
+          65beb11f-8040-4951-8ad7-90e28d5a566a:
+            uuid: 65beb11f-8040-4951-8ad7-90e28d5a566a
+            region: quote_long_title
+            configuration:
+              id: 'field_block:node:stanford_person:su_person_full_title'
+              label: 'Full Title'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: basic_string
+                label: hidden
+                settings: {  }
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-person-full-title
+            weight: 0
+            additional: {  }
           4aa9941a-d5a0-4640-80b8-4f47de956405:
             uuid: 4aa9941a-d5a0-4640-80b8-4f47de956405
             region: quote_media
@@ -215,22 +235,6 @@ third_party_settings:
                 third_party_settings:
                   field_formatter_class:
                     class: ''
-            weight: 2
-            additional: {  }
-          e3182a0c-8618-4d09-980c-deea1162fa67:
-            uuid: e3182a0c-8618-4d09-980c-deea1162fa67
-            region: quote_long_title
-            configuration:
-              id: 'field_block:node:stanford_person:sdss_computed_full_title'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: string
-                label: hidden
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
             weight: 1
             additional: {  }
         third_party_settings: {  }
@@ -745,22 +749,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 100
-    region: content
-  sdss_computed_full_title:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  sdss_computed_short_title:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
     region: content
   su_person_affiliations:
     type: link

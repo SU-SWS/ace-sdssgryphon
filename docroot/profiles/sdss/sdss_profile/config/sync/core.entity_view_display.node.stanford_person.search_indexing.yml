@@ -274,8 +274,6 @@ content:
 hidden:
   field_menulink: true
   layout_builder__layout: true
-  sdss_computed_full_title: true
-  sdss_computed_short_title: true
   search_api_excerpt: true
   stanford_intranet__access: true
   su_metatags: true
