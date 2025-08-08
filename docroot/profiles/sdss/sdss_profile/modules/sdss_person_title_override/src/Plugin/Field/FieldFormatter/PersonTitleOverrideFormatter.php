@@ -33,7 +33,13 @@ class PersonTitleOverrideFormatter extends FormatterBase {
       $value = $service->getDisplayShortTitle($entity);
     }
     else {
-      \Drupal::messenger()->addWarning($this->t('PersonTitleOverrideFormatter: This formatter is only intended for the Full or Short title fields on the Stanford Person content type. Default field value will be used.'));
+      $current_user = \Drupal::currentUser();
+      if (
+        $current_user->hasPermission('edit any stanford_person content') ||
+        $current_user->hasPermission('administer nodes')
+      ) {
+        \Drupal::messenger()->addWarning($this->t('PersonTitleOverrideFormatter: This formatter is intended for Full or Short title fields. Default field value will be used for field: @field.', ['@field' => $field_name]));
+      }
       $value = $items[0]->value ?? '';
     }
     $elements[0] = [
@@ -41,4 +47,5 @@ class PersonTitleOverrideFormatter extends FormatterBase {
     ];
     return $elements;
   }
+
 }
