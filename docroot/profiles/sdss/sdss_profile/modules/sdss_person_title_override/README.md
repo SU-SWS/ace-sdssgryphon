@@ -21,7 +21,6 @@ The formatter is also available for views fields.
 ## Usage Notes
 - The formatter is available for all string and text fields, but is intended only for the two title fields above.
 - If applied to other fields, a warning will be shown and the default value will be used.
-- No custom field types or computed fields are provided by this module.
 
 ## Uninstalling
 - Uninstalling the module will remove the formatter, but will not affect your fields or displays.
