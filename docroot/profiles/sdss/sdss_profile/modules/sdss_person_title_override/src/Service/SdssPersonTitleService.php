@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\sdss_profile\Service;
+namespace Drupal\sdss_person_title_override\Service;
 
 use Drupal\node\NodeInterface;
 
@@ -56,5 +56,4 @@ class SdssPersonTitleService {
     $short = $node->get('su_person_short_title')->value;
     return !empty($alt) ? $alt : (!empty($short) ? $short : '');
   }
-
 }
