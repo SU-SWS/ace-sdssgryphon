@@ -1,41 +1,31 @@
 # SDSS Person Title Override
 
-This module provides computed fields for Stanford Person nodes, allowing display of alternative or original title values based on business logic. It includes:
-
-- `sdss_computed_full_title`: Displays the alternative title if set, otherwise the full title.
-- `sdss_computed_short_title`: Displays the alternative title if set, otherwise the short title.
-- A custom field formatter (`Alt Title Override`) for both computed fields.
-- Centralized override logic via the `SdssPersonTitleService`.
+This module provides a custom field formatter for Stanford Person title fields, allowing display of alternative or original title values based on business logic.
 
 ## Features
-- Computed fields are available for display configuration in Manage Display, Layout Builder and Views.
-- Fields do not store data in the database; values are generated dynamically.
-- Service-based logic for maintainability and consistency.
+- **PersonTitleOverrideFormatter**: A field formatter for `su_person_full_title` and `su_person_short_title` fields.
+- Uses centralized logic via the `SdssPersonTitleService` to determine which value to display (alt title, full title, or short title).
+- Formatter automatically detects the field and applies the correct override logic.
+- If used on any other field, a warning is shown and the default field value is used.
 
 ## Installation
 1. Enable the module via the Drupal admin UI or with Drush:
    ```
    drush en sdss_person_title_override
    ```
-2. Add the computed fields to your desired displays (Manage Display, Layout Builder, Views) for the `stanford_person` content type.
-3. Select the `Alt Title Override` formatter if needed.
+2. Go to Manage Display or Layout Builder for your `stanford_person` content type.
+3. For the `su_person_full_title` or `su_person_short_title` field, select the **Person Title Override** formatter.
+
+The formatter is also available for views fields.
+
+## Usage Notes
+- The formatter is available for all string and text fields, but is intended only for the two title fields above.
+- If applied to other fields, a warning will be shown and the default value will be used.
+- No custom field types or computed fields are provided by this module.
 
 ## Uninstalling
-**Important:** Before uninstalling this module, manually remove the computed fields (`sdss_computed_full_title`, `sdss_computed_short_title`) from all displays, Layout Builder sections, and Views. Failure to do so may result in broken blocks, fields, or errors in the UI after uninstall.
-
-Recommended uninstall steps:
-1. Remove the computed fields from all entity displays, Layout Builder, and Views.
-2. Clear caches:
-   ```
-   drush cr
-   ```
-3. Uninstall the module:
-   ```
-   drush pmu sdss_person_title_override
-   ```
-
-## Troubleshooting
-- If you see broken blocks or fields after uninstall, manually edit the affected displays or views to remove references to the computed fields.
+- Uninstalling the module will remove the formatter, but will not affect your fields or displays.
+- If you used the formatter on other fields, you may need to manually change the formatter after uninstall.
 
 ## Maintainers
 - SU-SWS Drupal Team

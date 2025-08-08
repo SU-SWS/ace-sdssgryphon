@@ -184,10 +184,12 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
               formatter:
-                type: basic_string
+                type: person_title_override
                 label: hidden
                 settings: {  }
                 third_party_settings:
+                  empty_fields:
+                    handler: ''
                   field_formatter_class:
                     class: su-person-full-title
             weight: 0

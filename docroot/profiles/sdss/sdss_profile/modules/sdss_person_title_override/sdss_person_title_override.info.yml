@@ -1,5 +1,5 @@
 name: 'SDSS Person Title Override'
-description: 'Provides computed display fields for Stanford Person titles with alt override.'
+description: 'Provides service and formatter for overriding person title fields with alternative values.'
 package: SDSS Stanford
 
 type: module
