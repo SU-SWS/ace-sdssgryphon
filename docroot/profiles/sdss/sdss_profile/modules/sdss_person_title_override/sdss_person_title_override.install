@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_pre_uninstall().
+ */
+function sdss_person_title_override_uninstall() {
+  // Log a warning for uninstall.
+  \Drupal::logger('sdss_person_title_override')->warning('SDSS Person Title Override has been uninstalled. Some displays, views, or layout builder sections will now be broken if computed fields were not manually removed before uninstalling. Reinstalling the module will NOT fix broken displays.');
+
+  // Display a warning message to the user.
+  \Drupal::messenger()->addWarning('SDSS Person Title Override has been uninstalled. Some displays, views, or layout builder sections will now be broken if computed fields were not manually removed before uninstalling. Reinstalling the module will NOT fix broken displays.');
+
+  $fields = ['sdss_computed_full_title', 'sdss_computed_short_title'];
+  $entity_type = 'node';
+  $bundle = 'stanford_person';
+
+  // Remove fields from all entity view displays.
+  $storage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
+  $displays = $storage->loadByProperties(['targetEntityType' => $entity_type, 'bundle' => $bundle]);
+  foreach ($displays as $view_display) {
+    foreach ($fields as $field_name) {
+      if (method_exists($view_display, 'getComponent') && $view_display->getComponent($field_name)) {
+        $view_display->removeComponent($field_name);
+      }
+    }
+    $view_display->save();
+  }
+
+}
