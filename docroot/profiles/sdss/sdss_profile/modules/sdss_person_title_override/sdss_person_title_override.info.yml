@@ -1,0 +1,7 @@
+name: 'SDSS Person Title Override'
+description: 'Provides computed display fields for Stanford Person titles with alt override.'
+package: SDSS Stanford
+
+type: module
+core_version_requirement: ^10.4 || ^11
+
