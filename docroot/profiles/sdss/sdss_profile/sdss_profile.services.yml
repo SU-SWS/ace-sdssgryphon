@@ -1,4 +1,6 @@
 services:
+  sdss_person_title:
+    class: Drupal\sdss_profile\Service\SdssPersonTitleService
   plugin.manager.install_tasks:
     class: Drupal\sdss_profile\InstallTaskManager
     parent: default_plugin_manager
