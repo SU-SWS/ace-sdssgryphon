@@ -56,4 +56,5 @@ class SdssPersonTitleService {
     $short = $node->get('su_person_short_title')->value;
     return !empty($alt) ? $alt : (!empty($short) ? $short : '');
   }
+
 }

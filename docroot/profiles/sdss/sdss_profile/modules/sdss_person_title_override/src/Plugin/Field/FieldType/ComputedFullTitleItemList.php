@@ -24,4 +24,5 @@ class ComputedFullTitleItemList extends FieldItemList implements FieldItemListIn
       $this->list[0] = $this->createItem(0, $title);
     }
   }
+
 }

@@ -24,4 +24,5 @@ class ComputedShortTitleItemList extends FieldItemList implements FieldItemListI
       $this->list[0] = $this->createItem(0, $title);
     }
   }
+
 }

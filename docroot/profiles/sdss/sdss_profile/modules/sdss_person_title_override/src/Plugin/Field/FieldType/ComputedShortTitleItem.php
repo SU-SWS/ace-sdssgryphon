@@ -20,6 +20,7 @@ use Drupal\Core\Field\Attribute\FieldType;
   list_class: ComputedShortTitleItemList::class,
 )]
 class ComputedShortTitleItem extends FieldItemBase {
+
   /**
    * {@inheritdoc}
    */
@@ -51,4 +52,5 @@ class ComputedShortTitleItem extends FieldItemBase {
     $value = $this->get('value')->getValue();
     return $value === NULL || $value === '';
   }
+
 }
