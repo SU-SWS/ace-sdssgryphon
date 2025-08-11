@@ -1,0 +1,39 @@
+uuid: 951dbb84-3e65-4a1e-9d0b-a8f8d6f09091
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.farm-administration
+  module:
+    - menu_block
+    - system
+  theme:
+    - stanford_basic
+id: stanford_basic_farmadministration
+theme: stanford_basic
+region: menu
+weight: 0
+provider: null
+plugin: 'menu_block:farm-administration'
+settings:
+  id: 'menu_block:farm-administration'
+  label: 'Farm Administration'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  display_empty: false
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'farm-administration:'
+  render_parent: false
+  suggestion: farm_administration
+  hide_on_nonactive: false
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /r25/of00/calendar
