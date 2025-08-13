@@ -291,7 +291,8 @@
                 "https://www.drupal.org/project/colorbox/issues/3278470": "patches/contrib/colorbox-mr-14.patch"
             },
             "drupal/config_readonly": {
-                "https://www.drupal.org/project/config_readonly/issues/2892631": "https://www.drupal.org/files/issues/2023-07-18/config-readonly-2892631-27.patch"
+                "https://www.drupal.org/project/config_readonly/issues/2892631": "https://www.drupal.org/files/issues/2023-07-18/config-readonly-2892631-27.patch",
+                "https://www.drupal.org/project/config_readonly/issues/3469854": "patches/contrib/config_readonly-mr-7-20250813.patch"
             },
             "drupal/core": {
                 "https://www.drupal.org/project/drupal/issues/2577923": "https://www.drupal.org/files/issues/2022-12-02/2577923-154.patch",
