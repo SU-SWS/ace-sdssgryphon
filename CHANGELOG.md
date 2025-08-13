@@ -7,6 +7,46 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.13.0] - 2025-08-13
+
+### Added
+c2818dc SDSS-1537: Add Research Statement field to Stanford Person page display (#638)
+7727aa8 SDSS-1535: Implement accordion and faq paragraph (#636)
+
+### Changed
+91eef71 SDSS-1536: Streamline Lockup Settings and Fix Theme Configuration Bugs (#614)
+09bcbf5 Updated custom scripts to executable location. Updated scripts README.md.
+627647d Make scripts executable.
+f229481 SDSS-1542: Update events XML feed (#626)
+
+### Deprecated
+6a13818 SDSS-0000: Deprecated colors (#637)
+d8f7e99 SDSS-1502: Deprecate and remove sdss_main_site_subtheme from codebase (#629)
+91eef71 SDSS-1536: Streamline Lockup Settings and Fix Theme Configuration Bugs (#614)
+
+### Removed
+91eef71 SDSS-1536: Streamline Lockup Settings and Fix Theme Configuration Bugs (#614)
+a1adfde SDSS-1530: Remove cron job step from provision documentation (#627)
+
+
+### Fixed
+5c06ad9 Added config_readonly patch.
+3297d32 SDSS-0000: Bug fix for room reservations module (#642)
+b884389 Fix custom logo fallback when Site Title is empty in Lockup Setting (#640)
+30c7f2e SDSS-1523: Add aria-label to the video banner play and pause button (#635)
+674f869 SDSS-1546: Fix full-width background for three and two-column layouts at large breakpoint (#633)
+120e176 SDSS-1530: Fix permission denied errors by moving cron scripts to hooks directory (#628)
+
+### Security
+fff4b8d SDSS-1541: Routine maintenance (#634)
+
+### Maintenance
+32dac0d SDSS-0000: Room Reservation module updates for Stanford Educational Farm (#641)
+fff4b8d SDSS-1541: Routine maintenance (#634)
+91eef71 SDSS-1536: Streamline Lockup Settings and Fix Theme Configuration Bugs (#614)
+d8f7e99 SDSS-1502: Deprecate and remove sdss_main_site_subtheme from codebase (#629)
+
+
 ## [4.12.1] - 2025-07-23
 
 ### Added

@@ -35,7 +35,7 @@ nav[aria-label^='footer'] {
   .su-lockup__custom-logo-link {
     &:focus {
       img {
-        outline: 1px solid $sdss-color-blue-bright;
+        outline: 1px solid $sdss-color-white;
       }
     }
   }
@@ -116,7 +116,7 @@ nav[aria-label^='footer'] {
   // Links but excluding the lockup
   .su-local-footer__columns {
     a {
-      @include sdss-link--negative-footer;
+      @include sdss-link-negative-footer;
 
       &:hover {
         text-decoration: underline;
@@ -126,7 +126,7 @@ nav[aria-label^='footer'] {
 
   .su-local-footer__action-links {
     a {
-      @include sdss-link--negative-footer;
+      @include sdss-link-negative-footer;
     }
   }
 
@@ -162,7 +162,7 @@ nav[aria-label^='footer'] {
             }
           }
           &::after {
-            background-color: $sdss-color-blue-bright;
+            background-color: $sdss-color-white;
           }
         }
       }

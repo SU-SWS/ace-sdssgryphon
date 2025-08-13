@@ -1,6 +1,6 @@
 name: 'Stanford Doerr School of Sustainability Profile'
 description: 'Profile for Stanford Doerr School of Sustainability'
-version: 4.12.1
+version: 4.13.0
 type: profile
 project: Stanford
 core_version_requirement: ^10.3 || ^11
@@ -82,6 +82,7 @@ install:
   - 'layout_library:layout_library'
   - 'link_title_formatter:link_title_formatter'
   - 'linkit:linkit'
+  - 'maxlength:maxlength'
   - 'metatag:metatag'
   - 'metatag:metatag_open_graph'
   - 'metatag:metatag_verification'

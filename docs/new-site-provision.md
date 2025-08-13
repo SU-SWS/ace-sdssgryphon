@@ -146,9 +146,6 @@ These steps cannot be completed until the provision code has been merged and dep
 To install a new site with default profile:
 `drush @MACHINE_NAME.prod si sdss_profile -y`
 
-### Create a Cron Job for the Site
-`blt gryphon:create-cron prod MACHINE_NAME`
-
 ### Configure SAML login settings
 Make sure the correct workgroups have the appropriate access to the site.
 

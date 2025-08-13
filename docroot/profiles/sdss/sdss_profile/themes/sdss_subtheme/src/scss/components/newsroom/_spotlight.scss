@@ -120,21 +120,21 @@
     .sdss-spotlight {
       .news-vertical-teaser__pub-date,
       h2 {
-        color: $su-color-white;
+        color: $sdss-color-white;
       }
 
       a h2 {
         &:active,
         &:hover,
         &:focus {
-          color: $sdss-color-blue-bright;
+          color: $sdss-color-white;
         }
       }
 
       .su-news-vertical-teaser.su-card {
         .news-vertical-teaser__topics {
           a {
-            color: $su-color-white;
+            color: $sdss-color-white;
           }
         }
       }

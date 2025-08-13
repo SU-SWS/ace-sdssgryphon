@@ -9,7 +9,6 @@ use Drupal\Core\Config\StorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\State\StateInterface;
 use Drupal\config_pages\ConfigPagesLoaderServiceInterface;
-use Drupal\Core\StreamWrapper\StreamWrapperManagerInterface;
 
 /**
  * Config overrides for stanford profile.
@@ -47,13 +46,6 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
   protected $entityTypeManager;
 
   /**
-   * StreamWrapperInterface service.
-   *
-   * @var \Drupal\Core\StreamWrapper\StreamWrapperManagerInterface
-   */
-  protected $streamWrapperManager;
-
-  /**
    * ConfigOverrides constructor.
    *
    * @param \Drupal\Core\State\StateInterface $state
@@ -64,15 +56,12 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
    *   Config factory service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   Entity type manager interface.
-   * @param \Drupal\Core\StreamWrapper\StreamWrapperManagerInterface $stream_wrapper_manager
-   *   Stream wrapper manager interface.
    */
-  public function __construct(StateInterface $state, ConfigPagesLoaderServiceInterface $config_pages_loader, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager, StreamWrapperManagerInterface $stream_wrapper_manager) {
+  public function __construct(StateInterface $state, ConfigPagesLoaderServiceInterface $config_pages_loader, ConfigFactoryInterface $config_factory, EntityTypeManagerInterface $entity_type_manager) {
     $this->state = $state;
     $this->configPagesLoader = $config_pages_loader;
     $this->configFactory = $config_factory;
     $this->entityTypeManager = $entity_type_manager;
-    $this->streamWrapperManager = $stream_wrapper_manager;
   }
 
   /**
@@ -85,42 +74,8 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     $this->setLockupOverrides($names, $overrides);
     $this->setRolePermissionOverrides($names, $overrides);
     $this->setMainMenuOverrides($names, $overrides);
-    $this->setPageCacheQueryIgnore($names, $overrides);
     // Overrides.
     return $overrides;
-  }
-
-  /**
-   * Set the config overrides for the page_cache_query_ignore settings.
-   *
-   * @param array $names
-   *   Array of config names.
-   * @param array $overrides
-   *   Keyed array of config overrides.
-   */
-  protected function setPageCacheQueryIgnore(array $names, array &$overrides) {
-    if (!in_array('page_cache_query_ignore.settings', $names)) {
-      return;
-    }
-    $original_setting = $this->configFactory->getEditable('page_cache_query_ignore.settings')
-      ->getOriginal('query_parameters', FALSE) ?? [];
-    $allowed_parameters = [
-      'hash',
-      'offset',
-      'page',
-      'search',
-      'sort_by',
-      'sort_order',
-      'url',
-    ];
-    $view_params = $this->state->get('page_cache_query_ignore.view_params') ?: [];
-    $params = [
-      ...$original_setting,
-      ...$allowed_parameters,
-      ...$view_params,
-    ];
-    asort($params);
-    $overrides['page_cache_query_ignore.settings']['query_parameters'] = array_values(array_unique($params));
   }
 
   /**
@@ -157,12 +112,7 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
   protected function getLockupTextOverrides() {
     $overrides = [
       'lockup' => [
-        'option' => $this->configPagesLoader->getValue('lockup_settings', 'su_lockup_options', 0, 'value'),
         'line1' => $this->configPagesLoader->getValue('lockup_settings', 'su_line_1', 0, 'value'),
-        'line2' => $this->configPagesLoader->getValue('lockup_settings', 'su_line_2', 0, 'value'),
-        'line3' => $this->configPagesLoader->getValue('lockup_settings', 'su_line_3', 0, 'value'),
-        'line4' => $this->configPagesLoader->getValue('lockup_settings', 'su_line_4', 0, 'value'),
-        'line5' => $this->configPagesLoader->getValue('lockup_settings', 'su_line_5', 0, 'value'),
       ],
       'logo' => [
         'path' => $this->getLogoUrl(),
@@ -171,8 +121,11 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     $overrides['lockup'] = array_filter($overrides['lockup']);
     $overrides['logo'] = array_filter($overrides['logo']);
 
-    if (!empty($overrides['lockup']) && !$this->configPagesLoader->getValue('lockup_settings', 'su_use_theme_logo', 0, 'value')) {
+    if (!$this->configPagesLoader->getValue('lockup_settings', 'su_use_theme_logo', 0, 'value')) {
       $overrides['logo']['use_default'] = FALSE;
+    }
+    else {
+      $overrides['logo']['use_default'] = TRUE;
     }
     return array_filter($overrides);
   }
@@ -192,9 +145,11 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
       return NULL;
     }
 
-    $file_uri = $file->getFileUri();
-    $wrapper = $this->streamWrapperManager->getViaUri($file_uri);
-    return $wrapper->getExternalUrl();
+    // Use the createFileUrl method to get the root-relative URL.
+    $relative_url = $file->createFileUrl(TRUE);
+
+    // Remove leading slash for theme settings compatibility.
+    return ltrim($relative_url, '/');
   }
 
   /**
