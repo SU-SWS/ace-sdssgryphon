@@ -1,0 +1,3 @@
+services:
+  sdss_person_title_override.sdss_person_title:
+    class: Drupal\sdss_person_title_override\Service\SdssPersonTitleService
