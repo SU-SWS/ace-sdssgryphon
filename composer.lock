@@ -16734,16 +16734,16 @@
         },
         {
             "name": "su-sws/stanford_fields",
-            "version": "8.6.2",
+            "version": "8.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SU-SWS/stanford_fields.git",
-                "reference": "59783e1d974119c916c8e4c42db0c140e9f741c2"
+                "reference": "3abfc931a4e652a3c48ea01c6a548b42b4ca0207"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/stanford_fields/zipball/59783e1d974119c916c8e4c42db0c140e9f741c2",
-                "reference": "59783e1d974119c916c8e4c42db0c140e9f741c2",
+                "url": "https://api.github.com/repos/SU-SWS/stanford_fields/zipball/3abfc931a4e652a3c48ea01c6a548b42b4ca0207",
+                "reference": "3abfc931a4e652a3c48ea01c6a548b42b4ca0207",
                 "shasum": ""
             },
             "require": {
@@ -16766,9 +16766,9 @@
             "homepage": "https://github.com/SU-SWS/stanford_fields",
             "support": {
                 "issues": "https://github.com/SU-SWS/stanford_fields/issues",
-                "source": "https://github.com/SU-SWS/stanford_fields/tree/8.6.2"
+                "source": "https://github.com/SU-SWS/stanford_fields/tree/8.6.3"
             },
-            "time": "2025-08-13T17:13:55+00:00"
+            "time": "2025-08-15T22:28:52+00:00"
         },
         {
             "name": "su-sws/stanford_media",
@@ -24521,16 +24521,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.6.2",
+            "version": "5.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "92dde6a5919e34835c506ac8c523ef095a95ed62"
+                "reference": "94f8051919d1b0369a6bcc7931d679a511c03fe9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/92dde6a5919e34835c506ac8c523ef095a95ed62",
-                "reference": "92dde6a5919e34835c506ac8c523ef095a95ed62",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94f8051919d1b0369a6bcc7931d679a511c03fe9",
+                "reference": "94f8051919d1b0369a6bcc7931d679a511c03fe9",
                 "shasum": ""
             },
             "require": {
@@ -24579,9 +24579,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.2"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.3"
             },
-            "time": "2025-04-13T19:20:35+00:00"
+            "time": "2025-08-01T19:43:32+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
