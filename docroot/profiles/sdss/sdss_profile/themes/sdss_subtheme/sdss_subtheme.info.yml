@@ -2,7 +2,7 @@ name: Stanford SDSS subtheme
 type: theme
 description: 'Stanford SDSS subtheme'
 package: Stanford
-version: 4.10.2-dev
+version: 4.13.1-dev
 core_version_requirement: ^10.3 || ^11
 base theme: stanford_basic
 libraries:
@@ -10,6 +10,7 @@ libraries:
 regions:
   page_top: 'Page top'
   header: Header
+  utility_nav: 'Utility nav'
   search: Search
   menu: Menu
   newsroom: Newsroom Menu

@@ -1,10 +1,6 @@
 @charset "UTF-8";
-/* Subtheme Specific colors, Stanford/Decanter colors are not defined here */
 
-// All variable names should be prefaced with your abbreviation (saa, soe, ood, etc)
-
-// define colors here in the format of:
-//$abbreviation-color-pink: #ff0099; // like $saa-color-pink
+// All variable names should be prefaced with "sdss-".
 
 // Primary Colors
 $sdss-color-grey-dark: $su-color-black;
@@ -17,18 +13,9 @@ $sdss-color-palo-alto-dark: #014240;
 $sdss-color-palo-alto-light: #2D716F;
 
 // Accent colors
-$sdss-color-blue-bright: #92D7DD; // Want to remove this color from Site
-$sdss-color-blue-bright-dark: #66AAAE; //Used in local footer.
-
-$sdss-color-green-bright: #B1EF89; // Want to remove this color from Site
-
-$sdss-color-blue-hover: #6BB6BC; // Want to remove this color from Site
-$sdss-color-green-hover: #90CC69; // Want to remove this color from Site
 $sdss-color-blue-dark-hover: #5B8F93;
-
 $sdss-color-green-link: #155F65;
 $sdss-color-decorative-blue: #368187;
-
 $sdss-color-new-leaf-light: #E8FADC;
 
 // Background Colors

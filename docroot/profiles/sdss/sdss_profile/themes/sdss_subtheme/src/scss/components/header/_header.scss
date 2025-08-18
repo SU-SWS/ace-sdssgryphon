@@ -93,11 +93,6 @@ header.su-masthead {
     .su-lockup__line2 {
       margin-left: 0;
     }
-
-    .su-lockup__line5 {
-      // Remove line 5 from all displays.
-      display: none;
-    }
   }
 }
 
@@ -153,7 +148,7 @@ header.su-masthead {
         bottom: unset;
         display: inline-block;
         top: unset;
-        right: 0;
+        right: -80px;
         left: unset;
         margin: -4.5rem 1.5rem 0 3rem;
         position: relative;

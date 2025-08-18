@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+// Person default display page.
+.content {
+  .su-person-content {
+    .node-stanford-person-su-sdss-person-research-state {
+      @include modular-spacing('margin-bottom', 5);
+    }
+
+    .sdss-person-research-statement {
+      font-size: 1.8rem;
+      line-height: 1.3;
+    }
+  }
+}
+
 // People all page.
 .stanford-people-grid,
 .people-terms {

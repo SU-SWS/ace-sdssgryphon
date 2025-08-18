@@ -7,6 +7,100 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.12.1] - 2025-07-23
+
+### Added
+None.
+
+### Changed
+None.
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+7e7399b Updated views_taxonomy_term_name_depth module and multiple value patch.
+
+### Security
+None.
+
+### Maintenance
+None.
+
+
+## [4.12.0] - 2025-07-17
+
+### Added
+f7f6cfe SDSS-1539: Map sdss:webdev Workgroup to Administrator Role for All Sites (#622)
+79a482e Update room reservations module to latest version 8.1.16 (#617)
+057b708 SDSS-1499: Add option and styles to SDSS theme to use Desktop Hamburger menu (#605)
+dff05b2 SDSS-1500: Add utility nav to sdss_subtheme (#613)
+e1fdd03 SDSS-1501: Hide utility nav up until the large breakpoint (#616)
+c4a0ad9 SDSS-1503: Set default theme and enable theme settings for sustainability site via database update (#618)
+b4ed4e6 SDSS-1530: Add drupal cron and drupal cron scheduler commands and scripts (#611)
+
+### Changed
+fb0749a SDSS-1527: Full-width video banner (#623)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+f7f6cfe SDSS-1539: Map sdss:webdev Workgroup to Administrator Role for All Sites (#622)
+ff9fc36 SDSS-1498: Add min-height to masthead inner to prevent menu overlap (#621)
+2db63d9 SDSS-0000: Room reservation fixups (#620)
+a644a43 Fix PHPCS issues.
+
+### Security
+0cb5b86 SDSS-1510,SDSS-1533: 10.4.x core upgrade and routine maintenance (#612)
+
+### Maintenance
+0cb5b86 SDSS-1510,SDSS-1533: 10.4.x core upgrade and routine maintenance (#612)
+
+
+## [4.11.0] - 2025-06-24
+
+### Added
+e347324 SDSS-0000: Update stanford_earth_r25 room reservation module to 8.1.15 (#606)
+5dce56e SDSS-856: Add field to conditionally hide the editorial sidebar title (#604)
+855abb4 SDSS-1524, SDSS-1525, SDSS-1526: Provisioned fuels, gese, and sunproject (#601)
+2b3b9e7 SDSS-1347 Add sdss_workgroup_tagging.settings to config_readonly whitelist (#600)
+b2218df SDSS-1347: Workgroup auto-tagging (#581)
+9d7335f Added database and branch clean-up workflows (#591)
+4e1ca9c SDSS-1489, SDSS-1509: Create All News feed and add date/time to News This Week feed (#598)
+ec02925 Add site retirement documentation (#597)
+e5306b4 Added provisioning and requirements documentation (#595)
+d0695ef SDSS-1518: Enable Better Exposed Filters module (#594)
+5fc81ea SDSS-1518: Add and enable Better Exposed Filters module (#592)
+
+### Changed
+0fc670e SDSS-1525,SDSS-1526: Re-provision sites with new aliases (nuclear, energynexus) (#607)
+
+### Deprecated
+None.
+
+### Removed
+9de1463 SDSS-1493, SDSS-1494, SDSS-1495: Removed mce2050, seca, and carbon_removal sites (#596)
+
+### Fixed
+05f28e7 SDSS-1189: Hide original newsroom menu when JS is enabled (#603)
+b8a4b1b SDSS-1444, SDSS-1189: A11y | Fix newsroom search button; Fix newsroom menu page load flashing (#602)
+1030948 Fix clean-up workflow ssh_key variable.
+
+### Security
+755b230 SDSS-1517: Routine maintenance (#599)
+
+### Maintenance
+0d588b4 SDSS-1513: Add Akamai SureRoute test objects (#608)
+755b230 SDSS-1517: Routine maintenance (#599)
+
+
 ## [4.10.1] - 2025-05-21
 
 ### Added
