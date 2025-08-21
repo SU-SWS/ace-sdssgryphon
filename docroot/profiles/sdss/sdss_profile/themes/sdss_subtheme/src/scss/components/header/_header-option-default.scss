@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+// Default header variant styles.
+
+header.su-masthead {
+  .sdss-masthead-main.sdss-masthead-main--default {
+    background: linear-gradient(
+      to right,
+      $sdss-color-white 0,
+      $sdss-color-white 50%,
+      $sdss-color-palo-alto-dark 50%,
+      $sdss-color-palo-alto-dark 100%
+    );
+
+    .sdss-masthead-top-bar {
+      .sdss-masthead-content {
+        display: flex;
+      }
+    }
+
+    .sdss-masthead-bottom-bar {
+      display: flex;
+      align-items: center;
+      background-color: $sdss-color-palo-alto-dark;
+
+      .sdss-masthead-content {
+        display: flex;
+      }
+    }
+
+    .sdss-lockup {
+      .sdss-lockup-logo {
+        background-color: $sdss-color-white;
+        padding: 1rem 1.5rem;
+
+        .sdss-lockup-logo-img {
+          max-width: 125px;
+        }
+      }
+
+      .sdss-lockup-title {
+        display: flex;
+        align-self: stretch;
+        background-color: $sdss-color-palo-alto-dark;
+
+        a {
+          display: block;
+          align-self: center;
+          text-decoration: none;
+          color: $sdss-color-white;
+          font-size: 1.75rem;
+          line-height: 1em;
+          padding: 1rem 1.5rem;
+        }
+      }
+    }
+
+    .su-multi-menu {
+      .su-multi-menu__nav-toggle {
+        color: $su-color-white;
+        background-color: $sdss-color-palo-alto-dark;
+      }
+    }
+  }  
+}
+
+@include grid-media-min('md') {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      .sdss-masthead-top-bar {
+        .sdss-masthead-content {
+          flex-flow: row;
+          background-color: $sdss-color-palo-alto-dark;
+        }
+      }
+
+      .sdss-lockup {
+        .sdss-lockup-logo {
+          padding: 1.5rem 3rem;
+
+          .sdss-lockup-logo-img {
+            max-width: 150px;
+          }
+        }
+
+        .sdss-lockup-title {
+          a {
+            padding: 1.5rem 3rem;
+            font-size: 2rem; 
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include grid-media-min('lg') {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      background-color: $sdss-color-white;
+
+      .sdss-masthead-bottom-bar {
+        background-color: $sdss-color-white;
+      }
+
+      .sdss-lockup {
+        .sdss-lockup-logo {
+          padding: 1.5rem 3rem 1.5rem 8rem;
+
+          .sdss-lockup-logo-img {
+            max-width: 165px;
+          }
+        }
+
+        .sdss-lockup-title {
+          a {
+            font-size: 2.25rem;
+          }
+        }
+      }
+    }  
+  }
+}
+
+@include grid-media-min('xl') {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      .sdss-lockup {
+        .sdss-lockup-logo {
+          padding: 1.5rem 3rem;
+        }
+
+        .sdss-lockup-title {   
+          a {
+            padding: 3rem 0 3rem 3rem;
+          }
+        }
+      }
+    }  
+  }
+}

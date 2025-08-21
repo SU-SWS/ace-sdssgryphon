@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.su-masthead--inner .menu--utility-navigation {
+.sdss-masthead-content .menu--utility-navigation {
   /* Utility navigation menu styles
    * This menu is used for the utility navigation in the masthead.
    * As part of Quickstrike 2 in Summer 2025 the decision was made to hide this 
@@ -9,7 +9,6 @@
    * header options.
    */
   display: none;
-  position: absolute;
   margin: 0;
   bottom: 1.25rem;
   right: 8rem;
@@ -67,7 +66,7 @@
 }
 
 @include grid-media-min('md') {
-  .su-masthead--inner .menu--utility-navigation {
+  .sdss-masthead-content .menu--utility-navigation {
     bottom: 1.5rem;
     right: 11rem;
 
@@ -92,7 +91,7 @@
 }
 
 @include grid-media-min('lg') {
-  .su-masthead--inner .menu--utility-navigation {
+  .sdss-masthead-content .menu--utility-navigation {
     display: block;
   }
 }

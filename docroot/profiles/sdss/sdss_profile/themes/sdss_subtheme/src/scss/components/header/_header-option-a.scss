@@ -1,28 +1,5 @@
 @charset "UTF-8";
 
-// Header Option A variant styles: Blue Header, Right Navigation
-body.sdss-header-variant--option_a {
-  header.su-masthead {
-    section.su-masthead--inner {
-      .su-multi-menu {
-        .su-multi-menu__nav-toggle {
-          background-color: unset;
-          color: $su-color-black;
-          &:after {
-            background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
-          }
-        }
-      }
-    }
-
-    .su-lockup {
-      .su-lockup__cell2 {
-        display: none;
-      }
-    }
-  }
-}
-
 // Responsive queries: smallest to largest (sm, md, lg, xl)
 @include grid-media-min('lg') {
   body.sdss-header-variant--option_a {
@@ -32,7 +9,7 @@ body.sdss-header-variant--option_a {
         position: relative;
       }
 
-      section.su-masthead--inner {
+      .sdss-masthead-content {
         position: relative;
         display: flex;
         justify-content: flex-start;
@@ -60,7 +37,7 @@ body.sdss-header-variant--option_a {
 
       .su-lockup {
         background: $su-color-white;
-        .su-lockup__cell1 {
+        .su-lockup__logo {
           padding: 2rem 3rem 2rem 8rem;
         }
       }
@@ -73,8 +50,119 @@ body.sdss-header-variant--option_a {
   body.sdss-header-variant--option_a {
     header.su-masthead {
       .su-lockup {
-        .su-lockup__cell1 {
+        .su-lockup__logo {
           padding: 1.7rem 3rem 1.7rem 0;
+        }
+      }
+    }
+  }
+}
+
+// Utility nav menu styles for desktop and mobile navigation when using the
+// Option A header variant.
+body.sdss-header-variant--option_a {
+  .su-masthead--inner .menu--utility-navigation {
+    z-index: 101;
+
+    ul.menu {
+      li.menu-item:nth-child(odd) {
+        a {
+          color: $sdss-color-white;
+          background-color: $sdss-color-palo-alto-dark;
+          border: .2rem solid $sdss-color-palo-alto-dark;
+
+          &:hover {
+            text-decoration-color: $sdss-color-grey-60;
+          }
+        }
+      }
+
+      li.menu-item:nth-child(even) {
+        a {
+          color: $sdss-color-palo-alto-dark;
+          background-color: $sdss-color-white;
+          border: .2rem solid $sdss-color-palo-alto-dark;
+
+          &:hover {
+            text-decoration-color: $sdss-color-grey-dark;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+// Hamburger menu styles for desktop and mobile navigation.
+// Applies to .desktop-hamburger wrapper when hamburger menu is enabled.
+body.desktop-hamburger {
+  &.sdss-header-variant--option_a {
+    header.su-masthead {
+      .sdss-masthead-content {
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: unset;
+      
+        .system-menu-block {
+          z-index: unset;
+        }
+
+        .su-multi-menu {
+          padding: 0 1.5rem;
+        }
+      }
+
+      .su-lockup {
+        display: inline-block;
+      }
+    }
+
+    // Logo alignment on left/right.
+    header.su-masthead {
+      .su-lockup {
+        .su-lockup__logo {
+          @include grid-media-min('xs') {
+            padding: 1.5rem 2rem;
+          }
+          @include grid-media-min('sm') {
+            padding: 1.5rem 3rem;
+          }
+          @include grid-media-min('md') {
+            padding: 1.5rem 5rem;
+          }
+          @include grid-media-min('lg') {
+            padding: 1.5rem 8rem;
+          }
+          @include grid-media-min('xl') {
+            padding: 1.5rem 10rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include grid-media-min('md') {
+  body.desktop-hamburger {
+    &.sdss-header-variant--option_a {
+      header.su-masthead {
+        .sdss-masthead-content {
+          min-height: 72px;
+
+          .system-menu-block {
+            right: auto;
+            width: 100%;
+          }
+
+          .su-multi-menu {
+            .su-multi-menu__nav-toggle {
+              padding: 1rem;
+              right: 0;
+              top: -1rem;
+            }
+          }
         }
       }
     }
