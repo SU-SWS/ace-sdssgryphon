@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 header.su-masthead {
-  .sdss-masthead-main {
+  .sdss-masthead-main-inner {
     display: flex;
     justify-content: space-between;
   }
@@ -36,65 +36,37 @@ header.su-masthead {
     }
   }
 
+  .system-menu-block {
+    display: flex;
+    align-self: stretch;
+  }
+
   .su-multi-menu {
+    display: flex;
+    align-self: stretch;
+
     .su-multi-menu__nav-toggle {
-      position: relative;
-      top: unset;
-      padding: .5rem 1rem;
-      width: auto;
-      border-radius: unset;
-      text-align: center;
-      background-color: $su-color-white;
-      color: $su-color-black;
-      
+      align-self: center;
+      color: $su-color-white;
+      background-color: $sdss-color-palo-alto-dark;
+    }
+  }
 
-      &::after {
-        @include margin(0 auto);
-        display: inline-block;
-        width: 30px;
-        height: 26px;
-        background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
-        content: "";
-      }
+  a.su-site-search__submit {
+    display: none;
+  }
 
-      &:focus,
-      &:hover {
-        &:before {
-          background-color: $su-color-white;
-        }
-      }
-
-      &[aria-expanded=true] {
-        &:before {
-          background-color: $su-color-white;
-        }
-
-        &:focus,
-        &:hover {
-          &:before {
-            background-color: $su-color-white;
-          }
-        }
-
-        &::after {
-          width: 22px;
-          background: url("../../assets/svg/close.svg") no-repeat 3px 0;
-          background-size: 16px 16px;
-        }
-      }
+  .su-site-search {
+    &.views-exposed-filter-block {
+      display: none;
     }
 
-    .su-multi-menu__nav-toggle[aria-expanded=true] + .su-multi-menu__menu-lv1 {
-      top: 100%;
-      right: 0;      
-      margin: 0;
-      width: 100vw;
-      max-width: unset;
+    form {
+      display: none;
     }
   }
 }
 
-// Styles for Medium or bigger Screens.
 @include grid-media-min('md') {
   header.su-masthead {
     .sdss-masthead-content {
@@ -104,255 +76,58 @@ header.su-masthead {
         }
       }
     }
-
-    .su-lockup {
-      .su-lockup__logo {
-        align-items: center;
-        align-self: unset;
-        max-width: unset;
-        margin: 0;
-        padding: 1.5rem 2rem 1.5rem 5rem;
-      }
-
-      .su-lockup__title {
-        align-self: unset;
-        max-width: unset;
-        margin: 0;
-        padding: 1.5rem 5rem 1.5rem 2rem;
-      }
-    }
   }
 }
 
-// Styles for Large or bigger Screens.
 @include grid-media-min('lg') {
   header.su-masthead {
-    .sdss-masthead-main {
-      flex-flow: column;
-    }
-
-    .sdss-masthead-content {
-      .su-site-search__wrapper {
-        #sdss-button--search-link {
-          align-self: center;
-          background-color: $sdss-color-palo-alto-dark;
-          border-radius: 32px;
-          display: inline-block;
-          position: relative;
-          min-width: 32px;
-          min-height: 32px;
-          z-index: 100;
-        }
-      }
-
-      .system-menu-block {
-        position: relative;
-        bottom: unset;
-      }
-
-      .su-multi-menu {
-        padding: 0 8rem;
-      }
-    }
-
-    .su-site-search,
-    nav+.su-site-search,
-    ul li .su-site-search {
-      display: none;
-    }
-
-    .su-lockup {
-      .su-lockup__logo {
-        padding: 3rem 4rem 3rem 8rem;
-
-        .sdss-lockup-logo-img {
-          max-height: 5.5rem;
-        }
-      }
-    }
+    // .su-site-search,
+    // nav+.su-site-search,
+    // ul li .su-site-search {
+    //   display: none;
+    // }
   }
 }
 
 // Styles for Extra Large or bigger Screens.
 @include grid-media-min('xl') {
   header.su-masthead {
+    .sdss-masthead-main-inner {
+      max-width: 2000px;
+      width: calc(100% - 200px);
+      margin: 0 auto;
+    }
     .sdss-masthead-content {
-      @include sdss-centered-column;
-
       .su-multi-menu {
         padding: 0;
       }
     }
-
-    .su-lockup {
-      .su-lockup__logo {
-        padding: 3rem 4rem 3rem 0;
-      }
-    }
   }
 }
 
 
-.desktop-hamburger {
-  .su-masthead {
-
-    .su-multi-menu {
-      @include grid-media-max('md') {
-        > ul {
-          @include box-shadow('medium', 0);
-        }
-      }
-      @include grid-media-min('xs') {
-        > ul {
-          @include box-shadow('medium', 0);
-        }
-      }
-
-      .su-multi-menu__nav-toggle[aria-expanded=true] + .su-multi-menu__menu-lv1 {
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
-        max-width: 600px;
-
-        @include grid-media('md') {
-          width: 100%;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-      }
-
-      > ul,
-      .su-multi-menu__nav-toggle[aria-expanded="true"] + .su-multi-menu__menu-lv1 + .su-site-search {
-        @include grid-media-only('md') {
-          width: 40rem;
-        }
-
-      }
-    }
-    
-    .su-lockup {
-      @include grid-media('lg') {
-        @include margin(null null null null);
-      }
-    }
-
-    li.su-mobile-site-search {
-      @include grid-media-min('xs') {
-        display: block;
-      }
-    }
-
-    .su-site-search__input {
-      @include padding(0.6rem 2rem 0.8rem);
-      font-family: $su-font-sans;
-      border: 1px solid #d9d9d9;
-    }
-
-    .su-site-search__submit {
-      color: unset;
-      opacity: 100;
-      right: 1rem;
-    }
-  }
-}
-
-
-// Hamburger menu styles for desktop and mobile navigation.
-// Applies to .desktop-hamburger wrapper when hamburger menu is enabled.
-.desktop-hamburger {
-  header.su-masthead {
-    .sdss-masthead-content {
-      .su-multi-menu {
-        padding: 0 1.5rem;        
-      }
-    }
-
-    .su-lockup {
-      .su-lockup__logo,
-      .su-lockup__title {
-        padding: 1.5rem 3rem;
-      }
-
-      .su-lockup__title {
-        max-width: unset;
-        margin-left: 0;
-      }
-
-      .su-lockup__line5 {
-        // Remove line 5 from all displays.
-        display: none;
-      }
-
-      .sdss-lockup-logo-img {
-        max-width: 110px;
-        display: inline-block;
-        margin: 0;
-        vertical-align: top;
-      }
-    }
-  }
-
-  //
-  // Mobile first min-width queries.
-  // Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
-  //
-  @include grid-media-min('xs') {
+// Header styles to accomodate the desktop menu.
+.desktop-menu {
+  @include grid-media-min('lg') {
     header.su-masthead {
-      .sdss-masthead-content {
-        #sdss-button--search-link {
-          display: none;
-        }
-
-        .system-menu-block {
-          position: absolute;
-          bottom: 0;
-          z-index: 103;
-        }
+      .sdss-masthead-main-inner {
+        flex-flow: column;
       }
 
-      .su-site-search,
-      nav+.su-site-search,
-      ul li .su-site-search {
-        display: none;
-      }
-
-      ul li .su-site-search {
-        display: block;
-        max-width: unset;
-        margin: 26px auto;
-      }
-
-      .su-lockup {
-        .su-lockup__logo {
-          padding: 3rem 4rem 3rem 8rem;
-        }
-
-        .su-lockup__title {
-          position: relative;
-          padding: 3rem 8rem 3rem 3rem;
-        }
-      }
-    }
-  }
-
-  // Styles for Medium or bigger Screens.
-  @include grid-media-min('md') {
-    header.su-masthead {
       .sdss-masthead-content {
         .su-multi-menu {
-          .su-multi-menu__nav-toggle {
-            top: -1rem;
-            right: 0;
-            padding: 1rem;
-          }
+          padding: 0 8rem;
         }
+      }
 
-        .system-menu-block {
-          right: 0;
-          width: auto;
-          min-width: 600px;
-        }
+      .su-site-search__wrapper {
+        display: flex;
+        align-items: center;
+        padding: .5rem 3rem;
+      }
+
+      a.su-site-search__submit {
+        display: inline-block;
       }
     }
   }
@@ -360,35 +135,8 @@ header.su-masthead {
   @include grid-media-min('xl') {
     header.su-masthead {
       .sdss-masthead-content {
-        width: calc(100% - 200px);
-      }
-
-      .su-lockup {
-        .su-lockup__logo {
-          padding: 1.5rem 3rem;
-        }
-      }
-    }
-  }
-
-  // Logo alignment on left/right.
-  header.su-masthead {
-    .su-lockup {
-      .su-lockup__logo {
-        @include grid-media-min('xs') {
-          padding: 1.5rem 2rem;
-        }
-        @include grid-media-min('sm') {
-          padding: 1.5rem 3rem;
-        }
-        @include grid-media-min('md') {
-          padding: 1.5rem 5rem;
-        }
-        @include grid-media-min('lg') {
-          padding: 1.5rem 8rem;
-        }
-        @include grid-media-min('xl') {
-          padding: 1.5rem 10rem;
+        .su-multi-menu {
+          padding: 0;
         }
       }
     }

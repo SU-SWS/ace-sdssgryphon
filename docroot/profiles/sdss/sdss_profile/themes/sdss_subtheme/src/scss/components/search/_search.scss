@@ -1,31 +1,22 @@
 @charset "UTF-8";
 
+.su-site-search__submit {    
+  display: inline-block;
+  position: unset;
+  right: unset;
+  top: unset;
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  min-width: 32px;  
+  height: 32px;
+  min-height: 32px;
+  background: url("../../assets/svg/magnifying-glass-24px-white.svg") $sdss-color-palo-alto-dark no-repeat center/75% ;
+  border-radius: 32px;
+  opacity: unset;
 
-// On desktop views, remove the search input field.
-@include grid-media-min('lg') {
-  .su-site-search {
-    form {
-      display: none;
-    }
-  }
-
-  .su-site-search__submit {
-    background: url("../../assets/svg/magnifying-glass-24px-white.svg") no-repeat center/75%;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background: url("../../assets/svg/magnifying-glass-24px-white.svg") no-repeat center/75%;
-    }
-  }
-
-}
-
-@include grid-media-max('md') {
-  a {
-    &.su-site-search__submit {
-      display: none;
-    }
+  &:hover {
+    background: url("../../assets/svg/magnifying-glass-24px-white.svg") $sdss-color-palo-alto-dark no-repeat center/75%;
   }
 }
 

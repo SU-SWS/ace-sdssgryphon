@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+.su-multi-menu {
+  // Mobile / hamburger menu site search.
+  li.su-mobile-site-search {
+    display: block;
+
+    .su-site-search {
+      form {
+        display: block;
+      }
+    }
+  }
+
+  // Mobile / hamburger menu toggle button.
+  .su-multi-menu__nav-toggle {
+    position: relative;
+    top: unset;
+    padding: .5rem 1rem;
+    width: auto;
+    border-radius: unset;
+    text-align: center;
+    background-color: $su-color-white;
+    color: $su-color-black;
+    
+
+    &::after {
+      @include margin(0 auto);
+      display: inline-block;
+      width: 30px;
+      height: 26px;
+      background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
+      content: "";
+    }
+
+    &:focus,
+    &:hover {
+      &:before {
+        background-color: $sdss-color-green-link;
+      }
+    }
+
+    &[aria-expanded=true] {
+      &:before {
+        background-color: $sdss-color-green-link;
+      }
+      &:focus,
+      &:hover {
+        &:before {
+          background-color: $sdss-color-green-link;
+        }
+      }
+
+      &::after {
+        width: 22px;
+        background: url("#{$su-image-path}/close-white.svg") no-repeat 3px 0;
+        background-size: 16px 16px;
+      }
+    }
+  }
+
+  // Mobile / hamburger menu expanded / toggled.
+  .su-multi-menu__nav-toggle[aria-expanded=true] + .su-multi-menu__menu-lv1 {
+    top: 100%;
+    right: 0;      
+    margin: 0;
+    width: 100vw;
+    max-width: 600px;
+  }
+
+   // Mobile / hamburger menu.
+  .su-multi-menu__menu-lv1 {
+    > .su-multi-menu__item {
+      &.su-multi-menu__item--active-trail {
+        > .su-multi-menu__link {
+          color: $sdss-color-green-link;
+
+          &:before {
+            background-color: $sdss-color-green-link;
+          }
+        }
+      }
+    }
+
+    > li {
+      &:last-child {
+        > .su-multi-menu__menu-lv2 {
+          right: unset;
+        }
+      }
+    }
+  }
+
+  .su-multi-menu__menu {
+    background-color: $sdss-color-white;
+
+    .su-multi-menu__link {
+      border-bottom: none;
+      color: $sdss-color-grey-dark;
+      font-weight: $su-font-regular;
+
+      &:hover {
+        > span {
+          text-decoration: underline;
+          color: $sdss-color-grey-dark;
+        }
+      }
+
+      &:active {
+        &:before {
+          background-color: $sdss-color-black;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        > span {
+          text-decoration: underline;
+          color: $sdss-color-grey-dark;
+        }
+
+        &::before {
+          background-color: $sdss-color-black;
+          width: 3px;
+        }
+      }
+
+      &:focus {
+        color: $sdss-color-grey-dark;
+        outline: 1px solid $sdss-color-palo-alto-dark;
+        background-color: transparent;
+      }
+    }
+  }
+
+  // Color bar on the drop down menu
+  .su-multi-menu__item--current {
+    > .su-multi-menu__link {
+      color: $sdss-color-palo-alto-dark;
+
+      &:before {
+        background-color: $sdss-color-black;
+        width: 3px;
+
+        @include grid-media-max('md') {
+          background-color: $sdss-color-palo-alto-dark;
+        }
+      }
+    }
+  }
+
+  .su-multi-menu__menu-lv2,
+  .su-multi-menu__menu-lv3,
+  .su-multi-menu__menu-lv4,
+  .su-multi-menu__menu-lv5 {
+    .su-multi-menu__item {
+      >.su-multi-menu__link {
+        @include responsive-spacing('padding-bottom', -1);
+        @include responsive-spacing('padding-top', -1);
+
+        margin: 0;
+
+        &:hover {
+          &:before {
+            left: -12px;
+          }
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+
+          > span {
+            color: $sdss-color-green-link;
+          }
+        }
+      }
+    }
+  }
+
+  &.su-multi-menu--dropdowns {
+    .su-multi-menu__menu-lv1 {
+
+      @include grid-media-min('lg') {
+        >.su-multi-menu__item--parent:last-of-type {
+          margin: 0;
+        }
+      }
+
+
+      >.su-multi-menu__item--parent {
+        margin: 0 40px 0 0;
+
+        >.su-multi-menu__item--parent:last-of-type {
+          margin: 0;
+        }
+
+        >.su-multi-menu__link {
+
+          // Remove the pipe, "|", on the dropdrop down menus.
+          &::after {
+            border-right: none;
+            margin-left: 6px;
+          }
+        }
+
+        > .su-nav-toggle {
+
+          &[aria-expanded=true]{
+            &:focus {
+                &::before {
+                  background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
+                }
+              }
+            }
+
+
+            &::before {
+              background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
+            }
+
+            &:focus,
+            &:hover {
+              &::before {
+                background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
+              }
+            }
+
+        }
+      }
+    }
+  }
+}
+   

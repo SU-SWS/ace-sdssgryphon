@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 // Default header variant styles.
-
 header.su-masthead {
   .sdss-masthead-main.sdss-masthead-main--default {
     background: linear-gradient(
@@ -20,11 +19,11 @@ header.su-masthead {
 
     .sdss-masthead-bottom-bar {
       display: flex;
-      align-items: center;
       background-color: $sdss-color-palo-alto-dark;
 
       .sdss-masthead-content {
         display: flex;
+        align-self: stretch;
       }
     }
 
@@ -52,13 +51,6 @@ header.su-masthead {
           line-height: 1em;
           padding: 1rem 1.5rem;
         }
-      }
-    }
-
-    .su-multi-menu {
-      .su-multi-menu__nav-toggle {
-        color: $su-color-white;
-        background-color: $sdss-color-palo-alto-dark;
       }
     }
   }  
@@ -100,10 +92,6 @@ header.su-masthead {
     .sdss-masthead-main.sdss-masthead-main--default {
       background-color: $sdss-color-white;
 
-      .sdss-masthead-bottom-bar {
-        background-color: $sdss-color-white;
-      }
-
       .sdss-lockup {
         .sdss-lockup-logo {
           padding: 1.5rem 3rem 1.5rem 8rem;
@@ -128,7 +116,7 @@ header.su-masthead {
     .sdss-masthead-main.sdss-masthead-main--default {
       .sdss-lockup {
         .sdss-lockup-logo {
-          padding: 1.5rem 3rem;
+          padding: 1.5rem 3rem 1.5rem 0;
         }
 
         .sdss-lockup-title {   
@@ -138,5 +126,37 @@ header.su-masthead {
         }
       }
     }  
+  }
+}
+
+// Default header variant styles for the desktop menu.
+.desktop-menu {
+  @include grid-media-min('lg') {
+    header.su-masthead {
+      .sdss-masthead-main.sdss-masthead-main--default {
+        .sdss-masthead-bottom-bar {
+          background-color: $sdss-color-white;
+        }
+      }
+    }
+  }
+
+  @include grid-media-min('xl') {
+    header.su-masthead {
+      .sdss-masthead-main-inner {
+        margin: 0;
+        max-width: unset;
+        width: unset;
+      }
+    }
+
+    .sdss-masthead-top-bar,
+    .sdss-masthead-bottom-bar {
+      .sdss-masthead-content {
+        margin: 0 auto;
+        max-width: 2000px;
+        width: calc(100% - 200px);
+      }
+    }
   }
 }

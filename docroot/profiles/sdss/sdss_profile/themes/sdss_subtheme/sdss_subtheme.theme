@@ -11,9 +11,14 @@ use Drupal\node\NodeInterface;
  * Implements hook_preprocess_html().
  */
 function sdss_subtheme_preprocess_html(&$variables) {
-  // Add class for desktop hamburger menu if enabled.
+  // Determine which desktop menu class to add.
+  $desktop_menu = TRUE;
   if (theme_get_setting('desktop_hamburger')) {
-    $variables['attributes']['class'][] = 'desktop-hamburger';
+    $desktop_menu = FALSE;
+    // $variables['attributes']['class'][] = 'desktop-hamburger';
+  }
+  if ($desktop_menu) {
+    $variables['attributes']['class'][] = 'desktop-menu';
   }
 
   $variables['stanford_basic_path'] = \Drupal::service('extension.list.theme')->getPath('stanford_basic');

@@ -2,13 +2,14 @@
  * Header Option A template.
 #}
 <div class="sdss-masthead-main sdss-masthead-main--option-a"> 
-  <div class="sdss-masthead-content">
-  {# Example: Place logo, site name, utility nav, search, menu as needed #}
-  {{ page.header }}
-  {% if page.utility_nav and display_utility_navigation %}
-    {{ page.utility_nav }}
-  {% endif %}
-  {{ page.search }}
-  {{ page.menu }}
+  <div class="sdss-masthead-main-inner">
+    <div class="sdss-masthead-content">
+    {{ page.header }}
+    {% if page.utility_nav and display_utility_navigation %}
+      {{ page.utility_nav }}
+    {% endif %}
+    {{ page.search }}
+    {{ page.menu }}
+    </div>
   </div>
 </div>
