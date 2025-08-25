@@ -4,10 +4,19 @@
   // Mobile / hamburger menu site search.
   li.su-mobile-site-search {
     display: block;
+    margin: 0;
 
     .su-site-search {
+      display: block;
+      margin: 0;
+      padding: 1.5rem 0 1.5rem 2.5rem;
+      max-width: 100%;
+
       form {
-        display: block;
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
       }
     }
   }
@@ -23,13 +32,15 @@
     background-color: $su-color-white;
     color: $su-color-black;
     
-
     &::after {
-      @include margin(0 auto);
       display: inline-block;
       width: 30px;
       height: 26px;
-      background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
+      margin: 0 auto;
+      background-image: url("#{$su-image-path}/hamburger-white.svg");
+      background-color: none;
+      background-repeat: no-repeat;
+      background-position: 3px 0;
       content: "";
     }
 
@@ -62,14 +73,16 @@
   // Mobile / hamburger menu expanded / toggled.
   .su-multi-menu__nav-toggle[aria-expanded=true] + .su-multi-menu__menu-lv1 {
     top: 100%;
-    right: 0;      
+    right: 0;
     margin: 0;
     width: 100vw;
     max-width: 600px;
+    padding: 0 3rem 1rem 1rem;
   }
 
-   // Mobile / hamburger menu.
   .su-multi-menu__menu-lv1 {
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+
     > .su-multi-menu__item {
       &.su-multi-menu__item--active-trail {
         > .su-multi-menu__link {
@@ -95,14 +108,16 @@
     background-color: $sdss-color-white;
 
     .su-multi-menu__link {
-      border-bottom: none;
+      margin: 0;
+      padding: 1.5rem 0 1.5rem 2.5rem;
       color: $sdss-color-grey-dark;
       font-weight: $su-font-regular;
+      border-bottom: none;
 
       &:hover {
         > span {
           text-decoration: underline;
-          color: $sdss-color-grey-dark;
+          color: $sdss-color-green-link;
         }
       }
 
@@ -114,11 +129,6 @@
 
       &:hover,
       &:focus {
-        > span {
-          text-decoration: underline;
-          color: $sdss-color-grey-dark;
-        }
-
         &::before {
           background-color: $sdss-color-black;
           width: 3px;
@@ -129,106 +139,98 @@
         color: $sdss-color-grey-dark;
         outline: 1px solid $sdss-color-palo-alto-dark;
         background-color: transparent;
+
+        > span {
+          text-decoration: underline;
+          color: $sdss-color-grey-dark;
+        }
       }
     }
   }
 
-  // Color bar on the drop down menu
   .su-multi-menu__item--current {
     > .su-multi-menu__link {
       color: $sdss-color-palo-alto-dark;
 
       &:before {
-        background-color: $sdss-color-black;
         width: 3px;
-
-        @include grid-media-max('md') {
-          background-color: $sdss-color-palo-alto-dark;
-        }
-      }
-    }
-  }
-
-  .su-multi-menu__menu-lv2,
-  .su-multi-menu__menu-lv3,
-  .su-multi-menu__menu-lv4,
-  .su-multi-menu__menu-lv5 {
-    .su-multi-menu__item {
-      >.su-multi-menu__link {
-        @include responsive-spacing('padding-bottom', -1);
-        @include responsive-spacing('padding-top', -1);
-
-        margin: 0;
-
-        &:hover {
-          &:before {
-            left: -12px;
-          }
-        }
-
-        &:hover,
-        &:active,
-        &:focus {
-
-          > span {
-            color: $sdss-color-green-link;
-          }
-        }
       }
     }
   }
 
   &.su-multi-menu--dropdowns {
-    .su-multi-menu__menu-lv1 {
+    .su-multi-menu__item--parent {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
 
-      @include grid-media-min('lg') {
-        >.su-multi-menu__item--parent:last-of-type {
-          margin: 0;
+      > .su-multi-menu__link {
+        flex-grow: 1; 
+
+        &::after {
+          border-right: none;
+          margin-left: 6px;
         }
       }
 
+      > .su-nav-toggle {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        width: auto;
+        height: auto;
+        
+        &[aria-expanded="false"],
+        &[aria-expanded="true"] {
+          transition: unset;
+          transform: unset;
+        }          
 
-      >.su-multi-menu__item--parent {
-        margin: 0 40px 0 0;
-
-        >.su-multi-menu__item--parent:last-of-type {
-          margin: 0;
-        }
-
-        >.su-multi-menu__link {
-
-          // Remove the pipe, "|", on the dropdrop down menus.
-          &::after {
-            border-right: none;
-            margin-left: 6px;
+        &[aria-expanded="true"] {
+          &::before {
+            transition: transform .3s ease-out;
+            transform: rotate(180deg);
           }
         }
 
-        > .su-nav-toggle {
+        &::before {
+          content: "";
+          position: relative;
+          top: unset;
+          right: unset;
+          bottom: unset;
+          height: 32px;
+          width: 32px;
+          background-color: $sdss-color-green-link;
+          background-image: url("#{$su-image-path}/caret-down-white.svg");
+          background-repeat: no-repeat;
+          background-size: 50%;
+          background-position: center;
+          border: 1px solid $sdss-color-green-link;
+          border-radius: 50%;
+          transition: transform 0.3s ease-out;
+          transform: rotate(0deg);
+        }
 
-          &[aria-expanded=true]{
-            &:focus {
-                &::before {
-                  background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
-                }
-              }
-            }
+        &:hover,
+        &:active {
+          &::before {
+            background-color: $sdss-color-white;
+            background-image: url("#{$su-image-path}/caret-down-black.svg");
+            border: 1px solid $sdss-color-grey-dark;
+          }
+        }
 
-
-            &::before {
-              background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
-            }
-
-            &:focus,
-            &:hover {
-              &::before {
-                background: $sdss-color-green-link url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
-              }
-            }
-
+        &:focus {
+          &::before {
+            background-color: $sdss-color-grey-dark;
+            background-image: url("#{$su-image-path}/caret-down-white.svg");
+            border: 1px solid $sdss-color-grey-dark;
+          }
         }
       }
     }
   }
 }
-   

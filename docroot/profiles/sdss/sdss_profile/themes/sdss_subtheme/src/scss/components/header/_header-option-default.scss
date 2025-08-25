@@ -12,8 +12,16 @@ header.su-masthead {
     );
 
     .sdss-masthead-top-bar {
+      flex-grow: 1; 
+
       .sdss-masthead-content {
         display: flex;
+        background-color: $sdss-color-palo-alto-dark;
+        justify-content: flex-start;
+
+        .menu--utility-navigation {
+          margin: 0 1.5rem 0 auto;
+        }
       }
     }
 
@@ -59,13 +67,6 @@ header.su-masthead {
 @include grid-media-min('md') {
   header.su-masthead {
     .sdss-masthead-main.sdss-masthead-main--default {
-      .sdss-masthead-top-bar {
-        .sdss-masthead-content {
-          flex-flow: row;
-          background-color: $sdss-color-palo-alto-dark;
-        }
-      }
-
       .sdss-lockup {
         .sdss-lockup-logo {
           padding: 1.5rem 3rem;
@@ -131,31 +132,35 @@ header.su-masthead {
 
 // Default header variant styles for the desktop menu.
 .desktop-menu {
-  @include grid-media-min('lg') {
-    header.su-masthead {
-      .sdss-masthead-main.sdss-masthead-main--default {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      @include grid-media-min('lg') {
         .sdss-masthead-bottom-bar {
           background-color: $sdss-color-white;
         }
-      }
-    }
-  }
 
-  @include grid-media-min('xl') {
-    header.su-masthead {
-      .sdss-masthead-main-inner {
-        margin: 0;
-        max-width: unset;
-        width: unset;
+        .sdss-masthead-content {
+          .su-multi-menu {
+            padding: 0 8rem;
+          }
+        }
       }
-    }
 
-    .sdss-masthead-top-bar,
-    .sdss-masthead-bottom-bar {
-      .sdss-masthead-content {
-        margin: 0 auto;
-        max-width: 2000px;
-        width: calc(100% - 200px);
+      @include grid-media-min('xl') {
+        .sdss-masthead-main-inner {
+          margin: 0;
+          max-width: unset;
+          width: unset;
+        }
+
+        .sdss-masthead-top-bar,
+        .sdss-masthead-bottom-bar {
+          .sdss-masthead-content {
+            margin: 0 auto;
+            max-width: 2000px;
+            width: calc(100% - 200px);
+          }
+        }
       }
     }
   }

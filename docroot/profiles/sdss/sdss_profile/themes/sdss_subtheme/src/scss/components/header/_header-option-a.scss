@@ -7,6 +7,15 @@ header.su-masthead {
       display: flex;
     }
 
+    .sdss-masthead-branding {
+      display: flex;
+    }
+
+    .sdss-masthead-menus {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+
     .sdss-lockup {
       .sdss-lockup-title {
         display: none;
@@ -20,12 +29,12 @@ header.su-masthead {
         color: $su-color-black;
         
         &::after {
-          background: url("../../assets/svg/hamburger-black.svg") no-repeat 3px 0;
+          background-image: url("../../assets/svg/hamburger-black.svg");
         }
 
         &[aria-expanded=true] {
           &::after {
-            background: url("../../assets/svg/close.svg") no-repeat 3px 0;
+            background-image: url("../../assets/svg/close.svg");
           }
         }
       }
@@ -65,24 +74,22 @@ header.su-masthead {
       .sdss-masthead-content {
         position: relative;
         display: flex;
-        justify-content: flex-start;
         flex-wrap: nowrap;
         background: $sdss-color-white;
+      }
+    }
+  }
+}
 
-        .system-menu-block {
-          align-self: flex-end;
-          padding: 0 0 0 3rem;
-        }
-
-        .su-multi-menu {
-          padding: 0;
-          background-color: $sdss-color-white;
-
-          .su-multi-menu__menu {
-            &.su-multi-menu__menu-lv1 {
-              background-color: $sdss-color-white;
-              padding-right: 3rem;
-            }
+// Option a header variant styles for the desktop menu.
+.desktop-menu {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--option-a {
+      @include grid-media-min('lg') {
+        .sdss-masthead-content {
+          .system-menu-block {
+            align-self: flex-end;
+            padding: 0 0 0 3rem;
           }
         }
       }

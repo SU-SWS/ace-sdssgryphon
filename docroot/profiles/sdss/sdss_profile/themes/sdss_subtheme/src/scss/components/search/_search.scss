@@ -11,17 +11,43 @@
   min-width: 32px;  
   height: 32px;
   min-height: 32px;
-  background: url("../../assets/svg/magnifying-glass-24px-white.svg") $sdss-color-palo-alto-dark no-repeat center/75% ;
-  border-radius: 32px;
+  background-image: url("../../assets/svg/magnifying-glass-24px-white.svg");
+  background-color: $sdss-color-palo-alto-dark;
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+  border: 1px solid $sdss-color-palo-alto-dark;
+  border-radius: 50%;
   opacity: unset;
 
+  &:focus,
   &:hover {
-    background: url("../../assets/svg/magnifying-glass-24px-white.svg") $sdss-color-palo-alto-dark no-repeat center/75%;
+    background-color: $sdss-color-grey-dark;
+    border: 1px solid $sdss-color-grey-dark;
+  }
+}
+
+li.su-mobile-site-search {
+  .su-site-search__submit {
+    position: absolute;
+    right: 10px;
+    background-image: url("../../assets/svg/magnifying-glass-24px-black.svg");
+    background-color: $sdss-color-white;
+    border: 1px solid $sdss-color-white;
+
+    &:focus,
+    &:hover {
+      background-color: $sdss-color-white;
+      background-size: 75%;
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 1px solid $sdss-color-grey-dark;
+      outline: 1px solid $sdss-color-grey-dark;
+    }
   }
 }
 
 .search {
-
   .views-row {
     border-bottom: 1px solid $sdss-color-grey-60;
 
