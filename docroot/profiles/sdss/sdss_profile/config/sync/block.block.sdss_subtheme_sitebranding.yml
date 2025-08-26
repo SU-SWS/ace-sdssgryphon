@@ -1,4 +1,4 @@
-uuid: 66bfce8e-a6b4-4e19-be51-d6ca7230fc17
+uuid: d4db5a50-a755-4c0c-a20e-108ca45e19f0
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - system
   theme:
     - sdss_subtheme
-id: sdss_subtheme_branding
+id: sdss_subtheme_sitebranding
 theme: sdss_subtheme
 region: header
 weight: 0
@@ -14,10 +14,10 @@ provider: null
 plugin: system_branding_block
 settings:
   id: system_branding_block
-  label: 'Site logo'
+  label: 'Site title'
   label_display: '0'
   provider: system
-  use_site_logo: true
-  use_site_name: false
+  use_site_logo: false
+  use_site_name: true
   use_site_slogan: false
 visibility: {  }
