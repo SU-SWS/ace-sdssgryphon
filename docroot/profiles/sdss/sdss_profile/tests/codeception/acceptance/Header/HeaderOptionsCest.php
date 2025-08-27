@@ -63,4 +63,26 @@ class HeaderOptionsCest {
     $link2->delete();
   }
 
+  /**
+   * Test header option A.
+   */
+  public function testHeaderOptionA(AcceptanceTester $I) {
+    // Log in as administrator.
+    $I->logInWithRole('administrator');
+
+    // Go to the theme settings page.
+    $I->amOnPage('/admin/appearance/settings/sdss_subtheme');
+
+    // Enable header option A.
+    $I->selectOption('#edit-header-layout-variant', 'option_a');
+    $I->click('Save configuration');
+
+    // Go to the homepage and check for class.
+    $I->amOnPage('/');
+    $I->seeElement('.sdss-masthead-main--option-a');
+
+    // Make sure the site title is not visible.
+    $I->dontSeeElement('.sdss-lockup-title', ['visible' => true]);
+  }
+
 }

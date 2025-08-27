@@ -35,9 +35,9 @@
       <a href="{{ link }}" {{ link_attributes }}>
       {# If the theme has a custom logo use that #}
       {% if site_logo|render|striptags|trim is not empty and use_logo == false %}
-        <img src="{{ site_logo }}" alt="{{ site_name }}" class="sdss-lockup-logo-img" />
+        <img src="{{ site_logo }}" alt="{{ site_title }}" class="sdss-lockup-logo-img sdss-lockup-custom-logo" />
       {% else %}
-        <img src="/{{ directory }}/dist/img/sdss-lock-up-color.png" alt="{{ site_name }}" class="sdss-lockup-logo-img" />
+        <img src="/{{ directory }}/dist/img/sdss-lock-up-color.png" alt="{{ site_title }}" class="sdss-lockup-logo-img" />
       {% endif %}
       </a>
     </div>
