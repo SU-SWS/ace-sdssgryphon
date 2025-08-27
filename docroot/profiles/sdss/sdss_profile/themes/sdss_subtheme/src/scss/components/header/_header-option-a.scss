@@ -1,80 +1,90 @@
 @charset "UTF-8";
 
-// Header Option A variant styles: Blue Header, Right Navigation
-body.sdss-header-variant--option_a {
-  header.su-masthead {
-    section.su-masthead--inner {
-      .su-multi-menu {
-        .su-multi-menu__nav-toggle {
-          background-color: unset;
-          color: $su-color-black;
-          &:after {
-            background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
+// Option A header variant styles.
+header.su-masthead {
+  .sdss-masthead-main.sdss-masthead-main--option-a {
+    .sdss-masthead-content {
+      display: flex;
+    }
+
+    .sdss-masthead-branding {
+      display: flex;
+    }
+
+    .sdss-masthead-menus {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    
+    .su-multi-menu {
+      // Mobile / hamburger menu toggle button.
+      .su-multi-menu__nav-toggle {
+        background-color: $su-color-white;
+        color: $su-color-black;
+        
+        &::after {
+          background-image: url("../../assets/svg/hamburger-black.svg");
+        }
+
+        &[aria-expanded=true] {
+          &::after {
+            background-image: url("../../assets/svg/close.svg");
           }
         }
       }
     }
 
-    .su-lockup {
-      .su-lockup__cell2 {
-        display: none;
-      }
-    }
-  }
-}
 
-// Responsive queries: smallest to largest (sm, md, lg, xl)
-@include grid-media-min('lg') {
-  body.sdss-header-variant--option_a {
-    header.su-masthead {
-      #sdss-button--search-link {
-        margin: auto 10rem auto auto;
-        position: relative;
-      }
+    // Utility nav menu styles.
+    .sdss-masthead-content .menu--utility-navigation {
+      ul.menu {
+        li.menu-item:nth-child(odd) {
+          a {
+            color: $sdss-color-white;
+            background-color: $sdss-color-palo-alto-dark;
+            border: .2rem solid $sdss-color-palo-alto-dark;
 
-      section.su-masthead--inner {
-        position: relative;
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: nowrap;
-        background: $sdss-color-white;
-
-        .system-menu-block {
-          align-self: flex-end;
-          padding: 0 0 0 3rem;
-          width: 90%;
+            &:hover {
+              text-decoration-color: $sdss-color-grey-60;
+            }
+          }
         }
 
-        .su-multi-menu {
-          padding: 0;
-          background-color: $sdss-color-white;
+        li.menu-item:nth-child(even) {
+          a {
+            color: $sdss-color-palo-alto-dark;
+            background-color: $sdss-color-white;
+            border: .2rem solid $sdss-color-palo-alto-dark;
 
-          .su-multi-menu__menu {
-            &.su-multi-menu__menu-lv1 {
-              background-color: $sdss-color-white;
-              padding-right: 3rem;
+            &:hover {
+              text-decoration-color: $sdss-color-grey-dark;
             }
           }
         }
       }
+    }
 
-      .su-lockup {
-        background: $su-color-white;
-        .su-lockup__cell1 {
-          padding: 2rem 3rem 2rem 8rem;
-        }
+    @include grid-media-min('lg') {
+      .sdss-masthead-content {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        background: $sdss-color-white;
       }
     }
   }
 }
 
-// Extra large screens and up
-@include grid-media-min('xl') {
-  body.sdss-header-variant--option_a {
-    header.su-masthead {
-      .su-lockup {
-        .su-lockup__cell1 {
-          padding: 1.7rem 3rem 1.7rem 0;
+// Option a header variant styles for the desktop menu.
+.desktop-menu {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--option-a {
+      @include grid-media-min('lg') {
+        .sdss-masthead-content {
+          .system-menu-block {
+            align-self: flex-end;
+            padding: 0 0 0 1.5rem;
+          }
         }
       }
     }

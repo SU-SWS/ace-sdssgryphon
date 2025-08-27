@@ -1,0 +1,21 @@
+{#
+ * Default Green Header template.
+#}
+<div class="sdss-masthead-main sdss-masthead-main--default"> 
+  <div class="sdss-masthead-main-inner">
+    <div class="sdss-masthead-top-bar">
+      <div class="sdss-masthead-content">
+        {{ page.header }}
+        {% if page.utility_nav and display_utility_navigation %}
+          {{ page.utility_nav }}
+        {% endif %}
+      </div>
+    </div>
+    <div class="sdss-masthead-bottom-bar">
+      <div class="sdss-masthead-content">
+        {{ page.menu }}
+        {{ page.search }}
+      </div>
+    </div>
+  </div>
+</div>

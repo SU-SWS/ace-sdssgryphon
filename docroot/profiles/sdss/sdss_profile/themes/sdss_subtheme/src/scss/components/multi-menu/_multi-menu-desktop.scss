@@ -1,0 +1,194 @@
+// Desktop menu styles.
+
+@include grid-media("lg") {
+  .desktop-menu {    
+    .su-multi-menu {
+      li.su-mobile-site-search {
+        display: none;
+      }
+
+      .su-multi-menu__menu {
+        .su-multi-menu__link {
+          padding: 1.6rem 0;
+          margin: 0;
+
+          &:focus,
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .su-multi-menu__menu-lv1 {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0;
+        background: transparent;
+        box-shadow: unset;
+
+        > .su-multi-menu__item {
+          margin: 0 3rem 0 0;
+
+          &:last-of-type {
+            margin: 0;
+          }
+
+          > .su-multi-menu__link {
+            &::before {
+              height: 6px;
+              width: 100%;
+              transition: transform 0.3s ease-out;
+              transform: scaleX(0);
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        > .su-multi-menu__item {
+          &.su-multi-menu__item--active-trail {
+            > .su-multi-menu__link {
+              &::before {
+                height: 6px;
+                transform: scaleX(1);
+                visibility: visible;
+              }
+
+              &:hover,
+              &:focus {
+                &::before {
+                  background: 0;
+                }
+              }
+            }
+          }
+
+          &.su-multi-menu__item--current {
+            > .su-multi-menu__link {
+              &::before {
+                transform: scaleX(1);
+              }
+
+              &:hover {
+                &::before {
+                  display: none;
+                }
+              }
+            }
+          }
+
+          &.su-multi-menu__item--expanded {
+            > a {
+              &::before {
+                height: 6px;
+                transform: scaleX(1);
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+
+      .su-multi-menu__menu-lv2 {
+        position: absolute;
+        top: 100%;
+        max-width: 30rem;
+        margin: 0;
+        padding: 0;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        z-index: 101;
+      }
+
+      .su-multi-menu__menu-lv2,
+      .su-multi-menu__menu-lv3,
+      .su-multi-menu__menu-lv4,
+      .su-multi-menu__menu-lv5 {
+        > .su-multi-menu__item {
+          > .su-multi-menu__link {
+            padding: 1.2rem 1.6rem;
+            margin: 0;
+          }
+        }
+      }
+
+      &.su-multi-menu--dropdowns {
+        .su-multi-menu__item--parent {
+          > .su-nav-toggle {
+            margin: 0 0 0 1rem;
+
+            &::before {
+              background-color: $sdss-color-white;
+              background-image: url("#{$su-image-path}/caret-down-black.svg");
+              border: 1px solid $sdss-color-white;
+            }
+
+            &:hover,
+            &:active {
+              &::before {
+                background-color: $sdss-color-white;
+                background-image: url("#{$su-image-path}/caret-down-black.svg");
+                border: 1px solid $sdss-color-grey-dark;
+              }
+            }
+
+            &:focus {
+              &::before {
+                background-color: $sdss-color-green-link;
+                background-image: url("#{$su-image-path}/caret-down-white.svg");
+                border: 1px solid $sdss-color-green-link;
+              }
+            }
+          }
+        }
+
+        .su-multi-menu__menu.su-multi-menu__menu-lv2 {
+          // Hide all menus past level 2 on desktop drop-down menu.
+          ul.su-multi-menu__menu,
+          button.su-nav-toggle {
+            display: none;
+          }
+        }
+      }
+
+      // Hide mobile / desktop menu toggle button on desktop.
+      .su-multi-menu__nav-toggle {
+        display: none;
+
+        &[aria-expanded="false"] + .su-multi-menu__menu-lv1 {
+          display: flex;
+        }
+
+        &[aria-expanded="true"] + .su-multi-menu__menu-lv1 {
+          position: relative;
+          top: unset;
+          right: unset;
+          width: auto;
+          max-width: unset;          
+        }
+      }
+    }
+
+    // Hide site search bar in desktop menu.
+    nav {
+      &+ .su-site-search {
+        display: none;
+      }
+    }
+
+    ul {
+      li {
+        .su-site-search {
+          display: none;
+
+          &.search-block-form {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
