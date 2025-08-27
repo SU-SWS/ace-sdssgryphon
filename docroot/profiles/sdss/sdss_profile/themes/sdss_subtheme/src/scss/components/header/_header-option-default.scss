@@ -41,7 +41,7 @@ header.su-masthead {
         padding: 1rem 1.5rem;
 
         .sdss-lockup-logo-img {
-          max-width: 125px;
+          max-width: 120px;
         }
       }
 
@@ -69,16 +69,16 @@ header.su-masthead {
     .sdss-masthead-main.sdss-masthead-main--default {
       .sdss-lockup {
         .sdss-lockup-logo {
-          padding: 1.5rem 3rem;
+          padding: 1.5rem 2rem;
 
           .sdss-lockup-logo-img {
-            max-width: 150px;
+            max-width: 160px;
           }
         }
 
         .sdss-lockup-title {
           a {
-            padding: 1.5rem 3rem;
+            padding: 1.5rem 2rem;
             font-size: 2rem; 
           }
         }
@@ -98,13 +98,14 @@ header.su-masthead {
           padding: 1.5rem 3rem 1.5rem 8rem;
 
           .sdss-lockup-logo-img {
-            max-width: 165px;
+            max-width: 175px;
           }
         }
 
         .sdss-lockup-title {
           a {
             font-size: 2.25rem;
+            padding: 1.5rem 3rem;
           }
         }
       }
@@ -118,11 +119,15 @@ header.su-masthead {
       .sdss-lockup {
         .sdss-lockup-logo {
           padding: 1.5rem 3rem 1.5rem 0;
+
+          .sdss-lockup-logo-img {
+            max-width: 200px;
+          }
         }
 
         .sdss-lockup-title {   
           a {
-            padding: 3rem 0 3rem 3rem;
+            padding: 3rem;
           }
         }
       }
@@ -159,6 +164,12 @@ header.su-masthead {
             margin: 0 auto;
             max-width: 2000px;
             width: calc(100% - 200px);
+          }
+        }
+
+        .sdss-masthead-content {
+          .su-multi-menu {
+            padding: 0;
           }
         }
       }

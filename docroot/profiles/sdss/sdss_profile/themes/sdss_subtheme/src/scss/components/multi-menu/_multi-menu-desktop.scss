@@ -27,7 +27,11 @@
         box-shadow: unset;
 
         > .su-multi-menu__item {
-          margin: 0 40px 0 0;
+          margin: 0 3rem 0 0;
+
+          &:last-of-type {
+            margin: 0;
+          }
 
           > .su-multi-menu__link {
             &::before {

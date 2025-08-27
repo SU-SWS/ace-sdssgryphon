@@ -190,7 +190,7 @@
 
         &[aria-expanded="true"] {
           &::before {
-            transition: transform .3s ease-out;
+            transition: transform .2s ease-out;
             transform: rotate(180deg);
           }
         }
@@ -210,7 +210,7 @@
           background-position: center;
           border: 1px solid $sdss-color-green-link;
           border-radius: 50%;
-          transition: transform 0.3s ease-out;
+          transition: transform 0.2s ease-out;
           transform: rotate(0deg);
         }
 

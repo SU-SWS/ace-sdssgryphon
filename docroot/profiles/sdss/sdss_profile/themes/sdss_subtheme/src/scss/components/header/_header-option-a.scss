@@ -15,12 +15,6 @@ header.su-masthead {
       display: flex;
       flex-wrap: nowrap;
     }
-
-    .sdss-lockup {
-      .sdss-lockup-title {
-        display: none;
-      }
-    }
     
     .su-multi-menu {
       // Mobile / hamburger menu toggle button.
@@ -89,7 +83,7 @@ header.su-masthead {
         .sdss-masthead-content {
           .system-menu-block {
             align-self: flex-end;
-            padding: 0 0 0 3rem;
+            padding: 0 0 0 1.5rem;
           }
         }
       }
