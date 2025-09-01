@@ -1,0 +1,35 @@
+uuid: f9c98f62-c6d0-4310-941d-f08a5225b5fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.su_departments_slider.su_department_slides
+    - paragraphs.paragraphs_type.su_departments_slider
+  module:
+    - paragraphs
+id: paragraph.su_departments_slider.default
+targetEntityType: paragraph
+bundle: su_departments_slider
+mode: default
+content:
+  su_department_slides:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

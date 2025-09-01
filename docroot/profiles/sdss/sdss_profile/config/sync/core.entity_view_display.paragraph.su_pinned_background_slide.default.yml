@@ -1,0 +1,33 @@
+uuid: aaed7dad-c475-4107-a857-81940d004b41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.su_pinned_background_slide.su_background
+    - field.field.paragraph.su_pinned_background_slide.su_wysiwyg_text
+    - paragraphs.paragraphs_type.su_pinned_background_slide
+  module:
+    - text
+id: paragraph.su_pinned_background_slide.default
+targetEntityType: paragraph
+bundle: su_pinned_background_slide
+mode: default
+content:
+  su_background:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  su_wysiwyg_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,52 @@
+uuid: b7c8b78b-b741-4281-852f-2eae63621133
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.su_image_cta.su_background
+    - field.field.paragraph.su_image_cta.su_entity_button
+    - field.field.paragraph.su_image_cta.su_title
+    - field.field.paragraph.su_image_cta.su_video_popup_button
+    - paragraphs.paragraphs_type.su_image_cta
+  module:
+    - link
+    - media_library
+id: paragraph.su_image_cta.default
+targetEntityType: paragraph
+bundle: su_image_cta
+mode: default
+content:
+  su_background:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  su_entity_button:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  su_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_video_popup_button:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

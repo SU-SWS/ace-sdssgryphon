@@ -17,6 +17,9 @@ dependencies:
     - paragraphs.paragraphs_type.stanford_media_caption
     - paragraphs.paragraphs_type.stanford_spacer
     - paragraphs.paragraphs_type.stanford_wysiwyg
+    - paragraphs.paragraphs_type.su_pinned_background_section
+    - paragraphs.paragraphs_type.su_image_cta
+    - paragraphs.paragraphs_type.su_departments_slider
   module:
     - entity_reference_revisions
 id: node.stanford_page.su_page_components
@@ -45,8 +48,20 @@ settings:
       sdss_spotlight: sdss_spotlight
       sdss_news_list_card: sdss_news_list_card
       stanford_faq: stanford_faq
+      su_pinned_background_section: su_pinned_background_section
+      su_image_cta: su_image_cta
+      su_departments_slider: su_departments_slider
     negate: 0
     target_bundles_drag_drop:
+      su_pinned_background_section:
+        weight: -17
+        enabled: false
+      su_image_cta:
+        weight: -18
+        enabled: false
+      su_departments_slider:
+        weight: -19
+        enabled: false
       callout_quote:
         weight: -23
         enabled: false
