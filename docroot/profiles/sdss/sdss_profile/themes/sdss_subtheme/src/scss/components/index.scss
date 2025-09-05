@@ -18,6 +18,7 @@
 // .component-name__sub-object
 
 // Config and supporting scss.
+@import 'mixins';
 
 // Components.
 @import 'accordion/index.scss';
@@ -43,3 +44,8 @@
 @import 'search/index.scss';
 @import 'spacer/index.scss';
 @import 'utility-nav/index.scss';
+@import 'pinned-bg/index.scss';
+@import 'horizontal-bar/index.scss';
+@import 'departments/index.scss';
+@import 'image-cta/index.scss';
+@import 'header-with-link/index.scss';

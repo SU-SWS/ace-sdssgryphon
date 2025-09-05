@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.su_image_cta.su_background
     - field.field.paragraph.su_image_cta.su_entity_button
+    - field.field.paragraph.su_image_cta.su_subtitle
     - field.field.paragraph.su_image_cta.su_title
     - field.field.paragraph.su_image_cta.su_video_popup_button
     - paragraphs.paragraphs_type.su_image_cta
@@ -30,6 +31,14 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+    third_party_settings: {  }
+  su_subtitle:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   su_title:
     type: string_textfield

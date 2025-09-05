@@ -1,0 +1,23 @@
+uuid: f5e64bcb-2bbb-4fad-b1ae-27d90a4363d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_entity_button
+    - paragraphs.paragraphs_type.su_departments_slider
+  module:
+    - link
+id: paragraph.su_departments_slider.su_entity_button
+field_name: su_entity_button
+entity_type: paragraph
+bundle: su_departments_slider
+label: Button
+description: 'This button will appear below the content items.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

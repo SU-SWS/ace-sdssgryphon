@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.su_pinned_background_slide.su_background
+    - field.field.paragraph.su_pinned_background_slide.su_entity_button
     - field.field.paragraph.su_pinned_background_slide.su_wysiwyg_text
     - paragraphs.paragraphs_type.su_pinned_background_slide
   module:
+    - element_class_formatter
+    - field_formatter_class
     - text
 id: paragraph.su_pinned_background_slide.default
 targetEntityType: paragraph
@@ -21,6 +24,21 @@ content:
       link: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  su_entity_button:
+    type: link_class
+    label: hidden
+    settings:
+      class: su-button
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 3
     region: content
   su_wysiwyg_text:
     type: text_default

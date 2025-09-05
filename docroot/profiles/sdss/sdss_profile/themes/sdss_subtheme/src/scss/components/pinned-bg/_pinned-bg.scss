@@ -1,0 +1,116 @@
+.su-pinned-background-section {
+    position: relative;
+    height: 100vh;
+    width: full;
+    overflow: hidden;
+    margin-bottom: 104px;
+
+    .su-pinned-slide {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        height: 100%;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 71px;
+        align-items: center;
+
+        padding: 82px 3rem;
+
+        @include grid-media-min('md') {
+            padding: 82px 3rem 82px 5rem;
+        }
+
+        @include grid-media-min('lg') {
+            padding: 82px 3rem 82px 8rem;
+        }
+
+        @include grid-media-min('xl') {
+            padding: 82px 0;
+        }
+
+        &.first {
+            top: 0;
+        }
+
+        &__inner {
+            width: 100%;
+            @include grid-media-min('xl') {
+                width: calc(100%-200px);
+                max-width: 2000px;
+            }
+
+            color: white;
+
+            h2 {
+                color: white;
+                font-family: $su-font-serif-v2;
+                font-weight: 'Regular';
+                line-height: 110%;
+                font-size: 60px;
+                max-width: 400px;
+
+                @include grid-media-min('md') {
+                    font-size: 90px;
+                    max-width: 700px;
+                }
+
+                @include grid-media-min('xl') {
+                    font-size: 128px;
+                    max-width: 900px;
+                }
+
+                margin-bottom: 32px;
+                padding-bottom: 0;
+                opacity: 0;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            p {
+                font-size: 21px;
+                max-width: 550px;
+                opacity: 0;
+            }
+        }
+
+        &__bottom {
+            width: 100%;
+            @include grid-media-min('xl') {
+                width: calc(100%-200px);
+                max-width: 2000px;
+            }
+        }
+
+        &__button {
+            padding: 14px 23px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            opacity: 0;
+
+            &:after {
+                background-color: white;
+            }
+
+            &:hover {
+                text-decoration: none;
+                color: white;
+
+                &:after {
+                    background-color: white;
+                }
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.su_image_cta.su_background
     - field.field.paragraph.su_image_cta.su_entity_button
+    - field.field.paragraph.su_image_cta.su_subtitle
     - field.field.paragraph.su_image_cta.su_title
     - field.field.paragraph.su_image_cta.su_video_popup_button
     - paragraphs.paragraphs_type.su_image_cta
@@ -40,6 +41,14 @@ content:
       field_formatter_class:
         class: ''
     weight: 3
+    region: content
+  su_subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
     region: content
   su_title:
     type: string

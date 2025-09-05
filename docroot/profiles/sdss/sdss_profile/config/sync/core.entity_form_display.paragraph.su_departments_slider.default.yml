@@ -4,8 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.su_departments_slider.su_department_slides
+    - field.field.paragraph.su_departments_slider.su_entity_button
+    - field.field.paragraph.su_departments_slider.su_title
     - paragraphs.paragraphs_type.su_departments_slider
   module:
+    - link
     - paragraphs
 id: paragraph.su_departments_slider.default
 targetEntityType: paragraph
@@ -29,6 +32,22 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+    third_party_settings: {  }
+  su_entity_button:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  su_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

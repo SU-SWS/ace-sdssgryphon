@@ -1,0 +1,532 @@
+.page-stanford-sustainability-homepage-2025 {
+    .layout--layout-paragraphs-one-column, .layout--layout-paragraphs-one-four-one, .layout--layout-paragraphs-three-column, .layout--layout-paragraphs-two-column {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .layout--layout-paragraphs-one-column>div, .layout--layout-paragraphs-three-column>div, .layout--layout-paragraphs-two-column>div {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .layout--layout-paragraphs-one-column .paragraph.paragraph--type--stanford-wysiwyg {
+        margin: 0 auto;
+        margin-left: 3rem;
+        width: calc(100%-5rem);
+
+        @include grid-media-min('md') {
+            margin-left: 5rem;
+        }
+
+        @include grid-media-min('lg') {
+            margin-left: 8rem;
+        }
+
+        @include grid-media-min('xl') {
+            max-width: 2000px;
+            width: calc(100%-200px);
+            margin: 0 auto;
+        }
+
+        .su-intro-text {
+            max-width: 1200px;
+            width: 100%;
+            color: #2E2D29;
+            font-size: 40px;
+
+            @include grid-media-min('md') {
+                font-size: 54px;
+            }
+            line-height: 120%;
+            font-family: $su-font-serif-v2;
+            font-weight: 400;
+        }
+    }
+
+    .ptype-stanford-card {
+        > div {
+            height: 100%;
+        }
+    }
+
+    .layout-paragraphs-sdss-bgcolor--grey-dark {
+        background-color: #2E2D29;
+        color: white;
+        margin-bottom: 50px;
+
+        @include grid-media-min('md') {
+            margin-bottom: 118px;
+        }
+
+        &.layout--layout-paragraphs-sdss-two-column-larger-right {
+            gap: 0;
+            display: flex;
+            flex-direction: column;
+
+            @include grid-media-min('lg') {
+                flex-direction: row;
+            }
+            
+            .layout__region--main {
+                padding: 71px 71px 0 71px;
+
+                @include grid-media-min('lg') {
+                    padding: 0;
+
+                    min-width: 33%;
+
+                    div {
+                        height: 100%;
+                    }
+
+                }
+
+                .field-media-image, .contextual-region, .su-wysiwyg-text {
+                    padding: 0;
+                    margin: 0;
+
+                    @include grid-media-min('xl') {
+                        height: 100%;
+                        width: auto;
+                    }
+                }
+
+                .media-entity-wrapper {
+                    height: 100%;
+                    width: auto;
+                    float: none;
+
+                    picture {
+                        display: block;
+                        height: 100%;
+                        width: auto;
+
+                        img {
+                            display: block;
+                            height: 100%;
+                            width: 100%;
+                            max-width: none;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                }
+
+            }
+
+            .layout__region--sidebar {
+                width: 100%;
+                flex: 1;
+                padding: 56px 71px;
+
+                h3 {
+                    font-family: $su-font-serif-v2;
+
+                    @include grid-media-max('md') {
+                        font-size: 28px;
+                        letter-spacing: -0.1px;
+                    }
+                    font-size: 48px;
+                    letter-spacing: -0.5px;
+                }
+
+                p {
+                    font-size: 18px;
+                    font-weight: 300;
+
+                    strong {
+                        font-weight: 300;
+                        text-transform: uppercase;
+                    }
+                }
+
+                p.sdss-block-quote--sm {
+                    font-family: $su-font-serif-v2;
+                    font-size: 28px;
+                    line-height: 36px;
+                    letter-spacing: -0.3px;
+
+                    @include grid-media-max('md') {
+                        font-size: 22px;
+                        line-height: 30px;
+                        letter-spacing: -0.1px;
+                    }
+                }
+
+                .su-button {
+                    @include arrow-btn();
+                    padding: 14px 23px;
+                    border: 2px solid white;
+                    color: white;
+
+                    &:hover {
+                        text-decoration: none;
+                        color: white;
+                    }
+                }
+            }
+
+        }
+
+        .paragraph--type--stanford-wysiwyg {
+            h2, h3, p {
+                color: white;
+            }
+        }
+    }
+
+    .layout-paragraphs-sdss-bgcolor--red {
+        background-color: #8C1515;
+        color: white;
+
+        .text-long {
+            padding-top: 150px;
+            p {
+                font-family: $su-font-serif-v2;
+                font-size: 54px;
+                line-height: 65px;
+                font-weight: 400;
+                max-width: none;
+                @include text-with-bottom-bar();
+                padding-bottom: 55px;
+                margin-bottom: 90px;
+
+                &:after {
+                    background-color: white;
+                }
+            }
+        }
+
+        &.layout--layout-paragraphs-sdss-three-column {
+            padding-bottom: 150px;
+        }
+
+        .paragraph--type--stanford-wysiwyg, .su-card {
+            h2, h3, p {
+                color: white;
+            }
+        }
+
+        .su-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            h2, h3, p {
+                color: #2E2D29;
+            }
+
+            .media-entity-wrapper {
+                order: 1;
+            }
+
+            .su-card__headline {
+                font-family: $su-font-sans;
+                order: 2;
+                padding: 40px;
+                padding-bottom: 23px;
+                font-size: 24px;
+                margin-bottom: 0;
+            }
+
+            .su-card__contents {
+                padding: 0 40px 40px 40px;
+
+                p {
+                    font-size: 18px;
+                }
+            }
+
+            .su-card__button {
+                padding: 0;
+                padding-top: 46px;
+                margin: 0;
+                &:after {
+                    display: none;
+                }
+                a {
+                    @include arrow-btn-border();
+                    border-color: #8C1515;
+                    padding: 14px 18px !important;
+                }
+            }
+
+        }
+    }
+
+    .paragraph--type--stanford-wysiwyg, .stanford-lists.su-list-headline {
+        h2 {
+            font-family: $su-font-serif-v2;
+            font-weight: 400;
+            font-size: 50px;
+
+            @include grid-media-min('md') {
+                font-size: 80px;
+            }
+
+            @include grid-media-min('lg') {
+                font-size: 100px;
+            }
+
+            @include grid-media-min('xl') {
+                font-size: 128px;
+            }
+
+            letter-spacing: -1.3px;
+            color: #8C1515;
+            @include text-with-bottom-bar();
+        }
+
+        h3 {
+            font-size: 32px;
+            line-height: 120%;
+            font-weight: 400;
+            color: #2E2D29;
+            margin-bottom: 28px;
+        }
+
+        p {
+            font-size: 21px;
+            color: #2E2D29;
+            max-width: 735px;
+            font-weight: 400;
+        }
+    }
+
+    .ptype-stanford-card {
+        height: 100%;
+
+        > .contextual-region {
+            height: 100%;
+        }
+    }
+
+    .su-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__headline {
+            font-family: $su-font-serif-v2;
+            font-size: 28px;
+            line-height: 120%;
+            font-weight: 400;
+            color: #2E2D29;
+            flex: 1;
+        }
+
+        &__contents {
+            padding-bottom: 0;
+        }
+
+        &__button {
+            margin: 0;
+            padding: 0;
+
+            margin-top: 32px;
+            padding-top: 17px;
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: #2E2D29;
+                height: 1px;
+                opacity: 30%;
+                width: 100%;
+            }
+
+            .su-button {
+                color: #8C1515 !important;
+                font-size: 20px !important;
+                text-decoration: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: transparent !important;
+
+                &:after {
+                    background-color: #8C1515 !important;
+                }
+
+                &:hover {
+                    color: #8C1515 !important;
+
+                    &:after {
+                        background-color: #8C1515 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .stanford-news--cards {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 140px;
+
+            li {
+
+                .su-card {
+                    display: flex;
+                    flex-direction: row;
+
+                    @include grid-media-max('md') {
+                        gap: 30px;
+                        flex-direction: column-reverse;
+                    }
+
+                    .su-figure__wrapper, .su-content__wrapper {
+                        @include grid-media-min('md') {
+                            width: 50%;
+                            flex: 1;
+                        }
+                    }
+
+                    .su-content__wrapper {
+                        @include grid-media-min('md') {
+                            padding-left: 86px;
+                        }
+                    }
+
+                    .news-vertical-teaser__pub-date {
+                        font-size: 16px;
+                        color: #2E2D29;
+                        margin-bottom: 15px;
+                    }
+
+                    .su-news-header {
+                        margin-bottom: 14px;
+                    }
+
+                    .su-news-vertical-teaser__link {
+                        text-decoration: none;
+                        margin-bottom: 0;
+
+                        &:after {
+                            display: none !important;
+                        }
+
+                        h2 {
+                            font-size: 36px;
+                            color: #2E2D29;
+                            line-height: 40px;
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .su-card__contents {
+                        p {
+                            font-size: 18px;
+                            color: #2E2D29;
+                        }
+                    }
+
+                    .news-vertical-teaser__source {
+                        margin-top: 14px;
+                        color: #2E2D29;
+                        font-style: italic;
+                        font-size: 18px;
+                    }
+
+                    .su-list-unstyled {
+                        margin-top: 50px;
+                        a {
+                            @include arrow-btn-border();
+                            color: #8C1515;
+                            border-color: #8C1515;
+                            font-size: 20px;
+                            text-decoration: none;
+
+                            &:after {
+                                background-color: #8C1515;
+                            }
+
+                            &:hover {
+                                color: #8C1515;
+
+                                &:after {
+                                    background-color: #8C1515;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(2n) {
+                    .su-card {
+                        @include grid-media-min('md') {
+                            flex-direction: row-reverse;
+                        }
+
+                        .su-content__wrapper {
+                            @include grid-media-min('md') {
+                                padding-right: 60px;
+                                padding-left: 60px;
+                            }
+                        }
+
+                        .su-figure__wrapper {
+                            @include grid-media-min('md') {
+                                min-width: calc(50%+9px);
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .layout--layout-paragraphs-sdss-two-column {
+        margin-bottom: 100px;  
+
+        @include grid-media-min('md') {
+            margin-bottom: 137px;  
+            margin-top: 63px;
+        }
+
+        .su-card {
+            @include grid-media-max('md') {
+                margin-bottom: 50px;
+            }
+        }
+
+        h2 {
+            font-size: 50px;
+            @include grid-media-min('md') {
+                font-size: 96px;
+            }
+        }
+
+        p {
+            .su-button {
+                @include arrow-btn();
+                color: #8C1515;
+                font-size: 24px;
+                @include grid-media-min('md') {
+                    font-size: 36px;
+                }
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0;
+                text-decoration: underline;
+                display: block;
+                margin-bottom: 30px;
+                text-align: left;
+
+                &:after {
+                    background-color: #8C1515;
+                }
+
+                &:hover {
+                    color: #8C1515;
+
+                    &:after {
+                        background-color: #8C1515;
+                    }
+                }
+            }
+        }
+    }
+}
