@@ -200,4 +200,6 @@ destination:
     - su_event_type
     - title
     - type
+idMap: {  }
 migration_dependencies: {  }
+include: null

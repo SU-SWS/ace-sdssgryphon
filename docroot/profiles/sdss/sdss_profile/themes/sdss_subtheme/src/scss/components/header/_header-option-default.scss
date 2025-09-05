@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+// Default header variant styles.
+header.su-masthead {
+  .sdss-masthead-main.sdss-masthead-main--default {
+    background: linear-gradient(
+      to right,
+      $sdss-color-white 0,
+      $sdss-color-white 50%,
+      $sdss-color-palo-alto-dark 50%,
+      $sdss-color-palo-alto-dark 100%
+    );
+
+    .sdss-masthead-top-bar {
+      flex-grow: 1; 
+
+      .sdss-masthead-content {
+        display: flex;
+        background-color: $sdss-color-palo-alto-dark;
+        justify-content: flex-start;
+
+        .menu--utility-navigation {
+          margin: 0 1.5rem 0 auto;
+        }
+      }
+    }
+
+    .sdss-masthead-bottom-bar {
+      display: flex;
+      background-color: $sdss-color-palo-alto-dark;
+
+      .sdss-masthead-content {
+        display: flex;
+        align-self: stretch;
+      }
+    }
+
+    .sdss-lockup {
+      .sdss-lockup-logo {
+        background-color: $sdss-color-white;
+        padding: 1rem 1.5rem;
+
+        .sdss-lockup-logo-img {
+          max-width: 120px;
+        }
+      }
+
+      .sdss-lockup-title {
+        display: flex;
+        align-self: stretch;
+        background-color: $sdss-color-palo-alto-dark;
+
+        a {
+          display: block;
+          align-self: center;
+          text-decoration: none;
+          color: $sdss-color-white;
+          font-size: 1.75rem;
+          line-height: 1em;
+          padding: 1rem 1.5rem;
+        }
+      }
+    }
+  }  
+}
+
+@include grid-media-min('md') {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      .sdss-lockup {
+        .sdss-lockup-logo {
+          padding: 1.5rem 2rem;
+
+          .sdss-lockup-logo-img {
+            max-width: 160px;
+          }
+        }
+
+        .sdss-lockup-title {
+          a {
+            padding: 1.5rem 2rem;
+            font-size: 2rem; 
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@include grid-media-min('lg') {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      background-color: $sdss-color-white;
+
+      .sdss-lockup {
+        .sdss-lockup-logo {
+          padding: 1.5rem 3rem 1.5rem 8rem;
+
+          .sdss-lockup-logo-img {
+            max-width: 175px;
+          }
+        }
+
+        .sdss-lockup-title {
+          a {
+            font-size: 2.25rem;
+            padding: 1.5rem 3rem;
+          }
+        }
+      }
+    }  
+  }
+}
+
+@include grid-media-min('xl') {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      .sdss-lockup {
+        .sdss-lockup-logo {
+          padding: 1.5rem 3rem 1.5rem 0;
+
+          .sdss-lockup-logo-img {
+            max-width: 200px;
+          }
+        }
+
+        .sdss-lockup-title {   
+          a {
+            padding: 3rem;
+          }
+        }
+      }
+    }  
+  }
+}
+
+// Default header variant styles for the desktop menu.
+.desktop-menu {
+  header.su-masthead {
+    .sdss-masthead-main.sdss-masthead-main--default {
+      @include grid-media-min('lg') {
+        .sdss-masthead-bottom-bar {
+          background-color: $sdss-color-white;
+        }
+
+        .sdss-masthead-content {
+          .su-multi-menu {
+            padding: 0 8rem;
+          }
+        }
+      }
+
+      @include grid-media-min('xl') {
+        .sdss-masthead-main-inner {
+          margin: 0;
+          max-width: unset;
+          width: unset;
+        }
+
+        .sdss-masthead-top-bar,
+        .sdss-masthead-bottom-bar {
+          .sdss-masthead-content {
+            margin: 0 auto;
+            max-width: 2000px;
+            width: calc(100% - 200px);
+          }
+        }
+
+        .sdss-masthead-content {
+          .su-multi-menu {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

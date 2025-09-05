@@ -121,7 +121,7 @@ class ConfigOverrides implements ConfigFactoryOverrideInterface {
     $overrides['lockup'] = array_filter($overrides['lockup']);
     $overrides['logo'] = array_filter($overrides['logo']);
 
-    if (!empty($overrides['lockup']) && !$this->configPagesLoader->getValue('lockup_settings', 'su_use_theme_logo', 0, 'value')) {
+    if (!$this->configPagesLoader->getValue('lockup_settings', 'su_use_theme_logo', 0, 'value')) {
       $overrides['logo']['use_default'] = FALSE;
     }
     else {
