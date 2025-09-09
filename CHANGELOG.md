@@ -7,6 +7,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.13.1] - 2025-09-09
+
+### Added
+2b8c419 SDSS-1558: Provision ese2025 (#655)
+8cff579 SDSS-1557: Provision sustainpathways (#653)
+
+### Changed
+292f89d SDSS-0000: Update room reservation module to 8.1.22 (#657)
+e5ed2c1 SDSS-0000: Room reservation module update to 8.1.21 (#651)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+None.
+
+### Maintenance
+None.
+
+
 ## [4.13.0] - 2025-08-13
 
 ### Added
@@ -27,7 +53,6 @@ d8f7e99 SDSS-1502: Deprecate and remove sdss_main_site_subtheme from codebase (#
 ### Removed
 91eef71 SDSS-1536: Streamline Lockup Settings and Fix Theme Configuration Bugs (#614)
 a1adfde SDSS-1530: Remove cron job step from provision documentation (#627)
-
 
 ### Fixed
 5c06ad9 Added config_readonly patch.
