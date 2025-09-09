@@ -13,3 +13,11 @@ jobs:
     uses: ./.github/workflows/tests.yml
     # Allow secrets to be used in the called workflow.
     secrets: inherit
+  # Deploy branch after tests pass by calling deploy workflow.
+  deploy:
+    uses: ./.github/workflows/deploy_branch.yml
+    with:
+      branch: ${{ github.head_ref }}
+    # Allow secrets to be used in the called workflow.
+    secrets: inherit
+    needs: [tests]
