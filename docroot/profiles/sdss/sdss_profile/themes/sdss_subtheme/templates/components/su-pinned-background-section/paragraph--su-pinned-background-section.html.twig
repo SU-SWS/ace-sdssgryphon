@@ -169,9 +169,9 @@
           <div class = "su-pinned-slide__inner">
             {{ slide.su_wysiwyg_text.value|raw }}
           </div>
-          <div class = "su-pinned-slide__bottom">
-            {% set button = slide.su_entity_button.0 %}
-            {% if button %}
+          {% set button = slide.su_entity_button.0 %}
+          {% if button %}
+            <div class = "su-pinned-slide__bottom">
               {% if button.url.external %}
                 <a class = "su-pinned-slide__button" href="{{ button.url.uri }}">
                   {{ button.title }}
@@ -181,8 +181,8 @@
                   {{ button.title }}
                 </a>
               {% endif %}
-            {% endif %}
-          </div>
+            </div>
+          {% endif %}
         </div>
       {% endfor %}
     {% endblock %}
@@ -195,6 +195,9 @@
     window.addEventListener('load', function() {
       const pinnedSection = document.getElementById('{{ paragraph.id() }}');
       const slides = pinnedSection.querySelectorAll('.su-pinned-slide');
+      const headerHeight = document.querySelector('.su-masthead').offsetHeight;
+
+      pinnedSection.style.marginTop = -headerHeight + 'px';
 
       let pinnedTL = gsap.timeline({
         scrollTrigger: {
@@ -212,44 +215,82 @@
 
         pinnedTL.addLabel('slide' + x)
 
-        if(!slide.classList.contains('first')) {
+        if(slide.classList.contains('first')) {
+          let title = slide.querySelector('h2');
+
+          if(title) {
+        
+            let titleSplit = SplitText.create(title, {
+              type: "lines",
+              mask: "lines",
+            });
+
+            gsap.set(title, { opacity: 1 }, 0);
+
+            gsap.fromTo(titleSplit.lines, {
+              opacity: 0,
+              y: '100%'
+            },
+            {
+              opacity: 1,
+              y: '0%',
+              duration: 0.5,
+              stagger: 0.05,
+              ease: 'power2.inOut'
+            }, slide.classList.contains('first') ? '+=0' : '-=0.3');
+
+          }
+
+          let p = slide.querySelector('p');
+
+          if(p) {
+            gsap.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+          }
+
+          let btn = slide.querySelector('.su-pinned-slide__button');
+
+          if(btn) {
+            gsap.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+          }
+        } else {
           pinnedTL.to(slide, { y: '-100%', duration: 0.5, ease: 'power2.inOut' }, '+=0');
-        }
 
-        let title = slide.querySelector('h2');
+          let title = slide.querySelector('h2');
 
-        if(title) {
-      
-          let titleSplit = SplitText.create(title, {
-            type: "lines",
-            mask: "lines",
-          });
+          if(title) {
+        
+            let titleSplit = SplitText.create(title, {
+              type: "lines",
+              mask: "lines",
+            });
 
-          pinnedTL.set(title, { opacity: 1 }, 0);
+            pinnedTL.set(title, { opacity: 1 }, 0);
 
-          pinnedTL.fromTo(titleSplit.lines, {
-            opacity: 0,
-            y: '100%'
-          },
-          {
-            opacity: 1,
-            y: '0%',
-            duration: 0.5,
-            ease: 'power2.inOut'
-          }, slide.classList.contains('first') ? '+=0' : '-=0.3');
+            pinnedTL.fromTo(titleSplit.lines, {
+              opacity: 0,
+              y: '100%'
+            },
+            {
+              opacity: 1,
+              y: '0%',
+              duration: 0.5,
+              stagger: 0.05,
+              ease: 'power2.inOut'
+            }, slide.classList.contains('first') ? '+=0' : '-=0.3');
 
-        }
+          }
 
-        let p = slide.querySelector('p');
+          let p = slide.querySelector('p');
 
-        if(p) {
-          pinnedTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
-        }
+          if(p) {
+            pinnedTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+          }
 
-        let btn = slide.querySelector('.su-pinned-slide__button');
+          let btn = slide.querySelector('.su-pinned-slide__button');
 
-        if(btn) {
-          pinnedTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+          if(btn) {
+            pinnedTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+          }
         }
 
         x++;

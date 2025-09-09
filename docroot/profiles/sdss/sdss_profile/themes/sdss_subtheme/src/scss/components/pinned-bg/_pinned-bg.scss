@@ -106,6 +106,10 @@
                 padding-bottom: 0;
                 opacity: 0;
 
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
                 &:after {
                     display: none;
                 }

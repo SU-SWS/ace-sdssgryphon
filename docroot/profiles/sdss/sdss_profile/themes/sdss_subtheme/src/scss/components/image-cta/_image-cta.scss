@@ -20,7 +20,7 @@
         width: 100%;
         padding: 30px;
         @include grid-media-min('md') {
-            padding: 78px 71px;
+            padding: 71px 78px;
         }
         background-position: center;
         background-repeat: no-repeat;
@@ -89,7 +89,7 @@
     }
 
     &__bar {
-        background-color: #94A04D;
+        background-color: #000;
         height: 2px;
         margin-top: 20px;
         margin-bottom: 20px;

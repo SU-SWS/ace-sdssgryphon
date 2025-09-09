@@ -23,10 +23,14 @@
 
     &__inner {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         @include grid-media-min('xl') {
             width: calc(100%-200px);
             max-width: 2000px;
             margin: 0 auto;
+            height: 100%;
         }
     }
 
@@ -82,11 +86,17 @@
 
         &__image {
             width: 100%;
-            height: clamp(200px, 33vw, 550px);
+            height: clamp(200px, 33vw, 70vh);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             margin-bottom: 22px;
+        }
+
+        &__video-link {
+            &:after {
+                display: none;
+            }
         }
 
         &__title {
