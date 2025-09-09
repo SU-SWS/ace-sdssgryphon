@@ -7,6 +7,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.13.1] - 2025-09-09
+
+### Added
+2b8c419 SDSS-1558: Provision ese2025 (#655)
+8cff579 SDSS-1557: Provision sustainpathways (#653)
+
+### Changed
+e5ed2c1 SDSS-0000: Room reservation module update to 8.1.21 (#651)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+None.
+
+### Maintenance
+None.
+
+
 ## [4.13.0] - 2025-08-13
 
 ### Added
