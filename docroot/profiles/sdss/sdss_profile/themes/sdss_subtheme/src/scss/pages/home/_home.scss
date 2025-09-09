@@ -71,7 +71,7 @@
                 @include grid-media-min('lg') {
                     padding: 0;
 
-                    min-width: 33%;
+                    min-width: 25%;
 
                     div {
                         height: 100%;
@@ -369,23 +369,39 @@
 
                 .su-card {
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column-reverse;
+                    gap: 30px;
 
-                    @include grid-media-max('md') {
-                        gap: 30px;
-                        flex-direction: column-reverse;
+                    @include grid-media-min('md') {
+                        flex-direction: row;
                     }
 
                     .su-figure__wrapper, .su-content__wrapper {
+                        width: 100%;
                         @include grid-media-min('md') {
                             width: 50%;
                             flex: 1;
                         }
                     }
 
-                    .su-content__wrapper {
+                    .su-figure__wrapper {
                         @include grid-media-min('md') {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .su-content__wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        @include grid-media-min('md') {
+                            padding-left: 40px;
+                            padding-right: 40px;
+                        }
+                        @include grid-media-min('lg') {
                             padding-left: 86px;
+                            padding-right: 60px;
                         }
                     }
 
@@ -433,6 +449,7 @@
                         margin-top: 50px;
                         a {
                             @include arrow-btn-border();
+                            display: inline-block;
                             color: #8C1515;
                             border-color: #8C1515;
                             font-size: 20px;
@@ -460,9 +477,9 @@
                         }
 
                         .su-content__wrapper {
-                            @include grid-media-min('md') {
-                                padding-right: 60px;
+                            @include grid-media-min('lg') {
                                 padding-left: 60px;
+                                padding-right: 60px;
                             }
                         }
 
@@ -512,11 +529,13 @@
                 padding: 0;
                 text-decoration: underline;
                 display: block;
-                margin-bottom: 30px;
+                margin-bottom: 50px;
                 text-align: left;
 
                 &:after {
                     background-color: #8C1515;
+                    width: 25px;
+                    height: 25px;
                 }
 
                 &:hover {

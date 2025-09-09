@@ -38,6 +38,9 @@
  * @ingroup themeable
  */
 #}
+
+{{ attach_library('sdss_subtheme/gsap') }}
+
 {%
   set classes = [
     'paragraph',
@@ -116,12 +119,22 @@
           start: 'top top', // when the top of the trigger hits the top of the viewport
           end: `+=${500 * slides.length}`, // end after scrolling 500px beyond the start
           scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+          invalidateOnRefresh: true
         }
       });
 
       let x = 0;
+
+      const trackOffset = () => {
+
+        let trackRect = track.getBoundingClientRect();
+        let lastSlideRect = document.querySelector('.su-department-slide:last-child').getBoundingClientRect();
+
+        // return the distance outside the track
+        return lastSlideRect.right - trackRect.right;
+      }
       
-      trackOffsetTween = pinnedTL.to(track, { x: -trackOffset(), duration: 1, ease: 'power2.inOut', overwrite: "auto" }, 0);
+      trackOffsetTween = pinnedTL.to(track, { x: () => -trackOffset(), duration: 1, ease: 'power2.inOut', overwrite: "auto" }, 0);
 
     });
 
@@ -130,14 +143,5 @@
       ScrollTrigger.refresh();
 
     });
-
-    function trackOffset() {
-
-      let trackRect = track.getBoundingClientRect();
-      let lastSlideRect = document.querySelector('.su-department-slide:last-child').getBoundingClientRect();
-
-      // return the distance outside the track
-      return lastSlideRect.right - trackRect.right;
-    }
   </script>
 {% endblock paragraph %}
