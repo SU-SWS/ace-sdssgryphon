@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 8cff579 SDSS-1557: Provision sustainpathways (#653)
 
 ### Changed
+292f89d SDSS-0000: Update room reservation module to 8.1.22 (#657)
 e5ed2c1 SDSS-0000: Room reservation module update to 8.1.21 (#651)
 
 ### Deprecated
@@ -52,7 +53,6 @@ d8f7e99 SDSS-1502: Deprecate and remove sdss_main_site_subtheme from codebase (#
 ### Removed
 91eef71 SDSS-1536: Streamline Lockup Settings and Fix Theme Configuration Bugs (#614)
 a1adfde SDSS-1530: Remove cron job step from provision documentation (#627)
-
 
 ### Fixed
 5c06ad9 Added config_readonly patch.
