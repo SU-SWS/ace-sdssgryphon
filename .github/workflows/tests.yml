@@ -27,7 +27,8 @@ jobs:
           MYSQL_ROOT_PASSWORD: drupal
         ports:
           - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3 --max_allowed_packet=64M
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        command: --max_allowed_packet=64M
     steps:
       - uses: actions/checkout@v4
       - name: Restore Cache
@@ -78,7 +79,8 @@ jobs:
           MYSQL_ROOT_PASSWORD: drupal
         ports:
           - 33306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3 --max_allowed_packet=64M
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        command: --max_allowed_packet=64M
     steps:
       - uses: actions/checkout@v4
       - name: Restore Cache
