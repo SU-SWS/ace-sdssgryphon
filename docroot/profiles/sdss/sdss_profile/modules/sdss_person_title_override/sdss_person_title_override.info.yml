@@ -1,0 +1,6 @@
+name: 'SDSS Person Title Override'
+description: 'Provides service and formatter for overriding person title fields with alternative values.'
+package: SDSS Stanford
+
+type: module
+core_version_requirement: ^10.4 || ^11

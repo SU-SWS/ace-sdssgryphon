@@ -47,6 +47,7 @@ dependencies:
   module:
     - ds
     - field_formatter_class
+    - sdss_person_title_override
     - stanford_media
     - user
 third_party_settings:
@@ -90,16 +91,16 @@ content:
       view_mode: default
       link: false
       image_style: responsive_1_1
+      remove_alt: false
     third_party_settings:
       field_formatter_class:
         class: ''
     weight: 0
     region: card_image
   su_person_short_title:
-    type: string
+    type: person_title_override
     label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
     weight: 2
     region: card_body
