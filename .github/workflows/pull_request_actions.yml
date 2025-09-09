@@ -20,4 +20,4 @@ jobs:
       branch: ${{ github.head_ref }}
     # Allow secrets to be used in the called workflow.
     secrets: inherit
-    # needs: [tests]
+    needs: [tests]
