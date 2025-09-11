@@ -153,12 +153,23 @@
               </script>
             {% else %}
               {# Vimeo #}
-              {% set strippedVimeo = bg|split('https://vimeo.com/')|last %}
-              {% set vimeoid = strippedVimeo|split('/')|first %}
+              {% set parts = bg|split('/') %}
+              {% set videoId = parts[3] %}
+              {% set afterId = parts[4]|default('') %}
+
+              {# Check if there's a hash after the video ID #}
+              {% if afterId starts with '?' or afterId == '' %}
+                {# Normal Vimeo link without hash #}
+                {% set outputID = videoId ~ '?' %}
+              {% else %}
+                {# Vimeo link with hash (strip query params if present) #}
+                {% set hash = afterId|split('?')|first %}
+                {% set outputID = videoId ~ '?h=' ~ hash ~ '&' %}
+              {% endif %}
 
               <iframe
                 type="text/html"
-                src="https://player.vimeo.com/video/{{ vimeoid }}?autoplay=1&background=1&loop=1"
+                src="https://player.vimeo.com/video/{{ outputID }}autoplay=1&background=1&loop=1"
                 allowfullscreen
                 frameborder="0"
                 class="su-pinned-slide__bg-video">
@@ -215,6 +226,8 @@
 
         pinnedTL.addLabel('slide' + x)
 
+        let slideTL = gsap.timeline({ paused: true });
+
         if(slide.classList.contains('first')) {
           let title = slide.querySelector('h2');
 
@@ -264,9 +277,9 @@
               mask: "lines",
             });
 
-            pinnedTL.set(title, { opacity: 1 }, 0);
+            slideTL.set(title, { opacity: 1 }, 0);
 
-            pinnedTL.fromTo(titleSplit.lines, {
+            slideTL.fromTo(titleSplit.lines, {
               opacity: 0,
               y: '100%'
             },
@@ -276,21 +289,24 @@
               duration: 0.5,
               stagger: 0.05,
               ease: 'power2.inOut'
-            }, slide.classList.contains('first') ? '+=0' : '-=0.3');
+            }, 0);
 
           }
 
           let p = slide.querySelector('p');
 
           if(p) {
-            pinnedTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+            slideTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, 0);
           }
 
           let btn = slide.querySelector('.su-pinned-slide__button');
 
           if(btn) {
-            pinnedTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+            slideTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, 0);
           }
+          
+          pinnedTL.add(() => slideTL.play(), 'slide' + x + '+=0.35');
+          pinnedTL.add(() => slideTL.reverse(), 'slide' + x + '+=0.01'); 
         }
 
         x++;
