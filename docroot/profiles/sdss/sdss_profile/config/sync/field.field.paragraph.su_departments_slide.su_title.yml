@@ -1,0 +1,19 @@
+uuid: 877f2b37-94c9-4dc0-93a9-51bf0f7f02d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_title
+    - paragraphs.paragraphs_type.su_departments_slide
+id: paragraph.su_departments_slide.su_title
+field_name: su_title
+entity_type: paragraph
+bundle: su_departments_slide
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

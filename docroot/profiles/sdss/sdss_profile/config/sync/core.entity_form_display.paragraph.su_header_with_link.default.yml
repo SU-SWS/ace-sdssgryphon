@@ -1,0 +1,34 @@
+uuid: 905ff90d-c35b-42dc-98d4-5e1b55310b9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.su_header_with_link.su_entity_button
+    - field.field.paragraph.su_header_with_link.su_title
+    - paragraphs.paragraphs_type.su_header_with_link
+  module:
+    - link
+id: paragraph.su_header_with_link.default
+targetEntityType: paragraph
+bundle: su_header_with_link
+mode: default
+content:
+  su_entity_button:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  su_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

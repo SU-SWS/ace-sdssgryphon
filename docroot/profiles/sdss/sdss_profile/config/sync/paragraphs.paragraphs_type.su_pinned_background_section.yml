@@ -1,0 +1,10 @@
+uuid: ae30a073-6999-4b3f-a2c3-1275f5105b84
+langcode: en
+status: true
+dependencies: {  }
+id: su_pinned_background_section
+label: 'Pinned Background Section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

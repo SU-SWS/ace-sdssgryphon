@@ -1,0 +1,23 @@
+uuid: d2330492-fc51-489f-92c2-f8eb5467c208
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_entity_button
+    - paragraphs.paragraphs_type.su_pinned_background_slide
+  module:
+    - link
+id: paragraph.su_pinned_background_slide.su_entity_button
+field_name: su_entity_button
+entity_type: paragraph
+bundle: su_pinned_background_slide
+label: Button
+description: 'This button will appear below the content items.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

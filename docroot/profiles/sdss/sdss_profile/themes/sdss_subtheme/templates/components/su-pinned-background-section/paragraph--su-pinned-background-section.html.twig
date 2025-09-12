@@ -1,0 +1,312 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{{ attach_library('sdss_subtheme/scrollreveal') }}
+{{ attach_library('sdss_subtheme/gsap') }}
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'su-pinned-background-section',
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }} id = "{{ paragraph.id() }}">
+    {% block content %}
+      {% for key, item in content.su_slides['#items'] %}
+        {% set slide = item.entity %}
+        {% set bg = file_url(slide.su_background.entity.field_media_image.entity.fileuri) %}
+        {% set type = 'image' %}
+        {% if not bg %}
+          {% set bg = slide.su_background.entity.field_media_oembed_video.entity.field_media_oembed_video.value %}
+          {% set type = 'video' %}
+        {% endif %}
+        <div class = "su-pinned-slide {% if key == 0 %}first{% endif %}" {% if type == 'image' %}style = "background-image: url('{{ bg }}')"{% endif %}>
+          {% if type == 'video' %}
+            {% if 'youtu' in bg %}
+              {# Handle youtu.be short links #}
+              {% if 'youtu.be' in bg %}
+                {% set youtubeid = bg|split('/')|last %}
+              {% else %}
+                {# Handle youtube.com/watch?v=...&t=... style #}
+                {% set after_v = bg|split('v=')[1] %}
+                {% set youtubeid = after_v|split('&')[0] %}
+              {% endif %}
+
+              <div
+                id = "video-{{ youtubeid }}"
+                class="su-pinned-slide__bg-video">
+              </div>
+
+              <script>
+
+                // Insert the <script> tag targeting the iframe API
+                const tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                const firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                // Get the video ID passed to the data-video attribute
+                const bgVideoID = '{{ youtubeid }}';
+
+                // Set the player options
+                const playerOptions = {
+                  // Autoplay + mute has to be activated (value = 1) if you want to autoplay it everywhere 
+                  // Chrome/Safari/Mobile
+                  autoplay: 1,
+                  mute: 1,
+                  autohide: 1, 
+                  modestbranding: 1, 
+                  rel: 0, 
+                  showinfo: 0, 
+                  controls: 0, 
+                  disablekb: 1, 
+                  enablejsapi: 1, 
+                  iv_load_policy: 3,
+                  // For looping video you have to have loop to 1
+                  // And playlist value equal to your currently playing video
+                  loop: 1,
+                  playlist: bgVideoID,
+                  
+                }
+
+                // Get the video overlay, to mask it when the video is loaded
+                const videoOverlay = document.querySelector('.js-video-overlay');
+
+                // This function creates an <iframe> (and YouTube player)
+                // after the API code downloads.
+                let ytPlayer;
+                function onYouTubeIframeAPIReady() {
+                  ytPlayer = new YT.Player('video-{{ youtubeid }}', {
+                    width: '1280',
+                    height: '720',
+                    videoId: bgVideoID,
+                    playerVars: playerOptions,
+                    events: {
+                      'onReady': onPlayerReady
+                    }
+                  });
+                }
+
+                // The API will call this function when the video player is ready.
+                function onPlayerReady(event) {
+                  event.target.playVideo();
+
+                  // Get the duration of the currently playing video
+                  const videoDuration = event.target.getDuration();
+                  
+                  // When the video is playing, compare the total duration
+                  // To the current passed time if it's below 2 and above 0,
+                  // Return to the first frame (0) of the video
+                  // This is needed to avoid the buffering at the end of the video
+                  // Which displays a black screen + the YouTube loader
+                  setInterval(function (){
+                    const videoCurrentTime = event.target.getCurrentTime();
+                    const timeDifference = videoDuration - videoCurrentTime;
+                    
+                    if (2 > timeDifference > 0) {
+                      event.target.seekTo(0);
+                    }
+                  }, 1000);
+                }
+
+              </script>
+            {% else %}
+              {# Vimeo #}
+              {% set parts = bg|split('/') %}
+              {% set videoId = parts[3] %}
+              {% set afterId = parts[4]|default('') %}
+
+              {# Check if there's a hash after the video ID #}
+              {% if afterId starts with '?' or afterId == '' %}
+                {# Normal Vimeo link without hash #}
+                {% set outputID = videoId ~ '?' %}
+              {% else %}
+                {# Vimeo link with hash (strip query params if present) #}
+                {% set hash = afterId|split('?')|first %}
+                {% set outputID = videoId ~ '?h=' ~ hash ~ '&' %}
+              {% endif %}
+
+              <iframe
+                type="text/html"
+                src="https://player.vimeo.com/video/{{ outputID }}autoplay=1&background=1&loop=1"
+                allowfullscreen
+                frameborder="0"
+                class="su-pinned-slide__bg-video">
+              </iframe>
+            {% endif %}
+          {% endif %}
+          <div class = "su-pinned-slide__bg-overlay"></div>
+          <div class = "su-pinned-slide__inner">
+            {{ slide.su_wysiwyg_text.value|raw }}
+          </div>
+          {% set button = slide.su_entity_button.0 %}
+          {% if button %}
+            <div class = "su-pinned-slide__bottom">
+              {% if button.url.external %}
+                <a class = "su-pinned-slide__button" href="{{ button.url.uri }}">
+                  {{ button.title }}
+                </a>
+              {% else %}
+                <a class = "su-pinned-slide__button" href="{{ path(button.url.routeName, button.url.routeParameters) }}">
+                  {{ button.title }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% endblock %}
+  </div>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(SplitText);
+
+    window.addEventListener('load', function() {
+      const pinnedSection = document.getElementById('{{ paragraph.id() }}');
+      const slides = pinnedSection.querySelectorAll('.su-pinned-slide');
+      const headerHeight = document.querySelector('.su-masthead').offsetHeight;
+
+      pinnedSection.style.marginTop = -headerHeight + 'px';
+
+      let x = 1;
+
+      for(const slide of slides) {
+
+        let slideTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: slide,
+            start: "top top",
+            end: x < slides.length ? "+=100%" : "+=50%",
+            toggleActions: "play none none reverse",
+            pin: true,
+            pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
+          }
+        });
+
+        if(slide.classList.contains('first')) {
+          let title = slide.querySelector('h2');
+
+          if(title) {
+        
+            let titleSplit = SplitText.create(title, {
+              type: "lines",
+              mask: "lines",
+            });
+
+            gsap.set(title, { opacity: 1 }, 0);
+
+            gsap.fromTo(titleSplit.lines, {
+              opacity: 0,
+              y: '100%'
+            },
+            {
+              opacity: 1,
+              y: '0%',
+              duration: 0.8,
+              stagger: 0.08,
+              ease: 'power2.inOut'
+            }, slide.classList.contains('first') ? '+=0' : '-=0.3');
+
+          }
+
+          let p = slide.querySelector('p');
+
+          if(p) {
+            gsap.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.6');
+          }
+
+          let btn = slide.querySelector('.su-pinned-slide__button');
+
+          if(btn) {
+            gsap.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.2');
+          }
+        } else {
+
+          let title = slide.querySelector('h2');
+
+          if(title) {
+        
+            let titleSplit = SplitText.create(title, {
+              type: "lines",
+              mask: "lines",
+            });
+
+            slideTL.set(title, { opacity: 1 }, 0);
+
+            slideTL.fromTo(titleSplit.lines, {
+              opacity: 0,
+              y: '100%'
+            },
+            {
+              opacity: 1,
+              y: '0%',
+              duration: 1.0,
+              stagger: 0.08,
+              ease: 'power2.inOut'
+            }, '-=0.3');
+
+          }
+
+          let p = slide.querySelector('p');
+
+          if(p) {
+            slideTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.6');
+          }
+
+          let btn = slide.querySelector('.su-pinned-slide__button');
+
+          if(btn) {
+            slideTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.2');
+          }
+        }
+
+        x++;
+
+      }
+
+    });
+  </script>
+{% endblock paragraph %}

@@ -1,0 +1,43 @@
+uuid: 01db22db-196f-4128-ab42-ef3430654a86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.su_departments_slide.su_entity_button
+    - field.field.paragraph.su_departments_slide.su_image
+    - field.field.paragraph.su_departments_slide.su_title
+    - paragraphs.paragraphs_type.su_departments_slide
+  module:
+    - link
+    - media_library
+id: paragraph.su_departments_slide.default
+targetEntityType: paragraph
+bundle: su_departments_slide
+mode: default
+content:
+  su_entity_button:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  su_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  su_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

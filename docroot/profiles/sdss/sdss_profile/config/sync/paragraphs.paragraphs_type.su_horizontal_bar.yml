@@ -1,0 +1,10 @@
+uuid: 71950d25-50f9-4f78-b8cd-4d2831fa2097
+langcode: en
+status: true
+dependencies: {  }
+id: su_horizontal_bar
+label: 'Horizontal Bar'
+icon_uuid: null
+icon_default: null
+description: 'A horizontal bar that separates content on a page.'
+behavior_plugins: {  }

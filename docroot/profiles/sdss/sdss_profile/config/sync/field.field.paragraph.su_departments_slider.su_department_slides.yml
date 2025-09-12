@@ -1,0 +1,91 @@
+uuid: 48d8f77f-dab9-4deb-b3b6-80dc442d9bd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_department_slides
+    - paragraphs.paragraphs_type.su_departments_slide
+    - paragraphs.paragraphs_type.su_departments_slider
+  module:
+    - entity_reference_revisions
+id: paragraph.su_departments_slider.su_department_slides
+field_name: su_department_slides
+entity_type: paragraph
+bundle: su_departments_slider
+label: 'Departments Slides'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      su_departments_slide: su_departments_slide
+    negate: 0
+    target_bundles_drag_drop:
+      callout_quote:
+        weight: 22
+        enabled: false
+      editorial_sidebar:
+        weight: 23
+        enabled: false
+      sdss_news_list_card:
+        weight: 24
+        enabled: false
+      sdss_spotlight:
+        weight: 25
+        enabled: false
+      stanford_accordion:
+        weight: 26
+        enabled: false
+      stanford_banner:
+        weight: 27
+        enabled: false
+      stanford_card:
+        weight: 28
+        enabled: false
+      stanford_entity:
+        weight: 29
+        enabled: false
+      stanford_faq:
+        weight: 30
+        enabled: false
+      stanford_gallery:
+        weight: 31
+        enabled: false
+      stanford_layout:
+        weight: 32
+        enabled: false
+      stanford_lists:
+        weight: 33
+        enabled: false
+      stanford_media_caption:
+        weight: 34
+        enabled: false
+      stanford_person_cta:
+        weight: 35
+        enabled: false
+      stanford_schedule:
+        weight: 36
+        enabled: false
+      stanford_spacer:
+        weight: 37
+        enabled: false
+      stanford_wysiwyg:
+        weight: 38
+        enabled: false
+      su_departments_slide:
+        weight: 39
+        enabled: true
+      su_departments_slider:
+        weight: 40
+        enabled: false
+      su_pinned_background_section:
+        weight: 41
+        enabled: false
+      su_pinned_background_slide:
+        weight: 42
+        enabled: false
+field_type: entity_reference_revisions
