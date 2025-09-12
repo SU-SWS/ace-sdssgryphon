@@ -30,10 +30,13 @@
         .ptype-stanford-wysiwyg, .ptype-su-horizontal-bar {
             margin-left: 0;
         }
+    }
+    .paragraph-item:has(.institutes-header) {
+        @include grid-media-min('md') {
+            margin-bottom: -30px !important;
 
-        .institutes-header {
-            @include grid-media-min('md') {
-                margin-bottom: -30px !important;
+            .institutes-header {
+                margin-bottom: 0 !important;
             }
         }
     }
