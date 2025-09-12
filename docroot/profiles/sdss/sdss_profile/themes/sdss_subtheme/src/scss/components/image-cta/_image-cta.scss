@@ -1,8 +1,7 @@
 .su-image-cta {
     width: 100%;
     overflow: hidden;
-
-    padding: 0 3rem 100px 3rem;
+    padding: 0 20px 50px 20px;
 
     @include grid-media-min('md') {
         padding: 0 5rem 100px 5rem;

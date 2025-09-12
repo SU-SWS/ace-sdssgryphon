@@ -1,8 +1,8 @@
 .paragraph--type--su-horizontal-bar {
     margin: 0 auto;
     width: calc(100%-8rem);
-    margin-top: 100px;
-    margin-bottom: 64px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     margin-left: 3rem;
 
     height: 1px;
@@ -10,6 +10,8 @@
     opacity: 30%;
 
     @include grid-media-min('md') {
+        margin-top: 100px;
+        margin-bottom: 64px;
         margin-left: 5rem;
     }
 

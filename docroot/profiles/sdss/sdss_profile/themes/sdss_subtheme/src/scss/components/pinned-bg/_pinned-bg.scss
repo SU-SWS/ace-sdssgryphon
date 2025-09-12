@@ -23,7 +23,11 @@
         gap: 32px;
         align-items: center;
 
-        padding: 82px 3rem;
+        padding: 82px 20px;
+
+        @include grid-media-min('sm') {
+            padding: 82px 3rem;
+        }
 
         @include grid-media-min('md') {
             padding: 82px 5rem;

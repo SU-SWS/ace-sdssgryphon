@@ -6,14 +6,18 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: 64px 3rem 64px 3rem;
+    padding: 50px 20px;
+
+    @include grid-media-min('sm') {
+        padding: 50px 3rem;
+    }
 
     @include grid-media-min('md') {
-        padding: 64px 5rem 64px 5rem;
+        padding: 64px 5rem;
     }
 
     @include grid-media-min('lg') {
-        padding: 64px 8rem 64px 8rem;
+        padding: 64px 8rem;
     }
 
     margin-bottom: 118px;
@@ -86,7 +90,7 @@
             min-width: 38vw;
             max-width: 38vw;
         }
-        @include grid-media-min('md') {
+        @include grid-media-min('lg') {
             min-width: 22vw;
             max-width: 22vw;
         }
