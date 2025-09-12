@@ -196,9 +196,6 @@
             </div>
           {% endif %}
         </div>
-        {% if key + 1 < content.su_slides['#items']|length %}
-          <div class="spacer"></div>
-        {% endif %}
       {% endfor %}
     {% endblock %}
   </div>
@@ -222,6 +219,7 @@
           scrollTrigger: {
             trigger: slide,
             start: "top top",
+            end: x < slides.length ? "+=100%" : "+=50%",
             toggleActions: "play none none reverse",
             pin: true,
             pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
@@ -247,8 +245,8 @@
             {
               opacity: 1,
               y: '0%',
-              duration: 0.5,
-              stagger: 0.05,
+              duration: 0.8,
+              stagger: 0.08,
               ease: 'power2.inOut'
             }, slide.classList.contains('first') ? '+=0' : '-=0.3');
 
@@ -257,13 +255,13 @@
           let p = slide.querySelector('p');
 
           if(p) {
-            gsap.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+            gsap.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.inOut' }, '+=0');
           }
 
           let btn = slide.querySelector('.su-pinned-slide__button');
 
           if(btn) {
-            gsap.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
+            gsap.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.inOut' }, '+=0');
           }
         } else {
 
@@ -285,23 +283,23 @@
             {
               opacity: 1,
               y: '0%',
-              duration: 0.5,
-              stagger: 0.05,
+              duration: 1.0,
+              stagger: 0.08,
               ease: 'power2.inOut'
-            }, 0);
+            }, '-=0.3');
 
           }
 
           let p = slide.querySelector('p');
 
           if(p) {
-            slideTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, 0);
+            slideTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.inOut' }, '+=0');
           }
 
           let btn = slide.querySelector('.su-pinned-slide__button');
 
           if(btn) {
-            slideTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, 0);
+            slideTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.inOut' }, '+=0');
           }
         }
 

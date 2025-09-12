@@ -1,6 +1,11 @@
 .page-stanford-sustainability-homepage-2025 {
     .paragraph-item {
         overflow: hidden;
+        position: relative;
+    }
+
+    .paragraph-item:has(.su-pinned-background-section) + .paragraph-item {
+        padding-top: 100px;
     }
     .paragraph-item > .ptype-stanford-layout > .layout:not(:has(.su-departments-slider,.su-pinned-background-section,.su-image-cta)) {
         max-width: 2000px;
@@ -22,7 +27,7 @@
             margin-right: auto;
         }
 
-        .ptype-stanford-card, .ptype-stanford-lists, .su-wysiwyg-text {
+        .ptype-stanford-card, .ptype-stanford-lists, .su-wysiwyg-text, .ptype-su-horizontal-bar {
             max-width: 100%;
             width: 100%;
         }
@@ -356,6 +361,7 @@
 
         &__contents {
             padding-bottom: 0;
+            padding-right: 0;
         }
 
         &__button {
@@ -384,6 +390,7 @@
                 margin: 0 !important;
                 padding: 0 !important;
                 background-color: transparent !important;
+                text-align: left !important;
 
                 &:after {
                     background-color: #8C1515 !important;

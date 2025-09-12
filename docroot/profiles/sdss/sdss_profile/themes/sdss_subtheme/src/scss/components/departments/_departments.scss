@@ -39,6 +39,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        
+        @include grid-media-max('sm') {
+            align-items: flex-start;
+            flex-direction: column;
+        }
         margin-bottom: 44px;
 
         h2 {
@@ -75,11 +80,15 @@
     }
 
     .su-department-slide {
-        min-width: 38vw;
-        max-width: 38vw;
+        min-width: 80vw;
+        max-width: 80vw;
+        @include grid-media-min('sm') {
+            min-width: 38vw;
+            max-width: 38vw;
+        }
         @include grid-media-min('md') {
-            min-width: 27vw;
-            max-width: 27vw;
+            min-width: 22vw;
+            max-width: 22vw;
         }
         min-height: 100%;
         display: flex;
@@ -88,10 +97,10 @@
 
         &__image {
             width: 100%;
-            height: clamp(200px, 33vw, 70vh);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
+            aspect-ratio: 82 / 100;
             margin-bottom: 22px;
         }
 
@@ -103,9 +112,17 @@
 
         &__title {
             font-family: $su-font-serif-v2;
-            font-size: 20px;
+            font-size: 16px;
+
+            @include grid-media-min('sm') {
+                font-size: 20px;
+            }
 
             @include grid-media-min('md') {
+                font-size: 20px;
+            }
+
+            @include grid-media-min('xl') {
                 font-size: 28px;
             }
             line-height: 120%;
@@ -128,8 +145,12 @@
                 height: 28.5px;
                 display: block;
                 color: #8C1515;
-                font-size: 20px;
+                font-size: 16px;
                 text-decoration: none;
+
+                @include grid-media-min('sm') {
+                    font-size: 20px;
+                }
 
                 &:after {
                     background-color: #8C1515;
