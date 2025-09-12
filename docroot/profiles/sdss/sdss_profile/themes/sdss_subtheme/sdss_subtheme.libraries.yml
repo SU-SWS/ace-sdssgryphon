@@ -20,3 +20,8 @@ gsap:
     js/gsap/gsap.js: { minified: true }
     js/gsap/ScrollTrigger.js: { minified: true }
     js/gsap/SplitText.js: { minified: true }
+scrollreveal:
+  header: true
+  js:
+    js/scrollreveal/scrollreveal.js: { minified: true }
+    js/scrollreveal/theme.js: { minified: true }

@@ -39,6 +39,7 @@
  */
 #}
 
+{{ attach_library('sdss_subtheme/scrollreveal') }}
 {{ attach_library('sdss_subtheme/gsap') }}
 
 {%
@@ -195,6 +196,9 @@
             </div>
           {% endif %}
         </div>
+        {% if key + 1 < content.su_slides['#items']|length %}
+          <div class="spacer"></div>
+        {% endif %}
       {% endfor %}
     {% endblock %}
   </div>
@@ -210,23 +214,19 @@
 
       pinnedSection.style.marginTop = -headerHeight + 'px';
 
-      let pinnedTL = gsap.timeline({
-        scrollTrigger: {
-          trigger: pinnedSection,
-          pin: true, // pin the trigger element while active
-          start: 'top top', // when the top of the trigger hits the top of the viewport
-          end: `+=${1500 * slides.length}`, // end after scrolling 500px beyond the start
-          scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-        }
-      });
-
-      let x = 0;
+      let x = 1;
 
       for(const slide of slides) {
 
-        pinnedTL.addLabel('slide' + x)
-
-        let slideTL = gsap.timeline({ paused: true });
+        let slideTL = gsap.timeline({
+          scrollTrigger: {
+            trigger: slide,
+            start: "top top",
+            toggleActions: "play none none reverse",
+            pin: true,
+            pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
+          }
+        });
 
         if(slide.classList.contains('first')) {
           let title = slide.querySelector('h2');
@@ -266,7 +266,6 @@
             gsap.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, '-=0.3');
           }
         } else {
-          pinnedTL.to(slide, { y: '-100%', duration: 0.5, ease: 'power2.inOut' }, '+=0');
 
           let title = slide.querySelector('h2');
 
@@ -304,9 +303,6 @@
           if(btn) {
             slideTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power2.inOut' }, 0);
           }
-          
-          pinnedTL.add(() => slideTL.play(), 'slide' + x + '+=0.35');
-          pinnedTL.add(() => slideTL.reverse(), 'slide' + x + '+=0.01'); 
         }
 
         x++;

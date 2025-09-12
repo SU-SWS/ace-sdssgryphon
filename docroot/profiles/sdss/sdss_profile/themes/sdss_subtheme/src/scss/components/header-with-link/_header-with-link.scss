@@ -2,14 +2,14 @@
     width: 100%;
     overflow: hidden;
 
-    padding: 10px 3rem 28px 3rem;
+    padding: 10px 0 28px 0;
 
     @include grid-media-min('md') {
-        padding: 10px 3rem 28px 5rem;
+        padding: 10px 0 28px 0;
     }
 
     @include grid-media-min('lg') {
-        padding: 10px 3rem 28px 8rem;
+        padding: 10px 0 28px 0;
     }
 
     @include grid-media-min('xl') {
@@ -22,12 +22,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        @include grid-media-min('xl') {
-            width: calc(100%-200px);
-            max-width: 2000px;
-            margin: 0 auto;
-        }
     }
 
     &__title {

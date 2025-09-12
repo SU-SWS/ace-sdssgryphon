@@ -5,11 +5,11 @@
     padding: 0 3rem 100px 3rem;
 
     @include grid-media-min('md') {
-        padding: 0 3rem 135px 5rem;
+        padding: 0 5rem 100px 5rem;
     }
 
     @include grid-media-min('lg') {
-        padding: 0 3rem 135px 8rem;
+        padding: 0 5rem 100px 5rem;
     }
 
     @include grid-media-min('xl') {
@@ -31,7 +31,7 @@
         align-items: center;
 
         @include grid-media-min('xl') {
-            width: calc(100%-200px);
+            width: calc(100%-16rem);
             max-width: 2000px;
             margin: 0 auto;
         }

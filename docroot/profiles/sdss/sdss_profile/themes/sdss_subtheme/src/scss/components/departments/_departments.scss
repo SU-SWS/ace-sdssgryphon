@@ -6,16 +6,17 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: 64px 3rem;
-    margin-bottom: 118px;
+    padding: 64px 3rem 64px 3rem;
 
     @include grid-media-min('md') {
-        padding: 64px 3rem 64px 5rem;
+        padding: 64px 5rem 64px 5rem;
     }
 
     @include grid-media-min('lg') {
-        padding: 64px 3rem 64px 8rem;
+        padding: 64px 8rem 64px 8rem;
     }
+
+    margin-bottom: 118px;
 
     @include grid-media-min('xl') {
         padding: 64px 0;
@@ -27,7 +28,7 @@
         flex-direction: column;
         justify-content: center;
         @include grid-media-min('xl') {
-            width: calc(100%-200px);
+            width: calc(100%-16rem);
             max-width: 2000px;
             margin: 0 auto;
             height: 100%;
@@ -47,7 +48,8 @@
         }
 
         &__button {
-            &.su-link--external, &.su-link--internal {
+            &.su-link--external, &:not(.su-link--external) {
+                @include arrow-btn();
                 color: #8C1515;
                 font-size: 20px;
                 text-decoration: none;

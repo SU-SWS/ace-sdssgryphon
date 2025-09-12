@@ -1,4 +1,46 @@
 .page-stanford-sustainability-homepage-2025 {
+    .paragraph-item {
+        overflow: hidden;
+    }
+    .paragraph-item > .ptype-stanford-layout > .layout:not(:has(.su-departments-slider,.su-pinned-background-section,.su-image-cta)) {
+        max-width: 2000px;
+        margin-left: 3rem;
+        width: calc(100%-6rem);
+
+        @include grid-media-min('md') {
+            margin-left: 5rem;
+            width: calc(100%-10rem);
+        }
+
+        @include grid-media-min('lg') {
+            margin-left: 8rem;
+            width: calc(100%-16rem);
+        }
+        
+        @include grid-media-min('xl') {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ptype-stanford-card, .ptype-stanford-lists, .su-wysiwyg-text {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .ptype-stanford-wysiwyg, .ptype-su-horizontal-bar {
+            margin-left: 0;
+        }
+
+        .institutes-header {
+            @include grid-media-min('md') {
+                margin-bottom: -30px !important;
+            }
+        }
+    }
+    .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
+        padding-left: 0;
+        padding-right: 0;
+    }
     .layout--layout-paragraphs-one-column, .layout--layout-paragraphs-one-four-one, .layout--layout-paragraphs-three-column, .layout--layout-paragraphs-two-column {
         padding-bottom: 0;
         padding-top: 0;
@@ -8,23 +50,10 @@
         margin-top: 0;
     }
     .layout--layout-paragraphs-one-column .paragraph.paragraph--type--stanford-wysiwyg {
+        max-width: 2000px;
         margin: 0 auto;
         margin-left: 3rem;
         width: calc(100%-5rem);
-
-        @include grid-media-min('md') {
-            margin-left: 5rem;
-        }
-
-        @include grid-media-min('lg') {
-            margin-left: 8rem;
-        }
-
-        @include grid-media-min('xl') {
-            max-width: 2000px;
-            width: calc(100%-200px);
-            margin: 0 auto;
-        }
 
         .su-intro-text {
             max-width: 1200px;
@@ -176,6 +205,17 @@
     .layout-paragraphs-sdss-bgcolor--red {
         background-color: #8C1515;
         color: white;
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: -100vw;
+            width: 200vw;
+            height: 100%;
+            z-index: -1;
+            background-color: #8C1515;
+        }
 
         .text-long {
             padding-top: 150px;
@@ -547,9 +587,5 @@
                 }
             }
         }
-    }
-
-    .institutes-header {
-        margin-bottom: -30px !important;
     }
 }

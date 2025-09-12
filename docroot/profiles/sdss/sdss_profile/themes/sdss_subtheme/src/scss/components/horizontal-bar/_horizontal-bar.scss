@@ -19,7 +19,7 @@
 
     @include grid-media-min('xl') {
         max-width: 2000px;
-        width: calc(100%-200px);
+        width: calc(100%-16rem);
         margin: 0 auto;
 
         margin-top: 100px;
