@@ -75,71 +75,72 @@
                 <img src="/{{ directory }}/dist/img/icon-play.png" alt="" class="play" style = "display:none" />
               </button>
             </div>
-            {% if 'youtu' in bg %}
-              {# Handle youtu.be short links #}
-              {% if 'youtu.be' in bg %}
-                {% set youtubeid = bg|split('/')|last %}
-              {% else %}
-                {# Handle youtube.com/watch?v=...&t=... style #}
-                {% set after_v = bg|split('v=')[1] %}
-                {% set youtubeid = after_v|split('&')[0] %}
-              {% endif %}
+            <div class = "su-pinned-slide__bg-video-wrapper">
+              {% if 'youtu' in bg %}
+                {# Handle youtu.be short links #}
+                {% if 'youtu.be' in bg %}
+                  {% set youtubeid = bg|split('/')|last %}
+                {% else %}
+                  {# Handle youtube.com/watch?v=...&t=... style #}
+                  {% set after_v = bg|split('v=')[1] %}
+                  {% set youtubeid = after_v|split('&')[0] %}
+                {% endif %}
 
-              <div
-                id = "video-{{ youtubeid }}"
-                data-video = "{{ youtubeid }}"
-                class="su-pinned-slide__bg-video">
+                <div
+                  id = "video-{{ youtubeid }}"
+                  data-video = "{{ youtubeid }}"
+                  class="su-pinned-slide__bg-video">
+                </div>
+
+                {% if not loadedYTScript %}
+                  {% set loadedYTScript = true %}
+                  <script>
+
+                    // Insert the <script> tag targeting the iframe API
+                    const tag = document.createElement('script');
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    const firstScriptTag = document.getElementsByTagName('script')[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                  </script>
+                {% endif %}
+              {% else %}
+                {# Vimeo #}
+                {% set parts = bg|split('/') %}
+                {% set videoId = parts[3] %}
+                {% set afterId = parts[4]|default('') %}
+
+                {# Check if there's a hash after the video ID #}
+                {% if afterId starts with '?' or afterId == '' %}
+                  {# Normal Vimeo link without hash #}
+                  {% set outputID = videoId ~ '?' %}
+                {% else %}
+                  {# Vimeo link with hash (strip query params if present) #}
+                  {% set hash = afterId|split('?')|first %}
+                  {% set outputID = videoId ~ '?h=' ~ hash ~ '&' %}
+                {% endif %}
+
+                <iframe
+                  id = "video-{{ outputID }}"
+                  type="text/html"
+                  src="https://player.vimeo.com/video/{{ outputID }}background=1&autoplay=1&loop=1&byline=0&title=0"
+                  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+                  class="su-pinned-slide__bg-video noresize">
+                </iframe>
+
+                {% if not loadedVimeoScript %}
+                  {% set loadedVimeoScript = true %}
+                  <script>
+                  
+                    // Insert the <script> tag targeting the iframe API
+                    const tag = document.createElement('script');
+                    tag.src = "https://player.vimeo.com/api/player.js";
+                    const firstScriptTag = document.getElementsByTagName('script')[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                  </script>
+                {% endif %}
               </div>
-
-              {% if not loadedYTScript %}
-                {% set loadedYTScript = true %}
-                <script>
-
-                  // Insert the <script> tag targeting the iframe API
-                  const tag = document.createElement('script');
-                  tag.src = "https://www.youtube.com/iframe_api";
-                  const firstScriptTag = document.getElementsByTagName('script')[0];
-                  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                </script>
-              {% endif %}
-            {% else %}
-              {# Vimeo #}
-              {% set parts = bg|split('/') %}
-              {% set videoId = parts[3] %}
-              {% set afterId = parts[4]|default('') %}
-
-              {# Check if there's a hash after the video ID #}
-              {% if afterId starts with '?' or afterId == '' %}
-                {# Normal Vimeo link without hash #}
-                {% set outputID = videoId ~ '?' %}
-              {% else %}
-                {# Vimeo link with hash (strip query params if present) #}
-                {% set hash = afterId|split('?')|first %}
-                {% set outputID = videoId ~ '?h=' ~ hash ~ '&' %}
-              {% endif %}
-
-              <iframe
-                id = "video-{{ outputID }}"
-                type="text/html"
-                src="https://player.vimeo.com/video/{{ outputID }}autoplay=1&background=1&loop=1"
-                allowfullscreen
-                frameborder="0"
-                class="su-pinned-slide__bg-video">
-              </iframe>
-
-              {% if not loadedVimeoScript %}
-                {% set loadedVimeoScript = true %}
-                <script>
-                
-                  // Insert the <script> tag targeting the iframe API
-                  const tag = document.createElement('script');
-                  tag.src = "https://player.vimeo.com/api/player.js";
-                  const firstScriptTag = document.getElementsByTagName('script')[0];
-                  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                </script>
-              {% endif %}
             {% endif %}
           {% endif %}
           <div class = "su-pinned-slide__bg-overlay"></div>
@@ -184,10 +185,10 @@
         if(slide.getAttribute('data-type') == 'video') {
 
             let videoType = slide.getAttribute('data-video-type');
+            var slideBG = slide.querySelector('.su-pinned-slide__bg-video');
 
             if(videoType == 'youtube') {
               // Get the video ID passed to the data-video attribute
-              const slideBG = slide.querySelector('.su-pinned-slide__bg-video');
               const bgVideoID = slideBG.getAttribute('data-video');
 
               // Set the player options
@@ -249,8 +250,6 @@
                 }, 1000);
               }
             } else {
-              var slideBG = slide.querySelector('.su-pinned-slide__bg-video');
-
               var player = new Vimeo.Player(slideBG);
             }
 
@@ -269,6 +268,8 @@
             pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
           }
         });
+
+        ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"})
 
         if(slide.classList.contains('first')) {
           let title = slide.querySelector('h2');

@@ -122,22 +122,28 @@
 
     window.addEventListener('load', function() {
 
-      function getNextSiblings(elem, filter) {
+      function getNextSiblings(elem, limit = 0) {
         var sibs = [];
-        sibs.push(elem);
+        let x = 0;
         while (elem = elem.nextSibling) {
             if (elem.nodeType === 3) continue; // text node
-            if (!filter || filter(elem)) sibs.push(elem);
+            if(limit > 0 && x >= limit) break;
+            sibs.push(elem);
+            x++;
         }
         return sibs;
       }
 
-      const allPinnedElements = getNextSiblings(pinnedSection.closest('.paragraph-item'));
+      const sliderParent = pinnedSection.closest('.paragraph-item');
+
+      const allPinnedElements = getNextSiblings(sliderParent, 3);
 
       let wrapper = document.createElement('div');
       wrapper.id = "paragraph-pin-wrapper";
 
-      document.querySelector('.stanford-page').appendChild(wrapper);
+      document.querySelector('.stanford-page').insertBefore(wrapper, sliderParent);
+
+      wrapper.appendChild(sliderParent);
 
       for(const el of allPinnedElements) {
         wrapper.appendChild(el);
