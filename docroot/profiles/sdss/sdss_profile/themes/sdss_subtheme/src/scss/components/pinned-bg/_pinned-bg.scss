@@ -114,6 +114,7 @@
             height: 300%;
             transform: translate(-50%,-50%) scale(1.4);
             pointer-events: none;
+            z-index: -1;
 
             @include grid-media-min('md') {
                 width: 200%;
