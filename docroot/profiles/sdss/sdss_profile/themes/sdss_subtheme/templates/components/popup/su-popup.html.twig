@@ -1,0 +1,140 @@
+{{ attach_library('sdss_subtheme/popup') }}
+
+<div class = "su__popup" id = "su_popup">
+    <div class = "su__popup__inner">
+        <div class = "su__popup__close first-focusable-element" tabindex = "0"></div>
+
+        <div class = "iframe_holder">
+            <div id = "su__popup__video" class="su__popup__video"></div>
+        </div>
+
+        <div tabindex = "0" class = "last-focusable-element"></div>
+    </div>
+</div>
+
+<script>
+    const popup = document.getElementById('su_popup');
+    const iframe = popup.querySelector('iframe');
+    let lastFocusedElement = null;
+    var player;
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+      for(link of document.querySelectorAll('a[href^="#video"]')) {
+        link.addEventListener('keyup', function(e) {
+          if(e.key == "Enter") {
+            openLinkPopup(e);
+          }
+        });
+        link.addEventListener('click', function(e) {
+          openLinkPopup(e);
+        });
+      }
+
+      for(link of document.querySelectorAll('.su-link--popup')) {
+        link.addEventListener('keyup', function(e) {
+          if(e.key == "Enter") {
+            openPopup(e);
+          }
+        });
+        link.addEventListener('click', function(e) {
+          openPopup(e);
+        });
+      }
+
+      popup.querySelector('.su__popup__close').addEventListener('click', function(e) {
+        closePopup(e);
+      });
+
+      popup.querySelector('.su__popup__close').addEventListener('keyup', function(e) {
+        if(e.key == "Enter") {
+            closePopup(e);
+        }
+      });
+
+      popup.addEventListener('click', function(e) {
+        if(e.target !== e.currentTarget) return;
+        closePopup(e);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if(e.key == 'Escape' && popup.classList.contains('active')) {
+          closePopup(e);
+        }
+      });
+
+      popup.addEventListener('keydown', function(e) {
+        let firstFocusableElement = popup.querySelector('.first-focusable-element');
+        let lastFocusableElement = popup.querySelector('.last-focusable-element');
+
+        if(popup.classList.contains('active')) {
+            if(e.target === firstFocusableElement && e.key == 'Tab' && e.shiftKey) {
+                e.preventDefault();
+                lastFocusableElement.focus();
+            } else if(e.target === lastFocusableElement && e.key == 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                firstFocusableElement.focus();
+            }
+        }
+      });
+
+    });
+
+    function openLinkPopup(e) { 
+        
+        e.preventDefault();
+
+        lastFocusedElement = e.target;
+
+        let videoID = e.target.getAttribute('href').split('#video?video-id=')[1];
+
+        initVideo(videoID);
+
+    }
+
+    function openPopup(e) {
+        e.preventDefault();
+
+        lastFocusedElement = e.target;
+
+        let videoID = e.target.getAttribute('data-video');
+
+        initVideo(videoID);
+    }
+
+    function closePopup(e) {
+        e.preventDefault();
+        popup.classList.remove('active');
+        if(lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+        setTimeout(() => {
+            if(player) {
+                player.destroy();
+                player = null;
+            }
+        }, 200);
+    }
+
+    function initVideo(videoID) {
+        if(!document.getElementById('su__popup__video')) {
+            let su__popup__video = document.createElement('div');
+            su__popup__video.id = "su__popup__video";
+            popup.querySelector('.iframe_holder').appendChild(su__popup__video);
+        }
+        player = new YT.Player('su__popup__video', {
+            height: '360',
+            width: '640',
+            videoId: videoID,
+            playerVars: {
+                autoplay: true,
+            }
+        });
+
+        popup.classList.add('active');
+
+        setTimeout(() => {
+            popup.querySelector('.first-focusable-element').focus();
+        }, 100);
+    }
+</script>

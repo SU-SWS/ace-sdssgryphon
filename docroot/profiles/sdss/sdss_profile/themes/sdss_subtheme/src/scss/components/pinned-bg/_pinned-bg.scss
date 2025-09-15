@@ -3,13 +3,13 @@
     width: 100%;
 
     .spacer {
-        height: 50vh;
+        height: 50svh;
     }
 
     .su-pinned-slide {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 100svh;
         background-color: black;
 
         background-size: cover;
@@ -43,6 +43,63 @@
 
         &.first {
             top: 0;
+        }
+
+        &__pause_holder {
+            position: absolute;
+            bottom: 82px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-right: 3rem;
+            pointer-events: none;
+
+            display: flex;
+            justify-content: flex-end;
+
+            width: 100%;
+            @include grid-media-min('xl') {
+                width: calc(100%-16rem);
+                max-width: 2000px;
+            }
+
+            @include grid-media-min('sm') {
+                padding-right: 3rem;
+            }
+
+            @include grid-media-min('md') {
+                padding-right: 5rem;
+            }
+
+            @include grid-media-min('lg') {
+                padding-right: 8rem;
+            }
+
+            @include grid-media-min('xl') {
+                padding-right: 0;
+            }
+        }
+
+        &__play_pause {
+            position: relative;
+            pointer-events: all;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            margin: 0;
+            background-color: transparent;
+            border: none;
+            min-width: 0;
+            z-index: 9;
+            overflow: visible;
+            &:focus {
+                outline: none;
+            }
+            &:focus-visible {
+                outline: 3px solid #014240;
+            }
+            img {
+                pointer-events: none;
+            }
         }
 
         iframe {
@@ -85,6 +142,7 @@
 
         &__inner {
             width: 100%;
+            position: relative;
             @include grid-media-min('xl') {
                 width: calc(100%-16rem);
                 max-width: 2000px;

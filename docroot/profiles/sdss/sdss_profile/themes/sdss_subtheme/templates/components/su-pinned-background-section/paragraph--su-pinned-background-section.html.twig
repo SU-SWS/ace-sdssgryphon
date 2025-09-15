@@ -61,9 +61,20 @@
         {% if not bg %}
           {% set bg = slide.su_background.entity.field_media_oembed_video.entity.field_media_oembed_video.value %}
           {% set type = 'video' %}
+          {% if 'youtu' in bg %}
+            {% set videoType = 'youtube' %}
+          {% else %}
+            {% set videoType = 'vimeo' %}
+          {% endif %}
         {% endif %}
-        <div class = "su-pinned-slide {% if key == 0 %}first{% endif %}" {% if type == 'image' %}style = "background-image: url('{{ bg }}')"{% endif %}>
+        <div data-type = "{{ type }}" data-video-type = "{{ videoType }}" class = "su-pinned-slide {% if key == 0 %}first{% endif %}" {% if type == 'image' %}style = "background-image: url('{{ bg }}')"{% endif %}>
           {% if type == 'video' %}
+            <div class = "su-pinned-slide__pause_holder">
+              <button tabindex = "0" class = "su-pinned-slide__play_pause" aria-label = "Pause the header video - this button has a decorative image inside it">
+                <img src="/{{ directory }}/dist/img/icon-pause.png" alt="" class="pause" />
+                <img src="/{{ directory }}/dist/img/icon-play.png" alt="" class="play" style = "display:none" />
+              </button>
+            </div>
             {% if 'youtu' in bg %}
               {# Handle youtu.be short links #}
               {% if 'youtu.be' in bg %}
@@ -76,82 +87,22 @@
 
               <div
                 id = "video-{{ youtubeid }}"
+                data-video = "{{ youtubeid }}"
                 class="su-pinned-slide__bg-video">
               </div>
 
-              <script>
+              {% if not loadedYTScript %}
+                {% set loadedYTScript = true %}
+                <script>
 
-                // Insert the <script> tag targeting the iframe API
-                const tag = document.createElement('script');
-                tag.src = "https://www.youtube.com/iframe_api";
-                const firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                  // Insert the <script> tag targeting the iframe API
+                  const tag = document.createElement('script');
+                  tag.src = "https://www.youtube.com/iframe_api";
+                  const firstScriptTag = document.getElementsByTagName('script')[0];
+                  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                // Get the video ID passed to the data-video attribute
-                const bgVideoID = '{{ youtubeid }}';
-
-                // Set the player options
-                const playerOptions = {
-                  // Autoplay + mute has to be activated (value = 1) if you want to autoplay it everywhere 
-                  // Chrome/Safari/Mobile
-                  autoplay: 1,
-                  mute: 1,
-                  autohide: 1, 
-                  modestbranding: 1, 
-                  rel: 0, 
-                  showinfo: 0, 
-                  controls: 0, 
-                  disablekb: 1, 
-                  enablejsapi: 1, 
-                  iv_load_policy: 3,
-                  // For looping video you have to have loop to 1
-                  // And playlist value equal to your currently playing video
-                  loop: 1,
-                  playlist: bgVideoID,
-                  
-                }
-
-                // Get the video overlay, to mask it when the video is loaded
-                const videoOverlay = document.querySelector('.js-video-overlay');
-
-                // This function creates an <iframe> (and YouTube player)
-                // after the API code downloads.
-                let ytPlayer;
-                function onYouTubeIframeAPIReady() {
-                  ytPlayer = new YT.Player('video-{{ youtubeid }}', {
-                    width: '1280',
-                    height: '720',
-                    videoId: bgVideoID,
-                    playerVars: playerOptions,
-                    events: {
-                      'onReady': onPlayerReady
-                    }
-                  });
-                }
-
-                // The API will call this function when the video player is ready.
-                function onPlayerReady(event) {
-                  event.target.playVideo();
-
-                  // Get the duration of the currently playing video
-                  const videoDuration = event.target.getDuration();
-                  
-                  // When the video is playing, compare the total duration
-                  // To the current passed time if it's below 2 and above 0,
-                  // Return to the first frame (0) of the video
-                  // This is needed to avoid the buffering at the end of the video
-                  // Which displays a black screen + the YouTube loader
-                  setInterval(function (){
-                    const videoCurrentTime = event.target.getCurrentTime();
-                    const timeDifference = videoDuration - videoCurrentTime;
-                    
-                    if (2 > timeDifference > 0) {
-                      event.target.seekTo(0);
-                    }
-                  }, 1000);
-                }
-
-              </script>
+                </script>
+              {% endif %}
             {% else %}
               {# Vimeo #}
               {% set parts = bg|split('/') %}
@@ -169,12 +120,26 @@
               {% endif %}
 
               <iframe
+                id = "video-{{ outputID }}"
                 type="text/html"
                 src="https://player.vimeo.com/video/{{ outputID }}autoplay=1&background=1&loop=1"
                 allowfullscreen
                 frameborder="0"
                 class="su-pinned-slide__bg-video">
               </iframe>
+
+              {% if not loadedVimeoScript %}
+                {% set loadedVimeoScript = true %}
+                <script>
+                
+                  // Insert the <script> tag targeting the iframe API
+                  const tag = document.createElement('script');
+                  tag.src = "https://player.vimeo.com/api/player.js";
+                  const firstScriptTag = document.getElementsByTagName('script')[0];
+                  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                </script>
+              {% endif %}
             {% endif %}
           {% endif %}
           <div class = "su-pinned-slide__bg-overlay"></div>
@@ -189,7 +154,7 @@
                   {{ button.title }}
                 </a>
               {% else %}
-                <a class = "su-pinned-slide__button" href="{{ path(button.url.routeName, button.url.routeParameters) }}">
+                <a class = "su-pinned-slide__button" href="{{ path(button.url.routeName, button.url.routeParameters) }}{% if button.url.options.fragment %}#video?{{ button.url.options.fragment }}{% endif %}">
                   {{ button.title }}
                 </a>
               {% endif %}
@@ -205,6 +170,7 @@
     gsap.registerPlugin(SplitText);
 
     window.addEventListener('load', function() {
+
       const pinnedSection = document.getElementById('{{ paragraph.id() }}');
       const slides = pinnedSection.querySelectorAll('.su-pinned-slide');
       const headerHeight = document.querySelector('.su-masthead').offsetHeight;
@@ -214,6 +180,84 @@
       let x = 1;
 
       for(const slide of slides) {
+
+        if(slide.getAttribute('data-type') == 'video') {
+
+            let videoType = slide.getAttribute('data-video-type');
+
+            if(videoType == 'youtube') {
+              // Get the video ID passed to the data-video attribute
+              const slideBG = slide.querySelector('.su-pinned-slide__bg-video');
+              const bgVideoID = slideBG.getAttribute('data-video');
+
+              // Set the player options
+              const playerOptions = {
+                // Autoplay + mute has to be activated (value = 1) if you want to autoplay it everywhere 
+                // Chrome/Safari/Mobile
+                autoplay: 1,
+                mute: 1,
+                autohide: 1, 
+                modestbranding: 1, 
+                rel: 0, 
+                showinfo: 0, 
+                controls: 0, 
+                disablekb: 1, 
+                enablejsapi: 1, 
+                iv_load_policy: 3,
+                // For looping video you have to have loop to 1
+                // And playlist value equal to your currently playing video
+                loop: 1,
+                playlist: bgVideoID,
+                
+              }
+
+              // Get the video overlay, to mask it when the video is loaded
+              const videoOverlay = document.querySelector('.js-video-overlay');
+
+              // This function creates an <iframe> (and YouTube player)
+              // after the API code downloads.
+              let player;
+              player = new YT.Player(slideBG, {
+                width: '1280',
+                height: '720',
+                videoId: bgVideoID,
+                playerVars: playerOptions,
+                events: {
+                  'onReady': onPlayerReady
+                }
+              });
+
+              // The API will call this function when the video player is ready.
+              function onPlayerReady(event) {
+                event.target.playVideo();
+
+                // Get the duration of the currently playing video
+                const videoDuration = event.target.getDuration();
+                
+                // When the video is playing, compare the total duration
+                // To the current passed time if it's below 2 and above 0,
+                // Return to the first frame (0) of the video
+                // This is needed to avoid the buffering at the end of the video
+                // Which displays a black screen + the YouTube loader
+                setInterval(function (){
+                  const videoCurrentTime = event.target.getCurrentTime();
+                  const timeDifference = videoDuration - videoCurrentTime;
+                  
+                  if (2 > timeDifference > 0) {
+                    event.target.seekTo(0);
+                  }
+                }, 1000);
+              }
+            } else {
+              var slideBG = slide.querySelector('.su-pinned-slide__bg-video');
+
+              var player = new Vimeo.Player(slideBG);
+            }
+
+            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('click', (e) => playPause(e, slide, videoType, player));
+            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('keyup', (e) => playPause(e, slide, videoType, player));
+
+        }
 
         let slideTL = gsap.timeline({
           scrollTrigger: {
@@ -308,5 +352,32 @@
       }
 
     });
+
+    function playPause(e, slide, videoType, player) {
+      if(e.type === 'click') {
+        var icon = e.target;
+        if(icon.classList.contains('pause')) {
+          icon.classList.remove('pause');
+          icon.querySelector('.pause').style.display = "block";
+          icon.querySelector('.play').style.display = "none";
+          icon.setAttribute('aria-label', 'Play the header video - this button has a decorative image inside it');
+          if(videoType == 'youtube') {
+            player.playVideo();
+          } else {
+            player.play();
+          }
+        } else {
+          icon.classList.add('pause');
+          icon.querySelector('.play').style.display = "block";
+          icon.querySelector('.pause').style.display = "none";
+          icon.setAttribute('aria-label', 'Pause the header video - this button has a decorative image inside it');
+          if(videoType == 'youtube') {
+            player.pauseVideo();
+          } else {
+            player.pause();
+          }
+        }
+      }
+    }
   </script>
 {% endblock paragraph %}

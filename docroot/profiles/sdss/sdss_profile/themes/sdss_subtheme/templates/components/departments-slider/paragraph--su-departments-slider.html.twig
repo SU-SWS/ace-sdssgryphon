@@ -122,13 +122,35 @@
 
     window.addEventListener('load', function() {
 
+      function getNextSiblings(elem, filter) {
+        var sibs = [];
+        sibs.push(elem);
+        while (elem = elem.nextSibling) {
+            if (elem.nodeType === 3) continue; // text node
+            if (!filter || filter(elem)) sibs.push(elem);
+        }
+        return sibs;
+      }
+
+      const allPinnedElements = getNextSiblings(pinnedSection.closest('.paragraph-item'));
+
+      let wrapper = document.createElement('div');
+      wrapper.id = "paragraph-pin-wrapper";
+
+      document.querySelector('.stanford-page').appendChild(wrapper);
+
+      for(const el of allPinnedElements) {
+        wrapper.appendChild(el);
+      }
+      
       pinnedTL = gsap.timeline({
         scrollTrigger: {
           trigger: pinnedSection,
-          pin: true, // pin the trigger element while active
+          pin: wrapper, // pin the trigger element while active
           start: 'top top', // when the top of the trigger hits the top of the viewport
-          end: `+=${250 * slides.length}`, // end after scrolling 500px beyond the start
+          end: `+=${(250 * slides.length) + 250}`, // end after scrolling 500px beyond the start
           scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+          pinSpacing: true,
           invalidateOnRefresh: true
         }
       });
@@ -144,7 +166,9 @@
         return lastSlideRect.right - trackRect.right;
       }
       
-      trackOffsetTween = pinnedTL.to(track, { x: () => -trackOffset(), duration: 1, ease: 'none', overwrite: "auto" }, 0);
+      trackOffsetTween = pinnedTL.to(track, { x: () => -trackOffset(), duration: slides.length, ease: 'none', overwrite: "auto" }, '+=0');
+
+      pinnedTL.to({}, { duration: 1 }, '+=0');
 
     });
 

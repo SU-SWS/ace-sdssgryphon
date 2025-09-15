@@ -25,3 +25,7 @@ scrollreveal:
   js:
     js/scrollreveal/scrollreveal.js: { minified: true }
     js/scrollreveal/theme.js: { minified: true }
+popup:
+  header: true
+  js:
+    'https://www.youtube.com/player_api': {}

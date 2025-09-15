@@ -1,4 +1,8 @@
 .page-stanford-sustainability-homepage-2025 {
+
+    .page-content {
+        overflow: hidden;
+    }
     .paragraph-item {
         overflow: hidden;
         position: relative;
@@ -607,6 +611,7 @@
         }
 
         .su-card {
+            height: 100%;
             @include grid-media-max('md') {
                 margin-bottom: 50px;
 
@@ -618,6 +623,7 @@
 
         h2 {
             font-size: 50px;
+            flex: 1;
             @include grid-media-min('md') {
                 font-size: 96px;
             }
