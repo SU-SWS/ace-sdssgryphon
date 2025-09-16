@@ -9,6 +9,7 @@
 
     @include grid-media-min('sm') {
         padding: 50px 3rem;
+        margin-bottom: 50px;
     }
 
     @include grid-media-min('md') {
@@ -19,10 +20,9 @@
         padding: 64px 8rem;
     }
 
-    margin-bottom: 118px;
-
     @include grid-media-min('xl') {
         padding: 64px 0;
+        margin-bottom: 80px;
     }
 
     &__inner {
@@ -65,6 +65,8 @@
                 &:after {
                     background-color: #8C1515;
                 }
+
+                @include accessible-link(#8C1515);
 
                 &:hover {
                     color: #8C1515;
@@ -154,6 +156,8 @@
                 @include grid-media-min('sm') {
                     font-size: 20px;
                 }
+
+                @include accessible-link(#8C1515);
 
                 &:after {
                     background-color: #8C1515;

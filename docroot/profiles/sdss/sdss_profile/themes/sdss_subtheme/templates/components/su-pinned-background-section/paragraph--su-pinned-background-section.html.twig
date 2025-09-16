@@ -59,13 +59,8 @@
         {% set bg = file_url(slide.su_background.entity.field_media_image.entity.fileuri) %}
         {% set type = 'image' %}
         {% if not bg %}
-          {% set bg = slide.su_background.entity.field_media_oembed_video.entity.field_media_oembed_video.value %}
+          {% set bg = file_url(slide.su_background.entity.su_media_video_file.entity.fileuri) %}
           {% set type = 'video' %}
-          {% if 'youtu' in bg %}
-            {% set videoType = 'youtube' %}
-          {% else %}
-            {% set videoType = 'vimeo' %}
-          {% endif %}
         {% endif %}
         <div data-type = "{{ type }}" data-video-type = "{{ videoType }}" class = "su-pinned-slide {% if key == 0 %}first{% endif %}" {% if type == 'image' %}style = "background-image: url('{{ bg }}')"{% endif %}>
           {% if type == 'video' %}
@@ -76,72 +71,10 @@
               </button>
             </div>
             <div class = "su-pinned-slide__bg-video-wrapper">
-              {% if 'youtu' in bg %}
-                {# Handle youtu.be short links #}
-                {% if 'youtu.be' in bg %}
-                  {% set youtubeid = bg|split('/')|last %}
-                {% else %}
-                  {# Handle youtube.com/watch?v=...&t=... style #}
-                  {% set after_v = bg|split('v=')[1] %}
-                  {% set youtubeid = after_v|split('&')[0] %}
-                {% endif %}
-
-                <div
-                  id = "video-{{ youtubeid }}"
-                  data-video = "{{ youtubeid }}"
-                  class="su-pinned-slide__bg-video">
-                </div>
-
-                {% if not loadedYTScript %}
-                  {% set loadedYTScript = true %}
-                  <script>
-
-                    // Insert the <script> tag targeting the iframe API
-                    const tag = document.createElement('script');
-                    tag.src = "https://www.youtube.com/iframe_api";
-                    const firstScriptTag = document.getElementsByTagName('script')[0];
-                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                  </script>
-                {% endif %}
-              {% else %}
-                {# Vimeo #}
-                {% set parts = bg|split('/') %}
-                {% set videoId = parts[3] %}
-                {% set afterId = parts[4]|default('') %}
-
-                {# Check if there's a hash after the video ID #}
-                {% if afterId starts with '?' or afterId == '' %}
-                  {# Normal Vimeo link without hash #}
-                  {% set outputID = videoId ~ '?' %}
-                {% else %}
-                  {# Vimeo link with hash (strip query params if present) #}
-                  {% set hash = afterId|split('?')|first %}
-                  {% set outputID = videoId ~ '?h=' ~ hash ~ '&' %}
-                {% endif %}
-
-                <iframe
-                  id = "video-{{ outputID }}"
-                  type="text/html"
-                  src="https://player.vimeo.com/video/{{ outputID }}background=1&autoplay=1&loop=1&byline=0&title=0"
-                  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
-                  class="su-pinned-slide__bg-video noresize">
-                </iframe>
-
-                {% if not loadedVimeoScript %}
-                  {% set loadedVimeoScript = true %}
-                  <script>
-                  
-                    // Insert the <script> tag targeting the iframe API
-                    const tag = document.createElement('script');
-                    tag.src = "https://player.vimeo.com/api/player.js";
-                    const firstScriptTag = document.getElementsByTagName('script')[0];
-                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                  </script>
-                {% endif %}
-              </div>
-            {% endif %}
+              <video preload="auto" paused muted autoplay playsinline loop>
+                <source src="{{ bg }}" type="video/mp4">
+              </video>
+            </div>
           {% endif %}
           <div class = "su-pinned-slide__bg-overlay"></div>
           <div class = "su-pinned-slide__inner">
@@ -184,77 +117,10 @@
 
         if(slide.getAttribute('data-type') == 'video') {
 
-            let videoType = slide.getAttribute('data-video-type');
-            var slideBG = slide.querySelector('.su-pinned-slide__bg-video');
+            bgPlayer = slide.querySelector('.su-pinned-slide__bg-video-wrapper video');
 
-            if(videoType == 'youtube') {
-              // Get the video ID passed to the data-video attribute
-              const bgVideoID = slideBG.getAttribute('data-video');
-
-              // Set the player options
-              const playerOptions = {
-                // Autoplay + mute has to be activated (value = 1) if you want to autoplay it everywhere 
-                // Chrome/Safari/Mobile
-                autoplay: 1,
-                mute: 1,
-                autohide: 1, 
-                modestbranding: 1, 
-                rel: 0, 
-                showinfo: 0, 
-                controls: 0, 
-                disablekb: 1, 
-                enablejsapi: 1, 
-                iv_load_policy: 3,
-                // For looping video you have to have loop to 1
-                // And playlist value equal to your currently playing video
-                loop: 1,
-                playlist: bgVideoID,
-                
-              }
-
-              // Get the video overlay, to mask it when the video is loaded
-              const videoOverlay = document.querySelector('.js-video-overlay');
-
-              // This function creates an <iframe> (and YouTube player)
-              // after the API code downloads.
-              let player;
-              player = new YT.Player(slideBG, {
-                width: '1280',
-                height: '720',
-                videoId: bgVideoID,
-                playerVars: playerOptions,
-                events: {
-                  'onReady': onPlayerReady
-                }
-              });
-
-              // The API will call this function when the video player is ready.
-              function onPlayerReady(event) {
-                event.target.playVideo();
-
-                // Get the duration of the currently playing video
-                const videoDuration = event.target.getDuration();
-                
-                // When the video is playing, compare the total duration
-                // To the current passed time if it's below 2 and above 0,
-                // Return to the first frame (0) of the video
-                // This is needed to avoid the buffering at the end of the video
-                // Which displays a black screen + the YouTube loader
-                setInterval(function (){
-                  const videoCurrentTime = event.target.getCurrentTime();
-                  const timeDifference = videoDuration - videoCurrentTime;
-                  
-                  if (2 > timeDifference > 0) {
-                    event.target.seekTo(0);
-                  }
-                }, 1000);
-              }
-            } else {
-              var player = new Vimeo.Player(slideBG);
-            }
-
-            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('click', (e) => playPause(e, slide, videoType, player));
-            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('keyup', (e) => playPause(e, slide, videoType, player));
+            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('click', (e) => playPause(e, slide, bgPlayer));
+            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('keyup', (e) => playPause(e, slide, bgPlayer));
 
         }
 
@@ -263,7 +129,7 @@
             trigger: slide,
             start: "top top",
             end: x < slides.length ? "+=100%" : "+=50%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
             pin: true,
             pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
           }
@@ -292,7 +158,8 @@
               y: '0%',
               duration: 0.8,
               stagger: 0.08,
-              ease: 'power2.inOut'
+              ease: 'power2.inOut',
+              onComplete: () => { titleSplit.revert(); }
             }, slide.classList.contains('first') ? '+=0' : '-=0.3');
 
           }
@@ -330,7 +197,8 @@
               y: '0%',
               duration: 1.0,
               stagger: 0.08,
-              ease: 'power2.inOut'
+              ease: 'power2.inOut',
+              onComplete: () => { titleSplit.revert(); }
             }, '-=0.3');
 
           }
@@ -354,7 +222,7 @@
 
     });
 
-    function playPause(e, slide, videoType, player) {
+    function playPause(e, slide, bgPlayer) {
       if(e.type === 'click') {
         var icon = e.target;
         if(icon.classList.contains('pause')) {
@@ -362,23 +230,17 @@
           icon.querySelector('.pause').style.display = "block";
           icon.querySelector('.play').style.display = "none";
           icon.setAttribute('aria-label', 'Play the header video - this button has a decorative image inside it');
-          if(videoType == 'youtube') {
-            player.playVideo();
-          } else {
-            player.play();
-          }
+          bgPlayer.play();
         } else {
           icon.classList.add('pause');
           icon.querySelector('.play').style.display = "block";
           icon.querySelector('.pause').style.display = "none";
           icon.setAttribute('aria-label', 'Pause the header video - this button has a decorative image inside it');
-          if(videoType == 'youtube') {
-            player.pauseVideo();
-          } else {
-            player.pause();
-          }
+          bgPlayer.pause();
         }
       }
     }
   </script>
 {% endblock paragraph %}
+
+{% include '@sdss_subtheme/templates/components/popup/su-popup.html.twig' %}

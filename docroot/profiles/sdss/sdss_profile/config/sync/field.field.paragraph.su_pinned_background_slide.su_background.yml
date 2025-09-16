@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.paragraph.su_background
     - media.type.image
-    - media.type.video
+    - media.type.local_video
     - paragraphs.paragraphs_type.su_pinned_background_slide
 id: paragraph.su_pinned_background_slide.su_background
 field_name: su_background
@@ -22,7 +22,7 @@ settings:
   handler_settings:
     target_bundles:
       image: image
-      video: video
+      local_video: local_video
     sort:
       field: _none
       direction: ASC

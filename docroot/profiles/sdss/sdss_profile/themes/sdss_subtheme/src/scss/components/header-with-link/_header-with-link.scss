@@ -51,6 +51,8 @@
             }
         }
 
+        @include accessible-link(#8C1515);
+
         &:hover {
             text-decoration: none !important;
             color: #8C1515;

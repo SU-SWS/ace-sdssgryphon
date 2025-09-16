@@ -154,12 +154,24 @@
           trigger: pinnedSection,
           pin: wrapper, // pin the trigger element while active
           start: 'top top', // when the top of the trigger hits the top of the viewport
-          end: `+=${(250 * slides.length) + 250}`, // end after scrolling 500px beyond the start
+          end: `+=${(250 * slides.length) + 150}`, // end after scrolling 500px beyond the start
           scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
           pinSpacing: true,
           invalidateOnRefresh: true
         }
       });
+      for(const twoCol of document.querySelectorAll(".layout--layout-paragraphs-two-column")) {
+          let twoColTL = gsap.timeline({
+              paused: true,
+              scrollTrigger: {
+                  trigger: pinnedSection,
+                  start: "+=" + (pinnedSection.offsetHeight - (window.innerWidth * .25)),
+                  toggleActions: "play none none none",
+                  pin: false,
+              }
+          });
+          twoColTL.fromTo(twoCol.querySelectorAll(".su-card"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: .6, delay: .2, stagger: 0.2, ease: 'power2.easeOut' });
+      }
 
       let x = 0;
 
@@ -174,7 +186,7 @@
       
       trackOffsetTween = pinnedTL.to(track, { x: () => -trackOffset(), duration: slides.length, ease: 'none', overwrite: "auto" }, '+=0');
 
-      pinnedTL.to({}, { duration: 1 }, '+=0');
+      pinnedTL.to({}, { duration: 0.6 }, '+=0');
 
     });
 

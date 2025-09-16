@@ -7,6 +7,9 @@
         overflow: hidden;
         position: relative;
     }
+    .su-button {
+        @include accessible-link(white);
+    }
 
     .paragraph-item:has(.su-pinned-background-section) + .paragraph-item {
         padding-top: 50px;
@@ -291,6 +294,10 @@
             }
         }
 
+        .su-header-link__button {
+            @include accessible-link(white);
+        }
+
         .su-card {
             display: flex;
             flex-direction: column;
@@ -348,6 +355,8 @@
                     @include arrow-btn-border();
                     border-color: #8C1515;
                     padding: 14px 18px !important;
+
+                    @include accessible-link(#8C1515);
                 }
             }
 
@@ -567,6 +576,8 @@
                             font-size: 20px;
                             text-decoration: none;
 
+                            @include accessible-link(#8C1515);
+
                             &:after {
                                 background-color: #8C1515;
                             }
@@ -634,6 +645,10 @@
             }
         }
 
+        .su-button {
+            @include accessible-link(#8C1515);
+        }
+
         p {
             .su-button {
                 @include arrow-btn();
@@ -649,6 +664,8 @@
                 display: block;
                 margin-bottom: 50px;
                 text-align: left;
+
+                @include accessible-link(#8C1515);
 
                 &:after {
                     background-color: #8C1515;

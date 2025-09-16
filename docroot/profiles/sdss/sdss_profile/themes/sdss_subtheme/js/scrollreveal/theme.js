@@ -4,12 +4,12 @@ window.addEventListener('load', function() {
         distance: '80px',
         origin: 'right',
         duration: 700,
-        delay: 500,
+        delay: 200,
         easing: 'ease-in-out',
     });
     sr.reveal('.ptype-stanford-lists img', { 
         distance: '0',
-        delay: 500,
+        delay: 2500,
         duration: 700,
         easing: 'ease-out',
     });
@@ -19,10 +19,10 @@ window.addEventListener('load', function() {
         interval: 100,
         easing: 'ease-out',
     });*/
-    sr.reveal('.layout--layout-paragraphs-two-column .su-card, .layout--layout-paragraphs-three-column .su-card', { 
+    sr.reveal('.layout--layout-paragraphs-three-column .su-card', { 
         distance: '80px',
         duration: 600,
-        delay: 500,
+        delay: 200,
         interval: 200,
         easing: 'ease-out',
     });

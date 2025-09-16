@@ -106,6 +106,8 @@
                 background-color: white;
             }
 
+            @include accessible-link(white);
+
             &:hover {
                 text-decoration: none;
                 color: white;
@@ -129,7 +131,7 @@
             transition: transform 0.2s ease-in-out;
         }
 
-        &:hover {
+        &:hover, &:focus-visible {
             svg {
                 transform: translateX(.15em);
             }
