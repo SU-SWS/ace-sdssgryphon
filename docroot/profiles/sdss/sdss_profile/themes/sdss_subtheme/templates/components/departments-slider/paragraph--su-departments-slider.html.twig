@@ -165,7 +165,7 @@
               paused: true,
               scrollTrigger: {
                   trigger: pinnedSection,
-                  start: "+=" + (pinnedSection.offsetHeight - (window.innerWidth * .25)),
+                  start: `+=${(250 * slides.length) + 350}`,
                   toggleActions: "play none none none",
                   pin: false,
               }
