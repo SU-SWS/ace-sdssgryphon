@@ -95,6 +95,9 @@
             </div>
           {% endif %}
         </div>
+        {% if key + 1 < content.su_slides['#items']|length and key > 0 %}
+          <div class = "spacer"></div>
+        {% endif %}
       {% endfor %}
     {% endblock %}
   </div>
@@ -124,11 +127,21 @@
 
         }
 
+        let end;
+
+        if(x < slides.length && x > 1) {
+          end = "+=130%";
+        } else if(x == 1) {
+          end = "+=100%";
+        } else {
+          end = "+=50%";
+        }
+
         let slideTL = gsap.timeline({
           scrollTrigger: {
             trigger: slide,
             start: "top top",
-            end: x < slides.length ? "+=100%" : "+=50%",
+            end: end,
             toggleActions: "play none none none",
             pin: true,
             pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
