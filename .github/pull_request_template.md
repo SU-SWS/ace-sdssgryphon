@@ -17,7 +17,7 @@
 2. Navigate to...
 3. Verify...
 
-# Related issues/PR's
+# Related Issues/PR's
 - Jira Ticket(s) / PR's
 
 # Additional Context
