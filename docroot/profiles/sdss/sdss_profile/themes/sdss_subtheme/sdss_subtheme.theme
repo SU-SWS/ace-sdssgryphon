@@ -26,6 +26,20 @@ function sdss_subtheme_preprocess_html(&$variables) {
   if ($header_layout_variant = theme_get_setting('header_layout_variant')) {
     $variables['attributes']['class'][] = 'sdss-header-variant--' . $header_layout_variant;
   }
+
+  // Add body class to the front page of the Sustainability site.
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  $is_sustainability = FALSE;
+
+  $site_path = \Drupal::getContainer()->getParameter('site.path');
+  $site_name = basename($site_path);
+  if ($site_name === 'sustainability') {
+    $is_sustainability = TRUE;
+  }
+
+  if ($is_front && $is_sustainability) {
+    $variables['attributes']['class'][] = 'sustainability-homepage';
+  }
 }
 
 /**

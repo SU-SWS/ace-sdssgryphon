@@ -12,3 +12,12 @@ services:
     arguments: ['@state', '@config.factory']
     tags:
       - {name: config.factory.override, priority: -5}
+  sdss_profile.paragraph_restrictions_subscriber:
+    class: 'Drupal\sdss_profile\EventSubscriber\ParagraphRestrictionsSubscriber'
+    arguments:
+      - '@plugin.manager.core.layout'
+      - '@entity_type.manager'
+      - '@config.factory'
+      - '@path_alias.manager'
+    tags:
+      - { name: event_subscriber }
