@@ -22,18 +22,18 @@
         justify-content: flex-end;
         align-items: center;
 
-        padding: 20px 20px;
+        padding: 20px;
 
         @include grid-media-min('sm') {
-            padding: 20px 3rem;
+            padding: 3rem;
         }
 
         @include grid-media-min('md') {
-            padding: 20px 5rem;
+            padding: 5rem;
         }
 
         @include grid-media-min('lg') {
-            padding: 20px 8rem;
+            padding: 8rem;
         }
 
         @include grid-media-min('xl') {
@@ -64,14 +64,17 @@
 
             @include grid-media-min('sm') {
                 padding-right: 3rem;
+                bottom: 3rem;
             }
 
             @include grid-media-min('md') {
                 padding-right: 5rem;
+                bottom: 5rem;
             }
 
             @include grid-media-min('lg') {
                 padding-right: 8rem;
+                bottom: 8rem;
             }
 
             @include grid-media-min('xl') {

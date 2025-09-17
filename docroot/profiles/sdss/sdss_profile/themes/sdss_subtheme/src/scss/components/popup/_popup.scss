@@ -15,7 +15,6 @@
     height: 100vh;
 
     z-index: 999;
-    opacity: 0;
 
     &.active {
         opacity: 1;
@@ -31,7 +30,7 @@
         transform: scaleX(1.3);
         color: white;
         top: 0;
-        right: 0;
+        right: 58px;
         opacity: 1;
         position: absolute;
         cursor: pointer;
@@ -40,37 +39,30 @@
             content: "x";
         }
     }
-    
+
     &__inner {
         position: relative;
-        color: black;
-        max-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        padding-top: 4rem;
-        border-radius: 0;
+        /* Keep it centered */
+        width: #{'min(90vw, calc(90vh * 16 / 9))'};
+        height: #{'min(90vh, calc(90vw * 9 / 16))'};
+
         background: none;
-        max-width: 1000px;
-        width: 90%;
+        border-radius: 0;
+        padding: 32px 58px;
 
         .iframe_holder {
-            position: relative;
             width: 100%;
             height: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: contain;
-            overflow: hidden;
-            max-width: 100%;
 
+            iframe,
             .su__popup__video {
                 width: 100%;
                 height: 100%;
             }
-
-            iframe {
-                width: 100%;
-                height: 100%;
-            }
         }
-
     }
 }
