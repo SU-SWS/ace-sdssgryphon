@@ -130,7 +130,8 @@
                 @include grid-media-min('lg') {
                     padding: 0;
 
-                    min-width: 25%;
+                    min-width: 30%;
+                    max-width: 30%;
 
                     div {
                         height: 100%;
@@ -262,7 +263,7 @@
                 font-size: 30px;
                 line-height: 110%;
                 font-weight: 400;
-                max-width: none;
+                max-width: 1150px;
                 @include text-with-bottom-bar();
                 padding-bottom: 50px;
                 margin-bottom: 50px;
@@ -575,6 +576,10 @@
                             border-color: #8C1515;
                             font-size: 20px;
                             text-decoration: none;
+
+                            &:before {
+                                content: "Explore: ";
+                            }
 
                             @include accessible-link(#8C1515);
 
