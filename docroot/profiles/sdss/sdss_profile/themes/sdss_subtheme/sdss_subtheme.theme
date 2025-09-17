@@ -5,7 +5,6 @@
  * sdss_subtheme.theme
  */
 
-use Drupal\Core\DrupalKernel;
 use Drupal\node\NodeInterface;
 
 /**
