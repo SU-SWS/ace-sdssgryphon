@@ -83,6 +83,7 @@
                     <a href = "{{ path(button.url.routeName, button.url.routeParameters) }}" class = "su-department-slide__video-link">
                   {% endif %}
                 {% endif %}
+                  <span class = "sr-only">Select to view {{ button.title }}</span>
                   <div style = "background-image: url('{{ image }}')" class = "su-department-slide__image"></div>
                 {% if button %}
                   </a>

@@ -312,6 +312,12 @@
                 order: 1;
             }
 
+            .su-card__superheadline {
+                &:empty {
+                    display: none;
+                }
+            }
+
             .su-card__headline {
                 font-family: $su-font-sans;
                 order: 2;
