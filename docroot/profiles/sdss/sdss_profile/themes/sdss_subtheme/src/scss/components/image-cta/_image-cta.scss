@@ -80,9 +80,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 15px;
 
-        @include grid-media-max('xs') {
-            gap: 15px;
+        @include grid-media-max('md') {
             flex-direction: column;
         }
     }
