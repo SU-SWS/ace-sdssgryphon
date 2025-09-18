@@ -80,6 +80,14 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
       ],
     ],
   ];
+
+  // Add checkbox for homepage body class.
+  $form['options_settings']['add_homepage_body_class'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Add Site Specific Homepage Body Class'),
+    '#default_value' => theme_get_setting('add_homepage_body_class'),
+    '#description' => t('Add a special body class to the front page of this site, using the site name (e.g., <code>sitename-homepage</code>).'),
+  ];
 }
 
 // @codeCoverageIgnoreEnd

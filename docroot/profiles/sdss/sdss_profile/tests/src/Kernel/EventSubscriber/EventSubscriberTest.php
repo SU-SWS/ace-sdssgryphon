@@ -2,9 +2,7 @@
 
 namespace Drupal\Tests\sdss_profile\Kernel\EventSubscriber;
 
-use Drupal\config_pages\ConfigPagesLoaderServiceInterface;
 use Drupal\consumers\Entity\Consumer;
-use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\core_event_dispatcher\Event\Entity\EntityInsertEvent;
 use Drupal\default_content\Event\ImportEvent;
 use Drupal\file\Entity\File;
@@ -13,10 +11,6 @@ use Drupal\media\Entity\Media;
 use Drupal\media\Entity\MediaType;
 use Drupal\sdss_profile\EventSubscriber\EventSubscriber as StanfordEventSubscriber;
 use Drupal\user\Entity\Role;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
-use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Class EventSubscriberTest.

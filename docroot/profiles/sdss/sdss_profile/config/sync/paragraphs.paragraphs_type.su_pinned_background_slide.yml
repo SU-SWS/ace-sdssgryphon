@@ -1,0 +1,10 @@
+uuid: ee2aee39-e563-4723-b689-79f0c0a7b351
+langcode: en
+status: true
+dependencies: {  }
+id: su_pinned_background_slide
+label: 'Pinned Background Slide'
+icon_uuid: null
+icon_default: null
+description: 'The singular slide for use in the pinned background section.'
+behavior_plugins: {  }

@@ -14,3 +14,10 @@ basic-page-full-width:
   css:
     theme:
       dist/css/full-width.basic-page.css: {}
+gsap:
+  header: true
+  js:
+    js/gsap/gsap.js: { minified: true }
+    js/gsap/ScrollTrigger.js: { minified: true }
+    js/gsap/SplitText.js: { minified: true }
+    js/scrollreveal/theme.js: { minified: true }

@@ -1,0 +1,73 @@
+.su-header-link {
+    width: 100%;
+    overflow: hidden;
+
+    padding: 10px 0 28px 0;
+
+    @include grid-media-min('md') {
+        padding: 10px 0 28px 0;
+    }
+
+    @include grid-media-min('lg') {
+        padding: 10px 0 28px 0;
+    }
+
+    @include grid-media-min('xl') {
+        padding: 10px 0 28px 0;
+    }
+
+    &__inner {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-size: 32px;
+        color: #2E2D29;
+        margin-bottom: 0;
+
+        .layout-paragraphs-sdss-bgcolor--red & {
+            color: white;
+        }
+    }
+
+    &__button {
+        @include arrow-btn();
+        text-decoration: none !important;
+        color: #8C1515;
+
+        .layout-paragraphs-sdss-bgcolor--red & {
+            color: white;
+        }
+
+        &:after {
+            background-color: #8C1515;
+
+            .layout-paragraphs-sdss-bgcolor--red & {
+                background-color: white;
+            }
+        }
+
+        @include accessible-link(#8C1515);
+
+        &:hover {
+            text-decoration: none !important;
+            color: #8C1515;
+
+            .layout-paragraphs-sdss-bgcolor--red & {
+                color: white;
+            }
+
+            &:after {
+                background-color: #8C1515;
+
+                .layout-paragraphs-sdss-bgcolor--red & {
+                    background-color: white;
+                }
+            }
+        }
+    }
+}

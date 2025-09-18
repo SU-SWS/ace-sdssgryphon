@@ -1,0 +1,25 @@
+uuid: 074404ed-24e3-41b0-b511-3a71d441303f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.su_pinned_background_section.su_slides
+    - paragraphs.paragraphs_type.su_pinned_background_section
+  module:
+    - entity_reference_revisions
+id: paragraph.su_pinned_background_section.default
+targetEntityType: paragraph
+bundle: su_pinned_background_section
+mode: default
+content:
+  su_slides:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

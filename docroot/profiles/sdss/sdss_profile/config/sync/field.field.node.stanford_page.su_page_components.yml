@@ -17,6 +17,11 @@ dependencies:
     - paragraphs.paragraphs_type.stanford_media_caption
     - paragraphs.paragraphs_type.stanford_spacer
     - paragraphs.paragraphs_type.stanford_wysiwyg
+    - paragraphs.paragraphs_type.su_pinned_background_section
+    - paragraphs.paragraphs_type.su_image_cta
+    - paragraphs.paragraphs_type.su_departments_slider
+    - paragraphs.paragraphs_type.su_horizontal_bar
+    - paragraphs.paragraphs_type.su_header_with_link
   module:
     - entity_reference_revisions
 id: node.stanford_page.su_page_components
@@ -45,6 +50,11 @@ settings:
       sdss_spotlight: sdss_spotlight
       sdss_news_list_card: sdss_news_list_card
       stanford_faq: stanford_faq
+      su_pinned_background_section: su_pinned_background_section
+      su_image_cta: su_image_cta
+      su_departments_slider: su_departments_slider
+      su_horizontal_bar: su_horizontal_bar
+      su_header_with_link: su_header_with_link
     negate: 0
     target_bundles_drag_drop:
       callout_quote:
@@ -97,5 +107,20 @@ settings:
         enabled: true
       stanford_wysiwyg:
         weight: -34
+        enabled: true
+      su_departments_slider:
+        weight: -19
+        enabled: true
+      su_header_with_link:
+        weight: -15
+        enabled: true
+      su_horizontal_bar:
+        weight: -16
+        enabled: true
+      su_image_cta:
+        weight: -18
+        enabled: true
+      su_pinned_background_section:
+        weight: -17
         enabled: true
 field_type: entity_reference_revisions
