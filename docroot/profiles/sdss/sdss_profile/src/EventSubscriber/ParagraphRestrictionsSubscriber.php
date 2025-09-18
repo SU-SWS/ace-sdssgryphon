@@ -114,11 +114,17 @@ class ParagraphRestrictionsSubscriber implements EventSubscriberInterface {
     }
 
     // Unset paragraph types if not on the home page.
-    if ($this->isFrontPage($event->getParentUuid()) === FALSE) {
-      $types = $this->unsetParagraphTypes($event->getTypes(), $sustainability_home_paragraphs);
-      $event->setTypes($types);
-      return;
-    }
+    // 2025-09-18: Front page restriction removed. Editors are building the new
+    // homepage on a separate node before switching it to the front page, so
+    // these paragraphs must be available on any basic page. Relying on content
+    // governance to ensure correct usage. If requirements change, these
+    // paragraphs may be allowed on other pages in the future.
+    // @todo Clean up this method; consider removing if no longer needed.
+    // if ($this->isFrontPage($event->getParentUuid()) === FALSE) {
+    //   $types = $this->unsetParagraphTypes($event->getTypes(), $sustainability_home_paragraphs);
+    //   $event->setTypes($types);
+    //   return;
+    // }
   }
 
   /**
