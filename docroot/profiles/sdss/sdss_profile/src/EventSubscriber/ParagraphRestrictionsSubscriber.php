@@ -160,7 +160,10 @@ class ParagraphRestrictionsSubscriber implements EventSubscriberInterface {
    * @return bool
    *   TRUE if the parent node is the front page node, FALSE otherwise.
    */
-  protected function isFrontPage(string $parent_uuid): bool {
+  protected function isFrontPage(?string $parent_uuid): bool {
+    if ($parent_uuid === null) {
+      return FALSE;
+    }
     $paragraph_storage = $this->entityTypeManager->getStorage('paragraph');
     $paragraphs = $paragraph_storage->loadByProperties(['uuid' => $parent_uuid]);
     $paragraph = reset($paragraphs);
