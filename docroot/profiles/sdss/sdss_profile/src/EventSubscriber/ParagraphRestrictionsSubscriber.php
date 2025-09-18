@@ -112,13 +112,6 @@ class ParagraphRestrictionsSubscriber implements EventSubscriberInterface {
       $event->setTypes($types);
       return;
     }
-
-    // Unset paragraph types if not on the home page.
-    if ($this->isFrontPage($event->getParentUuid()) === FALSE) {
-      $types = $this->unsetParagraphTypes($event->getTypes(), $sustainability_home_paragraphs);
-      $event->setTypes($types);
-      return;
-    }
   }
 
   /**
@@ -149,48 +142,6 @@ class ParagraphRestrictionsSubscriber implements EventSubscriberInterface {
     $site_path = \Drupal::getContainer()->getParameter('site.path');
     $site_name = basename($site_path);
     return $site_name === 'sustainability';
-  }
-
-  /**
-   * Checks if the parent node of the given paragraph UUID is the front page.
-   *
-   * @param string $parent_uuid
-   *   The UUID of the parent paragraph entity.
-   *
-   * @return bool
-   *   TRUE if the parent node is the front page node, FALSE otherwise.
-   */
-  protected function isFrontPage(string $parent_uuid): bool {
-    $paragraph_storage = $this->entityTypeManager->getStorage('paragraph');
-    $paragraphs = $paragraph_storage->loadByProperties(['uuid' => $parent_uuid]);
-    $paragraph = reset($paragraphs);
-
-    $node_id = NULL;
-    if (
-      $paragraph &&
-      $paragraph->getParentEntity() &&
-      $paragraph->getParentEntity()->getEntityTypeId() === 'node'
-    ) {
-      $node = $paragraph->getParentEntity();
-      $node_id = $node->id();
-    }
-
-    $front_nid = NULL;
-    $front = $this->configFactory->get('system.site')->get('page.front');
-    if ($front && preg_match('/^\/?node\/(\d+)$/', $front, $matches)) {
-      $front_nid = $matches[1];
-    }
-    else {
-      $system_path = $this->aliasManager->getPathByAlias($front);
-      if (preg_match('/^\/?node\/(\d+)$/', $system_path, $matches)) {
-        $front_nid = $matches[1];
-      }
-    }
-
-    if (!isset($node_id) || !isset($front_nid) || $node_id != $front_nid) {
-      return FALSE;
-    }
-    return TRUE;
   }
 
 }
