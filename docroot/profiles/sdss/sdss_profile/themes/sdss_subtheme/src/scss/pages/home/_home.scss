@@ -124,8 +124,10 @@
                 padding: 20px 20px 0 20px;
 
                 picture {
-                    @include grid-media-max('xl') {
-                        max-width: 300px;
+                    max-width: 300px;
+
+                    @include grid-media-min('xl') {
+                        max-width: none;
                     }
                 }
 
