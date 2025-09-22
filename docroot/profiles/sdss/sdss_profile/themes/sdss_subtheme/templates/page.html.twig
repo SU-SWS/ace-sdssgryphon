@@ -39,16 +39,13 @@
         {{ page.help }}
       {%- endblock -%}
 
-      <section class="su-masthead--inner">
-        {{ page.header }}
-        {%- if page.utility_nav and display_utility_navigation -%}
-          {{ page.utility_nav }}
-        {%- endif -%}
-        {{ page.search }}
-        {{ page.menu }}
-      </section>
-    </header>
-  {%- endif -%}
+      {%- if header_layout_variant == 'option_a' -%}
+        {% include '@sdss_subtheme/templates/header--option-a.html.twig' %}
+      {%- else -%}
+        {% include '@sdss_subtheme/templates/header--default.html.twig' %}
+      {%- endif -%}
+        </header>
+      {%- endif -%}
 
   {# Newsroom Section. #}
   {%- if page.newsroom -%}

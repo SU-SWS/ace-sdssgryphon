@@ -45,6 +45,12 @@ settings:
       editorial_sidebar:
         weight: 16
         enabled: false
+      sdss_news_list_card:
+        weight: 25
+        enabled: false
+      sdss_spotlight:
+        weight: 26
+        enabled: false
       stanford_accordion:
         weight: 12
         enabled: false
@@ -57,6 +63,9 @@ settings:
       stanford_entity:
         weight: -16
         enabled: true
+      stanford_faq:
+        weight: 31
+        enabled: false
       stanford_gallery:
         weight: -13
         enabled: true
@@ -81,4 +90,19 @@ settings:
       stanford_wysiwyg:
         weight: -19
         enabled: true
+      su_departments_slide:
+        weight: 40
+        enabled: false
+      su_departments_slider:
+        weight: 41
+        enabled: false
+      su_image_cta:
+        weight: 42
+        enabled: false
+      su_pinned_background_section:
+        weight: 43
+        enabled: false
+      su_pinned_background_slide:
+        weight: 44
+        enabled: false
 field_type: entity_reference_revisions

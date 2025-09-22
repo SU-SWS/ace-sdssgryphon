@@ -7,6 +7,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.14.0] - 2025-09-22
+
+### Added
+a7eebac Sustainability Homepage 2025 (#662)
+e5bb9ae SDSS-1562: Point ssip.stanford.edu to sustainpathways site (#669)
+f19acbe Add branch reference to dev branch actions (#664)
+e0c2146 Add auto-deploy to pull request workflow (#663)
+6274cfe SDSS-1550: SDSS Person Title Override Field Formatter Implementation (#639)
+255c9bf SDSS-1549: Added and refactored header tests (#650)
+286c51a Add automated dependency updates workflow (#646)
+
+### Changed
+b554eeb SDSS-1565: Pull request template changes (#667)
+292f89d SDSS-0000: Update room reservation module to 8.1.22 (#657)
+255c9bf SDSS-1549: Added and refactored header tests (#650)
+0d30f24 SDSS-1549: Refactor header and logo sizes (#649)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+None.
+
+### Maintenance
+e0c2146 Add auto-deploy to pull request workflow (#663)
+61bd3b3 Automated Dependency Updates 20250905 (#656)
+6aacf30 Automated Dependency Updates 20250829 (#652)
+2e513f3 Automated Dependency Updates 20250822 (#648)
+286c51a Add automated dependency updates workflow (#646)
+6100f99 SDSS-1552: Routine maintenance (#645)
+
+
 ## [4.13.1] - 2025-09-09
 
 ### Added

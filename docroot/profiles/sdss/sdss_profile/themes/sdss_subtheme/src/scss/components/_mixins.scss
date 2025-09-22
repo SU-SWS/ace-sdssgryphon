@@ -1,0 +1,72 @@
+@mixin arrow-btn() {
+    text-decoration: none;
+    background-color: transparent;
+    position: relative;
+
+    &:after {
+        content: "";
+        display: inline-block;
+        height: 10px;
+        -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMy41OTcgMS40NTNjLjI4OS4zMDUuNDM0LjcyLjM5NyAxLjE0TDIyLjU0IDE5LjQ2YTEuNDU4IDEuNDU4IDAgMCAxLTEuNTc1IDEuMzM0IDEuNDYzIDEuNDYzIDAgMCAxLTEuMzIzLTEuNTg4bDEuMTM2LTEzLjE3MS0xOC4zNTIgMTYuNTljLS41OTkuNTQxLTEuNTE4LjQ5LTIuMDU0LS4xMTNhMS40NzUgMS40NzUgMCAwIDEgLjExMi0yLjA3bDE4LjA3My0xNi4zNC0xMy40MDYuNTYzYTEuNDYgMS40NiAwIDAgMS0xLjUxMy0xLjQwNEExLjQ2MiAxLjQ2MiAwIDAgMSA1LjAzIDEuNzM1TDIyLjQ4NSAxYy40MTgtLjAxNy44MjMuMTQ3IDEuMTEyLjQ1MloiIGZpbGw9IiMyRTJEMjkiLz48L3N2Zz4=) no-repeat 0 0;
+        mask: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMy41OTcgMS40NTNjLjI4OS4zMDUuNDM0LjcyLjM5NyAxLjE0TDIyLjU0IDE5LjQ2YTEuNDU4IDEuNDU4IDAgMCAxLTEuNTc1IDEuMzM0IDEuNDYzIDEuNDYzIDAgMCAxLTEuMzIzLTEuNTg4bDEuMTM2LTEzLjE3MS0xOC4zNTIgMTYuNTljLS41OTkuNTQxLTEuNTE4LjQ5LTIuMDU0LS4xMTNhMS40NzUgMS40NzUgMCAwIDEgLjExMi0yLjA3bDE4LjA3My0xNi4zNC0xMy40MDYuNTYzYTEuNDYgMS40NiAwIDAgMS0xLjUxMy0xLjQwNEExLjQ2MiAxLjQ2MiAwIDAgMSA1LjAzIDEuNzM1TDIyLjQ4NSAxYy40MTgtLjAxNy44MjMuMTQ3IDEuMTEyLjQ1MloiIGZpbGw9IiMyRTJEMjkiLz48L3N2Zz4=) no-repeat 0 0;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        width: 10px;
+        background-color: white;
+        margin-left: .4em;
+        margin-right: .3em;
+        -webkit-transition: -webkit-transform .2s ease-in-out, -webkit-mask-image .2s ease-in-out;
+        transition: -webkit-transform .2s ease-in-out, -webkit-mask-image .2s ease-in-out;
+        transition: transform .2s ease-in-out, mask-image .2s ease-in-out;
+        transition: transform .2s ease-in-out, mask-image .2s ease-in-out, -webkit-transform .2s ease-in-out, -webkit-mask-image .2s ease-in-out;
+    }
+
+    &:hover {
+        &:after {
+            -webkit-transform: translate3d(.15em, -.15em, 0);
+            transform: translate3d(.15em, -.15em, 0);
+        }
+    }
+}
+
+@mixin arrow-btn-border() {
+    @include arrow-btn();
+    
+    font-size: 20px;
+    padding: 14px 18px;
+    border: 2px solid white;
+}
+
+@mixin text-with-bottom-bar() {
+    position: relative;
+    padding-bottom: 23px;
+    margin-bottom: 42px;
+
+    &:after {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 100px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #8C1515;
+    }
+}
+
+@mixin accessible-link($color: white) {
+    &:focus {
+        outline: none !important;
+        color: $color !important;
+    }
+
+    &:focus-visible {
+        text-decoration: none !important;
+        color: $color !important;
+        outline: 3px solid $color !important;
+
+        &:after {
+            background-color: $color !important;
+        }
+    }
+}

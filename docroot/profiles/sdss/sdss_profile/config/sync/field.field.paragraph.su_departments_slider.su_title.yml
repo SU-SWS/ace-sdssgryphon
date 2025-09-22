@@ -1,0 +1,19 @@
+uuid: 84e3b600-711b-411c-8ece-8082b75a7e51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_title
+    - paragraphs.paragraphs_type.su_departments_slider
+id: paragraph.su_departments_slider.su_title
+field_name: su_title
+entity_type: paragraph
+bundle: su_departments_slider
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

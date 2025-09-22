@@ -1,0 +1,41 @@
+uuid: 3552fe81-6051-4063-802e-1fee21e223b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.su_header_with_link.su_entity_button
+    - field.field.paragraph.su_header_with_link.su_title
+    - paragraphs.paragraphs_type.su_header_with_link
+  module:
+    - element_class_formatter
+    - field_formatter_class
+id: paragraph.su_header_with_link.default
+targetEntityType: paragraph
+bundle: su_header_with_link
+mode: default
+content:
+  su_entity_button:
+    type: link_class
+    label: hidden
+    settings:
+      class: su-button
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 3
+    region: content
+  su_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

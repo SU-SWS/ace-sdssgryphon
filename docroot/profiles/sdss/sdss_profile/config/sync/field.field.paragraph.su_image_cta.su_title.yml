@@ -1,0 +1,19 @@
+uuid: 5ec105f4-e7bf-4e17-b2e8-85184f436a17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_title
+    - paragraphs.paragraphs_type.su_image_cta
+id: paragraph.su_image_cta.su_title
+field_name: su_title
+entity_type: paragraph
+bundle: su_image_cta
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

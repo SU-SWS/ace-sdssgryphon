@@ -125,4 +125,6 @@ destination:
     - su_news_publishing_date
     - su_sdss_news_news_source
     - su_news_source/uri
+idMap: {  }
 migration_dependencies: {  }
+include: null

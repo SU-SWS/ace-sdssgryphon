@@ -1,34 +1,32 @@
 @charset "UTF-8";
 
-.su-masthead--inner .menu--utility-navigation {
-  /* Utility navigation menu styles
-   * This menu is used for the utility navigation in the masthead.
-   * As part of Quickstrike 2 in Summer 2025 the decision was made to hide this 
-   * on smaller screens. To re-enable this menu switch "none" to "block" below 
-   * and do comprehensive testing and re-styling to accommodate the different
-   * header options.
-   */
-  display: none;
-  position: absolute;
-  margin: 0;
-  bottom: 1.25rem;
-  right: 8rem;
-  z-index: 104;
+/* Utility navigation menu styles
+  * This menu is used for the utility navigation in the masthead.
+  */
+.sdss-masthead-content .menu--utility-navigation {
+  display: flex;
+  padding: 1rem .5rem;
 
   ul.menu {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
 
     li.menu-item {
-      display: inline-block;
-      margin: 0 1.1rem 0 0;
+      display: block;
+      margin: 0 0 .5rem 0;
+      width: 100%;
 
       a {
-        display: inline-block;
+        display: block;
         padding: .4rem .8rem .6rem .8rem;
         font-size: 1.5rem;
         text-decoration: none;
+        text-align: center;
 
         &:hover {
           text-decoration: underline;
@@ -67,20 +65,23 @@
 }
 
 @include grid-media-min('md') {
-  .su-masthead--inner .menu--utility-navigation {
-    bottom: 1.5rem;
-    right: 11rem;
+  .sdss-masthead-content .menu--utility-navigation {
+    display: flex;
+    align-items: center;
+    margin: 0 1.5rem;
 
     ul.menu {
+      display: flex;
+      flex-flow: row;
       margin: 0;
       padding: 0;
 
       li.menu-item {
-        margin: 0 1.8rem 0 0;
+        margin: 0 1.5rem 0 0;
 
         a {
-          padding: .8rem 2rem 1rem 2rem;
-          font-size: 1.8rem;
+          font-size: 1.5rem;
+          padding: .5rem 1.5rem .8rem;
         }
       }
 
@@ -92,7 +93,16 @@
 }
 
 @include grid-media-min('lg') {
-  .su-masthead--inner .menu--utility-navigation {
-    display: block;
+  .sdss-masthead-content .menu--utility-navigation {
+    ul.menu {
+      li.menu-item {
+        margin: 0 1.8rem 0 0;
+
+        a {
+          padding: .8rem 2rem 1rem 2rem;
+          font-size: 1.8rem;
+        }
+      }
+    }    
   }
 }

@@ -22,38 +22,34 @@
 {% set attributes = attributes|without('class') %}
 {% set link = url('<front>') %}
 
-{# The variant classes change when there is more than one line to render. #}
-{% set modifier_class = "su-lockup--option-a" %}
-
-{# Do not default the line 1 on variant O, S, or T #}
-{% set line1 = content.site_name %}
-
-{# Grab the site1 variable if it is not empty #}
+{% set site_title = content.site_name %}
 {% if lockup.line1 is not empty %}
-  {% set line1 = lockup.line1 %}
+  {% set site_title = lockup.line1 %}
 {% endif %}
 
-<div {{ attributes }} class="su-lockup {{ modifier_class }}">
-  <a href="{{ link }}" {{ link_attributes }}>
+{% if site_logo or site_name %}
 
-  {#- Cell container #1 -#}
-  <div class="su-lockup__cell1">
-    {# If the theme has a custom logo use that #}
-    <div class="su-lockup__logo-wrapper">
-    {% if site_logo|render|striptags|trim is not empty and use_logo == false %}
-      <img src="{{ site_logo }}" alt="{{ site_name }}" class="su-lockup__custom-logo" />
-    {% else %}
-      <img src="/{{ directory }}/dist/img/sdss-lock-up-color.png" alt="{{ site_name }}" class="su-lockup__custom-logo" />
-    {% endif %}
-    </div>
-  </div>
-
-  {#- Cell container #2 -#}
-  {% if line1 is not empty %}
-    <div class="su-lockup__cell2">
-      <span class="su-lockup__line1" {{ region_attributes.line1 }}>{{ line1 }}</span>
+  <div {{ attributes }} class="sdss-lockup">
+  {% if site_logo %}
+    <div class="sdss-lockup-logo">
+      <a href="{{ link }}" {{ link_attributes }}>
+      {# If the theme has a custom logo use that #}
+      {% if site_logo|render|striptags|trim is not empty and use_logo == false %}
+        <img src="{{ site_logo }}" alt="{{ site_title }}" class="sdss-lockup-logo-img sdss-lockup-custom-logo" />
+      {% else %}
+        <img src="/{{ directory }}/dist/img/sdss-lock-up-color.png" alt="{{ site_title }}" class="sdss-lockup-logo-img" />
+      {% endif %}
+      </a>
     </div>
   {% endif %}
 
-  </a>
-</div>
+  {% if site_name and site_title is not empty %}
+    <div class="sdss-lockup-title">
+      <a href="{{ link }}" {{ link_attributes }}>
+        {{ site_title }}
+      </a>
+    </div>
+  {% endif %}
+  </div>
+
+{% endif %}

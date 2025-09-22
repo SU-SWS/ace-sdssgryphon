@@ -1,0 +1,194 @@
+.su-departments-slider {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    @include grid-media-min('sm') {
+        padding: 50px 3rem;
+        margin-bottom: 50px;
+    }
+
+    @include grid-media-min('md') {
+        padding: 64px 5rem;
+    }
+
+    @include grid-media-min('lg') {
+        padding: 64px 8rem;
+    }
+
+    @include grid-media-min('xl') {
+        padding: 64px 0;
+        margin-bottom: 80px;
+    }
+
+    @media (orientation: landscape) and (max-height: 820px) {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    &__inner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        @include grid-media-min('xl') {
+            width: calc(100%-16rem);
+            max-width: 2000px;
+            margin: 0 auto;
+            height: 100%;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        
+        @include grid-media-max('sm') {
+            flex-wrap: wrap;
+        }
+        margin-bottom: 44px;
+
+        @media (orientation: landscape) and (max-height: 820px) {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2E2D29;
+            font-size: 32px;
+            margin-bottom: 0;
+        }
+
+        &__button {
+            &.su-link--external, &:not(.su-link--external) {
+                @include arrow-btn();
+                color: #8C1515;
+                font-size: 20px;
+                text-decoration: none;
+
+                &:after {
+                    background-color: #8C1515;
+                }
+
+                @include accessible-link(#8C1515);
+
+                &:hover {
+                    color: #8C1515;
+
+                    &:after {
+                        background-color: #8C1515;
+                    }
+                }
+            }
+        }
+    }
+
+    &__track {
+        display: flex;
+        gap: 20px;
+    }
+
+    .su-department-slide {
+        min-width: 80vw;
+        max-width: 80vw;
+        @include grid-media-min('sm') {
+            min-width: 38vw;
+            max-width: 38vw;
+        }
+        @include grid-media-min('lg') {
+            min-width: 22vw;
+            max-width: 22vw;
+        }
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__image {
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            aspect-ratio: 82 / 100;
+
+            @include grid-media-max('sm') {
+                aspect-ratio: 100 / 82;
+            }
+        }
+
+        &__video-link {
+            overflow: hidden;
+            margin-bottom: 22px;
+            @media (orientation: landscape) and (max-height: 550px) {
+                max-height: 22vh;
+            }
+            &:after {
+                display: none;
+            }
+        }
+
+        &__title {
+            font-family: $su-font-serif-v2;
+            font-size: 16px;
+            flex: 1;
+
+            @include grid-media-min('sm') {
+                font-size: 20px;
+            }
+
+            @include grid-media-min('md') {
+                font-size: 20px;
+            }
+
+            @include grid-media-min('xl') {
+                font-size: 28px;
+            }
+            line-height: 120%;
+            font-weight: 400;
+            color: #2E2D29;
+            margin-bottom: 0;
+        }
+
+        &__bar {
+            background-color: #2E2D29;
+            height: 1px;
+            opacity: 30%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        &__button {
+            &.su-link--external, &.su-link--internal {
+                height: 28.5px;
+                display: block;
+                color: #8C1515;
+                font-size: 16px;
+                text-decoration: none;
+
+                @include grid-media-min('sm') {
+                    font-size: 20px;
+                }
+
+                @include accessible-link(#8C1515);
+
+                &:after {
+                    background-color: #8C1515;
+                }
+
+                &:hover {
+                    color: #8C1515;
+
+                    &:after {
+                        background-color: #8C1515;
+                    }
+                }
+            }
+        }
+    }
+}

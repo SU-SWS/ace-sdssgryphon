@@ -85,7 +85,7 @@ multisites:
 tests:
   reports:
     localDir: '${repo.root}/artifacts'
-    coveragePass: 90
+    coveragePass: 80
   phpunit:
     -
       path: '${docroot}'

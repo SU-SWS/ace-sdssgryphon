@@ -15500,7 +15500,7 @@ var MobileToggle = /*#__PURE__*/function () {
     }
 
     /**
-     * Close any  navs that might be open, then mark this  nav open.
+     * Close any  navs that might be open, then mark this nav open.
      * Optionally force focus on the first element in the nav (for keyboard nav)
      */
   }, {
@@ -15514,7 +15514,7 @@ var MobileToggle = /*#__PURE__*/function () {
     }
 
     /**
-     * Mark this  closed, and restore the button text to what it was
+     * Mark this closed, and restore the button text to what it was
      * initially.
      */
   }, {

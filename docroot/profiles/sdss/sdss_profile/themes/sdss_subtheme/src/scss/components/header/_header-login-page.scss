@@ -2,39 +2,21 @@
 
 // Login page header.
 
-//
-// Mobile first min-width queries.
-// Queries should go in order of smallest screen to largest (e.g., sm, md, lg)
-//
-
 // Styles for Large or bigger Screens.
 @include grid-media-min('lg') {
   .page-user-login {
-
-    // option a and b
-    header.su-masthead > section:last-of-type {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "lockup lockup lockup"
-        "main-nav main-nav search";
-      align-items: flex-end;
-    }
-
     header.su-masthead {
-      padding-bottom: 0;
-    }
+      padding: 0;
 
-    // Logo only option
-    .su-lockup--option-none {
-      section:after {
-        background: transparent;
+      section {
+        padding: 0;
       }
-
-      header.su-masthead {
-        padding-top: 1em;
+      
+      .sdss-lockup {
+        .sdss-lockup-title {
+          display: none;
+        }
       }
     }
-
   }
 }

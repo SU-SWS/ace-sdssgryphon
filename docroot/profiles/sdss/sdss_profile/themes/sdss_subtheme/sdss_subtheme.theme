@@ -8,18 +8,70 @@
 use Drupal\node\NodeInterface;
 
 /**
- * Prepares variables for the html.html.twig template.
+ * Implements hook_preprocess_html().
  */
 function sdss_subtheme_preprocess_html(&$variables) {
-  // Add class for desktop hamburger menu if enabled.
+  // Determine which desktop menu class to add.
+  $desktop_menu = TRUE;
   if (theme_get_setting('desktop_hamburger')) {
-    $variables['attributes']['class'][] = 'desktop-hamburger';
+    $desktop_menu = FALSE;
+    // $variables['attributes']['class'][] = 'desktop-hamburger';
+  }
+  if ($desktop_menu) {
+    $variables['attributes']['class'][] = 'desktop-menu';
   }
 
   $variables['stanford_basic_path'] = \Drupal::service('extension.list.theme')->getPath('stanford_basic');
   // Variant setting for the header layout.
   if ($header_layout_variant = theme_get_setting('header_layout_variant')) {
     $variables['attributes']['class'][] = 'sdss-header-variant--' . $header_layout_variant;
+  }
+
+  // Add body class to the front page of the Sustainability site.
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  $is_body_class_enabled = theme_get_setting('add_homepage_body_class');
+
+  if ($is_front && $is_body_class_enabled) {
+    $site_path = \Drupal::getContainer()->getParameter('site.path');
+    $site_name = basename($site_path);
+    // Sanitize for CSS class: converts to lowercase, removes any character that
+    // is not a lowercase letter, number, dash, or underscore, then converts
+    // underscores to dashes.
+    $site_class = strtolower(preg_replace('/[^a-z0-9\\-_]/', '', str_replace('_', '-', $site_name)));
+    $variables['attributes']['class'][] = $site_class . '-homepage';
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function sdss_subtheme_preprocess_page(&$variables) {
+  // Override the variant settings for the brand bar and global footer.
+  // These need to always be the "dark" variants for the SDSS subtheme.
+  $variables['brand_bar_variant'] = 'su-brand-bar--dark';
+  $variables['global_footer_variant'] = 'su-global-footer--dark';
+
+  // Display the utility navigation region only if both the desktop hamburger
+  // menu and display utility navigation options are enabled.
+  $variables['display_utility_navigation'] = (
+    theme_get_setting('desktop_hamburger')
+    && theme_get_setting('display_utility_navigation')
+  );
+
+  // Expose the header_layout_variant setting to the page template.
+  $variables['header_layout_variant'] = theme_get_setting('header_layout_variant');
+
+  // Implement full-width basic page styles.
+  $is_page_node = isset($variables['node']) && $variables['node'] instanceof NodeInterface && $variables['node']->bundle() == 'stanford_page';
+
+  if (!$is_page_node) {
+    return;
+  }
+
+  $has_layout_field = $variables['node']->hasField('layout_selection') && $variables['node']->get('layout_selection')->getString() == 'stanford_basic_page_full';
+
+  if ($has_layout_field) {
+    $variables['#attached']['library'][] = 'sdss_subtheme/basic-page-full-width';
   }
 }
 
@@ -106,36 +158,6 @@ function sdss_subtheme_preprocess_block(&$variables) {
   if ($variables['plugin_id'] == 'menu_block:newsroom') {
     $variables['attributes']['data-island'] = 'newsroom-menu-island';
     $variables['#attached']['library'][] = 'sdss_subtheme/decoupled_menu';
-  }
-}
-
-/**
- * Implements hook_preprocess_page().
- */
-function sdss_subtheme_preprocess_page(&$variables) {
-  // Override the variant settings for the brand bar and global footer.
-  // These need to allows be the "dark" variants for the SDSS subtheme.
-  $variables['brand_bar_variant'] = 'su-brand-bar--dark';
-  $variables['global_footer_variant'] = 'su-global-footer--dark';
-
-  // Display the utility navigation region only if both the desktop hamburger
-  // menu and display utility navigation options are enabled.
-  $variables['display_utility_navigation'] = (
-    theme_get_setting('desktop_hamburger')
-    && theme_get_setting('display_utility_navigation')
-  );
-
-  // Implement full-width basic page styles.
-  $is_page_node = isset($variables['node']) && $variables['node'] instanceof NodeInterface && $variables['node']->bundle() == 'stanford_page';
-
-  if (!$is_page_node) {
-    return;
-  }
-
-  $has_layout_field = $variables['node']->hasField('layout_selection') && $variables['node']->get('layout_selection')->getString() == 'stanford_basic_page_full';
-
-  if ($has_layout_field) {
-    $variables['#attached']['library'][] = 'sdss_subtheme/basic-page-full-width';
   }
 }
 

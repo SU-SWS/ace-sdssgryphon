@@ -42,7 +42,7 @@ class LockupSettingsCest {
    */
   public function testLockup(AcceptanceTester $I) {
     $I->amOnPage('/');
-    $I->seeElement('.su-lockup');
+    $I->seeElement('.sdss-lockup');
   }
 
   /**
@@ -85,8 +85,8 @@ class LockupSettingsCest {
     $I->see('Lockup Settings has been', '.messages-list');
 
     $I->amOnPage('/');
-    $I->seeElement(".su-lockup__custom-logo");
-    $I->assertNotEmpty($I->grabAttributeFrom('.su-lockup__custom-logo', 'alt'));
+    $I->seeElement(".sdss-lockup-custom-logo");
+    $I->assertNotEmpty($I->grabAttributeFrom('.sdss-lockup-custom-logo', 'alt'));
     $I->canSee("Site title line");
   }
 
