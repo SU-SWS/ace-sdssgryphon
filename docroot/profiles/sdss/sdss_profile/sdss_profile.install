@@ -14,9 +14,8 @@ function sdss_profile_requirements($phase) {
   $requirements = [];
   if ($phase == 'runtime') {
 
-    $site_path = DrupalKernel::findSitePath(\Drupal::request());
-    $site_path = explode('/', $site_path);
-    $site_name = $site_path[1];
+    $site_path = \Drupal::getContainer()->getParameter('site.path');
+    $site_name = basename($site_path);
 
     $requirements['stanford_site_alias'] = [
       'title' => t('Stanford Site Alias'),

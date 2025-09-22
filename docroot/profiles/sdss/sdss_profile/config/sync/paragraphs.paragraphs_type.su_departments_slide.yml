@@ -1,0 +1,10 @@
+uuid: 5a0efb33-beb4-40bc-ac96-8f90927ebe95
+langcode: en
+status: true
+dependencies: {  }
+id: su_departments_slide
+label: 'Departments Slide'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

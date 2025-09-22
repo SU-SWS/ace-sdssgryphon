@@ -26,6 +26,20 @@ function sdss_subtheme_preprocess_html(&$variables) {
   if ($header_layout_variant = theme_get_setting('header_layout_variant')) {
     $variables['attributes']['class'][] = 'sdss-header-variant--' . $header_layout_variant;
   }
+
+  // Add body class to the front page of the Sustainability site.
+  $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  $is_body_class_enabled = theme_get_setting('add_homepage_body_class');
+
+  if ($is_front && $is_body_class_enabled) {
+    $site_path = \Drupal::getContainer()->getParameter('site.path');
+    $site_name = basename($site_path);
+    // Sanitize for CSS class: converts to lowercase, removes any character that
+    // is not a lowercase letter, number, dash, or underscore, then converts
+    // underscores to dashes.
+    $site_class = strtolower(preg_replace('/[^a-z0-9\\-_]/', '', str_replace('_', '-', $site_name)));
+    $variables['attributes']['class'][] = $site_class . '-homepage';
+  }
 }
 
 /**

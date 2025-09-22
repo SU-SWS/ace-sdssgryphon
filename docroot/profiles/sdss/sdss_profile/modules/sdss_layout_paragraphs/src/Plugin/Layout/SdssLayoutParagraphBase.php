@@ -88,6 +88,8 @@ abstract class SdssLayoutParagraphBase extends LayoutDefault implements PluginFo
       'green-stat' => 'Green Stat Card',
       'grey' => 'Light Grey',
       'grey-border' => 'Grey Border',
+      'grey-dark' => 'Dark Grey',
+      'red' => 'Red',
     ];
   }
 

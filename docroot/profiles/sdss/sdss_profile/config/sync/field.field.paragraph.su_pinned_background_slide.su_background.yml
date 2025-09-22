@@ -1,0 +1,31 @@
+uuid: 4cac5dec-9ff4-4711-a6fb-94286bbc0026
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_background
+    - media.type.image
+    - media.type.local_video
+    - paragraphs.paragraphs_type.su_pinned_background_slide
+id: paragraph.su_pinned_background_slide.su_background
+field_name: su_background
+entity_type: paragraph
+bundle: su_pinned_background_slide
+label: Background
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      local_video: local_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

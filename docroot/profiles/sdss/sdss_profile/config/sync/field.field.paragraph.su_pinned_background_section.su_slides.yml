@@ -1,0 +1,85 @@
+uuid: 639d5da6-3dc1-4b10-83c3-f53f0de8321d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_slides
+    - paragraphs.paragraphs_type.su_pinned_background_section
+    - paragraphs.paragraphs_type.su_pinned_background_slide
+  module:
+    - entity_reference_revisions
+id: paragraph.su_pinned_background_section.su_slides
+field_name: su_slides
+entity_type: paragraph
+bundle: su_pinned_background_section
+label: Slides
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      su_pinned_background_slide: su_pinned_background_slide
+    negate: 0
+    target_bundles_drag_drop:
+      callout_quote:
+        weight: 20
+        enabled: false
+      editorial_sidebar:
+        weight: 21
+        enabled: false
+      sdss_news_list_card:
+        weight: 22
+        enabled: false
+      sdss_spotlight:
+        weight: 23
+        enabled: false
+      stanford_accordion:
+        weight: 24
+        enabled: false
+      stanford_banner:
+        weight: 25
+        enabled: false
+      stanford_card:
+        weight: 26
+        enabled: false
+      stanford_entity:
+        weight: 27
+        enabled: false
+      stanford_faq:
+        weight: 28
+        enabled: false
+      stanford_gallery:
+        weight: 29
+        enabled: false
+      stanford_layout:
+        weight: 30
+        enabled: false
+      stanford_lists:
+        weight: 31
+        enabled: false
+      stanford_media_caption:
+        weight: 32
+        enabled: false
+      stanford_person_cta:
+        weight: 33
+        enabled: false
+      stanford_schedule:
+        weight: 34
+        enabled: false
+      stanford_spacer:
+        weight: 35
+        enabled: false
+      stanford_wysiwyg:
+        weight: 36
+        enabled: false
+      su_pinned_background_section:
+        weight: 37
+        enabled: false
+      su_pinned_background_slide:
+        weight: 38
+        enabled: true
+field_type: entity_reference_revisions

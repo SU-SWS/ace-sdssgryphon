@@ -1,0 +1,10 @@
+uuid: 96bdca36-6655-48ff-b677-de5ad13af1b3
+langcode: en
+status: true
+dependencies: {  }
+id: su_departments_slider
+label: 'Departments Slider'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }
