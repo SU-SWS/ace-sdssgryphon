@@ -23,7 +23,7 @@
         margin-left: 20px;
         width: calc(100%-40px);
 
-        @include grid-media-min('md') {
+        @include grid-media-min('sm') {
             margin-left: 3rem;
             width: calc(100%-6rem);
         }
@@ -116,18 +116,22 @@
             display: flex;
             flex-direction: column;
 
-            @include grid-media-min('lg') {
+            @include grid-media-min('xl') {
                 flex-direction: row;
             }
             
             .layout__region--main {
                 padding: 20px 20px 0 20px;
 
+                picture {
+                    max-width: 300px;
+                }
+
                 @include grid-media-min('md') {
                     padding: 71px 71px 0 71px;
                 }
 
-                @include grid-media-min('lg') {
+                @include grid-media-min('xl') {
                     padding: 0;
 
                     min-width: 30%;

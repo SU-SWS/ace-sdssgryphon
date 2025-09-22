@@ -75,23 +75,21 @@
             {% set button = slide.su_entity_button.0 %}
             {% set image = file_url(slide.su_image.entity.field_media_image.entity.fileuri) %}
             <div class = "su-department-slide">
-              <div>
-                {% if button %}
-                  {% if button.url.external %}
-                    <a href = "{{ button.url.uri }}" class = "su-department-slide__video-link">
-                  {% else %}
-                    <a href = "{{ path(button.url.routeName, button.url.routeParameters) }}" class = "su-department-slide__video-link">
-                  {% endif %}
+              {% if button %}
+                {% if button.url.external %}
+                  <a href = "{{ button.url.uri }}" class = "su-department-slide__video-link">
+                {% else %}
+                  <a href = "{{ path(button.url.routeName, button.url.routeParameters) }}" class = "su-department-slide__video-link">
                 {% endif %}
-                  <span class = "sr-only">Select to view {{ button.title }}</span>
-                  <div style = "background-image: url('{{ image }}')" class = "su-department-slide__image"></div>
-                {% if button %}
-                  </a>
-                {% endif %}
-                <h3 class = "su-department-slide__title">
-                  {{ slide.su_title.value }}
-                </h3>
-              </div>
+              {% endif %}
+                <span class = "sr-only">Select to view {{ button.title }}</span>
+                <div style = "background-image: url('{{ image }}')" class = "su-department-slide__image"></div>
+              {% if button %}
+                </a>
+              {% endif %}
+              <h3 class = "su-department-slide__title">
+                {{ slide.su_title.value }}
+              </h3>
               <div>
                 <div class = "su-department-slide__bar"></div>
                 {% if button %}
@@ -149,18 +147,21 @@
       for(const el of allPinnedElements) {
         wrapper.appendChild(el);
       }
+
+      let isLandscapeMobile = window.innerHeight < 550 && window.innerHeight < window.innerWidth;
       
       pinnedTL = gsap.timeline({
         scrollTrigger: {
-          trigger: pinnedSection,
+          trigger: isLandscapeMobile ? track : pinnedSection,
           pin: wrapper, // pin the trigger element while active
-          start: 'top top', // when the top of the trigger hits the top of the viewport
+          start: isLandscapeMobile ? 'top-=20 top' : 'top top', // when the top of the trigger hits the top of the viewport
           end: `+=${(250 * slides.length) + 150}`, // end after scrolling 500px beyond the start
           scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
           pinSpacing: true,
           invalidateOnRefresh: true
         }
       });
+      
       for(const twoCol of document.querySelectorAll(".layout--layout-paragraphs-two-column")) {
           let twoColTL = gsap.timeline({
               paused: true,
@@ -191,10 +192,12 @@
 
     });
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', resizeDepartments);
+
+    function resizeDepartments() {
 
       ScrollTrigger.refresh();
 
-    });
+    }
   </script>
 {% endblock paragraph %}

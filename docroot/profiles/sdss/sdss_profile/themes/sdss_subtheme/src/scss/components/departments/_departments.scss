@@ -25,11 +25,17 @@
         margin-bottom: 80px;
     }
 
+    @media (orientation: landscape) and (max-height: 820px) {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
     &__inner {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        
         @include grid-media-min('xl') {
             width: calc(100%-16rem);
             max-width: 2000px;
@@ -41,13 +47,16 @@
     &__header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
         
         @include grid-media-max('sm') {
-            align-items: flex-start;
-            flex-direction: column;
+            flex-wrap: wrap;
         }
         margin-bottom: 44px;
+
+        @media (orientation: landscape) and (max-height: 820px) {
+            margin-bottom: 20px;
+        }
 
         h2 {
             color: #2E2D29;
@@ -106,10 +115,18 @@
             background-repeat: no-repeat;
             background-position: center;
             aspect-ratio: 82 / 100;
-            margin-bottom: 22px;
+
+            @include grid-media-max('sm') {
+                aspect-ratio: 100 / 82;
+            }
         }
 
         &__video-link {
+            overflow: hidden;
+            margin-bottom: 22px;
+            @media (orientation: landscape) and (max-height: 550px) {
+                max-height: 22vh;
+            }
             &:after {
                 display: none;
             }
@@ -118,6 +135,7 @@
         &__title {
             font-family: $su-font-serif-v2;
             font-size: 16px;
+            flex: 1;
 
             @include grid-media-min('sm') {
                 font-size: 20px;
