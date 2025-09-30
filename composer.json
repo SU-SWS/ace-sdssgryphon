@@ -367,6 +367,9 @@
         }
     },
     "scripts": {
+        "build-theme": [
+            "bash scripts/build-theme.sh"
+        ],
         "post-drupal-scaffold-cmd": [
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/htaccess.patch",
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/robotstxt.patch"
@@ -378,7 +381,6 @@
             "vendor/bin/blt recipes:aliases:init:acquia"
         ],
         "sync-sustainability": [
-            "vendor/bin/blt drupal:sync:files --site=sustainability",
             "vendor/bin/blt drupal:sync --site=sustainability"
         ]
     },
