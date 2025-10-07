@@ -165,7 +165,7 @@
     flex-wrap: wrap;
 
     > .su-multi-menu__link {
-      flex-grow: 1; 
+      flex-grow: 1;
 
       &::after {
         border-right: none;
@@ -181,12 +181,12 @@
       margin: 0;
       width: auto;
       height: auto;
-      
+
       &[aria-expanded="false"],
       &[aria-expanded="true"] {
         transition: unset;
         transform: unset;
-      }          
+      }
 
       &[aria-expanded="true"] {
         &::before {
