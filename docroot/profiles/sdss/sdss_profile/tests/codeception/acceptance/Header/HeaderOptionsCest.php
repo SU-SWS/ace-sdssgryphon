@@ -26,6 +26,21 @@ class HeaderOptionsCest {
         'menu_name' => 'utility-navigation',
     ], 'menu_link_content');
 
+    // Need to enable use drop downs first to enable the desktop hamburger
+    // option.
+    // Go to the Basic Site Settings page.
+    $I->amOnPage('/admin/config/system/basic-site-settings');
+
+    // Check the "Use Drop Down Menus" option.
+    $I->checkOption('#edit-su-site-dropdowns-value');
+
+    // Set the levels to 2.
+    $I->fillField('#edit-su-site-menu-levels-0-value', '2');
+
+    // Save the configuration.
+    $I->click('Save');
+    $I->see('has been updated.');
+
     // Go to the theme settings page.
     $I->amOnPage('/admin/appearance/settings/sdss_subtheme');
 
