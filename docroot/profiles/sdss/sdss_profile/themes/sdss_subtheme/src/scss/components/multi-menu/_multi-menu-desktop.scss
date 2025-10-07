@@ -115,10 +115,23 @@
         }
       }
 
+      // Hide drop-down expand buttons if Use Drop-Down Menus is disabled. The
+      // su-multi-menu--dropdowns class is added to the menu when the setting is
+      // enabled.
+      .su-multi-menu__item--parent {
+        > .su-nav-toggle {
+          display: none;
+        }
+      }
+
       &.su-multi-menu--dropdowns {
         .su-multi-menu__item--parent {
           > .su-nav-toggle {
             margin: 0 0 0 1rem;
+            // Show drop-down expand buttons if Use Drop-Down Menus is enabled.
+            // The su-multi-menu--dropdowns class is added to the menu when the
+            // setting is enabled.
+            display: block;
 
             &::before {
               background-color: $sdss-color-white;
