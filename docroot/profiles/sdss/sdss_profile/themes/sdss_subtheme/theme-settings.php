@@ -66,7 +66,7 @@ function sdss_subtheme_form_system_theme_settings_alter(array &$form, FormStateI
     '#type' => 'checkbox',
     '#title' => t('Use Hamburger Menu on Desktop'),
     '#default_value' => theme_get_setting('desktop_hamburger'),
-    '#description' => t('Use a hamburger (collapsible) menu on desktop instead of the regular menu with drop-down navigation.'),
+    '#description' => t('Use a hamburger (collapsible) menu on desktop instead of the regular menu with drop-down navigation. <strong>Note: You must also enable the "Use Drop Down Menus" option on the <a href=":url">Basic Site Settings</a> page.</strong>', [':url' => '/admin/config/system/basic-site-settings']),
   ];
 
   $form['options_settings']['sdss_subtheme_header_options']['display_utility_navigation'] = [
