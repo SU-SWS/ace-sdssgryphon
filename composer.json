@@ -368,7 +368,7 @@
     },
     "scripts": {
         "build-theme": [
-            "bash scripts/build-theme.sh"
+            "bash scripts/local/build-theme.sh"
         ],
         "post-drupal-scaffold-cmd": [
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/htaccess.patch",
