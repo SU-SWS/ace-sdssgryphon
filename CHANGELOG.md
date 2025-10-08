@@ -7,6 +7,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.14.1] - 2025-10-08
+
+### Added
+090993b Added build-theme script. Updated documentation (#675)
+
+### Changed
+b092058 SDSS-1575: Fix Desktop Hamburger and Drop-Down Menu Integration (#680)
+3f7ed68 SDSS-1570: Replace footer logo image (#677)
+4118bad SDSS-1570: Replaced footer lockup logo image (#676)
+134a9e6 SDSS-1571: Reduce logo max height (#674)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+b092058 SDSS-1575: Fix Desktop Hamburger and Drop-Down Menu Integration (#680)
+a218f4d SDSS-1569: Fixed current menu item border color from red to green (#678)
+
+### Security
+None.
+
+### Maintenance
+905561b Automated Dependency Updates 20251003 (#679)
+249056b Automated Dependency Updates 20250926 (#673)
+575eff1 Automated Dependency Updates 20250919 (#670)
+090993b Added build-theme script. Updated documentation (#675)
+
+
 ## [4.14.0] - 2025-09-22
 
 ### Added
