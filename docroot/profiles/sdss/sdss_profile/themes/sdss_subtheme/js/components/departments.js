@@ -103,11 +103,19 @@ window.addEventListener('load', function() {
 
             if(slide) {
                 let index = slide.getAttribute('index');
+                let pos = 0;
+                if(index == slides.length) {
+                    pos = pinnedTL.scrollTrigger.end + 1;
+                } else if(index > 1) {
+                    pos = pinnedTL.scrollTrigger.start + (250 * index);
+                } else {
+                    pos = pinnedTL.scrollTrigger.start;
+                }
 
                 gsap.to(window, { 
                     duration: 0.5,
                     scrollTo: {
-                        y: pinnedTL.scrollTrigger.start + (index > 1 ? (250 * index) : 0),
+                        y: pos,
                     },
                     ease: "power2.inOut"
                 });
