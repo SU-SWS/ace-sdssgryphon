@@ -7,6 +7,75 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.14.1] - 2025-10-08
+
+### Added
+090993b Added build-theme script. Updated documentation (#675)
+
+### Changed
+b092058 SDSS-1575: Fix Desktop Hamburger and Drop-Down Menu Integration (#680)
+3f7ed68 SDSS-1570: Replace footer logo image (#677)
+4118bad SDSS-1570: Replaced footer lockup logo image (#676)
+134a9e6 SDSS-1571: Reduce logo max height (#674)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+b092058 SDSS-1575: Fix Desktop Hamburger and Drop-Down Menu Integration (#680)
+a218f4d SDSS-1569: Fixed current menu item border color from red to green (#678)
+
+### Security
+None.
+
+### Maintenance
+905561b Automated Dependency Updates 20251003 (#679)
+249056b Automated Dependency Updates 20250926 (#673)
+575eff1 Automated Dependency Updates 20250919 (#670)
+090993b Added build-theme script. Updated documentation (#675)
+
+
+## [4.14.0] - 2025-09-22
+
+### Added
+a7eebac Sustainability Homepage 2025 (#662)
+e5bb9ae SDSS-1562: Point ssip.stanford.edu to sustainpathways site (#669)
+f19acbe Add branch reference to dev branch actions (#664)
+e0c2146 Add auto-deploy to pull request workflow (#663)
+6274cfe SDSS-1550: SDSS Person Title Override Field Formatter Implementation (#639)
+255c9bf SDSS-1549: Added and refactored header tests (#650)
+286c51a Add automated dependency updates workflow (#646)
+
+### Changed
+b554eeb SDSS-1565: Pull request template changes (#667)
+292f89d SDSS-0000: Update room reservation module to 8.1.22 (#657)
+255c9bf SDSS-1549: Added and refactored header tests (#650)
+0d30f24 SDSS-1549: Refactor header and logo sizes (#649)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+None.
+
+### Maintenance
+e0c2146 Add auto-deploy to pull request workflow (#663)
+61bd3b3 Automated Dependency Updates 20250905 (#656)
+6aacf30 Automated Dependency Updates 20250829 (#652)
+2e513f3 Automated Dependency Updates 20250822 (#648)
+286c51a Add automated dependency updates workflow (#646)
+6100f99 SDSS-1552: Routine maintenance (#645)
+
+
 ## [4.13.1] - 2025-09-09
 
 ### Added
@@ -14,6 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 8cff579 SDSS-1557: Provision sustainpathways (#653)
 
 ### Changed
+292f89d SDSS-0000: Update room reservation module to 8.1.22 (#657)
 e5ed2c1 SDSS-0000: Room reservation module update to 8.1.21 (#651)
 
 ### Deprecated
@@ -52,7 +122,6 @@ d8f7e99 SDSS-1502: Deprecate and remove sdss_main_site_subtheme from codebase (#
 ### Removed
 91eef71 SDSS-1536: Streamline Lockup Settings and Fix Theme Configuration Bugs (#614)
 a1adfde SDSS-1530: Remove cron job step from provision documentation (#627)
-
 
 ### Fixed
 5c06ad9 Added config_readonly patch.

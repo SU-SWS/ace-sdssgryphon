@@ -153,82 +153,81 @@
       color: $sdss-color-palo-alto-dark;
 
       &:before {
+        background-color: $sdss-color-green-link;
         width: 3px;
       }
     }
   }
 
-  &.su-multi-menu--dropdowns {
-    .su-multi-menu__item--parent {
+  .su-multi-menu__item--parent {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > .su-multi-menu__link {
+      flex-grow: 1;
+
+      &::after {
+        border-right: none;
+        margin-left: 6px;
+      }
+    }
+
+    > .su-nav-toggle {
+      position: relative;
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      width: auto;
+      height: auto;
 
-      > .su-multi-menu__link {
-        flex-grow: 1; 
+      &[aria-expanded="false"],
+      &[aria-expanded="true"] {
+        transition: unset;
+        transform: unset;
+      }
 
-        &::after {
-          border-right: none;
-          margin-left: 6px;
+      &[aria-expanded="true"] {
+        &::before {
+          transition: transform .2s ease-out;
+          transform: rotate(180deg);
         }
       }
 
-      > .su-nav-toggle {
+      &::before {
+        content: "";
         position: relative;
-        display: flex;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-        width: auto;
-        height: auto;
-        
-        &[aria-expanded="false"],
-        &[aria-expanded="true"] {
-          transition: unset;
-          transform: unset;
-        }          
+        top: unset;
+        right: unset;
+        bottom: unset;
+        height: 32px;
+        width: 32px;
+        background-color: $sdss-color-green-link;
+        background-image: url("#{$su-image-path}/caret-down-white.svg");
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+        border: 1px solid $sdss-color-green-link;
+        border-radius: 50%;
+        transition: transform 0.2s ease-out;
+        transform: rotate(0deg);
+      }
 
-        &[aria-expanded="true"] {
-          &::before {
-            transition: transform .2s ease-out;
-            transform: rotate(180deg);
-          }
-        }
-
+      &:hover,
+      &:active {
         &::before {
-          content: "";
-          position: relative;
-          top: unset;
-          right: unset;
-          bottom: unset;
-          height: 32px;
-          width: 32px;
-          background-color: $sdss-color-green-link;
+          background-color: $sdss-color-white;
+          background-image: url("#{$su-image-path}/caret-down-black.svg");
+          border: 1px solid $sdss-color-grey-dark;
+        }
+      }
+
+      &:focus {
+        &::before {
+          background-color: $sdss-color-grey-dark;
           background-image: url("#{$su-image-path}/caret-down-white.svg");
-          background-repeat: no-repeat;
-          background-size: 50%;
-          background-position: center;
-          border: 1px solid $sdss-color-green-link;
-          border-radius: 50%;
-          transition: transform 0.2s ease-out;
-          transform: rotate(0deg);
-        }
-
-        &:hover,
-        &:active {
-          &::before {
-            background-color: $sdss-color-white;
-            background-image: url("#{$su-image-path}/caret-down-black.svg");
-            border: 1px solid $sdss-color-grey-dark;
-          }
-        }
-
-        &:focus {
-          &::before {
-            background-color: $sdss-color-grey-dark;
-            background-image: url("#{$su-image-path}/caret-down-white.svg");
-            border: 1px solid $sdss-color-grey-dark;
-          }
+          border: 1px solid $sdss-color-grey-dark;
         }
       }
     }
