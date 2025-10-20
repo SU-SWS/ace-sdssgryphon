@@ -20,4 +20,22 @@ gsap:
     js/gsap/gsap.js: { minified: true }
     js/gsap/ScrollTrigger.js: { minified: true }
     js/gsap/SplitText.js: { minified: true }
+    js/gsap/ScrollToPlugin.js: { minified: true }
     js/scrollreveal/theme.js: { minified: true }
+pinned_background:
+  header: true
+  js:
+    js/components/pinned-background.js: { minified: true }
+  dependencies:
+    - sdss_subtheme/gsap
+departments:
+  header: true
+  js:
+    js/components/departments.js: { minified: true }
+  dependencies:
+    - sdss_subtheme/gsap
+    - sdss_subtheme/pinned_background
+popup:
+  header: true
+  js:
+    js/components/popup.js: { minified: true }

@@ -55,3 +55,11 @@
   {%- endif -%}
 
 {%- endblock -%}
+
+{%- block block_footer -%}
+  <footer id="footer">
+    {{ page.footer }}
+    {%- include template_global_footer with { modifier_class : global_footer_variant }  -%}
+  </footer>
+  {% include '@sdss_subtheme/templates/components/popup/su-popup.html.twig' %}
+{%- endblock -%}

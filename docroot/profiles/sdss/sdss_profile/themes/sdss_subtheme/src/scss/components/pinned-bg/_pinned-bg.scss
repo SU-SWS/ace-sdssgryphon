@@ -155,9 +155,34 @@
         &__inner {
             width: 100%;
             position: relative;
+            pointer-events: none;
             @include grid-media-min('xl') {
                 width: calc(100%-16rem);
                 max-width: 2000px;
+            }
+
+            &__content {
+                width: 80%;
+                padding: 50px 40px;
+                position: relative;
+                overflow: hidden;
+                opacity: 0;
+                pointer-events: all;
+
+                @include grid-media-min('xl') {
+                    max-width: 800px;
+                }
+            }
+
+            &__bg {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                opacity: 80%;
+                z-index: -1;
             }
 
             color: white;
@@ -167,9 +192,9 @@
                 font-family: $su-font-serif-v2;
                 font-weight: 'Regular';
                 line-height: 100%;
-                font-size: 50px;
                 max-width: calc(100%-60px);
                 margin-bottom: 22px;
+                font-size: 50px;
 
                 @include grid-media-min('sm') {
                     font-size: 7vw;
@@ -185,8 +210,42 @@
                     font-size: 100px;
                     max-width: 900px;
                 }
+
+                &.small {
+                    font-size: 25px;
+
+                    @include grid-media-min('sm') {
+                        font-size: 4vw;
+                    }
+
+                    @include grid-media-min('lg') {
+                        font-size: 40px;
+                    }
+
+                    @include grid-media-min('xl') {
+                        font-size: 60px;
+                    }
+
+                }
+
+                &.medium {
+                    font-size: 35px;
+
+                    @include grid-media-min('sm') {
+                        font-size: 5.5vw;
+                    }
+
+                    @include grid-media-min('lg') {
+                        font-size: 65px;
+                    }
+
+                    @include grid-media-min('xl') {
+                        font-size: 80px;
+                    }
+
+                }
+
                 padding-bottom: 0;
-                opacity: 0;
 
                 &:after {
                     display: none;
@@ -196,7 +255,6 @@
             p {
                 font-size: 21px;
                 max-width: 650px;
-                opacity: 0;
 
                 &:last-child {
                     margin-bottom: 22px;
@@ -221,7 +279,6 @@
             border: 1px solid white;
             color: white;
             text-decoration: none;
-            opacity: 0;
             display: inline-block;
 
             @include accessible-link(white);
