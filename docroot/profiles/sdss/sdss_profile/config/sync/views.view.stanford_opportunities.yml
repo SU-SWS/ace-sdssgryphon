@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.stanford_h3_card
+    - core.entity_view_mode.node.stanford_card
     - core.entity_view_mode.node.teaser
     - field.storage.node.su_opp_contact_email
     - field.storage.node.su_opp_contact_name
@@ -421,7 +421,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: stanford_h3_card
+          view_mode: stanford_card
       css_class: ''
       pager:
         type: some
