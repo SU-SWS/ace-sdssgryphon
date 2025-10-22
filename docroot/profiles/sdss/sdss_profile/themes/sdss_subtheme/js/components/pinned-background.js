@@ -57,36 +57,41 @@ window.addEventListener('load', function() {
                 }
             });
 
+            let initTL = gsap.timeline({});
+
+            slideTL.timeScale(0.5);
+            initTL.timeScale(0.5);
+
             slideTLs.push(slideTL);
 
             ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"})
 
             if(slide.classList.contains('first')) {
                 let slideContent = slide.querySelector('.su-pinned-slide__inner__content');
-                gsap.fromTo(slideContent, { x: '100%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' });
-                gsap.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power2.inOut' }, '-=0.25');
+                initTL.fromTo(slideContent, { x: '50%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' });
+                initTL.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.5, ease: 'power2.inOut' }, '-=0.25');
 
                 let title = slide.querySelector('h2');
 
                 if(title) {
-                    gsap.fromTo(title, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
+                    initTL.fromTo(title, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
                 }
 
                 let p = slide.querySelector('p');
 
                 if(p) {
-                    gsap.fromTo(p, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.39');
+                    initTL.fromTo(p, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.39');
                 }
 
                 let btn = slide.querySelector('.su-pinned-slide__button');
 
                 if(btn) {
-                    gsap.fromTo(btn, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.38');
+                    initTL.fromTo(btn, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.38');
                 }
             } else {
                 let slideContent = slide.querySelector('.su-pinned-slide__inner__content');
-                slideTL.fromTo(slideContent, { x: '100%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '+=0');
-                slideTL.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.6, ease: 'power2.inOut' }, '-=0.25');
+                slideTL.fromTo(slideContent, { x: '50%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '+=0');
+                slideTL.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.5, ease: 'power2.inOut' }, '-=0.25');
 
                 let title = slide.querySelector('h2');
 

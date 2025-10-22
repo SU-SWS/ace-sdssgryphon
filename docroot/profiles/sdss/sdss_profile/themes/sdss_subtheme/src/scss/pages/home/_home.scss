@@ -88,7 +88,7 @@
             }
 
             @include grid-media-min('md') {
-                font-size: 54px;
+                font-size: 52px;
             }
             line-height: 120%;
             font-family: $su-font-serif-v2;
@@ -394,7 +394,7 @@
             }
 
             @include grid-media-min('xl') {
-                font-size: 128px;
+                font-size: 110px;
             }
 
             letter-spacing: -1.3px;
