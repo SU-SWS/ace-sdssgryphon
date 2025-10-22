@@ -25,10 +25,12 @@ settings:
     stanford_courses: stanford_courses
     stanford_events: stanford_events
     stanford_news: stanford_news
+    stanford_opportunities: stanford_opportunities
     stanford_person: stanford_person
     stanford_publications: stanford_publications
     related_content: related_content
     su_block_edit_links: '0'
+    cap_orgs: '0'
     change_logs: '0'
     content: '0'
     block_content: '0'
@@ -59,7 +61,9 @@ settings:
     viewfield_block: viewfield_block
     block: '0'
     default: '0'
+    entity_reference: '0'
     feed: '0'
+    graphql: '0'
     page: '0'
     rest_export: '0'
   handler: 'default:view'
