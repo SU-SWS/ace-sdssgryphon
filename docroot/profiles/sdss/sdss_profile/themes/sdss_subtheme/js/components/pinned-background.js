@@ -48,12 +48,12 @@ window.addEventListener('load', function() {
 
             let slideTL = gsap.timeline({
                 scrollTrigger: {
-                trigger: slide,
-                start: "top top",
-                end: end,
-                toggleActions: "play none none none",
-                pin: true,
-                pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
+                    trigger: slide,
+                    start: "top top",
+                    end: end,
+                    toggleActions: "play none none none",
+                    pin: true,
+                    pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
                 }
             });
 
@@ -68,48 +68,54 @@ window.addEventListener('load', function() {
 
             if(slide.classList.contains('first')) {
                 let slideContent = slide.querySelector('.su-pinned-slide__inner__content');
-                initTL.fromTo(slideContent, { x: '50%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' });
-                initTL.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.5, ease: 'power2.inOut' }, '-=0.25');
+                initTL.fromTo(slideContent, { x: '30%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' });
+                initTL.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.5, ease: 'power2.inOut' }, '-=0.1');
+
+                let elToSlide = [];
 
                 let title = slide.querySelector('h2');
 
                 if(title) {
-                    initTL.fromTo(title, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
+                    elToSlide.push(title);
                 }
 
                 let p = slide.querySelector('p');
 
                 if(p) {
-                    initTL.fromTo(p, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.39');
+                    elToSlide.push(p);
                 }
 
                 let btn = slide.querySelector('.su-pinned-slide__button');
 
                 if(btn) {
-                    initTL.fromTo(btn, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.38');
+                    elToSlide.push(btn);
                 }
+                initTL.fromTo(elToSlide, { x: 40 }, { x: 0, stagger: 0.05, duration: 0.4, ease: 'power2.out' }, '-=0.4');
             } else {
                 let slideContent = slide.querySelector('.su-pinned-slide__inner__content');
-                slideTL.fromTo(slideContent, { x: '50%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '+=0');
-                slideTL.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.5, ease: 'power2.inOut' }, '-=0.25');
+                slideTL.fromTo(slideContent, { x: '30%', opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '+=0');
+                slideTL.fromTo(slideContent, { clipPath: 'inset(0% 99% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.5, ease: 'power2.inOut' }, '-=0.1');
+
+                let elToSlide = [];
 
                 let title = slide.querySelector('h2');
 
                 if(title) {
-                    slideTL.fromTo(title, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
+                    elToSlide.push(title);
                 }
 
                 let p = slide.querySelector('p');
 
                 if(p) {
-                    slideTL.fromTo(p, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.39');
+                    elToSlide.push(p);
                 }
 
                 let btn = slide.querySelector('.su-pinned-slide__button');
 
                 if(btn) {
-                    slideTL.fromTo(btn, { x: 40 }, { x: 0, duration: 0.4, ease: 'power2.out' }, '-=0.38');
+                    elToSlide.push(btn);
                 }
+                slideTL.fromTo(elToSlide, { x: 40 }, { x: 0, stagger: 0.05, duration: 0.4, ease: 'power2.out' }, '-=0.4');
             }
 
             x++;

@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
             }
         });
         
-        /*for(const twoCol of document.querySelectorAll(".layout--layout-paragraphs-two-column")) {
+        for(const twoCol of wrapper.querySelectorAll(".layout--layout-paragraphs-two-column")) {
             let twoColTL = gsap.timeline({
                 paused: true,
                 scrollTrigger: {
@@ -53,7 +53,7 @@ window.addEventListener('load', function() {
                 }
             });
             twoColTL.fromTo(twoCol.querySelectorAll(".su-card"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: .6, delay: .2, stagger: 0.2, ease: 'power2.easeOut' });
-        }*/
+        }
 
         let x = 1;
 
