@@ -25,7 +25,6 @@ dependencies:
     - field.field.node.stanford_opportunity.su_opp_start_date
     - field.field.node.stanford_opportunity.su_opp_status
     - field.field.node.stanford_opportunity.su_opp_summary
-    - field.field.node.stanford_opportunity.su_opp_tags
     - field.field.node.stanford_opportunity.su_opp_type
     - field.field.node.stanford_opportunity.su_opp_units
     - node.type.stanford_opportunity
@@ -344,36 +343,7 @@ third_party_settings:
                     label_tag: h2
             weight: 4
             additional: {  }
-          3d4a99ba-dd72-41d6-8381-aac52ab4b274:
-            uuid: 3d4a99ba-dd72-41d6-8381-aac52ab4b274
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_opportunity:su_opp_tags'
-              label: 'Opportunity Tags/Filters'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: cshs_group_by_root
-                label: hidden
-                settings:
-                  linked: false
-                  reverse: false
-                  sort: none
-                  depth: 0
-                  last_child: false
-                third_party_settings:
-                  empty_fields:
-                    handler: ''
-                  field_formatter_class:
-                    class: su-tags-wrapper
-                  field_label:
-                    label_value: ''
-                    label_tag: ''
-            weight: 10
-            additional: {  }
+
           35ff7783-bb5c-4351-b1e4-2f7af2c11e1e:
             uuid: 35ff7783-bb5c-4351-b1e4-2f7af2c11e1e
             region: main
@@ -518,7 +488,6 @@ third_party_settings:
           - 'field_block:node:stanford_opportunity:su_opp_image'
           - 'field_block:node:stanford_opportunity:su_opp_icon'
           - 'field_block:node:stanford_opportunity:su_opp_learn_more'
-          - 'field_block:node:stanford_opportunity:su_opp_tags'
           - 'field_block:node:stanford_opportunity:su_opp_type'
           - 'field_block:node:stanford_opportunity:su_opp_components'
           - 'field_block:node:stanford_opportunity:su_opp_prerequisites'
@@ -635,5 +604,4 @@ hidden:
   su_opp_start_date: true
   su_opp_status: true
   su_opp_summary: true
-  su_opp_tags: true
   su_opp_type: true
