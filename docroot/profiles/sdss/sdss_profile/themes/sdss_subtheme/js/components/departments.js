@@ -13,7 +13,7 @@ window.addEventListener('load', function() {
 
         const sliderParent = pinnedSection.closest('.paragraph-item');
 
-        const allPinnedElements = getNextSiblings(sliderParent, 3);
+        const allPinnedElements = getNextSiblings(sliderParent, 1);
 
         let wrapper = document.createElement('div');
         wrapper.id = "paragraph-pin-wrapper";
@@ -22,8 +22,15 @@ window.addEventListener('load', function() {
 
         wrapper.appendChild(sliderParent);
 
+        let twoColIndex = 0;
+        let index = 1;
+
         for(const el of allPinnedElements) {
+            if(el.querySelectorAll('.layout--layout-paragraphs-two-column')) {
+                twoColIndex = index;
+            }
             wrapper.appendChild(el);
+            index++;
         }
 
         let isLandscapeMobile = window.innerHeight < 550 && window.innerHeight < window.innerWidth;
@@ -41,19 +48,6 @@ window.addEventListener('load', function() {
                 invalidateOnRefresh: true
             }
         });
-        
-        for(const twoCol of wrapper.querySelectorAll(".layout--layout-paragraphs-two-column")) {
-            let twoColTL = gsap.timeline({
-                paused: true,
-                scrollTrigger: {
-                    trigger: pinnedSection,
-                    start: `+=${(250 * slides.length) + 350}`,
-                    toggleActions: "play none none none",
-                    pin: false,
-                }
-            });
-            twoColTL.fromTo(twoCol.querySelectorAll(".su-card"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: .6, delay: .2, stagger: 0.2, ease: 'power2.easeOut' });
-        }
 
         let x = 1;
 
