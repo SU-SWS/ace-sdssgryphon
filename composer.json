@@ -1,7 +1,6 @@
 {
     "name": "su-sws/ace-sdssgryphon",
     "type": "project",
-    "description": "Composer file for Doerr School Drupal site.",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/drupal",
     "support": {
