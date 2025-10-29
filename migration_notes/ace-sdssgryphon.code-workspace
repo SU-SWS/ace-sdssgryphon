@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../repo-no-www/stanford_profile"
+		},
+		{
+			"path": "../../../repo-no-www/stanford_profile_helper"
+		}
+	],
+	"settings": {}
+}
