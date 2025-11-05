@@ -4,8 +4,13 @@ The ACE SDSSGryphon stack serves the Doerr School of Sustainability. This stack 
 
 # Docs
 - [Development Requirements](docs/development-requirements.md)
+- [Release and Deployment](docs/release-deploy.md)
 - [New Site Provision](docs/new-site-provision.md)
 - [Retire Site](docs/retire-site.md)
+- [Routine Maintenance](docs/routine-maintenance.md)
+- [Upgrading Drupal Core](docs/drupal-core-upgrades.md)
+- [Testing](docs/testing.md)
+- [Patching and patch management instructions](patches/README.md)
 
 
 # SDSS Theme

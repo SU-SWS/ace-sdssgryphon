@@ -20,4 +20,9 @@ gsap:
     js/gsap/gsap.js: { minified: true }
     js/gsap/ScrollTrigger.js: { minified: true }
     js/gsap/SplitText.js: { minified: true }
-    js/scrollreveal/theme.js: { minified: true }
+    js/gsap/ScrollToPlugin.js: { minified: true }
+    js/components/gsap-functions.js: { minified: true }
+popup:
+  header: true
+  js:
+    js/components/popup.js: { minified: true }

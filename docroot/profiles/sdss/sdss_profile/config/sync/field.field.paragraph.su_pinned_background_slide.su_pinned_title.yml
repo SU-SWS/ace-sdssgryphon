@@ -1,0 +1,19 @@
+uuid: 3b4761a2-bceb-4311-a9c7-1fc5605fd648
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_pinned_title
+    - paragraphs.paragraphs_type.su_pinned_background_slide
+id: paragraph.su_pinned_background_slide.su_pinned_title
+field_name: su_pinned_title
+entity_type: paragraph
+bundle: su_pinned_background_slide
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

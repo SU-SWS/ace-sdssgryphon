@@ -65,7 +65,7 @@
         <div data-type = "{{ type }}" data-video-type = "{{ videoType }}" class = "su-pinned-slide {% if key == 0 %}first{% endif %}" {% if type == 'image' %}style = "background-image: url('{{ bg }}')"{% endif %}>
           {% if type == 'video' %}
             <div class = "su-pinned-slide__pause_holder">
-              <button tabindex = "0" class = "su-pinned-slide__play_pause" aria-label = "Pause the header video - this button has a decorative image inside it">
+              <button tabindex = "0" class = "su-pinned-slide__play_pause" aria-label = "Pause the header video">
                 <img src="/{{ directory }}/dist/img/icon-pause.png" alt="" class="pause" />
                 <img src="/{{ directory }}/dist/img/icon-play.png" alt="" class="play" style = "display:none" />
               </button>
@@ -76,24 +76,28 @@
               </video>
             </div>
           {% endif %}
-          <div class = "su-pinned-slide__bg-overlay"></div>
           <div class = "su-pinned-slide__inner">
-            {{ slide.su_wysiwyg_text.value|raw }}
-          </div>
-          {% set button = slide.su_entity_button.0 %}
-          {% if button %}
-            <div class = "su-pinned-slide__bottom">
-              {% if button.url.external %}
-                <a class = "su-pinned-slide__button" href="{{ button.url.uri }}">
-                  {{ button.title }}
-                </a>
-              {% else %}
-                <a class = "su-pinned-slide__button" href="{{ path(button.url.routeName, button.url.routeParameters) }}{% if button.url.options.fragment %}#video?{{ button.url.options.fragment }}{% endif %}">
-                  {{ button.title }}
-                </a>
+            <div class = "su-pinned-slide__inner__content">
+              <div class = "su-pinned-slide__inner__bg"></div>
+              {% set title = slide.su_pinned_title.value %}
+              {% if title %}
+                <h2 class = "{% if slide.su_title_size.value %}{{ slide.su_title_size.value }}{% endif %}">{{ title }}</h2>
+              {% endif %}
+              <div>{{ slide.su_wysiwyg_text.value|raw }}</div>
+              {% set button = slide.su_entity_button.0 %}
+              {% if button %}
+                {% if button.url.external %}
+                  <a class = "su-pinned-slide__button" href="{{ button.url.uri }}">
+                    {{ button.title }}
+                  </a>
+                {% else %}
+                  <a class = "su-pinned-slide__button" href="{{ path(button.url.routeName, button.url.routeParameters) }}{% if button.url.options.fragment %}#video?{{ button.url.options.fragment }}{% endif %}">
+                    {{ button.title }}
+                  </a>
+                {% endif %}
               {% endif %}
             </div>
-          {% endif %}
+          </div>
         </div>
         {% if key + 1 < content.su_slides['#items']|length and key > 0 %}
           <div class = "spacer"></div>
@@ -101,159 +105,6 @@
       {% endfor %}
     {% endblock %}
   </div>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.registerPlugin(SplitText);
-
-    window.addEventListener('load', function() {
-
-      const pinnedSection = document.getElementById('{{ paragraph.id() }}');
-      const slides = pinnedSection.querySelectorAll('.su-pinned-slide');
-      const headerHeight = document.querySelector('.su-masthead').offsetHeight;
-
-      pinnedSection.style.marginTop = -headerHeight + 'px';
-
-      let x = 1;
-
-      for(const slide of slides) {
-
-        if(slide.getAttribute('data-type') == 'video') {
-
-            bgPlayer = slide.querySelector('.su-pinned-slide__bg-video-wrapper video');
-
-            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('click', (e) => playPause(e, slide, bgPlayer));
-            slide.querySelector('.su-pinned-slide__play_pause').addEventListener('keyup', (e) => playPause(e, slide, bgPlayer));
-
-        }
-
-        let end;
-
-        if(x < slides.length && x > 1) {
-          end = "+=130%";
-        } else if(x == 1) {
-          end = "+=100%";
-        } else {
-          end = "+=50%";
-        }
-
-        let slideTL = gsap.timeline({
-          scrollTrigger: {
-            trigger: slide,
-            start: "top top",
-            end: end,
-            toggleActions: "play none none none",
-            pin: true,
-            pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
-          }
-        });
-
-        ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"})
-
-        if(slide.classList.contains('first')) {
-          let title = slide.querySelector('h2');
-
-          if(title) {
-        
-            let titleSplit = SplitText.create(title, {
-              type: "lines",
-              mask: "lines",
-            });
-
-            gsap.set(title, { opacity: 1 }, 0);
-
-            gsap.fromTo(titleSplit.lines, {
-              opacity: 0,
-              y: '100%'
-            },
-            {
-              opacity: 1,
-              y: '0%',
-              duration: 0.8,
-              stagger: 0.08,
-              ease: 'power2.inOut',
-              onComplete: () => { titleSplit.revert(); }
-            }, slide.classList.contains('first') ? '+=0' : '-=0.3');
-
-          }
-
-          let p = slide.querySelector('p');
-
-          if(p) {
-            gsap.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.6');
-          }
-
-          let btn = slide.querySelector('.su-pinned-slide__button');
-
-          if(btn) {
-            gsap.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.2');
-          }
-        } else {
-
-          let title = slide.querySelector('h2');
-
-          if(title) {
-        
-            let titleSplit = SplitText.create(title, {
-              type: "lines",
-              mask: "lines",
-            });
-
-            slideTL.set(title, { opacity: 1 }, 0);
-
-            slideTL.fromTo(titleSplit.lines, {
-              opacity: 0,
-              y: '100%'
-            },
-            {
-              opacity: 1,
-              y: '0%',
-              duration: 1.0,
-              stagger: 0.08,
-              ease: 'power2.inOut',
-              onComplete: () => { titleSplit.revert(); }
-            }, '-=0.3');
-
-          }
-
-          let p = slide.querySelector('p');
-
-          if(p) {
-            slideTL.fromTo(p, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.6');
-          }
-
-          let btn = slide.querySelector('.su-pinned-slide__button');
-
-          if(btn) {
-            slideTL.fromTo(btn, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.inOut' }, '-=0.2');
-          }
-        }
-
-        x++;
-
-      }
-
-    });
-
-    function playPause(e, slide, bgPlayer) {
-      if(e.type === 'click') {
-        var icon = e.target;
-        if(icon.classList.contains('pause')) {
-          icon.classList.remove('pause');
-          icon.querySelector('.pause').style.display = "block";
-          icon.querySelector('.play').style.display = "none";
-          icon.setAttribute('aria-label', 'Play the header video - this button has a decorative image inside it');
-          bgPlayer.play();
-        } else {
-          icon.classList.add('pause');
-          icon.querySelector('.play').style.display = "block";
-          icon.querySelector('.pause').style.display = "none";
-          icon.setAttribute('aria-label', 'Pause the header video - this button has a decorative image inside it');
-          bgPlayer.pause();
-        }
-      }
-    }
-  </script>
 {% endblock paragraph %}
 
-{% include '@sdss_subtheme/templates/components/popup/su-popup.html.twig' %}
+{{ attach_library('sdss_subtheme/popup') }}

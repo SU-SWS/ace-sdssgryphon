@@ -7,6 +7,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.14.2] Aries - 2025-11-05
+
+### Added
+28a94080 Add Routine Maintenance Documentation and Related Docs/README Updates (#691)
+2e650bc2 Added release and deployment documentation (#683)
+34798e31 Accessibility Improvements for Sustainability home page (#688)
+
+### Changed
+34798e31 Accessibility Improvements for Sustainability home page (#688)
+18cac46f SDSS-1530: Update Script Locations and Permissions (#685)
+844c6512 SDSS-1530: Move Cron scripts to Acquia recommended location (#684)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+34798e31 Accessibility Improvements for Sustainability home page (#688)
+
+### Security
+b1968f15 Automated Dependency Updates 20251024 (#689)
+d89fafc9 Automated Dependency Updates 20251017 (#687)
+934120fc Automated Dependency Updates 20251010 (#686)
+
+### Maintenance
+28a94080 Add Routine Maintenance Documentation and Related Docs/README Updates (#691)
+2e650bc2 Added release and deployment documentation (#683)
+b1968f15 Automated Dependency Updates 20251024 (#689)
+d89fafc9 Automated Dependency Updates 20251017 (#687)
+934120fc Automated Dependency Updates 20251010 (#686)
+
+
 ## [4.14.1] - 2025-10-08
 
 ### Added
