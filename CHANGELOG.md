@@ -7,6 +7,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.14.3] HOTFIX - 2025-11-06
+
+### Added
+None.
+
+### Changed
+None.
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+e285bfe6 Fix Safari header slider animation issue on Sustainability homepage (#694)
+
+### Security
+d79018e5 SDSS-1583: Add Next CORS patch (#695)
+
+### Maintenance
+None.
+
+
 ## [4.14.2] Aries - 2025-11-05
 
 ### Added
