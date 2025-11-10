@@ -162,6 +162,8 @@
   // End gradient overlay details.
 
   .su-hero {
+    display: flex;
+    flex-flow: column;
     justify-content: flex-end;
 
     .su-hero__card {
@@ -190,6 +192,11 @@
           margin-bottom: unset;
         }
       }
+    }
+
+    /* Display the caption */
+    .su-hero__caption {
+      display: block;
     }
   }
 
@@ -253,5 +260,29 @@
     @include grid-media-max('sm') {
       min-height: unset;
     }
+  }
+}
+
+/* Caption styles */
+.su-hero {
+
+  .su-hero__caption {
+    /* Caption disabled by default */
+    display: none;
+    z-index: 2;
+  }
+
+  /* Inner box with translucent black background and light border */
+  .su-hero__caption-inner {
+    color: #DDD;
+    background-color: #191919;
+    padding: 0.5rem 0.75rem;
+    font-size: 14px;
+    text-align: right;
+    border-radius: 2px;
+  }
+
+  .su-hero__caption-inner p {
+    margin: 0;
   }
 }
