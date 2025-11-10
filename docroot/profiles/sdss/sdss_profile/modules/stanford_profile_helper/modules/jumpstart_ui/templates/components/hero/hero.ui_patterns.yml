@@ -15,6 +15,11 @@ hero:
       label: "Image"
       description: "A full HTML entity for an image. Can be img or picture."
       preview: "<img src='https://picsum.photos/1600/900/?random' alt='Example Hero Image' />"
+    hero_caption:
+      type: text
+      label: "Caption"
+      description: "Optional caption content rendered as an overlay in the hero."
+      preview: "<p class='su-hero__caption'>Sample media credit or caption.</p>"
     hero_media:
       type: text
       label: "Media"
