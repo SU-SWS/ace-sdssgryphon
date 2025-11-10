@@ -5,6 +5,10 @@
     min-height: unset;
     position: static;
 
+    .su-hero__caption {
+      display: none;
+    }
+
     .su-hero__media {
       min-height: unset;
       position: relative;
@@ -162,8 +166,6 @@
   // End gradient overlay details.
 
   .su-hero {
-    display: flex;
-    flex-flow: column;
     justify-content: flex-end;
 
     .su-hero__card {
