@@ -49,9 +49,10 @@ default:
   su_news_banner:
     -
       entity: 81a60c63-7638-46d2-8fd9-b4de2cbc3554
-  su_news_banner_media_caption:
+  su_sdss_news_banner_caption:
     -
       value: 'This is your banner media caption'
+      format: stanford_minimal_html
   su_news_byline:
     -
       value: 'Smith Conference is proin lacus lacus, eleifend tristique volutpat vitae.'
