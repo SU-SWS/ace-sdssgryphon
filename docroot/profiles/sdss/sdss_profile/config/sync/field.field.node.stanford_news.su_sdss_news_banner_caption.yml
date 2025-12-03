@@ -12,8 +12,8 @@ id: node.stanford_news.su_sdss_news_banner_caption
 field_name: su_sdss_news_banner_caption
 entity_type: node
 bundle: stanford_news
-label: 'Banner Caption (Long)'
-description: 'The new Banner Caption field. This will eventually replace the existing Banner Caption field, but is currently not being displayed and only for importing data.'
+label: 'Banner Caption'
+description: 'The new Banner Caption field (holds more text). This replaced the existing Banner Caption field.'
 required: false
 translatable: false
 default_value: {  }

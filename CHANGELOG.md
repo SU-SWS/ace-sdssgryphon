@@ -7,6 +7,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.15.0] Bootes - 2025-12-03
+
+### Added
+61dd4f859 SDSS-636: Add support for caption field in banner paragraph (#700)
+
+### Changed
+4c2db135c SDSS-636: Increase Banner Caption Font Size (#701)
+f402d7aee SDSS-734: Migrate News Banner Caption to New Long Text Field (#699)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+5716845a0 Automated Dependency Updates 20251128 (#704)
+734c54d36 Automated Dependency Updates 20251114 (#702)
+7a68cbf35 Automated Dependency Updates 20251107 (#698)
+
+### Maintenance
+5716845a0 Automated Dependency Updates 20251128 (#704)
+734c54d36 Automated Dependency Updates 20251114 (#702)
+7a68cbf35 Automated Dependency Updates 20251107 (#698)
+
+
 ## [4.14.3] HOTFIX - 2025-11-06
 
 ### Added
