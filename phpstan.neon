@@ -6,3 +6,5 @@ parameters:
         # new static() is a best practice in Drupal, so we cannot fix that.
         # See: https://www.drupal.org/docs/develop/development-tools/phpstan/handling-unsafe-usage-of-new-static
         - "#^Unsafe usage of new static#"
+    excludePaths:
+        - '*/tests/*'
