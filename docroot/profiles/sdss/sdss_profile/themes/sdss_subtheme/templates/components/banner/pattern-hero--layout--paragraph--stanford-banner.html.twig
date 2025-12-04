@@ -43,6 +43,11 @@
 {%- endif -%}
 
 {#
+  Get the banner list style from attributes set in preprocess.
+#}
+{% set banner_list_style = attribute(attributes, 'data-banner-list-style') %}
+
+{#
   Override the template path for card with our changes.
 #}
 {%- set template_path_card = "@jumpstart_ui/components/card/card.html.twig" -%}
@@ -59,7 +64,6 @@
 {% endif %}
 
   {%- set hero_super_headline = null -%}
-  {%- set hero_body = null -%}
 
 {#
   Include the template.

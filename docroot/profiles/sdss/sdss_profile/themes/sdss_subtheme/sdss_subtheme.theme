@@ -140,9 +140,18 @@ function sdss_subtheme_preprocess_card(&$variables) {
 function sdss_subtheme_preprocess_banner(&$variables) {
   $paragraph = $variables['content']['#paragraph'];
 
-  // Add banner type class to card wrapper. 3rd variable provides the default
-  // type.
-  $variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_style', 'sdss-banner-wrapper--default');
+  // Get the banner list style value.
+  $banner_list_style = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_style', 'sdss-banner-wrapper--default');
+
+  // Add banner list style class to card wrapper. 3rd variable provides the
+  // default type.
+  $variables['attributes']['class'][] = $banner_list_style;
+  // Expose banner_list_style to Twig templates for conditional logic.
+  // Extract value after last '--' for easier template logic.
+  $parts = explode('--', $banner_list_style);
+  // Must pass as a data attribute to be accessible in Twig. Display Suite will
+  // not expose custom variables to templates.
+  $variables['attributes']['data-banner-list-style'] = end($parts);
 
   // Center align the headline. 3rd variable provides the default type.
   $variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_headline', 'sdss-banner-wrapper--headline-default');

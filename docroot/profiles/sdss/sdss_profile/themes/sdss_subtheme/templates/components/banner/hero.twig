@@ -31,6 +31,9 @@
   {%- set template_path_card = "@decanter/components/card/card.twig" -%}
 {%- endif -%}
 
+
+<div>Style: {{ attributes.get('data-banner-list-style') }}</div>
+
 <div{{ attributes }} class="su-hero {{ modifier_class }}">
 
   {# Hero Image or Video #}
@@ -56,19 +59,19 @@
     hero_body is not empty or
     hero_link is not empty
   -%}
-    {# We reuse the card component here. #}
 
-    {% include template_path_card with
-      {
-        "modifier_class": "su-hero__card",
-        "card_headline": hero_headline,
-        "card_link": hero_link,
-        "card_button_label": hero_button_label,
-        "card_cta_label": hero_cta_label,
-        "card_cta_attributes": hero_cta_attributes,
-      }
-      only
-    %}
+    {# We reuse the card component here. #}
+    {# Only include body if banner_list_style is 'no-headline' #}
+    {% set card_body = banner_list_style == 'no-headline' ? hero_body : null %}
+    {% include template_path_card with {
+      "modifier_class": "su-hero__card",
+      "card_headline": hero_headline,
+      "card_link": hero_link,
+      "card_body": card_body,
+      "card_button_label": hero_button_label,
+      "card_cta_label": hero_cta_label,
+      "card_cta_attributes": hero_cta_attributes,
+      } only %}
   {%- endif -%}
   {%- if hero_caption is not empty -%}
     {# Attach caption styling library if caption exists #}
