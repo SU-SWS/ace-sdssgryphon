@@ -6,6 +6,7 @@
  */
 
 use Drupal\node\NodeInterface;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Implements hook_preprocess_html().
@@ -87,6 +88,25 @@ function sdss_subtheme_theme_suggestions_block_alter(array &$suggestions, array 
 /**
  * Implements hook_preprocess_HOOK().
  */
+function sdss_subtheme_preprocess_pattern_hero__layout__paragraph__stanford_banner(&$variables) {
+  $paragraph = $variables['context']->getProperty('entity');
+  if (!$paragraph instanceof Paragraph) {
+    return;
+  }
+
+  // Get the banner list style value.
+  $banner_list_style = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_style', 'sdss-banner-wrapper--default');
+  // Expose banner_list_style to Twig templates for conditional logic.
+  // Extract value after last '--' for easier template logic. The key values for
+  // banner_list_style are meant to be CSS classes, this strips out the part we
+  // want to act on for cleaner logic.
+  $parts = explode('--', $banner_list_style);
+  $variables['banner_list_style'] = end($parts);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function sdss_subtheme_preprocess_ds_entity_view(&$variables) {
   // If not running on a paragraph, exit out.
   if (!isset($variables['content']['#paragraph'])) {
@@ -146,12 +166,6 @@ function sdss_subtheme_preprocess_banner(&$variables) {
   // Add banner list style class to card wrapper. 3rd variable provides the
   // default type.
   $variables['attributes']['class'][] = $banner_list_style;
-  // Expose banner_list_style to Twig templates for conditional logic.
-  // Extract value after last '--' for easier template logic.
-  $parts = explode('--', $banner_list_style);
-  // Must pass as a data attribute to be accessible in Twig. Display Suite will
-  // not expose custom variables to templates.
-  $variables['attributes']['data-banner-list-style'] = end($parts);
 
   // Center align the headline. 3rd variable provides the default type.
   $variables['attributes']['class'][] = $paragraph->getBehaviorSetting('react_paragraphs:banner_variant_info', 'banner_list_headline', 'sdss-banner-wrapper--headline-default');
