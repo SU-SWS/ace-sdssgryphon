@@ -182,7 +182,8 @@
 // Unset the widths of h2 for paragraphs
 .container-2-items,
 .container-3-items {
-  .paragraph--type--stanford-lists {
+  .paragraph--type--stanford-lists,
+  .paragraph--type--sdss-filtered-lists {
     .su-news-list {
       h2 {
         max-width: unset;

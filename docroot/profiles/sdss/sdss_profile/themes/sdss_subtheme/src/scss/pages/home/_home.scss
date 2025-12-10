@@ -43,7 +43,11 @@
             margin-right: auto;
         }
 
-        .ptype-stanford-card, .ptype-stanford-lists, .su-wysiwyg-text, .ptype-su-horizontal-bar {
+        .ptype-stanford-card,
+        .ptype-stanford-lists,
+        .ptype-sdss-filtered-lists,
+        .su-wysiwyg-text,
+        .ptype-su-horizontal-bar {
             max-width: 100%;
             width: 100%;
         }
@@ -378,7 +382,7 @@
         }
     }
 
-    .paragraph--type--stanford-wysiwyg, .stanford-lists.su-list-headline {
+    .paragraph--type--stanford-wysiwyg,.stanford-lists.su-list-headline {
         h2 {
             font-family: $su-font-serif-v2;
             font-weight: 400;
