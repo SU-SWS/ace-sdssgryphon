@@ -816,6 +816,10 @@
                     @include grid-media-min('md') {
                         margin-top: -59px;
                     }
+
+                    img {
+                        width: 100%;
+                    }
                 }
             }
         }
