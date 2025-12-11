@@ -19,8 +19,7 @@
  *     added. For example: _target.
  * - hero_cta_label: The clickable text for the CTA link.
  * - hero_button_label: The text label of the button component.
- * - hero_content: An open area for content to go beneath the media when using
- *                 the su-hero--caption variant.
+ * - hero_caption: Caption for the media.
  */
 #}
 
@@ -57,26 +56,28 @@
     hero_body is not empty or
     hero_link is not empty
   -%}
-    {# We reuse the card component here. #}
 
-    {% include template_path_card with
-      {
-        "modifier_class": "su-hero__card",
-        "card_headline": hero_headline,
-        "card_link": hero_link,
-        "card_button_label": hero_button_label,
-        "card_cta_label": hero_cta_label,
-        "card_cta_attributes": hero_cta_attributes,
-      }
-      only
-    %}
+    {# We reuse the card component here. #}
+    {# Only include body if banner_list_style is 'no-headline' #}
+    {% set card_body = banner_list_style == 'no-headline' ? hero_body : null %}
+    {% include template_path_card with {
+      "modifier_class": "su-hero__card",
+      "card_headline": hero_headline,
+      "card_link": hero_link,
+      "card_body": card_body,
+      "card_button_label": hero_button_label,
+      "card_cta_label": hero_cta_label,
+      "card_cta_attributes": hero_cta_attributes,
+      } only %}
   {%- endif -%}
-  {%- if hero_content is not empty -%}
-  <div class="su-hero__content">
-    <div class="su-hero__content-inner">
-      {{ hero_content }}
+  {%- if hero_caption is not empty -%}
+    {# Attach caption styling library if caption exists #}
+    {{ attach_library('sdss_subtheme/banner-caption') }}
+    <div class="su-hero__caption" aria-hidden="false">
+      <div class="su-hero__caption-inner">
+        {{ hero_caption }}
+      </div>
     </div>
-  </div>
   {%- endif -%}
   {%- endblock -%}
 </div>

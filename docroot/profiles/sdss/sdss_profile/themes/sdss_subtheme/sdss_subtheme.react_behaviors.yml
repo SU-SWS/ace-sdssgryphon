@@ -1,6 +1,6 @@
 # Example react_behaviors plugin definitions.
 # Plugin property $defaults are defined in ReactBehaviorsPluginManager.
-card_variant_info:  # part of the key after the :
+card_variant_info:
   id: card_type
   label: 'Card Paragraphs Type'
   bundles:
@@ -20,13 +20,12 @@ card_variant_info:  # part of the key after the :
       type: select
       title: 'Card Border Style'
       description: Select the border style for displaying this card.
-#      default_value: sdss-card-wrapper--border-none
       options:
         sdss-card-wrapper--border-none: Minimal (no border)
         sdss-card-wrapper--grey-dropshadow: Light Grey Background with shadow
         sdss-card-wrapper--white-dropshadow: White Background with shadow
         sdss-card-wrapper--white-border: White Background with border
-banner_variant_info:  # part of the key after the :
+banner_variant_info:
   id: banner_type
   label: 'Banner Paragraphs Type'
   bundles:
@@ -44,11 +43,9 @@ banner_variant_info:  # part of the key after the :
       type: select
       title: 'Banner Style'
       description: 'Select the banner style.'
-      # default_value: sdss-banner-wrapper--default
       options:
         sdss-banner-wrapper--default: Default
         sdss-banner-wrapper--no-headline: No Headline
-        #sdss-banner-wrapper--style-four: Style Four -- add this later.
     banner_list_headline:
       type: select
       title: 'Banner Headline Alignment'

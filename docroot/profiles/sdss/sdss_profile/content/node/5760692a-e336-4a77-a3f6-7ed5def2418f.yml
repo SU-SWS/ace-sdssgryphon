@@ -49,9 +49,10 @@ default:
   rh_redirect_fallback_action:
     -
       value: bundle_default
-  su_news_banner_media_caption:
+  su_sdss_news_banner_caption:
     -
       value: 'Stanford with active people'
+      format: stanford_minimal_html
   su_news_byline:
     -
       value: 'By Gretchen Reynolds'
