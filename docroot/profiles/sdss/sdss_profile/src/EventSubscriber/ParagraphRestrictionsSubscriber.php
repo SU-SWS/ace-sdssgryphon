@@ -141,7 +141,7 @@ class ParagraphRestrictionsSubscriber implements EventSubscriberInterface {
   protected function isAllowedSite(): bool {
     $site_path = \Drupal::getContainer()->getParameter('site.path');
     $site_name = basename($site_path);
-    $acceptableSites = ['sustainability','sustainability-accelerator'];
+    $acceptableSites = ['sustainability', 'sustainability-accelerator'];
     return in_array($site_name, $acceptableSites);
   }
 
