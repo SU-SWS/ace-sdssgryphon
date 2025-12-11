@@ -245,6 +245,39 @@
         }
     }
 
+    .layout-paragraphs-sdss-bgcolor--grey {
+        background-color: #edefef;
+        position: relative;
+        padding: 0;
+        margin: 0;
+
+        & > * {
+            &:first-child {
+                padding-top: 63px;
+                @include grid-media-min('md') {
+                    padding-top: 97px;
+                }
+            }
+
+            &:last-child {
+                padding-bottom: 63px;
+                @include grid-media-min('md') {
+                    padding-bottom: 97px;
+                }
+            }
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: -100vw;
+            width: 200vw;
+            height: 100%;
+            z-index: -1;
+            background-color: #edefef;
+        }
+    }
+
     .layout-paragraphs-sdss-bgcolor--red {
         background-color: #8C1515;
         color: white;
@@ -300,6 +333,12 @@
         .paragraph--type--stanford-wysiwyg, .su-card {
             h2, h3, p {
                 color: white;
+            }
+
+            h2 {
+                &:after {
+                    background-color: white;
+                }
             }
         }
 
@@ -704,6 +743,125 @@
                         background-color: #8C1515;
                     }
                 }
+            }
+        }
+    }
+}
+
+.page-homepage-2025 {
+    .text-long {
+        p {
+            .su-button {
+                @include arrow-btn();
+                display: inline-block;
+                padding: 14px 23px;
+                border: 2px solid black;
+                color: black;
+                font-size: 20px;
+                text-decoration: none;
+
+                &:after {
+                    background-color: black;
+                    width: 11px;
+                    height: 11px;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                    color: black;
+
+                    &:after {
+                        background-color: black;
+                    }
+                }
+            }
+        }
+    }
+    .layout--layout-paragraphs-two-column {
+        margin: 63px 0;
+
+        @include grid-media-min('md') {
+            margin: 118px 0 97px 0;
+
+            &:has(.less-margin-top) {
+                margin-top: 38px;
+            }
+        }
+
+        &:has(.vertical-center) {
+            align-items: center;
+        }
+    }
+    .layout-paragraphs-sdss-bgcolor--red {
+        .stanford-wysiwyg {
+            padding-top: 97px;
+        }
+        &:has(.container-no-margin-top) {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 63px;
+
+            @include grid-media-min('md') {
+                padding-bottom: 104px;
+                padding-top: 86px;
+                gap: 89px;
+            }
+
+            .stanford-wysiwyg {
+                padding-top: 0;
+
+                .media {
+                    margin-bottom: 0;
+                    @include grid-media-min('md') {
+                        margin-top: -59px;
+                    }
+                }
+            }
+        }
+        .text-long {
+            p {
+                font-size: 21px;
+                line-height: 160%;
+                margin-bottom: 0;
+                font-family: $su-font-sans;
+                padding-bottom: 37px;
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        &.layout--layout-paragraphs-sdss-two-column {
+            p {
+                .su-button {
+                    border: 2px solid white;
+                    color: white;
+
+                    &:after {
+                        background-color: white;
+                    }
+
+                    &:hover {
+                        color: white;
+
+                        &:after {
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+        .layout__region--sidebar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .paragraph-item {
+        &:last-child {
+            margin-bottom: 97px;
+            @include grid-media-min('md') {
+                margin-bottom: 147px;
             }
         }
     }
