@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7b9fef19043d6d665ae238009f6c5b2",
+    "content-hash": "f7bfb2fb116ce682a2edf38c1d167af9",
     "packages": [
         {
             "name": "acquia/blt",
@@ -16681,11 +16681,11 @@
         },
         {
             "name": "stanford-earth/stanford_earth_r25",
-            "version": "8.1.22",
+            "version": "8.1.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stanford-earth/stanford_earth_r25",
-                "reference": "8.1.22"
+                "reference": "8.1.23"
             },
             "type": "drupal-custom-module-rooms-site"
         },
@@ -27944,5 +27944,5 @@
         "ext-imagick": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }
