@@ -80,11 +80,13 @@
                 {% set link = path(button['#url'].routeName, button['#url'].routeParameters) %}
               {% endif %}
             {% endif %}
-            <a href = "{{ link }}" target = "_blank" rel = "noopener">
-              <img src = "{{ image }}" alt = "" class = "su-content-grid__image" />
-              {% set title = slide.su_title.value %}
+            <a href = "{{ link }}" target = "_blank" rel = "noopener" class = "su-content-grid__link">
+              <div class = "su-content-grid__image">
+                <div style = "background-image: url('{{ image }}');" class = "su-content-grid__image__inner"></div>
+              </div>
+              {% set title = item.su_title.value %}
               {% if title %}
-                <h2>{{ title }}</h2>
+                <h2 class = "su-content-grid__title">{{ title }}</h2>
               {% endif %}
             </a>
           </div>
