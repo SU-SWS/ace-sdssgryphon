@@ -1,0 +1,19 @@
+uuid: 35d0ec86-9254-4455-9462-5a35844f006f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_title
+    - paragraphs.paragraphs_type.content_grid_item
+id: paragraph.content_grid_item.su_title
+field_name: su_title
+entity_type: paragraph
+bundle: content_grid_item
+label: Title
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
