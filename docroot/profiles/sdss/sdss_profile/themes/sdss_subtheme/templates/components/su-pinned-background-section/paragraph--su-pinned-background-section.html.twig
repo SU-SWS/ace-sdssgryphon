@@ -42,6 +42,12 @@
 {{ attach_library('sdss_subtheme/scrollreveal') }}
 {{ attach_library('sdss_subtheme/gsap') }}
 
+{% if content.su_slides['#items']|length > 1 %}
+  {% set isPinned = true %}
+{% else %}
+  {% set isPinned = false %}
+{% endif %}
+
 {%
   set classes = [
     'paragraph',
@@ -49,6 +55,7 @@
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
     'su-pinned-background-section',
+    isPinned ? 'pinned' : 'not-pinned'
   ]
 %}
 {% block paragraph %}

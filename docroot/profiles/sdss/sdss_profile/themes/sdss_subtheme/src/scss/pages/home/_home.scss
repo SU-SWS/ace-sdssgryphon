@@ -1,4 +1,4 @@
-.page-stanford-sustainability-homepage-2025, .sustainability-homepage, .page-homepage-2025 {
+.page-stanford-sustainability-homepage-2025, .sustainability-homepage, .page-homepage-2025, .sustainability-accelerator-homepage {
 
     .page-content {
         overflow: hidden;
@@ -138,7 +138,7 @@
                 @include grid-media-min('xl') {
                     padding: 0;
 
-                    min-width: 30%;
+                    min-width: 0%;
                     max-width: 30%;
 
                     div {
@@ -748,30 +748,31 @@
     }
 }
 
-.page-homepage-2025 {
+.page-homepage-2025, .sustainability-accelerator-homepage {
     .text-long {
         p {
             .su-button {
                 @include arrow-btn();
                 display: inline-block;
                 padding: 14px 23px;
-                border: 2px solid black;
-                color: black;
+                border: 2px solid #8C1515;
+                color: #8C1515;
                 font-size: 20px;
                 text-decoration: none;
+                margin-bottom: 0;
 
                 &:after {
-                    background-color: black;
+                    background-color: #8C1515;
                     width: 11px;
                     height: 11px;
                 }
 
                 &:hover {
                     text-decoration: none;
-                    color: black;
+                    color: #8C1515;
 
                     &:after {
-                        background-color: black;
+                        background-color: #8C1515;
                     }
                 }
             }
@@ -781,11 +782,16 @@
         margin: 63px 0;
 
         @include grid-media-min('md') {
-            margin: 118px 0 97px 0;
+            margin: 85px 0;
+            gap: 89px;
 
             &:has(.less-margin-top) {
-                margin-top: 38px;
+                margin-top: 0;
             }
+        }
+
+        .media {
+            margin-bottom: 0;
         }
 
         &:has(.vertical-center) {
@@ -793,6 +799,7 @@
         }
     }
     .layout-paragraphs-sdss-bgcolor--red {
+        align-items: start;
         .stanford-wysiwyg {
             padding-top: 97px;
         }
@@ -801,11 +808,11 @@
             margin-bottom: 0;
             padding-top: 0;
             padding-bottom: 63px;
+            align-items: start;
 
             @include grid-media-min('md') {
                 padding-bottom: 104px;
-                padding-top: 86px;
-                gap: 89px;
+                padding-top: 59px;
             }
 
             .stanford-wysiwyg {
@@ -818,7 +825,7 @@
                     }
 
                     img {
-                        width: 100%;
+                        max-width: 575px;
                     }
                 }
             }
@@ -826,7 +833,7 @@
         .text-long {
             p {
                 font-size: 21px;
-                line-height: 160%;
+                line-height: 150%;
                 margin-bottom: 0;
                 font-family: $su-font-sans;
                 padding-bottom: 37px;
@@ -859,6 +866,11 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+        }
+    }
+    .layout-paragraphs-sdss-bgcolor--grey {
+        .layout__region {
+            gap: 0;
         }
     }
     .paragraph-item {
