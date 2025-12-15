@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7bfb2fb116ce682a2edf38c1d167af9",
+    "content-hash": "87e75e04edf92e85edc961c3ed61b16e",
     "packages": [
         {
             "name": "acquia/blt",
@@ -17107,6 +17107,46 @@
             "time": "2025-06-27T16:45:55+00:00"
         },
         {
+            "name": "su-sws/sws-drush-commands",
+            "version": "1.x-dev",
+            "dist": {
+                "type": "path",
+                "url": "/home/joegl/repo-no-www/sws-drush-commands",
+                "reference": "db3ebce80d80fdaab6ebe9f19efe317eb042bdb1"
+            },
+            "require": {
+                "acquia/drupal-environment-detector": "^1.7",
+                "loophp/phposinfo": "~1.0",
+                "symfony/console": "^6 || ^7",
+                "typhonius/acquia-php-sdk-v2": "^3.4"
+            },
+            "conflict": {
+                "drush/drush": "<11.0"
+            },
+            "replace": {
+                "drupal/artifact_deployment": "*"
+            },
+            "type": "drupal-drush",
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\SwsDrush\\": "src/"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "SWS Drush commands.",
+            "homepage": "https://packagist.org/packages/su-sws/sws-drush-commands",
+            "support": {
+                "issues": "https://github.com/SU-SWS/sws-drush-commands/issues",
+                "source": "https://github.com/SU-SWS/sws-drush-commands"
+            },
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
+        },
+        {
             "name": "symfony/cache",
             "version": "v7.4.1",
             "source": {
@@ -27949,7 +27989,8 @@
         "drupal/views_block_filter_block": 10,
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
-        "su-sws/blt-sws": 20
+        "su-sws/blt-sws": 20,
+        "su-sws/sws-drush-commands": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
