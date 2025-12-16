@@ -7,6 +7,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.16.0] Bouldering - 2025-12-16
+
+### Added
+115436cc0 Sustainability Accelerator home page changes; new Content Grid paragraph type and fields (#712)
+
+### Changed
+115436cc0 Sustainability Accelerator home page changes; new Content Grid paragraph type and fields (#712)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+None.
+
+### Maintenance
+None.
+
+
 ## [4.15.0] Bootes - 2025-12-03
 
 ### Added

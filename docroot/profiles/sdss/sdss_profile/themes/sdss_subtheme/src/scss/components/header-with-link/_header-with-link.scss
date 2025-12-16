@@ -37,14 +37,14 @@
     &__button {
         @include arrow-btn();
         text-decoration: none !important;
-        color: #8C1515;
+        color: #8C1515 !important;
 
         .layout-paragraphs-sdss-bgcolor--red & {
             color: white;
         }
 
         &:after {
-            background-color: #8C1515;
+            background-color: #8C1515 !important;
 
             .layout-paragraphs-sdss-bgcolor--red & {
                 background-color: white;
