@@ -93,7 +93,7 @@ window.addEventListener('load', function() {
                                 start: "top top",
                                 end: end,
                                 toggleActions: "play none none none",
-                                pin: true,
+                                pin: section.classList.contains('not-pinned') ? false : true,
                                 pinSpacing: x < slides.length ? false : true // important so the next slide overlaps instead of pushing
                             }
                         });

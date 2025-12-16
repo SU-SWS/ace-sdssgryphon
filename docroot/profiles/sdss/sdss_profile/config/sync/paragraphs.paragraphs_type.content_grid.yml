@@ -1,0 +1,10 @@
+uuid: 2ac1af98-4ba9-43a2-a2be-efcdbc233edc
+langcode: en
+status: true
+dependencies: {  }
+id: content_grid
+label: 'Content Grid'
+icon_uuid: null
+icon_default: null
+description: 'A paragraph that displays a grid of linked content with images and titles, along with an optional View All button to a landing page.'
+behavior_plugins: {  }
