@@ -1,0 +1,106 @@
+uuid: 6955addf-5e53-4890-9d7d-a79bc476f020
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_content_grid_items
+    - paragraphs.paragraphs_type.content_grid
+    - paragraphs.paragraphs_type.content_grid_item
+  module:
+    - entity_reference_revisions
+id: paragraph.content_grid.su_content_grid_items
+field_name: su_content_grid_items
+entity_type: paragraph
+bundle: content_grid
+label: 'Content Grid Items'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      content_grid_item: content_grid_item
+    negate: 0
+    target_bundles_drag_drop:
+      callout_quote:
+        weight: 27
+        enabled: false
+      content_grid:
+        weight: 28
+        enabled: false
+      content_grid_item:
+        weight: 29
+        enabled: true
+      editorial_sidebar:
+        weight: 30
+        enabled: false
+      sdss_news_list_card:
+        weight: 31
+        enabled: false
+      sdss_spotlight:
+        weight: 32
+        enabled: false
+      stanford_accordion:
+        weight: 33
+        enabled: false
+      stanford_banner:
+        weight: 34
+        enabled: false
+      stanford_card:
+        weight: 35
+        enabled: false
+      stanford_entity:
+        weight: 36
+        enabled: false
+      stanford_faq:
+        weight: 37
+        enabled: false
+      stanford_gallery:
+        weight: 38
+        enabled: false
+      stanford_layout:
+        weight: 39
+        enabled: false
+      stanford_lists:
+        weight: 40
+        enabled: false
+      stanford_media_caption:
+        weight: 41
+        enabled: false
+      stanford_person_cta:
+        weight: 42
+        enabled: false
+      stanford_schedule:
+        weight: 43
+        enabled: false
+      stanford_spacer:
+        weight: 44
+        enabled: false
+      stanford_wysiwyg:
+        weight: 45
+        enabled: false
+      su_departments_slide:
+        weight: 46
+        enabled: false
+      su_departments_slider:
+        weight: 47
+        enabled: false
+      su_header_with_link:
+        weight: 48
+        enabled: false
+      su_horizontal_bar:
+        weight: 49
+        enabled: false
+      su_image_cta:
+        weight: 50
+        enabled: false
+      su_pinned_background_section:
+        weight: 51
+        enabled: false
+      su_pinned_background_slide:
+        weight: 52
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,43 @@
+uuid: 6f0f1048-909e-4af2-b327-eac21b484628
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_grid.su_content_grid_items
+    - field.field.paragraph.content_grid.su_entity_button
+    - paragraphs.paragraphs_type.content_grid
+  module:
+    - element_class_formatter
+    - entity_reference_revisions
+    - field_formatter_class
+id: paragraph.content_grid.default
+targetEntityType: paragraph
+bundle: content_grid
+mode: default
+content:
+  su_content_grid_items:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  su_entity_button:
+    type: link_class
+    label: hidden
+    settings:
+      class: su-button
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true
