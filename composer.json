@@ -68,7 +68,6 @@
     "require": {
         "php": ">=8.3",
         "ext-imagick": "*",
-        "acquia/blt": "^13.7",
         "acquia/drupal-environment-detector": "^1.0",
         "citation-style-language/locales": "1.0.0",
         "citation-style-language/styles-distribution": "1.0.0",
@@ -208,7 +207,6 @@
     },
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
-        "acquia/blt-multisite": "^1.0",
         "drupal/core-dev": "~10.5.0",
         "drupal/upgrade_status": "^4.0",
         "phpspec/prophecy-phpunit": "^2.0",
