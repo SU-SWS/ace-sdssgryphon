@@ -764,3 +764,11 @@ require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
  *
  * @link https://docs.acquia.com/blt/
  */
+
+/**
+ * IMPORTANT.
+ *
+ * Include sws-drush-commands sws.settings.php with required scaffolding for
+ * Acquia projects.
+ */
+require DRUPAL_ROOT . '/../drush/Commands/contrib/sws-drush-commands/settings/sws.settings.php';
