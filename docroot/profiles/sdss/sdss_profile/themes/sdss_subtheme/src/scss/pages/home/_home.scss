@@ -1,4 +1,4 @@
-.page-stanford-sustainability-homepage-2025, .sustainability-homepage {
+.page-stanford-sustainability-homepage-2025, .sustainability-homepage, .page-homepage-2025, .sustainability-accelerator-homepage {
 
     .page-content {
         overflow: hidden;
@@ -68,6 +68,11 @@
     .layout--layout-paragraphs-three-column.layout-paragraphs-sdss-bgcolor {
         padding-left: 0;
         padding-right: 0;
+    }
+    .layout--layout-paragraphs-one-column .layout__region {
+        @include grid-media-max('md') {
+            grid-gap: 0;
+        }
     }
     .layout--layout-paragraphs-one-column, .layout--layout-paragraphs-one-four-one, .layout--layout-paragraphs-three-column, .layout--layout-paragraphs-two-column {
         padding-bottom: 0;
@@ -142,7 +147,7 @@
                 @include grid-media-min('xl') {
                     padding: 0;
 
-                    min-width: 30%;
+                    min-width: 0%;
                     max-width: 30%;
 
                     div {
@@ -249,6 +254,39 @@
         }
     }
 
+    .layout-paragraphs-sdss-bgcolor--grey {
+        background-color: #edefef;
+        position: relative;
+        padding: 0;
+        margin: 0;
+
+        & > * {
+            &:first-child {
+                padding-top: 63px;
+                @include grid-media-min('md') {
+                    padding-top: 97px;
+                }
+            }
+
+            &:last-child {
+                padding-bottom: 63px;
+                @include grid-media-min('md') {
+                    padding-bottom: 97px;
+                }
+            }
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: -100vw;
+            width: 200vw;
+            height: 100%;
+            z-index: -1;
+            background-color: #edefef;
+        }
+    }
+
     .layout-paragraphs-sdss-bgcolor--red {
         background-color: #8C1515;
         color: white;
@@ -304,6 +342,12 @@
         .paragraph--type--stanford-wysiwyg, .su-card {
             h2, h3, p {
                 color: white;
+            }
+
+            h2 {
+                &:after {
+                    background-color: white;
+                }
             }
         }
 
@@ -708,6 +752,168 @@
                         background-color: #8C1515;
                     }
                 }
+            }
+        }
+    }
+}
+
+.page-homepage-2025, .sustainability-accelerator-homepage {
+    .text-long {
+        p {
+            .su-button {
+                @include arrow-btn();
+                display: inline-block;
+                padding: 14px 23px;
+                border: 2px solid #8C1515;
+                color: #8C1515;
+                font-size: 20px;
+                text-decoration: none;
+                margin-bottom: 0;
+
+                &:after {
+                    background-color: #8C1515;
+                    width: 11px;
+                    height: 11px;
+                }
+
+                &:hover {
+                    text-decoration: none;
+                    color: #8C1515;
+
+                    &:after {
+                        background-color: #8C1515;
+                    }
+                }
+            }
+        }
+    }
+    .field-media-image {
+        height: 100%;
+        width: auto;
+        float: none;
+
+        picture {
+            display: block;
+            height: 100%;
+            width: auto;
+
+            img {
+                display: block;
+                height: 100%;
+                width: 100%;
+                max-width: none;
+                object-fit: cover;
+                object-position: center;
+                max-width: 575px;
+            }
+        }
+    }
+    .layout--layout-paragraphs-two-column {
+        margin: 63px 0;
+
+        &:has(.less-margin-top) {
+            margin-top: 0;
+        }
+
+        @include grid-media-min('md') {
+            margin: 85px 0;
+            gap: 89px;
+
+            &:has(.less-margin-top) {
+                margin-top: 0;
+            }
+        }
+
+        .media {
+            margin-bottom: 0;
+        }
+
+        &:has(.vertical-center) {
+            align-items: center;
+        }
+    }
+    .layout-paragraphs-sdss-bgcolor--red {
+        align-items: start;
+        .stanford-wysiwyg {
+            @include grid-media-min('md') {
+                padding-top: 97px;
+            }
+        }
+        &:has(.container-no-margin-top) {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 63px;
+            align-items: start;
+
+            @include grid-media-min('md') {
+                padding-bottom: 104px;
+                padding-top: 59px;
+            }
+
+            .stanford-wysiwyg {
+                padding-top: 0;
+
+                .media {
+                    margin-bottom: 0;
+                    @include grid-media-min('md') {
+                        margin-top: -59px;
+                    }
+
+                    img {
+                        max-width: 575px;
+                    }
+                }
+            }
+        }
+        .text-long {
+            p {
+                font-size: 21px;
+                line-height: 150%;
+                margin-bottom: 0;
+                font-family: $su-font-sans;
+                padding-bottom: 37px;
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        &.layout--layout-paragraphs-sdss-two-column {
+            p {
+                .su-button {
+                    border: 2px solid white;
+                    color: white;
+
+                    &:after {
+                        background-color: white;
+                    }
+
+                    &:hover {
+                        color: white;
+
+                        &:after {
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+        .layout__region--sidebar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    .layout-paragraphs-sdss-bgcolor--grey {
+        .layout__region {
+            gap: 0;
+        }
+    }
+    .paragraph-item {
+        &:last-child {
+            margin-bottom: 97px;
+            @include grid-media-min('md') {
+                margin-bottom: 147px;
             }
         }
     }

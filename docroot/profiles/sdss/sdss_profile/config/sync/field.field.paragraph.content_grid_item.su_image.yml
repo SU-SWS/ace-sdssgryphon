@@ -1,0 +1,29 @@
+uuid: df41cf9f-0f9e-487d-9877-12c6e07c37e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_image
+    - media.type.image
+    - paragraphs.paragraphs_type.content_grid_item
+id: paragraph.content_grid_item.su_image
+field_name: su_image
+entity_type: paragraph
+bundle: content_grid_item
+label: Image
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
