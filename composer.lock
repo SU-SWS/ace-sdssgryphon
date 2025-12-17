@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c69526acdc8e0eb0d1997504d182b5a",
+    "content-hash": "11f81450d1d1fc577270bbad2fdb7bc2",
     "packages": [
         {
             "name": "acquia/drupal-environment-detector",
@@ -1153,46 +1153,6 @@
                 "source": "https://github.com/davidbarratt/custom-installer/tree/1.1.0"
             },
             "time": "2020-12-11T16:40:39+00:00"
-        },
-        {
-            "name": "davidrjonas/composer-lock-diff",
-            "version": "1.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/davidrjonas/composer-lock-diff.git",
-                "reference": "829047c7116f923486a107ae5cd7a1ba50c873ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/davidrjonas/composer-lock-diff/zipball/829047c7116f923486a107ae5cd7a1ba50c873ad",
-                "reference": "829047c7116f923486a107ae5cd7a1ba50c873ad",
-                "shasum": ""
-            },
-            "bin": [
-                "composer-lock-diff"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Jonas",
-                    "homepage": "https://github.com/davidrjonas"
-                }
-            ],
-            "description": "See what has changed after a composer update.",
-            "support": {
-                "issues": "https://github.com/davidrjonas/composer-lock-diff/issues",
-                "source": "https://github.com/davidrjonas/composer-lock-diff/tree/1.7.1"
-            },
-            "time": "2025-01-24T05:58:02+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -16481,50 +16441,6 @@
             "time": "2024-09-26T16:19:13+00:00"
         },
         {
-            "name": "su-sws/blt-sws",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SU-SWS/blt-sws.git",
-                "reference": "a3f0fa520bed7dccb9f218eb39afa0467aecb914"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/blt-sws/zipball/a3f0fa520bed7dccb9f218eb39afa0467aecb914",
-                "reference": "a3f0fa520bed7dccb9f218eb39afa0467aecb914",
-                "shasum": ""
-            },
-            "require": {
-                "davidrjonas/composer-lock-diff": "^1.0@dev",
-                "typhonius/acquia-php-sdk-v2": "^2.0 ||^3.0"
-            },
-            "replace": {
-                "acquia/blt-drupal-test": "1.0.0",
-                "acquia/blt-simplesamlphp": "1.0.0"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Sws\\BltSws\\": "./src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "BLT Plugin commands",
-            "keywords": [
-                "acquia",
-                "blt"
-            ],
-            "support": {
-                "issues": "https://github.com/SU-SWS/blt-sws/issues",
-                "source": "https://github.com/SU-SWS/blt-sws/tree/main"
-            },
-            "time": "2025-03-13T20:58:48+00:00"
-        },
-        {
             "name": "su-sws/ckeditor5_plugins",
             "version": "1.0.3",
             "source": {
@@ -27505,7 +27421,6 @@
         "drupal/views_block_filter_block": 10,
         "drupal/webp": 10,
         "onlyextart/colorbox": 20,
-        "su-sws/blt-sws": 20,
         "su-sws/sws-drush-commands": 20
     },
     "prefer-stable": true,
