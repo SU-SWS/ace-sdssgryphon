@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87e75e04edf92e85edc961c3ed61b16e",
+    "content-hash": "b2c9f7a345ba35f38e59f293f5cad57b",
     "packages": [
         {
             "name": "acquia/blt",
@@ -17109,10 +17109,16 @@
         {
             "name": "su-sws/sws-drush-commands",
             "version": "1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SU-SWS/sws-drush-commands.git",
+                "reference": "6d26647171b8759abeada867dd5250094396b30c"
+            },
             "dist": {
-                "type": "path",
-                "url": "/home/joegl/repo-no-www/sws-drush-commands",
-                "reference": "db3ebce80d80fdaab6ebe9f19efe317eb042bdb1"
+                "type": "zip",
+                "url": "https://api.github.com/repos/SU-SWS/sws-drush-commands/zipball/6d26647171b8759abeada867dd5250094396b30c",
+                "reference": "6d26647171b8759abeada867dd5250094396b30c",
+                "shasum": ""
             },
             "require": {
                 "acquia/drupal-environment-detector": "^1.7",
@@ -17126,12 +17132,14 @@
             "replace": {
                 "drupal/artifact_deployment": "*"
             },
+            "default-branch": true,
             "type": "drupal-drush",
             "autoload": {
                 "psr-4": {
                     "Drupal\\SwsDrush\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -17141,10 +17149,7 @@
                 "issues": "https://github.com/SU-SWS/sws-drush-commands/issues",
                 "source": "https://github.com/SU-SWS/sws-drush-commands"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
+            "time": "2025-10-21T16:37:53+00:00"
         },
         {
             "name": "symfony/cache",

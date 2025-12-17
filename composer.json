@@ -63,13 +63,6 @@
                     "type": "zip"
                 }
             }
-        },
-        {
-            "type": "path",
-            "url": "~/repo-no-www/sws-drush-commands",
-            "options": {
-                "symlink": true
-            }
         }
     ],
     "require": {
@@ -211,7 +204,7 @@
         "su-sws/stanford_migrate": "^8.3",
         "su-sws/stanford_samlauth": "^1.0",
         "su-sws/stanford_syndication": "^1.0",
-        "su-sws/sws-drush-commands": "@dev"
+        "su-sws/sws-drush-commands": "1.x-dev"
     },
     "require-dev": {
         "acquia/blt-drupal-test": "^1.0",
