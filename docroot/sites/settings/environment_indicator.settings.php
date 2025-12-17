@@ -1,6 +1,6 @@
 <?php
 
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Drupal\SwsDrush\Helpers\EnvironmentDetector;
 
 $config['environment_indicator.indicator']['bg_color'] = '#086601';
 $config['environment_indicator.indicator']['fg_color'] = '#fff';

@@ -7,7 +7,7 @@
  * These settings are applied to all sites on the multi-site.
  */
 
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Drupal\SwsDrush\Helpers\EnvironmentDetector;
 
 // When the encryption environment variable is not provided (local/ci/etc),
 // fake the encryption string so that the site doesn't break.
