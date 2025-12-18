@@ -151,7 +151,7 @@
             width: 100%;
             position: relative;
             pointer-events: none;
-            z-index: 100;
+            z-index: 99;
             will-change: transform, opacity;
             transform: translateZ(0);            /* create a new layer */
             backface-visibility: hidden;
