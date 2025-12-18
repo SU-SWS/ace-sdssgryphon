@@ -38,7 +38,7 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('drush/drush.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Run Unit Tests
         run: |
           git config --system --add safe.directory '*' &&
@@ -89,7 +89,7 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('drush/drush.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Increase MySQL max_allowed_packet
         run: mysql -h mysql -P 3306 -u root -pdrupal -e 'SET GLOBAL max_allowed_packet=67108864;'
       - name: Install Site
