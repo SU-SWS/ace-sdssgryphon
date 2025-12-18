@@ -42,6 +42,12 @@
 {{ attach_library('sdss_subtheme/scrollreveal') }}
 {{ attach_library('sdss_subtheme/gsap') }}
 
+{% if content.su_slides['#items']|length > 1 %}
+  {% set isPinned = true %}
+{% else %}
+  {% set isPinned = false %}
+{% endif %}
+
 {%
   set classes = [
     'paragraph',
@@ -49,6 +55,7 @@
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
     'su-pinned-background-section',
+    isPinned ? 'pinned' : 'not-pinned'
   ]
 %}
 {% block paragraph %}
@@ -83,7 +90,7 @@
               {% if title %}
                 <h2 class = "{% if slide.su_title_size.value %}{{ slide.su_title_size.value }}{% endif %}">{{ title }}</h2>
               {% endif %}
-              <div>{{ slide.su_wysiwyg_text.value|raw }}</div>
+              <div class = "su-pinned-slide__inner__body">{{ slide.su_wysiwyg_text.value|raw }}</div>
               {% set button = slide.su_entity_button.0 %}
               {% if button %}
                 {% if button.url.external %}

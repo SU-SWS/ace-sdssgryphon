@@ -17,7 +17,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        @media (min-height: 601px) {
+        @media (min-height: 601px) and (min-width: 601px) {
             background-attachment: fixed;
         }
 
@@ -151,7 +151,7 @@
             width: 100%;
             position: relative;
             pointer-events: none;
-            z-index: 100;
+            z-index: 99;
             will-change: transform, opacity;
             transform: translateZ(0);            /* create a new layer */
             backface-visibility: hidden;
@@ -257,13 +257,22 @@
                 }
             }
 
-            p {
-                font-size: 21px;
-                max-width: 650px;
-
-                &:last-child {
-                    margin-bottom: 29px;
+            &__body {
+                &:empty {
+                    display: block;
+                    height: 1px;
+                    margin-bottom: 15px;
                 }
+
+                p {
+                    font-size: 21px;
+                    max-width: 650px;
+
+                    &:last-child {
+                        margin-bottom: 29px;
+                    }
+                }
+
             }
         }
 

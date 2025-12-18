@@ -1,0 +1,10 @@
+uuid: b35979f2-7cae-42d1-8c40-bb5b028ea279
+langcode: en
+status: true
+dependencies: {  }
+id: content_grid_item
+label: 'Content Grid Item'
+icon_uuid: null
+icon_default: null
+description: 'The individual items in the content grid, which include an image, a link, and a title.'
+behavior_plugins: {  }

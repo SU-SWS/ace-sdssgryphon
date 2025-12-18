@@ -104,10 +104,11 @@ class ParagraphRestrictionsSubscriber implements EventSubscriberInterface {
       'su_departments_slider',
       'su_horizontal_bar',
       'su_header_with_link',
+      'content_grid',
     ];
 
     // Unset paragraph types if not on the Sustainability site.
-    if ($this->isSustainabilitySite() === FALSE) {
+    if ($this->isAllowedSite() === FALSE) {
       $types = $this->unsetParagraphTypes($event->getTypes(), $sustainability_home_paragraphs);
       $event->setTypes($types);
       return;
@@ -138,10 +139,11 @@ class ParagraphRestrictionsSubscriber implements EventSubscriberInterface {
    * @return bool
    *   TRUE if the site is 'sustainability', FALSE otherwise.
    */
-  protected function isSustainabilitySite(): bool {
+  protected function isAllowedSite(): bool {
     $site_path = \Drupal::getContainer()->getParameter('site.path');
     $site_name = basename($site_path);
-    return $site_name === 'sustainability';
+    $acceptable_sites = ['sustainability', 'sustainability_accelerator'];
+    return in_array($site_name, $acceptable_sites);
   }
 
 }

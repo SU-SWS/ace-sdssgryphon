@@ -1,0 +1,45 @@
+uuid: f0158943-8bf7-4782-ba11-79a713f67249
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_grid.su_content_grid_items
+    - field.field.paragraph.content_grid.su_entity_button
+    - paragraphs.paragraphs_type.content_grid
+  module:
+    - link
+    - paragraphs
+id: paragraph.content_grid.default
+targetEntityType: paragraph
+bundle: content_grid
+mode: default
+content:
+  su_content_grid_items:
+    type: paragraphs
+    weight: 5
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  su_entity_button:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -84,8 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         lastFocusedElement = e.target;
+        
+        let href = e.target.getAttribute('href') ? e.target.getAttribute('href') : e.currentTarget.getAttribute('href');
 
-        let videoInit = e.target.getAttribute('href').split('&type=');
+        href = href.replace(/&amp;/g, '&');
+
+        let videoInit = href.split('&type=');
         let videoType = videoInit[1];
         let videoParams = videoInit[0].split('#video?video-id=')[1];
         let videoID, videoHash;
