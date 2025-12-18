@@ -101,12 +101,12 @@ jobs:
           apachectl stop &&
           apachectl start &&
           composer install -n &&
-          blt drupal:install -n &&
+          drush sws:multisite:install -n &&
           drush role:perm:add anonymous 'access content' &&
           drush xmlsitemap:rebuild &&
           mkdir -p artifacts/_data/
       - name: Run tests
-        run: blt codeception --suite=${{ matrix.suite }}
+        run: drush sws:codeception --suite=${{ matrix.suite }}
       - name: Save Test Results
         uses: actions/upload-artifact@v4
         if: always()
