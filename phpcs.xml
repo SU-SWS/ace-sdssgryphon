@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Stanford Project Standard" namespace="Stanford\project\CS\Standard">
-  <description>BLT PHP_CodeSniffer standards overrides.</description>
+<ruleset name="SDSS CodeSniffer configuration" namespace="Sdss\project\CS\Standard">
+  <description>PHP CodeSniffer configuration.</description>
 
   <config name="installed_paths" value="../../drupal/coder/coder_sniffer/,../../sirbrillig/phpcs-variable-analysis/,../../slevomat/coding-standard/" />
 

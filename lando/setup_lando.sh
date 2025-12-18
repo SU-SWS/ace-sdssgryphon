@@ -11,7 +11,6 @@ try cp lando/example.env .env
 try cp lando/example.lando.yml .lando.yml
 try cp lando/example.local.config.php simplesamlphp/config/local.config.php
 try cp lando/example.php.ini lando/php.ini
-try cp lando/example.local.blt.yml blt/local.blt.yml
 try cp docroot/sites/default/settings/default.local.settings.php docroot/sites/default/settings/local.settings.php
 try cp docroot/sites/sustainability/settings/default.local.settings.php docroot/sites/sustainability/settings/local.settings.php
 try cp lando/example.local.sites.php docroot/sites/local.sites.php

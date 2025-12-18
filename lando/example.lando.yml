@@ -60,9 +60,6 @@ services:
   #   type: nginx
   #   webroot: artifacts
 tooling:
-  blt:
-    service: appserver
-    cmd: /app/vendor/bin/blt
   git:
     service: appserver
   phpcs:

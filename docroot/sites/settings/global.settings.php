@@ -77,9 +77,6 @@ if (!EnvironmentDetector::isAhProdEnv()) {
 
 /**
  * Include settings files in docroot/sites/settings.
- *
- * If instead you want to add settings to a specific site, see BLT's includes
- * file in docroot/sites/{site-name}/settings/default.includes.settings.php.
  */
 $additionalSettingsFiles = [
   __DIR__ . '/config.settings.php',
