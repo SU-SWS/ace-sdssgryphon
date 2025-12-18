@@ -368,20 +368,11 @@
         "post-drupal-scaffold-cmd": [
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/htaccess.patch",
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/robotstxt.patch"
-        ],
-        "init-stack": [
-            "vendor/bin/blt blt:telemetry:disable --no-interaction",
-            "vendor/bin/blt blt:init:settings",
-            "vendor/bin/blt sws:keys",
-            "vendor/bin/blt recipes:aliases:init:acquia"
-        ],
-        "sync-sustainability": [
-            "vendor/bin/blt drupal:sync --site=sustainability"
         ]
     },
     "autoload": {
         "psr-4": {
-            "Gryphon\\": "blt/src/",
+            "Drupal\\SdssDrush\\": "drush/Commands/sdss/src",
             "Drupal\\sdss_profile\\": "docroot/profiles/sdss/sdss_profile/src/"
         }
     },

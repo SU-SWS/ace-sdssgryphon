@@ -1,7 +1,6 @@
 <?php
 
-namespace Drush\Commands\sdss;
-
+namespace Drupal\SdssDrush\Drush\Commands;
 
 use Drush\Commands\DrushCommands;
 use Drupal\SwsDrush\Drush\Commands\SwsCommandsTrait;
