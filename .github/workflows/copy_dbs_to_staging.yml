@@ -35,7 +35,7 @@ jobs:
         run: |
           composer install -n &&
           if [ -n "${{ github.event.inputs.exclude }}" ]; then
-            blt stage --no-interaction --exclude="${{ github.event.inputs.exclude }}"
+            drush sws:drupal:sync-stage -n --exclude="${{ github.event.inputs.exclude }}"
           else
-            blt stage --no-interaction
+            drush sws:drupal:sync-stage -n
           fi

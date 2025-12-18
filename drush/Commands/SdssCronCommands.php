@@ -1,28 +1,34 @@
 <?php
 
-namespace Drupal\SdssDrush\Drush\Commands;
+declare(strict_types=1);
 
+namespace Drush\Commands;
+
+use Drush\Boot\DrupalBootLevels;
 use Drush\Commands\DrushCommands;
 use Drupal\SwsDrush\Drush\Commands\SwsCommandsTrait;
+use Drush\Attributes as CLI;
 
+/**
+ * SDSS drush commands for triggering cron on multisites.
+ */
+#[CLI\Bootstrap(level: DrupalBootLevels::NONE)]
+final class SdssCronCommands extends DrushCommands {
 
-class SdssCronCommands extends DrushCommands {
   use SwsCommandsTrait;
 
   /**
    * Run the Drupal cron on all multisites.
-   *
-   * @command sdss:drupal:cron
    */
+  #[CLI\Command(name: 'sdss:drupal:cron')]
   public function cron() {
     $this->runCronForAllSites('cron', 'Drupal cron');
   }
 
   /**
    * Run the Drupal Scheduler cron on all multisites to publish/unpublish nodes.
-   *
-   * @command sdss:drupal:cron:scheduler
    */
+  #[CLI\Command(name: 'sdss:drupal:cron:scheduler')]
   public function cronScheduler() {
     $this->runCronForAllSites('cron:run scheduler_cron', 'Scheduler cron');
   }
