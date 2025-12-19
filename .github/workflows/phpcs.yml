@@ -18,7 +18,7 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('drush/drush.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Run PHPCS
         run: |
           composer install -n &&

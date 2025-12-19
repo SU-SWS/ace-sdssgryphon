@@ -6,7 +6,7 @@
 ## Introduction
 This document will walk through provisioning a new site on the SDSS Acquia application. A few quick notes:
 
-- BLT/Acquia use "test" as the name for the "stage" environment in code.
+- Acquia use "test" as the name for the "stage" environment in code.
 - Placeholders in example code are in `ALL_CAPS` and meant to be replaced with the relevant data. 
   - **`URL_ALIAS`** refers to the name of the site in the URL and is used in URLs and domain names (e.g., `my-site`).
   - **`MACHINE_NAME`** refers to the name of the site in the code and is used in code and database naming (e.g., `my_site`).
@@ -63,7 +63,7 @@ sustainability-prod
 ### Ensure stack is setup locally with latest repo and access to ACQUIA
 
 #### Ensure you are working off the most recent release branch
-Get the latest default branch code. This is important because BLT uses the local repo multi-site definition to run its commands. If you don’t have the latest code with all of the current multi-site definitions, the BLT steps may fail.
+Get the latest default branch code. This is important because drush uses the local repo multi-site definition to run its commands. If you don’t have the latest code with all of the current multi-site definitions, the drush steps may fail.
 
 - E.g., `git checkout 4.x && git fetch && git pull`
 
@@ -78,19 +78,17 @@ Get the latest default branch code. This is important because BLT uses the local
 - E.g., `git checkout -b SDSS-123-124-125--provision-3-sites`
 
 ### Add the new domains to each of the ACQUIA environments
-> :bulb: **Note:** The following blt commands are issued locally but are running remote actions on ACQUIA to setup the hosting/server.
+If you have [ACLI](https://docs.acquia.com/acquia-cloud-platform/add-ons/acquia-cli/acquia-cli-installation) installed you can use [ACLI Domain Create](https://docs.acquia.com/acquia-cloud-platform/add-ons/acquia-cli/commands/api:environments:domain-create). Otherwise, follow the Acquia UI steps below.
 
 ```
-blt gryphon:add-domain dev URL_ALIAS-dev.stanford.edu
-blt gryphon:add-domain test URL_ALIAS-test.stanford.edu
-blt gryphon:add-domain prod URL_ALIAS-prod.stanford.edu
+acli api:environments:domain-create <dev-environmentId> URL_ALIAS-dev.stanford.edu
+acli api:environments:domain-create <test-environmentId> URL_ALIAS-test.stanford.edu
+acli api:environments:domain-create <prod-environmentId> URL_ALIAS-prod.stanford.edu
 ```
 
-> :bulb: **Note:** If provisioning multiple sites at the same time you can add multiple domains to an environment in one command: E.g., `blt gryphon:add-domain dev URL_ALIAS-dev.stanford.edu, URL_ALIAS2-dev.stanford.edu`
-
-#### (Alternative) Add the new domains to each of the ACQUIA environments 
-If the blt command does not work you can add the domains to each environment using the [Acquia dashboard](https://cloud.acquia.com/a/develop/all) and the steps below. 
-
+#### Acquia UI Steps
+- Open the the [Acquia dashboard](https://cloud.acquia.com/a/develop/all)
+- Select the SDSS Gryphon application
 - Click the relevant environment (dev, test or prod) to open it.
 - Click the "Domain Management" navigation item.
 - Click the "Add Domain" button.
@@ -98,33 +96,31 @@ If the blt command does not work you can add the domains to each environment usi
     - E.g., `URL_ALIAS-dev.stanford.edu` on the dev environment.
 - Repeat for each environment and domain.
 
-### Create a new database in the ACQUIA dashboard
-Create a new database in the [Acquia dashboard](https://cloud.acquia.com/a/develop/all) using the machine name. 
+### Create a new database
+> :bulb: **Note:** A database only needs to be created once at the application level. Acquia will handle creating the database for all 3 environments automatically.
 
+If you have [ACLI](https://docs.acquia.com/acquia-cloud-platform/add-ons/acquia-cli/acquia-cli-installation) installed you can use [ACLI Database Create](https://docs.acquia.com/acquia-cloud-platform/add-ons/acquia-cli/commands/api:applications:database-create). Otherwise, follow the Acquia UI steps below.
+
+```
+acli api:applications:database-create <applicationUuid> <datbase_name>
+```
+
+#### Acquia UI Steps
+- Open the the [Acquia dashboard](https://cloud.acquia.com/a/develop/all)
+- Select the SDSS Gryphon application
 - Select any environment (dev/test/prod).
 - Click the "Databases" navigation item.
 - Click the Add Database button.
 - Use the machine name as the database name and save.
-- The database will be created for all 3 environments automatically -- only need to do this once on any environment.
 
 ### Create Site Directory and settings
 
 #### Run multi-site initialization command to add a new site
 
-Run `blt recipes:multisite:init`
-
-Enter the following when prompted:
-- **Site machine name (e.g. 'example'):** The machine name (with underscores)
-    - E.g., `my_site`
-- **Local domain name:** Use default (leave blank / hit enter)
-- **Would you like to configure the local database credentials? (y/n):** n
-- **Default remote drush alias:** The machine name (with underscores) followed by .prod (not .remote!)
-    - E.g., `my_site.prod`
-- **Default local drush alias:** Use default (leave blank / hit enter)
-- **Would you like to create the database on Acquia now? (y/n):** n
+Run `sws:multisite:new-site <machine_name>`
 
 #### Verify the new site was set up correctly
-Check the multisites array in the [`blt/blt.yml`](../blt/blt.yml) file for the new site(s).
+Check the multisites array in the [`drush/drush.yml`](../drush/drush.yml) file for the new site(s).
 - The new site should be there under `multisites:`.
 Check the drush aliases files for the new site(s) in `drush/sites`.
 

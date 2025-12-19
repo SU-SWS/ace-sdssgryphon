@@ -1,0 +1,3 @@
+site:
+  profile: sdss_profile
+  remote-alias: sdss_config_capture.prod
