@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11f81450d1d1fc577270bbad2fdb7bc2",
+    "content-hash": "7e0deb076ce07ebd5c42dcd625bd2c93",
     "packages": [
         {
             "name": "acquia/drupal-environment-detector",
@@ -16770,16 +16770,10 @@
         {
             "name": "su-sws/sws-drush-commands",
             "version": "1.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SU-SWS/sws-drush-commands.git",
-                "reference": "6d26647171b8759abeada867dd5250094396b30c"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SU-SWS/sws-drush-commands/zipball/6d26647171b8759abeada867dd5250094396b30c",
-                "reference": "6d26647171b8759abeada867dd5250094396b30c",
-                "shasum": ""
+                "type": "path",
+                "url": "/home/joegl/repo-no-www/sws-drush-commands",
+                "reference": "5ecdf16890516e43c13779f5cde7fa253ab09e0c"
             },
             "require": {
                 "acquia/drupal-environment-detector": "^1.7",
@@ -16793,14 +16787,12 @@
             "replace": {
                 "drupal/artifact_deployment": "*"
             },
-            "default-branch": true,
             "type": "drupal-drush",
             "autoload": {
                 "psr-4": {
                     "Drupal\\SwsDrush\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -16810,20 +16802,23 @@
                 "issues": "https://github.com/SU-SWS/sws-drush-commands/issues",
                 "source": "https://github.com/SU-SWS/sws-drush-commands"
             },
-            "time": "2025-10-21T16:37:53+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "symfony/cache",
-            "version": "v7.4.1",
+            "version": "v7.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "21e0755783bbbab58f2bb6a7a57896d21d27a366"
+                "reference": "642117d18bc56832e74b68235359ccefab03dd11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/21e0755783bbbab58f2bb6a7a57896d21d27a366",
-                "reference": "21e0755783bbbab58f2bb6a7a57896d21d27a366",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/642117d18bc56832e74b68235359ccefab03dd11",
+                "reference": "642117d18bc56832e74b68235359ccefab03dd11",
                 "shasum": ""
             },
             "require": {
@@ -16894,7 +16889,7 @@
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v7.4.1"
+                "source": "https://github.com/symfony/cache/tree/v7.4.3"
             },
             "funding": [
                 {
@@ -16914,7 +16909,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-04T18:11:45+00:00"
+            "time": "2025-12-28T10:45:24+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -16994,16 +16989,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.4.30",
+            "version": "v6.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "1b2813049506b39eb3d7e64aff033fd5ca26c97e"
+                "reference": "f9f8a889f54c264f9abac3fc0f7a371ffca51997"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/1b2813049506b39eb3d7e64aff033fd5ca26c97e",
-                "reference": "1b2813049506b39eb3d7e64aff033fd5ca26c97e",
+                "url": "https://api.github.com/repos/symfony/console/zipball/f9f8a889f54c264f9abac3fc0f7a371ffca51997",
+                "reference": "f9f8a889f54c264f9abac3fc0f7a371ffca51997",
                 "shasum": ""
             },
             "require": {
@@ -17068,7 +17063,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.4.30"
+                "source": "https://github.com/symfony/console/tree/v6.4.31"
             },
             "funding": [
                 {
@@ -17088,7 +17083,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-12-05T13:47:41+00:00"
+            "time": "2025-12-22T08:30:34+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -19034,16 +19029,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v6.4.26",
+            "version": "v6.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "48bad913268c8cafabbf7034b39c8bb24fbc5ab8"
+                "reference": "8541b7308fca001320e90bca8a73a28aa5604a6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/48bad913268c8cafabbf7034b39c8bb24fbc5ab8",
-                "reference": "48bad913268c8cafabbf7034b39c8bb24fbc5ab8",
+                "url": "https://api.github.com/repos/symfony/process/zipball/8541b7308fca001320e90bca8a73a28aa5604a6e",
+                "reference": "8541b7308fca001320e90bca8a73a28aa5604a6e",
                 "shasum": ""
             },
             "require": {
@@ -19075,7 +19070,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v6.4.26"
+                "source": "https://github.com/symfony/process/tree/v6.4.31"
             },
             "funding": [
                 {
@@ -19095,7 +19090,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-09-11T09:57:09+00:00"
+            "time": "2025-12-15T19:26:35+00:00"
         },
         {
             "name": "symfony/psr-http-message-bridge",
