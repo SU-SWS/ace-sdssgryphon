@@ -49,7 +49,7 @@ This document outlines the steps required to retire an existing site from the SD
   ```bash
   git checkout -b SDSS-XXXX--retire-SITE_MACHINE_NAME
   ```
-- Remove site from the BLT multisite array in [`blt/blt.yml`](../blt/blt.yml).
+- Remove site from the multisite array in [`drush/drush.yml`](../drush/drush.yml).
 - Remove site directories:
   ```bash
   git rm -r docroot/sites/SITE_MACHINE_NAME

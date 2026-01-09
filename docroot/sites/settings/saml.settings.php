@@ -5,7 +5,7 @@
  * SAML config settings.
  */
 
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Drupal\SwsDrush\Helpers\EnvironmentDetector;
 
 // SimpleSAMLphp configuration
 // Set the workgroup api cert paths.

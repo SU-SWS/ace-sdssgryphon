@@ -1,6 +1,0 @@
-project:
-  machine_name: ace-sdssgryphon
-drush:
-  aliases:
-    local: self
-    remote: ace-sdssgryphon.test

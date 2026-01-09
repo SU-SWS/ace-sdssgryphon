@@ -5,7 +5,7 @@
  * Contains any config overrides.
  */
 
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Drupal\SwsDrush\Helpers\EnvironmentDetector;
 
 if (!EnvironmentDetector::isProdEnv()) {
   // Turn off domain_301_redirect on non-production environments.
