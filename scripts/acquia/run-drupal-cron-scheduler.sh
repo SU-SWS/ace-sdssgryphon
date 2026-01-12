@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run the Drupal Scheduler Cron on all sites on the multi-site using blt.
+# Run the Drupal Scheduler Cron on all sites on the multi-site.
 # Usage: ./run-drupal-cron-scheduler.sh [dev|test|prod]
 # Defaults to 'test' if no environment is provided.
 
