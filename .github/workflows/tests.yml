@@ -102,8 +102,8 @@ jobs:
           apachectl start &&
           composer install -n &&
           drush sws:multisite:install -n &&
-          drush role:perm:add anonymous 'access content' &&
           drush xmlsitemap:rebuild &&
+          drush cr &&
           mkdir -p artifacts/_data/
       - name: Run tests
         run: drush sws:codeception --suite=${{ matrix.suite }} --site-domain=localhost

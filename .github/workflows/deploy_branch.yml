@@ -44,4 +44,4 @@ jobs:
           git config --global user.name "Github Actions" &&
           ssh-keyscan -t rsa svn-23450.prod.hosting.acquia.com >> /root/.ssh/known_hosts &&
           composer install -n &&
-          blt deploy -v -n
+          drush sws:artifact:deploy -v -n
