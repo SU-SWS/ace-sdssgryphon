@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e0deb076ce07ebd5c42dcd625bd2c93",
+    "content-hash": "335eed7ba331cedbee9c5f9c18950ef6",
     "packages": [
         {
             "name": "acquia/drupal-environment-detector",
@@ -16769,11 +16769,17 @@
         },
         {
             "name": "su-sws/sws-drush-commands",
-            "version": "1.x-dev",
+            "version": "dev-multisite-improvements",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SU-SWS/sws-drush-commands.git",
+                "reference": "b09d3792becfeb5564a76e0f3ad61a79648cfb0c"
+            },
             "dist": {
-                "type": "path",
-                "url": "/home/joegl/repo-no-www/sws-drush-commands",
-                "reference": "5ecdf16890516e43c13779f5cde7fa253ab09e0c"
+                "type": "zip",
+                "url": "https://api.github.com/repos/SU-SWS/sws-drush-commands/zipball/b09d3792becfeb5564a76e0f3ad61a79648cfb0c",
+                "reference": "b09d3792becfeb5564a76e0f3ad61a79648cfb0c",
+                "shasum": ""
             },
             "require": {
                 "acquia/drupal-environment-detector": "^1.7",
@@ -16793,6 +16799,7 @@
                     "Drupal\\SwsDrush\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -16802,10 +16809,7 @@
                 "issues": "https://github.com/SU-SWS/sws-drush-commands/issues",
                 "source": "https://github.com/SU-SWS/sws-drush-commands"
             },
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
+            "time": "2026-01-12T20:24:13+00:00"
         },
         {
             "name": "symfony/cache",
