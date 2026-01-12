@@ -29,7 +29,7 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('drush/drush.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -44,4 +44,4 @@ jobs:
           git config --global user.name "Github Actions" &&
           ssh-keyscan -t rsa svn-23450.prod.hosting.acquia.com >> /root/.ssh/known_hosts &&
           composer install -n &&
-          blt deploy -v -n
+          drush sws:artifact:deploy -v -n

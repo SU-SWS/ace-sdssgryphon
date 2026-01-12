@@ -15,7 +15,7 @@ git config core.fileMode false
 ## Scripts
 
 ### run-drupal-cron.sh
-Runs Drupal cron on all multisites using BLT. This should be scheduled regularly to ensure all sites perform routine maintenance tasks. 
+Runs Drupal cron on all multisites using Drush. This should be scheduled regularly to ensure all sites perform routine maintenance tasks.
 
 **Usage:**
 ```bash
@@ -24,7 +24,7 @@ Runs Drupal cron on all multisites using BLT. This should be scheduled regularly
 If no environment is provided, defaults to `test`.
 
 ### run-drupal-cron-scheduler.sh
-Runs the Drupal Scheduler cron on all multisites using BLT. This triggers any scheduled content publishing or unpublishing tasks and should be run more frequently than the standard cron.
+Runs the Drupal Scheduler cron on all multisites using Drush. This triggers any scheduled content publishing or unpublishing tasks and should be run more frequently than the standard cron.
 
 **Usage:**
 ```bash
