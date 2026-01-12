@@ -11,4 +11,4 @@ if [[ ! "$ENVIRONMENT" =~ ^(dev|test|prod)$ ]]; then
   exit 1
 fi
 cd /var/www/html/stanfordsos.$ENVIRONMENT
-vendor/bin/blt sdss:drupal:cron
+drush sdss:drupal:cron
