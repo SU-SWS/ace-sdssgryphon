@@ -21,6 +21,6 @@ cd $repo_root
 
 # Run the command to run deploy hooks, including updating the database and
 # importing configuration on the site.
-drush deploy --uri=$site
+drush deploy --uri=$db_name
 
 set +v
