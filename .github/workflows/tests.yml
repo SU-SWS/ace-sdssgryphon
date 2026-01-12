@@ -106,7 +106,7 @@ jobs:
           drush xmlsitemap:rebuild &&
           mkdir -p artifacts/_data/
       - name: Run tests
-        run: drush sws:codeception --suite=${{ matrix.suite }}
+        run: drush sws:codeception --suite=${{ matrix.suite }} --site-domain=localhost
       - name: Save Test Results
         uses: actions/upload-artifact@v4
         if: always()

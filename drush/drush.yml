@@ -22,6 +22,7 @@ command:
       sync-files:
         - /mnt/gfs/stanfordsos.test/nobackup/apikeys/
         - /mnt/gfs/stanfordsos.test/secrets.settings.php
+      test-dir: docroot/profiles/sdss/sdss_profile/tests/codeception
       multisites:
         - abc_hub
         - bitsandwatts
