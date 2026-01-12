@@ -5,11 +5,11 @@ There are a few options for setting up a local environment. Please note that not
 - Instructions are below.
 
 **Lando**
-- https://docs.acquia.com/blt/install/alt-env/lando/
+- https://docs.lando.dev/getting-started/
 - Instructions are in the [Lando README](../lando/README.md).
 
 **DDEV**
-- https://docs.acquia.com/blt/install/alt-env/ddev/
+- https://docs.ddev.com/en/stable/
 - Instructions are in the [DDEV README](../.ddev/README.md)
 
 ## Native LAMP Stack
