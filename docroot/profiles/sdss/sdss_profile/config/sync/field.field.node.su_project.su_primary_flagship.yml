@@ -1,0 +1,31 @@
+uuid: 3724832f-d997-47fa-9ad7-b835f4bed8eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_primary_flagship
+    - node.type.su_project
+    - taxonomy.vocabulary.su_project_flagships
+  module:
+    - entity_reference_revisions
+id: node.su_project.su_primary_flagship
+field_name: su_primary_flagship
+entity_type: node
+bundle: su_project
+label: 'Primary Flagship'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      su_project_flagships: su_project_flagships
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

@@ -1,0 +1,132 @@
+uuid: d6716c44-1433-450f-8ced-7a148cab1673
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.su_project.su_description
+    - field.field.node.su_project.su_featured_image
+    - field.field.node.su_project.su_featured_image_caption
+    - field.field.node.su_project.su_flagships
+    - field.field.node.su_project.su_primary_flagship
+    - field.field.node.su_project.su_project_content
+    - field.field.node.su_project.su_project_impact_pathway
+    - field.field.node.su_project.su_stanford_users
+    - field.field.node.su_project.su_status
+    - field.field.node.su_project.su_topics
+    - field.field.node.su_project.su_year
+    - node.type.su_project
+  module:
+    - entity_reference_revisions
+    - link
+    - options
+    - text
+    - user
+id: node.su_project.default
+targetEntityType: node
+bundle: su_project
+mode: default
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  su_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  su_featured_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  su_featured_image_caption:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  su_flagships:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  su_primary_flagship:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  su_project_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  su_project_impact_pathway:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  su_stanford_users:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  su_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  su_topics:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  su_year:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

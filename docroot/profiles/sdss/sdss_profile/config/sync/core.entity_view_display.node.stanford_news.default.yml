@@ -184,6 +184,27 @@ third_party_settings:
           centered: centered-container
           columns: default
         components:
+          05c3062a-6e09-4b3b-b8f9-fa797362fb67:
+            uuid: 05c3062a-6e09-4b3b-b8f9-fa797362fb67
+            region: main
+            configuration:
+              id: 'field_block:node:stanford_news:su_news_banner_media_caption'
+              label: 'Banner Media Caption'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings:
+                  field_formatter_class:
+                    class: su-news-banner-media-caption
+            weight: -8
+            additional: {  }
           c67c266b-204c-4ca8-aff9-715a5cdf2ff8:
             uuid: c67c266b-204c-4ca8-aff9-715a5cdf2ff8
             region: main
@@ -215,28 +236,6 @@ third_party_settings:
                   field_formatter_class:
                     class: su-news-banner
             weight: -9
-            additional: {  }
-          8b2be1f0-f377-40c2-b78d-c8fd78c95896:
-            uuid: 8b2be1f0-f377-40c2-b78d-c8fd78c95896
-            region: main
-            configuration:
-              id: 'field_block:node:stanford_news:su_sdss_news_banner_caption'
-              label: 'Banner Caption (Long)'
-              label_display: '0'
-              provider: layout_builder
-              context_mapping:
-                entity: layout_builder.entity
-                view_mode: view_mode
-              formatter:
-                type: text_default
-                label: hidden
-                settings: {  }
-                third_party_settings:
-                  empty_fields:
-                    handler: ''
-                  field_formatter_class:
-                    class: su-news-banner-media-caption
-            weight: -7
             additional: {  }
         third_party_settings: {  }
       -
