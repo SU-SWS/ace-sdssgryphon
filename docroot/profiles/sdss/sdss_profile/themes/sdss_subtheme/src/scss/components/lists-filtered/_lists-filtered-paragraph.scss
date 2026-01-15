@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+// Generic styles for all exposed filters in the filtered lists paragraph type.
+// The decision was made in the SCSS to name this "lists-filtered" to keep it
+// near the "lists" paragraph styles, even though the paragraph type is
+// "sdss-filtered-lists".
+
+.ptype-sdss-filtered-lists .views-exposed-form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+
+  h3 {
+    font-weight: $su-font-regular;
+    color: $sdss-color-palo-alto-dark;
+    margin-bottom: 1rem;
+  }
+
+  .form-item,
+  .form-group {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+
+    label {
+      font-weight: 500;
+      margin-top: 0;
+      margin-bottom: 0.3em;
+      display: block;
+      color: $sdss-color-palo-alto-dark;
+    }
+
+    input,
+    select {
+      padding: 0.5em 0.8em;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid $sdss-color-grey-medium;
+      border-radius: 0.25rem;
+      background: $sdss-color-white;
+    }
+  }
+
+  .form-actions {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    input[type="submit"] {
+      @include sdss-button--primary
+    }
+  }
+}

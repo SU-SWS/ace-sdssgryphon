@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
 // Override
-.ptype-stanford-lists:not([data-react-columns="12"]) {
+.ptype-stanford-lists:not([data-react-columns="12"]),
+.ptype-sdss-filtered-lists:not([data-react-columns="12"]) {
   .su-news-vertical-teaser.su-card {
     @include responsive-spacing('margin-bottom', 3);
   }
