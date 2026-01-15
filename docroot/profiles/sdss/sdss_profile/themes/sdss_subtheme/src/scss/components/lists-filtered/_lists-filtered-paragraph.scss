@@ -6,10 +6,12 @@
 // "sdss-filtered-lists".
 
 .ptype-sdss-filtered-lists .views-exposed-form {
-  background: $sdss-color-grey-light;
-  padding: 1.2rem;
-  border-radius: 0.5rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 
   h3 {
     font-weight: $su-font-regular;
@@ -19,10 +21,12 @@
 
   .form-item,
   .form-group {
-    margin-bottom: 1.2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
 
     label {
       font-weight: 500;
+      margin-top: 0;
       margin-bottom: 0.3em;
       display: block;
       color: $sdss-color-palo-alto-dark;
@@ -40,16 +44,11 @@
   }
 
   .form-actions {
-    margin-top: 1.2rem;
+    width: 100%;
+    margin-bottom: 2rem;
 
     input[type="submit"] {
-      padding: 0.5em 1.2em;
       @include sdss-button--primary
     }
-  }
-
-  // Tablet and up
-  @include grid-media-min('md') {
-    padding: 2rem;
   }
 }
