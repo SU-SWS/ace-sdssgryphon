@@ -1,18 +1,18 @@
-uuid: bd7c7df1-493e-4f23-aa24-5d981e6362c5
+uuid: dc678c7a-041b-4066-8bc5-e00cde389b4b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.su_list_view
-    - paragraphs.paragraphs_type.stanford_lists
+    - field.storage.paragraph.su_filtered_list_view
+    - paragraphs.paragraphs_type.sdss_filtered_lists
   module:
     - viewfield
-id: paragraph.stanford_lists.su_list_view
-field_name: su_list_view
+id: paragraph.sdss_filtered_lists.su_filtered_list_view
+field_name: su_filtered_list_view
 entity_type: paragraph
-bundle: stanford_lists
+bundle: sdss_filtered_lists
 label: 'List Format'
-description: 'Main display options for items presented in the list view'
+description: 'Main display options for items presented in the filtered list view'
 required: false
 translatable: false
 default_value: {  }
@@ -20,21 +20,18 @@ default_value_callback: ''
 settings:
   force_default: false
   allowed_views:
-    stanford_shared_tags: stanford_shared_tags
-    stanford_basic_pages: stanford_basic_pages
-    stanford_courses: stanford_courses
-    stanford_events: stanford_events
-    stanford_news: stanford_news
-    stanford_person: stanford_person
-    stanford_publications: stanford_publications
-    related_content: related_content
+    people_filtered_list: people_filtered_list
+    stanford_shared_tags: '0'
+    stanford_basic_pages: '0'
     su_block_edit_links: '0'
     cap_orgs: '0'
     change_logs: '0'
     content: '0'
     block_content: '0'
+    stanford_courses: '0'
     editoria11y_dismissals: '0'
     editoria11y_results: '0'
+    stanford_events: '0'
     stanford_events_past: '0'
     stanford_events_schedule: '0'
     stanford_event_series: '0'
@@ -47,9 +44,13 @@ settings:
     sdss_manage_content_bytype: '0'
     media: '0'
     media_library: '0'
+    stanford_news: '0'
     news_research_search: '0'
+    stanford_person: '0'
     policies: '0'
+    stanford_publications: '0'
     redirect: '0'
+    related_content: '0'
     rss_feeds: '0'
     samlauth_map: '0'
     sdss_news_sharing: '0'

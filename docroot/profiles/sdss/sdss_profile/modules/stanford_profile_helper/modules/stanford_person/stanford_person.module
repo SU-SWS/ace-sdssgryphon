@@ -58,6 +58,10 @@ function stanford_person_views_post_render(ViewExecutable $view, &$output, Cache
       $output['#attached']['library'][] = 'stanford_person/views';
       break;
 
+    case 'people_filtered_list':
+      $output['#attached']['library'][] = 'stanford_person/views';
+      break;
+
     case 'taxonomy_term_pages':
       if ($view->current_display == 'people_terms') {
         $output['#attached']['library'][] = 'stanford_person/views';
