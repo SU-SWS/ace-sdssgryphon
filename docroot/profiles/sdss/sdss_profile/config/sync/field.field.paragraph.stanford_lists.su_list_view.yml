@@ -25,6 +25,7 @@ settings:
     stanford_courses: stanford_courses
     stanford_events: stanford_events
     stanford_news: stanford_news
+    stanford_opportunities: stanford_opportunities
     stanford_person: stanford_person
     stanford_publications: stanford_publications
     related_content: related_content
@@ -62,6 +63,7 @@ settings:
     default: '0'
     entity_reference: '0'
     feed: '0'
+    graphql: '0'
     page: '0'
     rest_export: '0'
   handler: 'default:view'

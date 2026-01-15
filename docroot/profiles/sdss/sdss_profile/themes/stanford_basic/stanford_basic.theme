@@ -65,6 +65,12 @@ function stanford_basic_preprocess_node(&$variables) {
   $node_bundle = $variables['node']->bundle();
   $variables['#attached']['library'][] = 'stanford_basic/content.' . $node_bundle;
   unset($variables['content']['book_navigation']);
+
+  // Add node bundle specific classes.
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier('node--' . $node_bundle);
+  if ($variables['page']) {
+    $variables['attributes']['class'][] = Html::cleanCssIdentifier('node-page--' . $node_bundle);
+  }
 }
 
 /**
