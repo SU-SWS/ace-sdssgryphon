@@ -1,0 +1,24 @@
+uuid: d486edc7-b360-47c3-9a02-f561d15d9dbd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_filtered_list_description
+    - filter.format.stanford_minimal_html
+    - paragraphs.paragraphs_type.sdss_filtered_lists
+  module:
+    - text
+id: paragraph.sdss_filtered_lists.su_filtered_list_description
+field_name: su_filtered_list_description
+entity_type: paragraph
+bundle: sdss_filtered_lists
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - stanford_minimal_html
+field_type: text_long

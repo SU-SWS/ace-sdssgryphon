@@ -1,0 +1,209 @@
+let lastFocusedElement = null;
+var player;
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const popup = document.getElementById('su_popup');
+
+    let tag, firstScriptTag;
+    // Insert the <script> tag targeting the iframe API
+    tag = document.createElement('script');
+    tag.src = "https://player.vimeo.com/api/player.js";
+    firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Insert the <script> tag targeting the iframe API
+    tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // disable the popup interior
+    enableElementsOutsidePopup();
+
+    for(link of document.querySelectorAll('a[href^="#video"]')) {
+    link.addEventListener('keyup', function(e) {
+        if(e.key == "Enter") {
+        openLinkPopup(e);
+        }
+    });
+    link.addEventListener('click', function(e) {
+        openLinkPopup(e);
+    });
+    }
+
+    for(link of document.querySelectorAll('.su-link--popup')) {
+    link.addEventListener('keyup', function(e) {
+        if(e.key == "Enter") {
+        openPopup(e);
+        }
+    });
+    link.addEventListener('click', function(e) {
+        openPopup(e);
+    });
+    }
+
+    popup.querySelector('.su__popup__close').addEventListener('click', function(e) {
+    closePopup(e);
+    });
+
+    popup.querySelector('.su__popup__close').addEventListener('keyup', function(e) {
+    if(e.key == "Enter") {
+        closePopup(e);
+    }
+    });
+
+    popup.addEventListener('click', function(e) {
+    if(e.target !== e.currentTarget) return;
+    closePopup(e);
+    });
+
+    document.addEventListener('keydown', function(e) {
+    if(e.key == 'Escape' && popup.classList.contains('active')) {
+        closePopup(e);
+    }
+    });
+
+    popup.addEventListener('keydown', function(e) {
+    let firstFocusableElement = popup.querySelector('.first-focusable-element');
+    let lastFocusableElement = popup.querySelector('.last-focusable-element');
+
+    if(popup.classList.contains('active')) {
+        if(e.target === firstFocusableElement && e.key == 'Tab' && e.shiftKey) {
+            e.preventDefault();
+            lastFocusableElement.focus();
+        } else if(e.target === lastFocusableElement && e.key == 'Tab' && !e.shiftKey) {
+            e.preventDefault();
+            firstFocusableElement.focus();
+        }
+    }
+    });
+
+    function openLinkPopup(e) { 
+        
+        e.preventDefault();
+
+        lastFocusedElement = e.target;
+        
+        let href = e.target.getAttribute('href') ? e.target.getAttribute('href') : e.currentTarget.getAttribute('href');
+
+        href = href.replace(/&amp;/g, '&');
+
+        let videoInit = href.split('&type=');
+        let videoType = videoInit[1];
+        let videoParams = videoInit[0].split('#video?video-id=')[1];
+        let videoID, videoHash;
+
+        if(videoType == 'vimeo') {
+            let videoParamsForVimeo = videoParams.split('&h=');
+            videoID = videoParamsForVimeo[0];
+            videoHash = videoParamsForVimeo[1];
+        } else {
+            videoID = videoParams;
+        }
+
+        initVideo(videoID, videoType, videoHash);
+
+    }
+
+    function openPopup(e) {
+        e.preventDefault();
+
+        lastFocusedElement = e.target;
+
+        let videoID = e.target.getAttribute('data-video');
+
+        initVideo(videoID);
+    }
+
+    function closePopup(e) {
+        e.preventDefault();
+        popup.classList.remove('active');
+        playBGVideos();
+        enableElementsOutsidePopup();
+        if(lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+        setTimeout(() => {
+            if(player) {
+                player.destroy();
+                player = null;
+            }
+        }, 200);
+    }
+
+    function pauseBGVideos() {
+        const bgVideos = document.querySelectorAll('.su-pinned-slide[data-type="video"]');
+
+        if(bgVideos) {
+            for(const slide of bgVideos) {
+                const playPauseBtn = slide.querySelector('.su-pinned-slide__play_pause');
+                if(!playPauseBtn.classList.contains('pause')) {
+                    playPauseBtn.setAttribute('pausedByPopup', true);
+                    playPauseBtn.click();
+                }
+            }
+        }
+    }
+
+    function playBGVideos() {
+        const bgVideos = document.querySelectorAll('.su-pinned-slide[data-type="video"]');
+
+        if(bgVideos) {
+            for(const slide of bgVideos) {
+                const playPauseBtn = slide.querySelector('.su-pinned-slide__play_pause');
+                if(playPauseBtn.classList.contains('pause') && playPauseBtn.getAttribute('pausedByPopup')) {
+                    playPauseBtn.removeAttribute('pausedByPopup');
+                    slide.querySelector('.su-pinned-slide__play_pause').click();
+                }
+            }
+        }
+    }
+
+    function disableElementsOutsidePopup() {
+        document.getElementById('page-content').setAttribute('inert', true);
+        popup.removeAttribute('inert');
+    }
+
+    function enableElementsOutsidePopup() {
+        document.getElementById('page-content').removeAttribute('inert');
+        popup.setAttribute('inert', true);
+    }
+
+    function initVideo(videoID, videoType = 'youtube', videoHash = null) {
+        if(!document.getElementById('su__popup__video')) {
+            let su__popup__video = document.createElement('div');
+            su__popup__video.id = "su__popup__video";
+            popup.querySelector('.iframe_holder').appendChild(su__popup__video);
+        }
+        if(videoType == 'youtube') {
+            player = new YT.Player('su__popup__video', {
+                width: '100%',
+                height: '100%',
+                videoId: videoID,
+                playerVars: {
+                    autoplay: true,
+                }
+            });
+        } else {
+            let options = {
+                url: `https://player.vimeo.com/video/${videoID}?h=${videoHash}`,
+                width: '100%',
+                height: '100%',
+                loop: true,
+                autoplay: true
+            };
+
+            player = new Vimeo.Player('su__popup__video', options);
+        }
+
+        popup.classList.add('active');
+        pauseBGVideos();
+        disableElementsOutsidePopup();
+
+        setTimeout(() => {
+            popup.querySelector('.first-focusable-element').focus();
+        }, 100);
+    }
+
+});

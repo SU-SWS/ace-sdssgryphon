@@ -101,6 +101,7 @@ function sdss_profile_update_10020() {
     ->getStorage('config_pages')
     ->load('stanford_saml');
   if ($config_page) {
+    /** @var \Drupal\config_pages\Entity\ConfigPages $config_page */
     $roles = $config_page->get('su_simplesaml_roles') ?: '';
     $mappings = array_filter(explode('|', is_object($roles) && method_exists($roles, 'getString') ? $roles->getString() : (string) $roles));
     $new_mapping = 'administrator:eduPersonEntitlement,=,sdss:webdev';
@@ -117,4 +118,110 @@ function sdss_profile_update_10020() {
   else {
     \Drupal::logger('sdss_profile')->warning('stanford_saml config page not found in update_10020.');
   }
+}
+
+/**
+ * Copy old news banner caption to the new long text field.
+ *
+ * Criteria:
+ * - Only process stanford_news nodes.
+ * - Old field (su_news_banner_media_caption) has a non-empty value.
+ * - New field (su_sdss_news_banner_caption) is empty.
+ *
+ * Action:
+ * - Copy the value to the new field and set a text format.
+ */
+function sdss_profile_update_10021(&$sandbox) {
+  // Initialize sandbox on first run.
+  if (!isset($sandbox['initialized'])) {
+    $sandbox['initialized'] = TRUE;
+    $sandbox['processed'] = 0;
+    $sandbox['updated'] = 0;
+
+    // Build initial set of candidate node IDs: stanford_news with any value
+    // present in the old field.
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
+    $query = $storage->getQuery()
+      ->accessCheck(FALSE)
+      ->condition('type', 'stanford_news')
+      ->exists('su_news_banner_media_caption');
+
+    $nids = $query->execute();
+    $sandbox['nids'] = $nids ? array_values($nids) : [];
+    $sandbox['total'] = count($sandbox['nids']);
+
+    \Drupal::logger('sdss_profile')->info('sdss_profile_update_10021: Found @total candidate nodes for caption migration.', [
+      '@total' => $sandbox['total'],
+    ]);
+  }
+
+  // Nothing to do.
+  if (empty($sandbox['nids'])) {
+    $sandbox['#finished'] = 1;
+    \Drupal::logger('sdss_profile')->info('sdss_profile_update_10021: No stanford_news nodes required caption migration.');
+    return t('No stanford_news nodes required caption migration.');
+  }
+
+  $batch_size = 50;
+  $slice = array_slice($sandbox['nids'], $sandbox['processed'], $batch_size);
+
+  /** @var \Drupal\node\NodeStorageInterface $storage */
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  /** @var \Drupal\node\NodeInterface[] $nodes */
+  $nodes = $storage->loadMultiple($slice);
+
+  // Preferred text format for the new field, matching allowed formats.
+  $preferred_format = 'stanford_minimal_html';
+
+  foreach ($nodes as $node) {
+    /** @var \Drupal\node\NodeInterface $node */
+    // Get old field value (string) and ensure it's non-empty after trim.
+    $old_value = '';
+    $old_field = $node->get('su_news_banner_media_caption');
+    if (!$old_field->isEmpty()) {
+      $old_value = trim((string) $old_field->value);
+    }
+
+    // Determine if new field is effectively empty.
+    $new_field = $node->get('su_sdss_news_banner_caption');
+    $new_is_empty = $new_field->isEmpty() || trim((string) $new_field->value) === '';
+
+    if ($old_value !== '' && $new_is_empty) {
+      $node->set('su_sdss_news_banner_caption', [
+        'value' => $old_value,
+        'format' => $preferred_format,
+      ]);
+      try {
+        $node->save();
+        $sandbox['updated']++;
+      }
+      catch (\Throwable $e) {
+        \Drupal::logger('sdss_profile')->error('sdss_profile_update_10021: Failed to save node @nid: @message', [
+          '@nid' => $node->id(),
+          '@message' => $e->getMessage(),
+        ]);
+      }
+    }
+
+    $sandbox['processed']++;
+  }
+
+  // Progress indicator for long-running updates.
+  $sandbox['#finished'] = ($sandbox['processed'] >= $sandbox['total'])
+    ? 1
+    : ($sandbox['processed'] / $sandbox['total']);
+
+  if ($sandbox['#finished'] == 1) {
+    \Drupal::logger('sdss_profile')->notice('sdss_profile_update_10021: Completed caption migration. Updated @count nodes.', [
+      '@count' => $sandbox['updated'],
+    ]);
+    return t('Copied banner captions for @count nodes.', ['@count' => $sandbox['updated']]);
+  }
+
+  // Log batch progress intermittently.
+  \Drupal::logger('sdss_profile')->info('sdss_profile_update_10021: Progress @processed/@total (updated @updated).', [
+    '@processed' => $sandbox['processed'],
+    '@total' => $sandbox['total'],
+    '@updated' => $sandbox['updated'],
+  ]);
 }

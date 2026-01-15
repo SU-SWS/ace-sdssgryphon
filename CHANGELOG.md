@@ -7,6 +7,141 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.16.1] HOTFIX - 2025-12-18
+
+### Added
+None.
+
+### Changed
+None.
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+12819ebec BUG | Fix pinned bg paragraph text appears above main navigation drop down (#718)
+
+### Security
+None.
+
+### Maintenance
+None.
+
+
+## [4.16.0] Bouldering - 2025-12-16
+
+### Added
+115436cc0 Sustainability Accelerator home page changes; new Content Grid paragraph type and fields (#712)
+
+### Changed
+115436cc0 Sustainability Accelerator home page changes; new Content Grid paragraph type and fields (#712)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+None.
+
+### Maintenance
+None.
+
+
+## [4.15.0] Bootes - 2025-12-03
+
+### Added
+61dd4f859 SDSS-636: Add support for caption field in banner paragraph (#700)
+
+### Changed
+4c2db135c SDSS-636: Increase Banner Caption Font Size (#701)
+f402d7aee SDSS-734: Migrate News Banner Caption to New Long Text Field (#699)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+5716845a0 Automated Dependency Updates 20251128 (#704)
+734c54d36 Automated Dependency Updates 20251114 (#702)
+7a68cbf35 Automated Dependency Updates 20251107 (#698)
+
+### Maintenance
+5716845a0 Automated Dependency Updates 20251128 (#704)
+734c54d36 Automated Dependency Updates 20251114 (#702)
+7a68cbf35 Automated Dependency Updates 20251107 (#698)
+
+
+## [4.14.3] HOTFIX - 2025-11-06
+
+### Added
+None.
+
+### Changed
+None.
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+e285bfe6 Fix Safari header slider animation issue on Sustainability homepage (#694)
+
+### Security
+d79018e5 SDSS-1583: Add Next CORS patch (#695)
+
+### Maintenance
+None.
+
+
+## [4.14.2] Aries - 2025-11-05
+
+### Added
+28a94080 Add Routine Maintenance Documentation and Related Docs/README Updates (#691)
+2e650bc2 Added release and deployment documentation (#683)
+34798e31 Accessibility Improvements for Sustainability home page (#688)
+
+### Changed
+34798e31 Accessibility Improvements for Sustainability home page (#688)
+18cac46f SDSS-1530: Update Script Locations and Permissions (#685)
+844c6512 SDSS-1530: Move Cron scripts to Acquia recommended location (#684)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+34798e31 Accessibility Improvements for Sustainability home page (#688)
+
+### Security
+b1968f15 Automated Dependency Updates 20251024 (#689)
+d89fafc9 Automated Dependency Updates 20251017 (#687)
+934120fc Automated Dependency Updates 20251010 (#686)
+
+### Maintenance
+28a94080 Add Routine Maintenance Documentation and Related Docs/README Updates (#691)
+2e650bc2 Added release and deployment documentation (#683)
+b1968f15 Automated Dependency Updates 20251024 (#689)
+d89fafc9 Automated Dependency Updates 20251017 (#687)
+934120fc Automated Dependency Updates 20251010 (#686)
+
+
 ## [4.14.1] - 2025-10-08
 
 ### Added

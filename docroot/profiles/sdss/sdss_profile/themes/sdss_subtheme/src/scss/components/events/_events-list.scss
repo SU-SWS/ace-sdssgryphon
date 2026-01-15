@@ -120,7 +120,9 @@
 
 // Columns of event lists
 .ptype-stanford-lists[data-react-columns="4"],
-.ptype-stanford-lists[data-react-columns="6"] {
+.ptype-stanford-lists[data-react-columns="6"],
+.ptype-sdss-filtered-lists[data-react-columns="4"],
+.ptype-sdss-filtered-lists[data-react-columns="6"] {
    .su-event-list-item__date {
       margin-bottom: inherit;
    }

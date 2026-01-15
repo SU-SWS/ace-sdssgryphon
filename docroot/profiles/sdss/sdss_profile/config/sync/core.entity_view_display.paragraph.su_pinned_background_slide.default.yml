@@ -5,11 +5,14 @@ dependencies:
   config:
     - field.field.paragraph.su_pinned_background_slide.su_background
     - field.field.paragraph.su_pinned_background_slide.su_entity_button
+    - field.field.paragraph.su_pinned_background_slide.su_pinned_title
+    - field.field.paragraph.su_pinned_background_slide.su_title_size
     - field.field.paragraph.su_pinned_background_slide.su_wysiwyg_text
     - paragraphs.paragraphs_type.su_pinned_background_slide
   module:
     - element_class_formatter
     - field_formatter_class
+    - options
     - text
 id: paragraph.su_pinned_background_slide.default
 targetEntityType: paragraph
@@ -38,14 +41,29 @@ content:
     third_party_settings:
       field_formatter_class:
         class: ''
-    weight: 3
+    weight: 4
+    region: content
+  su_pinned_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  su_title_size:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
     region: content
   su_wysiwyg_text:
     type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 3
     region: content
 hidden:
   search_api_excerpt: true

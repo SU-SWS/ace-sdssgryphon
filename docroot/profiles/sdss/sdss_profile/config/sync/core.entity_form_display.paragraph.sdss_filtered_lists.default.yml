@@ -1,0 +1,58 @@
+uuid: d1904543-d1e9-4be4-8b37-ee6f9a544869
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sdss_filtered_lists.su_filtered_list_button
+    - field.field.paragraph.sdss_filtered_lists.su_filtered_list_description
+    - field.field.paragraph.sdss_filtered_lists.su_filtered_list_headline
+    - field.field.paragraph.sdss_filtered_lists.su_filtered_list_view
+    - paragraphs.paragraphs_type.sdss_filtered_lists
+  module:
+    - link
+    - text
+    - viewfield
+id: paragraph.sdss_filtered_lists.default
+targetEntityType: paragraph
+bundle: sdss_filtered_lists
+mode: default
+content:
+  status:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  su_filtered_list_button:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  su_filtered_list_description:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  su_filtered_list_headline:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  su_filtered_list_view:
+    type: viewfield_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true

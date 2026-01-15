@@ -1,0 +1,21 @@
+uuid: 519eeda3-70e5-41c7-8577-5a6814fea9ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_title_size
+    - paragraphs.paragraphs_type.su_pinned_background_slide
+  module:
+    - options
+id: paragraph.su_pinned_background_slide.su_title_size
+field_name: su_title_size
+entity_type: paragraph
+bundle: su_pinned_background_slide
+label: 'Title Size'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

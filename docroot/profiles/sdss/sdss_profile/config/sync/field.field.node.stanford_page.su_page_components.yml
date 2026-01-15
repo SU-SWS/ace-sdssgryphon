@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.su_page_components
     - node.type.stanford_page
+    - paragraphs.paragraphs_type.sdss_filtered_lists
     - paragraphs.paragraphs_type.sdss_news_list_card
     - paragraphs.paragraphs_type.sdss_spotlight
     - paragraphs.paragraphs_type.stanford_banner
@@ -17,11 +18,12 @@ dependencies:
     - paragraphs.paragraphs_type.stanford_media_caption
     - paragraphs.paragraphs_type.stanford_spacer
     - paragraphs.paragraphs_type.stanford_wysiwyg
-    - paragraphs.paragraphs_type.su_pinned_background_section
-    - paragraphs.paragraphs_type.su_image_cta
     - paragraphs.paragraphs_type.su_departments_slider
-    - paragraphs.paragraphs_type.su_horizontal_bar
     - paragraphs.paragraphs_type.su_header_with_link
+    - paragraphs.paragraphs_type.su_horizontal_bar
+    - paragraphs.paragraphs_type.su_image_cta
+    - paragraphs.paragraphs_type.su_pinned_background_section
+    - paragraphs.paragraphs_type.content_grid
   module:
     - entity_reference_revisions
 id: node.stanford_page.su_page_components
@@ -46,81 +48,95 @@ settings:
       stanford_gallery: stanford_gallery
       stanford_layout: stanford_layout
       stanford_lists: stanford_lists
+      sdss_filtered_lists: sdss_filtered_lists
       stanford_spacer: stanford_spacer
       sdss_spotlight: sdss_spotlight
       sdss_news_list_card: sdss_news_list_card
       stanford_faq: stanford_faq
-      su_pinned_background_section: su_pinned_background_section
-      su_image_cta: su_image_cta
       su_departments_slider: su_departments_slider
+      su_image_cta: su_image_cta
+      su_pinned_background_section: su_pinned_background_section
       su_horizontal_bar: su_horizontal_bar
       su_header_with_link: su_header_with_link
+      content_grid: content_grid
     negate: 0
     target_bundles_drag_drop:
       callout_quote:
-        weight: -23
+        weight: -38
         enabled: false
+      content_grid:
+        weight: -19
+        enabled: true
       editorial_sidebar:
-        weight: -22
+        weight: -37
         enabled: false
+      sdss_filtered_lists:
+        weight: -42
+        enabled: true
       sdss_news_list_card:
-        weight: -20
+        weight: -35
         enabled: true
       sdss_spotlight:
-        weight: -21
+        weight: -36
         enabled: true
       stanford_accordion:
-        weight: -35
+        weight: -51
         enabled: false
       stanford_banner:
-        weight: -32
+        weight: -48
         enabled: true
       stanford_card:
-        weight: -33
+        weight: -49
         enabled: true
       stanford_entity:
-        weight: -30
+        weight: -46
         enabled: true
       stanford_faq:
-        weight: -19
-        enabled: true
-      stanford_gallery:
-        weight: -29
-        enabled: true
-      stanford_layout:
-        weight: -28
-        enabled: true
-      stanford_lists:
-        weight: -27
-        enabled: true
-      stanford_media_caption:
-        weight: -31
-        enabled: true
-      stanford_person_cta:
-        weight: -26
-        enabled: false
-      stanford_schedule:
-        weight: -25
-        enabled: false
-      stanford_spacer:
-        weight: -24
-        enabled: true
-      stanford_wysiwyg:
         weight: -34
         enabled: true
+      stanford_gallery:
+        weight: -45
+        enabled: true
+      stanford_layout:
+        weight: -44
+        enabled: true
+      stanford_lists:
+        weight: -43
+        enabled: true
+      stanford_media_caption:
+        weight: -47
+        enabled: true
+      stanford_person_cta:
+        weight: -41
+        enabled: false
+      stanford_schedule:
+        weight: -40
+        enabled: false
+      stanford_spacer:
+        weight: -39
+        enabled: true
+      stanford_wysiwyg:
+        weight: -50
+        enabled: true
+      su_departments_slide:
+        weight: -28
+        enabled: false
       su_departments_slider:
-        weight: -19
+        weight: -33
         enabled: true
       su_header_with_link:
-        weight: -15
+        weight: -29
         enabled: true
       su_horizontal_bar:
-        weight: -16
+        weight: -30
         enabled: true
       su_image_cta:
-        weight: -18
+        weight: -32
         enabled: true
       su_pinned_background_section:
-        weight: -17
+        weight: -31
         enabled: true
+      su_pinned_background_slide:
+        weight: -27
+        enabled: false
 field_type: entity_reference_revisions

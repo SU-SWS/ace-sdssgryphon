@@ -1,0 +1,10 @@
+uuid: 6685c081-e7c4-4ff2-9049-7e349a27ecee
+langcode: en
+status: true
+dependencies: {  }
+id: sdss_filtered_lists
+label: 'Lists (with Filters)'
+icon_uuid: null
+icon_default: null
+description: 'Choose a list to display various items dynamically with preset exposed filters.'
+behavior_plugins: {  }
