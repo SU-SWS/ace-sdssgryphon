@@ -1,0 +1,23 @@
+uuid: b23b285d-7924-4fdf-ac1b-76fcef20ad0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_year
+    - node.type.su_project
+id: node.su_project.su_year
+field_name: su_year
+entity_type: node
+bundle: su_project
+label: Year
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1900
+  max: 9999
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,19 @@
+uuid: 3e356e4d-aa20-415d-af65-de4b3f1cbf18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_featured_image_caption
+    - node.type.su_project
+id: node.su_project.su_featured_image_caption
+field_name: su_featured_image_caption
+entity_type: node
+bundle: su_project
+label: 'Featured Image Caption'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
