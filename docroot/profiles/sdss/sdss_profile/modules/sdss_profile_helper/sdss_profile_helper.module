@@ -39,10 +39,3 @@ function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInte
     '#weight' => -10,
   ];
 }
-
-function sdss_profile_helper_preprocess_views_view(&$variables) {
-  $exposed_input = $variables['view']->getExposedInput();
-  if (isset($exposed_input['grid_list_display_mode'])) {
-    $variables['grid_list_display_mode'] = $exposed_input['grid_list_display_mode'];
-  }
-}
