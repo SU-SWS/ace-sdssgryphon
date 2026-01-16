@@ -1,0 +1,115 @@
+{#
+/**
+ * @file
+ * Main Page Template.
+ *
+ * Extends stanford_basic page.html.twig.
+ *
+ * Available variables:
+ * - page: The content regions for this page.
+ * - attributes: HTML attributes for the region div.
+ *
+ * @see template_preprocess_page()
+ */
+#}
+
+{%- extends "@stanford_basic/page.html.twig" -%}
+
+{# Masthead Section. #}
+{%- block block_header -%}
+  {%- if page.header or page.search or page.menu -%}
+    <header class="su-masthead su-masthead--right">
+
+      {% block block_skiplinks %}
+        <a href="#main-content" class="visually-hidden focusable su-skipnav su-skipnav--content">
+          {{ 'Skip to main content'|t }}
+        </a>
+        <a href="#secondary-navigation" class="visually-hidden focusable su-skipnav su-skipnav--secondary">
+          {{ 'Skip to secondary navigation'|t }}
+        </a>
+      {% endblock %}
+
+      {# Brand Bar #}
+      {%- block block_brandbar -%}
+        {%- include template_brand_bar with { modifier_class : brand_bar_variant } -%}
+      {%- endblock -%}
+
+      {# Help Section #}
+      {%- block block_help -%}
+        {{ page.help }}
+      {%- endblock -%}
+
+      {%- if header_layout_variant == 'option_a' -%}
+        {% include '@sdss_subtheme/templates/header--option-a.html.twig' %}
+      {%- else -%}
+        {% include '@sdss_subtheme/templates/header--default.html.twig' %}
+      {%- endif -%}
+        </header>
+      {%- endif -%}
+
+  {# Newsroom Section. #}
+  {%- if page.newsroom -%}
+    <section class="newsroom-wrapper" aria-labelledby="news-research">
+      {{ page.newsroom }}
+    </section>
+  {%- endif -%}
+
+{%- endblock -%}
+
+{%- block block_main -%}
+
+<section class="node basic-page node--layout-full su-project">
+  <div class="content">
+    <div class="jumpstart-ui--one-column centered-container">
+      <div class="main-region flex-12-of-12">
+        <div class="field-block node-stanford-page-title block-layout-builder">
+          <div class="node stanford-page title string label-hidden"><h1>{{ node.title.value }}</h1></div>
+        </div>
+
+        <div class="field-block node-stanford-page-su-page-components block-layout-builder">
+          <div class="node stanford-page su-page-components entity-reference-revisions label-hidden">
+              <div class="paragraph-item ptype-stanford-layout">
+                <div class="ptype-stanford-layout paragraph paragraph--type--stanford-layout paragraph--view-mode--default">
+                  <div class="layout layout--layout-paragraphs-one-column layout--layout-paragraphs-sdss-one-column">
+                    <div class="layout__region layout__region--main">
+                      <div class="ptype-stanford-wysiwyg paragraph paragraph--type--stanford-wysiwyg paragraph--view-mode--default">
+                        <div class="su-wysiwyg-text paragraph stanford-wysiwyg text-long label-hidden"><h4>{{ node.su_featured_flagship.entity.label }} Flagship</h4>
+                        <p>Team: 
+                          {% for item in node.su_stanford_users %}
+                            <a href="{{ render_var(item.url) }}" class="ext su-link--external" data-extlink="" title="(opens in a new window)">
+                              {{ item.title }}
+                            </a>{% if not loop.last %}, {% endif %}
+                          {% endfor %}
+                        </p>
+                        <figure class="align-left caption">
+                          <div class="media-entity-wrapper image">
+                            <div class="media image field-media-image label-hidden">
+                              {% set image_url = file_url(node.su_featured_image.entity.field_media_image.entity.uri.value) %}
+                              <img loading="lazy" src="{{ image_url }}" alt="{{ node.su_featured_image.entity.field_media_image.alt }}">
+                            </div>
+                          </div>
+                          <figcaption>{{ node.su_featured_image_caption.value }}</figcaption>
+                        </figure>
+                        {{ node.su_description.processed|raw }}
+                        {{ content.su_project_content[0] }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- endblock -%}
+
+{%- block block_footer -%}
+  <footer id="footer">
+    {{ page.footer }}
+  </footer>
+  {% include '@sdss_subtheme/templates/components/popup/su-popup.html.twig' %}
+{%- endblock -%}

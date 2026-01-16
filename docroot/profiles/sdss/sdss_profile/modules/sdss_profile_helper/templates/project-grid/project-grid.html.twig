@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Project Grid.
+ *
+ * Basic Page Banner for the project grid.
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - project_grid_featured_image: The featured image.
+ * - project_grid_year: This is the project year.
+ */
+#}
+{%- set attributes = attributes.addClass(['su-project-item', modifier_class]) -%}
+
+{# If the featured image is empty, create a class. #}
+{%- if project_grid_featured_image|render|striptags('<drupal-render-placeholder><img><picture>')|trim is empty -%}
+  {%- set attributes = attributes.addClass('su-project-grid-image__empty')  -%}
+{%- endif %}
+
+<article {{ attributes }} {% if headingID %}aria-labelledby="{{ headingID }}"{% endif %}>
+
+</article>

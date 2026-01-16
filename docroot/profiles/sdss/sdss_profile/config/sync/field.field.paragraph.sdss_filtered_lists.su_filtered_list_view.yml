@@ -21,6 +21,7 @@ settings:
   force_default: false
   allowed_views:
     people_filtered_list: people_filtered_list
+    projects: projects
     stanford_shared_tags: '0'
     stanford_basic_pages: '0'
     su_block_edit_links: '0'

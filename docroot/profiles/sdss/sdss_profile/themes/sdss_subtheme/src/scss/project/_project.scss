@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.su-project {
+  figure.align-left {
+    padding-bottom: 1rem;
+    @include grid-media-min('md') {
+      max-width: 480px;
+      padding-right: 3rem;
+      padding-bottom: 0.5rem;
+    }
+
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+}
