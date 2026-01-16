@@ -5,6 +5,7 @@
  * Contains sdss_profile_helper.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\menu_block\Plugin\Block\MenuBlock;
 
 /**
@@ -19,5 +20,29 @@ function sdss_profile_helper_block_view_menu_block_alter(array &$build, MenuBloc
   $newsroom_menu_label = $config_pages->getValue('sdss_site_settings', 'su_newsroom_menu_label', 0, 'value');
   if ($newsroom_menu_label) {
     $menu_block->setConfigurationValue('label', t('@label', ['@label' => $newsroom_menu_label]));
+  }
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Optionally, restrict to specific views/displays using $form['#id'] or $form_state.
+  $form['grid_list_display_mode'] = [
+    '#type' => 'select',
+    '#title' => t('Display mode'),
+    '#options' => [
+      'grid' => t('Grid'),
+      'list' => t('List'),
+    ],
+    '#default_value' => 'grid',
+    '#weight' => -10,
+  ];
+}
+
+function sdss_profile_helper_preprocess_views_view(&$variables) {
+  $exposed_input = $variables['view']->getExposedInput();
+  if (isset($exposed_input['grid_list_display_mode'])) {
+    $variables['grid_list_display_mode'] = $exposed_input['grid_list_display_mode'];
   }
 }
