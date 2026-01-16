@@ -4,10 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.su_project.su_description
+    - field.field.node.su_project.su_featured_flagship
     - field.field.node.su_project.su_featured_image
     - field.field.node.su_project.su_featured_image_caption
     - field.field.node.su_project.su_flagships
-    - field.field.node.su_project.su_primary_flagship
     - field.field.node.su_project.su_project_content
     - field.field.node.su_project.su_project_impact_pathway
     - field.field.node.su_project.su_stanford_users
@@ -38,6 +38,14 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  su_featured_flagship:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
   su_featured_image:
     type: entity_reference_entity_view
     label: above
@@ -56,22 +64,12 @@ content:
     weight: 11
     region: content
   su_flagships:
-    type: entity_reference_revisions_entity_view
+    type: entity_reference_label
     label: above
     settings:
-      view_mode: default
-      link: ''
+      link: true
     third_party_settings: {  }
-    weight: 4
-    region: content
-  su_primary_flagship:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 6
+    weight: 13
     region: content
   su_project_content:
     type: entity_reference_revisions_entity_view
@@ -83,13 +81,12 @@ content:
     weight: 3
     region: content
   su_project_impact_pathway:
-    type: entity_reference_revisions_entity_view
+    type: entity_reference_label
     label: above
     settings:
-      view_mode: default
-      link: ''
+      link: true
     third_party_settings: {  }
-    weight: 8
+    weight: 15
     region: content
   su_stanford_users:
     type: link
@@ -111,13 +108,12 @@ content:
     weight: 9
     region: content
   su_topics:
-    type: entity_reference_revisions_entity_view
+    type: entity_reference_label
     label: above
     settings:
-      view_mode: default
-      link: ''
+      link: true
     third_party_settings: {  }
-    weight: 5
+    weight: 14
     region: content
   su_year:
     type: number_integer

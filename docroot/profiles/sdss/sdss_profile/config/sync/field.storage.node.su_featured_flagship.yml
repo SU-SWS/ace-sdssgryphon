@@ -1,18 +1,17 @@
-uuid: 1fe8e472-be55-45dd-a228-c9e9cd4b4285
+uuid: 6608e35f-6477-424b-a130-1a233c116d10
 langcode: en
 status: true
 dependencies:
   module:
-    - entity_reference_revisions
     - node
     - taxonomy
-id: node.su_primary_flagship
-field_name: su_primary_flagship
+id: node.su_featured_flagship
+field_name: su_featured_flagship
 entity_type: node
-type: entity_reference_revisions
+type: entity_reference
 settings:
   target_type: taxonomy_term
-module: entity_reference_revisions
+module: core
 locked: false
 cardinality: 1
 translatable: true

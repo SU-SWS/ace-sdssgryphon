@@ -4,10 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.su_project.su_description
+    - field.field.node.su_project.su_featured_flagship
     - field.field.node.su_project.su_featured_image
     - field.field.node.su_project.su_featured_image_caption
     - field.field.node.su_project.su_flagships
-    - field.field.node.su_project.su_primary_flagship
     - field.field.node.su_project.su_project_content
     - field.field.node.su_project.su_project_impact_pathway
     - field.field.node.su_project.su_stanford_users
@@ -17,7 +17,6 @@ dependencies:
     - node.type.su_project
   module:
     - change_labels
-    - entity_reference_revisions
     - field_formatter_class
     - layout_paragraphs
     - link
@@ -70,6 +69,12 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  su_featured_flagship:
+    type: options_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   su_featured_image:
     type: media_library_widget
     weight: 1
@@ -86,14 +91,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
   su_flagships:
-    type: options_buttons
-    weight: 13
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  su_primary_flagship:
     type: options_select
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -117,14 +116,10 @@ content:
         hide_add_another: 0
         force_single_cardinality: 0
   su_project_impact_pathway:
-    type: entity_reference_revisions_autocomplete
+    type: options_select
     weight: 15
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   su_stanford_users:
     type: link_default
@@ -141,7 +136,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   su_topics:
-    type: options_buttons
+    type: options_select
     weight: 14
     region: content
     settings: {  }

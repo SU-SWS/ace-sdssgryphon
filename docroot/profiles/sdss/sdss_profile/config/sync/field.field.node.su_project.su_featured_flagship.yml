@@ -1,18 +1,16 @@
-uuid: 3724832f-d997-47fa-9ad7-b835f4bed8eb
+uuid: 88dea3f0-5828-45ef-a5ab-a058b33a87b9
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.su_primary_flagship
+    - field.storage.node.su_featured_flagship
     - node.type.su_project
     - taxonomy.vocabulary.su_project_flagships
-  module:
-    - entity_reference_revisions
-id: node.su_project.su_primary_flagship
-field_name: su_primary_flagship
+id: node.su_project.su_featured_flagship
+field_name: su_featured_flagship
 entity_type: node
 bundle: su_project
-label: 'Primary Flagship'
+label: 'Featured Flagship'
 description: ''
 required: false
 translatable: false
@@ -28,4 +26,4 @@ settings:
       direction: asc
     auto_create: false
     auto_create_bundle: ''
-field_type: entity_reference_revisions
+field_type: entity_reference

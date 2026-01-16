@@ -1,15 +1,25 @@
 sdss-project-grid:
   label: SDSS Project Grid Item
-  description: "Building block component for the projects page."
+  description: "Building block component for the projects grid view."
   fields:
+    project_grid_title:
+      type: text
+      label: "Title"
+      description: "Project title"
+      preview: "This is the project title."
     project_grid_featured_image:
       type: text
       label: "Featured Image"
       description: "The featured image."
       preview: "<img src='https://picsum.photos/900/900/' alt='Example Image' />"
-    project_grid_year:
+    project_grid_featured_image_caption:
       type: text
-      label: "Year"
-      description: "Project year"
-      preview: "This is the project year."
+      label: "Featured Image Caption"
+      description: "The featured image caption."
+      preview: "This is the project featured image caption."
+    project_grid_featured_flagship:
+      type: text
+      label: "Featured Flagship"
+      description: "The featured flagship."
+      preview: "This is the project featured flagship."
   use: "@sdss_profile_helper/project-grid/project-grid.html.twig"

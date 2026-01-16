@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.su-project {
+  figure.align-left {
+    padding-bottom: 1rem;
+    @include grid-media-min('md') {
+      max-width: 480px;
+      padding-right: 3rem;
+      padding-bottom: 0.5rem;
+    }
+
+    img {
+      margin-bottom: 1rem;
+    }
+  }
+  &__flagship {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 3px 7px;
+      border-radius: 2px;
+      background-color: rgba(255,255,255,0.95);
+      font-size: 16px;
+      line-height: 22px;
+      max-width: calc(100% - 20px);
+  }
+}

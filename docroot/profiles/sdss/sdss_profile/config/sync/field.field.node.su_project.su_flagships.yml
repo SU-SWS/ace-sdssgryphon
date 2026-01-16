@@ -6,8 +6,6 @@ dependencies:
     - field.storage.node.su_flagships
     - node.type.su_project
     - taxonomy.vocabulary.su_project_flagships
-  module:
-    - entity_reference_revisions
 id: node.su_project.su_flagships
 field_name: su_flagships
 entity_type: node
@@ -28,4 +26,4 @@ settings:
       direction: asc
     auto_create: false
     auto_create_bundle: ''
-field_type: entity_reference_revisions
+field_type: entity_reference

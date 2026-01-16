@@ -5,10 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.su_project.su_description
+    - field.field.node.su_project.su_featured_flagship
     - field.field.node.su_project.su_featured_image
     - field.field.node.su_project.su_featured_image_caption
     - field.field.node.su_project.su_flagships
-    - field.field.node.su_project.su_primary_flagship
     - field.field.node.su_project.su_project_content
     - field.field.node.su_project.su_project_impact_pathway
     - field.field.node.su_project.su_stanford_users
@@ -31,10 +31,10 @@ content:
 hidden:
   search_api_excerpt: true
   su_description: true
+  su_featured_flagship: true
   su_featured_image: true
   su_featured_image_caption: true
   su_flagships: true
-  su_primary_flagship: true
   su_project_content: true
   su_project_impact_pathway: true
   su_stanford_users: true
