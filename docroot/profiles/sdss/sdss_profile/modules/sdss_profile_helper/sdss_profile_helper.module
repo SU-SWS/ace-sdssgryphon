@@ -28,6 +28,11 @@ function sdss_profile_helper_block_view_menu_block_alter(array &$build, MenuBloc
  */
 function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Optionally, restrict to specific views/displays using $form['#id'] or $form_state.
+  $view = $form_state->getStorage()['view'];
+  $row_plugin_id = $view->display_handler->getOption('row')['type'] ?? '';
+  if ($row_plugin_id != 'grid_list_entity_row:entity:node_grid_list') {
+    return;
+  }
   $form['grid_list_display_mode'] = [
     '#type' => 'select',
     '#title' => t('Display mode'),

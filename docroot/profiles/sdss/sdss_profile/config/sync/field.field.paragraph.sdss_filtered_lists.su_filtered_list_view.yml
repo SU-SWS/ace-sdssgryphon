@@ -20,6 +20,7 @@ default_value_callback: ''
 settings:
   force_default: false
   allowed_views:
+    basic_page_filtered_list: basic_page_filtered_list
     people_filtered_list: people_filtered_list
     stanford_shared_tags: '0'
     stanford_basic_pages: '0'
