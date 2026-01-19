@@ -38,12 +38,13 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('drush/drush.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Run Unit Tests
         run: |
           git config --system --add safe.directory '*' &&
           composer install -n &&
-          blt tests:phpunit:coverage --no-interaction
+          drush sws:source:tests:phpunit --db-host=mysql --db-pass=drupal --db-name=drupal --db-user=drupal --with-coverage &&
+          drush sws:tests:phpunit-coverage-check artifacts/phpunit/coverage/xml --clover-file=artifacts/phpunit/coverage/clover.xml --min-coverage=80 -n
       - name: Save Test Results
         uses: actions/upload-artifact@v4
         if: failure()
@@ -89,7 +90,7 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('drush/drush.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Increase MySQL max_allowed_packet
         run: mysql -h mysql -P 3306 -u root -pdrupal -e 'SET GLOBAL max_allowed_packet=67108864;'
       - name: Install Site
@@ -100,12 +101,12 @@ jobs:
           apachectl stop &&
           apachectl start &&
           composer install -n &&
-          blt drupal:install -n &&
-          drush role:perm:add anonymous 'access content' &&
+          drush sws:multisite:install -n &&
           drush xmlsitemap:rebuild &&
+          drush cr &&
           mkdir -p artifacts/_data/
       - name: Run tests
-        run: blt codeception --suite=${{ matrix.suite }}
+        run: drush sws:codeception --suite=${{ matrix.suite }} --site-domain=localhost
       - name: Save Test Results
         uses: actions/upload-artifact@v4
         if: always()

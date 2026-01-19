@@ -68,7 +68,6 @@
     "require": {
         "php": ">=8.3",
         "ext-imagick": "*",
-        "acquia/blt": "^13.7",
         "acquia/drupal-environment-detector": "^1.0",
         "citation-style-language/locales": "1.0.0",
         "citation-style-language/styles-distribution": "1.0.0",
@@ -195,7 +194,6 @@
         "seboettg/citeproc-php": "2.4.1",
         "seboettg/collection": "<4.0.0",
         "stanford-earth/stanford_earth_r25": "^8.1",
-        "su-sws/blt-sws": "dev-main",
         "su-sws/ckeditor5_plugins": "^1.0",
         "su-sws/react_paragraphs": "^8.2",
         "su-sws/stanford_actions": "^8.2",
@@ -203,11 +201,10 @@
         "su-sws/stanford_media": "^11.0",
         "su-sws/stanford_migrate": "^8.3",
         "su-sws/stanford_samlauth": "^1.0",
-        "su-sws/stanford_syndication": "^1.0"
+        "su-sws/stanford_syndication": "^1.0",
+        "su-sws/sws-drush-commands": "multisite-improvements-dev"
     },
     "require-dev": {
-        "acquia/blt-drupal-test": "^1.0",
-        "acquia/blt-multisite": "^1.0",
         "drupal/core-dev": "~10.5.0",
         "drupal/upgrade_status": "^4.0",
         "phpspec/prophecy-phpunit": "^2.0",
@@ -374,20 +371,10 @@
         "post-drupal-scaffold-cmd": [
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/htaccess.patch",
             "patch -Ns -r \"\" --no-backup-if-mismatch -p1 < ./patches/robotstxt.patch"
-        ],
-        "init-stack": [
-            "vendor/bin/blt blt:telemetry:disable --no-interaction",
-            "vendor/bin/blt blt:init:settings",
-            "vendor/bin/blt sws:keys",
-            "vendor/bin/blt recipes:aliases:init:acquia"
-        ],
-        "sync-sustainability": [
-            "vendor/bin/blt drupal:sync --site=sustainability"
         ]
     },
     "autoload": {
         "psr-4": {
-            "Gryphon\\": "blt/src/",
             "Drupal\\sdss_profile\\": "docroot/profiles/sdss/sdss_profile/src/"
         }
     },

@@ -50,7 +50,7 @@ jobs:
             docroot/core
             docroot/libraries
             docroot/modules/contrib
-          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+          key: 4.0-${{ hashFiles('drush/drush.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
       - name: Install dependencies
         run: composer install -n
       - name: Install Drupal site
@@ -60,7 +60,7 @@ jobs:
           ln -snf $GITHUB_WORKSPACE /var/www/html
           mkdir -p docroot/sites/default/files
           chmod -R 777 docroot/sites/default/files/
-          blt drupal:install -n
+          drush sws:multisite:install -n
       - name: Import configuration
         run: drush cim -y
       - name: Update Composer dependencies

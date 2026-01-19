@@ -7,7 +7,7 @@
  * These settings are applied to all sites on the multi-site.
  */
 
-use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Drupal\SwsDrush\Helpers\EnvironmentDetector;
 
 // When the encryption environment variable is not provided (local/ci/etc),
 // fake the encryption string so that the site doesn't break.
@@ -77,9 +77,6 @@ if (!EnvironmentDetector::isAhProdEnv()) {
 
 /**
  * Include settings files in docroot/sites/settings.
- *
- * If instead you want to add settings to a specific site, see BLT's includes
- * file in docroot/sites/{site-name}/settings/default.includes.settings.php.
  */
 $additionalSettingsFiles = [
   __DIR__ . '/config.settings.php',

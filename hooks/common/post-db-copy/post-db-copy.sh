@@ -14,17 +14,13 @@ target_env="$2"
 db_name="$3"
 source_env="$4"
 
-# Prep for BLT commands.
+# Prep for commands.
 repo_root="/var/www/html/$site.$target_env"
 export PATH=$repo_root/vendor/bin:$PATH
 cd $repo_root
 
-# This command is the default and only runs updates if the site is on an ODE
-# environment.
-#blt artifact:ac-hooks:post-db-copy $site $target_env $db_name $source_env --environment=$target_env -v --no-interaction -D drush.ansi=false
-
-# Run the BLT command to run deploy hooks, including updating the database and
-# importing configuration, on the target environment and site.
-blt artifact:update:drupal --site=$db_name --environment=$target_env
+# Run the command to run deploy hooks, including updating the database and
+# importing configuration on the site.
+drush deploy --uri=$db_name
 
 set +v
