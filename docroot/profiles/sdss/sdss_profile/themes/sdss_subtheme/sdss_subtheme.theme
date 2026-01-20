@@ -6,6 +6,7 @@
  */
 
 use Drupal\node\NodeInterface;
+use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
@@ -49,7 +50,7 @@ function sdss_subtheme_preprocess_html(&$variables) {
   if (is_string($node) || is_numeric($node)) {
     $node = \Drupal\node\Entity\Node::load($node);
   }
-  
+
   // 2. Handle Layout Builder/Preview routes (very common in Stanford themes).
   if (!$node) {
     $node = \Drupal::routeMatch()->getParameter('node_preview');
@@ -58,9 +59,9 @@ function sdss_subtheme_preprocess_html(&$variables) {
   // 3. Ensure we actually have a node object before checking fields.
   if ($node instanceof \Drupal\node\NodeInterface) {
     if ($node->hasField('su_toggle_new_stanford_styles') && !$node->get('su_toggle_new_stanford_styles')->isEmpty()) {
-       if ((int) $node->get('su_toggle_new_stanford_styles')->value === 1) {
-         $variables['attributes']['class'][] = 'has-new-stanford-styles';
-       }
+      if ((int) $node->get('su_toggle_new_stanford_styles')->value === 1) {
+        $variables['attributes']['class'][] = 'has-new-stanford-styles';
+      }
     }
   }
 }
