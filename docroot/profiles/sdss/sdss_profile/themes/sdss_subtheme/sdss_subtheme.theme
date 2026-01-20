@@ -6,7 +6,6 @@
  */
 
 use Drupal\node\NodeInterface;
-use Drupal\node\Entity\Node;
 use Drupal\paragraphs\Entity\Paragraph;
 
 /**
@@ -45,16 +44,6 @@ function sdss_subtheme_preprocess_html(&$variables) {
 
   // Get the node from the route.
   $node = \Drupal::routeMatch()->getParameter('node');
-
-  // 1. Handle revisions (where $node is often just a string ID).
-  if (is_string($node) || is_numeric($node)) {
-    $node = \Drupal\node\Entity\Node::load($node);
-  }
-
-  // 2. Handle Layout Builder/Preview routes (very common in Stanford themes).
-  if (!$node) {
-    $node = \Drupal::routeMatch()->getParameter('node_preview');
-  }
 
   // 3. Ensure we actually have a node object before checking fields.
   if ($node instanceof \Drupal\node\NodeInterface) {
