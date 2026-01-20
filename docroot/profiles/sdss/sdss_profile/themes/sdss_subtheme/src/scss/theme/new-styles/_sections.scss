@@ -1,0 +1,11 @@
+.has-new-stanford-styles {
+    .su-page-components .layout--layout-paragraphs-sdss-two-column-larger-left {
+        max-width: 1120px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+
+        @include grid-media-min('md') {
+            margin-bottom: 100px;
+        }
+    }
+}
