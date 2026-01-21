@@ -1,0 +1,1448 @@
+uuid: 8109a8c4-406d-4cb9-add6-273f6dc8a248
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_description
+    - field.storage.node.su_featured_flagship
+    - field.storage.node.su_featured_image
+    - field.storage.node.su_featured_image_caption
+    - field.storage.node.su_status
+    - node.type.su_project
+    - taxonomy.vocabulary.su_project_flagships
+  content:
+    - 'taxonomy_term:su_project_flagships:060cedc7-99bd-492d-bc91-b322e28920bf'
+    - 'taxonomy_term:su_project_flagships:3a892a08-9669-415b-9d92-a704ba4b1740'
+    - 'taxonomy_term:su_project_flagships:683930ac-cff2-42b8-a5b5-1fa875d32641'
+    - 'taxonomy_term:su_project_flagships:8a57d6dc-261b-45bc-bf05-fb0628518c3a'
+    - 'taxonomy_term:su_project_flagships:a58204b9-9bb5-4692-90ad-a881ec6b6ec1'
+    - 'taxonomy_term:su_project_flagships:c05a970e-93fa-4365-83fb-eef80a8d7b11'
+    - 'taxonomy_term:su_project_flagships:dd5bcd0a-95e8-4a19-8d41-e99d5a56e13c'
+    - 'taxonomy_term:su_project_flagships:fe6d45d0-4a3f-4466-b173-d41cc4423bf6'
+  module:
+    - better_exposed_filters
+    - node
+    - options
+    - stanford_fields
+    - taxonomy
+    - text
+    - ui_patterns_views
+    - user
+id: su_projects
+label: Projects
+module: views
+description: ''
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: Projects
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            trim: false
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_featured_image:
+          id: su_featured_image
+          table: node__su_featured_image
+          field: su_featured_image
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_featured_image_caption:
+          id: su_featured_image_caption
+          table: node__su_featured_image_caption
+          field: su_featured_image_caption
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_featured_flagship:
+          id: su_featured_flagship
+          table: node__su_featured_flagship
+          field: su_featured_flagship
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_description:
+          id: su_description
+          table: node__su_description
+          field: su_description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        su_status:
+          id: su_status
+          table: node__su_status
+          field: su_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: bef
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: stanford_html
+          bef:
+            general:
+              autosubmit: true
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_hide: true
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              combine:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ''
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                  sort_options_unsupported: ''
+              su_topics_target_id:
+                plugin_id: bef
+                advanced:
+                  sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 10
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+              su_project_impact_pathway_target_id:
+                plugin_id: bef
+                advanced:
+                  sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 10
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+              su_status_value:
+                plugin_id: bef
+                advanced:
+                  sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  open_by_default: false
+                  is_secondary: false
+                  hide_label: false
+                  field_classes: ''
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: false
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text_custom
+          empty: true
+          content: '<p class="su-intro-text">Sorry, no results found.</p>'
+          tokenize: false
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: ui_patterns
+        options:
+          default_field_elements: 1
+          inline:
+            title: 0
+            su_featured_image: 0
+            su_featured_image_caption: 0
+            su_featured_flagship: 0
+            su_description: 0
+            su_status: 0
+          separator: ''
+          hide_empty: 0
+          pattern: sdss-flagship-grid
+          variants:
+            alert: default
+            brandbar: default
+            button: default
+            card: default
+            cta: default
+            date-stacked: default
+            hero: default
+            lockup: a
+            media: default
+            course_list: default
+            course_vertical_teaser: default
+            events_card: default
+            events_list: default
+            news-list: default
+            news-vertical-teaser: default
+          pattern_mapping:
+            'views_row:title':
+              destination: project_grid_title
+              weight: 0
+              plugin: views_row
+              source: title
+            'views_row:su_status':
+              destination: project_grid_status
+              weight: 1
+              plugin: views_row
+              source: su_status
+            'views_row:su_featured_image':
+              destination: project_grid_featured_image
+              weight: 2
+              plugin: views_row
+              source: su_featured_image
+            'views_row:su_featured_image_caption':
+              destination: project_grid_featured_image_caption
+              weight: 3
+              plugin: views_row
+              source: su_featured_image_caption
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_tags: {  }
+          contextual_filters_or: false
+      relationships: {  }
+      css_class: 'stanford-projects-grid stanford-projects-grid--no-filters'
+      use_ajax: true
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_1:
+    id: viewfield_block_1
+    display_title: 'Projects (All)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_2:
+    id: viewfield_block_2
+    display_title: 'Projects (Water)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15394: '15394'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_3:
+    id: viewfield_block_3
+    display_title: 'Projects (Biological Solutions)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15413: '15413'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_4:
+    id: viewfield_block_4
+    display_title: 'Projects (Climate Adaptation)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15412: '15412'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_5:
+    id: viewfield_block_5
+    display_title: 'Projects (Electricity and Grid Systems)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15395: '15395'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_6:
+    id: viewfield_block_6
+    display_title: 'Projects (Food and Agriculture)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15414: '15414'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_7:
+    id: viewfield_block_7
+    display_title: 'Projects (Greenhouse Gas Removal)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15415: '15415'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_8:
+    id: viewfield_block_8
+    display_title: 'Projects (Industry)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15416: '15416'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'
+  viewfield_block_9:
+    id: viewfield_block_9
+    display_title: 'Projects (Planetary Intelligence)'
+    display_plugin: viewfield_block
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            su_project: su_project
+          group: 1
+        su_featured_flagship_target_id:
+          id: su_featured_flagship_target_id
+          table: node__su_featured_flagship
+          field: su_featured_flagship_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            15411: '15411'
+          group: '1'
+          exposed: false
+          expose:
+            operator_id: false
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: 0
+          type: select
+          limit: true
+          vid: su_project_flagships
+          hierarchy: 0
+          error_message: true
+          plugin_id: taxonomy_index_tid
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.su_description'
+        - 'config:field.storage.node.su_featured_flagship'
+        - 'config:field.storage.node.su_featured_image'
+        - 'config:field.storage.node.su_featured_image_caption'
+        - 'config:field.storage.node.su_status'

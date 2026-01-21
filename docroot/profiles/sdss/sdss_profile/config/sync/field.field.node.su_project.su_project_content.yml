@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.storage.node.su_project_content
     - node.type.su_project
-    - paragraphs.paragraphs_type.stanford_layout
-    - paragraphs.paragraphs_type.stanford_wysiwyg
   module:
     - entity_reference_revisions
 id: node.su_project.su_project_content
@@ -22,10 +20,8 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles:
-      stanford_layout: stanford_layout
-      stanford_wysiwyg: stanford_wysiwyg
-    negate: 0
+    target_bundles: null
+    negate: 1
     target_bundles_drag_drop:
       callout_quote:
         weight: 27
@@ -38,6 +34,9 @@ settings:
         enabled: false
       editorial_sidebar:
         weight: 30
+        enabled: false
+      sdss_filtered_lists:
+        weight: 32
         enabled: false
       sdss_news_list_card:
         weight: 31
@@ -65,7 +64,7 @@ settings:
         enabled: false
       stanford_layout:
         weight: 39
-        enabled: true
+        enabled: false
       stanford_lists:
         weight: 40
         enabled: false
@@ -83,7 +82,7 @@ settings:
         enabled: false
       stanford_wysiwyg:
         weight: 45
-        enabled: true
+        enabled: false
       su_departments_slide:
         weight: 46
         enabled: false

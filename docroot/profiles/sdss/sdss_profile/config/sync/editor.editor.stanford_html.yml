@@ -182,6 +182,9 @@ settings:
         -
           label: 'Sub Title'
           element: '<p class="su-subheading">'
+        -
+          label: 'Large Text'
+          element: '<p class="su-large-text">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default

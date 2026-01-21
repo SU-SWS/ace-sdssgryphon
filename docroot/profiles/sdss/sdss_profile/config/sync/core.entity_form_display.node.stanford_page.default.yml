@@ -119,6 +119,7 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+      allow_unpublished: false
     third_party_settings: {  }
   su_metatags:
     type: metatag_firehose
@@ -154,7 +155,9 @@ content:
     weight: 8
     region: content
     settings:
+      view_mode: default
       preview_view_mode: default
+      form_display_mode: default
       nesting_depth: 0
       require_layouts: 1
       empty_message: ''
@@ -188,6 +191,7 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+      allow_unpublished: false
     third_party_settings: {  }
   su_sdss_basic_opportunity_type:
     type: cshs
@@ -201,6 +205,7 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+      allow_unpublished: false
     third_party_settings: {  }
   su_sdss_basic_organization:
     type: cshs
@@ -214,6 +219,7 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+      allow_unpublished: false
     third_party_settings: {  }
   su_sdss_related_content:
     type: entity_reference_autocomplete
@@ -237,6 +243,7 @@ content:
       hierarchy_depth: 0
       required_depth: 0
       none_label: '- Please select -'
+      allow_unpublished: false
     third_party_settings: {  }
   title:
     type: string_textfield
