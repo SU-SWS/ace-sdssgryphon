@@ -25,3 +25,9 @@
       max-width: calc(100% - 20px);
   }
 }
+
+.layout--layout-paragraphs-one-column .paragraph.paragraph--type--stanford-wysiwyg {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
