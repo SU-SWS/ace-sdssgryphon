@@ -95,7 +95,7 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        @include grid-media-min('xl') {
+        @include grid-media-min('2xl') {
             grid-template-columns: 1fr 1fr 1fr;
         }
     }
@@ -309,6 +309,10 @@
         line-height: 22px;
         max-width: calc(100% - 20px);
         color: black;
+
+        &__bold {
+            font-weight: 600;
+        }
     }
 
     &__item {
@@ -330,7 +334,7 @@
 
         &:hover {
             .su_projects__image__inner {
-                transform: scale(1.1);
+                transform: scale(1.08);
             }
 
             h4 {
@@ -432,7 +436,7 @@
             background-position: center;
             background-repeat: no-repeat;
 
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-out;
         }
     }
 }
