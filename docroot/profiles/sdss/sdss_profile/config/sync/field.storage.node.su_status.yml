@@ -4,21 +4,14 @@ status: true
 dependencies:
   module:
     - node
-    - options
+    - taxonomy
 id: node.su_status
 field_name: su_status
 entity_type: node
-type: list_string
+type: entity_reference
 settings:
-  allowed_values:
-    -
-      value: active
-      label: Active
-    -
-      value: graduated
-      label: Graduated
-  allowed_values_function: ''
-module: options
+  target_type: taxonomy_term
+module: core
 locked: false
 cardinality: 1
 translatable: true

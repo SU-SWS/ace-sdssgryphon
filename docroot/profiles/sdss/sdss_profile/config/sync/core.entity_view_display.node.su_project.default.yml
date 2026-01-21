@@ -18,7 +18,6 @@ dependencies:
   module:
     - layout_paragraphs
     - link
-    - options
     - text
     - user
 id: node.su_project.default
@@ -101,11 +100,12 @@ content:
     weight: 7
     region: content
   su_status:
-    type: list_default
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 9
+    weight: 16
     region: content
   su_topics:
     type: entity_reference_label
