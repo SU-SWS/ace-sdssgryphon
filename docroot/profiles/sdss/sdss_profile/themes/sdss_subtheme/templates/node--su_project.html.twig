@@ -34,13 +34,13 @@
                       <div class="ptype-stanford-wysiwyg paragraph paragraph--type--stanford-wysiwyg paragraph--view-mode--default">
                         <div class="su-wysiwyg-text paragraph stanford-wysiwyg text-long label-hidden">
                           <h4>{{ node.su_featured_flagship.entity.label }} Flagship</h4>
-                          <p>Team: 
+                          {% if node.su_stanford_users is not empty %}<p>Team: 
                             {% for item in node.su_stanford_users %}
                               <a href="{{ render_var(item.url) }}" class="ext su-link--external" data-extlink="" title="(opens in a new window)">
                                 {{ item.title }}
                               </a>{% if not loop.last %}, {% endif %}
                             {% endfor %}
-                          </p>
+                          </p>{% endif %}
                           <figure class="align-left caption">
                             <div class="media-entity-wrapper image">
                               <div class="media image field-media-image label-hidden">
