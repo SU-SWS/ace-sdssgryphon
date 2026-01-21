@@ -15,9 +15,6 @@ settings:
       value: active
       label: Active
     -
-      value: sunsetted
-      label: Sunsetted
-    -
       value: graduated
       label: Graduated
   allowed_values_function: ''
