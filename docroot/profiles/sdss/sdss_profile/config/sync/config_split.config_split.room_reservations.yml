@@ -16,4 +16,5 @@ module:
   stanford_earth_r25_custom: 0
 theme: {  }
 complete_list: {  }
-partial_list: {  }
+partial_list:
+  - samlauth.authentication
