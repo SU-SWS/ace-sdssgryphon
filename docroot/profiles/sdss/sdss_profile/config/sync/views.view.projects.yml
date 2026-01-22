@@ -9,6 +9,7 @@ dependencies:
     - field.storage.node.su_featured_image_caption
     - node.type.su_project
     - taxonomy.vocabulary.su_project_impact_pathway
+    - taxonomy.vocabulary.su_project_status
     - taxonomy.vocabulary.su_project_topics
   module:
     - better_exposed_filters
@@ -436,12 +437,13 @@ display:
                 soft_limit: 10
                 soft_limit_label_less: 'Show less'
                 soft_limit_label_more: 'Show more'
-              su_status_value:
+              su_status_target_id:
                 plugin_id: bef
                 advanced:
                   sort_options: false
                   sort_options_method: alphabetical_asc
                   sort_options_natural: true
+                  placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
@@ -707,27 +709,27 @@ display:
           hierarchy: false
           limit: true
           error_message: true
-        su_status_value:
-          id: su_status_value
+        su_status_target_id:
+          id: su_status_target_id
           table: node__su_status
-          field: su_status_value
+          field: su_status_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: list_field
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: su_status_value_op
+            operator_id: su_status_target_id_op
             label: Status
             description: ''
             use_operator: false
-            operator: su_status_value_op
+            operator: su_status_target_id_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: su_status_value
+            identifier: su_status_target_id
             required: false
             remember: false
             multiple: true
@@ -761,6 +763,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+          vid: su_project_status
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
       filter_groups:
         operator: AND
         groups:

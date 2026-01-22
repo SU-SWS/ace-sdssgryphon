@@ -31,3 +31,8 @@
   max-width: 850px;
   margin: 0 auto;
 }
+
+/* Target the metadata specifically inside the Project node header */
+.project header .submitted {
+  display: none !important;
+}
