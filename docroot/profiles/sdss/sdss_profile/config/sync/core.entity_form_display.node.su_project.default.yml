@@ -13,7 +13,6 @@ dependencies:
     - field.field.node.su_project.su_stanford_users
     - field.field.node.su_project.su_status
     - field.field.node.su_project.su_topics
-    - field.field.node.su_project.su_year
     - node.type.su_project
   module:
     - change_labels
@@ -140,13 +139,6 @@ content:
     weight: 14
     region: content
     settings: {  }
-    third_party_settings: {  }
-  su_year:
-    type: number
-    weight: 11
-    region: content
-    settings:
-      placeholder: ''
     third_party_settings: {  }
   title:
     type: string_textfield

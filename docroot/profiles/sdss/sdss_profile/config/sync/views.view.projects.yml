@@ -587,7 +587,6 @@ display:
             group_items: {  }
           fields:
             title: title
-            su_description: su_description
         su_topics_target_id:
           id: su_topics_target_id
           table: node__su_topics

@@ -14,7 +14,6 @@ dependencies:
     - field.field.node.su_project.su_stanford_users
     - field.field.node.su_project.su_status
     - field.field.node.su_project.su_topics
-    - field.field.node.su_project.su_year
     - node.type.su_project
   module:
     - user
@@ -40,4 +39,3 @@ hidden:
   su_stanford_users: true
   su_status: true
   su_topics: true
-  su_year: true
