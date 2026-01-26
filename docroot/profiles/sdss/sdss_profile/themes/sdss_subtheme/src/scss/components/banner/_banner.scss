@@ -281,6 +281,20 @@
     padding: 0.5rem 0.75rem;
     font-size: 14px;
 
+    a {
+      color: #DDD;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: #FFF;
+      }
+
+      &:focus {
+        outline: 1px solid #DDD;
+      }
+    }
+
     @include grid-media-min('md') {
       font-size: 16px;
     }
