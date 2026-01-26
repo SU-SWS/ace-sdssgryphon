@@ -1,0 +1,29 @@
+uuid: 180e3fcb-e48f-4d5a-a26f-60864369105e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sdss_proj_flagships
+    - node.type.sdss_proj
+    - taxonomy.vocabulary.sdss_proj_flagships
+id: node.sdss_proj.sdss_proj_flagships
+field_name: sdss_proj_flagships
+entity_type: node
+bundle: sdss_proj
+label: Flagships
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_proj_flagships: sdss_proj_flagships
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

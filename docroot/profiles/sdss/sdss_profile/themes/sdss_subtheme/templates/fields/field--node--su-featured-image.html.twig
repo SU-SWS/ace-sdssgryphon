@@ -5,9 +5,9 @@
   {% endfor %}
 
   {# Pulling the caption field from the node (parent) #}
-  {% if element['#object'].su_featured_image_caption.value %}
+  {% if element['#object'].sdss_proj_featured_image_caption.value %}
     <figcaption>
-      {{ element['#object'].su_featured_image_caption.value }}
+      {{ element['#object'].sdss_proj_featured_image_caption.value }}
     </figcaption>
   {% endif %}
 </figure>

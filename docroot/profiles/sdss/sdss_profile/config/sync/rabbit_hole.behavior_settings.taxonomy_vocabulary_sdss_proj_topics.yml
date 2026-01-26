@@ -1,0 +1,14 @@
+uuid: 64254910-a5a6-4111-adc8-e314e0f77ad0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sdss_proj_topics
+id: taxonomy_vocabulary_sdss_proj_topics
+entity_type_id: taxonomy_vocabulary
+entity_id: sdss_proj_topics
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

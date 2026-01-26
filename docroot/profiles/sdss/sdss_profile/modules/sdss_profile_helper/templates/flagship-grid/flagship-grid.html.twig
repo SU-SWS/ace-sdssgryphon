@@ -30,11 +30,11 @@
 <a {{ attributes }} {% if headingID %}aria-labelledby="{{ headingID }}"{% endif %} href = "{{ project_url}}">
   <article>
     <div class = "su_projects__image">
-      {% set media_entity = project_grid_featured_image['#row']._entity.su_featured_image.entity %}
+      {% set media_entity = project_grid_featured_image['#row']._entity.sdss_proj_featured_image.entity %}
 
       {% if media_entity %}
         {# 2. Get the Image Field from inside that Media Entity #}
-        {# Note: Media types usually use 'field_media_image' or 'field_su_featured_image' #}
+        {# Note: Media types usually use 'field_media_image' or 'field_sdss_proj_featured_image' #}
         {# We'll try the standard 'field_media_image' first #}
         {% set image_field = media_entity.field_media_image.0 %}
         

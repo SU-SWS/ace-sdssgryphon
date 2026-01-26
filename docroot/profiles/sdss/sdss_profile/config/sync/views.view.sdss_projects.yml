@@ -1,4 +1,4 @@
-uuid: 8bba7142-57f6-4f05-98e0-e2ababf8d5a8
+uuid: 8109a8c4-406d-4cb9-add6-273f6dc8a248
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,8 @@ dependencies:
     - field.storage.node.sdss_proj_featured_flagship
     - field.storage.node.sdss_proj_featured_image
     - field.storage.node.sdss_proj_featured_image_caption
+    - field.storage.node.sdss_proj_status
     - node.type.sdss_proj
-    - taxonomy.vocabulary.sdss_proj_project_impact_pathway
-    - taxonomy.vocabulary.sdss_proj_status
-    - taxonomy.vocabulary.sdss_proj_topics
   module:
     - better_exposed_filters
     - node
@@ -19,9 +17,9 @@ dependencies:
     - text
     - ui_patterns_views
     - user
-    - views_infinite_scroll
-id: projects
-label: 'Projects (Filtered Grid)'
+    - views_taxonomy_term_name_depth
+id: sdss_projs
+label: Projects
 module: views
 description: ''
 tag: ''
@@ -334,29 +332,73 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        sdss_proj_status:
+          id: sdss_proj_status
+          table: node__sdss_proj_status
+          field: sdss_proj_status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
-        type: infinite_scroll
+        type: none
         options:
           offset: 0
-          pagination_heading_level: h4
-          items_per_page: 9
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Show more'
-            automatically_load_content: false
-            initially_load_all_pages: true
       exposed_form:
         type: bef
         options:
@@ -413,7 +455,7 @@ display:
                 select_all_none: false
                 select_all_none_nested: false
                 display_inline: false
-                soft_limit: 0
+                soft_limit: 10
                 soft_limit_label_less: 'Show less'
                 soft_limit_label_more: 'Show more'
               sdss_proj_project_impact_pathway_target_id:
@@ -434,10 +476,10 @@ display:
                 select_all_none: false
                 select_all_none_nested: false
                 display_inline: false
-                soft_limit: 0
+                soft_limit: 10
                 soft_limit_label_less: 'Show less'
                 soft_limit_label_more: 'Show more'
-              sdss_proj_status_target_id:
+              sdss_proj_status_value:
                 plugin_id: bef
                 advanced:
                   sort_options: false
@@ -475,7 +517,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: '<p class="su-intro-text">Sorry, no results found. Try another search.</p>'
+          content: '<p class="su-intro-text">Sorry, no results found.</p>'
           tokenize: false
       sorts:
         weight:
@@ -488,7 +530,7 @@ display:
           entity_type: taxonomy_term
           entity_field: weight
           plugin_id: standard
-          order: DESC
+          order: ASC
           expose:
             label: ''
             field_identifier: ''
@@ -508,7 +550,45 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-      arguments: {  }
+      arguments:
+        term_node_taxonomy_name_depth:
+          id: term_node_taxonomy_name_depth
+          table: node_field_data
+          field: term_node_taxonomy_name_depth
+          relationship: none
+          group_type: group
+          admin_label: Flagship
+          entity_type: node
+          plugin_id: taxonomy_index_name_depth
+          default_action: ignore
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: true
+          depth: '0'
+          use_taxonomy_term_path: false
+          vocabularies:
+            sdss_proj_flagships: sdss_proj_flagships
       filters:
         status:
           id: status
@@ -531,241 +611,6 @@ display:
           value:
             sdss_proj: sdss_proj
           group: 1
-        combine:
-          id: combine
-          table: views
-          field: combine
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: combine
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: combine_op
-            label: Search
-            description: ''
-            use_operator: false
-            operator: combine_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: combine
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              administrator: '0'
-              anonymous: '0'
-              stanford_faculty: '0'
-              stanford_staff: '0'
-              stanford_student: '0'
-              contributor: '0'
-              site_manager: '0'
-              site_editor: '0'
-              site_builder: '0'
-              site_developer: '0'
-              layout_builder_user: '0'
-              su_site_embedder: '0'
-              decoupled_site_users: '0'
-              sdss_reviewer: '0'
-            placeholder: Search
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          fields:
-            title: title
-        sdss_proj_topics_target_id:
-          id: sdss_proj_topics_target_id
-          table: node__sdss_proj_topics
-          field: sdss_proj_topics_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: sdss_proj_topics_target_id_op
-            label: Topics
-            description: ''
-            use_operator: false
-            operator: sdss_proj_topics_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: sdss_proj_topics_target_id
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              administrator: '0'
-              anonymous: '0'
-              stanford_faculty: '0'
-              stanford_staff: '0'
-              stanford_student: '0'
-              contributor: '0'
-              site_manager: '0'
-              site_editor: '0'
-              site_builder: '0'
-              site_developer: '0'
-              layout_builder_user: '0'
-              su_site_embedder: '0'
-              decoupled_site_users: '0'
-              sdss_reviewer: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: 'Topics (sdss_proj_topics)'
-            description: null
-            identifier: sdss_proj_topics_target_id
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1: {  }
-              2: {  }
-              3: {  }
-          reduce_duplicates: false
-          vid: sdss_proj_topics
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        sdss_proj_project_impact_pathway_target_id:
-          id: sdss_proj_project_impact_pathway_target_id
-          table: node__sdss_proj_project_impact_pathway
-          field: sdss_proj_project_impact_pathway_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: sdss_proj_project_impact_pathway_target_id_op
-            label: 'Project Impact Pathway'
-            description: ''
-            use_operator: false
-            operator: sdss_proj_project_impact_pathway_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: sdss_proj_project_impact_pathway_target_id
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              administrator: '0'
-              anonymous: '0'
-              stanford_faculty: '0'
-              stanford_staff: '0'
-              stanford_student: '0'
-              contributor: '0'
-              site_manager: '0'
-              site_editor: '0'
-              site_builder: '0'
-              site_developer: '0'
-              layout_builder_user: '0'
-              su_site_embedder: '0'
-              decoupled_site_users: '0'
-              sdss_reviewer: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: sdss_proj_project_impact_pathway
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        sdss_proj_status_target_id:
-          id: sdss_proj_status_target_id
-          table: node__sdss_proj_status
-          field: sdss_proj_status_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: sdss_proj_status_target_id_op
-            label: Status
-            description: ''
-            use_operator: false
-            operator: sdss_proj_status_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: sdss_proj_status_target_id
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              administrator: '0'
-              anonymous: '0'
-              stanford_faculty: '0'
-              stanford_staff: '0'
-              stanford_student: '0'
-              contributor: '0'
-              site_manager: '0'
-              site_editor: '0'
-              site_builder: '0'
-              site_developer: '0'
-              layout_builder_user: '0'
-              su_site_embedder: '0'
-              decoupled_site_users: '0'
-              sdss_reviewer: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: sdss_proj_status
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
       filter_groups:
         operator: AND
         groups:
@@ -785,9 +630,11 @@ display:
             sdss_proj_featured_image: 0
             sdss_proj_featured_image_caption: 0
             sdss_proj_featured_flagship: 0
+            sdss_proj_description: 0
+            sdss_proj_status: 0
           separator: ''
           hide_empty: 0
-          pattern: sdss-project-grid
+          pattern: sdss-flagship-grid
           variants:
             alert: default
             brandbar: default
@@ -810,21 +657,21 @@ display:
               weight: 0
               plugin: views_row
               source: title
+            'views_row:sdss_proj_status':
+              destination: project_grid_status
+              weight: 1
+              plugin: views_row
+              source: sdss_proj_status
             'views_row:sdss_proj_featured_image':
               destination: project_grid_featured_image
-              weight: 1
+              weight: 2
               plugin: views_row
               source: sdss_proj_featured_image
             'views_row:sdss_proj_featured_image_caption':
               destination: project_grid_featured_image_caption
-              weight: 2
-              plugin: views_row
-              source: sdss_proj_featured_image_caption
-            'views_row:sdss_proj_featured_flagship':
-              destination: project_grid_featured_flagship
               weight: 3
               plugin: views_row
-              source: sdss_proj_featured_flagship
+              source: sdss_proj_featured_image_caption
       query:
         type: views_query
         options:
@@ -844,22 +691,9 @@ display:
           admin_label: 'sdss_proj_status: Taxonomy term'
           plugin_id: standard
           required: true
-      css_class: stanford-projects-grid
+      css_class: 'stanford-projects-grid stanford-projects-grid--no-filters'
       use_ajax: true
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: false
-          content:
-            value: "<div class = \"project-grid-header\">\r\n        <h2>Projects</h2>\r\n</div>"
-            format: stanford_html
-          tokenize: false
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -868,7 +702,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -876,9 +709,10 @@ display:
         - 'config:field.storage.node.sdss_proj_featured_flagship'
         - 'config:field.storage.node.sdss_proj_featured_image'
         - 'config:field.storage.node.sdss_proj_featured_image_caption'
+        - 'config:field.storage.node.sdss_proj_status'
   viewfield_block_1:
     id: viewfield_block_1
-    display_title: 'Projects - All Filters'
+    display_title: Projects
     display_plugin: viewfield_block
     position: 1
     display_options:
@@ -890,7 +724,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -898,3 +731,5 @@ display:
         - 'config:field.storage.node.sdss_proj_featured_flagship'
         - 'config:field.storage.node.sdss_proj_featured_image'
         - 'config:field.storage.node.sdss_proj_featured_image_caption'
+        - 'config:field.storage.node.sdss_proj_status'
+    deleted: false
