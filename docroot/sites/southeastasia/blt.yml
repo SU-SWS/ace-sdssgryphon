@@ -1,0 +1,12 @@
+project:
+  machine_name: southeastasia
+  human_name: southeastasia
+  local:
+    protocol: http
+    hostname: local.southeastasia.com
+drush:
+  aliases:
+    local: southeastasia.local
+    remote: southeastasia.prod
+drupal:
+  db: {  }
