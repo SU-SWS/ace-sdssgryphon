@@ -4,43 +4,25 @@
    */
 #}
 
-<div class="node basic-page node--layout-full su-project">
-  <div class="content">
-    <div class="jumpstart-ui--one-column centered-container">
-      <div class="main-region flex-12-of-12">
-        
-        {# Title Region #}
-        <div {{ region_attributes.title.addClass('field-block', 'node-stanford-page-title', 'block-layout-builder', 'layout__region', 'layout__region--title') }}>
-          {{ content.title }}
-        </div>
-
-        <div class="field-block node-stanford-page-su-page-components block-layout-builder">
-          <div class="node stanford-page su-page-components entity-reference-revisions label-hidden">
-            <div class="paragraph-item ptype-stanford-layout">
-              <div class="ptype-stanford-layout paragraph">
-                <div class="layout layout--layout-paragraphs-one-column layout--layout-paragraphs-sdss-one-column">
-                  <div class="layout__region layout__region--main">
-                    <div class="ptype-stanford-wysiwyg paragraph paragraph--type--stanford-wysiwyg paragraph--view-mode--default">
-                  
-                      {# Description/Meta/Featured Image Region #}
-                      <div {{ region_attributes.description.addClass('su-wysiwyg-text', 'layout__region', 'layout__region--description') }}>
-                        {{ content.description }}
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+<div class="jumpstart-ui--one-column centered-container su-project">
+  <div class="main-region flex-12-of-12">
+    
+    {# Title Region #}
+    <div {{ region_attributes.title.addClass('field-block', 'node-stanford-page-title', 'block-layout-builder', 'layout__region', 'layout__region--title') }}>
+      {{ content.title }}
+    </div>
+              
+    {# Description/Meta/Featured Image Region #}
+    <div {{ region_attributes.description.addClass('su-wysiwyg-text', 'layout__region', 'layout__region--description') }}>
+      <div class = "layout__region__inner">
+        {{ content.description }}
       </div>
     </div>
-  </div>
-</div>
 
-{# Main Region #}
-<div {{ region_attributes.main.addClass('layout__region', 'layout__region--main') }}>
-  {{ content.main }}
+    {# Main Region #}
+    <div {{ region_attributes.main.addClass('layout__region', 'layout__region--main') }}>
+      {{ content.main }}
+    </div>
+
+  </div>
 </div>

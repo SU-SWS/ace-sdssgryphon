@@ -1,12 +1,8 @@
 {# templates/fields/field--node--su-featured-image.html.twig #}
 <figure class="align-left caption">
-  <div class="media-entity-wrapper image">
-    {% for item in items %}
-      <div class="media image label-hidden">
-        {{ item.content }}
-      </div>
-    {% endfor %}
-  </div>
+  {% for item in items %}
+      {{ item.content }}
+  {% endfor %}
 
   {# Pulling the caption field from the node (parent) #}
   {% if element['#object'].su_featured_image_caption.value %}
