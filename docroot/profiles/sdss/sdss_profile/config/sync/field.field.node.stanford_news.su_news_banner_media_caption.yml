@@ -9,7 +9,7 @@ id: node.stanford_news.su_news_banner_media_caption
 field_name: su_news_banner_media_caption
 entity_type: node
 bundle: stanford_news
-label: 'Banner Caption'
+label: 'Banner Caption (Deprecated)'
 description: ''
 required: false
 translatable: false
