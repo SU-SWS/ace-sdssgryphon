@@ -4,7 +4,12 @@
    */
 #}
 
-<div class="jumpstart-ui--one-column centered-container su-project">
+{#
+  Add a few classes to the outer wrapper by default. Uses the jumpstart ui
+  single column and centered container classes by default.
+#}
+{% set attributes = attributes.addClass('jumpstart-ui--one-column', 'centered-container', 'su-project') %}
+<div{{ attributes }}>
   <div class="main-region flex-12-of-12">
     
     {# Title Region #}
