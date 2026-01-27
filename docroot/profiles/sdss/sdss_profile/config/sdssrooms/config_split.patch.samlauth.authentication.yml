@@ -1,0 +1,30 @@
+adding:
+  login_link_title: ''
+  login_auto_redirect: false
+  login_error_keep_session: false
+  map_users_roles:
+    su_site_embedder: su_site_embedder
+    sdss_reviewer: sdss_reviewer
+    custm_hartley_administrator: custm_hartley_administrator
+    custm_sdss_user: custm_sdss_user
+    custm_press_building_admin: custm_press_building_admin
+    custm_press_building_user: custm_press_building_user
+    custm_farm_staff: custm_farm_staff
+    custm_farm_admin: custm_farm_admin
+    custm_hopkins_user: custm_hopkins_user
+  sync_mail: false
+removing:
+  drupal_login_roles:
+    administrator: '0'
+    authenticated: '0'
+    stanford_faculty: '0'
+    stanford_staff: '0'
+    stanford_student: '0'
+    contributor: '0'
+    site_manager: '0'
+    site_editor: '0'
+    site_builder: '0'
+    site_developer: '0'
+    layout_builder_user: '0'
+    decoupled_site_users: '0'
+  sync_mail: true

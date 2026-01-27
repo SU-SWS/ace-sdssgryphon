@@ -40,12 +40,12 @@
             "type": "package",
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
-                "version": "8.1.23",
+                "version": "8.1.24",
                 "type": "drupal-custom-module-rooms-site",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
-                    "reference": "8.1.23"
+                    "reference": "8.1.24"
                 }
             }
         },
@@ -147,6 +147,7 @@
         "drupal/menu_block": "^1.10",
         "drupal/menu_link_weight": "^2.0@alpha",
         "drupal/metatag": "^2.0",
+        "drupal/migrate_plus": "^6.0",
         "drupal/name": "^1.0@RC",
         "drupal/next": "^2.0",
         "drupal/nobots": "^1.0",
@@ -345,9 +346,6 @@
             },
             "drupal/shs": {
                 "https://www.drupal.org/project/shs/issues/3047595": "https://www.drupal.org/files/issues/2022-01-06/3047595-5.patch"
-            },
-            "drupal/smart_trim": {
-                "https://www.drupal.org/project/smart_trim/issues/3566575: Call to undefined function _token_field_label()": "patches/contrib/smart_trim-3566575-mr-119-20260109.patch"
             },
             "drupal/taxonomy_entity_index": {
                 "Fix PHP 8 strict error with arrays": "patches/contrib/taxonomy_entity_index.patch"

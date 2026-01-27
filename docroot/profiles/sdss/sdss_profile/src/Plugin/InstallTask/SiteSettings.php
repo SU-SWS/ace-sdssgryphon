@@ -70,7 +70,7 @@ class SiteSettings extends InstallTaskBase implements ContainerFactoryPluginInte
    * {@inheritDoc}
    */
   public function runTask(array &$install_state) {
-    $this->state->set('nobots', FALSE);
+    $this->state->set('nobots', TRUE);
 
     $node_pages = [
       '403_page' => '4b8018dc-49a6-4018-9c54-e8c3e462beee',
