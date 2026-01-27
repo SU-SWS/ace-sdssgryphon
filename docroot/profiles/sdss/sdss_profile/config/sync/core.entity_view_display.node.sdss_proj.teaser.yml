@@ -28,14 +28,14 @@ content:
     weight: 100
     region: content
 hidden:
-  search_api_excerpt: true
+  sdss_proj_content: true
   sdss_proj_description: true
   sdss_proj_featured_flagship: true
   sdss_proj_featured_image: true
   sdss_proj_featured_image_caption: true
   sdss_proj_flagships: true
-  sdss_proj_content: true
   sdss_proj_project_impact_pathway: true
   sdss_proj_stanford_users: true
   sdss_proj_status: true
   sdss_proj_topics: true
+  search_api_excerpt: true
