@@ -1,0 +1,14 @@
+uuid: 82de18d9-c97c-44ec-b580-7920504bc950
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.sdss_proj
+id: node_type_sdss_proj
+entity_type_id: node_type
+entity_id: sdss_proj
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

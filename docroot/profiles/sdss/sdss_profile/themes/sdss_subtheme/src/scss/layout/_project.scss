@@ -1,0 +1,10 @@
+.layout__region.layout__region--description {
+    display: block;
+    margin: 0 auto;
+    max-width: 850px;
+    padding-bottom: 2.6rem;
+
+    &__inner {
+        width: 95%;
+    }
+}

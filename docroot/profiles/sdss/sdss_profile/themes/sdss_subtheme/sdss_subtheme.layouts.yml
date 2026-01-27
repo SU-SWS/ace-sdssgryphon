@@ -1,0 +1,13 @@
+stanford_project_layout:
+  label: Projects
+  category: 'Stanford'
+  path: templates/layouts
+  template: project
+  default_region: main
+  regions:
+    title:
+      label: 'Title'
+    description:
+      label: 'Description'
+    main:
+      label: 'Main Content'

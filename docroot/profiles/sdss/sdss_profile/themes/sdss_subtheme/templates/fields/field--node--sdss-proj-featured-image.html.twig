@@ -1,0 +1,13 @@
+{# templates/fields/field--node--sdss-proj-featured-image.html.twig #}
+<figure class="align-left caption">
+  {% for item in items %}
+      {{ item.content }}
+  {% endfor %}
+
+  {# Pulling the caption field from the node (parent) #}
+  {% if element['#object'].sdss_proj_featured_image_caption.value %}
+    <figcaption>
+      {{ element['#object'].sdss_proj_featured_image_caption.value }}
+    </figcaption>
+  {% endif %}
+</figure>

@@ -1,0 +1,29 @@
+uuid: 63084cb2-5062-43fb-a98a-12e221993d20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sdss_proj_topics
+    - node.type.sdss_proj
+    - taxonomy.vocabulary.sdss_proj_topics
+id: node.sdss_proj.sdss_proj_topics
+field_name: sdss_proj_topics
+entity_type: node
+bundle: sdss_proj
+label: Topics
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_proj_topics: sdss_proj_topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
