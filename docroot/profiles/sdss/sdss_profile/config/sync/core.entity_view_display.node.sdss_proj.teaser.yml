@@ -1,0 +1,41 @@
+uuid: 89dd16b9-ef53-4532-9038-35b5ae7cbc03
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.sdss_proj.sdss_proj_description
+    - field.field.node.sdss_proj.sdss_proj_featured_flagship
+    - field.field.node.sdss_proj.sdss_proj_featured_image
+    - field.field.node.sdss_proj.sdss_proj_featured_image_caption
+    - field.field.node.sdss_proj.sdss_proj_flagships
+    - field.field.node.sdss_proj.sdss_proj_content
+    - field.field.node.sdss_proj.sdss_proj_project_impact_pathway
+    - field.field.node.sdss_proj.sdss_proj_stanford_users
+    - field.field.node.sdss_proj.sdss_proj_status
+    - field.field.node.sdss_proj.sdss_proj_topics
+    - node.type.sdss_proj
+  module:
+    - user
+id: node.sdss_proj.teaser
+targetEntityType: node
+bundle: sdss_proj
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  sdss_proj_content: true
+  sdss_proj_description: true
+  sdss_proj_featured_flagship: true
+  sdss_proj_featured_image: true
+  sdss_proj_featured_image_caption: true
+  sdss_proj_flagships: true
+  sdss_proj_project_impact_pathway: true
+  sdss_proj_stanford_users: true
+  sdss_proj_status: true
+  sdss_proj_topics: true
+  search_api_excerpt: true

@@ -15,6 +15,7 @@ $fa-font-path:  '~@fortawesome/fontawesome-free/webfonts';
 .layout-paragraphs-sdss-one-column {
   // All paragraphs except banner, news spotlight, wysiwyg, and news list card
   .ptype-stanford-lists,
+  .ptype-sdss-filtered-lists,
   .ptype-stanford-gallery,
   .ptype-stanford-card,
   .ptype-stanford-media-caption,
@@ -35,6 +36,7 @@ $fa-font-path:  '~@fortawesome/fontawesome-free/webfonts';
 
     // All paragraphs except banner, news spotlight, wysiwyg, and news list card
     .ptype-stanford-lists,
+    .ptype-sdss-filtered-lists,
     .ptype-stanford-gallery,
     .ptype-stanford-card,
     .ptype-stanford-media-caption,

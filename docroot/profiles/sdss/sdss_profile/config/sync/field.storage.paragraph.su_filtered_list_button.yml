@@ -1,0 +1,19 @@
+uuid: dfc74abf-22e1-4ff0-bf0e-289dfafc2cc0
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.su_filtered_list_button
+field_name: su_filtered_list_button
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -35,6 +35,37 @@
       box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
     }
   }
+  // Grey background without shadow
+  &.sdss-card-wrapper--grey-bg {
+    article.su-card {
+      border: 1px solid #D2D2D2;
+      background-color: #F5F5F5;
+      padding: 21px 25px;
+      box-shadow: none;
+
+      .su-card__headline {
+          font-size: 19px;
+          line-height: 135%;
+          padding-top: 0;
+          padding-left: 0;
+          color: black;
+      }
+
+      .su-card__contents {
+          padding: 0;
+
+          .su-link {
+              @include arrow-btn();
+              text-decoration: none !important;
+              color: #8C1515 !important;
+
+              &:after {
+                  background-color: #8C1515;
+              }
+          }
+      }
+    }
+  }
 
   // White background with shadow
   &.sdss-card-wrapper--white-dropshadow {

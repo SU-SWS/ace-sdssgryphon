@@ -7,6 +7,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.17.0] Camelopardalis - 2026-01-28
+
+### Added
+614550cb6 Add Project Content Type (#730)
+16ac62680 SDSS-1604: Provision southeastasia site (#737)
+f3b79ef57 SDSS-1553: MVP for filtered list paragraph component (#727)
+098da658a SDSS-1585: Enable Banner paragraph body field with conditional banner_list_style rendering (#710)
+
+### Changed
+bee70d5b0 SDSS-0000: Update room reservations to 8.1.24 plus config split updates(#735)
+691324637 SDSS-1593: Enable "Block Search Engines" (nobots) by Default on New Sites (#738)
+faaec5dfe Removed smart_trim patch and updated to latest version (#731)
+766c7287f SDSS-1590: Point water.stanford.edu to woods_water site (#713)
+4471f2160 Update stanford_earth_r25 room reservation module to 8.1.23 (#711)
+
+### Deprecated
+59b352fd1 Remove Gitpod configuration and support (#722)
+
+### Removed
+59b352fd1 Remove Gitpod configuration and support (#722)
+
+### Fixed
+9f99a6296 SDSS-1597: Fixed caption link styles (#736)
+
+### Security
+9f927ab10 Automated Dependency Updates 20260123 (#734)
+8b6d58567 Automated Dependency Updates 20260109 (#726)
+007f66239 Automated Dependency Updates 20251219 (#723)
+03f199fc9 Automated Dependency Updates 20251212 (#714)
+82e194783 Automated Dependency Updates 20251205 (#709)
+5dd4e237c Remove CORS patch and update Next module for SA-CONTRIB-2025-122 security advisory (#708)
+
+### Maintenance
+b7566c38a SDSS-1534: Upgrade Drupal core to 10.5.x (#705)
+9f927ab10 Automated Dependency Updates 20260123 (#734)
+8b6d58567 Automated Dependency Updates 20260109 (#726)
+007f66239 Automated Dependency Updates 20251219 (#723)
+03f199fc9 Automated Dependency Updates 20251212 (#714)
+82e194783 Automated Dependency Updates 20251205 (#709)
+
+
 ## [4.16.1] HOTFIX - 2025-12-18
 
 ### Added

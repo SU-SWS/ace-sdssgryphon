@@ -1,0 +1,12 @@
+{# templates/fields/field--node--sdss-proj-stanford-users.html.twig #}
+{% if items is not empty %}
+  <p class="su-project-team">
+    <strong>Team:</strong> 
+    {% for item in items %}
+      {# Accessing the title and url from the entity reference #}
+      <a href="{{ item.content['#url'] }}" class="ext su-link--external" title="(opens in a new window)">
+        {{ item.content['#title'] }}
+      </a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+  </p>
+{% endif %}

@@ -103,6 +103,7 @@ $sites['nzea.stanford.edu'] = 'nza';
 $sites['ssip.stanford.edu'] = 'sustainpathways';
 $sites['sustainabilityleadership.stanford.edu'] = 'changeleadership';
 $sites['understand-energy.stanford.edu'] = 'understandenergy';
+$sites['water.stanford.edu'] = 'woods_water';
 
 // Manually point dev/test domains here.
 $sites['understand-energy-dev.stanford.edu'] = 'understandenergy';

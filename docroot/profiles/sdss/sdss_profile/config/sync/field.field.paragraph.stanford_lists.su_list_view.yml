@@ -12,7 +12,7 @@ field_name: su_list_view
 entity_type: paragraph
 bundle: stanford_lists
 label: 'List Format'
-description: 'Main display options for items presented in the list view. Learn more in the section on <a href="https://sitesuserguide.stanford.edu/build-and-design/paragraphs/lists-paragraph">Advanced Options</a> to customize the list by taxonomy terms and change the number of items displayed in the list.'
+description: 'Main display options for items presented in the list view'
 required: false
 translatable: false
 default_value: {  }
@@ -26,9 +26,11 @@ settings:
     stanford_events: stanford_events
     stanford_news: stanford_news
     stanford_person: stanford_person
+    sdss_projs: sdss_projs
     stanford_publications: stanford_publications
     related_content: related_content
     su_block_edit_links: '0'
+    cap_orgs: '0'
     change_logs: '0'
     content: '0'
     block_content: '0'
@@ -47,7 +49,9 @@ settings:
     media: '0'
     media_library: '0'
     news_research_search: '0'
+    people_filtered_list: '0'
     policies: '0'
+    projects: '0'
     redirect: '0'
     rss_feeds: '0'
     samlauth_map: '0'
@@ -59,6 +63,7 @@ settings:
     viewfield_block: viewfield_block
     block: '0'
     default: '0'
+    entity_reference: '0'
     feed: '0'
     page: '0'
     rest_export: '0'
