@@ -4,9 +4,7 @@
     <strong>Team:</strong> 
     {% for item in items %}
       {# Accessing the title and url from the entity reference #}
-      <a href="{{ item.content['#url'] }}" class="ext su-link--external" title="(opens in a new window)">
-        {{ item.content['#title'] }}
-      </a>{% if not loop.last %}, {% endif %}
+      {% if not item.content['#url'].toString() %}<span>{% else %}<a href="{{ item.content['#url'] }}" class="ext su-link--external" title="(opens in a new window)">{% endif %}{{ item.content['#title'] }}{% if not item.content['#url'].toString() %}</span>{% else %}</a>{% endif %}{% if not loop.last %}, {% endif %}
     {% endfor %}
   </p>
 {% endif %}
