@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 .su-project {
+  padding-bottom: 2.6rem;
   figure.align-left {
     padding-bottom: 1rem;
     @include grid-media-min('md') {
