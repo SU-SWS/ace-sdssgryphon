@@ -5,14 +5,14 @@
     {% for item in items %}
       {# Accessing the title and url from the entity reference #}
       {% set has_url = item.content['#url'].toString() %}
-      {% if not has_url %}
+      {%- if not has_url -%}
         <span>{{ item.content['#title'] }}</span>
-      {% else %}
+      {%- else -%}
         <a href="{{ item.content['#url'] }}" class="ext su-link--external" title="(opens in a new window)">
           {{ item.content['#title'] }}
         </a>
-      {% endif %}
-      {% if not loop.last %}, {% endif %}
+      {%- endif -%}
+      {%- if not loop.last %}, {% endif -%}
     {% endfor %}
   </p>
 {% endif %}
