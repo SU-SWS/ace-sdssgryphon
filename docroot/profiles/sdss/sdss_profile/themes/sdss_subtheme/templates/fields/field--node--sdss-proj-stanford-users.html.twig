@@ -9,7 +9,7 @@
         <span>{{ item.content['#title'] }}</span>
       {%- else -%}
         <a href="{{ item.content['#url'] }}" class="ext su-link--external" title="(opens in a new window)">
-          {{ item.content['#title'] }}
+          {{- item.content['#title'] -}}
         </a>
       {%- endif -%}
       {%- if not loop.last %}, {% endif -%}
