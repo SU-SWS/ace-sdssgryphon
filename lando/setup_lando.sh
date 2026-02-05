@@ -9,6 +9,7 @@ yell "Setting up your site using lando."
 
 try cp lando/example.env .env
 try cp lando/example.lando.yml .lando.yml
+mkdir -p simplesamlphp/config
 try cp lando/example.local.config.php simplesamlphp/config/local.config.php
 try cp lando/example.php.ini lando/php.ini
 try cp lando/example.local.blt.yml blt/local.blt.yml
