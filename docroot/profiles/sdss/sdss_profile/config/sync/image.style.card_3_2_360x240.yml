@@ -1,0 +1,17 @@
+uuid: 39b22c3b-1b69-42d1-9d57-75f189a68dd0
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: card_3_2_360x240
+label: 'Card 3:2 (360x240)'
+effects:
+  d2c533fa-aac5-49cd-bc39-73140f813416:
+    uuid: d2c533fa-aac5-49cd-bc39-73140f813416
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 240
+      crop_type: focal_point

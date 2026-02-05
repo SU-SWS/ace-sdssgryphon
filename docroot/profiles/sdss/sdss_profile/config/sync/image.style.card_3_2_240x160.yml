@@ -1,0 +1,17 @@
+uuid: b8e9080b-df28-466b-ae80-56d783a7e181
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: card_3_2_240x160
+label: 'Card 3:2 (240x160)'
+effects:
+  80eb8c29-8cec-4ded-8c62-2f021571430b:
+    uuid: 80eb8c29-8cec-4ded-8c62-2f021571430b
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 240
+      height: 160
+      crop_type: focal_point
