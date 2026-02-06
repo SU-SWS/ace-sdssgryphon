@@ -1,0 +1,16 @@
+{# views-view--projects.html.twig #}
+<div{{ attributes.addClass('view-projects-container') }}>
+  {{ header }}
+  {{ exposed }}
+  {{ attachment_before }}
+
+  {# This is the wrapper for just the results #}
+  <div class="view-results-inner-wrapper">
+    {{ rows }}
+    {{ empty }}
+  </div>
+
+  {{ pager }}
+  {{ attachment_after }}
+  {{ footer }}
+</div>

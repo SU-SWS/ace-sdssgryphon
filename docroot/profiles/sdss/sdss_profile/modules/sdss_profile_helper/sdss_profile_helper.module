@@ -6,6 +6,7 @@
  */
 
 use Drupal\menu_block\Plugin\Block\MenuBlock;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_block_view_BASE_BLOCK_ID_alter().
@@ -19,5 +20,40 @@ function sdss_profile_helper_block_view_menu_block_alter(array &$build, MenuBloc
   $newsroom_menu_label = $config_pages->getValue('sdss_site_settings', 'su_newsroom_menu_label', 0, 'value');
   if ($newsroom_menu_label) {
     $menu_block->setConfigurationValue('label', t('@label', ['@label' => $newsroom_menu_label]));
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function sdss_profile_helper_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  if ($view->id() === 'projects') {
+    $request = \Drupal::request();
+    $mode = $request->query->get('view_mode_toggle') ?: $request->request->get('view_mode_toggle');
+
+    if ($mode) {
+      $target_display = ($mode === 'list') ? 'sdss_proj_block_list' : 'sdss_proj_block_grid';
+      
+      // 1. Only act if we aren't already on the target display
+      if ($view->current_display !== $target_display) {
+        
+        // 2. Tear down the current display handlers completely
+        $view->destroy();
+        
+        // 3. Set the new display
+        $view->setDisplay($target_display);
+        
+        // 4. Force a full re-init of the display and its handlers
+        $view->initDisplay();
+        $view->initHandlers();
+        
+        // 5. Explicitly re-initialize the style plugin from the new display
+        // This is what prevents the StylePluginBase "render on null" error
+        $view->style_plugin = $view->display_handler->getPlugin('style');
+        
+        // 6. Set the exposed input so it's maintained across the refresh
+        $view->setExposedInput(['view_mode_toggle' => $mode]);
+      }
+    }
   }
 }
