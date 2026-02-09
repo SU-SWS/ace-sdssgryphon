@@ -50,6 +50,7 @@ window.addEventListener('load', function() {
                 let slideTLs = [];
 
                 const pinnedSection = document.getElementById(section.getAttribute('id'));
+                const topNegativeMargin = section.classList.contains('top-negative-margin');
                 const slides = pinnedSection.querySelectorAll('.su-pinned-slide');
                 const headerHeight = document.querySelector('.su-masthead').offsetHeight;
 
@@ -86,7 +87,11 @@ window.addEventListener('load', function() {
 
                     let slideTL;
                     if(isTall) {
-                        pinnedSection.style.marginTop = -headerHeight + 'px';
+                        if(topNegativeMargin) {
+                            pinnedSection.style.marginTop = -headerHeight + 'px';
+                        } else {
+                            pinnedSection.style.marginTop = 0 + 'px';
+                        }
                         slideTL = gsap.timeline({
                             scrollTrigger: {
                                 trigger: slide,
