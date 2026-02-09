@@ -48,6 +48,8 @@
   {% set isPinned = false %}
 {% endif %}
 
+{% set hasNegativeMargin = paragraph.su_sdss_pinned_negative_margin.value %}
+
 {%
   set classes = [
     'paragraph',
@@ -56,9 +58,10 @@
     not paragraph.isPublished() ? 'paragraph--unpublished',
     'su-pinned-background-section',
     isPinned ? 'pinned' : 'not-pinned',
-    content.su_sdss_pinned_negative_margin.value ? 'top-negative-margin' : '',
+    hasNegativeMargin == '1' ? 'top-negative-margin' : '',
   ]
 %}
+
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }} id = "{{ paragraph.id() }}">
     {% block content %}
