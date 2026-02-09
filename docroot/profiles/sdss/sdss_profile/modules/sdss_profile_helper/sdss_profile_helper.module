@@ -97,14 +97,6 @@ function sdss_profile_helper_preprocess_views_view_unformatted(&$variables) {
 }
 
 /**
- * Implements hook_preprocess_block().
- */
-function sdss_profile_helper_preprocess_block(&$variables) {
-  // Explicitly pass the theme path to JS drupalSettings
-  $variables['#attached']['drupalSettings']['sdss_theme_path'] = \Drupal::theme()->getActiveTheme()->getPath();
-}
-
-/**
  * Implements hook_form_views_exposed_form_alter().
  */
 function sdss_profile_helper_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
