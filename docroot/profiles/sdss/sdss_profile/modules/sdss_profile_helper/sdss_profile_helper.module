@@ -27,33 +27,94 @@ function sdss_profile_helper_block_view_menu_block_alter(array &$build, MenuBloc
  * Implements hook_views_pre_view().
  */
 function sdss_profile_helper_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
-  if ($view->id() === 'projects') {
-    $request = \Drupal::request();
-    $mode = $request->query->get('view_mode_toggle') ?: $request->request->get('view_mode_toggle');
+  if ($view->id() !== 'projects') {
+    return;
+  }
 
-    if ($mode) {
-      $target_display = ($mode === 'list') ? 'sdss_proj_block_list' : 'sdss_proj_block_grid';
-      
-      // 1. Only act if we aren't already on the target display
-      if ($view->current_display !== $target_display) {
-        
-        // 2. Tear down the current display handlers completely
-        $view->destroy();
-        
-        // 3. Set the new display
-        $view->setDisplay($target_display);
-        
-        // 4. Force a full re-init of the display and its handlers
-        $view->initDisplay();
-        $view->initHandlers();
-        
-        // 5. Explicitly re-initialize the style plugin from the new display
-        // This is what prevents the StylePluginBase "render on null" error
-        $view->style_plugin = $view->display_handler->getPlugin('style');
-        
-        // 6. Set the exposed input so it's maintained across the refresh
-        $view->setExposedInput(['view_mode_toggle' => $mode]);
-      }
+  $request = \Drupal::request();
+
+  // 1. Determine mode from request OR current display
+  $mode = $request->request->get('view_mode_toggle')
+    ?: $request->query->get('view_mode_toggle');
+
+  if (!$mode) {
+    // Infer mode from active display
+    if ($view->current_display === 'sdss_proj_block_list') {
+      $mode = 'list';
     }
+    else {
+      $mode = 'grid';
+    }
+  }
+
+  // 2. Switch display if needed
+  $target_display = ($mode === 'list')
+    ? 'sdss_proj_block_list'
+    : 'sdss_proj_block_grid';
+
+  if ($view->current_display !== $target_display) {
+    $view->setDisplay($target_display);
+    $view->initHandlers();
+  }
+
+  // 3. Always preserve exposed input
+  $exposed_input = $request->request->all() ?: $request->query->all();
+  $view->setExposedInput($exposed_input);
+
+  // 4. ALWAYS expose the mode to Twig
+  $view->element['#view_mode_toggle'] = $mode;
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function sdss_profile_helper_preprocess_views_view_unformatted(&$variables) {
+  $view = $variables['view'];
+
+  // Target only the list display
+  if ($view->id() === 'projects' && $view->current_display === 'sdss_proj_block_list') {
+    $custom_groups = [];
+
+    foreach ($variables['rows'] as $id => $row) {
+      $node = $view->result[$id]->_entity;
+      $flagship_name = 'Other Projects'; // Default label
+
+      // Get the name of the referenced Taxonomy Term
+      if ($node->hasField('sdss_proj_featured_flagship') && !$node->get('sdss_proj_featured_flagship')->isEmpty()) {
+        $term = $node->get('sdss_proj_featured_flagship')->entity;
+        if ($term) {
+          $flagship_name = $term->label();
+        }
+      }
+
+      // Group the row content under the flagship name
+      $custom_groups[$flagship_name][] = $row['content'];
+    }
+
+    // Pass our clean, grouped array to the Twig template
+    $variables['flagship_groups'] = $custom_groups;
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function sdss_profile_helper_preprocess_block(&$variables) {
+  // Explicitly pass the theme path to JS drupalSettings
+  $variables['#attached']['drupalSettings']['sdss_theme_path'] = \Drupal::theme()->getActiveTheme()->getPath();
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function sdss_profile_helper_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_state->get('view')->id() === 'projects') {
+    $request = \Drupal::request();
+    $mode = $request->query->get('view_mode_toggle') ?? 'grid';
+
+    $form['view_mode_toggle'] = [
+      '#type' => 'hidden',
+      '#value' => $mode,
+    ];
   }
 }

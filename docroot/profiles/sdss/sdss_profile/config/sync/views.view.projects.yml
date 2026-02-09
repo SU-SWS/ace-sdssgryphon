@@ -837,7 +837,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "<div class = \"project-grid-header\">\r\n        <h2>Projects</h2>\r\n\r\n<div class=\"view-mode-switch\">\r\n  <a href=\"?view_mode_toggle=grid\" class=\"use-ajax btn\">Grid</a>\r\n  <a href=\"?view_mode_toggle=list\" class=\"use-ajax btn\">List</a>\r\n</div>\r\n\r\n</div>"
+            value: "<div class=\"project-grid-header\">\r\n  <h2>Projects</h2>\r\n\r\n  <div class=\"view-mode-switch\">\r\n    <a href=\"?view_mode_toggle=grid\" class=\"use-ajax btn view-mode-btn\">\r\n      <img src=\"/{{ directory }}/dist/img/toggle-grid.svg\" alt=\"Grid View\" width=\"24\" height=\"24\">\r\n      <span>Grid</span>\r\n    </a>\r\n    <a href=\"?view_mode_toggle=list\" class=\"use-ajax btn view-mode-btn\">\r\n      <img src=\"/{{ directory }}/dist/img/toggle-list.svg\" alt=\"List View\" width=\"24\" height=\"24\">\r\n      <span>List</span>\r\n    </a>\r\n  </div>\r\n</div>"
             format: stanford_html
           tokenize: false
       footer: {  }

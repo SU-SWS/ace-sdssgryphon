@@ -53,50 +53,20 @@
         });
       });
 
-      once('view-mode-ajax', '.view-mode-switch a', context).forEach(function (element) {
-      $(element).on('click', function (e) {
+      $(once('view-mode-toggle-init', '.view-mode-toggle', context)).on('click', function (e) {
         e.preventDefault();
 
-        const $view = $(this).closest('.view');
-        // Find the dom_id class
-        const domIdClass = $view.attr('class').split(' ').find(cls => cls.indexOf('js-view-dom-id-') === 0);
-        if (!domIdClass) return;
-        
-        const domId = domIdClass.replace('js-view-dom-id-', '');
         const url = new URL(this.href, window.location.origin);
         const mode = url.searchParams.get('view_mode_toggle');
 
-        // DEFENSIVE CHECK: Try to find the settings by DOM ID, or fallback to the first available view setting
-        let viewSettings = drupalSettings.views.ajaxViews['views_dom_id:' + domId];
-        
-        if (!viewSettings) {
-          // Fallback: search the object for any view matching our view name
-          const allViews = drupalSettings.views.ajaxViews;
-          const key = Object.keys(allViews).find(k => allViews[k].view_name === 'projects');
-          viewSettings = allViews[key];
-        }
+        const $form = $('.views-exposed-form[id^="views-exposed-form-projects"]');
 
-        if (viewSettings) {
-          const ajaxUpdate = Drupal.ajax({
-            url: Drupal.url('views/ajax'),
-            base: domId,
-            element: element,
-            submit: {
-              view_name: viewSettings.view_name,
-              view_display_id: viewSettings.view_display_id,
-              view_dom_id: domId,
-              view_mode_toggle: mode 
-            }
-          });
-
-          console.log(ajaxUpdate);
-
-          ajaxUpdate.execute();
-        } else {
-          console.error('Drupal Views AJAX settings not found for DOM ID: ' + domId);
+        if ($form.length) {
+          $form.find('input[name="view_mode_toggle"]').val(mode);
+          $form.find('.form-submit').trigger('click');
         }
       });
-    });
+
     },
   };
 
