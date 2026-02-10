@@ -81,7 +81,7 @@
         }
     }
     
-    .views-infinite-scroll-content-wrapper {
+    .view-results-wrapper {
         width: 100%;
         margin: 0;
         @include grid-media-min('md') {
@@ -90,6 +90,9 @@
         }
         display: flex;
         flex-wrap: wrap;
+        @include grid-media-min('lg') {
+            justify-content: space-between;
+        }
         gap: 50px 20px;
 
         .views-row {
@@ -100,7 +103,97 @@
             }
 
             @include grid-media-min('2xl') {
-                width: calc(33% - 10px);
+                width: calc(33% - 11px);
+            }
+        }
+    }
+
+    &.sdss-proj-block-list {
+        .view-results-wrapper {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            padding-top: 0;
+            gap: 0;
+            @include grid-media-min('md') {
+                padding-top: 38px;
+            }
+        }
+        .view-grouping-header {
+            @include grid-media-min('xl') {
+                min-width: 340px;
+                max-width: 340px;
+            }
+            h2 {
+                font-family: $su-font-serif-v2;
+                font-size: 54px;
+                font-weight: 500;
+                color: #8C1515;
+                line-height: 57px;
+                position: sticky;
+                top: 20px;
+                margin: 0;
+            }
+        }
+        .view-list-container {
+
+            padding-block: 65px;
+            border-top: 1px solid #D6D6D6;
+
+            &:first-child {
+                border: none;
+                padding-top: 0;
+
+                @include grid-media-min('md') {
+                    padding-top: 65px;
+                }
+            }
+
+        }
+        .view-grouping {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            @include grid-media-min('xl') {
+                flex-direction: row;
+            }
+        }
+        .view-grouping-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .views-row {
+                width: 100%;
+            }
+        }
+        .su-project-item {
+            article {
+                @include grid-media-min('lg') {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 25px;
+                }
+
+                .su_projects__image {
+                    @include grid-media-min('lg') {
+                        min-width: 170px;
+                        max-width: 170px;
+                    }
+                }
+
+                .su_projects__flagship {
+                    display: none;
+                }
+
+                h4 {
+                    @include grid-media-min('lg') {
+                        width: 100%;
+                        margin-top: 0;
+                    }
+                }
             }
         }
     }
