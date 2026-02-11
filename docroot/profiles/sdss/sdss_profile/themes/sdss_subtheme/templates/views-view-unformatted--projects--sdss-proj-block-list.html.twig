@@ -1,0 +1,20 @@
+{# views-view-unformatted--projects--sdss-proj-block-list.html.twig #}
+<div class="view-list-container">
+  {% for flagship_name, projects in flagship_groups %}
+    <div class="view-grouping">
+      
+      <div class = "view-grouping-header">
+        <h2>{{ flagship_name }}</h2>
+      </div>
+
+      <div class="view-grouping-content">
+        {% for project in projects %}
+          <div class="views-row">
+            {{ project }}
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  {% endfor %}
+</div>

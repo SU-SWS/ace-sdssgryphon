@@ -80,6 +80,10 @@
             }
         }
     }
+
+    .view-results-wrapper {
+        width: 100%;
+    }
     
     .views-infinite-scroll-content-wrapper {
         width: 100%;
@@ -100,7 +104,114 @@
             }
 
             @include grid-media-min('2xl') {
-                width: calc(33% - 10px);
+                width: calc(33% - 11px);
+            }
+        }
+    }
+
+    &.sdss-proj-block-list {
+        .view-results-wrapper {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            padding-top: 0;
+            gap: 0;
+            @include grid-media-min('md') {
+                padding-top: 38px;
+            }
+        }
+        .view-grouping-header {
+            @include grid-media-min('xl') {
+                min-width: 340px;
+                max-width: 340px;
+            }
+            h2 {
+                font-family: $su-font-serif-v2;
+                font-size: 54px;
+                font-weight: 500;
+                color: #8C1515;
+                line-height: 57px;
+                position: sticky;
+                top: 30px;
+                padding-top: 20px;
+                margin: 0;
+
+                &:before {
+                    content: "Flagship:";
+                    display: block;
+                    position: absolute;
+                    top: -20px;
+                    left: 0;
+                    color: black;
+                    font-family: $su-font-sans;
+                    padding: 8px;
+                    font-size: 19px;
+                    line-height: 17px;
+                    font-weight: bold;
+                    background-color: #F5F5F5;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .view-list-container {
+
+            padding-block: 65px;
+            border-top: 1px solid #D6D6D6;
+
+            &:first-child {
+                border: none;
+                padding-top: 0;
+
+                @include grid-media-min('md') {
+                    padding-top: 65px;
+                }
+            }
+
+        }
+        .view-grouping {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            @include grid-media-min('xl') {
+                flex-direction: row;
+            }
+        }
+        .view-grouping-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .views-row {
+                width: 100%;
+            }
+        }
+        .su-project-item {
+            article {
+                @include grid-media-min('lg') {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 25px;
+                }
+
+                .su_projects__image {
+                    @include grid-media-min('lg') {
+                        min-width: 170px;
+                        max-width: 170px;
+                    }
+                }
+
+                .su_projects__flagship {
+                    display: none;
+                }
+
+                h4 {
+                    @include grid-media-min('lg') {
+                        width: 100%;
+                        margin-top: 0;
+                    }
+                }
             }
         }
     }

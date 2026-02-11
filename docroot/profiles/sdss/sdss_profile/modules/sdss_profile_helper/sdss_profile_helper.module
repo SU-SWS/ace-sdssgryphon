@@ -6,6 +6,8 @@
  */
 
 use Drupal\menu_block\Plugin\Block\MenuBlock;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_block_view_BASE_BLOCK_ID_alter().
@@ -19,5 +21,114 @@ function sdss_profile_helper_block_view_menu_block_alter(array &$build, MenuBloc
   $newsroom_menu_label = $config_pages->getValue('sdss_site_settings', 'su_newsroom_menu_label', 0, 'value');
   if ($newsroom_menu_label) {
     $menu_block->setConfigurationValue('label', t('@label', ['@label' => $newsroom_menu_label]));
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function sdss_profile_helper_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  if ($view->id() !== 'projects') {
+    return;
+  }
+
+  $request = \Drupal::request();
+
+  // 1. Determine mode from request OR current display
+  $mode = $request->request->get('view_mode_toggle')
+    ?: $request->query->get('view_mode_toggle');
+
+  if (!$mode) {
+    // Infer mode from active display.
+    if ($view->current_display === 'sdss_proj_block_list') {
+      $mode = 'list';
+    }
+    else {
+      $mode = 'grid';
+    }
+  }
+
+  // 2. Switch display if needed
+  $target_display = ($mode === 'list')
+    ? 'sdss_proj_block_list'
+    : 'sdss_proj_block_grid';
+
+  if ($view->current_display !== $target_display) {
+    $view->setDisplay($target_display);
+    $view->initHandlers();
+  }
+
+  // 3. Always preserve exposed input
+  $exposed_input = $request->request->all() ?: $request->query->all();
+  $view->setExposedInput($exposed_input);
+
+  // 4. ALWAYS expose the mode to Twig
+  $view->element['#view_mode_toggle'] = $mode;
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function sdss_profile_helper_preprocess_views_view_unformatted(&$variables) {
+  $view = $variables['view'];
+
+  // Target only the list display.
+  if ($view->id() === 'projects' && $view->current_display === 'sdss_proj_block_list') {
+    $custom_groups = [];
+
+    foreach ($variables['rows'] as $id => $row) {
+      $node = $view->result[$id]->_entity;
+      // Default label.
+      $flagship_name = 'Other Projects';
+
+      // Get the name of the referenced Taxonomy Term.
+      if ($node->hasField('sdss_proj_featured_flagship') && !$node->get('sdss_proj_featured_flagship')->isEmpty()) {
+        $term = $node->get('sdss_proj_featured_flagship')->entity;
+        if ($term) {
+          $flagship_name = $term->label();
+        }
+      }
+
+      // Group the row content under the flagship name.
+      $custom_groups[$flagship_name][] = $row['content'];
+    }
+
+    // Pass our clean, grouped array to the Twig template.
+    $variables['flagship_groups'] = $custom_groups;
+  }
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $view = $form_state->get('view');
+  if ($view->id() == 'projects') {
+    $request = \Drupal::request();
+    $mode = $request->query->get('view_mode_toggle') ?? 'grid';
+
+    $form['view_mode_toggle'] = [
+      '#type' => 'hidden',
+      '#value' => $mode,
+    ];
+
+    // 2. Get the contextual filter arguments
+    // Contextual filters are stored in the 'args' property of the view
+    $args = $view->args;
+    if (!empty($args[0])) {
+      // Handle multiple terms separated by '+' (e.g., "16051+16052")
+      $allowed_tids = explode('+', $args[0]);
+
+      // 3. Target the exposed filter element
+      if (isset($form['sdss_proj_status_target_id'])) {
+        $options = &$form['sdss_proj_status_target_id']['#options'];
+
+        foreach ($options as $tid => $label) {
+          if ($tid !== 'All' && !empty($tid) && !in_array($tid, $allowed_tids)) {
+            unset($options[$tid]);
+          }
+        }
+      }
+    }
   }
 }
