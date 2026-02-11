@@ -11,9 +11,6 @@ dependencies:
     - taxonomy.vocabulary.sdss_proj_project_impact_pathway
     - taxonomy.vocabulary.sdss_proj_status
     - taxonomy.vocabulary.sdss_proj_topics
-  content:
-    - 'taxonomy_term:sdss_proj_status:4012188d-b7de-461b-a1b4-290865277f20'
-    - 'taxonomy_term:sdss_proj_status:700e570f-3036-41ad-8b6c-06de0e12dbc8'
   module:
     - better_exposed_filters
     - node
@@ -525,8 +522,8 @@ display:
             type: none
             fail: 'not found'
           validate_options: {  }
-          break_phrase: false
-          not: true
+          break_phrase: true
+          not: false
       filters:
         status:
           id: status
@@ -734,9 +731,7 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value:
-            16047: 16047
-            16049: 16049
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -767,7 +762,7 @@ display:
               su_site_embedder: '0'
               decoupled_site_users: '0'
               sdss_reviewer: '0'
-            reduce: true
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
