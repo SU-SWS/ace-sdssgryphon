@@ -115,7 +115,6 @@ function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInte
     // 2. Get the contextual filter arguments
     // Contextual filters are stored in the 'args' property of the view
     $args = $view->args;
-    
     if (!empty($args[0])) {
       // Handle multiple terms separated by '+' (e.g., "16051+16052")
       $allowed_tids = explode('+', $args[0]);
@@ -125,7 +124,6 @@ function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInte
         $options = &$form['sdss_proj_status_target_id']['#options'];
 
         foreach ($options as $tid => $label) {
-          // Keep 'All' (usually 'All' or empty string) but remove non-matching TIDs
           if ($tid !== 'All' && !empty($tid) && !in_array($tid, $allowed_tids)) {
             unset($options[$tid]);
           }
