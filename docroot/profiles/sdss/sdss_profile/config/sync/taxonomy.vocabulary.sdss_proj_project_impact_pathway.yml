@@ -21,7 +21,7 @@ third_party_settings:
     unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
-name: 'Project Impact Pathway'
+name: 'Project impact pathway'
 vid: sdss_proj_project_impact_pathway
 description: null
 weight: 0
