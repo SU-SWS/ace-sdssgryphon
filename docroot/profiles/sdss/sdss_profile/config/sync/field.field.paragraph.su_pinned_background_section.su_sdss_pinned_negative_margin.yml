@@ -1,0 +1,21 @@
+uuid: 74046460-0fcb-41ad-96c6-188ab3490903
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_sdss_pinned_negative_margin
+    - paragraphs.paragraphs_type.su_pinned_background_section
+id: paragraph.su_pinned_background_section.su_sdss_pinned_negative_margin
+field_name: su_sdss_pinned_negative_margin
+entity_type: paragraph
+bundle: su_pinned_background_section
+label: 'Negative Margin'
+description: 'Check this field if the pinned background section is at the top of the page and should be "pulled up" underneath the top navigation bar.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
