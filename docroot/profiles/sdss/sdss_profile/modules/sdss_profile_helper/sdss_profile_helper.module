@@ -102,7 +102,8 @@ function sdss_profile_helper_preprocess_views_view_unformatted(&$variables) {
  * Implements hook_form_views_exposed_form_alter().
  */
 function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_state->get('view')->id() === 'projects') {
+  $view = $form_state->get('view');
+  if ($view->id() == 'projects') {
     $request = \Drupal::request();
     $mode = $request->query->get('view_mode_toggle') ?? 'grid';
 
@@ -110,5 +111,26 @@ function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInte
       '#type' => 'hidden',
       '#value' => $mode,
     ];
+
+    // 2. Get the contextual filter arguments
+    // Contextual filters are stored in the 'args' property of the view
+    $args = $view->args;
+    
+    if (!empty($args[0])) {
+      // Handle multiple terms separated by '+' (e.g., "16051+16052")
+      $allowed_tids = explode('+', $args[0]);
+
+      // 3. Target the exposed filter element
+      if (isset($form['sdss_proj_status_target_id'])) {
+        $options = &$form['sdss_proj_status_target_id']['#options'];
+
+        foreach ($options as $tid => $label) {
+          // Keep 'All' (usually 'All' or empty string) but remove non-matching TIDs
+          if ($tid !== 'All' && !empty($tid) && !in_array($tid, $allowed_tids)) {
+            unset($options[$tid]);
+          }
+        }
+      }
+    }
   }
 }
