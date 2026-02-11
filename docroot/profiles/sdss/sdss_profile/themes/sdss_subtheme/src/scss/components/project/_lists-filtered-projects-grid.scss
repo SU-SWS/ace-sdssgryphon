@@ -80,8 +80,12 @@
             }
         }
     }
-    
+
     .view-results-wrapper {
+        width: 100%;
+    }
+    
+    .views-infinite-scroll-content-wrapper {
         width: 100%;
         margin: 0;
         @include grid-media-min('md') {
@@ -90,9 +94,6 @@
         }
         display: flex;
         flex-wrap: wrap;
-        @include grid-media-min('lg') {
-            justify-content: space-between;
-        }
         gap: 50px 20px;
 
         .views-row {
