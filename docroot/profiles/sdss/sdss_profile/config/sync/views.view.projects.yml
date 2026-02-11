@@ -11,6 +11,9 @@ dependencies:
     - taxonomy.vocabulary.sdss_proj_project_impact_pathway
     - taxonomy.vocabulary.sdss_proj_status
     - taxonomy.vocabulary.sdss_proj_topics
+  content:
+    - 'taxonomy_term:sdss_proj_status:4012188d-b7de-461b-a1b4-290865277f20'
+    - 'taxonomy_term:sdss_proj_status:700e570f-3036-41ad-8b6c-06de0e12dbc8'
   module:
     - better_exposed_filters
     - node
@@ -19,6 +22,7 @@ dependencies:
     - text
     - ui_patterns_views
     - user
+    - views_infinite_scroll
 id: projects
 label: 'Projects (Filtered Grid)'
 module: views
@@ -488,7 +492,41 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
-      arguments: {  }
+      arguments:
+        sdss_proj_status_target_id:
+          id: sdss_proj_status_target_id
+          table: node__sdss_proj_status
+          field: sdss_proj_status_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity_target_id
+          default_action: ignore
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: true
       filters:
         status:
           id: status
@@ -696,7 +734,9 @@ display:
           admin_label: ''
           plugin_id: taxonomy_index_tid
           operator: or
-          value: {  }
+          value:
+            16047: 16047
+            16049: 16049
           group: 1
           exposed: true
           expose:
@@ -727,7 +767,7 @@ display:
               su_site_embedder: '0'
               decoupled_site_users: '0'
               sdss_reviewer: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -850,12 +890,38 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
+      pager:
+        type: infinite_scroll
+        options:
+          pagination_heading_level: h4
+          items_per_page: '9'
+          offset: '0'
+          id: '0'
+          total_pages: ''
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+          expose:
+            items_per_page: 0
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: 0
+            items_per_page_options_all_label: '- All -'
+            offset: 0
+            offset_label: Offset
+          views_infinite_scroll:
+            button_text: 'Load More'
+            automatically_load_content: 0
+            initially_load_all_pages: 0
+      defaults:
+        pager: false
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
