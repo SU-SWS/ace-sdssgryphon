@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.su_pinned_background_section.su_sdss_pinned_negative_margin
     - field.field.paragraph.su_pinned_background_section.su_slides
     - paragraphs.paragraphs_type.su_pinned_background_section
   module:
@@ -12,6 +13,16 @@ targetEntityType: paragraph
 bundle: su_pinned_background_section
 mode: default
 content:
+  su_sdss_pinned_negative_margin:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
   su_slides:
     type: entity_reference_revisions_entity_view
     label: above
