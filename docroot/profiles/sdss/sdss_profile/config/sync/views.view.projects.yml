@@ -858,6 +858,11 @@ display:
           admin_label: 'sdss_proj_status: Taxonomy term'
           plugin_id: standard
           required: true
+        sdss_proj_featured_flagship:
+          id: sdss_proj_featured_flagship
+          table: node__sdss_proj_featured_flagship
+          field: sdss_proj_featured_flagship
+          plugin_id: standard
       css_class: stanford-projects-grid
       use_ajax: true
       header: {  }
@@ -925,6 +930,7 @@ display:
         style: false
         row: false
         sorts: false
+        relationships: false
       row:
         type: ui_patterns
         options:
@@ -975,18 +981,20 @@ display:
               plugin: views_row
               source: sdss_proj_featured_flagship
       sorts:
-        sdss_proj_featured_flagship_target_id:
-          id: sdss_proj_featured_flagship_target_id
-          table: node__sdss_proj_featured_flagship
-          field: sdss_proj_featured_flagship_target_id
-          relationship: none
+        weight_1:
+          id: weight_1
+          table: taxonomy_term_field_data
+          field: weight
+          relationship: sdss_proj_featured_flagship
           group_type: group
           admin_label: ''
-          order: DESC
+          order: ASC
           exposed: false
           expose:
             label: ''
             field_identifier: ''
+          entity_type: taxonomy_term
+          entity_field: weight
           plugin_id: standard
         weight:
           id: weight
@@ -1018,6 +1026,25 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
+      relationships:
+        sdss_proj_status:
+          id: sdss_proj_status
+          table: node__sdss_proj_status
+          field: sdss_proj_status
+          relationship: none
+          group_type: group
+          admin_label: 'sdss_proj_status: Taxonomy term'
+          plugin_id: standard
+          required: true
+        sdss_proj_featured_flagship:
+          id: sdss_proj_featured_flagship
+          table: node__sdss_proj_featured_flagship
+          field: sdss_proj_featured_flagship
+          relationship: none
+          group_type: group
+          admin_label: 'sdss_proj_featured_flagship: Taxonomy term'
+          required: 0
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
