@@ -83,10 +83,6 @@
 
     .view-results-wrapper {
         width: 100%;
-    }
-    
-    .views-infinite-scroll-content-wrapper {
-        width: 100%;
         margin: 0;
         @include grid-media-min('md') {
             padding-top: 88px;
@@ -136,7 +132,7 @@
                 margin: 0;
 
                 &:before {
-                    content: "Flagship:";
+                    content: "Cohort:";
                     display: block;
                     position: absolute;
                     top: -20px;
