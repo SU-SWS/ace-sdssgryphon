@@ -12,6 +12,7 @@ dependencies:
     - media.type.image
     - media.type.stanford_gallery_images
     - media.type.video
+    - node.type.sdss_proj
     - node.type.stanford_course
     - node.type.stanford_event
     - node.type.stanford_event_series
@@ -117,6 +118,7 @@ permissions:
   - 'create new books'
   - 'create policy log'
   - 'create sdss entity'
+  - 'create sdss_proj content'
   - 'create stanford_course content'
   - 'create stanford_event content'
   - 'create stanford_event_series content'
@@ -150,6 +152,7 @@ permissions:
   - 'delete any google_form media'
   - 'delete any image media'
   - 'delete any media'
+  - 'delete any sdss_proj content'
   - 'delete any stanford_course content'
   - 'delete any stanford_event content'
   - 'delete any stanford_event_series content'
@@ -167,6 +170,7 @@ permissions:
   - 'delete own files'
   - 'delete own google_form media'
   - 'delete own image media'
+  - 'delete own sdss_proj content'
   - 'delete own stanford_course content'
   - 'delete own stanford_event content'
   - 'delete own stanford_event_series content'
@@ -179,6 +183,7 @@ permissions:
   - 'delete own video media'
   - 'delete policy log'
   - 'delete sdss entity'
+  - 'delete sdss_proj revisions'
   - 'delete stanford_course revisions'
   - 'delete stanford_event revisions'
   - 'delete stanford_event_series revisions'
@@ -208,6 +213,7 @@ permissions:
   - 'edit any file media'
   - 'edit any google_form media'
   - 'edit any image media'
+  - 'edit any sdss_proj content'
   - 'edit any stanford_component_block block content'
   - 'edit any stanford_course content'
   - 'edit any stanford_event content'
@@ -228,6 +234,7 @@ permissions:
   - 'edit own file media'
   - 'edit own google_form media'
   - 'edit own image media'
+  - 'edit own sdss_proj content'
   - 'edit own stanford_course content'
   - 'edit own stanford_event content'
   - 'edit own stanford_event_series content'
@@ -275,6 +282,7 @@ permissions:
   - 'notify of path changes'
   - 'rabbit hole bypass node'
   - 'reorder book pages'
+  - 'revert sdss_proj revisions'
   - 'revert stanford_course revisions'
   - 'revert stanford_event revisions'
   - 'revert stanford_event_series revisions'
@@ -292,6 +300,7 @@ permissions:
   - 'view all media revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view any unpublished sdss_proj content'
   - 'view any unpublished stanford_course content'
   - 'view any unpublished stanford_event content'
   - 'view any unpublished stanford_event_series content'
@@ -302,6 +311,7 @@ permissions:
   - 'view any unpublished stanford_publication content'
   - 'view editoria11y checker'
   - 'view scheduled content'
+  - 'view sdss_proj revisions'
   - 'view stanford_policy revisions'
   - 'view stanford_publication revisions'
   - 'view the administration theme'
