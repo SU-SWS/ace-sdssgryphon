@@ -662,7 +662,7 @@ display:
           exposed: true
           expose:
             operator_id: sdss_proj_project_impact_pathway_target_id_op
-            label: 'Project Impact Pathway'
+            label: 'Project impact pathway'
             description: ''
             use_operator: false
             operator: sdss_proj_project_impact_pathway_target_id_op
