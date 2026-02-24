@@ -83,7 +83,7 @@
         "drupal/book": "^2.0",
         "drupal/change_labels": "^1.0",
         "drupal/chosen": "^5.0",
-        "drupal/colorbox": "^2.0",
+        "drupal/colorbox": "2.1.4",
         "drupal/components": "^3.0",
         "drupal/conditional_fields": "^4.0",
         "drupal/config_ignore": "^3.0",
