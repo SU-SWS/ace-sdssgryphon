@@ -7,6 +7,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.17.1] Canis Major - 2026-02-24
+
+### Added
+e643a0323 Project Content Type | Add role permissions and minor CSS fixes (#741)
+
+### Changed
+e678427e4 Project Content Type | Text case updates (#743)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+e643a0323 Project Content Type | Add role permissions and minor CSS fixes (#741)
+0f099dafb SDSS-1372: Remove unwanted taxonomy terms from Basic Page default display (#748)
+
+### Security
+None.
+
+### Maintenance
+406e226d4 Automated Dependency Updates 20260220 (#750)
+ab7199d0f Automated Dependency Updates 20260206 (#744)
+5543dc920 Automated Dependency Updates 20260130 (#742)
+
+
 ## [4.17.0] Camelopardalis - 2026-01-28
 
 ### Added
