@@ -20,7 +20,6 @@ dependencies:
     - text
     - ui_patterns_views
     - user
-    - views_infinite_scroll
     - views_taxonomy_term_name_depth
 id: stanford_courses
 label: Courses
@@ -1329,8 +1328,9 @@ display:
         pager: false
         arguments: false
       pager:
-        type: infinite_scroll
+        type: full
         options:
+          pagination_heading_level: h4
           items_per_page: '20'
           offset: '0'
           id: '0'
@@ -1338,6 +1338,8 @@ display:
           tags:
             previous: '‹ Previous'
             next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: 0
             items_per_page_label: 'Items per page'
@@ -1346,10 +1348,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: 0
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More Courses'
-            automatically_load_content: 0
-            initially_load_all_pages: 0
+          quantity: '5'
       arguments:
         term_node_taxonomy_name_depth:
           id: term_node_taxonomy_name_depth
@@ -1980,15 +1979,18 @@ display:
           output_url_as_text: false
           absolute: false
       pager:
-        type: infinite_scroll
+        type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 20
           total_pages: null
           id: 0
           tags:
             next: 'Next ›'
             previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -1997,10 +1999,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More Courses'
-            automatically_load_content: false
-            initially_load_all_pages: false
+          quantity: 5
       arguments:
         term_node_tid_depth:
           id: term_node_tid_depth
