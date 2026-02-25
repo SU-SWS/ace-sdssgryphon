@@ -21,3 +21,20 @@
     @include sdss-centered-column;
 }
 
+///
+/// Large Text Container
+///
+/// Expands the width of the container of the large text element.
+///
+///
+
+.su-page-components .layout--layout-paragraphs-sdss-two-column-larger-left:has(.su-large-text) {
+    max-width: 1120px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    @include grid-media-min('md') {
+        margin-bottom: 100px;
+    }
+}

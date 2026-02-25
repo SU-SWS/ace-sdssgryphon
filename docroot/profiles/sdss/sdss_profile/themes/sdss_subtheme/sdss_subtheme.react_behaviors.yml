@@ -23,6 +23,7 @@ card_variant_info:
       options:
         sdss-card-wrapper--border-none: Minimal (no border)
         sdss-card-wrapper--grey-dropshadow: Light Grey Background with shadow
+        sdss-card-wrapper--grey-bg: Light Grey Background without shadow
         sdss-card-wrapper--white-dropshadow: White Background with shadow
         sdss-card-wrapper--white-border: White Background with border
 banner_variant_info:

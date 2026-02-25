@@ -1,0 +1,29 @@
+uuid: 9f867a3c-e43b-4e9b-80c7-bb2f29a13f7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sdss_proj_featured_image
+    - media.type.image
+    - node.type.sdss_proj
+id: node.sdss_proj.sdss_proj_featured_image
+field_name: sdss_proj_featured_image
+entity_type: node
+bundle: sdss_proj
+label: 'Featured Image'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

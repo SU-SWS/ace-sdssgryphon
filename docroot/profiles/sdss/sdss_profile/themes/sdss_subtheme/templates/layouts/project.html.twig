@@ -1,0 +1,33 @@
+{#
+  /**
+   * Default project layout.
+   */
+#}
+
+{#
+  Add a few classes to the outer wrapper by default. Uses the jumpstart ui
+  single column and centered container classes by default.
+#}
+{% set attributes = attributes.addClass('jumpstart-ui--one-column', 'centered-container', 'su-project') %}
+<div{{ attributes }}>
+  <div class="main-region flex-12-of-12">
+    
+    {# Title Region #}
+    <div {{ region_attributes.title.addClass('field-block', 'node-stanford-page-title', 'block-layout-builder', 'layout__region', 'layout__region--title') }}>
+      {{ content.title }}
+    </div>
+              
+    {# Description/Meta/Featured Image Region #}
+    <div {{ region_attributes.description.addClass('su-wysiwyg-text', 'layout__region', 'layout__region--description') }}>
+      <div class = "layout__region__inner">
+        {{ content.description }}
+      </div>
+    </div>
+
+    {# Main Region #}
+    <div {{ region_attributes.main.addClass('layout__region', 'layout__region--main') }}>
+      {{ content.main }}
+    </div>
+
+  </div>
+</div>

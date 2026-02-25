@@ -1,0 +1,29 @@
+uuid: 39142edf-6195-4995-9cbd-66f27caeda8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sdss_proj_status
+    - node.type.sdss_proj
+    - taxonomy.vocabulary.sdss_proj_status
+id: node.sdss_proj.sdss_proj_status
+field_name: sdss_proj_status
+entity_type: node
+bundle: sdss_proj
+label: Status
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_proj_status: sdss_proj_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
