@@ -1,6 +1,6 @@
 (function ($, Drupal, once) {
   'use strict';
-  
+
   Drupal.behaviors.sdss_subtheme = {
     attach: function (context, settings) {
 
@@ -50,6 +50,19 @@
           $playPauseButton.toggleClass('fa-pause').toggleClass('fa-play');
           $playPauseLabel.text('Play');
           $playPauseButton.attr('aria-label', 'Play video');
+        });
+      });
+
+      $(once('grid-list-toggle', '.project-grid-header .toggle-icons', context)).each(function () {
+        const $gridButton = $(this).find('button.toggle-grid');
+        const $listButton = $(this).find('button.toggle-list');
+
+        $gridButton.on('click', function () {
+          $('input[name="grid_list_toggle"][value="list"]').click();
+        });
+
+        $listButton.on('click', function () {
+          $('input[name="grid_list_toggle"][value="grid"]').click();
         });
       });
 

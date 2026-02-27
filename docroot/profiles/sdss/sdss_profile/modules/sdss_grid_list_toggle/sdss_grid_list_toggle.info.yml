@@ -1,0 +1,13 @@
+name: 'Doerr School of Sustainability Grid List Toggle'
+type: module
+description: 'Add on module for grid/list toggle functionality.'
+core_version_requirement: ^10.3 || ^11
+package: 'sdss'
+
+dependencies:
+  - components:components
+  - ui_patterns:ui_patterns
+
+components:
+  namespaces:
+    sdss_grid_list_toggle: templates
