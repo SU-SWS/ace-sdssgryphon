@@ -32,26 +32,17 @@ function sdss_profile_helper_views_pre_view(ViewExecutable $view, $display_id, a
     return;
   }
 
-  $request = \Drupal::request();
-
-  // 1. Determine mode from request OR current display
-  $mode = $request->request->get('view_mode_toggle')
-    ?: $request->query->get('view_mode_toggle');
+  // 1. Determine mode from exposed input or current display
+  $exposed_input = $view->getExposedInput();
+  $mode = isset($exposed_input['grid_list_toggle']) ? $exposed_input['grid_list_toggle'] : NULL;
 
   if (!$mode) {
-    // Infer mode from active display.
-    if ($view->current_display === 'sdss_proj_block_list') {
-      $mode = 'list';
-    }
-    else {
-      $mode = 'grid';
-    }
+    // Infer mode from active display if not set yet.
+    $mode = ($view->current_display === 'sdss_proj_block_list') ? 'list' : 'grid';
   }
 
   // 2. Switch display if needed
-  $target_display = ($mode === 'list')
-    ? 'sdss_proj_block_list'
-    : 'sdss_proj_block_grid';
+  $target_display = ($mode === 'list') ? 'sdss_proj_block_list' : 'sdss_proj_block_grid';
 
   if ($view->current_display !== $target_display) {
     $view->setDisplay($target_display);
@@ -59,11 +50,7 @@ function sdss_profile_helper_views_pre_view(ViewExecutable $view, $display_id, a
   }
 
   // 3. Always preserve exposed input
-  $exposed_input = $request->request->all() ?: $request->query->all();
   $view->setExposedInput($exposed_input);
-
-  // 4. ALWAYS expose the mode to Twig
-  $view->element['#view_mode_toggle'] = $mode;
 }
 
 /**
@@ -104,13 +91,34 @@ function sdss_profile_helper_preprocess_views_view_unformatted(&$variables) {
 function sdss_profile_helper_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $view = $form_state->get('view');
   if ($view->id() == 'projects') {
-    $request = \Drupal::request();
-    $mode = $request->query->get('view_mode_toggle') ?? 'grid';
+    // Only add the toggle for the two main displays.
+    $display_ids = ['sdss_proj_block_list', 'sdss_proj_block_grid'];
+    if (in_array($view->current_display, $display_ids, true)) {
+      // Determine the current mode from the exposed input or default to display
+      // id.
+      $input = $form_state->getUserInput();
+      if (isset($input['grid_list_toggle'])) {
+        $mode = $input['grid_list_toggle'];
+      }
+      else {
+        $mode = ($view->current_display === 'sdss_proj_block_list') ? 'list' : 'grid';
+      }
 
-    $form['view_mode_toggle'] = [
-      '#type' => 'hidden',
-      '#value' => $mode,
-    ];
+      // Add a radio button toggle for grid/list.
+      $form['grid_list_toggle'] = [
+        '#type' => 'radios',
+        '#title' => t('Display mode'),
+        '#options' => [
+          'grid' => t('Grid'),
+          'list' => t('List'),
+        ],
+        '#default_value' => $mode,
+        '#attributes' => [
+          'class' => ['grid-list-toggle'],
+        ],
+        '#weight' => -100, // Appear at the top.
+      ];
+    }
 
     // 2. Get the contextual filter arguments
     // Contextual filters are stored in the 'args' property of the view

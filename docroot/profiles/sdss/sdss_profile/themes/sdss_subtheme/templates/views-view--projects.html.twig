@@ -3,13 +3,8 @@
 <div{{ attributes.addClass('view', 'js-view-dom-id-' ~ dom_id) }}>
   
     <header class="view-header">
-        {% set current = view.element['#view_mode_toggle']|default('grid') %}
-        {% set target = (current == 'grid') ? 'list' : 'grid' %}
         <div class="project-grid-header">
             <h2>Projects</h2>
-            <a href="/projects?view_mode_toggle={{ target }}" class="btn view-mode-toggle" aria-label="Show as {{ target|capitalize }}">
-                <img src="/{{ directory }}/dist/img/toggle-{{ target }}.svg" alt="">
-            </a>
         </div>
     </header>
 

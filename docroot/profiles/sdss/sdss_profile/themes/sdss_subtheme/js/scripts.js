@@ -53,20 +53,6 @@
         });
       });
 
-      $(once('view-mode-toggle-init', '.view-mode-toggle', context)).on('click', function (e) {
-        e.preventDefault();
-
-        const url = new URL(this.href, window.location.origin);
-        const mode = url.searchParams.get('view_mode_toggle');
-
-        const $form = $('.views-exposed-form[id^="views-exposed-form-projects"]');
-
-        if ($form.length) {
-          $form.find('input[name="view_mode_toggle"]').val(mode);
-          $form.find('.form-submit').trigger('click');
-        }
-      });
-
     },
   };
 
