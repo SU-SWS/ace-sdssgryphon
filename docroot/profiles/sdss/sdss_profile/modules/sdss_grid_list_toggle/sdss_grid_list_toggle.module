@@ -17,7 +17,7 @@ function sdss_grid_list_toggle_views_pre_view(ViewExecutable $view, $display_id,
   }
 
   $exposed_input = $view->getExposedInput();
-  $mode = isset($exposed_input['grid_list_toggle']) ? $exposed_input['grid_list_toggle'] : NULL;
+  $mode = $exposed_input['grid_list_toggle'] ?? NULL;
 
   if (!$mode) {
     $mode = ($view->current_display === 'sdss_proj_block_list') ? 'list' : 'grid';
@@ -84,7 +84,7 @@ function sdss_grid_list_toggle_form_views_exposed_form_alter(&$form, FormStateIn
   }
 
   $display_ids = ['sdss_proj_block_list', 'sdss_proj_block_grid'];
-  if (in_array($view->current_display, $display_ids, true)) {
+  if (in_array($view->current_display, $display_ids, TRUE)) {
     $input = $form_state->getUserInput();
     $mode = $input['grid_list_toggle'] ?? (($view->current_display === 'sdss_proj_block_list') ? 'list' : 'grid');
 
@@ -99,7 +99,7 @@ function sdss_grid_list_toggle_form_views_exposed_form_alter(&$form, FormStateIn
       '#attributes' => [
         'class' => ['grid-list-toggle'],
       ],
-      '#weight' => -100, // Appear at the top.
+      '#weight' => -100,
     ];
   }
 
