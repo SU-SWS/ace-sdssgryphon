@@ -604,15 +604,18 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: infinite_scroll
+        type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 24
           total_pages: null
           id: 0
           tags:
             next: 'Next ›'
             previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -621,10 +624,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More News'
-            automatically_load_content: false
-            initially_load_all_pages: false
+          quantity: 5
       exposed_form:
         type: basic
         options:
@@ -3306,7 +3306,7 @@ display:
         - 'config:field.storage.node.su_sdss_news_news_source'
   viewfield_block_3:
     id: viewfield_block_3
-    display_title: 'Card Grid, No Media Mentions, Load More'
+    display_title: 'Card Grid, No Media Mentions, Pager'
     display_plugin: viewfield_block
     position: 3
     display_options:
@@ -3414,8 +3414,9 @@ display:
           relationship: none
           view_mode: stanford_card
       pager:
-        type: infinite_scroll
+        type: full
         options:
+          pagination_heading_level: h4
           items_per_page: '24'
           offset: '0'
           id: '0'
@@ -3423,6 +3424,8 @@ display:
           tags:
             previous: '‹ Previous'
             next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: 0
             items_per_page_label: 'Items per page'
@@ -3431,10 +3434,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: 0
             offset_label: Offset
-          views_infinite_scroll:
-            button_text: 'Load More News'
-            automatically_load_content: 0
-            initially_load_all_pages: 0
+          quantity: '5'
       block_category: 'News Lists (Views)'
       block_description: ''
       css_class: 'stanford-news--cards stanford-news--cards-any'
