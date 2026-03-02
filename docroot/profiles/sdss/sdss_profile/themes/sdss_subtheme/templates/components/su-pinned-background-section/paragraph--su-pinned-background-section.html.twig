@@ -48,8 +48,6 @@
   {% set isPinned = false %}
 {% endif %}
 
-{% set hasNegativeMargin = paragraph.su_sdss_pinned_negative_margin.value %}
-
 {%
   set classes = [
     'paragraph',
@@ -57,8 +55,7 @@
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
     'su-pinned-background-section',
-    isPinned ? 'pinned' : 'not-pinned',
-    hasNegativeMargin == '1' ? 'top-negative-margin' : '',
+    isPinned ? 'pinned' : 'not-pinned'
   ]
 %}
 
