@@ -317,3 +317,10 @@
         }
     }
 }
+
+.jumpstart-ui--one-column.centered-content {
+    &:has(.su-pinned-background-section) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
