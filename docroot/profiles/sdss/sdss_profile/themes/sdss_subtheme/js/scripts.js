@@ -54,9 +54,19 @@
       });
 
       $(once('grid-list-toggle', '.project-grid-header .toggle-icons', context)).each(function () {
-        const $view = $(this).closest('.view');
-        const $gridButton = $view.find('button.toggle-grid');
-        const $listButton = $view.find('button.toggle-list');
+        const $toggleIcons = $(this);
+        const $view = $toggleIcons.closest('.view');
+
+        // Load icons from dist.
+        const themePath = '/profiles/sdss/sdss_profile/themes/sdss_subtheme';
+        const gridIcon = themePath + '/dist/img/toggle-grid.svg';
+        const listIcon = themePath + '/dist/img/toggle-list.svg';
+
+        // Inject the buttons.
+        const $gridButton = $('<button type="button" class="toggle-grid" aria-label="Switch to List View"><img src="' + gridIcon + '" alt="" aria-hidden="true"></button>');
+        const $listButton = $('<button type="button" class="toggle-list" aria-label="Switch to Grid View"><img src="' + listIcon + '" alt="" aria-hidden="true"></button>');
+
+        $toggleIcons.append($gridButton).append($listButton);
 
         $gridButton.on('click', function () {
           $view.find('input[name="grid_list_toggle"][value="list"]').click();
