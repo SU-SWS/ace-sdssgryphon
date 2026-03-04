@@ -54,15 +54,16 @@
       });
 
       $(once('grid-list-toggle', '.project-grid-header .toggle-icons', context)).each(function () {
-        const $gridButton = $(this).find('button.toggle-grid');
-        const $listButton = $(this).find('button.toggle-list');
+        const $view = $(this).closest('.view');
+        const $gridButton = $view.find('button.toggle-grid');
+        const $listButton = $view.find('button.toggle-list');
 
         $gridButton.on('click', function () {
-          $('input[name="grid_list_toggle"][value="list"]').click();
+          $view.find('input[name="grid_list_toggle"][value="list"]').click();
         });
 
         $listButton.on('click', function () {
-          $('input[name="grid_list_toggle"][value="grid"]').click();
+          $view.find('input[name="grid_list_toggle"][value="grid"]').click();
         });
       });
 
