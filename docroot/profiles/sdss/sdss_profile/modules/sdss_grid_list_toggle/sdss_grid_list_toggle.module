@@ -42,9 +42,10 @@ function sdss_grid_list_toggle_preprocess_views_view(&$variables) {
     return;
   }
 
-  $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
-  $variables['toggle_grid_icon'] = base_path() . $theme_path . '/dist/img/toggle-grid.svg';
-  $variables['toggle_list_icon'] = base_path() . $theme_path . '/dist/img/toggle-list.svg';
+  $variables['#attached']['library'][] = 'sdss_grid_list_toggle/sdss_grid_list_toggle';
+  
+  $module_path = base_path() . \Drupal::service('extension.list.module')->getPath('sdss_grid_list_toggle');
+  $variables['#attached']['drupalSettings']['sdss_grid_list_toggle']['module_path'] = rtrim($module_path, '/');
 }
 
 /**

@@ -1,0 +1,8 @@
+sdss_grid_list_toggle:
+  version: 1.x
+  js:
+    js/sdss_grid_list_toggle.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
