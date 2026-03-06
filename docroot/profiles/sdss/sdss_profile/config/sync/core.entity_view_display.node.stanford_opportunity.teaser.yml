@@ -34,7 +34,6 @@ dependencies:
     - element_class_formatter
     - empty_fields
     - field_formatter_class
-    - field_label
     - stanford_media
     - text
     - user
@@ -92,9 +91,6 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-      field_label:
-        label_value: ''
-        label_tag: ''
     weight: 4
     region: news_list_footer
   su_opp_image:
@@ -110,9 +106,6 @@ content:
         handler: ''
       field_formatter_class:
         class: su-opp-image-list
-      field_label:
-        label_value: ''
-        label_tag: ''
     weight: 3
     region: news_list_image
   su_opp_summary:
@@ -125,9 +118,6 @@ content:
         handler: ''
       field_formatter_class:
         class: su-opp-summary-list
-      field_label:
-        label_value: ''
-        label_tag: ''
     weight: 2
     region: news_list_dek
   su_opp_type:
@@ -140,9 +130,6 @@ content:
         handler: ''
       field_formatter_class:
         class: su-opp-type-list
-      field_label:
-        label_value: ''
-        label_tag: ''
       ds:
         ds_limit: ''
     weight: 0

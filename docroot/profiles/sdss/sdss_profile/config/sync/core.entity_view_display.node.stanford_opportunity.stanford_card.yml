@@ -33,7 +33,6 @@ dependencies:
     - ds
     - empty_fields
     - field_formatter_class
-    - field_label
     - layout_builder
     - layout_builder_restrictions
     - layout_library
@@ -103,9 +102,6 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-      field_label:
-        label_value: ''
-        label_tag: ''
     weight: 0
     region: card_image
   su_opp_sponsor:
@@ -118,9 +114,6 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-      field_label:
-        label_value: ''
-        label_tag: ''
       ds:
         ds_limit: ''
     weight: 1
@@ -151,9 +144,6 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-      field_label:
-        label_value: ''
-        label_tag: ''
     weight: 4
     region: card_body
   su_opp_type:
@@ -166,9 +156,6 @@ content:
         handler: ''
       field_formatter_class:
         class: ''
-      field_label:
-        label_value: ''
-        label_tag: ''
       ds:
         ds_limit: ''
     weight: 3
