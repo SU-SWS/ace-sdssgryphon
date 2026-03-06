@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+nav.pager {
+  padding: 3rem 0;
+
+  .pager__item {
+    margin: 0 2px;
+
+    a {
+      padding: 3px;
+    }
+
+    // Active page.
+    &.pager__item--active {
+      a {
+        padding: 3px 10px;
+        border: 1px solid $sdss-color-palo-alto-dark;
+      }
+    }
+  }
+}

@@ -40,12 +40,12 @@
             "type": "package",
             "package": {
                 "name": "stanford-earth/stanford_earth_r25",
-                "version": "8.1.23",
+                "version": "8.1.24",
                 "type": "drupal-custom-module-rooms-site",
                 "source": {
                     "type": "git",
                     "url": "https://github.com/stanford-earth/stanford_earth_r25",
-                    "reference": "8.1.23"
+                    "reference": "8.1.24"
                 }
             }
         },
@@ -83,7 +83,7 @@
         "drupal/book": "^2.0",
         "drupal/change_labels": "^1.0",
         "drupal/chosen": "^5.0",
-        "drupal/colorbox": "^2.0",
+        "drupal/colorbox": "2.1.4",
         "drupal/components": "^3.0",
         "drupal/conditional_fields": "^4.0",
         "drupal/config_ignore": "^3.0",

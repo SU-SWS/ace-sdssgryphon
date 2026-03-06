@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Contains sdss_grid_list_toggle.module.
+ */
+
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function sdss_grid_list_toggle_views_pre_view(ViewExecutable $view, $display_id, array &$args) {
+  if ($view->id() !== 'projects') {
+    return;
+  }
+
+  $exposed_input = $view->getExposedInput();
+  $mode = $exposed_input['grid_list_toggle'] ?? NULL;
+
+  if (!$mode) {
+    $mode = ($view->current_display === 'sdss_proj_block_list') ? 'list' : 'grid';
+  }
+
+  $target_display = ($mode === 'list') ? 'sdss_proj_block_list' : 'sdss_proj_block_grid';
+
+  if ($view->current_display !== $target_display) {
+    $view->setDisplay($target_display);
+    $view->initHandlers();
+  }
+
+  $view->setExposedInput($exposed_input);
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function sdss_grid_list_toggle_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  if ($view->id() !== 'projects') {
+    return;
+  }
+
+  $variables['#attached']['library'][] = 'sdss_grid_list_toggle/sdss_grid_list_toggle';
+
+  $module_path = base_path() . \Drupal::service('extension.list.module')->getPath('sdss_grid_list_toggle');
+  $variables['#attached']['drupalSettings']['sdss_grid_list_toggle']['module_path'] = rtrim($module_path, '/');
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ */
+function sdss_grid_list_toggle_preprocess_views_view_unformatted(&$variables) {
+  $view = $variables['view'];
+
+  if ($view->id() !== 'projects' || $view->current_display !== 'sdss_proj_block_list') {
+    return;
+  }
+
+  $custom_groups = [];
+
+  foreach ($variables['rows'] as $id => $row) {
+    $node = $view->result[$id]->_entity;
+    $flagship_name = 'Other Projects';
+
+    if ($node->hasField('sdss_proj_featured_flagship') && !$node->get('sdss_proj_featured_flagship')->isEmpty()) {
+      $term = $node->get('sdss_proj_featured_flagship')->entity;
+      $flagship_name = $term ? $term->label() : $flagship_name;
+    }
+
+    $custom_groups[$flagship_name][] = $row['content'];
+  }
+
+  $variables['flagship_groups'] = $custom_groups;
+}
+
+/**
+ * Implements hook_form_views_exposed_form_alter().
+ */
+function sdss_grid_list_toggle_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $view = $form_state->get('view');
+  if ($view->id() !== 'projects') {
+    return;
+  }
+
+  $display_ids = ['sdss_proj_block_list', 'sdss_proj_block_grid'];
+  if (in_array($view->current_display, $display_ids, TRUE)) {
+    $input = $form_state->getUserInput();
+    $mode = $input['grid_list_toggle'] ?? (($view->current_display === 'sdss_proj_block_list') ? 'list' : 'grid');
+
+    $form['grid_list_toggle'] = [
+      '#type' => 'radios',
+      '#title' => t('Display mode'),
+      '#options' => [
+        'grid' => t('Grid'),
+        'list' => t('List'),
+      ],
+      '#default_value' => $mode,
+      '#attributes' => [
+        'class' => ['grid-list-toggle'],
+      ],
+      '#weight' => -100,
+    ];
+  }
+
+  $args = $view->args;
+  if (empty($args[0]) || !isset($form['sdss_proj_status_target_id'])) {
+    return;
+  }
+
+  $allowed_tids = explode('+', $args[0]);
+  $options = &$form['sdss_proj_status_target_id']['#options'];
+
+  foreach ($options as $tid => $label) {
+    if ($tid !== 'All' && !empty($tid) && !in_array($tid, $allowed_tids)) {
+      unset($options[$tid]);
+    }
+  }
+}

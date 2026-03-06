@@ -16,4 +16,8 @@ module:
   stanford_earth_r25_custom: 0
 theme: {  }
 complete_list: {  }
-partial_list: {  }
+partial_list:
+  - block.block.sdss_subtheme_pagetitle
+  - samlauth.authentication
+  - user.role.anonymous
+  - user.role.authenticated

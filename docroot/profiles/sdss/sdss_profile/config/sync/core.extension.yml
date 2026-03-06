@@ -168,6 +168,7 @@ module:
   samlauth_user_fields: 0
   scheduler: 0
   sdss_entities: 0
+  sdss_grid_list_toggle: 0
   sdss_layout_paragraphs: 0
   sdss_news_sharing: 0
   sdss_person_title_override: 0

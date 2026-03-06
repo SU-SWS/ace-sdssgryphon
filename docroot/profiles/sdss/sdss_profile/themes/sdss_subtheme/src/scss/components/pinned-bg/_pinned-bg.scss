@@ -17,6 +17,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+
         @media (min-height: 601px) and (min-width: 601px) {
             background-attachment: fixed;
         }
@@ -64,6 +65,7 @@
             justify-content: flex-end;
 
             width: 100%;
+
             @include grid-media-min('xl') {
                 width: calc(100%-16rem);
                 max-width: 2000px;
@@ -102,16 +104,19 @@
             min-width: 0;
             z-index: 9;
             overflow: visible;
+
             &:focus {
                 outline: none;
             }
+
             &:focus-visible {
                 outline: 3px solid white;
             }
+
             img {
                 pointer-events: none;
             }
-            
+
         }
 
         iframe {
@@ -124,7 +129,7 @@
             left: 50%;
             width: 300%;
             height: 300%;
-            transform: translate(-50%,-50%) scale(1.4);
+            transform: translate(-50%, -50%) scale(1.4);
             pointer-events: none;
             z-index: 0;
 
@@ -153,9 +158,12 @@
             pointer-events: none;
             z-index: 99;
             will-change: transform, opacity;
-            transform: translateZ(0);            /* create a new layer */
+            transform: translateZ(0);
+            /* create a new layer */
             backface-visibility: hidden;
-            -webkit-font-smoothing: antialiased; /* optional but helps text flicker */
+            -webkit-font-smoothing: antialiased;
+
+            /* optional but helps text flicker */
             @include grid-media-min('xl') {
                 width: calc(100%-16rem);
                 max-width: 2000px;
@@ -278,6 +286,7 @@
 
         &__bottom {
             width: 100%;
+
             @include grid-media-min('xl') {
                 width: calc(100%-16rem);
                 max-width: 2000px;
@@ -306,5 +315,12 @@
                 }
             }
         }
+    }
+}
+
+.jumpstart-ui--one-column.centered-content {
+    &:has(.su-pinned-background-section) {
+        width: 100%;
+        max-width: 100%;
     }
 }

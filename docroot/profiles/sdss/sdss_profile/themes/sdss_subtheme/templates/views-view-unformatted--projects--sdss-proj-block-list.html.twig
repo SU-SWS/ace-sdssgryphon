@@ -1,0 +1,22 @@
+{# views-view-unformatted--projects--sdss-proj-block-list.html.twig #}
+<div class="view-list-container">
+    <div class="view-grouping">
+        {% if title %}
+            <div class = "view-grouping-header">
+                <h2>{{ title }}</h2>
+            </div>
+        {% endif %}
+        <div class="view-grouping-content">
+            {% for row in rows %}
+                {%
+                    set row_classes = [
+                    default_row_class ? 'views-row',
+                    ]
+                %}
+                <div class="views-row">
+                    {{- row.content -}}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

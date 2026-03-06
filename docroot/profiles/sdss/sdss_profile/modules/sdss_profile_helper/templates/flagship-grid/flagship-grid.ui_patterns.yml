@@ -1,0 +1,25 @@
+sdss-flagship-grid:
+  label: SDSS Flagship Grid Item
+  description: "Building block component for the flagship grid view."
+  fields:
+    project_grid_title:
+      type: text
+      label: "Title"
+      description: "Project title"
+      preview: "This is the project title."
+    project_grid_featured_image:
+      type: text
+      label: "Featured Image"
+      description: "The featured image."
+      preview: "<img src='https://picsum.photos/900/900/' alt='Example Image' />"
+    project_grid_featured_image_caption:
+      type: text
+      label: "Featured Image Caption"
+      description: "The featured image caption."
+      preview: "This is the project featured image caption."
+    project_grid_status:
+      type: text
+      label: "Status"
+      description: "The project status."
+      preview: "This is the project status."
+  use: "@sdss_profile_helper/flagship-grid/flagship-grid.html.twig"
