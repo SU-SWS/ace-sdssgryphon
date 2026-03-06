@@ -2,7 +2,8 @@
 
 // Project grid styles for the grid view and all exposed filters in the filtered lists paragraph type.
 
-.ptype-sdss-filtered-lists:has(.stanford-projects-grid), .paragraph--type--stanford-lists:has(.stanford-projects-grid) {
+.ptype-sdss-filtered-lists:has(.stanford-projects-grid),
+.paragraph--type--stanford-lists:has(.stanford-projects-grid) {
     max-width: none;
 }
 
@@ -52,6 +53,7 @@
         display: block;
         z-index: 10;
         width: 100%;
+
         @include grid-media-min('md') {
             width: calc(100%-345px);
             position: absolute;
@@ -66,9 +68,11 @@
             justify-content: space-between;
             gap: 32px;
             padding-bottom: 11px;
+
             @include grid-media-min('md') {
                 margin-bottom: 50px;
             }
+
             border-bottom: 1px solid #D6D6D6;
 
             h2 {
@@ -78,16 +82,42 @@
                 margin: 0;
                 line-height: 27px;
             }
+
+            .toggle-icons {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                button {
+                    background: none;
+                    border: none;
+                    padding: 0;
+                    cursor: pointer;
+                    display: block;
+
+                    img {
+                        width: 91px;
+                        height: 36px;
+                        display: block;
+                    }
+
+                    &.toggle-list {
+                        display: none;
+                    }
+                }
+            }
         }
     }
-    
-    .views-infinite-scroll-content-wrapper {
+
+    .view-results-wrapper {
         width: 100%;
         margin: 0;
+
         @include grid-media-min('md') {
             padding-top: 88px;
             padding-bottom: 88px;
         }
+
         display: flex;
         flex-wrap: wrap;
         gap: 50px 20px;
@@ -100,15 +130,143 @@
             }
 
             @include grid-media-min('2xl') {
-                width: calc(33% - 10px);
+                width: calc(33% - 11px);
             }
         }
     }
+
+    &.sdss-proj-block-list {
+        .project-grid-header {
+            .toggle-icons {
+                .toggle-grid {
+                    display: none;
+                }
+
+                .toggle-list {
+                    display: block;
+                }
+            }
+        }
+
+        .view-results-wrapper {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            padding-top: 0;
+            gap: 0;
+
+            @include grid-media-min('md') {
+                padding-top: 38px;
+            }
+        }
+
+        .view-grouping-header {
+            @include grid-media-min('xl') {
+                min-width: 340px;
+                max-width: 340px;
+            }
+
+            h2 {
+                font-family: $su-font-serif-v2;
+                font-size: 54px;
+                font-weight: 500;
+                color: #8C1515;
+                line-height: 57px;
+                position: sticky;
+                top: 30px;
+                padding-top: 20px;
+                margin: 0;
+
+                &:before {
+                    content: "Cohort:";
+                    display: block;
+                    position: absolute;
+                    top: -20px;
+                    left: 0;
+                    color: black;
+                    font-family: $su-font-sans;
+                    padding: 8px;
+                    font-size: 19px;
+                    line-height: 17px;
+                    font-weight: bold;
+                    background-color: #F5F5F5;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+        .view-list-container {
+
+            padding-block: 65px;
+            border-top: 1px solid #D6D6D6;
+
+            &:first-child {
+                border: none;
+                padding-top: 0;
+
+                @include grid-media-min('md') {
+                    padding-top: 65px;
+                }
+            }
+
+        }
+
+        .view-grouping {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            @include grid-media-min('xl') {
+                flex-direction: row;
+            }
+        }
+
+        .view-grouping-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .views-row {
+                width: 100%;
+            }
+        }
+
+        .su-project-item {
+            article {
+                @include grid-media-min('lg') {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 25px;
+                }
+
+                .su_projects__image {
+                    @include grid-media-min('lg') {
+                        min-width: 170px;
+                        max-width: 170px;
+                    }
+                }
+
+                .su_projects__flagship {
+                    display: none;
+                }
+
+                h4 {
+                    @include grid-media-min('lg') {
+                        width: 100%;
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
     .views-exposed-form {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         margin: 0;
+
         @include grid-media-min('md') {
             min-width: 267px;
             max-width: 267px;
@@ -147,8 +305,13 @@
                 flex-direction: column;
                 gap: 12px;
 
+                .form-item-grid-list-toggle {
+                    display: none;
+                }
+
                 .js-form-item.form-type-checkbox {
                     margin: 0;
+
                     [type=checkbox]:checked+label:before {
                         background-color: white;
                         box-shadow: 0 0 0 1px #b6b1a9;
@@ -172,6 +335,10 @@
                     }
                 }
             }
+        }
+
+        .js-form-item.grid-list-toggle {
+            display: none;
         }
 
         .js-form-item.form-item-combine {
@@ -309,7 +476,7 @@
         left: 10px;
         padding: 3px 7px;
         border-radius: 2px;
-        background-color: rgba(255,255,255,0.95);
+        background-color: rgba(255, 255, 255, 0.95);
         font-size: 16px;
         line-height: 22px;
         max-width: calc(100% - 20px);
@@ -377,7 +544,7 @@
             flex-direction: column;
             gap: 25px;
         }
-        
+
         &.hidden {
             display: none;
         }
@@ -406,6 +573,7 @@
             display: flex;
             flex-direction: column;
             gap: 23px;
+
             @include grid-media-min('lg') {
                 flex-direction: row;
                 align-items: center;
@@ -415,13 +583,14 @@
                 margin-top: 0;
             }
         }
+
         .su_projects__image {
             @include grid-media-min('lg') {
                 max-width: 166px;
                 min-width: 166px;
             }
         }
-        
+
     }
 
     &__image {
@@ -429,14 +598,14 @@
         position: relative;
         overflow: hidden;
         aspect-ratio: 312/204;
-        
+
         &__inner {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
