@@ -43,7 +43,7 @@ function sdss_grid_list_toggle_preprocess_views_view(&$variables) {
   }
 
   $variables['#attached']['library'][] = 'sdss_grid_list_toggle/sdss_grid_list_toggle';
-  
+
   $module_path = base_path() . \Drupal::service('extension.list.module')->getPath('sdss_grid_list_toggle');
   $variables['#attached']['drupalSettings']['sdss_grid_list_toggle']['module_path'] = rtrim($module_path, '/');
 }
