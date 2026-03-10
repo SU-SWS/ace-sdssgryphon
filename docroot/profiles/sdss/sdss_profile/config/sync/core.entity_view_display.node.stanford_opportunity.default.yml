@@ -14,11 +14,14 @@ dependencies:
     - field.field.node.stanford_opportunity.su_opp_course_code
     - field.field.node.stanford_opportunity.su_opp_cta_url
     - field.field.node.stanford_opportunity.su_opp_eligibility
+    - field.field.node.stanford_opportunity.su_opp_focal_areas
     - field.field.node.stanford_opportunity.su_opp_icon
     - field.field.node.stanford_opportunity.su_opp_image
     - field.field.node.stanford_opportunity.su_opp_learn_more
     - field.field.node.stanford_opportunity.su_opp_open_date
+    - field.field.node.stanford_opportunity.su_opp_organization
     - field.field.node.stanford_opportunity.su_opp_prerequisites
+    - field.field.node.stanford_opportunity.su_opp_research_areas
     - field.field.node.stanford_opportunity.su_opp_source
     - field.field.node.stanford_opportunity.su_opp_sponsor
     - field.field.node.stanford_opportunity.su_opp_start_date
@@ -146,6 +149,14 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  su_opp_focal_areas:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
   su_opp_icon:
     type: fontawesome_icon_formatter
     label: hidden
@@ -157,6 +168,22 @@ content:
       field_formatter_class:
         class: ''
     weight: 0
+    region: content
+  su_opp_organization:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  su_opp_research_areas:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
     region: content
   su_opp_units:
     type: entity_reference_label

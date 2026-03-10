@@ -14,11 +14,14 @@ dependencies:
     - field.field.node.stanford_opportunity.su_opp_course_code
     - field.field.node.stanford_opportunity.su_opp_cta_url
     - field.field.node.stanford_opportunity.su_opp_eligibility
+    - field.field.node.stanford_opportunity.su_opp_focal_areas
     - field.field.node.stanford_opportunity.su_opp_icon
     - field.field.node.stanford_opportunity.su_opp_image
     - field.field.node.stanford_opportunity.su_opp_learn_more
     - field.field.node.stanford_opportunity.su_opp_open_date
+    - field.field.node.stanford_opportunity.su_opp_organization
     - field.field.node.stanford_opportunity.su_opp_prerequisites
+    - field.field.node.stanford_opportunity.su_opp_research_areas
     - field.field.node.stanford_opportunity.su_opp_source
     - field.field.node.stanford_opportunity.su_opp_sponsor
     - field.field.node.stanford_opportunity.su_opp_start_date
@@ -51,8 +54,8 @@ third_party_settings:
         - su_opp_contact_url
       label: 'Contact Information'
       region: content
-      parent_name: group_taxonomy
-      weight: 15
+      parent_name: ''
+      weight: 8
       format_type: details
       format_settings:
         classes: ''
@@ -61,26 +64,6 @@ third_party_settings:
         label_as_html: false
         open: false
         description: 'Contact information for this opportunity. Displays on the individual opportunity page.'
-        required_fields: true
-    group_taxonomy:
-      children:
-        - su_opp_type
-        - su_opp_application_deadline
-        - group_contact_information
-        - su_opp_cta_url
-        - group_academic_info
-      label: Sidebar
-      region: content
-      parent_name: ''
-      weight: 2
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        open: false
-        description: 'Information in this section will be displayed on the sidebar.'
         required_fields: true
     group_basics:
       children:
@@ -92,7 +75,7 @@ third_party_settings:
       label: 'Editorial Content'
       region: content
       parent_name: ''
-      weight: 1
+      weight: 3
       format_type: details
       format_settings:
         classes: ''
@@ -102,33 +85,12 @@ third_party_settings:
         open: false
         description: 'This content is used to fill in the image, summary text and other items needed for display in a list or teaser. It also contains an external link field if you wish to direct site visitors to an external page.'
         required_fields: true
-    group_page_content:
-      children:
-        - su_opp_eligibility
-        - su_opp_prerequisites
-        - body
-        - su_opp_components
-      label: 'Page Content'
-      region: content
-      parent_name: ''
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        label_as_html: false
-        open: false
-        description: 'Content that will appear on the page in the main content area.'
-        required_fields: true
     group_academic_info:
-      children:
-        - su_opp_course_code
-        - su_opp_units
+      children: {  }
       label: 'Academic Info'
       region: hidden
-      parent_name: group_taxonomy
-      weight: 10
+      parent_name: ''
+      weight: 31
       format_type: details
       format_settings:
         classes: ''
@@ -145,7 +107,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 18
+    weight: 12
     region: content
     settings:
       rows: 4
@@ -178,7 +140,7 @@ content:
     third_party_settings: {  }
   su_opp_application_deadline:
     type: datetime_default
-    weight: 13
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -192,7 +154,7 @@ content:
     third_party_settings: {  }
   su_opp_components:
     type: layout_paragraphs
-    weight: 20
+    weight: 16
     region: content
     settings:
       view_mode: default
@@ -235,7 +197,7 @@ content:
     third_party_settings: {  }
   su_opp_course_code:
     type: string_textfield
-    weight: 11
+    weight: 1
     region: content
     settings:
       size: 12
@@ -254,7 +216,7 @@ content:
         force_single_cardinality: 0
   su_opp_cta_url:
     type: link_default
-    weight: 16
+    weight: 9
     region: content
     settings:
       placeholder_url: ''
@@ -262,7 +224,7 @@ content:
     third_party_settings: {  }
   su_opp_eligibility:
     type: text_textarea
-    weight: 16
+    weight: 10
     region: content
     settings:
       rows: 1
@@ -276,6 +238,16 @@ content:
         maxlength_js_enforce: false
       change_labels:
         field_label_overwrite: ''
+  su_opp_focal_areas:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   su_opp_icon:
     type: fontawesome_icon_widget
     weight: 3
@@ -306,9 +278,19 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  su_opp_organization:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   su_opp_prerequisites:
     type: text_textarea
-    weight: 17
+    weight: 11
     region: content
     settings:
       rows: 1
@@ -322,6 +304,16 @@ content:
         maxlength_js_enforce: false
       change_labels:
         field_label_overwrite: ''
+  su_opp_research_areas:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   su_opp_source:
     type: link_default
     weight: 6
@@ -356,13 +348,13 @@ content:
         field_label_overwrite: ''
   su_opp_type:
     type: options_select
-    weight: 9
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   su_opp_units:
     type: options_select
-    weight: 12
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
