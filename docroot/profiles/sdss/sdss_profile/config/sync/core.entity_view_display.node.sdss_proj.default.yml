@@ -3,12 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.sdss_proj.sdss_proj_content
     - field.field.node.sdss_proj.sdss_proj_description
     - field.field.node.sdss_proj.sdss_proj_featured_flagship
     - field.field.node.sdss_proj.sdss_proj_featured_image
     - field.field.node.sdss_proj.sdss_proj_featured_image_caption
     - field.field.node.sdss_proj.sdss_proj_flagships
-    - field.field.node.sdss_proj.sdss_proj_content
     - field.field.node.sdss_proj.sdss_proj_project_impact_pathway
     - field.field.node.sdss_proj.sdss_proj_stanford_users
     - field.field.node.sdss_proj.sdss_proj_status
