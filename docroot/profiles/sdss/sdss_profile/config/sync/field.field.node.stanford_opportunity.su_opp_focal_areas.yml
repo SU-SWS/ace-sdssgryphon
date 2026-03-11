@@ -1,0 +1,29 @@
+uuid: 018559f8-e0b2-4024-b662-479a8da005f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.su_opp_focal_areas
+    - node.type.stanford_opportunity
+    - taxonomy.vocabulary.sdss_focal_areas
+id: node.stanford_opportunity.su_opp_focal_areas
+field_name: su_opp_focal_areas
+entity_type: node
+bundle: stanford_opportunity
+label: 'Focal Areas'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sdss_focal_areas: sdss_focal_areas
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -64,7 +64,9 @@
 
   {# Main content container. #}
   <div{{ content_attributes.addClass('content') }}>
-    {{ content|without('links') }}
+    {% block node_content %}
+      {{ content|without('links') }}
+    {% endblock %}
   </div><!-- /.content -->
 
   {%- if content.links -%}
