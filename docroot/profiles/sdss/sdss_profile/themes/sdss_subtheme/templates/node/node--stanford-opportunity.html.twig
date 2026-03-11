@@ -1,0 +1,5 @@
+{% extends "@stanford_basic/node.html.twig" %}
+
+{% block node_content %}
+  {{ content|without('links') }}
+{% endblock %}
