@@ -1,5 +1,33 @@
 @charset 'UTF-8';
 
-.node--stanford-opportunity {
-  
+.node.opportunity.node--layout-full {
+  .opp-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .opp-main-content {
+    width: 75%;
+    padding: 3rem;
+
+    .opp-metadata {
+      padding: 3rem;
+      margin-bottom: 3rem;
+      background-color: $sdss-color-grey-light;
+    }
+  }
+
+  .opp-aside-content {
+    width: 25%;
+    padding: 3rem;
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .opp-aside-content__item {
+      margin-bottom: 3rem;
+    }
+  }
 }
