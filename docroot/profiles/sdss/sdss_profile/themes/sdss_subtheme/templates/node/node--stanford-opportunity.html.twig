@@ -10,7 +10,7 @@
         </div>
       {% endif %}
       {% if label %}
-        <div class="node-stanford-page-title">
+        <div id="page-title" class="node-stanford-page-title">
           <h1>{{ label }}</h1>
         </div>
       {% endif %}
@@ -30,12 +30,14 @@
     <div class="opp-main-content">
       <div class="opp-metadata">
         {% if content.su_opp_eligibility %}
-          <div class="opp-eligibility">
+          <div class="opp-eligibility opp-metadata__item">
+            <h2>Eligibility</h2>
             {{ content.su_opp_eligibility }}
           </div>
         {% endif %}
         {% if content.su_opp_prerequisites %}
-          <div class="opp-su_opp_prerequisites">
+          <div class="opp-prerequisites opp-metadata__item">
+            <h2>Prerequisites</h2>
             {{ content.su_opp_prerequisites }}
           </div>
         {% endif %}
