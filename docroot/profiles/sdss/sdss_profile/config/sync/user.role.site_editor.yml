@@ -36,9 +36,11 @@ dependencies:
     - taxonomy.vocabulary.stanford_publication_topics
     - taxonomy.vocabulary.su_sdss_news_source
     - taxonomy.vocabulary.su_shared_tags
+    - workflows.workflow.send_for_review
   module:
     - book
     - content_lock
+    - content_moderation
     - contextual
     - dropzonejs
     - editoria11y
@@ -258,6 +260,8 @@ permissions:
   - 'schedule publishing of nodes'
   - 'update any media'
   - 'update media'
+  - 'use send_for_review transition create_new_draft'
+  - 'use send_for_review transition publish'
   - 'use text format stanford_html'
   - 'use text format stanford_minimal_html'
   - 'use views bulk edit'
@@ -275,6 +279,7 @@ permissions:
   - 'view any unpublished stanford_policy content'
   - 'view any unpublished stanford_publication content'
   - 'view editoria11y checker'
+  - 'view latest version'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view policy log'

@@ -28,6 +28,8 @@ module:
   consumers: 0
   content_lock: 0
   content_lock_timeout: 0
+  content_moderation: 0
+  content_moderation_notifications: 0
   contextual: 0
   core_event_dispatcher: 0
   crop: 0
@@ -241,6 +243,7 @@ module:
   views_taxonomy_term_name_depth: 0
   views_ui: 0
   webp: 0
+  workflows: 0
   xmlsitemap_engines: 0
   ds: 1
   extlink: 1

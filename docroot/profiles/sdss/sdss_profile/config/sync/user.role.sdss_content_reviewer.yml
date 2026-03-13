@@ -1,0 +1,20 @@
+uuid: 0c288275-6585-4f08-ad16-325e188886ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflows.workflow.send_for_review
+  module:
+    - content_moderation
+id: sdss_content_reviewer
+label: 'Content Reviewer'
+weight: 6
+is_admin: false
+permissions:
+  - 'use send_for_review transition create_new_draft'
+  - 'use send_for_review transition keep_in_review'
+  - 'use send_for_review transition publish'
+  - 'use send_for_review transition publish_after_review'
+  - 'use send_for_review transition send_for_review'
+  - 'view any unpublished content'
+  - 'view latest version'
