@@ -7,6 +7,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.18.0] Capricornus- 2026-03-18
+
+### Added
+690a4619d Project Content Type | Grid/List Toggle (#745)
+37278b37b SDSS-1554: Add Opportunity content type (#728)
+6fa6bd414 Add new pinned background paragraph to the news content type (#746)
+
+### Changed
+f672e7a02 SDSS-1608: Disable auto-updates on dev; move hooks to prod/stage only (#757)
+e6f7f1acc SDSS-546: Switch list views from Infinite Scroll (load more) to pagers (#754)
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+182c1064c SDSS-1608: Fix | Move stage hooks to test for Acquia compatibility (#758)
+a08f562f8 SDSS-1609: Fix text bleeding in cards (#761)
+
+### Security
+None.
+
+### Maintenance
+2021b5edc Automated Dependency Updates 20260313 (#762)
+ce7e9d667 Automated Dependency Updates 20260227 (#756)
+
+
 ## [4.17.1] Canis Major - 2026-02-24
 
 ### Added
