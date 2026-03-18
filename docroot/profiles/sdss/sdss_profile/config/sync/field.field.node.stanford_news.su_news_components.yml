@@ -17,6 +17,7 @@ dependencies:
     - paragraphs.paragraphs_type.stanford_media_caption
     - paragraphs.paragraphs_type.stanford_spacer
     - paragraphs.paragraphs_type.stanford_wysiwyg
+    - paragraphs.paragraphs_type.su_pinned_background_section
   module:
     - entity_reference_revisions
 id: node.stanford_news.su_news_components
@@ -45,14 +46,24 @@ settings:
       editorial_sidebar: editorial_sidebar
       stanford_layout: stanford_layout
       sdss_news_list_card: sdss_news_list_card
+      su_pinned_background_section: su_pinned_background_section
     negate: 0
     target_bundles_drag_drop:
       callout_quote:
         weight: 15
         enabled: true
+      content_grid:
+        weight: 29
+        enabled: false
+      content_grid_item:
+        weight: 30
+        enabled: false
       editorial_sidebar:
         weight: 16
         enabled: true
+      sdss_filtered_lists:
+        weight: 32
+        enabled: false
       sdss_news_list_card:
         weight: 19
         enabled: true
@@ -71,6 +82,9 @@ settings:
       stanford_entity:
         weight: 13
         enabled: true
+      stanford_faq:
+        weight: 39
+        enabled: false
       stanford_gallery:
         weight: 14
         enabled: true
@@ -95,4 +109,25 @@ settings:
       stanford_wysiwyg:
         weight: -7
         enabled: true
+      su_departments_slide:
+        weight: 48
+        enabled: false
+      su_departments_slider:
+        weight: 49
+        enabled: false
+      su_header_with_link:
+        weight: 50
+        enabled: false
+      su_horizontal_bar:
+        weight: 51
+        enabled: false
+      su_image_cta:
+        weight: 52
+        enabled: false
+      su_pinned_background_section:
+        weight: 53
+        enabled: true
+      su_pinned_background_slide:
+        weight: 54
+        enabled: false
 field_type: entity_reference_revisions

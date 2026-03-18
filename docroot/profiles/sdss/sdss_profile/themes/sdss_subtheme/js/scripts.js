@@ -1,7 +1,8 @@
 (function ($, Drupal, once) {
   'use strict';
+
   Drupal.behaviors.sdss_subtheme = {
-    attach: function (context) {
+    attach: function (context, settings) {
 
       // Add search link button to navigation, wrapped in a div for styling.
       $('#block-sdss-subtheme-main-navigation', context).after('<div class="su-site-search__wrapper"><a href="/search" id="sdss-button--search-link" class="su-site-search__submit"><span class="visually-hidden">Search</span></a></div>');
@@ -51,6 +52,7 @@
           $playPauseButton.attr('aria-label', 'Play video');
         });
       });
+
     },
   };
 

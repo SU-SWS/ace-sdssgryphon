@@ -1,0 +1,98 @@
+{% extends "@stanford_basic/node.html.twig" %}
+
+{% block node_content %}
+
+  <div class="opp-header centered-container">
+    <div class="opp-title">
+      {% if content.su_opp_icon %}
+        <div class="opp-icon">
+          {{ content.su_opp_icon }}
+        </div>
+      {% endif %}
+      {% if label %}
+        <div id="page-title" class="node-stanford-page-title">
+          <h1>{{ label }}</h1>
+        </div>
+      {% endif %}
+    </div>
+    {% if content.su_opp_summary %}
+      <div class="opp-summary">
+        {{ content.su_opp_summary }}
+      </div>
+    {% endif %}
+    {% if content.su_opp_image %}
+      <div class="opp-image">
+        {{ content.su_opp_image }}
+      </div>
+    {% endif %}
+  </div>
+  <div class="opp-content-wrapper centered-container">
+    <div class="opp-main-content">
+      <div class="opp-metadata">
+        {% if content.su_opp_eligibility %}
+          <div class="opp-eligibility opp-metadata__item">
+            <h2>Eligibility</h2>
+            {{ content.su_opp_eligibility }}
+          </div>
+        {% endif %}
+        {% if content.su_opp_prerequisites %}
+          <div class="opp-prerequisites opp-metadata__item">
+            <h2>Prerequisites</h2>
+            {{ content.su_opp_prerequisites }}
+          </div>
+        {% endif %}
+      </div>
+      {% if content.body %}
+        <div class="opp-body">
+          {{ content.body }}
+        </div>
+      {% endif %}
+      {% if content.su_opp_components %}
+        <div class="opp-components">
+          {{ content.su_opp_components }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="opp-aside-content">
+      <div class="opp-application opp-aside-content__item">
+        {% if content.su_opp_application_deadline %}
+          <div class="opp-application-deadline">
+            <h2>Application Deadline</h2>
+            {{ content.su_opp_application_deadline }}
+          </div>
+        {% endif %}
+      </div>
+      {% 
+        if content.su_opp_contact_name 
+        or content.su_opp_contact_email 
+        or content.su_opp_contact_phone 
+        or content.su_opp_contact_url 
+      %}
+        <div class="opp-contact-info opp-aside-content__item">
+          <h2>Contact</h2>
+          {% if content.su_opp_contact_name %}
+            <div class="opp-contact-name">
+              {{ content.su_opp_contact_name }}
+            </div>
+          {% endif %}
+          {% if content.su_opp_contact_email %}
+            <div class="opp-contact-email">
+              {{ content.su_opp_contact_email }}
+            </div>
+          {% endif %}
+          {% if content.su_opp_contact_phone %}
+            <div class="opp-contact-phone">
+              {{ content.su_opp_contact_phone }}
+            </div>
+          {% endif %}
+          {% if content.su_opp_contact_url %}
+            <div class="opp-contact-url">
+              {{ content.su_opp_contact_url }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

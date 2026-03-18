@@ -2,11 +2,11 @@
 
 .ds-entity--stanford-page {
   .su-card {
-
     .su-card__contents {
       a {
         @include sdss-link--primary;
 
+        display: block;
         font-weight: $su-font-regular;
       }
     }

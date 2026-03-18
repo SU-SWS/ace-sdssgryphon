@@ -1,0 +1,22 @@
+{# views-view--projects.html.twig #}
+{# Use the 'attributes' variable to ensure Drupal's JS can find the view #}
+<div{{ attributes.addClass('view', 'js-view-dom-id-' ~ dom_id) }}>
+  
+    <header class="view-header">
+        <div class="project-grid-header">
+            <h2>Projects</h2>
+            <div class="toggle-icons"></div>
+        </div>
+    </header>
+
+    {{ exposed }}
+
+    {# Custom wrapper for the results #}
+    <div class="view-results-wrapper">
+        {{ rows }}
+        {{ empty }}
+    </div>
+
+    {{ pager }}
+    {{ footer }}
+</div>
