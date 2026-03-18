@@ -1,0 +1,66 @@
+name: sdss
+recipe: drupal10
+config:
+  webroot: docroot
+  php: '8.3'
+  composer_version: '2'
+  xdebug: false
+  config:
+    database: /app/lando/mysql8.cnf
+proxy:
+  appserver:
+    - '*.sdss.lndo.site'
+services:
+  appserver:
+    scanner: false
+    build_as_root:
+      - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      - apt-get install -y nodejs
+      - chmod +x /app/lando/scripts/*.sh
+    build:
+      - test -f /app/blt/local.blt.yml || cp /app/lando/default.local.blt.yml /app/blt/local.blt.yml
+      - composer install
+      - /app/vendor/bin/blt blt:init:settings
+      - php /app/lando/setup-sites.php
+      - cp /app/lando/lando.sites.php /app/docroot/sites/local.sites.php
+    volumes:
+      - ~/.acquia:/var/www/.acquia
+      - ~/.ssh:/var/www/.ssh
+    ssl: true
+  database:
+    type: mysql:8.0
+    creds:
+      user: drupal
+      password: drupal
+      database: drupal
+    config:
+      database: /app/lando/mysql8.cnf
+    run_as_root:
+      - mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'drupal'@'%';"
+tooling:
+  blt:
+    service: appserver
+    cmd: /app/vendor/bin/blt
+  drush:
+    service: appserver
+    cmd: /app/vendor/bin/drush
+  git:
+    service: appserver
+  node:
+    service: appserver
+  npm:
+    service: appserver
+  yarn:
+    service: appserver
+  sync:
+    service: appserver
+    description: 'Sync a multisite database from Acquia. Usage: lando sync SITE_NAME'
+    cmd: bash /app/lando/scripts/sync-site.sh
+  sites:
+    service: appserver
+    description: List all available multisites with URLs
+    cmd: bash /app/lando/scripts/list-sites.sh
+  create-db:
+    service: appserver
+    description: 'Create a database for a multisite. Usage: lando create-db SITE_NAME'
+    cmd: bash /app/lando/scripts/create-db.sh
