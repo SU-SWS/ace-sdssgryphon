@@ -31,6 +31,11 @@ if (getenv('TUGBOAT_REPO')) {
   unset($config['samlauth.authentication'], $config['stanford_samlauth.settings']);
 }
 
+// Include a local services file if it exists.
+if (file_exists($app_root . '/' . $site_path . '/local.services.yml')) {
+  $settings['container_yamls'][] = $app_root . '/' . $site_path . '/local.services.yml';
+}
+
 if (file_exists(DRUPAL_ROOT . '/../keys/secrets.settings.php')) {
   require DRUPAL_ROOT . '/../keys/secrets.settings.php';
 }
