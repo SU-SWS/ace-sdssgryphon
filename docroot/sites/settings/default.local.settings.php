@@ -32,8 +32,8 @@ if (getenv('TUGBOAT_REPO')) {
 }
 
 // Include a local services file if it exists.
-if (file_exists($app_root . '/' . $site_path . '/local.services.yml')) {
-  $settings['container_yamls'][] = $app_root . '/' . $site_path . '/local.services.yml';
+if (file_exists(DRUPAL_ROOT . '/sites/local.services.yml')) {
+  $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/local.services.yml';
 }
 
 if (file_exists(DRUPAL_ROOT . '/../keys/secrets.settings.php')) {
