@@ -5,8 +5,9 @@
  * @file
  * Lando build script: patches local.settings.php files for Lando compatibility.
  *
- * Replaces the fragile sed-based approach that breaks on VirtioFS.
- * Run after `blt blt:init:settings` to update database credentials.
+ * Run after `blt blt:init:settings` to update database credentials and
+ * fix the database name for each multisite. BLT generates all sites with
+ * the same hardcoded database name; this script sets it to drupal_SITENAME.
  */
 
 $sites_dir = '/app/docroot/sites';
@@ -17,19 +18,6 @@ if (empty($files)) {
   exit(0);
 }
 
-$replacements = [
-  // Database credentials.
-  "'username' => 'root'" => "'username' => 'drupal'",
-  "'password' => 'password'" => "'password' => 'drupal'",
-  "'host' => 'localhost'" => "'host' => 'database'",
-  // Update deprecated database driver namespace for Drupal 10+.
-  // Two patterns needed: the 4-backslash version matches the escaped form
-  // in PHP source (e.g. double-quoted strings), while the 2-backslash version
-  // matches the literal namespace in single-quoted strings.
-  "Drupal\\\\Core\\\\Database\\\\Driver\\\\mysql" => "Drupal\\\\mysql\\\\Driver\\\\Database\\\\mysql",
-  "'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql'" => "'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql'",
-];
-
 $count = 0;
 foreach ($files as $file) {
   $content = file_get_contents($file);
@@ -38,10 +26,36 @@ foreach ($files as $file) {
     continue;
   }
 
+  // Determine the site directory name (e.g., "sustainability", "woods").
+  $site_dir = basename(dirname($file, 2));
+  $db_name = 'drupal_' . $site_dir;
+
+  $updated = $content;
+
+  // Fix database credentials.
   $updated = str_replace(
-    array_keys($replacements),
-    array_values($replacements),
-    $content
+    ["'username' => 'root'", "'password' => 'password'", "'host' => 'localhost'"],
+    ["'username' => 'drupal'", "'password' => 'drupal'", "'host' => 'database'"],
+    $updated
+  );
+
+  // Migration from old Lando setup which used a per-site MySQL service.
+  $updated = str_replace("'host' => 'sustainability'", "'host' => 'database'", $updated);
+
+  // Fix the database name. BLT hardcodes the same name for all sites;
+  // we need each site to use its own database (drupal_SITENAME).
+  // Match the $db_name assignment regardless of what BLT set it to.
+  $updated = preg_replace(
+    '/\$db_name\s*=\s*[\'"][^\'"]+[\'"];/',
+    "\$db_name = '$db_name';",
+    $updated
+  );
+
+  // Update deprecated database driver namespace for Drupal 10+.
+  $updated = str_replace(
+    ["Drupal\\\\Core\\\\Database\\\\Driver\\\\mysql", "'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql'"],
+    ["Drupal\\\\mysql\\\\Driver\\\\Database\\\\mysql", "'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql'"],
+    $updated
   );
 
   if ($updated !== $content) {

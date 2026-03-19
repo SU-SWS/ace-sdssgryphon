@@ -20,6 +20,7 @@ services:
     build:
       - test -f /app/blt/local.blt.yml || cp /app/lando/default.local.blt.yml /app/blt/local.blt.yml
       - composer install
+      - find /app/docroot/sites/*/settings -name local.settings.php -delete 2>/dev/null; true
       - /app/vendor/bin/blt blt:init:settings
       - php /app/lando/setup-sites.php
       - cp /app/lando/lando.sites.php /app/docroot/sites/local.sites.php
