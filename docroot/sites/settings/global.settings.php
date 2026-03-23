@@ -70,6 +70,9 @@ if (EnvironmentDetector::isAhEnv()) {
  */
 $settings['config_sync_directory'] = DRUPAL_ROOT . '/profiles/sdss/sdss_profile/config/sync';
 
+// Include services.yml file for all sites.
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/services.yml';
+
 // Block the bots when not on production.
 if (!EnvironmentDetector::isAhProdEnv()) {
   $settings['nobots'] = TRUE;
