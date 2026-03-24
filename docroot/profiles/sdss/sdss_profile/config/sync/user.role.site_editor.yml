@@ -16,6 +16,7 @@ dependencies:
     - node.type.stanford_event
     - node.type.stanford_event_series
     - node.type.stanford_news
+    - node.type.stanford_opportunity
     - node.type.stanford_page
     - node.type.stanford_person
     - node.type.stanford_policy
@@ -23,9 +24,15 @@ dependencies:
     - taxonomy.vocabulary.basic_page_types
     - taxonomy.vocabulary.event_audience
     - taxonomy.vocabulary.media_tags
+    - taxonomy.vocabulary.opportunity_sponsor
+    - taxonomy.vocabulary.opportunity_type
     - taxonomy.vocabulary.sdss_event_topics
     - taxonomy.vocabulary.sdss_focal_areas
     - taxonomy.vocabulary.sdss_organization
+    - taxonomy.vocabulary.sdss_proj_flagships
+    - taxonomy.vocabulary.sdss_proj_project_impact_pathway
+    - taxonomy.vocabulary.sdss_proj_status
+    - taxonomy.vocabulary.sdss_proj_topics
     - taxonomy.vocabulary.sdss_projects
     - taxonomy.vocabulary.sdss_research_areas
     - taxonomy.vocabulary.stanford_event_keywords
@@ -114,6 +121,10 @@ permissions:
   - 'create terms in sdss_event_topics'
   - 'create terms in sdss_focal_areas'
   - 'create terms in sdss_organization'
+  - 'create terms in sdss_proj_flagships'
+  - 'create terms in sdss_proj_project_impact_pathway'
+  - 'create terms in sdss_proj_status'
+  - 'create terms in sdss_proj_topics'
   - 'create terms in sdss_projects'
   - 'create terms in sdss_research_areas'
   - 'create terms in stanford_event_keywords'
@@ -174,6 +185,10 @@ permissions:
   - 'delete terms in sdss_event_topics'
   - 'delete terms in sdss_focal_areas'
   - 'delete terms in sdss_organization'
+  - 'delete terms in sdss_proj_flagships'
+  - 'delete terms in sdss_proj_project_impact_pathway'
+  - 'delete terms in sdss_proj_status'
+  - 'delete terms in sdss_proj_topics'
   - 'delete terms in sdss_projects'
   - 'delete terms in sdss_research_areas'
   - 'delete terms in stanford_event_keywords'
@@ -231,6 +246,10 @@ permissions:
   - 'edit terms in sdss_event_topics'
   - 'edit terms in sdss_focal_areas'
   - 'edit terms in sdss_organization'
+  - 'edit terms in sdss_proj_flagships'
+  - 'edit terms in sdss_proj_project_impact_pathway'
+  - 'edit terms in sdss_proj_status'
+  - 'edit terms in sdss_proj_topics'
   - 'edit terms in sdss_projects'
   - 'edit terms in sdss_research_areas'
   - 'edit terms in stanford_event_keywords'
