@@ -21,7 +21,7 @@ third_party_settings:
     unpublish_revision: false
   flat_taxonomy:
     flat: 1
-name: Topics
+name: 'Project Topics'
 vid: sdss_proj_topics
 description: null
 weight: 0

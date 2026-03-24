@@ -15,6 +15,7 @@ dependencies:
     - node.type.stanford_event
     - node.type.stanford_event_series
     - node.type.stanford_news
+    - node.type.stanford_opportunity
     - node.type.stanford_page
     - node.type.stanford_person
     - node.type.stanford_policy
@@ -68,8 +69,6 @@ permissions:
   - 'create stanford_page content'
   - 'create stanford_person content'
   - 'create stanford_publication content'
-  - 'create terms in opportunity_sponsor'
-  - 'create terms in opportunity_type'
   - 'create video media'
   - 'delete any stanford_opportunity content'
   - 'delete citation entities'
@@ -90,8 +89,6 @@ permissions:
   - 'delete own stanford_publication content'
   - 'delete own video media'
   - 'delete stanford_opportunity revisions'
-  - 'delete terms in opportunity_sponsor'
-  - 'delete terms in opportunity_type'
   - 'dropzone upload files'
   - 'edit any embeddable media'
   - 'edit any file media'
@@ -127,8 +124,6 @@ permissions:
   - 'edit own video media'
   - 'edit policy log'
   - 'edit sdss entity'
-  - 'edit terms in opportunity_sponsor'
-  - 'edit terms in opportunity_type'
   - 'mark as hidden in editoria11y'
   - 'mark as ok in editoria11y'
   - 'notify of path changes'
