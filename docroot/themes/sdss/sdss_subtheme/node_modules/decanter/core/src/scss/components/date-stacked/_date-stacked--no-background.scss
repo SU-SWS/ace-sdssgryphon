@@ -1,0 +1,10 @@
+
+//
+// Date Stacked No Background
+//
+
+.su-date-stacked--no-background {
+  @include padding(0);
+  background: none;
+  color: color(text--high-contrast);
+}

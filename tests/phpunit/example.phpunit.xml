@@ -8,6 +8,7 @@
   <coverage includeUncoveredFiles="true">
     <include>
       <directory>../modules/custom</directory>
+      <directory>../modules/sdss</directory>
       <directory>../profiles/sdss</directory>
     </include>
     <exclude>
@@ -19,10 +20,10 @@
       <directory>../profiles/custom/*/tests</directory>
       <directory>../profiles/custom/*/modules/*/tests</directory>
       <directory>../profiles/sdss/*/tests</directory>
-      <!-- Exclude some custom sdss_profile modules -->
-      <directory>../profiles/sdss/sdss_profile/modules/sdss_entities</directory>
-      <directory>../profiles/sdss/sdss_profile/modules/sdss_layout_paragraphs</directory>
-      <directory>../profiles/sdss/sdss_profile/modules/sdss_news_sharing</directory>
+      <!-- Exclude some custom sdss modules -->
+      <directory>../modules/sdss/sdss_entities</directory>
+      <directory>../modules/sdss/sdss_layout_paragraphs</directory>
+      <directory>../modules/sdss/sdss_news_sharing</directory>
       <directory>../profiles/sdss/sdss_profile/modules/sdss_profile_helper</directory>
     </exclude>
   </coverage>
@@ -68,6 +69,7 @@
     </testsuite>
     <testsuite name="stanford">
       <directory>../modules/custom</directory>
+      <directory>../modules/sdss</directory>
       <directory>../profiles/sdss</directory>
       <!-- Exclude the stanford_syndication custom module tests for now. -->
       <exclude>../modules/custom/stanford_syndication</exclude>

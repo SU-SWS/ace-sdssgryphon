@@ -61,7 +61,7 @@ git checkout -b release-1.0.0
 ### Increment Version Numbers
 Update version numbers in relevant files:
 - `docroot/profiles/sdss/sdss_profile/sdss_profile.info.yml`
-- `docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme/sdss_subtheme.info.yml`
+- `docroot/themes/sdss/sdss_subtheme/sdss_subtheme.info.yml`
 
 ### Fill Out the CHANGELOG.md
 

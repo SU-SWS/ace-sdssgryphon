@@ -1,0 +1,12 @@
+
+// Masthead with center-aligned Main Nav
+
+.su-masthead--center {
+  .su-main-nav {
+    @include grid-media-min("lg") {
+      > ul {
+        justify-content: center;
+      }
+    }
+  }
+}

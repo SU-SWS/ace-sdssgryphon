@@ -1,0 +1,10 @@
+
+///
+/// Centered Container
+///
+/// Centers the first child element of which this class is applied to.
+///
+///
+.centered-container {
+  @include centered-column;
+}

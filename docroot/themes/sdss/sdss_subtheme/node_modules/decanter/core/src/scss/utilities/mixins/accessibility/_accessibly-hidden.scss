@@ -1,0 +1,12 @@
+
+///
+/// Aria hidden helper.
+///
+/// @name accessibly-hidden
+///
+/// @group mixin
+@mixin accessibly-hidden {
+  &[aria-hidden='true'] {
+    display: none;
+  }
+}
