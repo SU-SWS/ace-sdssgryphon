@@ -64,7 +64,7 @@ dependencies:
     - view_unpublished
     - views_bulk_edit
 id: sdss_site_editor_reviewed
-label: 'Site Editor (Reviewed)'
+label: 'Site Editor (Cannot Publish)'
 weight: -1
 is_admin: false
 permissions:

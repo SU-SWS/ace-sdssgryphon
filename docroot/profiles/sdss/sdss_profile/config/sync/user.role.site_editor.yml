@@ -281,6 +281,7 @@ permissions:
   - 'update media'
   - 'use send_for_review transition create_new_draft'
   - 'use send_for_review transition publish'
+  - 'use send_for_review transition send_for_review'
   - 'use text format stanford_html'
   - 'use text format stanford_minimal_html'
   - 'use views bulk edit'

@@ -11,7 +11,7 @@ roles:
 author: false
 site_mail: false
 user_fields: {  }
-emails: "aaronc@stanford.edu\r\naaroncole@gmail.com"
+emails: ""
 subject: 'Content review requested by [author]'
 body:
   value: '<p>Please review the content at:<br>[node:edit-url]</p><p>Author: ‎[node:revision:author]</p>'
