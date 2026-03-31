@@ -195,11 +195,6 @@
         }
       }
     }
-
-    /* Display the caption */
-    .su-hero__caption {
-      display: block;
-    }
   }
 
   // Mobile styles for banner card and contents
@@ -269,8 +264,10 @@
 .su-hero {
 
   .su-hero__caption {
-    /* Caption disabled by default */
-    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
     z-index: 2;
   }
 
