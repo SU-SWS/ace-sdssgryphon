@@ -163,6 +163,9 @@
   }
 }
 
+// 2026-04-01: I'm not sure if this option is supported any longer since we
+// moved away from the "headline" banner and are used a transparent black card
+// instead. This option can probably be deprecated and removed if not needed.
 .sdss-banner-wrapper--headline-center {
   .su-hero__card {
     margin: 0 auto;
@@ -186,11 +189,13 @@
 // Handles cases with no banner, a banner, or a banner with caption.
 .section-banner-media {
   .main-region {
-    > div:nth-last-child(odd) { // Top banner image
+    // Top banner image.
+    > div:nth-last-child(odd) { 
       @include modular-spacing('margin-bottom', 4);
     }
 
-    > div:nth-last-child(even) { // Top banner caption
+    // Top banner caption.
+    > div:nth-last-child(even) { 
       margin-bottom: 0;
     }
   }
@@ -202,7 +207,7 @@
   }
 }
 
-// No headline banner.
+// "No headline" banner (card banner). Should probably be renamed.
 .sdss-banner-wrapper--no-headline {
   .su-card.su-hero__card {
     @include grid-media-min('md') {
@@ -211,7 +216,7 @@
   }
 }
 
-// Headline banner (default).
+// Default banner.
 .sdss-banner-wrapper--default {
   .su-hero__media {
     background: linear-gradient(180deg, rgba(46, 45, 41, 0) 50%, $sdss-color-black-dark 90%);
