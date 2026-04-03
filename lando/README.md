@@ -107,8 +107,8 @@ lando drush @energy.local config-export
 The SDSS subtheme requires Node.js for building:
 
 ```bash
-lando yarn --cwd docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme install --frozen-lockfile
-lando yarn --cwd docroot/profiles/sdss/sdss_profile/themes/sdss_subtheme build
+lando yarn --cwd docroot/themes/sdss/sdss_subtheme install --frozen-lockfile
+lando yarn --cwd docroot/themes/sdss/sdss_subtheme build
 ```
 
 Or use the composer script:

@@ -9,7 +9,7 @@
                 const $view = $toggleIcons.closest('.view');
 
                 // Load icons from module.
-                const modulePath = settings.sdss_grid_list_toggle && settings.sdss_grid_list_toggle.module_path ? settings.sdss_grid_list_toggle.module_path : '/profiles/sdss/sdss_profile/modules/sdss_grid_list_toggle';
+                const modulePath = settings.sdss_grid_list_toggle && settings.sdss_grid_list_toggle.module_path ? settings.sdss_grid_list_toggle.module_path : '/modules/sdss/sdss_grid_list_toggle';
                 const gridIcon = modulePath + '/img/toggle-grid.svg';
                 const listIcon = modulePath + '/img/toggle-list.svg';
 

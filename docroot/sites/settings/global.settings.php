@@ -68,7 +68,7 @@ if (EnvironmentDetector::isAhEnv()) {
  * `docroot/sites/{site-name}/settings/includes.settings.php` for the respective
  * site. See related information below.
  */
-$settings['config_sync_directory'] = DRUPAL_ROOT . '/profiles/sdss/sdss_profile/config/sync';
+$settings['config_sync_directory'] = EnvironmentDetector::getRepoRoot() . '/config/default';
 
 // Include services.yml file for all sites.
 $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/services.yml';

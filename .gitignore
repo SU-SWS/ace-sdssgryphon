@@ -21,6 +21,15 @@ local.blt.yml
 lando/php.ini
 docroot/sites/simpletest
 
+# Ignore node packages.
+node_modules
+
+# SDSS profile
+docroot/profiles/sdss/sdss_profile/config/install
+docroot/profiles/sdss/sdss_profile/content/**/*.jpg
+docroot/profiles/sdss/sdss_profile/content/**/*.png
+docroot/profiles/sdss/sdss_profile/content/**/*.gif
+
 # Ignore custom test configuration.
 tests/codeception.yml
 tests/codeception/*.suite.yml
@@ -122,6 +131,7 @@ tramp
 
 # User-specific stuff:
 .idea/
+.idea/**
 
 #XHProf
 xhprof_*
