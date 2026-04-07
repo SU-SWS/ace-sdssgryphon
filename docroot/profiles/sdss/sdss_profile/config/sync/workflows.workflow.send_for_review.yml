@@ -2,9 +2,6 @@ uuid: 08025c03-a4e2-4072-8830-00610a8b0981
 langcode: en
 status: true
 dependencies:
-  config:
-    - node.type.stanford_news
-    - node.type.stanford_page
   module:
     - content_moderation
 id: send_for_review
@@ -61,8 +58,5 @@ type_settings:
         - published
       to: in_review
       weight: -1
-  entity_types:
-    node:
-      - stanford_news
-      - stanford_page
+  entity_types: {  }
   default_moderation_state: published
