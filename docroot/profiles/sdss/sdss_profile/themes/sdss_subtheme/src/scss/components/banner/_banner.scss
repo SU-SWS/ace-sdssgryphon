@@ -1,5 +1,69 @@
 @charset "UTF-8";
 
+.ds-entity--stanford-banner {
+  z-index: 1;
+  position: relative;
+
+  .su-hero__media {
+    position: relative;
+    background: transparent;
+
+    .media {
+      height: unset;
+    }
+
+    picture {
+      position: absolute;
+      display: block;
+    }
+  }
+
+  .su-hero__caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  .su-hero__caption-inner {
+    color: #DDD;
+    background: rgba(0,0,0,.5);
+    padding: 0.5rem 0.75rem;
+    font-size: 14px;
+
+    a {
+      color: #DDD;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: #FFF;
+      }
+
+      &:focus {
+        outline: 1px solid #DDD;
+      }
+    }
+
+    @include grid-media-min('md') {
+      font-size: 16px;
+    }
+
+    @include grid-media-min('lg') {
+      padding: .75rem 1rem;
+      font-size: 18px;
+    }
+    
+    text-align: right;
+    border-radius: 2px;
+  }
+
+  .su-hero__caption-inner p {
+    margin: 0;
+  }
+}
+
+// Video banner.
 .ds-entity--stanford-banner.video-banner {
   .su-hero {
     min-height: unset;
@@ -11,16 +75,8 @@
 
     .su-hero__media {
       min-height: unset;
-      position: relative;
     }
   }
-
-  // 2025-07-17: max-width removed from .local-video for full-width video.
-  // See SDSS-1527 for details. Restore if a max-width is needed in the future.
-  // .local-video {
-  //   max-width: 1400px;
-  //   margin: 0 auto;
-  // }
 
   video {
     display: block;
@@ -107,6 +163,9 @@
   }
 }
 
+// 2026-04-01: I'm not sure if this option is supported any longer since we
+// moved away from the "headline" banner and are used a transparent black card
+// instead. This option can probably be deprecated and removed if not needed.
 .sdss-banner-wrapper--headline-center {
   .su-hero__card {
     margin: 0 auto;
@@ -130,13 +189,15 @@
 // Handles cases with no banner, a banner, or a banner with caption.
 .section-banner-media {
   .main-region {
-  > div:nth-last-child(odd) { // Top banner image
-    @include modular-spacing('margin-bottom', 4);
-  }
+    // Top banner image.
+    > div:nth-last-child(odd) { 
+      @include modular-spacing('margin-bottom', 4);
+    }
 
-  > div:nth-last-child(even) { // Top banner caption
-    margin-bottom: 0;
-  }
+    // Top banner caption.
+    > div:nth-last-child(even) { 
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -146,71 +207,84 @@
   }
 }
 
-.sdss-banner-wrapper--default {
-// Gradient overlay on banner image.
-  z-index: 1;
-  position: relative;
-  // Fallback background color when images are disabled.
-  background: $su-color-black;
+// "No headline" banner (card banner). Should probably be renamed.
+.sdss-banner-wrapper--no-headline {
+  .su-card.su-hero__card {
+    @include grid-media-min('md') {
+      position: absolute;
+    }
+  }
+}
 
+// Default banner.
+.sdss-banner-wrapper--default {
   .su-hero__media {
     background: linear-gradient(180deg, rgba(46, 45, 41, 0) 50%, $sdss-color-black-dark 90%);
   }
 
-  picture {
-    position: relative;
-    z-index: -1;
-    display: block;
-  }
-
-  // End gradient overlay details.
-
   .su-hero {
-    justify-content: flex-end;
-
     .su-hero__card {
-      background: transparent;
-      border: 0;
-      bottom: 0;
-      box-shadow: none;
-      margin-top: unset;
-      margin-bottom: 0;
-      max-width: 94%;
-      top: auto;
+      background: rgba(0,0,0,.5);
+      padding: 0;
+      border: unset;
+      box-shadow: unset;
+
+      @include grid-media-min('md') {
+        position: absolute;
+        bottom: 100px;
+      }
 
       .su-card__contents {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        padding-bottom: 12px;
+        padding: 20px;
+        color: #FFF;
+
+        @include grid-media-min('xl') {
+          max-width: 800px;
+          padding: 40px 30px;
+        }
 
         h2 {
-          color: $sdss-color-white;
-          margin-top: 0;
+          color: white;
+
+          @include grid-media-min('sm') {
+            max-width: 200px;          
+          }
+
+          @include grid-media-min('lg') {
+            max-width: 700px;
+          }
+
+          @include grid-media-min('xl') {
+            max-width: 900px;
+          }
         }
 
         .su-card__button {
-          margin-top: unset;
-          margin-bottom: unset;
-        }
-      }
-    }
+          a {
+            font-size: 16px;
+            padding: 14px 23px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            background: none;
 
-    /* Display the caption */
-    .su-hero__caption {
-      display: block;
-    }
-  }
+            @include accessible-link(white);
 
-  // Mobile styles for banner card and contents
-  @include grid-media-max('sm') {
-    .su-hero {
-      .su-hero__card {
-        background: $sdss-color-black-dark;
-        max-width: 100%;
+            &:after {
+              background-color: white;
+            }
 
-        .su-card__contents {
-          display: block;
+            &:hover {
+              text-decoration: none;
+              color: white;
+              background: rgba(0,0,0,.75);
+
+              &:after {
+                background-color: white;
+              }
+            }
+          }
         }
       }
     }
@@ -219,96 +293,37 @@
 
 // Banner height variants
 .sdss-banner-wrapper--height-default {
-  .su-hero {
-    min-height: 520px;
-  }
-
-  .su-hero__media {
+  .su-hero,
+  .su-hero__media,
+  .su-hero__media picture {
     min-height: 520px;
   }
 }
 
 .sdss-banner-wrapper--height-modest {
-  .su-hero {
-    min-height: 350px;
-  }
-
-  .su-hero__media {
+  .su-hero,
+  .su-hero__media,
+  .su-hero__media picture {
     min-height: 350px;
   }
 }
 
 .sdss-banner-wrapper--height-minimal {
-  .su-hero {
+  .su-hero,
+  .su-hero__media,
+  .su-hero__media picture {
     min-height: 250px;
-  }
-
-  .su-hero__media {
-    min-height: 250px;
-
-    @include grid-media-max('sm') {
-      min-height: unset;
-    }
   }
 }
 
 // Reset min-height for small and xsmall devices.
-.sdss-banner-wrapper--height-default,
-.sdss-banner-wrapper--height-modest,
-.sdss-banner-wrapper--height-minimal {
-
-  .su-hero__media,
-  .su-hero {
-    @include grid-media-max('sm') {
+@include grid-media-max('sm') {
+  .sdss-banner-wrapper--height-default,
+  .sdss-banner-wrapper--height-modest,
+  .sdss-banner-wrapper--height-minimal {
+    .su-hero__media,
+    .su-hero {
       min-height: unset;
     }
-  }
-}
-
-/* Caption styles */
-.su-hero {
-
-  .su-hero__caption {
-    /* Caption disabled by default */
-    display: none;
-    z-index: 2;
-  }
-
-  /* Inner box with translucent black background and light border */
-  .su-hero__caption-inner {
-    color: #DDD;
-    background-color: #191919;
-    padding: 0.5rem 0.75rem;
-    font-size: 14px;
-
-    a {
-      color: #DDD;
-      text-decoration: underline;
-
-      &:hover,
-      &:focus {
-        color: #FFF;
-      }
-
-      &:focus {
-        outline: 1px solid #DDD;
-      }
-    }
-
-    @include grid-media-min('md') {
-      font-size: 16px;
-    }
-
-    @include grid-media-min('lg') {
-      padding: .75rem 1rem;
-      font-size: 18px;
-    }
-    
-    text-align: right;
-    border-radius: 2px;
-  }
-
-  .su-hero__caption-inner p {
-    margin: 0;
   }
 }
