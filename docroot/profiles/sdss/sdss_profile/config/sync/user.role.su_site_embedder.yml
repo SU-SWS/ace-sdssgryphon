@@ -6,7 +6,7 @@ dependencies:
     - field_permissions
 id: su_site_embedder
 label: 'Site Embedder'
-weight: 1
+weight: 3
 is_admin: false
 permissions:
   - 'create field_media_embeddable_code'

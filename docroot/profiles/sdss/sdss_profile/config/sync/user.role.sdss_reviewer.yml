@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   module:
+    - content_moderation
     - toolbar
-    - view_unpublished
 id: sdss_reviewer
 label: 'SDSS Reviewer'
-weight: 3
+weight: 5
 is_admin: false
 permissions:
   - 'access toolbar'

@@ -1,0 +1,19 @@
+uuid: ae62b876-0619-49de-a7f6-4d2dae878eca
+langcode: en
+status: true
+dependencies: {  }
+id: content_review_request
+workflow: send_for_review
+transitions:
+  send_for_review: send_for_review
+roles:
+  sdss_content_reviewer: sdss_content_reviewer
+author: false
+site_mail: false
+user_fields: {  }
+emails: ''
+subject: 'Content review requested by [author]'
+body:
+  value: '<p>Please review the content at:<br>[node:edit-url]</p><p>Author: ‎[node:revision:author]</p>'
+  format: stanford_html
+label: 'Content Review Request'

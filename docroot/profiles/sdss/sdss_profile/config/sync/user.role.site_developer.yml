@@ -57,6 +57,7 @@ dependencies:
     - book
     - config_pages
     - content_lock
+    - content_moderation
     - contextual
     - crop
     - domain_301_redirect
@@ -107,7 +108,7 @@ dependencies:
     - xmlsitemap
 id: site_developer
 label: 'Site Developer'
-weight: 0
+weight: 1
 is_admin: false
 permissions:
   - 'access administration pages'

@@ -20,6 +20,7 @@ ignored_config_entities:
   - 'system.action.user_remove_role_action.custm_*'
   - 'system.theme:default'
   - 'user.role.custm_*'
+  - 'workflows.workflow.*:type_settings.entity_types'
   - '~block.block.claro_*'
   - '~block.block.sdss_subtheme_*'
   - '~block.block.stanford_basic_*'

@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   module:
+    - content_moderation
     - file
     - node
     - subrequests
-    - view_unpublished
 id: decoupled_site_users
 label: 'Decoupled Site User'
-weight: 2
+weight: 4
 is_admin: false
 permissions:
   - 'access user profiles'

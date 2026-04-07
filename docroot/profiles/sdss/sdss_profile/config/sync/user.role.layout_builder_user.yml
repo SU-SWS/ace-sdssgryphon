@@ -23,7 +23,7 @@ dependencies:
     - ui_patterns_library
 id: layout_builder_user
 label: 'Layout Builder User'
-weight: 1
+weight: 2
 is_admin: false
 permissions:
   - 'access patterns page'
