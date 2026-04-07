@@ -245,7 +245,6 @@
 
         h2 {
           color: white;
-          font-family: $su-font-serif-v2;
 
           @include grid-media-min('sm') {
             max-width: 200px;          
