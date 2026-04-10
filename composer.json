@@ -74,6 +74,7 @@
         "citation-style-language/styles-distribution": "1.0.0",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6",
+        "davidrjonas/composer-lock-diff": "^1.0",
         "drupal/acquia_connector": "^4.0",
         "drupal/acquia_purge": "^1.1",
         "drupal/address": "^2.0",
