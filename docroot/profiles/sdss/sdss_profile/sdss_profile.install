@@ -227,7 +227,7 @@ function sdss_profile_update_10021(&$sandbox) {
 }
 
 /**
- * Clears the su_banner_sup_header field for the banner paragraph with a specific UUID.
+ * Clear superhead value for default home page banner paragraph.
  */
 function sdss_profile_update_10022() {
   // The Paragraph UUID for the banner.
