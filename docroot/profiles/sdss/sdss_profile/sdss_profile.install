@@ -225,3 +225,22 @@ function sdss_profile_update_10021(&$sandbox) {
     '@updated' => $sandbox['updated'],
   ]);
 }
+
+/**
+ * Clears the su_banner_sup_header field for the banner paragraph with a specific UUID.
+ */
+function sdss_profile_update_10022() {
+  // The Paragraph UUID for the banner.
+  $paragraph_uuid = '79c98714-281a-450d-b574-2971426b1f3e';
+
+  // Load the paragraph by UUID.
+  $storage = \Drupal::entityTypeManager()->getStorage('paragraph');
+  $paragraphs = $storage->loadByProperties(['uuid' => $paragraph_uuid]);
+  $paragraph = reset($paragraphs);
+
+  if ($paragraph && $paragraph->hasField('su_banner_sup_header')) {
+    $paragraph->set('su_banner_sup_header', NULL);
+    $paragraph->save();
+    \Drupal::logger('sdss_profile')->notice('Cleared su_banner_sup_header for banner paragraph with UUID @uuid.', ['@uuid' => $paragraph_uuid]);
+  }
+}
