@@ -1,0 +1,58 @@
+name: Test Default Site Sync
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true 
+jobs:
+  test_site_sync:
+    runs-on: ubuntu-latest
+    container:
+      image: pookmish/drupal8ci:php8.3
+    env:
+      DRUPAL_DATABASE_NAME: drupal
+      DRUPAL_DATABASE_USERNAME: drupal
+      DRUPAL_DATABASE_PASSWORD: drupal
+      DRUPAL_DATABASE_HOST: mysql
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_DATABASE: drupal
+          MYSQL_USER: drupal
+          MYSQL_PASSWORD: drupal
+          MYSQL_ROOT_PASSWORD: drupal
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.ACQUIA_SSH_KEY }}
+          name: id_rsa
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          if_key_exists: fail
+      - uses: actions/checkout@v4
+      - name: Restore Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            vendor
+            docroot/core
+            docroot/libraries
+            docroot/modules/contrib
+          key: 4.0-${{ hashFiles('blt/blt.yml') }}-${{ hashFiles('composer.json') }}-${{ hashFiles('composer.lock') }}
+      - run: git config --system --add safe.directory '*'
+      - name: Sync Default Site
+        run: |
+          mysql -h mysql -P 3306 -u root -pdrupal -e 'SET GLOBAL max_allowed_packet=67108864;' &&
+          rm -rf /var/www/html &&
+          ln -snf $GITHUB_WORKSPACE /var/www/html &&
+          ssh-keyscan -t rsa stanfordsos.ssh.prod.acquia-sites.com >> /root/.ssh/known_hosts &&
+          composer install -n &&
+          blt settings &&
+          mkdir -p docroot/sites/default/files &&
+          chmod -R 777 docroot/sites/default/files/ &&
+          blt drupal:sync --site=default -n

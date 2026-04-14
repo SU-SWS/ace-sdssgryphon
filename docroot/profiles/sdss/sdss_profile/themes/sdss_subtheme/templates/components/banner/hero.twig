@@ -36,7 +36,7 @@
   {# Hero Image or Video #}
   {% block heromedia %}
   {% if hero_media is not empty or hero_image is not empty %}
-  <div class="su-hero__media">
+  <figure class="su-hero__media">
     {% if 'su-hero--youtube' in modifier_class %}
     {# Support for: iframe #}
     {{ hero_media }}
@@ -44,7 +44,16 @@
     {# Support for: img or picture #}
     {{ hero_image}}
     {% endif %}
-  </div>
+    {%- if hero_caption is not empty -%}
+      {# Attach caption styling library if caption exists #}
+      {{ attach_library('sdss_subtheme/banner-caption') }}
+      <figcaption class="su-hero__caption" aria-hidden="false">
+        <div class="su-hero__caption-inner">
+          {{ hero_caption }}
+        </div>
+      </figcaption>
+    {%- endif -%}
+  </figure>
   {% endif %}
   {% endblock %}
 
@@ -58,26 +67,15 @@
   -%}
 
     {# We reuse the card component here. #}
-    {# Only include body if banner_list_style is 'no-headline' #}
-    {% set card_body = banner_list_style == 'no-headline' ? hero_body : null %}
     {% include template_path_card with {
       "modifier_class": "su-hero__card",
       "card_headline": hero_headline,
       "card_link": hero_link,
-      "card_body": card_body,
+      "card_body": hero_body,
       "card_button_label": hero_button_label,
       "card_cta_label": hero_cta_label,
       "card_cta_attributes": hero_cta_attributes,
       } only %}
-  {%- endif -%}
-  {%- if hero_caption is not empty -%}
-    {# Attach caption styling library if caption exists #}
-    {{ attach_library('sdss_subtheme/banner-caption') }}
-    <div class="su-hero__caption" aria-hidden="false">
-      <div class="su-hero__caption-inner">
-        {{ hero_caption }}
-      </div>
-    </div>
   {%- endif -%}
   {%- endblock -%}
 </div>

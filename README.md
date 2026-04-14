@@ -54,27 +54,24 @@ SAML and other certificate files will be download for local use.
     ```
 
 # Setup Local Environment - Lando
-You can set up this stack as a complete development environment using nothing more than Docker and Lando installed in your linux-like environment.
+
+You can set up this stack as a complete development environment using nothing more than Docker and Lando.
 
 ### Prerequisites
 
-#### Linux/MacOS
-1. Set up Docker on your distro of choice.  Instructions for installing Docker in linux [can be found here](https://docs.docker.com/desktop/linux/install/), and these are [the MacOS instructions.](https://docs.docker.com/desktop/mac/install/)
-2. Set up Lando on your distro of choice.  Instructions for installing Lando in linux [can be found here](https://docs.lando.dev/getting-started/installation.html#linux), and these are [the MacOS instructions.](https://docs.lando.dev/getting-started/installation.html#macos)
-
-#### Windows/WSL
-Because Docker works best with Windows Subsystem for Linux V.2, we suggest you proceed that way.
-1. [Install Windows Subsystem for Linux V.2](https://docs.microsoft.com/en-us/windows/wsl/install)
-2. [Install Docker Desktop for Windows, and enable the WSL2 extensions.](https://docs.docker.com/desktop/windows/wsl/)
-3. [Install Docker for linux in your WSL2 environment.](https://docs.docker.com/desktop/linux/install/ubuntu/)
-4. Install Lando for linux in your WSL2 environment.  [Instructions can be found here.](https://docs.lando.dev/getting-started/installation.html#linux)
-
-No other prerequisites are necessary, though you may find it helpful to have PHP 8.1+, Composer 2, and Git installed locally on your system.
+1. [Install Lando](https://lando.dev/download/) (includes Docker Desktop)
+2. Acquia Cloud credentials in `~/.acquia/` (for syncing databases)
+3. SSH keys in `~/.ssh/` (for Acquia access)
 
 ### Installation
-1. Clone this repo to a convenient place in your environment, and change directories to the location to which you cloned it.
-2. In the repo root, run `./lando/setup_lando.sh`.
-3. After the basic installation is complete, it will update the drush aliases, and it will sync down the `sustainability` database and files, and your app should be available at `http://sustainability.lndo.site`. SSO will be configured automatically.
+
+1. Clone this repo and `cd` into it.
+2. Copy the Lando config: `cp lando/default.lando.yml .lando.yml`
+3. Start Lando: `lando start`
+4. Create a database and sync: `lando create-db sustainability && lando sync sustainability`
+5. Visit `https://sustainability.sdss.lndo.site`
+
+See [lando/README.md](lando/README.md) for full documentation including domain routing, available tooling commands, theme builds, and troubleshooting.
 
 
 # Important Configuration Files

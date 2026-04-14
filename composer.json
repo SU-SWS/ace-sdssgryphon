@@ -74,6 +74,7 @@
         "citation-style-language/styles-distribution": "1.0.0",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6",
+        "davidrjonas/composer-lock-diff": "^1.0",
         "drupal/acquia_connector": "^4.0",
         "drupal/acquia_purge": "^1.1",
         "drupal/address": "^2.0",
@@ -308,9 +309,6 @@
             },
             "drupal/diff": {
                 "https://www.drupal.org/project/diff/issues/2882334#comment-13913401": "patches/contrib/diff-mr-42.patch"
-            },
-            "drupal/field_formatter_class": {
-                "https://www.drupal.org/project/field_formatter_class/issues/3473891": "patches/contrib/field_formatter_class-3473891-mr-10.patch"
             },
             "drupal/field_encrypt": {
                 "https://www.drupal.org/project/field_encrypt/issues/3299175": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/field_encrypt-3299175-3_2_0.patch"
