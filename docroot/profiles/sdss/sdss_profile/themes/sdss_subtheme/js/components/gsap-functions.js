@@ -18,7 +18,7 @@ window.addEventListener('load', function () {
         wrapper = document.createElement('div');
         wrapper.id = "paragraph-pin-wrapper";
 
-        document.querySelector('.stanford-page').insertBefore(wrapper, sliderParent);
+        document.querySelector('.stanford-page.su-page-components').insertBefore(wrapper, sliderParent);
 
         wrapper.appendChild(sliderParent);
 
