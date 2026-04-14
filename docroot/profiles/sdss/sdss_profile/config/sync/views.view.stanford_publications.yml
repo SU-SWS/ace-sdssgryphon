@@ -1385,39 +1385,39 @@ display:
       row:
         type: ui_patterns
         options:
-          default_field_elements: 0
+          default_field_elements: false
           inline:
-            type: 0
-            view_node: 0
-            su_url: 0
-            title: 0
-            su_publication_topics_1: 0
-            edit_node: 0
+            type: '0'
+            view_node: '0'
+            su_url: '0'
+            title: '0'
+            su_publication_topics_1: '0'
+            edit_node: '0'
           separator: ''
-          hide_empty: 0
+          hide_empty: false
           pattern: card
+          pattern_variant: default
           pattern_mapping:
             'views_row:type':
-              destination: card_super_headline
-              weight: 0
               plugin: views_row
               source: type
+              destination: card_super_headline
+              weight: 0
             'views_row:edit_node':
-              destination: card_body
-              weight: 1
               plugin: views_row
               source: edit_node
+              destination: card_body
+              weight: 1
             'views_row:title':
-              destination: card_headline
-              weight: 2
               plugin: views_row
               source: title
+              destination: card_headline
+              weight: 2
             'views_row:su_publication_topics_1':
-              destination: card_body
-              weight: 3
               plugin: views_row
               source: su_publication_topics_1
-          pattern_variant: default
+              destination: card_body
+              weight: 3
       defaults:
         title: false
         css_class: true
@@ -1759,6 +1759,73 @@ display:
       display_extenders: {  }
       display_description: ''
       fields:
+        su_url:
+          id: su_url
+          table: citation__su_url
+          field: su_url
+          relationship: su_publication_citation
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          click_sort_column: uri
+          type: link
+          settings:
+            trim_length: '80'
+            url_only: 1
+            url_plain: 1
+            rel: 0
+            target: 0
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: 0
+          plugin_id: field
         title:
           id: title
           table: node_field_data
@@ -2263,9 +2330,11 @@ display:
       defaults:
         fields: false
         title: false
+        css_class: false
       block_category: 'Publication (Views)'
       block_hide_empty: true
       title: 'Woods Style'
+      css_class: woods-style-publication
     cache_metadata:
       max-age: -1
       contexts:
@@ -2279,6 +2348,7 @@ display:
         - 'config:field.storage.citation.su_author'
         - 'config:field.storage.citation.su_day'
         - 'config:field.storage.citation.su_month'
+        - 'config:field.storage.citation.su_url'
         - 'config:field.storage.citation.su_year'
         - 'config:field.storage.node.su_publication_topics'
         - 'config:field.storage.node.su_sdss_pub_focal_areas'

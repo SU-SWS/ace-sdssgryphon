@@ -30,19 +30,39 @@
  */
 #}
 
+{# --- Preprocessing --- #}
+{# Convert month integer to month name for display #}
+{% set pub_month = NULL %}
+{% if fields.su_month and fields.su_month.content %}
+  {% set month_num = fields.su_month.content|default('') %}
+  {% set month_num = month_num|length == 1 ? '0' ~ month_num : month_num %}
+  {% set pub_month = ('2026-' ~ month_num ~ '-01')|date('F') %}
+{% endif %}
+{# Link title to exteranl source if exists #}
+{% set pub_title = NULL %}
 {% if fields.title and fields.title.content %}
-  <div class="pub-title">
-    {{ fields.title.content }}
+  {% set pub_title = fields.title.content %}
+  {% if fields.su_url and fields.su_url.content %}
+    {% set url = fields.su_url.content|trim %}
+    {% set pub_title = '<a href="' ~ url ~ '">' ~ fields.title.content ~ '</a>' %}
+  {% endif %}
+{% endif %}
+
+
+{# --- Template Markup --- #}
+{% if pub_title %}
+  <div class="sdss-pub-title">
+    {{ pub_title|raw }}
   </div>
 {% endif %}
 
 {% if fields.su_author and fields.su_author.content %}
-  <div class="pub-authors">
+  <div class="sdss-pub-authors">
     {{ fields.su_author.content }}
   </div>
 {% endif %}
 
-<div class="pub-info">
+<div class="sdss-pub-info">
   {% if fields.su_sdss_pub_focal_areas and fields.su_sdss_pub_focal_areas.content %}
     {{ fields.su_sdss_pub_focal_areas.content }} |
   {% endif %}
@@ -51,14 +71,14 @@
     {{ fields.su_publication_topics.content }} |
   {% endif %}
 
-  {% if fields.su_month and fields.su_month.content %}
-    <span class="pub-month">
-      {{ fields.su_month.content }}
+  {% if pub_month %}
+    <span class="sdss-pub-month">
+      {{ pub_month }}
     </span>
   {% endif %}
 
   {% if fields.su_year and fields.su_year.content %}
-    <span class="pub-year">
+    <span class="sdss-pub-year">
       {{ fields.su_year.content }}
     </span>
   {% endif %}
