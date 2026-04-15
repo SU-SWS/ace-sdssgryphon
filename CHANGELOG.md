@@ -7,7 +7,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.18.0] Capricornus- 2026-03-18
+## [4.18.1] Carina - 2026-04-15
+
+### Added
+9f13090b3 SDSS-1594, SDSS-1578: Banner Caption for No Headline Banners & Default Banner Redesign (#775)
+
+### Changed
+9f13090b3 SDSS-1594, SDSS-1578: Banner Caption for No Headline Banners & Default Banner Redesign (#775)
+
+### Deprecated
+None.
+
+### Removed
+35ec7585e Removed field_formatter_class patch (#773)
+
+### Fixed
+d9dde01c4 Fix department slider .stanford-page specificity bug (#780)
+f90a72adb Taxonomy permission updates for sdss_proj_ and opportunity vocabularies (#770)
+
+### Security
+None.
+
+### Maintenance
+f6618625a Require davidrjonas/composer-lock-diff (#778)
+64b7ecb00 Automated Dependency Updates 20260410 (#777)
+f65827cd1 Automated Dependency Updates 20260403 (#776)
+7a89597b4 Automated Dependency Updates 20260330 (#774)
+c3be5ebc1 Automated Dependency Updates 20260320 (#767)
+5ffbca1cb Update services.yml and resolve cookie_samesite warning (#771)
+563f6bd47 Add and implement global services.yml (#769)
+093c3d8ef SDSS-0000: Update Workflows to MySQL 8 & Add Default Site Sync Test (#768)
+d4fa69c77 Lando updates (#766)
+
+
+## [4.18.0] Capricornus - 2026-03-18
 
 ### Added
 690a4619d Project Content Type | Grid/List Toggle (#745)
