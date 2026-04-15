@@ -1,0 +1,15 @@
+# Override any settings as necessary by copying to blt/local.blt.yml
+project:
+  local:
+    protocol: https
+    hostname: sustainability.sdss.lndo.site
+    uri: https://sustainability.sdss.lndo.site
+  profile:
+    name: sdss_profile
+drupal:
+  db:
+    username: drupal
+    password: drupal
+    host: database
+    database: drupal
+    port: 3306
