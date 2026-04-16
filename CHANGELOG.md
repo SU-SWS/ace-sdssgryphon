@@ -7,6 +7,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.18.2] SA-CORE-2026-001 - 2026-04-16
+
+### Added
+None.
+
+### Changed
+None.
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+None.
+
+### Security
+ebd533143 SDSS-1629: Security Update | SA-CORE-2026-001 / Drupal Core 10.5.9 (#784)
+
+### Maintenance
+None.
+
+
 ## [4.18.1] Carina - 2026-04-15
 
 ### Added
