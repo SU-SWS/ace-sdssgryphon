@@ -60,3 +60,20 @@
         }
     }
 }
+
+
+// Wood style publications list display.
+.stanford-publications.woods-style-list {
+  .sdss-pub-title a {
+    text-decoration: underline;
+    color: $sdss-color-green-link;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &::after {
+      background-color: $sdss-color-green-link;
+    }
+  }
+}

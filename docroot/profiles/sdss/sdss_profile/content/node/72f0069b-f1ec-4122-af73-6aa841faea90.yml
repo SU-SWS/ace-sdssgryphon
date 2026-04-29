@@ -90,9 +90,6 @@ default:
           su_banner_image:
             -
               entity: 6fac3713-f499-4750-a7bc-32c16a59043a
-          su_banner_sup_header:
-            -
-              value: 'Stanford University'
   su_page_components:
     -
       entity:
