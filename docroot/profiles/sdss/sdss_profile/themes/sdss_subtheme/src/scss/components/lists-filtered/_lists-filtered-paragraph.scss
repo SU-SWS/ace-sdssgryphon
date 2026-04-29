@@ -4,6 +4,37 @@
 // The decision was made in the SCSS to name this "lists-filtered" to keep it
 // near the "lists" paragraph styles, even though the paragraph type is
 // "sdss-filtered-lists".
+
+.ptype-sdss-filtered-lists:has(.stanford-projects-grid),
+.paragraph--type--stanford-lists:has(.stanford-projects-grid) {
+  max-width: none;
+}
+    
 .ptype-sdss-filtered-lists {
-  
+ 
+  .sdss-filtered-list-view-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 50px;
+
+    @include grid-media-min('md') {
+        margin-bottom: 100px;
+    }
+
+    @include grid-media-min('md') {
+      align-items: flex-start;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: 78px;
+    }
+
+    // Adjust container grid styles to account for the exposed filters.
+    // 4 column grids need to go down to 2 columns at the smaller breakpoints.
+    .grid-container-4 {
+      @include grid-media-between('sm', 'lg') {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
 }

@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Base template for Filtered List views. Meant to be used as as a theme
+ * override for the main view template for all filtered list views in SDSS.
+ *
+ * Initially copied from: 
+ * - docroot/core/themes/stable9/templates/views/views-view.html.twig
+ *
+ * This tempalate is used as the base template for all filtered lists in SDSS,
+ * and is not intended to be used directly.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'sdss-filtered-list-view',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {{ attachment_before }}
+
+  <div class="sdss-filtered-list-view-content">
+    {{ exposed }}
+
+    <div class="sdss-filtered-list-view-results">
+      {% if rows -%}
+        {{ rows }}
+      {% elseif empty -%}
+        {{ empty }}
+      {% endif %}
+    </div>
+  </div>
+
+  {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>
