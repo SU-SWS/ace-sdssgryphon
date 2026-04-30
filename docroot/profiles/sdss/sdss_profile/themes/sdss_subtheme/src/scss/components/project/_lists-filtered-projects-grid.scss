@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
-// Project grid styles for the grid view and all exposed filters in the filtered lists paragraph type.
+// Project grid styles for the grid view and all exposed filters in the filtered
+// lists paragraph type.
 
-.ptype-sdss-filtered-lists:has(.stanford-projects-grid),
-.paragraph--type--stanford-lists:has(.stanford-projects-grid) {
+.ptype-sdss-filtered-lists:has(.sdss-filtered-list-view),
+.paragraph--type--stanford-lists:has(.sdss-filtered-list-view) {
     max-width: none;
 }
 
