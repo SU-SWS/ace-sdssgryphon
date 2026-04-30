@@ -1317,7 +1317,7 @@ display:
                 plugin_id: default
                 advanced:
                   sort_options_unsupported: ''
-                  placeholder_text: ''
+                  placeholder_text: Search
                   hide_label: 0
                   collapsible: 0
                   collapsible_disable_automatic_open: 0
@@ -1340,7 +1340,7 @@ display:
                   is_secondary: 0
                   field_classes: ''
                 select_all_none: 0
-                select_all_none_nested: 0
+                select_all_none_nested: false
                 display_inline: 0
                 soft_limit: 0
                 soft_limit_label_less: 'Show less'
@@ -2318,7 +2318,7 @@ display:
                 plugin_id: default
                 advanced:
                   sort_options_unsupported: ''
-                  placeholder_text: ''
+                  placeholder_text: Search
                   hide_label: 0
                   collapsible: 0
                   collapsible_disable_automatic_open: 0

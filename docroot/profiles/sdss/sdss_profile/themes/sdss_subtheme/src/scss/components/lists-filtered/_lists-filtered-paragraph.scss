@@ -5,13 +5,13 @@
 // near the "lists" paragraph styles, even though the paragraph type is
 // "sdss-filtered-lists".
 
+// Make full width to accomodate the exposed filters.
 .ptype-sdss-filtered-lists:has(.stanford-projects-grid),
 .paragraph--type--stanford-lists:has(.stanford-projects-grid) {
   max-width: none;
 }
     
 .ptype-sdss-filtered-lists {
- 
   .sdss-filtered-list-view-content {
     display: flex;
     flex-direction: column;
@@ -31,6 +31,9 @@
 
     // Adjust container grid styles to account for the exposed filters.
     // 4 column grids need to go down to 2 columns at the smaller breakpoints.
+    // This was originally done to acommodate the People filtered list
+    // paragraph, and may need to be adjust for other content and/or made
+    // specific to the People filtered list.
     .grid-container-4 {
       @include grid-media-between('sm', 'lg') {
         grid-template-columns: repeat(2, 1fr);
@@ -38,3 +41,19 @@
     }
   }
 }
+
+// When there is a left sidebar the main region is not full width and typically
+// drops to the flex-lg-9-of-12 class. In this case we need to adjust the grid
+// styles to accomodate for the reduced width. As with the other grid
+// adjustment, this was originally done to acommodate the People filtered list
+// paragraph.
+.main-region.flex-lg-9-of-12 {
+  .ptype-sdss-filtered-lists {
+    .grid-container-4 {
+      @include grid-media-min('sm') {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+

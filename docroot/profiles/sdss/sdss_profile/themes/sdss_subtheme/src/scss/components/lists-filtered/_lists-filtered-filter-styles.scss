@@ -80,13 +80,18 @@
     margin-bottom: 27px;
 
     label {
-      display: none;
+      font-size: 20px;
+      line-height: 27px;
+      color: black;
+      font-weight: 700;
+      margin-bottom: 12px;
+      margin-top: 0;
+      display: block;
     }
 
     input {
       background-color: #F4F4F4;
       border: none;
-      padding-left: 41px;
       font-size: 19px;
       margin: 0;
       padding-block: 13px;
@@ -94,18 +99,6 @@
       &::placeholder {
         color: #A9A9A9;
       }
-    }
-
-    &:after {
-      content: "";
-      background-image: url('../../assets/img/search.svg');
-      width: 18.5px;
-      height: 18.5px;
-      position: absolute;
-      left: 13px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
     }
   }
 }
