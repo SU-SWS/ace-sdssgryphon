@@ -336,8 +336,7 @@
                 "https://stanfordits.atlassian.net/browse/D8CORE-1351": "patches/contrib/paranoia.patch"
             },
             "drupal/redirect": {
-                "https://www.drupal.org/project/redirect/issues/3057250": "patches/contrib/redirect-3057250-110-20251202.patch",
-                "https://www.drupal.org/project/redirect/issues/3018897": "patches/contrib/redirect-3018897-30-20251202.patch"
+                "https://www.drupal.org/project/redirect/issues/3018897": "patches/contrib/redirect-3018897-mr-92-20260501.patch"
             },
             "drupal/response_code_condition": {
                 "https://www.drupal.org/project/response_code_condition/issues/3366575": "patches/contrib/response_code_condition-mr-2.patch"
