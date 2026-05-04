@@ -1,0 +1,41 @@
+uuid: 23bffd6b-f39f-40b9-b715-fc094d4bd162
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.su_views_reference
+    - paragraphs.paragraphs_type.stanford_lists
+  module:
+    - viewsreference
+id: paragraph.stanford_lists.su_views_reference
+field_name: su_views_reference
+entity_type: paragraph
+bundle: stanford_lists
+label: 'Views Reference'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+  plugin_types:
+    viewfield_block: viewfield_block
+  preselect_views:
+    people_filtered_list: people_filtered_list
+    projects: projects
+    stanford_events: stanford_events
+    stanford_news: stanford_news
+    stanford_person: stanford_person
+  enabled_settings:
+    argument: argument
+    offset: offset
+    header: header
+    pager: pager
+    limit: limit
+    title: title
+    exposed_filters: exposed_filters
+field_type: viewsreference

@@ -7,11 +7,13 @@ dependencies:
     - field.field.paragraph.stanford_lists.su_list_description
     - field.field.paragraph.stanford_lists.su_list_headline
     - field.field.paragraph.stanford_lists.su_list_view
+    - field.field.paragraph.stanford_lists.su_views_reference
     - paragraphs.paragraphs_type.stanford_lists
   module:
     - link
     - text
     - viewfield
+    - viewsreference
 id: paragraph.stanford_lists.default
 targetEntityType: paragraph
 bundle: stanford_lists
@@ -51,6 +53,12 @@ content:
   su_list_view:
     type: viewfield_select
     weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  su_views_reference:
+    type: viewsreference_select
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.stanford_lists.su_list_description
     - field.field.paragraph.stanford_lists.su_list_headline
     - field.field.paragraph.stanford_lists.su_list_view
+    - field.field.paragraph.stanford_lists.su_views_reference
     - paragraphs.paragraphs_type.stanford_lists
   module:
     - element_class_formatter
@@ -15,6 +16,7 @@ dependencies:
     - stanford_fields
     - text
     - viewfield
+    - viewsreference
 id: paragraph.stanford_lists.default
 targetEntityType: paragraph
 bundle: stanford_lists
@@ -68,6 +70,25 @@ content:
       field_formatter_class:
         class: ''
     weight: 2
+    region: content
+  su_views_reference:
+    type: viewsreference_formatter
+    label: above
+    settings:
+      plugin_types:
+        viewfield_block: viewfield_block
+        default: '0'
+        page: '0'
+        entity_reference: '0'
+        block: '0'
+        rest_export: '0'
+        feed: '0'
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      field_formatter_class:
+        class: ''
+    weight: 4
     region: content
 hidden:
   search_api_excerpt: true
