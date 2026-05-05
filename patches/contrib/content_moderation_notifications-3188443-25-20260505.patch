@@ -1,0 +1,15 @@
+diff --git a/src/Notification.php b/src/Notification.php
+index 6746e22..2322b09 100644
+--- a/src/Notification.php
++++ b/src/Notification.php
+@@ -183,2 +183,10 @@ class Notification implements NotificationInterface {
+       }
++      // Add recipients to the mail, but all of previous collected not just the
++      // site mail.
++      if (isset($data['to']) && !empty($data['to']) && is_array($data['to'])) {
++        if (strlen($recipient)) {
++          array_unshift($data['to'], $recipient);
++        }
++        $recipient = implode(', ', $data['to']);
++      }
+       if (!empty($data['params']['headers']['Bcc'])) {
