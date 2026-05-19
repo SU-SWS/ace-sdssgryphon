@@ -45,13 +45,13 @@ jobs:
           name: id_rsa
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           if_key_exists: fail
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         if: ${{ steps.tag.outputs.tag }}
         with:
           ref: ${{ github.sha }}
       - name: Restore Cache
         if: ${{ steps.tag.outputs.tag }}
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             vendor

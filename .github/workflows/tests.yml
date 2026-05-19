@@ -29,9 +29,9 @@ jobs:
           - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Restore Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             vendor
@@ -45,7 +45,7 @@ jobs:
           composer install -n &&
           blt tests:phpunit:coverage --no-interaction
       - name: Save Test Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: unit-tests-results
@@ -80,9 +80,9 @@ jobs:
           - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Restore Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             vendor
@@ -107,7 +107,7 @@ jobs:
       - name: Run tests
         run: blt codeception --suite=${{ matrix.suite }}
       - name: Save Test Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: newsite-${{ matrix.suite }}-tests
