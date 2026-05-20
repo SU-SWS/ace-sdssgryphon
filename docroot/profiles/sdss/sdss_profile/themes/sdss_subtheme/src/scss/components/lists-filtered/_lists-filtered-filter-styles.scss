@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+// Generic styles for all exposed filters in the filtered lists paragraph type.
+.sdss-filtered-list-view .views-exposed-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+
+  @include grid-media-min('md') {
+    min-width: 267px;
+    max-width: 267px;
+  }
+
+  fieldset {
+    width: 100%;
+    margin: 0;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #D6D6D6;
+    margin-bottom: 25px;
+
+    &:last-of-type {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    legend {
+      padding: 0;
+      letter-spacing: 0;
+      font-size: 20px;
+
+      .fieldset-legend {
+        font-size: 20px;
+        line-height: 27px;
+        color: black;
+        font-weight: 700;
+        margin-bottom: 12px;
+        margin-top: 0;
+        display: block;
+      }
+    }
+
+    .form-checkboxes {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .js-form-item.form-type-checkbox {
+        margin: 0;
+
+        [type=checkbox]:checked+label:before {
+          background-color: white;
+          box-shadow: 0 0 0 1px #b6b1a9;
+
+          background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBmaWxsPSIjOEMxNTE1Ii8+Cjwvc3ZnPgo=');
+        }
+
+        label {
+          margin: 0;
+          color: black;
+          position: relative;
+          padding-left: 30px;
+          line-height: 110%;
+
+          &:before {
+            border-radius: 0;
+            position: absolute;
+            left: 0;
+            top: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  .js-form-item.form-item-combine {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    margin-bottom: 27px;
+
+    label {
+      font-size: 20px;
+      line-height: 27px;
+      color: black;
+      font-weight: 700;
+      margin-bottom: 12px;
+      margin-top: 0;
+      display: block;
+    }
+
+    input {
+      background-color: #F4F4F4;
+      border: none;
+      font-size: 19px;
+      margin: 0;
+      padding-block: 13px;
+
+      &::placeholder {
+        color: #A9A9A9;
+      }
+    }
+  }
+}

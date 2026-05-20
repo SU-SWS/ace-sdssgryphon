@@ -1,54 +1,59 @@
 @charset "UTF-8";
 
-// Generic styles for all exposed filters in the filtered lists paragraph type.
+// Generic styles for the filtered lists paragraph type.
 // The decision was made in the SCSS to name this "lists-filtered" to keep it
 // near the "lists" paragraph styles, even though the paragraph type is
 // "sdss-filtered-lists".
 
-.ptype-sdss-filtered-lists .views-exposed-form {
-  display: flex;
-  justify-content: flex-start;
-  align-items: end;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+// Make full width to accomodate the exposed filters.
+.ptype-sdss-filtered-lists:has(.stanford-projects-grid),
+.paragraph--type--stanford-lists:has(.stanford-projects-grid) {
+  max-width: none;
+}
+    
+.ptype-sdss-filtered-lists {
+  .sdss-filtered-list-view-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 50px;
 
-  h3 {
-    font-weight: $su-font-regular;
-    color: $sdss-color-palo-alto-dark;
-    margin-bottom: 1rem;
-  }
-
-  .form-item,
-  .form-group {
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-
-    label {
-      font-weight: 500;
-      margin-top: 0;
-      margin-bottom: 0.3em;
-      display: block;
-      color: $sdss-color-palo-alto-dark;
+    @include grid-media-min('md') {
+        margin-bottom: 100px;
     }
 
-    input,
-    select {
-      padding: 0.5em 0.8em;
-      width: 100%;
-      max-width: 400px;
-      border: 1px solid $sdss-color-grey-medium;
-      border-radius: 0.25rem;
-      background: $sdss-color-white;
+    @include grid-media-min('md') {
+      align-items: flex-start;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: 78px;
     }
-  }
 
-  .form-actions {
-    width: 100%;
-    margin-bottom: 2rem;
-
-    input[type="submit"] {
-      @include sdss-button--primary
+    // Adjust container grid styles to account for the exposed filters.
+    // 4 column grids need to go down to 2 columns at the smaller breakpoints.
+    // This was originally done to acommodate the People filtered list
+    // paragraph, and may need to be adjust for other content and/or made
+    // specific to the People filtered list.
+    .grid-container-4 {
+      @include grid-media-between('sm', 'lg') {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 }
+
+// When there is a left sidebar the main region is not full width and typically
+// drops to the flex-lg-9-of-12 class. In this case we need to adjust the grid
+// styles to accomodate for the reduced width. As with the other grid
+// adjustment, this was originally done to acommodate the People filtered list
+// paragraph.
+.main-region.flex-lg-9-of-12 {
+  .ptype-sdss-filtered-lists {
+    .grid-container-4 {
+      @include grid-media-min('sm') {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+

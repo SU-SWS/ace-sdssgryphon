@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+// Global banner paragraph styles.
 .ds-entity--stanford-banner {
   z-index: 1;
   position: relative;
@@ -15,6 +16,19 @@
     picture {
       position: absolute;
       display: block;
+    }
+  }
+
+  .su-hero__card {
+    section.su-card__contents {
+      h2 {
+        @include grid-media-min('md') {
+          font-size: 42px;
+        }
+        @include grid-media-min('lg') {
+          font-size: 48px;
+        }
+      }
     }
   }
 
@@ -37,7 +51,7 @@
 
       &:hover,
       &:focus {
-        color: #FFF;
+        color: $sdss-color-white;
       }
 
       &:focus {
@@ -104,7 +118,7 @@
     z-index: 99;
     right: 0;
     bottom: 0;
-    color: white;
+    color: $sdss-color-white;
 
     @include grid-media('md') {
       bottom: 25px;
@@ -126,7 +140,7 @@
     padding: 1px;
     margin-left: auto;
     margin-right: 12px;
-    border: 2px solid white;
+    border: 2px solid $sdss-color-white;
     width: 35px;
     height: 35px;
     font-size: 12px;
@@ -157,7 +171,7 @@
     }
 
     &:before {
-      color: white;
+      color: $sdss-color-white;
       background: none;
     }
   }
@@ -216,46 +230,58 @@
   }
 }
 
-// Default banner.
+// Default banner style variant.
 .sdss-banner-wrapper--default {
-  .su-hero__media {
-    background: linear-gradient(180deg, rgba(46, 45, 41, 0) 50%, $sdss-color-black-dark 90%);
-  }
-
   .su-hero {
     .su-hero__card {
-      background: rgba(0,0,0,.5);
+      background: $sdss-color-palo-alto-dark;
       padding: 0;
       border: unset;
       box-shadow: unset;
 
       @include grid-media-min('md') {
         position: absolute;
-        bottom: 100px;
+        bottom: 40px;
+        max-width: 55%;
+        margin: 0;
+        background: rgba(0,0,0,.5);
+      }
+
+      @include grid-media-min('xl') {
+        max-width: 800px;
       }
 
       .su-card__contents {
-        padding: 20px;
-        color: #FFF;
+        padding: 35px 25px;
+        color: $sdss-color-white;
+
+        @include grid-media-min('md') {
+          padding: 20px;
+        }
 
         @include grid-media-min('xl') {
-          max-width: 800px;
           padding: 40px 30px;
         }
 
         h2 {
-          color: white;
+          color: $sdss-color-white;
+        }
 
-          @include grid-media-min('sm') {
-            max-width: 200px;          
-          }
+        > p {
 
-          @include grid-media-min('lg') {
-            max-width: 700px;
-          }
+          a {
+            color: $sdss-color-white;
+            text-decoration: underline;
 
-          @include grid-media-min('xl') {
-            max-width: 900px;
+            &:hover,
+            &:focus {
+              color: $sdss-color-white;
+              text-decoration: none;
+            }
+
+            &:focus {
+              outline: 1px solid $sdss-color-white;
+            }
           }
         }
 
@@ -263,25 +289,25 @@
           a {
             font-size: 16px;
             padding: 14px 23px;
-            border: 1px solid white;
-            color: white;
+            border: 1px solid $sdss-color-white;
+            color: $sdss-color-white;
             text-decoration: none;
             display: inline-block;
             background: none;
 
-            @include accessible-link(white);
+            @include accessible-link($sdss-color-white);
 
             &:after {
-              background-color: white;
+              background-color: $sdss-color-white;
             }
 
             &:hover {
               text-decoration: none;
-              color: white;
+              color: $sdss-color-white;
               background: rgba(0,0,0,.75);
 
               &:after {
-                background-color: white;
+                background-color: $sdss-color-white;
               }
             }
           }

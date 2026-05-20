@@ -421,7 +421,7 @@ display:
             offset_label: Offset
           quantity: 5
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Apply
           reset_button: false
@@ -430,6 +430,29 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
+          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: null
+          bef:
+            general:
+              autosubmit: false
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+              reset_button_always_show: false
+            sort:
+              plugin_id: default
+            filter:
+              combine:
+                plugin_id: default
+              su_sdss_person_research_area_target_id:
+                plugin_id: default
       access:
         type: perm
         options:
@@ -1222,7 +1245,7 @@ display:
             identifier: su_sdss_person_research_area_target_id
             required: 0
             remember: 0
-            multiple: 0
+            multiple: 1
             remember_roles:
               authenticated: authenticated
               administrator: 0
@@ -1256,7 +1279,7 @@ display:
           type: select
           limit: true
           vid: sdss_research_areas
-          hierarchy: 1
+          hierarchy: 0
           error_message: 1
           plugin_id: taxonomy_index_tid
       filter_groups:
@@ -1266,7 +1289,7 @@ display:
       exposed_form:
         type: bef
         options:
-          submit_button: Filter
+          submit_button: Apply
           reset_button: 0
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -1277,13 +1300,13 @@ display:
           text_input_required_format: stanford_html
           bef:
             general:
-              autosubmit: 0
+              autosubmit: 1
               auto_submit_sort_only: 0
               autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: 0
               autosubmit_textfield_delay: '500'
               autosubmit_textfield_minimum_length: '3'
-              autosubmit_hide: 0
+              autosubmit_hide: 1
               input_required: 0
               allow_secondary: 0
               secondary_label: 'Advanced options'
@@ -1294,7 +1317,7 @@ display:
                 plugin_id: default
                 advanced:
                   sort_options_unsupported: ''
-                  placeholder_text: ''
+                  placeholder_text: Search
                   hide_label: 0
                   collapsible: 0
                   collapsible_disable_automatic_open: 0
@@ -1302,12 +1325,11 @@ display:
                   is_secondary: 0
                   field_classes: ''
               su_sdss_person_research_area_target_id:
-                plugin_id: default
+                plugin_id: bef
                 advanced:
                   sort_options: 0
                   sort_options_method: alphabetical_asc
                   sort_options_natural: 1
-                  placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: 0
@@ -1317,6 +1339,12 @@ display:
                   open_by_default: 0
                   is_secondary: 0
                   field_classes: ''
+                select_all_none: 0
+                select_all_none_nested: false
+                display_inline: 0
+                soft_limit: 0
+                soft_limit_label_less: 'Show less'
+                soft_limit_label_more: 'Show more'
     cache_metadata:
       max-age: -1
       contexts:
@@ -2273,13 +2301,13 @@ display:
           text_input_required_format: stanford_html
           bef:
             general:
-              autosubmit: 0
+              autosubmit: 1
               auto_submit_sort_only: 0
               autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: 0
               autosubmit_textfield_delay: '500'
               autosubmit_textfield_minimum_length: '3'
-              autosubmit_hide: 0
+              autosubmit_hide: 1
               input_required: 0
               allow_secondary: 0
               secondary_label: 'Advanced options'
@@ -2290,23 +2318,7 @@ display:
                 plugin_id: default
                 advanced:
                   sort_options_unsupported: ''
-                  placeholder_text: ''
-                  hide_label: 0
-                  collapsible: 0
-                  collapsible_disable_automatic_open: 0
-                  open_by_default: 0
-                  is_secondary: 0
-                  field_classes: ''
-              su_sdss_person_research_area_target_id:
-                plugin_id: default
-                advanced:
-                  sort_options: 0
-                  sort_options_method: alphabetical_asc
-                  sort_options_natural: 1
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                    filter_rewrite_values_key: 0
+                  placeholder_text: Search
                   hide_label: 0
                   collapsible: 0
                   collapsible_disable_automatic_open: 0

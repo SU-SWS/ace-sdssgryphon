@@ -7,6 +7,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.19.0] Centaurus - 2026-05-20
+
+### Added
+7779eb70d SDSS-1487: Add "Woods Style" Publications List View display (#781)
+
+### Changed
+3dc4e6e92 SDSS-1614: Update Filtered List Styles Using Projects View Patterns (#789)
+f715c92f8 SDSS-1628 & SDSS-1625: Default Banner Style Improvements and Link Text Fixes (#788)
+
+### Deprecated
+None.
+
+### Removed
+14f878b5d SDSS-1607: Remove default home page banner superhead value (#779)
+
+### Fixed
+f715c92f8 SDSS-1628 & SDSS-1625: Default Banner Style Improvements and Link Text Fixes (#788)
+14f878b5d SDSS-1607: Remove default home page banner superhead value (#779)
+
+### Security
+2038a0ef7 SDSS-1639: Security Update | SA-CORE-2026-004 / Drupal Core 10.5.10 (#795)
+
+### Maintenance
+eb8c5acc5 SDSS-1638: Update GitHub Actions to support Node.js 24 (Node 20 deprecation) (#794)
+efb01fb4d Automated Dependency Updates 20260501 (#791)
+9576e5d77 Automated Dependency Updates 20260417 (#787)
+27fd15cce Upgrade drupal/redirect from 1.12 to 1.13 and adjust patches (#790)
+
+
 ## [4.18.2] SA-CORE-2026-001 - 2026-04-16
 
 ### Added

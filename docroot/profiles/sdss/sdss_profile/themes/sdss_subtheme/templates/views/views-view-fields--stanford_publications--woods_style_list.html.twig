@@ -1,0 +1,85 @@
+{#
+/**
+ * @file
+ * Theme override to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ */
+#}
+
+{# --- Preprocessing --- #}
+{# Convert month integer to month name for display #}
+{% set pub_month = NULL %}
+{% if fields.su_month and fields.su_month.content %}
+  {% set month_num = fields.su_month.content|default('') %}
+  {% set month_num = month_num|length == 1 ? '0' ~ month_num : month_num %}
+  {% set pub_month = ('2026-' ~ month_num ~ '-01')|date('F') %}
+{% endif %}
+{# Link title to exteranl source if exists #}
+{% set pub_title = NULL %}
+{% if fields.title and fields.title.content %}
+  {% set pub_title = fields.title.content %}
+  {% if fields.su_url and fields.su_url.content %}
+    {% set url = fields.su_url.content|trim %}
+    {% set pub_title = '<a href="' ~ url ~ '">' ~ fields.title.content ~ '</a>' %}
+  {% endif %}
+{% endif %}
+
+
+{# --- Template Markup --- #}
+{% if pub_title %}
+  <div class="sdss-pub-title">
+    {{ pub_title|raw }}
+  </div>
+{% endif %}
+
+{% if fields.su_author and fields.su_author.content %}
+  <div class="sdss-pub-authors">
+    {{ fields.su_author.content }}
+  </div>
+{% endif %}
+
+<div class="sdss-pub-info">
+  {% if fields.su_sdss_pub_focal_areas and fields.su_sdss_pub_focal_areas.content %}
+    {{ fields.su_sdss_pub_focal_areas.content }} |
+  {% endif %}
+
+  {% if fields.su_publication_topics and fields.su_publication_topics.content %}
+    {{ fields.su_publication_topics.content }} |
+  {% endif %}
+
+  {% if pub_month %}
+    <span class="sdss-pub-month">
+      {{ pub_month }}
+    </span>
+  {% endif %}
+
+  {% if fields.su_year and fields.su_year.content %}
+    <span class="sdss-pub-year">
+      {{ fields.su_year.content }}
+    </span>
+  {% endif %}
+</div>
