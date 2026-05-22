@@ -2,17 +2,18 @@ uuid: e9bdbb30-c601-4af9-beeb-d2ad42536bc6
 langcode: en
 status: true
 dependencies:
+  config:
+    - node.type.sdss_proj
   module:
     - node
 id: sdss_proj_url_pattern
 label: Project
 type: 'canonical_entities:node'
-pattern: 'project/[node:title]'
+pattern: '/project/[node:title]'
 selection_criteria:
   f38d7b06-44f2-4189-8737-91ef5a49d919:
     id: 'entity_bundle:node'
     negate: false
-    uuid: f38d7b06-44f2-4189-8737-91ef5a49d919
     context_mapping:
       node: node
     bundles:
