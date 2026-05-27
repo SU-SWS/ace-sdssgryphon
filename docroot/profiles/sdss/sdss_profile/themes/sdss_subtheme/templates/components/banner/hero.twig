@@ -44,7 +44,7 @@
     {# Support for: img or picture #}
     {{ hero_image}}
     {% endif %}
-    {%- if hero_caption is not empty -%}
+    {%- if hero_caption|render_clean is not empty -%}
       {# Attach caption styling library if caption exists #}
       {{ attach_library('sdss_subtheme/banner-caption') }}
       <figcaption class="su-hero__caption" aria-hidden="false">
