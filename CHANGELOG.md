@@ -7,6 +7,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.19.1] Cetus - 2026-06-10
+
+### Added
+None.
+
+### Changed
+None.
+
+### Deprecated
+None.
+
+### Removed
+None.
+
+### Fixed
+8fe0865fe SDSS-1633: Fix empty banner caption rendering and mobile image height (#799)
+
+### Security
+None.
+
+### Maintenance
+c813e0463 Automated Dependency Updates 20260605 (#801)
+36fd454fc Automated Dependency Updates 20260529 (#800)
+0e86820ab Automated Dependency Updates 20260522 (#798)
+
+
 ## [4.19.0] Centaurus - 2026-05-20
 
 ### Added
