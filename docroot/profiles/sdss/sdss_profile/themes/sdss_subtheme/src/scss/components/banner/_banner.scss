@@ -348,7 +348,8 @@
   .sdss-banner-wrapper--height-modest,
   .sdss-banner-wrapper--height-minimal {
     .su-hero__media,
-    .su-hero {
+    .su-hero,
+    .su-hero__media picture {
       min-height: unset;
     }
   }

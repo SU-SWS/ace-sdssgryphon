@@ -1316,7 +1316,6 @@ display:
               combine:
                 plugin_id: default
                 advanced:
-                  sort_options_unsupported: ''
                   placeholder_text: Search
                   hide_label: 0
                   collapsible: 0
@@ -1345,6 +1344,8 @@ display:
                 soft_limit: 0
                 soft_limit_label_less: 'Show less'
                 soft_limit_label_more: 'Show more'
+                scrollable: false
+                scrollable_height: 300
     cache_metadata:
       max-age: -1
       contexts:
@@ -2317,7 +2318,6 @@ display:
               combine:
                 plugin_id: default
                 advanced:
-                  sort_options_unsupported: ''
                   placeholder_text: Search
                   hide_label: 0
                   collapsible: 0
