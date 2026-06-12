@@ -6,6 +6,7 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\search_api\Datasource\DatasourceInterface;
 use Drupal\search_api\Item\ItemInterface;
 use Drupal\search_api\Plugin\search_api\processor\CustomValue as SearchApiCustomValue;
+use Drupal\search_api\Plugin\search_api\processor\Property\CustomValueProperty as SearchApiCustomValueProperty;
 use Drupal\stanford_profile_helper\Plugin\search_api\processor\Property\CustomValueProperty;
 
 /**
@@ -19,15 +20,15 @@ class CustomValue extends SearchApiCustomValue {
   public function getPropertyDefinitions(?DatasourceInterface $datasource = NULL) {
     $properties = [];
 
-    if (!$datasource) {
-      $definition = [
-        'label' => $this->t('Custom value'),
-        'description' => $this->t('Index a custom value with replacement tokens.'),
-        'type' => 'string',
-        'processor_id' => $this->getPluginId(),
-      ];
-      $properties['custom_value'] = new CustomValueProperty($definition);
-    }
+    $definition = [
+      'label' => $datasource ? $this->t('Custom value (@datasource)', [
+        '@datasource' => $datasource->label(),
+      ]) : $this->t('Custom value'),
+      'description' => $this->t('Index a custom value with replacement tokens.'),
+      'type' => 'string',
+      'processor_id' => $this->getPluginId(),
+    ];
+    $properties[$this->getPropertyPath($datasource)] = new CustomValueProperty($definition);
 
     return $properties;
   }
@@ -37,8 +38,15 @@ class CustomValue extends SearchApiCustomValue {
    */
   public function addFieldValues(ItemInterface $item) {
     // Get all of the "custom_value" fields on this item.
-    $fields = $this->getFieldsHelper()
-      ->filterForPropertyPath($item->getFields(), NULL, 'custom_value');
+    $fields_helper = $this->getFieldsHelper();
+    $item_fields = $item->getFields(FALSE);
+    $fields = $fields_helper->filterForPropertyPath($item_fields, NULL, $this->getPropertyPath());
+    // Add datasource-specific fields.
+    $fields += $fields_helper->filterForPropertyPath(
+      $item_fields,
+      $item->getDatasourceId(),
+      $this->getPropertyPath($item->getDatasource())
+    );
     // If the indexed item is an entity, we can pass that as data to the token
     // service. Otherwise, only global tokens are available.
     $entity = $item->getOriginalObject()->getValue();
@@ -52,7 +60,10 @@ class CustomValue extends SearchApiCustomValue {
     $token = $this->getToken();
     foreach ($fields as $field) {
       $config = $field->getConfiguration();
-      if (empty($config['value'])) {
+      if (
+        empty($config['value'])
+        || !($field->getDataDefinition() instanceof SearchApiCustomValueProperty)
+      ) {
         continue;
       }
 
