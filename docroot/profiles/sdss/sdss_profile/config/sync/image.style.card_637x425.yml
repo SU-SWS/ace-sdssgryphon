@@ -1,0 +1,17 @@
+uuid: 2fd66901-ad57-40bc-be0c-ee8af1d02e4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: card_637x425
+label: 'Card - 637x425'
+effects:
+  de53609e-9434-40b0-9033-7f34d41c9259:
+    uuid: de53609e-9434-40b0-9033-7f34d41c9259
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 637
+      height: 425
+      crop_type: focal_point
