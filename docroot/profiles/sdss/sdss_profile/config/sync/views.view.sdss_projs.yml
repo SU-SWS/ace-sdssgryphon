@@ -459,6 +459,7 @@ display:
                 soft_limit_label_more: 'Show more'
                 scrollable: false
                 scrollable_height: 300
+                soft_limit_include_children: false
               sdss_proj_project_impact_pathway_target_id:
                 plugin_id: bef
                 advanced:
@@ -482,6 +483,7 @@ display:
                 soft_limit_label_more: 'Show more'
                 scrollable: false
                 scrollable_height: 300
+                soft_limit_include_children: false
               sdss_proj_status_value:
                 plugin_id: bef
                 advanced:
@@ -505,6 +507,7 @@ display:
                 soft_limit_label_more: 'Show more'
                 scrollable: false
                 scrollable_height: 300
+                soft_limit_include_children: false
       access:
         type: perm
         options:
