@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.stanford_card
+    - core.entity_view_mode.node.card_grid
     - node.type.stanford_news
   module:
     - datetime
@@ -188,7 +188,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: stanford_card
+          view_mode: card_grid
       query:
         type: views_query
         options:

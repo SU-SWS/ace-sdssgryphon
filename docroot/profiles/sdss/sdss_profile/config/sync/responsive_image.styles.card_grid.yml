@@ -1,0 +1,53 @@
+uuid: 7800b661-7d87-4d8b-b0bf-0e9f3242413a
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.card_1274x850
+    - image.style.card_3_2_240x160
+    - image.style.card_3_2_360x240
+    - image.style.card_3_2_480x320_
+    - image.style.card_3_2_720x480
+    - image.style.card_3_2_960x640_
+    - image.style.card_637x425
+    - image.style.square_163
+    - image.style.square_326
+  module:
+    - stanford_image_styles
+id: card_grid
+label: 'Card Grid'
+image_style_mappings:
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(max-width:925px) 240px, (max-width:1385px) 360px, (max-width:1745px) 480px, 637px'
+      sizes_image_styles:
+        - card_3_2_240x160
+        - card_3_2_360x240
+        - card_3_2_480x320_
+        - card_637x425
+    breakpoint_id: stanford_image_styles.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_163
+    breakpoint_id: stanford_image_styles.xs
+    multiplier: 1x
+  -
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(max-width:925px) 480px, (max-width:1385px) 720px, (max-width:1745px) 960px, 1274px'
+      sizes_image_styles:
+        - card_1274x850
+        - card_3_2_480x320_
+        - card_3_2_720x480
+        - card_3_2_960x640_
+    breakpoint_id: stanford_image_styles.md
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: square_326
+    breakpoint_id: stanford_image_styles.xs
+    multiplier: 2x
+breakpoint_group: stanford_image_styles
+fallback_image_style: card_1274x850
