@@ -1,0 +1,13 @@
+diff --git a/src/Routing/DiffRouteProvider.php b/src/Routing/DiffRouteProvider.php
+index ebc4f1e..9a167ff 100644
+--- a/src/Routing/DiffRouteProvider.php
++++ b/src/Routing/DiffRouteProvider.php
+@@ -40,7 +40,7 @@ class DiffRouteProvider implements EntityRouteProviderInterface {
+         'filter' => 'split_fields',
+       ]);
+       $route->addRequirements([
+-        '_entity_access' => $entity_type->id() . '.view',
++        '_entity_access' => $entity_type->id() . '.view all revisions',
+       ]);
+       $route->setOption('parameters', [
+         $entity_type->id() => ['type' => 'entity:' . $entity_type->id()],

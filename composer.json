@@ -314,7 +314,8 @@
                 "https://www.drupal.org/project/default_content/issues/2698425": "https://www.drupal.org/files/issues/2020-09-02/default_content-integrity_constrait_violation-3162987-2.patch"
             },
             "drupal/diff": {
-                "https://www.drupal.org/project/diff/issues/2882334#comment-13913401": "patches/contrib/diff-mr-42.patch"
+                "https://www.drupal.org/project/diff/issues/2882334#comment-13913401": "patches/contrib/diff-mr-42.patch",
+                "https://www.drupal.org/sa-contrib-2026-096: Backport 2.0.1 security fix to 1.x - require 'view all revisions' access on generic revisions-diff route": "patches/contrib/diff-sa-contrib-2026-096-revisions-diff-access-20261105.patch"
             },
             "drupal/field_encrypt": {
                 "https://www.drupal.org/project/field_encrypt/issues/3299175": "https://sws-devguide.stanford.edu/sites/g/files/sbiybj17516/files/field_encrypt-3299175-3_2_0.patch"
